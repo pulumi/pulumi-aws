@@ -233,8 +233,8 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
                 type="*",
                 identifiers=["*"],
             )],
-            actions=["codeartifact:CreateRepository"],
-            resources=[example_domain.arn],
+            actions=["codeartifact:ReadFromRepository"],
+            resources=[example_repository.arn],
         )])
         example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy",
             repository=example_repository.repository,
@@ -286,8 +286,8 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
                 type="*",
                 identifiers=["*"],
             )],
-            actions=["codeartifact:CreateRepository"],
-            resources=[example_domain.arn],
+            actions=["codeartifact:ReadFromRepository"],
+            resources=[example_repository.arn],
         )])
         example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy",
             repository=example_repository.repository,

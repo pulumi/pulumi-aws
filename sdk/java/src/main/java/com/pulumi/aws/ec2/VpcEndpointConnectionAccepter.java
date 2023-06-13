@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .privateDnsEnabled(false)
  *             .securityGroupIds(aws_security_group.test().id())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.alternate&#34;)
+ *                 .provider(aws.alternate())
  *                 .build());
  * 
  *         var exampleVpcEndpointConnectionAccepter = new VpcEndpointConnectionAccepter(&#34;exampleVpcEndpointConnectionAccepter&#34;, VpcEndpointConnectionAccepterArgs.builder()        

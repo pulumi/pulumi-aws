@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Rds.Inputs
     public sealed class ClusterS3ImportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The bucket name where your backup is stored
+        /// Bucket name where your backup is stored
         /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;

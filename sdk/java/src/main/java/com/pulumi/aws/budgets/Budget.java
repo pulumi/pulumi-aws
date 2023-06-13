@@ -17,7 +17,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -406,24 +405,6 @@ public class Budget extends com.pulumi.resources.CustomResource {
      */
     public Output<String> budgetType() {
         return this.budgetType;
-    }
-    /**
-     * Map of CostFilters key/value pairs to apply to the budget.
-     * 
-     * @deprecated
-     * Use the attribute &#34;cost_filter&#34; instead.
-     * 
-     */
-    @Deprecated /* Use the attribute ""cost_filter"" instead. */
-    @Export(name="costFilterLegacy", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> costFilterLegacy;
-
-    /**
-     * @return Map of CostFilters key/value pairs to apply to the budget.
-     * 
-     */
-    public Output<Map<String,String>> costFilterLegacy() {
-        return this.costFilterLegacy;
     }
     /**
      * A list of CostFilter name/values pair to apply to budget.

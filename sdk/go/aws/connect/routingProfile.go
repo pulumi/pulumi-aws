@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,8 +85,6 @@ type RoutingProfile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs RoutingProfileQueueConfigArrayOutput `pulumi:"queueConfigs"`
-	// Deprecated: Use the queue_configs instead
-	QueueConfigsAssociateds RoutingProfileQueueConfigsAssociatedArrayOutput `pulumi:"queueConfigsAssociateds"`
 	// The identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringOutput `pulumi:"routingProfileId"`
 	// Tags to apply to the Routing Profile. If configured with a provider
@@ -151,8 +149,6 @@ type routingProfileState struct {
 	Name *string `pulumi:"name"`
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs []RoutingProfileQueueConfig `pulumi:"queueConfigs"`
-	// Deprecated: Use the queue_configs instead
-	QueueConfigsAssociateds []RoutingProfileQueueConfigsAssociated `pulumi:"queueConfigsAssociateds"`
 	// The identifier for the Routing Profile.
 	RoutingProfileId *string `pulumi:"routingProfileId"`
 	// Tags to apply to the Routing Profile. If configured with a provider
@@ -177,8 +173,6 @@ type RoutingProfileState struct {
 	Name pulumi.StringPtrInput
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs RoutingProfileQueueConfigArrayInput
-	// Deprecated: Use the queue_configs instead
-	QueueConfigsAssociateds RoutingProfileQueueConfigsAssociatedArrayInput
 	// The identifier for the Routing Profile.
 	RoutingProfileId pulumi.StringPtrInput
 	// Tags to apply to the Routing Profile. If configured with a provider
@@ -349,13 +343,6 @@ func (o RoutingProfileOutput) Name() pulumi.StringOutput {
 // One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 func (o RoutingProfileOutput) QueueConfigs() RoutingProfileQueueConfigArrayOutput {
 	return o.ApplyT(func(v *RoutingProfile) RoutingProfileQueueConfigArrayOutput { return v.QueueConfigs }).(RoutingProfileQueueConfigArrayOutput)
-}
-
-// Deprecated: Use the queue_configs instead
-func (o RoutingProfileOutput) QueueConfigsAssociateds() RoutingProfileQueueConfigsAssociatedArrayOutput {
-	return o.ApplyT(func(v *RoutingProfile) RoutingProfileQueueConfigsAssociatedArrayOutput {
-		return v.QueueConfigsAssociateds
-	}).(RoutingProfileQueueConfigsAssociatedArrayOutput)
 }
 
 // The identifier for the Routing Profile.

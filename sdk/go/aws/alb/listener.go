@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,7 +67,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -102,7 +102,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -143,7 +143,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -184,8 +184,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -246,7 +246,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -298,7 +298,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

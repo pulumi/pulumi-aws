@@ -15,8 +15,6 @@ import (
 //
 // > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
 //
-// > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
-//
 // ## Example Usage
 //
 // ```go
@@ -24,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cur"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cur"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

@@ -45,6 +45,10 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
         /// </summary>
         public readonly string? S3BackupMode;
+        /// <summary>
+        /// The S3 Configuration. See s3_configuration for more details.
+        /// </summary>
+        public readonly Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration S3Configuration;
 
         [OutputConstructor]
         private FirehoseDeliveryStreamSplunkConfiguration(
@@ -62,7 +66,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             int? retryDuration,
 
-            string? s3BackupMode)
+            string? s3BackupMode,
+
+            Outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration)
         {
             CloudwatchLoggingOptions = cloudwatchLoggingOptions;
             HecAcknowledgmentTimeout = hecAcknowledgmentTimeout;
@@ -72,6 +78,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
             ProcessingConfiguration = processingConfiguration;
             RetryDuration = retryDuration;
             S3BackupMode = s3BackupMode;
+            S3Configuration = s3Configuration;
         }
     }
 }

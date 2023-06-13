@@ -1074,33 +1074,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    @Import(name="securityGroupNames")
-    private @Nullable Output<List<String>> securityGroupNames;
-
-    /**
-     * @return List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    public Optional<Output<List<String>>> securityGroupNames() {
-        return Optional.ofNullable(this.securityGroupNames);
-    }
-
-    /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB
@@ -1366,7 +1339,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.resourceId = $.resourceId;
         this.restoreToPointInTime = $.restoreToPointInTime;
         this.s3Import = $.s3Import;
-        this.securityGroupNames = $.securityGroupNames;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.status = $.status;
@@ -2864,55 +2836,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder s3Import(InstanceS3ImportArgs s3Import) {
             return s3Import(Output.of(s3Import));
-        }
-
-        /**
-         * @param securityGroupNames List of DB Security Groups to
-         * associate. Only used for [DB Instances on the _EC2-Classic_
-         * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(@Nullable Output<List<String>> securityGroupNames) {
-            $.securityGroupNames = securityGroupNames;
-            return this;
-        }
-
-        /**
-         * @param securityGroupNames List of DB Security Groups to
-         * associate. Only used for [DB Instances on the _EC2-Classic_
-         * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(List<String> securityGroupNames) {
-            return securityGroupNames(Output.of(securityGroupNames));
-        }
-
-        /**
-         * @param securityGroupNames List of DB Security Groups to
-         * associate. Only used for [DB Instances on the _EC2-Classic_
-         * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-         * 
-         */
-        @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-        public Builder securityGroupNames(String... securityGroupNames) {
-            return securityGroupNames(List.of(securityGroupNames));
         }
 
         /**

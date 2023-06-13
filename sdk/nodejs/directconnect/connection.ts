@@ -156,7 +156,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The VLAN ID.
      */
-    public /*out*/ readonly vlanId!: pulumi.Output<string>;
+    public /*out*/ readonly vlanId!: pulumi.Output<number>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -298,7 +298,7 @@ export interface ConnectionState {
     /**
      * The VLAN ID.
      */
-    vlanId?: pulumi.Input<string>;
+    vlanId?: pulumi.Input<number>;
 }
 
 /**

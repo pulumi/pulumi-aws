@@ -201,29 +201,6 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
     }
 
     /**
-     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     * 
-     * @deprecated
-     * The reported value of the &#34;status&#34; attribute is often inaccurate. Use the resource&#39;s &#34;enabled&#34; attribute to explicitly set status.
-     * 
-     */
-    @Deprecated /* The reported value of the ""status"" attribute is often inaccurate. Use the resource's ""enabled"" attribute to explicitly set status. */
-    @Import(name="status")
-    private @Nullable Output<String> status;
-
-    /**
-     * @return (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     * 
-     * @deprecated
-     * The reported value of the &#34;status&#34; attribute is often inaccurate. Use the resource&#39;s &#34;enabled&#34; attribute to explicitly set status.
-     * 
-     */
-    @Deprecated /* The reported value of the ""status"" attribute is often inaccurate. Use the resource's ""enabled"" attribute to explicitly set status. */
-    public Optional<Output<String>> status() {
-        return Optional.ofNullable(this.status);
-    }
-
-    /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -298,7 +275,6 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
         this.permanentDeletionTimeInDays = $.permanentDeletionTimeInDays;
         this.revocationConfiguration = $.revocationConfiguration;
         this.serial = $.serial;
-        this.status = $.status;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.type = $.type;
@@ -573,35 +549,6 @@ public final class CertificateAuthorityState extends com.pulumi.resources.Resour
          */
         public Builder serial(String serial) {
             return serial(Output.of(serial));
-        }
-
-        /**
-         * @param status (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The reported value of the &#34;status&#34; attribute is often inaccurate. Use the resource&#39;s &#34;enabled&#34; attribute to explicitly set status.
-         * 
-         */
-        @Deprecated /* The reported value of the ""status"" attribute is often inaccurate. Use the resource's ""enabled"" attribute to explicitly set status. */
-        public Builder status(@Nullable Output<String> status) {
-            $.status = status;
-            return this;
-        }
-
-        /**
-         * @param status (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * The reported value of the &#34;status&#34; attribute is often inaccurate. Use the resource&#39;s &#34;enabled&#34; attribute to explicitly set status.
-         * 
-         */
-        @Deprecated /* The reported value of the ""status"" attribute is often inaccurate. Use the resource's ""enabled"" attribute to explicitly set status. */
-        public Builder status(String status) {
-            return status(Output.of(status));
         }
 
         /**

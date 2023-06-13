@@ -142,6 +142,10 @@ export interface GetGroupResult {
      */
     readonly terminationPolicies: string[];
     /**
+     * Traffic sources.
+     */
+    readonly trafficSources: outputs.autoscaling.GetGroupTrafficSource[];
+    /**
      * VPC ID for the group.
      */
     readonly vpcZoneIdentifier: string;

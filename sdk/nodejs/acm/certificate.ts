@@ -257,7 +257,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly validationEmails!: pulumi.Output<string[]>;
     /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      */
     public readonly validationMethod!: pulumi.Output<string>;
     /**
@@ -432,7 +432,7 @@ export interface CertificateState {
      */
     validationEmails?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      */
     validationMethod?: pulumi.Input<string>;
     /**
@@ -493,7 +493,7 @@ export interface CertificateArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      */
     validationMethod?: pulumi.Input<string>;
     /**

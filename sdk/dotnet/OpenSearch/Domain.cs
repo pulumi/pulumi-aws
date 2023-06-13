@@ -208,9 +208,19 @@ namespace Pulumi.Aws.OpenSearch
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnetIds = Aws.Ec2.GetSubnetIds.Invoke(new()
+    ///     var exampleSubnets = Aws.Ec2.GetSubnets.Invoke(new()
     ///     {
-    ///         VpcId = exampleVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+    ///             {
+    ///                 Name = "vpc-id",
+    ///                 Values = new[]
+    ///                 {
+    ///                     exampleVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///                 },
+    ///             },
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "Tier", "private" },
@@ -287,8 +297,8 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 exampleSubnetIds.Apply(getSubnetIdsResult =&gt; getSubnetIdsResult.Ids[0]),
-    ///                 exampleSubnetIds.Apply(getSubnetIdsResult =&gt; getSubnetIdsResult.Ids[1]),
+    ///                 exampleSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[0]),
+    ///                 exampleSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[1]),
     ///             },
     ///             SecurityGroupIds = new[]
     ///             {
@@ -518,13 +528,15 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+        /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+        /// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+        /// Defaults to the lastest version of OpenSearch.
         /// </summary>
         [Output("engineVersion")]
-        public Output<string?> EngineVersion { get; private set; } = null!;
+        public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+        /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         /// </summary>
         [Output("kibanaEndpoint")]
         public Output<string> KibanaEndpoint { get; private set; } = null!;
@@ -540,6 +552,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Output("nodeToNodeEncryption")]
         public Output<Outputs.DomainNodeToNodeEncryption> NodeToNodeEncryption { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+        /// </summary>
+        [Output("offPeakWindowOptions")]
+        public Output<Outputs.DomainOffPeakWindowOptions> OffPeakWindowOptions { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
@@ -682,7 +700,9 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.DomainEncryptAtRestArgs>? EncryptAtRest { get; set; }
 
         /// <summary>
-        /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+        /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+        /// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+        /// Defaults to the lastest version of OpenSearch.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -704,6 +724,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("nodeToNodeEncryption")]
         public Input<Inputs.DomainNodeToNodeEncryptionArgs>? NodeToNodeEncryption { get; set; }
+
+        /// <summary>
+        /// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+        /// </summary>
+        [Input("offPeakWindowOptions")]
+        public Input<Inputs.DomainOffPeakWindowOptionsArgs>? OffPeakWindowOptions { get; set; }
 
         /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
@@ -830,13 +856,15 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+        /// Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+        /// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+        /// Defaults to the lastest version of OpenSearch.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// Domain-specific endpoint for kibana without https scheme. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+        /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         /// </summary>
         [Input("kibanaEndpoint")]
         public Input<string>? KibanaEndpoint { get; set; }
@@ -858,6 +886,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("nodeToNodeEncryption")]
         public Input<Inputs.DomainNodeToNodeEncryptionGetArgs>? NodeToNodeEncryption { get; set; }
+
+        /// <summary>
+        /// Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+        /// </summary>
+        [Input("offPeakWindowOptions")]
+        public Input<Inputs.DomainOffPeakWindowOptionsGetArgs>? OffPeakWindowOptions { get; set; }
 
         /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.

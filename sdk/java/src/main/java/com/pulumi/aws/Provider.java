@@ -143,24 +143,6 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.secretKey);
     }
     /**
-     * The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-     * 
-     * @deprecated
-     * Use shared_credentials_files instead.
-     * 
-     */
-    @Deprecated /* Use shared_credentials_files instead. */
-    @Export(name="sharedCredentialsFile", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> sharedCredentialsFile;
-
-    /**
-     * @return The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-     * 
-     */
-    public Output<Optional<String>> sharedCredentialsFile() {
-        return Codegen.optional(this.sharedCredentialsFile);
-    }
-    /**
      * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
      * 
      */

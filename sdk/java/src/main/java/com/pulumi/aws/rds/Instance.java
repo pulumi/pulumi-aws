@@ -1293,28 +1293,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.s3Import);
     }
     /**
-     * List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> securityGroupNames;
-
-    /**
-     * @return List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     * 
-     */
-    public Output<Optional<List<String>>> securityGroupNames() {
-        return Codegen.optional(this.securityGroupNames);
-    }
-    /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB

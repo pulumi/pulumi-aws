@@ -7,7 +7,5 @@ import typing
 # Export this package's modules as members:
 from .custom_data_identifier import *
 from .findings_filter import *
-from .member_account_association import *
-from .s3_bucket_association import *
 from ._inputs import *
 from . import outputs

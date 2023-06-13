@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     fixedRate: 0.05,
  *     host: "*",
  *     httpMethod: "*",
- *     priority: 10000,
+ *     priority: 9999,
  *     reservoirSize: 1,
  *     resourceArn: "*",
  *     ruleName: "example",

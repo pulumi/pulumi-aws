@@ -4,7 +4,6 @@
 package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifierArgs;
-import com.pulumi.aws.identitystore.inputs.GetGroupFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -18,14 +17,14 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetGroupArgs Empty = new GetGroupArgs();
 
     /**
-     * A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+     * A unique identifier for the group that is not the primary identifier. Conflicts with `group_id`. Detailed below.
      * 
      */
     @Import(name="alternateIdentifier")
     private @Nullable Output<GetGroupAlternateIdentifierArgs> alternateIdentifier;
 
     /**
-     * @return A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+     * @return A unique identifier for the group that is not the primary identifier. Conflicts with `group_id`. Detailed below.
      * 
      */
     public Optional<Output<GetGroupAlternateIdentifierArgs>> alternateIdentifier() {
@@ -33,32 +32,9 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Configuration block for filtering by a unique attribute of the group. Detailed below.
-     * 
-     * @deprecated
-     * Use the alternate_identifier attribute instead.
-     * 
-     */
-    @Deprecated /* Use the alternate_identifier attribute instead. */
-    @Import(name="filter")
-    private @Nullable Output<GetGroupFilterArgs> filter;
-
-    /**
-     * @return Configuration block for filtering by a unique attribute of the group. Detailed below.
-     * 
-     * @deprecated
-     * Use the alternate_identifier attribute instead.
-     * 
-     */
-    @Deprecated /* Use the alternate_identifier attribute instead. */
-    public Optional<Output<GetGroupFilterArgs>> filter() {
-        return Optional.ofNullable(this.filter);
-    }
-
-    /**
      * The identifier for a group in the Identity Store.
      * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+     * &gt; Exactly one of the above arguments must be provided.
      * 
      */
     @Import(name="groupId")
@@ -67,7 +43,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return The identifier for a group in the Identity Store.
      * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+     * &gt; Exactly one of the above arguments must be provided.
      * 
      */
     public Optional<Output<String>> groupId() {
@@ -97,7 +73,6 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetGroupArgs(GetGroupArgs $) {
         this.alternateIdentifier = $.alternateIdentifier;
-        this.filter = $.filter;
         this.groupId = $.groupId;
         this.identityStoreId = $.identityStoreId;
     }
@@ -121,7 +96,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `group_id`. Detailed below.
          * 
          * @return builder
          * 
@@ -132,7 +107,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+         * @param alternateIdentifier A unique identifier for the group that is not the primary identifier. Conflicts with `group_id`. Detailed below.
          * 
          * @return builder
          * 
@@ -142,38 +117,9 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filter Configuration block for filtering by a unique attribute of the group. Detailed below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the alternate_identifier attribute instead.
-         * 
-         */
-        @Deprecated /* Use the alternate_identifier attribute instead. */
-        public Builder filter(@Nullable Output<GetGroupFilterArgs> filter) {
-            $.filter = filter;
-            return this;
-        }
-
-        /**
-         * @param filter Configuration block for filtering by a unique attribute of the group. Detailed below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the alternate_identifier attribute instead.
-         * 
-         */
-        @Deprecated /* Use the alternate_identifier attribute instead. */
-        public Builder filter(GetGroupFilterArgs filter) {
-            return filter(Output.of(filter));
-        }
-
-        /**
          * @param groupId The identifier for a group in the Identity Store.
          * 
-         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+         * &gt; Exactly one of the above arguments must be provided.
          * 
          * @return builder
          * 
@@ -186,7 +132,7 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param groupId The identifier for a group in the Identity Store.
          * 
-         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
+         * &gt; Exactly one of the above arguments must be provided.
          * 
          * @return builder
          * 

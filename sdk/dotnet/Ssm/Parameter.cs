@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ssm
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7.16",
     ///         InstanceClass = "db.t2.micro",
-    ///         Name = "mydb",
+    ///         DbName = "mydb",
     ///         Username = "foo",
     ///         Password = @var.Database_master_password,
     ///         DbSubnetGroupName = "my_database_subnet_group",
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         /// </summary>
         [Output("overwrite")]
         public Output<bool?> Overwrite { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         /// </summary>
         [Input("overwrite")]
         public Input<bool>? Overwrite { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+        /// Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         /// </summary>
         [Input("overwrite")]
         public Input<bool>? Overwrite { get; set; }

@@ -38,7 +38,6 @@ class ClusterArgs:
                  preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -81,7 +80,6 @@ class ClusterArgs:
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -133,11 +131,6 @@ class ClusterArgs:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if security_group_names is not None:
-            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-        if security_group_names is not None:
-            pulumi.set(__self__, "security_group_names", security_group_names)
         if snapshot_arns is not None:
             pulumi.set(__self__, "snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
@@ -428,18 +421,6 @@ class ClusterArgs:
         pulumi.set(self, "security_group_ids", value)
 
     @property
-    @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        """
-        return pulumi.get(self, "security_group_names")
-
-    @security_group_names.setter
-    def security_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "security_group_names", value)
-
-    @property
     @pulumi.getter(name="snapshotArns")
     def snapshot_arns(self) -> Optional[pulumi.Input[str]]:
         """
@@ -542,7 +523,6 @@ class _ClusterState:
                  preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -591,7 +571,6 @@ class _ClusterState:
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -654,11 +633,6 @@ class _ClusterState:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if security_group_names is not None:
-            warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-        if security_group_names is not None:
-            pulumi.set(__self__, "security_group_names", security_group_names)
         if snapshot_arns is not None:
             pulumi.set(__self__, "snapshot_arns", snapshot_arns)
         if snapshot_name is not None:
@@ -1011,18 +985,6 @@ class _ClusterState:
         pulumi.set(self, "security_group_ids", value)
 
     @property
-    @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        """
-        return pulumi.get(self, "security_group_names")
-
-    @security_group_names.setter
-    def security_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "security_group_names", value)
-
-    @property
     @pulumi.getter(name="snapshotArns")
     def snapshot_arns(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1134,7 +1096,6 @@ class Cluster(pulumi.CustomResource):
                  preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -1273,7 +1234,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -1419,7 +1379,6 @@ class Cluster(pulumi.CustomResource):
                  preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
                  replication_group_id: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[str]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -1457,10 +1416,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["preferred_outpost_arn"] = preferred_outpost_arn
             __props__.__dict__["replication_group_id"] = replication_group_id
             __props__.__dict__["security_group_ids"] = security_group_ids
-            if security_group_names is not None and not opts.urn:
-                warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-                pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
-            __props__.__dict__["security_group_names"] = security_group_names
             __props__.__dict__["snapshot_arns"] = snapshot_arns
             __props__.__dict__["snapshot_name"] = snapshot_name
             __props__.__dict__["snapshot_retention_limit"] = snapshot_retention_limit
@@ -1510,7 +1465,6 @@ class Cluster(pulumi.CustomResource):
             preferred_outpost_arn: Optional[pulumi.Input[str]] = None,
             replication_group_id: Optional[pulumi.Input[str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_arns: Optional[pulumi.Input[str]] = None,
             snapshot_name: Optional[pulumi.Input[str]] = None,
             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -1564,7 +1518,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
         :param pulumi.Input[str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated with the cache cluster
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_names: List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
         :param pulumi.Input[str] snapshot_name: Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
         :param pulumi.Input[int] snapshot_retention_limit: Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
@@ -1604,7 +1557,6 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["preferred_outpost_arn"] = preferred_outpost_arn
         __props__.__dict__["replication_group_id"] = replication_group_id
         __props__.__dict__["security_group_ids"] = security_group_ids
-        __props__.__dict__["security_group_names"] = security_group_names
         __props__.__dict__["snapshot_arns"] = snapshot_arns
         __props__.__dict__["snapshot_name"] = snapshot_name
         __props__.__dict__["snapshot_retention_limit"] = snapshot_retention_limit
@@ -1841,14 +1793,6 @@ class Cluster(pulumi.CustomResource):
         One or more VPC security groups associated with the cache cluster
         """
         return pulumi.get(self, "security_group_ids")
-
-    @property
-    @pulumi.getter(name="securityGroupNames")
-    def security_group_names(self) -> pulumi.Output[Sequence[str]]:
-        """
-        List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-        """
-        return pulumi.get(self, "security_group_names")
 
     @property
     @pulumi.getter(name="snapshotArns")

@@ -5,6 +5,7 @@ package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -54,6 +55,11 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      * 
      */
     private @Nullable String s3BackupMode;
+    /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    private FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration;
 
     private FirehoseDeliveryStreamSplunkConfiguration() {}
     /**
@@ -112,6 +118,13 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
+    /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    public FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration() {
+        return this.s3Configuration;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -130,6 +143,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
         private @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration;
         private @Nullable Integer retryDuration;
         private @Nullable String s3BackupMode;
+        private FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration;
         public Builder() {}
         public Builder(FirehoseDeliveryStreamSplunkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -141,6 +155,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
     	      this.processingConfiguration = defaults.processingConfiguration;
     	      this.retryDuration = defaults.retryDuration;
     	      this.s3BackupMode = defaults.s3BackupMode;
+    	      this.s3Configuration = defaults.s3Configuration;
         }
 
         @CustomType.Setter
@@ -183,6 +198,11 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
             this.s3BackupMode = s3BackupMode;
             return this;
         }
+        @CustomType.Setter
+        public Builder s3Configuration(FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration) {
+            this.s3Configuration = Objects.requireNonNull(s3Configuration);
+            return this;
+        }
         public FirehoseDeliveryStreamSplunkConfiguration build() {
             final var o = new FirehoseDeliveryStreamSplunkConfiguration();
             o.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
@@ -193,6 +213,7 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
             o.processingConfiguration = processingConfiguration;
             o.retryDuration = retryDuration;
             o.s3BackupMode = s3BackupMode;
+            o.s3Configuration = s3Configuration;
             return o;
         }
     }

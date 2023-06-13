@@ -22,7 +22,6 @@ class RouteArgs:
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  egress_only_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
-                 instance_id: Optional[pulumi.Input[str]] = None,
                  local_gateway_id: Optional[pulumi.Input[str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
@@ -43,7 +42,6 @@ class RouteArgs:
                One of the following target arguments must be supplied:
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
-        :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
         :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
@@ -68,11 +66,6 @@ class RouteArgs:
             pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
         if gateway_id is not None:
             pulumi.set(__self__, "gateway_id", gateway_id)
-        if instance_id is not None:
-            warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
-            pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
-        if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
         if local_gateway_id is not None:
             pulumi.set(__self__, "local_gateway_id", local_gateway_id)
         if nat_gateway_id is not None:
@@ -185,18 +178,6 @@ class RouteArgs:
     @gateway_id.setter
     def gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gateway_id", value)
-
-    @property
-    @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of an EC2 instance.
-        """
-        return pulumi.get(self, "instance_id")
-
-    @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "instance_id", value)
 
     @property
     @pulumi.getter(name="localGatewayId")
@@ -335,9 +316,6 @@ class _RouteState:
             pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
         if gateway_id is not None:
             pulumi.set(__self__, "gateway_id", gateway_id)
-        if instance_id is not None:
-            warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
-            pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
         if instance_owner_id is not None:
@@ -596,7 +574,6 @@ class Route(pulumi.CustomResource):
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  egress_only_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
-                 instance_id: Optional[pulumi.Input[str]] = None,
                  local_gateway_id: Optional[pulumi.Input[str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
@@ -671,7 +648,6 @@ class Route(pulumi.CustomResource):
                One of the following target arguments must be supplied:
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
-        :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
         :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[str] network_interface_id: Identifier of an EC2 network interface.
@@ -767,7 +743,6 @@ class Route(pulumi.CustomResource):
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  egress_only_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
-                 instance_id: Optional[pulumi.Input[str]] = None,
                  local_gateway_id: Optional[pulumi.Input[str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
@@ -791,10 +766,6 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["destination_prefix_list_id"] = destination_prefix_list_id
             __props__.__dict__["egress_only_gateway_id"] = egress_only_gateway_id
             __props__.__dict__["gateway_id"] = gateway_id
-            if instance_id is not None and not opts.urn:
-                warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
-                pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
-            __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["local_gateway_id"] = local_gateway_id
             __props__.__dict__["nat_gateway_id"] = nat_gateway_id
             __props__.__dict__["network_interface_id"] = network_interface_id
@@ -804,6 +775,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["vpc_endpoint_id"] = vpc_endpoint_id
             __props__.__dict__["vpc_peering_connection_id"] = vpc_peering_connection_id
+            __props__.__dict__["instance_id"] = None
             __props__.__dict__["instance_owner_id"] = None
             __props__.__dict__["origin"] = None
             __props__.__dict__["state"] = None

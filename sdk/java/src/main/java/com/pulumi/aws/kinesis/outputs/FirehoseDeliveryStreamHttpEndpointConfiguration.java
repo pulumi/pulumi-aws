@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.outputs;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration;
 import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration;
+import com.pulumi.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -65,6 +66,11 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      * 
      */
     private @Nullable String s3BackupMode;
+    /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    private FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration;
     /**
      * @return The HTTP endpoint URL to which Kinesis Firehose sends your data.
      * 
@@ -143,6 +149,13 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    public FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration() {
+        return this.s3Configuration;
+    }
+    /**
      * @return The HTTP endpoint URL to which Kinesis Firehose sends your data.
      * 
      */
@@ -169,6 +182,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
         private @Nullable Integer retryDuration;
         private @Nullable String roleArn;
         private @Nullable String s3BackupMode;
+        private FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration;
         private String url;
         public Builder() {}
         public Builder(FirehoseDeliveryStreamHttpEndpointConfiguration defaults) {
@@ -183,6 +197,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
     	      this.retryDuration = defaults.retryDuration;
     	      this.roleArn = defaults.roleArn;
     	      this.s3BackupMode = defaults.s3BackupMode;
+    	      this.s3Configuration = defaults.s3Configuration;
     	      this.url = defaults.url;
         }
 
@@ -237,6 +252,11 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder s3Configuration(FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration) {
+            this.s3Configuration = Objects.requireNonNull(s3Configuration);
+            return this;
+        }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
@@ -253,6 +273,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
             o.retryDuration = retryDuration;
             o.roleArn = roleArn;
             o.s3BackupMode = s3BackupMode;
+            o.s3Configuration = s3Configuration;
             o.url = url;
             return o;
         }

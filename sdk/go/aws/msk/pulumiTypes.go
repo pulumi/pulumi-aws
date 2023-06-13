@@ -17,10 +17,6 @@ type ClusterBrokerNodeGroupInfo struct {
 	ClientSubnets []string `pulumi:"clientSubnets"`
 	// Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
 	ConnectivityInfo *ClusterBrokerNodeGroupInfoConnectivityInfo `pulumi:"connectivityInfo"`
-	// The size in GiB of the EBS volume for the data drive on each broker node.
-	//
-	// Deprecated: use 'storage_info' argument instead
-	EbsVolumeSize *int `pulumi:"ebsVolumeSize"`
 	// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 	InstanceType string `pulumi:"instanceType"`
 	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
@@ -47,10 +43,6 @@ type ClusterBrokerNodeGroupInfoArgs struct {
 	ClientSubnets pulumi.StringArrayInput `pulumi:"clientSubnets"`
 	// Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
 	ConnectivityInfo ClusterBrokerNodeGroupInfoConnectivityInfoPtrInput `pulumi:"connectivityInfo"`
-	// The size in GiB of the EBS volume for the data drive on each broker node.
-	//
-	// Deprecated: use 'storage_info' argument instead
-	EbsVolumeSize pulumi.IntPtrInput `pulumi:"ebsVolumeSize"`
 	// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
@@ -153,13 +145,6 @@ func (o ClusterBrokerNodeGroupInfoOutput) ConnectivityInfo() ClusterBrokerNodeGr
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
 }
 
-// The size in GiB of the EBS volume for the data drive on each broker node.
-//
-// Deprecated: use 'storage_info' argument instead
-func (o ClusterBrokerNodeGroupInfoOutput) EbsVolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *int { return v.EbsVolumeSize }).(pulumi.IntPtrOutput)
-}
-
 // Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 func (o ClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
@@ -227,18 +212,6 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ConnectivityInfo() ClusterBrokerNod
 		}
 		return v.ConnectivityInfo
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
-}
-
-// The size in GiB of the EBS volume for the data drive on each broker node.
-//
-// Deprecated: use 'storage_info' argument instead
-func (o ClusterBrokerNodeGroupInfoPtrOutput) EbsVolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *int {
-		if v == nil {
-			return nil
-		}
-		return v.EbsVolumeSize
-	}).(pulumi.IntPtrOutput)
 }
 
 // Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))

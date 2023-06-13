@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .enableDnsHostnames(true)
  *             .enableDnsSupport(true)
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.alternate&#34;)
+ *                 .provider(aws.alternate())
  *                 .build());
  * 
  *         var exampleVpcAssociationAuthorization = new VpcAssociationAuthorization(&#34;exampleVpcAssociationAuthorization&#34;, VpcAssociationAuthorizationArgs.builder()        
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *             .vpcId(exampleVpcAssociationAuthorization.vpcId())
  *             .zoneId(exampleVpcAssociationAuthorization.zoneId())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.alternate&#34;)
+ *                 .provider(aws.alternate())
  *                 .build());
  * 
  *     }

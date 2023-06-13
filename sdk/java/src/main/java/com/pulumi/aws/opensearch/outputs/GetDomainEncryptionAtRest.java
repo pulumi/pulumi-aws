@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDomainEncryptionAtRest {
     /**
-     * @return Whether node to node encryption is enabled.
+     * @return Enabled disabled toggle for off-peak update window
      * 
      */
     private Boolean enabled;
@@ -23,7 +23,7 @@ public final class GetDomainEncryptionAtRest {
 
     private GetDomainEncryptionAtRest() {}
     /**
-     * @return Whether node to node encryption is enabled.
+     * @return Enabled disabled toggle for off-peak update window
      * 
      */
     public Boolean enabled() {

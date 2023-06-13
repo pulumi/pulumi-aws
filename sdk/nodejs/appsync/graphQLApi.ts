@@ -218,6 +218,10 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQLApiUserPoolConfig | undefined>;
     /**
+     * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+     */
+    public readonly visibility!: pulumi.Output<string | undefined>;
+    /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      */
     public readonly xrayEnabled!: pulumi.Output<boolean | undefined>;
@@ -247,6 +251,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["uris"] = state ? state.uris : undefined;
             resourceInputs["userPoolConfig"] = state ? state.userPoolConfig : undefined;
+            resourceInputs["visibility"] = state ? state.visibility : undefined;
             resourceInputs["xrayEnabled"] = state ? state.xrayEnabled : undefined;
         } else {
             const args = argsOrState as GraphQLApiArgs | undefined;
@@ -262,6 +267,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userPoolConfig"] = args ? args.userPoolConfig : undefined;
+            resourceInputs["visibility"] = args ? args.visibility : undefined;
             resourceInputs["xrayEnabled"] = args ? args.xrayEnabled : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -325,6 +331,10 @@ export interface GraphQLApiState {
      */
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
     /**
+     * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+     */
+    visibility?: pulumi.Input<string>;
+    /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      */
     xrayEnabled?: pulumi.Input<boolean>;
@@ -370,6 +380,10 @@ export interface GraphQLApiArgs {
      * Amazon Cognito User Pool configuration. Defined below.
      */
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    /**
+     * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+     */
+    visibility?: pulumi.Input<string>;
     /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      */

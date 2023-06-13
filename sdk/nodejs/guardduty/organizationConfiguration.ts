@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * const exampleDetector = new aws.guardduty.Detector("exampleDetector", {enable: true});
  * const exampleOrganizationConfiguration = new aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration", {
- *     autoEnable: true,
+ *     autoEnableOrganizationMembers: "ALL",
  *     detectorId: exampleDetector.id,
  *     datasources: {
  *         s3Logs: {
@@ -79,9 +79,15 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     *
+     * @deprecated Use auto_enable_organization_members instead
      */
     public readonly autoEnable!: pulumi.Output<boolean>;
+    /**
+     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+     */
+    public readonly autoEnableOrganizationMembers!: pulumi.Output<string>;
     /**
      * Configuration for the collected datasources.
      */
@@ -105,17 +111,16 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as OrganizationConfigurationState | undefined;
             resourceInputs["autoEnable"] = state ? state.autoEnable : undefined;
+            resourceInputs["autoEnableOrganizationMembers"] = state ? state.autoEnableOrganizationMembers : undefined;
             resourceInputs["datasources"] = state ? state.datasources : undefined;
             resourceInputs["detectorId"] = state ? state.detectorId : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
-            if ((!args || args.autoEnable === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'autoEnable'");
-            }
             if ((!args || args.detectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
             resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
+            resourceInputs["autoEnableOrganizationMembers"] = args ? args.autoEnableOrganizationMembers : undefined;
             resourceInputs["datasources"] = args ? args.datasources : undefined;
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
         }
@@ -129,9 +134,15 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
  */
 export interface OrganizationConfigurationState {
     /**
-     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     *
+     * @deprecated Use auto_enable_organization_members instead
      */
     autoEnable?: pulumi.Input<boolean>;
+    /**
+     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+     */
+    autoEnableOrganizationMembers?: pulumi.Input<string>;
     /**
      * Configuration for the collected datasources.
      */
@@ -147,9 +158,15 @@ export interface OrganizationConfigurationState {
  */
 export interface OrganizationConfigurationArgs {
     /**
-     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     *
+     * @deprecated Use auto_enable_organization_members instead
      */
-    autoEnable: pulumi.Input<boolean>;
+    autoEnable?: pulumi.Input<boolean>;
+    /**
+     * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+     */
+    autoEnableOrganizationMembers?: pulumi.Input<string>;
     /**
      * Configuration for the collected datasources.
      */

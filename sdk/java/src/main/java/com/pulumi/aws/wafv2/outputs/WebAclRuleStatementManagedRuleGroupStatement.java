@@ -3,7 +3,6 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementExcludedRule;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
@@ -16,15 +15,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatement {
-    /**
-     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
-     * 
-     * @deprecated
-     * Use rule_action_override instead
-     * 
-     */
-    @Deprecated /* Use rule_action_override instead */
-    private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules;
     /**
      * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
      * 
@@ -57,17 +47,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
     private @Nullable String version;
 
     private WebAclRuleStatementManagedRuleGroupStatement() {}
-    /**
-     * @return The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details. Use `rule_action_override` instead. (See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ManagedRuleGroupStatement.html#WAF-Type-ManagedRuleGroupStatement-ExcludedRules))
-     * 
-     * @deprecated
-     * Use rule_action_override instead
-     * 
-     */
-    @Deprecated /* Use rule_action_override instead */
-    public List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules() {
-        return this.excludedRules == null ? List.of() : this.excludedRules;
-    }
     /**
      * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
      * 
@@ -120,7 +99,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules;
         private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs;
         private String name;
         private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride> ruleActionOverrides;
@@ -130,7 +108,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatement defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.excludedRules = defaults.excludedRules;
     	      this.managedRuleGroupConfigs = defaults.managedRuleGroupConfigs;
     	      this.name = defaults.name;
     	      this.ruleActionOverrides = defaults.ruleActionOverrides;
@@ -139,14 +116,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
     	      this.version = defaults.version;
         }
 
-        @CustomType.Setter
-        public Builder excludedRules(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementExcludedRule> excludedRules) {
-            this.excludedRules = excludedRules;
-            return this;
-        }
-        public Builder excludedRules(WebAclRuleStatementManagedRuleGroupStatementExcludedRule... excludedRules) {
-            return excludedRules(List.of(excludedRules));
-        }
         @CustomType.Setter
         public Builder managedRuleGroupConfigs(@Nullable List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs) {
             this.managedRuleGroupConfigs = managedRuleGroupConfigs;
@@ -185,7 +154,6 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
         }
         public WebAclRuleStatementManagedRuleGroupStatement build() {
             final var o = new WebAclRuleStatementManagedRuleGroupStatement();
-            o.excludedRules = excludedRules;
             o.managedRuleGroupConfigs = managedRuleGroupConfigs;
             o.name = name;
             o.ruleActionOverrides = ruleActionOverrides;

@@ -1,4 +1,4 @@
-From 59d4b280e3580802cf260142c4af0060415007dc Mon Sep 17 00:00:00 2001
+From 648d11fe0c5d398410fe2988a1b96acc7c168cc2 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:31:27 +0000
 Subject: [PATCH 08/29] Add EKS cluster default_addons_to_remove

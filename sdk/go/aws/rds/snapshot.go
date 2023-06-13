@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -32,7 +32,7 @@ import (
 //				Engine:                pulumi.String("mysql"),
 //				EngineVersion:         pulumi.String("5.6.21"),
 //				InstanceClass:         pulumi.String("db.t2.micro"),
-//				Name:                  pulumi.String("baz"),
+//				DbName:                pulumi.String("baz"),
 //				Password:              pulumi.String("barbarbarbar"),
 //				Username:              pulumi.String("foo"),
 //				MaintenanceWindow:     pulumi.String("Fri:09:00-Fri:09:30"),
@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = rds.NewSnapshot(ctx, "test", &rds.SnapshotArgs{
-//				DbInstanceIdentifier: bar.ID(),
+//				DbInstanceIdentifier: bar.Identifier,
 //				DbSnapshotIdentifier: pulumi.String("testsnapshot1234"),
 //			})
 //			if err != nil {

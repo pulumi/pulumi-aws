@@ -313,6 +313,12 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.GraphQLApiUserPoolConfig?> UserPoolConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        /// </summary>
+        [Output("visibility")]
+        public Output<string?> Visibility { get; private set; } = null!;
+
+        /// <summary>
         /// Whether tracing with X-ray is enabled. Defaults to false.
         /// </summary>
         [Output("xrayEnabled")]
@@ -431,6 +437,12 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.GraphQLApiUserPoolConfigArgs>? UserPoolConfig { get; set; }
 
         /// <summary>
+        /// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        /// </summary>
+        [Input("visibility")]
+        public Input<string>? Visibility { get; set; }
+
+        /// <summary>
         /// Whether tracing with X-ray is enabled. Defaults to false.
         /// </summary>
         [Input("xrayEnabled")]
@@ -539,6 +551,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigGetArgs>? UserPoolConfig { get; set; }
+
+        /// <summary>
+        /// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+        /// </summary>
+        [Input("visibility")]
+        public Input<string>? Visibility { get; set; }
 
         /// <summary>
         /// Whether tracing with X-ray is enabled. Defaults to false.

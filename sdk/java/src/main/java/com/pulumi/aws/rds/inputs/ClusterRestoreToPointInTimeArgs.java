@@ -49,14 +49,14 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
     }
 
     /**
-     * The identifier of the source database cluster from which to restore.
+     * Identifier of the source database cluster from which to restore.
      * 
      */
     @Import(name="sourceClusterIdentifier", required=true)
     private Output<String> sourceClusterIdentifier;
 
     /**
-     * @return The identifier of the source database cluster from which to restore.
+     * @return Identifier of the source database cluster from which to restore.
      * 
      */
     public Output<String> sourceClusterIdentifier() {
@@ -150,7 +150,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceClusterIdentifier The identifier of the source database cluster from which to restore.
+         * @param sourceClusterIdentifier Identifier of the source database cluster from which to restore.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sourceClusterIdentifier The identifier of the source database cluster from which to restore.
+         * @param sourceClusterIdentifier Identifier of the source database cluster from which to restore.
          * 
          * @return builder
          * 

@@ -1700,8 +1700,6 @@ type EndpointS3Settings struct {
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
 	// When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
 	IgnoreHeaderRows *int `pulumi:"ignoreHeaderRows"`
-	// Deprecated. This setting has no effect. Will be removed in a future version.
-	IgnoreHeadersRow *int `pulumi:"ignoreHeadersRow"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad *bool `pulumi:"includeOpForFullLoad"`
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
@@ -1790,8 +1788,6 @@ type EndpointS3SettingsArgs struct {
 	ExternalTableDefinition pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
 	// When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
 	IgnoreHeaderRows pulumi.IntPtrInput `pulumi:"ignoreHeaderRows"`
-	// Deprecated. This setting has no effect. Will be removed in a future version.
-	IgnoreHeadersRow pulumi.IntPtrInput `pulumi:"ignoreHeadersRow"`
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad pulumi.BoolPtrInput `pulumi:"includeOpForFullLoad"`
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
@@ -2018,11 +2014,6 @@ func (o EndpointS3SettingsOutput) ExternalTableDefinition() pulumi.StringPtrOutp
 // When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
 func (o EndpointS3SettingsOutput) IgnoreHeaderRows() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *int { return v.IgnoreHeaderRows }).(pulumi.IntPtrOutput)
-}
-
-// Deprecated. This setting has no effect. Will be removed in a future version.
-func (o EndpointS3SettingsOutput) IgnoreHeadersRow() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EndpointS3Settings) *int { return v.IgnoreHeadersRow }).(pulumi.IntPtrOutput)
 }
 
 // Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
@@ -2356,16 +2347,6 @@ func (o EndpointS3SettingsPtrOutput) IgnoreHeaderRows() pulumi.IntPtrOutput {
 			return nil
 		}
 		return v.IgnoreHeaderRows
-	}).(pulumi.IntPtrOutput)
-}
-
-// Deprecated. This setting has no effect. Will be removed in a future version.
-func (o EndpointS3SettingsPtrOutput) IgnoreHeadersRow() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EndpointS3Settings) *int {
-		if v == nil {
-			return nil
-		}
-		return v.IgnoreHeadersRow
 	}).(pulumi.IntPtrOutput)
 }
 

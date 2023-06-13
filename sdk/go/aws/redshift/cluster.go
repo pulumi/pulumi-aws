@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,7 +62,11 @@ type Cluster struct {
 	AllowVersionUpgrade pulumi.BoolPtrOutput `pulumi:"allowVersionUpgrade"`
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
-	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+	// No longer supported by the AWS API.
+	// Always returns `auto`.
+	//
+	// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus pulumi.StringOutput `pulumi:"aquaConfigurationStatus"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -82,10 +86,6 @@ type Cluster struct {
 	ClusterPublicKey pulumi.StringOutput `pulumi:"clusterPublicKey"`
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber pulumi.StringOutput `pulumi:"clusterRevisionNumber"`
-	// A list of security groups to be associated with this cluster.
-	//
-	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-	ClusterSecurityGroups pulumi.StringArrayOutput `pulumi:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName pulumi.StringOutput `pulumi:"clusterSubnetGroupName"`
 	// The cluster type to use. Either `single-node` or `multi-node`.
@@ -204,7 +204,11 @@ type clusterState struct {
 	AllowVersionUpgrade *bool `pulumi:"allowVersionUpgrade"`
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+	// No longer supported by the AWS API.
+	// Always returns `auto`.
+	//
+	// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus *string `pulumi:"aquaConfigurationStatus"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn *string `pulumi:"arn"`
@@ -224,10 +228,6 @@ type clusterState struct {
 	ClusterPublicKey *string `pulumi:"clusterPublicKey"`
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber *string `pulumi:"clusterRevisionNumber"`
-	// A list of security groups to be associated with this cluster.
-	//
-	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-	ClusterSecurityGroups []string `pulumi:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName *string `pulumi:"clusterSubnetGroupName"`
 	// The cluster type to use. Either `single-node` or `multi-node`.
@@ -305,7 +305,11 @@ type ClusterState struct {
 	AllowVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately pulumi.BoolPtrInput
-	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+	// No longer supported by the AWS API.
+	// Always returns `auto`.
+	//
+	// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringPtrInput
@@ -325,10 +329,6 @@ type ClusterState struct {
 	ClusterPublicKey pulumi.StringPtrInput
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber pulumi.StringPtrInput
-	// A list of security groups to be associated with this cluster.
-	//
-	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-	ClusterSecurityGroups pulumi.StringArrayInput
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName pulumi.StringPtrInput
 	// The cluster type to use. Either `single-node` or `multi-node`.
@@ -410,7 +410,11 @@ type clusterArgs struct {
 	AllowVersionUpgrade *bool `pulumi:"allowVersionUpgrade"`
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+	// No longer supported by the AWS API.
+	// Always returns `auto`.
+	//
+	// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus *string `pulumi:"aquaConfigurationStatus"`
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod *int `pulumi:"automatedSnapshotRetentionPeriod"`
@@ -426,10 +430,6 @@ type clusterArgs struct {
 	ClusterPublicKey *string `pulumi:"clusterPublicKey"`
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber *string `pulumi:"clusterRevisionNumber"`
-	// A list of security groups to be associated with this cluster.
-	//
-	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-	ClusterSecurityGroups []string `pulumi:"clusterSecurityGroups"`
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName *string `pulumi:"clusterSubnetGroupName"`
 	// The cluster type to use. Either `single-node` or `multi-node`.
@@ -504,7 +504,11 @@ type ClusterArgs struct {
 	AllowVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
 	ApplyImmediately pulumi.BoolPtrInput
-	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+	// No longer supported by the AWS API.
+	// Always returns `auto`.
+	//
+	// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus pulumi.StringPtrInput
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod pulumi.IntPtrInput
@@ -520,10 +524,6 @@ type ClusterArgs struct {
 	ClusterPublicKey pulumi.StringPtrInput
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber pulumi.StringPtrInput
-	// A list of security groups to be associated with this cluster.
-	//
-	// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-	ClusterSecurityGroups pulumi.StringArrayInput
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName pulumi.StringPtrInput
 	// The cluster type to use. Either `single-node` or `multi-node`.
@@ -689,7 +689,11 @@ func (o ClusterOutput) ApplyImmediately() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ApplyImmediately }).(pulumi.BoolPtrOutput)
 }
 
-// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
+// No longer supported by the AWS API.
+// Always returns `auto`.
+//
+// Deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 func (o ClusterOutput) AquaConfigurationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AquaConfigurationStatus }).(pulumi.StringOutput)
 }
@@ -737,13 +741,6 @@ func (o ClusterOutput) ClusterPublicKey() pulumi.StringOutput {
 // The specific revision number of the database in the cluster
 func (o ClusterOutput) ClusterRevisionNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterRevisionNumber }).(pulumi.StringOutput)
-}
-
-// A list of security groups to be associated with this cluster.
-//
-// Deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.
-func (o ClusterOutput) ClusterSecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.ClusterSecurityGroups }).(pulumi.StringArrayOutput)
 }
 
 // The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).

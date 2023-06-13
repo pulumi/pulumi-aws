@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,7 +96,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -227,7 +227,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -265,8 +265,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -346,7 +346,7 @@ type Cluster struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -475,7 +475,7 @@ type clusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -570,7 +570,7 @@ type ClusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -666,7 +666,7 @@ type clusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -755,7 +755,7 @@ type ClusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -957,7 +957,7 @@ func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

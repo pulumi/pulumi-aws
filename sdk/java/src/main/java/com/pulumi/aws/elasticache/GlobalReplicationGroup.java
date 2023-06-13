@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupDescription(&#34;primary replication group&#34;)
+ *             .description(&#34;primary replication group&#34;)
  *             .engine(&#34;redis&#34;)
  *             .engineVersion(&#34;5.0.6&#34;)
  *             .nodeType(&#34;cache.m5.large&#34;)
- *             .numberCacheClusters(1)
+ *             .numCacheClusters(1)
  *             .build());
  * 
  *         var example = new GlobalReplicationGroup(&#34;example&#34;, GlobalReplicationGroupArgs.builder()        
@@ -63,9 +63,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupDescription(&#34;secondary replication group&#34;)
+ *             .description(&#34;secondary replication group&#34;)
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
- *             .numberCacheClusters(1)
+ *             .numCacheClusters(1)
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.other_region())
  *                 .build());
@@ -111,11 +111,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupDescription(&#34;primary replication group&#34;)
+ *             .description(&#34;primary replication group&#34;)
  *             .engine(&#34;redis&#34;)
  *             .engineVersion(&#34;6.0&#34;)
  *             .nodeType(&#34;cache.m5.large&#34;)
- *             .numberCacheClusters(1)
+ *             .numCacheClusters(1)
  *             .build());
  * 
  *         var example = new GlobalReplicationGroup(&#34;example&#34;, GlobalReplicationGroupArgs.builder()        
@@ -125,9 +125,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
- *             .replicationGroupDescription(&#34;secondary replication group&#34;)
+ *             .description(&#34;secondary replication group&#34;)
  *             .globalReplicationGroupId(example.globalReplicationGroupId())
- *             .numberCacheClusters(1)
+ *             .numCacheClusters(1)
  *             .build(), CustomResourceOptions.builder()
  *                 .provider(aws.other_region())
  *                 .build());

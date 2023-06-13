@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Rds.Outputs
     public sealed class ClusterS3Import
     {
         /// <summary>
-        /// The bucket name where your backup is stored
+        /// Bucket name where your backup is stored
         /// </summary>
         public readonly string BucketName;
         /// <summary>

@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Route53
     ///         EnableDnsSupport = true,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.alternate",
+    ///         Provider = aws.Alternate,
     ///     });
     /// 
     ///     var exampleVpcAssociationAuthorization = new Aws.Route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization", new()
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Route53
     ///         ZoneId = exampleVpcAssociationAuthorization.ZoneId,
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.alternate",
+    ///         Provider = aws.Alternate,
     ///     });
     /// 
     /// });

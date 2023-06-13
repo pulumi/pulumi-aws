@@ -465,14 +465,6 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly s3Import!: pulumi.Output<outputs.rds.InstanceS3Import | undefined>;
     /**
-     * List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    public readonly securityGroupNames!: pulumi.Output<string[] | undefined>;
-    /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB
@@ -610,7 +602,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["restoreToPointInTime"] = state ? state.restoreToPointInTime : undefined;
             resourceInputs["s3Import"] = state ? state.s3Import : undefined;
-            resourceInputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
             resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -679,7 +670,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["replicateSourceDb"] = args ? args.replicateSourceDb : undefined;
             resourceInputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
             resourceInputs["s3Import"] = args ? args.s3Import : undefined;
-            resourceInputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
@@ -1021,14 +1011,6 @@ export interface InstanceState {
      */
     s3Import?: pulumi.Input<inputs.rds.InstanceS3Import>;
     /**
-     * List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
      * is created. If false is specified, a DB snapshot is created before the DB
@@ -1366,14 +1348,6 @@ export interface InstanceArgs {
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
     s3Import?: pulumi.Input<inputs.rds.InstanceS3Import>;
-    /**
-     * List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot

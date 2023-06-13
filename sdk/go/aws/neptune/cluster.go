@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/neptune"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -129,7 +129,7 @@ type Cluster struct {
 	ServerlessV2ScalingConfiguration ClusterServerlessV2ScalingConfigurationPtrOutput `pulumi:"serverlessV2ScalingConfiguration"`
 	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrOutput `pulumi:"skipFinalSnapshot"`
-	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
@@ -232,7 +232,7 @@ type clusterState struct {
 	ServerlessV2ScalingConfiguration *ClusterServerlessV2ScalingConfiguration `pulumi:"serverlessV2ScalingConfiguration"`
 	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
-	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
@@ -307,7 +307,7 @@ type ClusterState struct {
 	ServerlessV2ScalingConfiguration ClusterServerlessV2ScalingConfigurationPtrInput
 	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrInput
-	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
@@ -374,7 +374,7 @@ type clusterArgs struct {
 	ServerlessV2ScalingConfiguration *ClusterServerlessV2ScalingConfiguration `pulumi:"serverlessV2ScalingConfiguration"`
 	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
-	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
@@ -436,7 +436,7 @@ type ClusterArgs struct {
 	ServerlessV2ScalingConfiguration ClusterServerlessV2ScalingConfigurationPtrInput
 	// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrInput
-	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
 	StorageEncrypted pulumi.BoolPtrInput
@@ -690,7 +690,7 @@ func (o ClusterOutput) SkipFinalSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.SkipFinalSnapshot }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
 func (o ClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotIdentifier }).(pulumi.StringPtrOutput)
 }

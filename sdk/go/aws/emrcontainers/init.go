@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:emrcontainers/jobTemplate:JobTemplate":
+		r = &JobTemplate{}
 	case "aws:emrcontainers/virtualCluster:VirtualCluster":
 		r = &VirtualCluster{}
 	default:
@@ -36,6 +38,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"emrcontainers/jobTemplate",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"emrcontainers/virtualCluster",

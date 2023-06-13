@@ -4872,6 +4872,162 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataQualityRulesetTargetTable struct {
+	// Name of the database where the AWS Glue table exists.
+	DatabaseName string `pulumi:"databaseName"`
+	// Name of the AWS Glue table.
+	TableName string `pulumi:"tableName"`
+}
+
+// DataQualityRulesetTargetTableInput is an input type that accepts DataQualityRulesetTargetTableArgs and DataQualityRulesetTargetTableOutput values.
+// You can construct a concrete instance of `DataQualityRulesetTargetTableInput` via:
+//
+//	DataQualityRulesetTargetTableArgs{...}
+type DataQualityRulesetTargetTableInput interface {
+	pulumi.Input
+
+	ToDataQualityRulesetTargetTableOutput() DataQualityRulesetTargetTableOutput
+	ToDataQualityRulesetTargetTableOutputWithContext(context.Context) DataQualityRulesetTargetTableOutput
+}
+
+type DataQualityRulesetTargetTableArgs struct {
+	// Name of the database where the AWS Glue table exists.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Name of the AWS Glue table.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (DataQualityRulesetTargetTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityRulesetTargetTable)(nil)).Elem()
+}
+
+func (i DataQualityRulesetTargetTableArgs) ToDataQualityRulesetTargetTableOutput() DataQualityRulesetTargetTableOutput {
+	return i.ToDataQualityRulesetTargetTableOutputWithContext(context.Background())
+}
+
+func (i DataQualityRulesetTargetTableArgs) ToDataQualityRulesetTargetTableOutputWithContext(ctx context.Context) DataQualityRulesetTargetTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetTargetTableOutput)
+}
+
+func (i DataQualityRulesetTargetTableArgs) ToDataQualityRulesetTargetTablePtrOutput() DataQualityRulesetTargetTablePtrOutput {
+	return i.ToDataQualityRulesetTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (i DataQualityRulesetTargetTableArgs) ToDataQualityRulesetTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetTargetTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetTargetTableOutput).ToDataQualityRulesetTargetTablePtrOutputWithContext(ctx)
+}
+
+// DataQualityRulesetTargetTablePtrInput is an input type that accepts DataQualityRulesetTargetTableArgs, DataQualityRulesetTargetTablePtr and DataQualityRulesetTargetTablePtrOutput values.
+// You can construct a concrete instance of `DataQualityRulesetTargetTablePtrInput` via:
+//
+//	        DataQualityRulesetTargetTableArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataQualityRulesetTargetTablePtrInput interface {
+	pulumi.Input
+
+	ToDataQualityRulesetTargetTablePtrOutput() DataQualityRulesetTargetTablePtrOutput
+	ToDataQualityRulesetTargetTablePtrOutputWithContext(context.Context) DataQualityRulesetTargetTablePtrOutput
+}
+
+type dataQualityRulesetTargetTablePtrType DataQualityRulesetTargetTableArgs
+
+func DataQualityRulesetTargetTablePtr(v *DataQualityRulesetTargetTableArgs) DataQualityRulesetTargetTablePtrInput {
+	return (*dataQualityRulesetTargetTablePtrType)(v)
+}
+
+func (*dataQualityRulesetTargetTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityRulesetTargetTable)(nil)).Elem()
+}
+
+func (i *dataQualityRulesetTargetTablePtrType) ToDataQualityRulesetTargetTablePtrOutput() DataQualityRulesetTargetTablePtrOutput {
+	return i.ToDataQualityRulesetTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (i *dataQualityRulesetTargetTablePtrType) ToDataQualityRulesetTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetTargetTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityRulesetTargetTablePtrOutput)
+}
+
+type DataQualityRulesetTargetTableOutput struct{ *pulumi.OutputState }
+
+func (DataQualityRulesetTargetTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityRulesetTargetTable)(nil)).Elem()
+}
+
+func (o DataQualityRulesetTargetTableOutput) ToDataQualityRulesetTargetTableOutput() DataQualityRulesetTargetTableOutput {
+	return o
+}
+
+func (o DataQualityRulesetTargetTableOutput) ToDataQualityRulesetTargetTableOutputWithContext(ctx context.Context) DataQualityRulesetTargetTableOutput {
+	return o
+}
+
+func (o DataQualityRulesetTargetTableOutput) ToDataQualityRulesetTargetTablePtrOutput() DataQualityRulesetTargetTablePtrOutput {
+	return o.ToDataQualityRulesetTargetTablePtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityRulesetTargetTableOutput) ToDataQualityRulesetTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetTargetTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityRulesetTargetTable) *DataQualityRulesetTargetTable {
+		return &v
+	}).(DataQualityRulesetTargetTablePtrOutput)
+}
+
+// Name of the database where the AWS Glue table exists.
+func (o DataQualityRulesetTargetTableOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataQualityRulesetTargetTable) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Name of the AWS Glue table.
+func (o DataQualityRulesetTargetTableOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataQualityRulesetTargetTable) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type DataQualityRulesetTargetTablePtrOutput struct{ *pulumi.OutputState }
+
+func (DataQualityRulesetTargetTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityRulesetTargetTable)(nil)).Elem()
+}
+
+func (o DataQualityRulesetTargetTablePtrOutput) ToDataQualityRulesetTargetTablePtrOutput() DataQualityRulesetTargetTablePtrOutput {
+	return o
+}
+
+func (o DataQualityRulesetTargetTablePtrOutput) ToDataQualityRulesetTargetTablePtrOutputWithContext(ctx context.Context) DataQualityRulesetTargetTablePtrOutput {
+	return o
+}
+
+func (o DataQualityRulesetTargetTablePtrOutput) Elem() DataQualityRulesetTargetTableOutput {
+	return o.ApplyT(func(v *DataQualityRulesetTargetTable) DataQualityRulesetTargetTable {
+		if v != nil {
+			return *v
+		}
+		var ret DataQualityRulesetTargetTable
+		return ret
+	}).(DataQualityRulesetTargetTableOutput)
+}
+
+// Name of the database where the AWS Glue table exists.
+func (o DataQualityRulesetTargetTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRulesetTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the AWS Glue table.
+func (o DataQualityRulesetTargetTablePtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRulesetTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
 type JobCommand struct {
 	// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
 	Name *string `pulumi:"name"`
@@ -10518,6 +10674,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityRulesetTargetTableInput)(nil)).Elem(), DataQualityRulesetTargetTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityRulesetTargetTablePtrInput)(nil)).Elem(), DataQualityRulesetTargetTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobCommandInput)(nil)).Elem(), JobCommandArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobCommandPtrInput)(nil)).Elem(), JobCommandArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionPropertyInput)(nil)).Elem(), JobExecutionPropertyArgs{})
@@ -10660,6 +10818,8 @@ func init() {
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput{})
+	pulumi.RegisterOutputType(DataQualityRulesetTargetTableOutput{})
+	pulumi.RegisterOutputType(DataQualityRulesetTargetTablePtrOutput{})
 	pulumi.RegisterOutputType(JobCommandOutput{})
 	pulumi.RegisterOutputType(JobCommandPtrOutput{})
 	pulumi.RegisterOutputType(JobExecutionPropertyOutput{})

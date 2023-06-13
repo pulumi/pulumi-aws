@@ -150,14 +150,14 @@ public final class HealthCheckState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The fully qualified domain name of the endpoint to be checked.
+     * The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
      * 
      */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
     /**
-     * @return The fully qualified domain name of the endpoint to be checked.
+     * @return The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
      * 
      */
     public Optional<Output<String>> fqdn() {
@@ -611,7 +611,7 @@ public final class HealthCheckState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fqdn The fully qualified domain name of the endpoint to be checked.
+         * @param fqdn The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
          * 
          * @return builder
          * 
@@ -622,7 +622,7 @@ public final class HealthCheckState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fqdn The fully qualified domain name of the endpoint to be checked.
+         * @param fqdn The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
          * 
          * @return builder
          * 

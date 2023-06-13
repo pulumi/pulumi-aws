@@ -397,11 +397,17 @@ import javax.annotation.Nullable;
  *                 .statement(WebAclRuleStatementArgs.builder()
  *                     .ruleGroupReferenceStatement(WebAclRuleStatementRuleGroupReferenceStatementArgs.builder()
  *                         .arn(example.arn())
- *                         .excludedRules(                        
- *                             WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs.builder()
+ *                         .ruleActionOverrides(                        
+ *                             WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs.builder()
+ *                                 .actionToUse(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs.builder()
+ *                                     .count()
+ *                                     .build())
  *                                 .name(&#34;rule-to-exclude-b&#34;)
  *                                 .build(),
- *                             WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs.builder()
+ *                             WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs.builder()
+ *                                 .actionToUse(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs.builder()
+ *                                     .count()
+ *                                     .build())
  *                                 .name(&#34;rule-to-exclude-a&#34;)
  *                                 .build())
  *                         .build())

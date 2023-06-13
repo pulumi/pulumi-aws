@@ -30,6 +30,7 @@ public final class RedshiftFunctions {
      * Provides details about a specific redshift cluster.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -40,7 +41,6 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -61,13 +61,7 @@ public final class RedshiftFunctions {
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
-     *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
-     *                 .roleArn(aws_iam_role.firehose_role().arn())
-     *                 .bucketArn(aws_s3_bucket.bucket().arn())
-     *                 .bufferSize(10)
-     *                 .bufferInterval(400)
-     *                 .compressionFormat(&#34;GZIP&#34;)
-     *                 .build())
+     *             .s3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
      *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
@@ -91,6 +85,7 @@ public final class RedshiftFunctions {
      * Provides details about a specific redshift cluster.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -101,7 +96,6 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -122,13 +116,7 @@ public final class RedshiftFunctions {
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
-     *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
-     *                 .roleArn(aws_iam_role.firehose_role().arn())
-     *                 .bucketArn(aws_s3_bucket.bucket().arn())
-     *                 .bufferSize(10)
-     *                 .bufferInterval(400)
-     *                 .compressionFormat(&#34;GZIP&#34;)
-     *                 .build())
+     *             .s3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
      *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
@@ -152,6 +140,7 @@ public final class RedshiftFunctions {
      * Provides details about a specific redshift cluster.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -162,7 +151,6 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -183,13 +171,7 @@ public final class RedshiftFunctions {
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
-     *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
-     *                 .roleArn(aws_iam_role.firehose_role().arn())
-     *                 .bucketArn(aws_s3_bucket.bucket().arn())
-     *                 .bufferSize(10)
-     *                 .bufferInterval(400)
-     *                 .compressionFormat(&#34;GZIP&#34;)
-     *                 .build())
+     *             .s3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
      *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
@@ -213,6 +195,7 @@ public final class RedshiftFunctions {
      * Provides details about a specific redshift cluster.
      * 
      * ## Example Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -223,7 +206,6 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.redshift.inputs.GetClusterArgs;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
-     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -244,13 +226,7 @@ public final class RedshiftFunctions {
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
-     *             .s3Configuration(FirehoseDeliveryStreamS3ConfigurationArgs.builder()
-     *                 .roleArn(aws_iam_role.firehose_role().arn())
-     *                 .bucketArn(aws_s3_bucket.bucket().arn())
-     *                 .bufferSize(10)
-     *                 .bufferInterval(400)
-     *                 .compressionFormat(&#34;GZIP&#34;)
-     *                 .build())
+     *             .s3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
      *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
@@ -667,7 +643,7 @@ public final class RedshiftFunctions {
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
+     * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount() {
@@ -678,7 +654,7 @@ public final class RedshiftFunctions {
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
+     * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain() {
@@ -689,7 +665,7 @@ public final class RedshiftFunctions {
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
+     * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args) {
@@ -700,7 +676,7 @@ public final class RedshiftFunctions {
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
+     * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args) {
@@ -711,7 +687,7 @@ public final class RedshiftFunctions {
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
+     * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOptions options) {
@@ -722,7 +698,7 @@ public final class RedshiftFunctions {
      * in a given region for the purpose of allowing Redshift to store audit data in S3.
      * 
      * &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-bucket-permissions) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
-     * The `aws.redshift.getServiceAccount` data source should now be considered deprecated and will be removed in a future version.
+     * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {

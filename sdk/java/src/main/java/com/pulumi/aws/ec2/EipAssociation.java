@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
- *             .vpc(true)
+ *             .domain(&#34;vpc&#34;)
  *             .build());
  * 
  *         var eipAssoc = new EipAssociation(&#34;eipAssoc&#34;, EipAssociationArgs.builder()        

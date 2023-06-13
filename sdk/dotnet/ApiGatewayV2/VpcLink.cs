@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///         {
     ///             data.Aws_security_group.Example.Id,
     ///         },
-    ///         SubnetIds = data.Aws_subnet_ids.Example.Ids,
+    ///         SubnetIds = data.Aws_subnets.Example.Ids,
     ///         Tags = 
     ///         {
     ///             { "Usage", "example" },

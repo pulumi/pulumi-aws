@@ -200,6 +200,10 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly ImmutableArray<string> TerminationPolicies;
         /// <summary>
+        /// Traffic sources.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetGroupTrafficSourceResult> TrafficSources;
+        /// <summary>
         /// VPC ID for the group.
         /// </summary>
         public readonly string VpcZoneIdentifier;
@@ -266,6 +270,8 @@ namespace Pulumi.Aws.AutoScaling
 
             ImmutableArray<string> terminationPolicies,
 
+            ImmutableArray<Outputs.GetGroupTrafficSourceResult> trafficSources,
+
             string vpcZoneIdentifier,
 
             int warmPoolSize,
@@ -298,6 +304,7 @@ namespace Pulumi.Aws.AutoScaling
             Tags = tags;
             TargetGroupArns = targetGroupArns;
             TerminationPolicies = terminationPolicies;
+            TrafficSources = trafficSources;
             VpcZoneIdentifier = vpcZoneIdentifier;
             WarmPoolSize = warmPoolSize;
             WarmPools = warmPools;

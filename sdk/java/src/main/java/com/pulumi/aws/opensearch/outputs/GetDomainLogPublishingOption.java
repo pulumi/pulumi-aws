@@ -16,7 +16,7 @@ public final class GetDomainLogPublishingOption {
      */
     private String cloudwatchLogGroupArn;
     /**
-     * @return Whether node to node encryption is enabled.
+     * @return Enabled disabled toggle for off-peak update window
      * 
      */
     private Boolean enabled;
@@ -35,7 +35,7 @@ public final class GetDomainLogPublishingOption {
         return this.cloudwatchLogGroupArn;
     }
     /**
-     * @return Whether node to node encryption is enabled.
+     * @return Enabled disabled toggle for off-peak update window
      * 
      */
     public Boolean enabled() {

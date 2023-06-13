@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     enableDnsHostnames: true,
  *     enableDnsSupport: true,
  * }, {
- *     provider: "aws.alternate",
+ *     provider: aws.alternate,
  * });
  * const exampleVpcAssociationAuthorization = new aws.route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization", {
  *     vpcId: alternateVpc.id,
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     vpcId: exampleVpcAssociationAuthorization.vpcId,
  *     zoneId: exampleVpcAssociationAuthorization.zoneId,
  * }, {
- *     provider: "aws.alternate",
+ *     provider: aws.alternate,
  * });
  * ```
  *

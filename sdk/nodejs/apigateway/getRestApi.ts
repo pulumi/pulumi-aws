@@ -82,7 +82,7 @@ export interface GetRestApiResult {
     /**
      * Minimum response size to compress for the REST API.
      */
-    readonly minimumCompressionSize: number;
+    readonly minimumCompressionSize: string;
     readonly name: string;
     /**
      * JSON formatted policy document that controls access to the API Gateway.

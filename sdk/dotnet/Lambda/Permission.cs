@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Lambda
     /// Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -70,7 +71,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
-    /// ## Usage with SNS
+    /// ### With SNS
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -129,8 +130,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Specify Lambda permissions for API Gateway REST API
+    /// ### With API Gateway REST API
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -155,8 +155,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Usage with CloudWatch log group
+    /// ### With CloudWatch Log Group
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -230,8 +229,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Example function URL cross-account invoke policy
+    /// ### With Cross-Account Invocation Policy
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -254,6 +252,28 @@ namespace Pulumi.Aws.Lambda
     ///         Principal = "arn:aws:iam::444455556666:role/example",
     ///         SourceAccount = "444455556666",
     ///         FunctionUrlAuthType = "AWS_IAM",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With `replace_triggered_by` Lifecycle Configuration
+    /// 
+    /// If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var logging = new Aws.Lambda.Permission("logging", new()
+    ///     {
+    ///         Action = "lambda:InvokeFunction",
+    ///         Function = aws_lambda_function.Example.Function_name,
+    ///         Principal = "events.amazonaws.com",
+    ///         SourceArn = "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
     ///     });
     /// 
     /// });

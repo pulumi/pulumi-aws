@@ -41,6 +41,7 @@ __all__ = [
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs',
+    'DataQualityRulesetTargetTableArgs',
     'JobCommandArgs',
     'JobExecutionPropertyArgs',
     'JobNotificationPropertyArgs',
@@ -1849,6 +1850,43 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
     @sse_aws_kms_key_id.setter
     def sse_aws_kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sse_aws_kms_key_id", value)
+
+
+@pulumi.input_type
+class DataQualityRulesetTargetTableArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 table_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] database_name: Name of the database where the AWS Glue table exists.
+        :param pulumi.Input[str] table_name: Name of the AWS Glue table.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        Name of the database where the AWS Glue table exists.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        Name of the AWS Glue table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
 
 
 @pulumi.input_type

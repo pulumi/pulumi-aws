@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const currentCallerIdentity = aws.getCallerIdentity({});
  * const currentPartition = aws.getPartition({});
  * const exampleEip = new aws.ec2.Eip("exampleEip", {
- *     vpc: true,
+ *     domain: "vpc",
  *     tags: {
  *         Name: "example",
  *     },

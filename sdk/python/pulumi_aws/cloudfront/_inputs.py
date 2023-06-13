@@ -1685,8 +1685,8 @@ class DistributionOriginCustomOriginConfigArgs:
         :param pulumi.Input[int] https_port: HTTPS port the custom origin listens on.
         :param pulumi.Input[str] origin_protocol_policy: Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] origin_ssl_protocols: SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS. A list of one or more of `SSLv3`, `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
-        :param pulumi.Input[int] origin_keepalive_timeout: The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
-        :param pulumi.Input[int] origin_read_timeout: The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        :param pulumi.Input[int] origin_keepalive_timeout: The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
+        :param pulumi.Input[int] origin_read_timeout: The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
         """
         pulumi.set(__self__, "http_port", http_port)
         pulumi.set(__self__, "https_port", https_port)
@@ -1749,7 +1749,7 @@ class DistributionOriginCustomOriginConfigArgs:
     @pulumi.getter(name="originKeepaliveTimeout")
     def origin_keepalive_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
         """
         return pulumi.get(self, "origin_keepalive_timeout")
 
@@ -1761,7 +1761,7 @@ class DistributionOriginCustomOriginConfigArgs:
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
         """
         return pulumi.get(self, "origin_read_timeout")
 

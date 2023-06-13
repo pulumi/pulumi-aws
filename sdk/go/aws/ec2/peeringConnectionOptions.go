@@ -30,7 +30,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,10 +62,6 @@ import (
 //				Accepter: &ec2.PeeringConnectionOptionsAccepterArgs{
 //					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 //				},
-//				Requester: &ec2.PeeringConnectionOptionsRequesterArgs{
-//					AllowVpcToRemoteClassicLink: pulumi.Bool(true),
-//					AllowClassicLinkToRemoteVpc: pulumi.Bool(true),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -82,8 +78,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

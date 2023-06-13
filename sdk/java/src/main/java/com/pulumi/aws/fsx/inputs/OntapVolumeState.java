@@ -95,14 +95,14 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      * 
      */
     @Import(name="ontapVolumeType")
     private @Nullable Output<String> ontapVolumeType;
 
     /**
-     * @return Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+     * @return Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      * 
      */
     public Optional<Output<String>> ontapVolumeType() {
@@ -110,14 +110,14 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
     @Import(name="securityStyle")
     private @Nullable Output<String> securityStyle;
 
     /**
-     * @return Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+     * @return Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
     public Optional<Output<String>> securityStyle() {
@@ -137,6 +137,21 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> sizeInMegabytes() {
         return Optional.ofNullable(this.sizeInMegabytes);
+    }
+
+    /**
+     * When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    @Import(name="skipFinalBackup")
+    private @Nullable Output<Boolean> skipFinalBackup;
+
+    /**
+     * @return When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> skipFinalBackup() {
+        return Optional.ofNullable(this.skipFinalBackup);
     }
 
     /**
@@ -247,6 +262,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         this.ontapVolumeType = $.ontapVolumeType;
         this.securityStyle = $.securityStyle;
         this.sizeInMegabytes = $.sizeInMegabytes;
+        this.skipFinalBackup = $.skipFinalBackup;
         this.storageEfficiencyEnabled = $.storageEfficiencyEnabled;
         this.storageVirtualMachineId = $.storageVirtualMachineId;
         this.tags = $.tags;
@@ -380,7 +396,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ontapVolumeType Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+         * @param ontapVolumeType Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
          * 
          * @return builder
          * 
@@ -391,7 +407,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ontapVolumeType Specifies the type of volume, Valid values are `RW`, `DP`,  and `LS`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+         * @param ontapVolumeType Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
          * 
          * @return builder
          * 
@@ -401,7 +417,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
          * 
          * @return builder
          * 
@@ -412,7 +428,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. Default value is `UNIX`.
+         * @param securityStyle Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
          * 
          * @return builder
          * 
@@ -440,6 +456,27 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sizeInMegabytes(Integer sizeInMegabytes) {
             return sizeInMegabytes(Output.of(sizeInMegabytes));
+        }
+
+        /**
+         * @param skipFinalBackup When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalBackup(@Nullable Output<Boolean> skipFinalBackup) {
+            $.skipFinalBackup = skipFinalBackup;
+            return this;
+        }
+
+        /**
+         * @param skipFinalBackup When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipFinalBackup(Boolean skipFinalBackup) {
+            return skipFinalBackup(Output.of(skipFinalBackup));
         }
 
         /**

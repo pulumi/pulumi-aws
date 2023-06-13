@@ -1018,6 +1018,9 @@ class SpotFleetRequest(pulumi.CustomResource):
         Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
         instances to be requested on the Spot market.
 
+        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+        We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+
         ## Example Usage
         ### Using launch specifications
 
@@ -1091,7 +1094,10 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        example = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+            name="vpc-id",
+            values=[var["vpc_id"]],
+        )])
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
@@ -1108,13 +1114,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
                 overrides=[
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=example.ids[0],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=example.ids[1],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=example.ids[2],
                     ),
                 ],
             )],
@@ -1195,6 +1201,9 @@ class SpotFleetRequest(pulumi.CustomResource):
         Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
         instances to be requested on the Spot market.
 
+        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+        We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+
         ## Example Usage
         ### Using launch specifications
 
@@ -1268,7 +1277,10 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        example = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+            name="vpc-id",
+            values=[var["vpc_id"]],
+        )])
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
@@ -1285,13 +1297,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
                 overrides=[
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=example.ids[0],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=example.ids[1],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=example.ids[2],
                     ),
                 ],
             )],

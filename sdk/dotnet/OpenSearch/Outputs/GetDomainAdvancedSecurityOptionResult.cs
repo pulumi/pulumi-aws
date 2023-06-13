@@ -15,7 +15,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     {
         public readonly bool AnonymousAuthEnabled;
         /// <summary>
-        /// Whether node to node encryption is enabled.
+        /// Enabled disabled toggle for off-peak update window
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

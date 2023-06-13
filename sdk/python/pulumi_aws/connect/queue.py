@@ -175,7 +175,6 @@ class _QueueState:
                  outbound_caller_config: Optional[pulumi.Input['QueueOutboundCallerConfigArgs']] = None,
                  queue_id: Optional[pulumi.Input[str]] = None,
                  quick_connect_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 quick_connect_ids_associateds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -212,11 +211,6 @@ class _QueueState:
             pulumi.set(__self__, "queue_id", queue_id)
         if quick_connect_ids is not None:
             pulumi.set(__self__, "quick_connect_ids", quick_connect_ids)
-        if quick_connect_ids_associateds is not None:
-            warnings.warn("""Use the quick_connect_ids instead""", DeprecationWarning)
-            pulumi.log.warn("""quick_connect_ids_associateds is deprecated: Use the quick_connect_ids instead""")
-        if quick_connect_ids_associateds is not None:
-            pulumi.set(__self__, "quick_connect_ids_associateds", quick_connect_ids_associateds)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -331,15 +325,6 @@ class _QueueState:
     @quick_connect_ids.setter
     def quick_connect_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "quick_connect_ids", value)
-
-    @property
-    @pulumi.getter(name="quickConnectIdsAssociateds")
-    def quick_connect_ids_associateds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "quick_connect_ids_associateds")
-
-    @quick_connect_ids_associateds.setter
-    def quick_connect_ids_associateds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "quick_connect_ids_associateds", value)
 
     @property
     @pulumi.getter
@@ -587,7 +572,6 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["queue_id"] = None
-            __props__.__dict__["quick_connect_ids_associateds"] = None
             __props__.__dict__["tags_all"] = None
         super(Queue, __self__).__init__(
             'aws:connect/queue:Queue',
@@ -608,7 +592,6 @@ class Queue(pulumi.CustomResource):
             outbound_caller_config: Optional[pulumi.Input[pulumi.InputType['QueueOutboundCallerConfigArgs']]] = None,
             queue_id: Optional[pulumi.Input[str]] = None,
             quick_connect_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            quick_connect_ids_associateds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Queue':
@@ -645,7 +628,6 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["outbound_caller_config"] = outbound_caller_config
         __props__.__dict__["queue_id"] = queue_id
         __props__.__dict__["quick_connect_ids"] = quick_connect_ids
-        __props__.__dict__["quick_connect_ids_associateds"] = quick_connect_ids_associateds
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -722,11 +704,6 @@ class Queue(pulumi.CustomResource):
         Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
         """
         return pulumi.get(self, "quick_connect_ids")
-
-    @property
-    @pulumi.getter(name="quickConnectIdsAssociateds")
-    def quick_connect_ids_associateds(self) -> pulumi.Output[Sequence[str]]:
-        return pulumi.get(self, "quick_connect_ids_associateds")
 
     @property
     @pulumi.getter

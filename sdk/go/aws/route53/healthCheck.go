@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +85,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -117,8 +117,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -186,7 +186,7 @@ type HealthCheck struct {
 	EnableSni pulumi.BoolOutput `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold pulumi.IntOutput `pulumi:"failureThreshold"`
-	// The fully qualified domain name of the endpoint to be checked.
+	// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 	Fqdn pulumi.StringPtrOutput `pulumi:"fqdn"`
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
 	InsufficientDataHealthStatus pulumi.StringPtrOutput `pulumi:"insufficientDataHealthStatus"`
@@ -272,7 +272,7 @@ type healthCheckState struct {
 	EnableSni *bool `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold *int `pulumi:"failureThreshold"`
-	// The fully qualified domain name of the endpoint to be checked.
+	// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 	Fqdn *string `pulumi:"fqdn"`
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
 	InsufficientDataHealthStatus *string `pulumi:"insufficientDataHealthStatus"`
@@ -327,7 +327,7 @@ type HealthCheckState struct {
 	EnableSni pulumi.BoolPtrInput
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold pulumi.IntPtrInput
-	// The fully qualified domain name of the endpoint to be checked.
+	// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 	Fqdn pulumi.StringPtrInput
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
 	InsufficientDataHealthStatus pulumi.StringPtrInput
@@ -384,7 +384,7 @@ type healthCheckArgs struct {
 	EnableSni *bool `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold *int `pulumi:"failureThreshold"`
-	// The fully qualified domain name of the endpoint to be checked.
+	// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 	Fqdn *string `pulumi:"fqdn"`
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
 	InsufficientDataHealthStatus *string `pulumi:"insufficientDataHealthStatus"`
@@ -436,7 +436,7 @@ type HealthCheckArgs struct {
 	EnableSni pulumi.BoolPtrInput
 	// The number of consecutive health checks that an endpoint must pass or fail.
 	FailureThreshold pulumi.IntPtrInput
-	// The fully qualified domain name of the endpoint to be checked.
+	// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 	Fqdn pulumi.StringPtrInput
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
 	InsufficientDataHealthStatus pulumi.StringPtrInput
@@ -599,7 +599,7 @@ func (o HealthCheckOutput) FailureThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.IntOutput { return v.FailureThreshold }).(pulumi.IntOutput)
 }
 
-// The fully qualified domain name of the endpoint to be checked.
+// The fully qualified domain name of the endpoint to be checked. If a value is set for `ipAddress`, the value set for `fqdn` will be passed in the `Host` header.
 func (o HealthCheckOutput) Fqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.StringPtrOutput { return v.Fqdn }).(pulumi.StringPtrOutput)
 }

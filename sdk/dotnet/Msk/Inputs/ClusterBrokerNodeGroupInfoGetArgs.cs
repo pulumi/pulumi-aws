@@ -37,12 +37,6 @@ namespace Pulumi.Aws.Msk.Inputs
         public Input<Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoGetArgs>? ConnectivityInfo { get; set; }
 
         /// <summary>
-        /// The size in GiB of the EBS volume for the data drive on each broker node.
-        /// </summary>
-        [Input("ebsVolumeSize")]
-        public Input<int>? EbsVolumeSize { get; set; }
-
-        /// <summary>
         /// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
         /// </summary>
         [Input("instanceType", required: true)]

@@ -13,8 +13,6 @@ import (
 
 // Provides a Core Network Policy Attachment resource. This puts a Core Network Policy to an existing Core Network and executes the change set, which deploys changes globally based on the policy submitted (Sets the policy to `LIVE`).
 //
-// > **NOTE on Core Networks and Policy Attachments:** For a given policy attachment, this resource is incompatible with using the `networkmanager.CoreNetwork` resource `policyDocument` argument. When using that argument and this resource, both will attempt to manage the core network's policy document and Pulumi will show a permanent difference.
-//
 // > **NOTE:** Deleting this resource will not delete the current policy defined in this resource. Deleting this resource will also not revert the current `LIVE` policy to the previous version.
 //
 // ## Example Usage
@@ -25,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +58,7 @@ import (
 // import (
 //
 // "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+// "github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
@@ -137,7 +135,7 @@ import (
 // import (
 //
 // "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkmanager"
+// "github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {

@@ -274,7 +274,7 @@ public class Association extends com.pulumi.resources.CustomResource {
         return this.documentVersion;
     }
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
      * 
      * @deprecated
      * use &#39;targets&#39; argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId
@@ -285,7 +285,7 @@ public class Association extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> instanceId;
 
     /**
-     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
+     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
      * 
      */
     public Output<Optional<String>> instanceId() {

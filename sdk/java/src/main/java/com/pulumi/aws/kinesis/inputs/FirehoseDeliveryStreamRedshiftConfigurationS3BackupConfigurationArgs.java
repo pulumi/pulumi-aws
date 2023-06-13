@@ -33,41 +33,39 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
     }
 
     /**
-     * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+     * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
-    @Import(name="bufferInterval")
-    private @Nullable Output<Integer> bufferInterval;
+    @Import(name="bufferingInterval")
+    private @Nullable Output<Integer> bufferingInterval;
 
     /**
-     * @return Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
-    public Optional<Output<Integer>> bufferInterval() {
-        return Optional.ofNullable(this.bufferInterval);
+    public Optional<Output<Integer>> bufferingInterval() {
+        return Optional.ofNullable(this.bufferingInterval);
     }
 
     /**
-     * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+     * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
      * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
      * 
      */
-    @Import(name="bufferSize")
-    private @Nullable Output<Integer> bufferSize;
+    @Import(name="bufferingSize")
+    private @Nullable Output<Integer> bufferingSize;
 
     /**
-     * @return Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+     * @return Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
      * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
      * 
      */
-    public Optional<Output<Integer>> bufferSize() {
-        return Optional.ofNullable(this.bufferSize);
+    public Optional<Output<Integer>> bufferingSize() {
+        return Optional.ofNullable(this.bufferingSize);
     }
 
     /**
      * The CloudWatch Logging Options for the delivery stream. More details are given below
-     * 
-     * The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
@@ -75,8 +73,6 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
 
     /**
      * @return The CloudWatch Logging Options for the delivery stream. More details are given below
-     * 
-     * The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -164,8 +160,8 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
 
     private FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs $) {
         this.bucketArn = $.bucketArn;
-        this.bufferInterval = $.bufferInterval;
-        this.bufferSize = $.bufferSize;
+        this.bufferingInterval = $.bufferingInterval;
+        this.bufferingSize = $.bufferingSize;
         this.cloudwatchLoggingOptions = $.cloudwatchLoggingOptions;
         this.compressionFormat = $.compressionFormat;
         this.errorOutputPrefix = $.errorOutputPrefix;
@@ -214,53 +210,51 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         }
 
         /**
-         * @param bufferInterval Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 
          */
-        public Builder bufferInterval(@Nullable Output<Integer> bufferInterval) {
-            $.bufferInterval = bufferInterval;
+        public Builder bufferingInterval(@Nullable Output<Integer> bufferingInterval) {
+            $.bufferingInterval = bufferingInterval;
             return this;
         }
 
         /**
-         * @param bufferInterval Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
          * 
          * @return builder
          * 
          */
-        public Builder bufferInterval(Integer bufferInterval) {
-            return bufferInterval(Output.of(bufferInterval));
+        public Builder bufferingInterval(Integer bufferingInterval) {
+            return bufferingInterval(Output.of(bufferingInterval));
         }
 
         /**
-         * @param bufferSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
          * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          * 
          * @return builder
          * 
          */
-        public Builder bufferSize(@Nullable Output<Integer> bufferSize) {
-            $.bufferSize = bufferSize;
+        public Builder bufferingSize(@Nullable Output<Integer> bufferingSize) {
+            $.bufferingSize = bufferingSize;
             return this;
         }
 
         /**
-         * @param bufferSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
          * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
          * 
          * @return builder
          * 
          */
-        public Builder bufferSize(Integer bufferSize) {
-            return bufferSize(Output.of(bufferSize));
+        public Builder bufferingSize(Integer bufferingSize) {
+            return bufferingSize(Output.of(bufferingSize));
         }
 
         /**
          * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
-         * 
-         * The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
          * 
          * @return builder
          * 
@@ -272,8 +266,6 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
 
         /**
          * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
-         * 
-         * The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
          * 
          * @return builder
          * 

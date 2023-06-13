@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Xray
     ///         FixedRate = 0.05,
     ///         Host = "*",
     ///         HttpMethod = "*",
-    ///         Priority = 10000,
+    ///         Priority = 9999,
     ///         ReservoirSize = 1,
     ///         ResourceArn = "*",
     ///         RuleName = "example",

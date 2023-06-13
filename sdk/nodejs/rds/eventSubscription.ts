@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
  *     instanceClass: "db.t2.micro",
- *     name: "mydb",
+ *     dbName: "mydb",
  *     username: "foo",
  *     password: "bar",
  *     dbSubnetGroupName: "my_database_subnet_group",
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * const defaultEventSubscription = new aws.rds.EventSubscription("defaultEventSubscription", {
  *     snsTopic: defaultTopic.arn,
  *     sourceType: "db-instance",
- *     sourceIds: [defaultInstance.id],
+ *     sourceIds: [defaultInstance.identifier],
  *     eventCategories: [
  *         "availability",
  *         "deletion",

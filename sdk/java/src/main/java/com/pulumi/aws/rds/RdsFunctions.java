@@ -2787,7 +2787,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -2795,13 +2795,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
@@ -2848,7 +2848,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -2856,13 +2856,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
@@ -2909,7 +2909,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -2917,13 +2917,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
@@ -2970,7 +2970,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -2978,13 +2978,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
@@ -3031,7 +3031,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -3039,13 +3039,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 
@@ -3092,7 +3092,7 @@ public final class RdsFunctions {
      *             .engine(&#34;mysql&#34;)
      *             .engineVersion(&#34;5.6.17&#34;)
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydb&#34;)
+     *             .dbName(&#34;mydb&#34;)
      *             .username(&#34;foo&#34;)
      *             .password(&#34;bar&#34;)
      *             .dbSubnetGroupName(&#34;my_database_subnet_group&#34;)
@@ -3100,13 +3100,13 @@ public final class RdsFunctions {
      *             .build());
      * 
      *         final var latestProdSnapshot = RdsFunctions.getSnapshot(GetSnapshotArgs.builder()
-     *             .dbInstanceIdentifier(prod.id())
+     *             .dbInstanceIdentifier(prod.identifier())
      *             .mostRecent(true)
      *             .build());
      * 
      *         var dev = new Instance(&#34;dev&#34;, InstanceArgs.builder()        
      *             .instanceClass(&#34;db.t2.micro&#34;)
-     *             .name(&#34;mydbdev&#34;)
+     *             .dbName(&#34;mydbdev&#34;)
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult).applyValue(latestProdSnapshot -&gt; latestProdSnapshot.applyValue(getSnapshotResult -&gt; getSnapshotResult.id())))
      *             .build());
      * 

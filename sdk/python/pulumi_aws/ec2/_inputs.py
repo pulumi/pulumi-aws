@@ -269,7 +269,6 @@ __all__ = [
     'GetSecurityGroupsFilterArgs',
     'GetSpotPriceFilterArgs',
     'GetSubnetFilterArgs',
-    'GetSubnetIdsFilterArgs',
     'GetSubnetsFilterArgs',
     'GetTransitGatewayRouteTablesFilterArgs',
     'GetVpcDhcpOptionsFilterArgs',
@@ -5761,11 +5760,11 @@ class LaunchTemplateMetadataOptionsArgs:
                  http_tokens: Optional[pulumi.Input[str]] = None,
                  instance_metadata_tags: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Can be `enabled` or `disabled`.
-        :param pulumi.Input[str] http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
-        :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
-        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
-        :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+        :param pulumi.Input[str] http_endpoint: Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        :param pulumi.Input[str] http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service. Can be `"enabled"` or `"disabled"`.
+        :param pulumi.Input[int] http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        :param pulumi.Input[str] http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        :param pulumi.Input[str] instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"` or `"disabled"`.
                
                For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
@@ -5784,7 +5783,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpEndpoint")
     def http_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether the metadata service is available. Can be `enabled` or `disabled`.
+        Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
         """
         return pulumi.get(self, "http_endpoint")
 
@@ -5796,7 +5795,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpProtocolIpv6")
     def http_protocol_ipv6(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+        Enables or disables the IPv6 endpoint for the instance metadata service. Can be `"enabled"` or `"disabled"`.
         """
         return pulumi.get(self, "http_protocol_ipv6")
 
@@ -5808,7 +5807,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpPutResponseHopLimit")
     def http_put_response_hop_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`.
+        The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
         """
         return pulumi.get(self, "http_put_response_hop_limit")
 
@@ -5820,7 +5819,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional[pulumi.Input[str]]:
         """
-        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `optional` or `required`.
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
         """
         return pulumi.get(self, "http_tokens")
 
@@ -5832,7 +5831,7 @@ class LaunchTemplateMetadataOptionsArgs:
     @pulumi.getter(name="instanceMetadataTags")
     def instance_metadata_tags(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables or disables access to instance tags from the instance metadata service. (Default: `disabled`).
+        Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"` or `"disabled"`.
 
         For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
         """
@@ -11828,45 +11827,13 @@ class NetworkInterfaceAttachmentArgs:
 @pulumi.input_type
 class PeeringConnectionOptionsAccepterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Allow a local linked EC2-Classic instance to communicate
-               with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-               to the remote VPC. This option is not supported for inter-region VPC peering.
         :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
                private IP addresses when queried from instances in the peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Allow a local VPC to communicate with a linked EC2-Classic
-               instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-               connection. This option is not supported for inter-region VPC peering.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local linked EC2-Classic instance to communicate
-        with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        to the remote VPC. This option is not supported for inter-region VPC peering.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
@@ -11880,64 +11847,18 @@ class PeeringConnectionOptionsAccepterArgs:
     @allow_remote_vpc_dns_resolution.setter
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
-
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to communicate with a linked EC2-Classic
-        instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        connection. This option is not supported for inter-region VPC peering.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
 
 
 @pulumi.input_type
 class PeeringConnectionOptionsRequesterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Allow a local linked EC2-Classic instance to communicate
-               with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-               to the remote VPC. This option is not supported for inter-region VPC peering.
         :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
                private IP addresses when queried from instances in the peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Allow a local VPC to communicate with a linked EC2-Classic
-               instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-               connection. This option is not supported for inter-region VPC peering.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local linked EC2-Classic instance to communicate
-        with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        to the remote VPC. This option is not supported for inter-region VPC peering.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
@@ -11951,20 +11872,6 @@ class PeeringConnectionOptionsRequesterArgs:
     @allow_remote_vpc_dns_resolution.setter
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
-
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to communicate with a linked EC2-Classic
-        instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        connection. This option is not supported for inter-region VPC peering.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
 
 
 @pulumi.input_type
@@ -11976,7 +11883,6 @@ class RouteTableRouteArgs:
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  egress_only_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
-                 instance_id: Optional[pulumi.Input[str]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  local_gateway_id: Optional[pulumi.Input[str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -11993,7 +11899,6 @@ class RouteTableRouteArgs:
                One of the following target arguments must be supplied:
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
-        :param pulumi.Input[str] instance_id: Identifier of an EC2 instance.
         :param pulumi.Input[str] ipv6_cidr_block: The Ipv6 CIDR block of the route.
         :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
@@ -12016,11 +11921,6 @@ class RouteTableRouteArgs:
             pulumi.set(__self__, "egress_only_gateway_id", egress_only_gateway_id)
         if gateway_id is not None:
             pulumi.set(__self__, "gateway_id", gateway_id)
-        if instance_id is not None:
-            warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
-            pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
-        if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
         if local_gateway_id is not None:
@@ -12109,18 +12009,6 @@ class RouteTableRouteArgs:
     @gateway_id.setter
     def gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gateway_id", value)
-
-    @property
-    @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of an EC2 instance.
-        """
-        return pulumi.get(self, "instance_id")
-
-    @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "instance_id", value)
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
@@ -15242,45 +15130,13 @@ class VpcIpamResourceDiscoveryOperatingRegionArgs:
 @pulumi.input_type
 class VpcPeeringConnectionAccepterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Allow a local linked EC2-Classic instance to communicate
-               with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-               to the remote VPC.
         :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
                private IP addresses when queried from instances in the peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Allow a local VPC to communicate with a linked EC2-Classic
-               instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-               connection.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local linked EC2-Classic instance to communicate
-        with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        to the remote VPC.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
@@ -15294,61 +15150,18 @@ class VpcPeeringConnectionAccepterArgs:
     @allow_remote_vpc_dns_resolution.setter
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
-
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to communicate with a linked EC2-Classic
-        instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        connection.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
 
 
 @pulumi.input_type
 class VpcPeeringConnectionAccepterAccepterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Indicates whether a local ClassicLink connection can communicate
-               with the peer VPC over the VPC Peering Connection.
         :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Indicates whether a local VPC can resolve public DNS hostnames to
                private IP addresses when queried from instances in a peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Indicates whether a local VPC can communicate with a ClassicLink
-               connection in the peer VPC over the VPC Peering Connection.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether a local ClassicLink connection can communicate
-        with the peer VPC over the VPC Peering Connection.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
@@ -15362,60 +15175,18 @@ class VpcPeeringConnectionAccepterAccepterArgs:
     @allow_remote_vpc_dns_resolution.setter
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
-
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether a local VPC can communicate with a ClassicLink
-        connection in the peer VPC over the VPC Peering Connection.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
 
 
 @pulumi.input_type
 class VpcPeeringConnectionAccepterRequesterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Indicates whether a local ClassicLink connection can communicate
-               with the peer VPC over the VPC Peering Connection.
         :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Indicates whether a local VPC can resolve public DNS hostnames to
                private IP addresses when queried from instances in a peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Indicates whether a local VPC can communicate with a ClassicLink
-               connection in the peer VPC over the VPC Peering Connection.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether a local ClassicLink connection can communicate
-        with the peer VPC over the VPC Peering Connection.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
@@ -15430,62 +15201,17 @@ class VpcPeeringConnectionAccepterRequesterArgs:
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
 
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether a local VPC can communicate with a ClassicLink
-        connection in the peer VPC over the VPC Peering Connection.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
-
 
 @pulumi.input_type
 class VpcPeeringConnectionRequesterArgs:
     def __init__(__self__, *,
-                 allow_classic_link_to_remote_vpc: Optional[pulumi.Input[bool]] = None,
-                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None,
-                 allow_vpc_to_remote_classic_link: Optional[pulumi.Input[bool]] = None):
+                 allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] allow_classic_link_to_remote_vpc: Allow a local linked EC2-Classic instance to communicate
-               with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-               to the remote VPC.
         :param pulumi.Input[bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
                private IP addresses when queried from instances in the peer VPC.
-        :param pulumi.Input[bool] allow_vpc_to_remote_classic_link: Allow a local VPC to communicate with a linked EC2-Classic
-               instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-               connection.
         """
-        if allow_classic_link_to_remote_vpc is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
-        if allow_classic_link_to_remote_vpc is not None:
-            pulumi.set(__self__, "allow_classic_link_to_remote_vpc", allow_classic_link_to_remote_vpc)
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
-        if allow_vpc_to_remote_classic_link is not None:
-            warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
-        if allow_vpc_to_remote_classic_link is not None:
-            pulumi.set(__self__, "allow_vpc_to_remote_classic_link", allow_vpc_to_remote_classic_link)
-
-    @property
-    @pulumi.getter(name="allowClassicLinkToRemoteVpc")
-    def allow_classic_link_to_remote_vpc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local linked EC2-Classic instance to communicate
-        with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
-        to the remote VPC.
-        """
-        return pulumi.get(self, "allow_classic_link_to_remote_vpc")
-
-    @allow_classic_link_to_remote_vpc.setter
-    def allow_classic_link_to_remote_vpc(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_classic_link_to_remote_vpc", value)
 
     @property
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
@@ -15499,20 +15225,6 @@ class VpcPeeringConnectionRequesterArgs:
     @allow_remote_vpc_dns_resolution.setter
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
-
-    @property
-    @pulumi.getter(name="allowVpcToRemoteClassicLink")
-    def allow_vpc_to_remote_classic_link(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow a local VPC to communicate with a linked EC2-Classic
-        instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
-        connection.
-        """
-        return pulumi.get(self, "allow_vpc_to_remote_classic_link")
-
-    @allow_vpc_to_remote_classic_link.setter
-    def allow_vpc_to_remote_classic_link(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_vpc_to_remote_classic_link", value)
 
 
 @pulumi.input_type
@@ -17283,69 +16995,6 @@ class GetSubnetFilterArgs:
     def values(self) -> Sequence[str]:
         """
         Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Sequence[str]):
-        pulumi.set(self, "values", value)
-
-
-@pulumi.input_type
-class GetSubnetIdsFilterArgs:
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        """
-        :param str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-               For example, if matching against tag `Name`, use:
-               
-               ```python
-               import pulumi
-               import pulumi_aws as aws
-               
-               selected = aws.ec2.get_subnet_ids(filters=[aws.ec2.GetSubnetIdsFilterArgs(
-                   name="tag:Name",
-                   values=[""],
-               )])
-               ```
-        :param Sequence[str] values: Set of values that are accepted for the given field.
-               Subnet IDs will be selected if any one of the given values match.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-        For example, if matching against tag `Name`, use:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        selected = aws.ec2.get_subnet_ids(filters=[aws.ec2.GetSubnetIdsFilterArgs(
-            name="tag:Name",
-            values=[""],
-        )])
-        ```
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given field.
-        Subnet IDs will be selected if any one of the given values match.
         """
         return pulumi.get(self, "values")
 

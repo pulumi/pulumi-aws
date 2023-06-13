@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * const lb = new aws.ec2.Eip("lb", {
  *     instance: aws_instance.web.id,
- *     vpc: true,
+ *     domain: "vpc",
  * });
  * ```
  * ### Multiple EIPs associated with a single network interface
@@ -37,12 +37,12 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const one = new aws.ec2.Eip("one", {
- *     vpc: true,
+ *     domain: "vpc",
  *     networkInterface: multi_ip.id,
  *     associateWithPrivateIp: "10.0.0.10",
  * });
  * const two = new aws.ec2.Eip("two", {
- *     vpc: true,
+ *     domain: "vpc",
  *     networkInterface: multi_ip.id,
  *     associateWithPrivateIp: "10.0.0.11",
  * });
@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  *     subnetId: myTestSubnet.id,
  * });
  * const bar = new aws.ec2.Eip("bar", {
- *     vpc: true,
+ *     domain: "vpc",
  *     instance: foo.id,
  *     associateWithPrivateIp: "10.0.0.12",
  * }, {
@@ -86,8 +86,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const byoip_ip = new aws.ec2.Eip("byoip-ip", {
+ *     domain: "vpc",
  *     publicIpv4Pool: "ipv4pool-ec2-012345",
- *     vpc: true,
  * });
  * ```
  *
@@ -162,9 +162,9 @@ export class Eip extends pulumi.CustomResource {
      */
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     /**
-     * Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
+     * Indicates if this EIP is for use in VPC (`vpc`).
      */
-    public /*out*/ readonly domain!: pulumi.Output<string>;
+    public readonly domain!: pulumi.Output<string>;
     /**
      * EC2 instance ID.
      */
@@ -207,13 +207,15 @@ export class Eip extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Boolean if the EIP is in a VPC or not.
+     * Boolean if the EIP is in a VPC or not. Use `domain` instead.
      * Defaults to `true` unless the region supports EC2-Classic.
      *
      * > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
      *
      * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
      * case both options are defined as the api only requires one or the other.
+     *
+     * @deprecated use domain attribute instead
      */
     public readonly vpc!: pulumi.Output<boolean>;
 
@@ -254,6 +256,7 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["address"] = args ? args.address : undefined;
             resourceInputs["associateWithPrivateIp"] = args ? args.associateWithPrivateIp : undefined;
             resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["instance"] = args ? args.instance : undefined;
             resourceInputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
             resourceInputs["networkInterface"] = args ? args.networkInterface : undefined;
@@ -264,7 +267,6 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["associationId"] = undefined /*out*/;
             resourceInputs["carrierIp"] = undefined /*out*/;
             resourceInputs["customerOwnedIp"] = undefined /*out*/;
-            resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["privateDns"] = undefined /*out*/;
             resourceInputs["privateIp"] = undefined /*out*/;
             resourceInputs["publicDns"] = undefined /*out*/;
@@ -309,7 +311,7 @@ export interface EipState {
      */
     customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
-     * Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
+     * Indicates if this EIP is for use in VPC (`vpc`).
      */
     domain?: pulumi.Input<string>;
     /**
@@ -354,13 +356,15 @@ export interface EipState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Boolean if the EIP is in a VPC or not.
+     * Boolean if the EIP is in a VPC or not. Use `domain` instead.
      * Defaults to `true` unless the region supports EC2-Classic.
      *
      * > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
      *
      * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
      * case both options are defined as the api only requires one or the other.
+     *
+     * @deprecated use domain attribute instead
      */
     vpc?: pulumi.Input<boolean>;
 }
@@ -381,6 +385,10 @@ export interface EipArgs {
      * ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
      */
     customerOwnedIpv4Pool?: pulumi.Input<string>;
+    /**
+     * Indicates if this EIP is for use in VPC (`vpc`).
+     */
+    domain?: pulumi.Input<string>;
     /**
      * EC2 instance ID.
      */
@@ -403,13 +411,15 @@ export interface EipArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Boolean if the EIP is in a VPC or not.
+     * Boolean if the EIP is in a VPC or not. Use `domain` instead.
      * Defaults to `true` unless the region supports EC2-Classic.
      *
      * > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
      *
      * > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error but `address` will be used in the
      * case both options are defined as the api only requires one or the other.
+     *
+     * @deprecated use domain attribute instead
      */
     vpc?: pulumi.Input<boolean>;
 }

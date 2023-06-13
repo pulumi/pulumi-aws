@@ -11,6 +11,9 @@ import * as utilities from "../utilities";
  * Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
  * instances to be requested on the Spot market.
  *
+ * > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+ * We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+ *
  * ## Example Usage
  * ### Using launch specifications
  *
@@ -88,8 +91,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = aws.ec2.getSubnetIds({
- *     vpcId: _var.vpc_id,
+ * const example = aws.ec2.getSubnets({
+ *     filters: [{
+ *         name: "vpc-id",
+ *         values: [_var.vpc_id],
+ *     }],
  * });
  * const fooLaunchTemplate = new aws.ec2.LaunchTemplate("fooLaunchTemplate", {
  *     imageId: "ami-516b9131",
@@ -108,13 +114,13 @@ import * as utilities from "../utilities";
  *         },
  *         overrides: [
  *             {
- *                 subnetId: data.aws_subnets.example.ids[0],
+ *                 subnetId: example.then(example => example.ids?.[0]),
  *             },
  *             {
- *                 subnetId: data.aws_subnets.example.ids[1],
+ *                 subnetId: example.then(example => example.ids?.[1]),
  *             },
  *             {
- *                 subnetId: data.aws_subnets.example.ids[2],
+ *                 subnetId: example.then(example => example.ids?.[2]),
  *             },
  *         ],
  *     }],

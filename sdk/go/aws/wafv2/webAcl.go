@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +107,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -173,7 +173,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/wafv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -266,11 +266,17 @@ import (
 //						Statement: &wafv2.WebAclRuleStatementArgs{
 //							RuleGroupReferenceStatement: &wafv2.WebAclRuleStatementRuleGroupReferenceStatementArgs{
 //								Arn: example.Arn,
-//								ExcludedRules: wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArray{
-//									&wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs{
+//								RuleActionOverrides: wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArray{
+//									&wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs{
+//										ActionToUse: &wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs{
+//											Count: nil,
+//										},
 //										Name: pulumi.String("rule-to-exclude-b"),
 //									},
-//									&wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs{
+//									&wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs{
+//										ActionToUse: &wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs{
+//											Count: nil,
+//										},
 //										Name: pulumi.String("rule-to-exclude-a"),
 //									},
 //								},

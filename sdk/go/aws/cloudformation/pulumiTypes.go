@@ -691,6 +691,143 @@ func (o StackSetInstanceOperationPreferencesPtrOutput) RegionOrders() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+type StackSetManagedExecution struct {
+	// When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+	Active *bool `pulumi:"active"`
+}
+
+// StackSetManagedExecutionInput is an input type that accepts StackSetManagedExecutionArgs and StackSetManagedExecutionOutput values.
+// You can construct a concrete instance of `StackSetManagedExecutionInput` via:
+//
+//	StackSetManagedExecutionArgs{...}
+type StackSetManagedExecutionInput interface {
+	pulumi.Input
+
+	ToStackSetManagedExecutionOutput() StackSetManagedExecutionOutput
+	ToStackSetManagedExecutionOutputWithContext(context.Context) StackSetManagedExecutionOutput
+}
+
+type StackSetManagedExecutionArgs struct {
+	// When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+	Active pulumi.BoolPtrInput `pulumi:"active"`
+}
+
+func (StackSetManagedExecutionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetManagedExecution)(nil)).Elem()
+}
+
+func (i StackSetManagedExecutionArgs) ToStackSetManagedExecutionOutput() StackSetManagedExecutionOutput {
+	return i.ToStackSetManagedExecutionOutputWithContext(context.Background())
+}
+
+func (i StackSetManagedExecutionArgs) ToStackSetManagedExecutionOutputWithContext(ctx context.Context) StackSetManagedExecutionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetManagedExecutionOutput)
+}
+
+func (i StackSetManagedExecutionArgs) ToStackSetManagedExecutionPtrOutput() StackSetManagedExecutionPtrOutput {
+	return i.ToStackSetManagedExecutionPtrOutputWithContext(context.Background())
+}
+
+func (i StackSetManagedExecutionArgs) ToStackSetManagedExecutionPtrOutputWithContext(ctx context.Context) StackSetManagedExecutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetManagedExecutionOutput).ToStackSetManagedExecutionPtrOutputWithContext(ctx)
+}
+
+// StackSetManagedExecutionPtrInput is an input type that accepts StackSetManagedExecutionArgs, StackSetManagedExecutionPtr and StackSetManagedExecutionPtrOutput values.
+// You can construct a concrete instance of `StackSetManagedExecutionPtrInput` via:
+//
+//	        StackSetManagedExecutionArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackSetManagedExecutionPtrInput interface {
+	pulumi.Input
+
+	ToStackSetManagedExecutionPtrOutput() StackSetManagedExecutionPtrOutput
+	ToStackSetManagedExecutionPtrOutputWithContext(context.Context) StackSetManagedExecutionPtrOutput
+}
+
+type stackSetManagedExecutionPtrType StackSetManagedExecutionArgs
+
+func StackSetManagedExecutionPtr(v *StackSetManagedExecutionArgs) StackSetManagedExecutionPtrInput {
+	return (*stackSetManagedExecutionPtrType)(v)
+}
+
+func (*stackSetManagedExecutionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetManagedExecution)(nil)).Elem()
+}
+
+func (i *stackSetManagedExecutionPtrType) ToStackSetManagedExecutionPtrOutput() StackSetManagedExecutionPtrOutput {
+	return i.ToStackSetManagedExecutionPtrOutputWithContext(context.Background())
+}
+
+func (i *stackSetManagedExecutionPtrType) ToStackSetManagedExecutionPtrOutputWithContext(ctx context.Context) StackSetManagedExecutionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetManagedExecutionPtrOutput)
+}
+
+type StackSetManagedExecutionOutput struct{ *pulumi.OutputState }
+
+func (StackSetManagedExecutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetManagedExecution)(nil)).Elem()
+}
+
+func (o StackSetManagedExecutionOutput) ToStackSetManagedExecutionOutput() StackSetManagedExecutionOutput {
+	return o
+}
+
+func (o StackSetManagedExecutionOutput) ToStackSetManagedExecutionOutputWithContext(ctx context.Context) StackSetManagedExecutionOutput {
+	return o
+}
+
+func (o StackSetManagedExecutionOutput) ToStackSetManagedExecutionPtrOutput() StackSetManagedExecutionPtrOutput {
+	return o.ToStackSetManagedExecutionPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetManagedExecutionOutput) ToStackSetManagedExecutionPtrOutputWithContext(ctx context.Context) StackSetManagedExecutionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetManagedExecution) *StackSetManagedExecution {
+		return &v
+	}).(StackSetManagedExecutionPtrOutput)
+}
+
+// When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+func (o StackSetManagedExecutionOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StackSetManagedExecution) *bool { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+type StackSetManagedExecutionPtrOutput struct{ *pulumi.OutputState }
+
+func (StackSetManagedExecutionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetManagedExecution)(nil)).Elem()
+}
+
+func (o StackSetManagedExecutionPtrOutput) ToStackSetManagedExecutionPtrOutput() StackSetManagedExecutionPtrOutput {
+	return o
+}
+
+func (o StackSetManagedExecutionPtrOutput) ToStackSetManagedExecutionPtrOutputWithContext(ctx context.Context) StackSetManagedExecutionPtrOutput {
+	return o
+}
+
+func (o StackSetManagedExecutionPtrOutput) Elem() StackSetManagedExecutionOutput {
+	return o.ApplyT(func(v *StackSetManagedExecution) StackSetManagedExecution {
+		if v != nil {
+			return *v
+		}
+		var ret StackSetManagedExecution
+		return ret
+	}).(StackSetManagedExecutionOutput)
+}
+
+// When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+func (o StackSetManagedExecutionPtrOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StackSetManagedExecution) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Active
+	}).(pulumi.BoolPtrOutput)
+}
+
 type StackSetOperationPreferences struct {
 	// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
 	FailureToleranceCount *int `pulumi:"failureToleranceCount"`
@@ -1038,6 +1175,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceDeploymentTargetsPtrInput)(nil)).Elem(), StackSetInstanceDeploymentTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceOperationPreferencesInput)(nil)).Elem(), StackSetInstanceOperationPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceOperationPreferencesPtrInput)(nil)).Elem(), StackSetInstanceOperationPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetManagedExecutionInput)(nil)).Elem(), StackSetManagedExecutionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetManagedExecutionPtrInput)(nil)).Elem(), StackSetManagedExecutionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetOperationPreferencesInput)(nil)).Elem(), StackSetOperationPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetOperationPreferencesPtrInput)(nil)).Elem(), StackSetOperationPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudFormationTypeLoggingConfigInput)(nil)).Elem(), GetCloudFormationTypeLoggingConfigArgs{})
@@ -1050,6 +1189,8 @@ func init() {
 	pulumi.RegisterOutputType(StackSetInstanceDeploymentTargetsPtrOutput{})
 	pulumi.RegisterOutputType(StackSetInstanceOperationPreferencesOutput{})
 	pulumi.RegisterOutputType(StackSetInstanceOperationPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(StackSetManagedExecutionOutput{})
+	pulumi.RegisterOutputType(StackSetManagedExecutionPtrOutput{})
 	pulumi.RegisterOutputType(StackSetOperationPreferencesOutput{})
 	pulumi.RegisterOutputType(StackSetOperationPreferencesPtrOutput{})
 	pulumi.RegisterOutputType(GetCloudFormationTypeLoggingConfigOutput{})

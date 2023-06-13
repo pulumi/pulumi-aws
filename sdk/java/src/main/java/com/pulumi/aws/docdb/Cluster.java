@@ -458,14 +458,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipFinalSnapshot);
     }
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      * 
      */
     @Export(name="snapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotIdentifier;
 
     /**
-     * @return Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
+     * @return Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      * 
      */
     public Output<Optional<String>> snapshotIdentifier() {

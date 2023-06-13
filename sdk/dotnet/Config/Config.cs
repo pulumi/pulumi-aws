@@ -181,18 +181,6 @@ namespace Pulumi.Aws
             set => _region.Set(value);
         }
 
-        private static readonly __Value<bool?> _s3ForcePathStyle = new __Value<bool?>(() => __config.GetBoolean("s3ForcePathStyle"));
-        /// <summary>
-        /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-        /// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-        /// Specific to the Amazon S3 service.
-        /// </summary>
-        public static bool? S3ForcePathStyle
-        {
-            get => _s3ForcePathStyle.Get();
-            set => _s3ForcePathStyle.Set(value);
-        }
-
         private static readonly __Value<bool?> _s3UsePathStyle = new __Value<bool?>(() => __config.GetBoolean("s3UsePathStyle"));
         /// <summary>
         /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
@@ -225,16 +213,6 @@ namespace Pulumi.Aws
             set => _sharedConfigFiles.Set(value);
         }
 
-        private static readonly __Value<string?> _sharedCredentialsFile = new __Value<string?>(() => __config.Get("sharedCredentialsFile"));
-        /// <summary>
-        /// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-        /// </summary>
-        public static string? SharedCredentialsFile
-        {
-            get => _sharedCredentialsFile.Get();
-            set => _sharedCredentialsFile.Set(value);
-        }
-
         private static readonly __Value<ImmutableArray<string>> _sharedCredentialsFiles = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("sharedCredentialsFiles"));
         /// <summary>
         /// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
@@ -254,16 +232,6 @@ namespace Pulumi.Aws
         {
             get => _skipCredentialsValidation.Get();
             set => _skipCredentialsValidation.Set(value);
-        }
-
-        private static readonly __Value<bool?> _skipGetEc2Platforms = new __Value<bool?>(() => __config.GetBoolean("skipGetEc2Platforms"));
-        /// <summary>
-        /// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-        /// </summary>
-        public static bool? SkipGetEc2Platforms
-        {
-            get => _skipGetEc2Platforms.Get();
-            set => _skipGetEc2Platforms.Set(value);
         }
 
         private static readonly __Value<bool?> _skipMetadataApiCheck = new __Value<bool?>(() => __config.GetBoolean("skipMetadataApiCheck") ?? true);
@@ -343,7 +311,6 @@ namespace Pulumi.Aws
              public class AssumeRole
              {
                 public string? Duration { get; set; } = null!;
-                public int? DurationSeconds { get; set; }
                 public string? ExternalId { get; set; } = null!;
                 public string? Policy { get; set; } = null!;
                 public ImmutableArray<string> PolicyArns { get; set; }

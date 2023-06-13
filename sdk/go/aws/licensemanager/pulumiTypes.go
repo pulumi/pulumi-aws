@@ -19,7 +19,7 @@ type GetLicenseGrantsFilter struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -67,7 +67,7 @@ type GetLicenseGrantsFilterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -155,7 +155,7 @@ func (o GetLicenseGrantsFilterOutput) ToGetLicenseGrantsFilterOutputWithContext(
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -1116,7 +1116,7 @@ type GetReceivedLicensesFilter struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -1164,7 +1164,7 @@ type GetReceivedLicensesFilterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -1252,7 +1252,7 @@ func (o GetReceivedLicensesFilterOutput) ToGetReceivedLicensesFilterOutputWithCo
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

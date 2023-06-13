@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/scheduler"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -37,7 +37,7 @@ import (
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
-//				ScheduleExpression: pulumi.String("rate(1 hour)"),
+//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.Any(aws_sqs_queue.Example.Arn),
 //					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
@@ -60,8 +60,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/scheduler"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +76,7 @@ import (
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
-//				ScheduleExpression: pulumi.String("rate(1 hour)"),
+//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.String("arn:aws:scheduler:::aws-sdk:sqs:sendMessage"),
 //					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),

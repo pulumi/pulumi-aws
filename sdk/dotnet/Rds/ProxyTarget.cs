@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var exampleProxyTarget = new Aws.Rds.ProxyTarget("exampleProxyTarget", new()
     ///     {
-    ///         DbInstanceIdentifier = aws_db_instance.Example.Id,
+    ///         DbInstanceIdentifier = aws_db_instance.Example.Identifier,
     ///         DbProxyName = exampleProxy.Name,
     ///         TargetGroupName = exampleProxyDefaultTargetGroup.Name,
     ///     });

@@ -7522,7 +7522,7 @@ func (o GetFaqS3PathArrayOutput) Index(i pulumi.IntInput) GetFaqS3PathOutput {
 }
 
 type GetIndexCapacityUnit struct {
-	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
 	QueryCapacityUnits int `pulumi:"queryCapacityUnits"`
 	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
 	StorageCapacityUnits int `pulumi:"storageCapacityUnits"`
@@ -7540,7 +7540,7 @@ type GetIndexCapacityUnitInput interface {
 }
 
 type GetIndexCapacityUnitArgs struct {
-	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
 	QueryCapacityUnits pulumi.IntInput `pulumi:"queryCapacityUnits"`
 	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
 	StorageCapacityUnits pulumi.IntInput `pulumi:"storageCapacityUnits"`
@@ -7597,7 +7597,7 @@ func (o GetIndexCapacityUnitOutput) ToGetIndexCapacityUnitOutputWithContext(ctx 
 	return o
 }
 
-// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
 func (o GetIndexCapacityUnitOutput) QueryCapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIndexCapacityUnit) int { return v.QueryCapacityUnits }).(pulumi.IntOutput)
 }
@@ -7756,15 +7756,15 @@ func (o GetIndexDocumentMetadataConfigurationUpdateArrayOutput) Index(i pulumi.I
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateRelevance struct {
-	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
 	Duration string `pulumi:"duration"`
-	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 	Freshness bool `pulumi:"freshness"`
 	// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
 	Importance int `pulumi:"importance"`
-	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
 	RankOrder string `pulumi:"rankOrder"`
-	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
 	ValuesImportanceMap map[string]int `pulumi:"valuesImportanceMap"`
 }
 
@@ -7780,15 +7780,15 @@ type GetIndexDocumentMetadataConfigurationUpdateRelevanceInput interface {
 }
 
 type GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs struct {
-	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+	// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
 	Duration pulumi.StringInput `pulumi:"duration"`
-	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+	// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 	Freshness pulumi.BoolInput `pulumi:"freshness"`
 	// Relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
 	Importance pulumi.IntInput `pulumi:"importance"`
-	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
 	RankOrder pulumi.StringInput `pulumi:"rankOrder"`
-	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
 	ValuesImportanceMap pulumi.IntMapInput `pulumi:"valuesImportanceMap"`
 }
 
@@ -7843,12 +7843,12 @@ func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToGetIndexDo
 	return o
 }
 
-// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+// Time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Duration).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) string { return v.Duration }).(pulumi.StringOutput)
 }
 
-// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+// How "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-Freshness).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Freshness() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) bool { return v.Freshness }).(pulumi.BoolOutput)
 }
@@ -7858,12 +7858,12 @@ func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Importance()
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) int { return v.Importance }).(pulumi.IntOutput)
 }
 
-// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) RankOrder() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) string { return v.RankOrder }).(pulumi.StringOutput)
 }
 
-// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
 func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ValuesImportanceMap() pulumi.IntMapOutput {
 	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) map[string]int {
 		return v.ValuesImportanceMap

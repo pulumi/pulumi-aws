@@ -139,10 +139,6 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly quickConnectIds!: pulumi.Output<string[] | undefined>;
     /**
-     * @deprecated Use the quick_connect_ids instead
-     */
-    public /*out*/ readonly quickConnectIdsAssociateds!: pulumi.Output<string[]>;
-    /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -177,7 +173,6 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["outboundCallerConfig"] = state ? state.outboundCallerConfig : undefined;
             resourceInputs["queueId"] = state ? state.queueId : undefined;
             resourceInputs["quickConnectIds"] = state ? state.quickConnectIds : undefined;
-            resourceInputs["quickConnectIdsAssociateds"] = state ? state.quickConnectIdsAssociateds : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -200,7 +195,6 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["queueId"] = undefined /*out*/;
-            resourceInputs["quickConnectIdsAssociateds"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -248,10 +242,6 @@ export interface QueueState {
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      */
     quickConnectIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * @deprecated Use the quick_connect_ids instead
-     */
-    quickConnectIdsAssociateds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      */

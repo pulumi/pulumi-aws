@@ -8,7 +8,6 @@ import com.pulumi.aws.connect.RoutingProfileArgs;
 import com.pulumi.aws.connect.inputs.RoutingProfileState;
 import com.pulumi.aws.connect.outputs.RoutingProfileMediaConcurrency;
 import com.pulumi.aws.connect.outputs.RoutingProfileQueueConfig;
-import com.pulumi.aws.connect.outputs.RoutingProfileQueueConfigsAssociated;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -176,18 +175,6 @@ public class RoutingProfile extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<RoutingProfileQueueConfig>>> queueConfigs() {
         return Codegen.optional(this.queueConfigs);
-    }
-    /**
-     * @deprecated
-     * Use the queue_configs instead
-     * 
-     */
-    @Deprecated /* Use the queue_configs instead */
-    @Export(name="queueConfigsAssociateds", refs={List.class,RoutingProfileQueueConfigsAssociated.class}, tree="[0,1]")
-    private Output<List<RoutingProfileQueueConfigsAssociated>> queueConfigsAssociateds;
-
-    public Output<List<RoutingProfileQueueConfigsAssociated>> queueConfigsAssociateds() {
-        return this.queueConfigsAssociateds;
     }
     /**
      * The identifier for the Routing Profile.

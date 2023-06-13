@@ -7,7 +7,6 @@ import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoConnectivityInfoArgs;
 import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -65,29 +64,6 @@ public final class ClusterBrokerNodeGroupInfoArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The size in GiB of the EBS volume for the data drive on each broker node.
-     * 
-     * @deprecated
-     * use &#39;storage_info&#39; argument instead
-     * 
-     */
-    @Deprecated /* use 'storage_info' argument instead */
-    @Import(name="ebsVolumeSize")
-    private @Nullable Output<Integer> ebsVolumeSize;
-
-    /**
-     * @return The size in GiB of the EBS volume for the data drive on each broker node.
-     * 
-     * @deprecated
-     * use &#39;storage_info&#39; argument instead
-     * 
-     */
-    @Deprecated /* use 'storage_info' argument instead */
-    public Optional<Output<Integer>> ebsVolumeSize() {
-        return Optional.ofNullable(this.ebsVolumeSize);
-    }
-
-    /**
      * Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
      * 
      */
@@ -138,7 +114,6 @@ public final class ClusterBrokerNodeGroupInfoArgs extends com.pulumi.resources.R
         this.azDistribution = $.azDistribution;
         this.clientSubnets = $.clientSubnets;
         this.connectivityInfo = $.connectivityInfo;
-        this.ebsVolumeSize = $.ebsVolumeSize;
         this.instanceType = $.instanceType;
         this.securityGroups = $.securityGroups;
         this.storageInfo = $.storageInfo;
@@ -233,35 +208,6 @@ public final class ClusterBrokerNodeGroupInfoArgs extends com.pulumi.resources.R
          */
         public Builder connectivityInfo(ClusterBrokerNodeGroupInfoConnectivityInfoArgs connectivityInfo) {
             return connectivityInfo(Output.of(connectivityInfo));
-        }
-
-        /**
-         * @param ebsVolumeSize The size in GiB of the EBS volume for the data drive on each broker node.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * use &#39;storage_info&#39; argument instead
-         * 
-         */
-        @Deprecated /* use 'storage_info' argument instead */
-        public Builder ebsVolumeSize(@Nullable Output<Integer> ebsVolumeSize) {
-            $.ebsVolumeSize = ebsVolumeSize;
-            return this;
-        }
-
-        /**
-         * @param ebsVolumeSize The size in GiB of the EBS volume for the data drive on each broker node.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * use &#39;storage_info&#39; argument instead
-         * 
-         */
-        @Deprecated /* use 'storage_info' argument instead */
-        public Builder ebsVolumeSize(Integer ebsVolumeSize) {
-            return ebsVolumeSize(Output.of(ebsVolumeSize));
         }
 
         /**

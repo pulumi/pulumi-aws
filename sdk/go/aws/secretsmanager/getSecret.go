@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +45,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,18 +93,6 @@ type LookupSecretResult struct {
 	Name     string `pulumi:"name"`
 	// Resource-based policy document that's attached to the secret.
 	Policy string `pulumi:"policy"`
-	// Whether rotation is enabled or not.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
-	RotationEnabled bool `pulumi:"rotationEnabled"`
-	// Rotation Lambda function ARN if rotation is enabled.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
-	RotationLambdaArn string `pulumi:"rotationLambdaArn"`
-	// Rotation rules if rotation is enabled.
-	//
-	// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
-	RotationRules []GetSecretRotationRule `pulumi:"rotationRules"`
 	// Tags of the secret.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -176,27 +164,6 @@ func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
 // Resource-based policy document that's attached to the secret.
 func (o LookupSecretResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Policy }).(pulumi.StringOutput)
-}
-
-// Whether rotation is enabled or not.
-//
-// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
-func (o LookupSecretResultOutput) RotationEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupSecretResult) bool { return v.RotationEnabled }).(pulumi.BoolOutput)
-}
-
-// Rotation Lambda function ARN if rotation is enabled.
-//
-// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
-func (o LookupSecretResultOutput) RotationLambdaArn() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSecretResult) string { return v.RotationLambdaArn }).(pulumi.StringOutput)
-}
-
-// Rotation rules if rotation is enabled.
-//
-// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
-func (o LookupSecretResultOutput) RotationRules() GetSecretRotationRuleArrayOutput {
-	return o.ApplyT(func(v LookupSecretResult) []GetSecretRotationRule { return v.RotationRules }).(GetSecretRotationRuleArrayOutput)
 }
 
 // Tags of the secret.

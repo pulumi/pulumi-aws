@@ -1,4 +1,4 @@
-From eb0002b3efd5584c9b5e92855522c5c6472cfdfd Mon Sep 17 00:00:00 2001
+From a3b6133238c505501f56c8bc11b4fe32589eec7b Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@pulumi.com>
 Date: Tue, 28 Mar 2023 15:09:00 -0700
 Subject: [PATCH 26/29] Revert Framework conversions
@@ -31,7 +31,7 @@ index 8b79c26538..d19d8406a0 100644
  
  import (
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index 12ec3fe625..95ed90469e 100644
+index e7dd1d0f9b..3a702ddeac 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -8,6 +8,7 @@ import (
@@ -42,7 +42,7 @@ index 12ec3fe625..95ed90469e 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/ecr"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/gamelift"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/globalaccelerator"
-@@ -268,6 +269,11 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -244,6 +245,11 @@ func New(ctx context.Context) (*schema.Provider, error) {
  			"aws_service":                 meta.DataSourceService(),
  
  			"aws_caller_identity": sts.DataSourceCallerIdentity(),
@@ -54,7 +54,7 @@ index 12ec3fe625..95ed90469e 100644
  		},
  
  		ResourcesMap: map[string]*schema.Resource{
-@@ -281,6 +287,17 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -257,6 +263,17 @@ func New(ctx context.Context) (*schema.Provider, error) {
  
  			"aws_gamelift_matchmaking_configuration": gamelift.ResourceMatchMakingConfiguration(),
  			"aws_gamelift_matchmaking_rule_set":      gamelift.ResourceMatchmakingRuleSet(),
@@ -73,7 +73,7 @@ index 12ec3fe625..95ed90469e 100644
  	}
  
 diff --git a/internal/provider/service_packages_gen.go b/internal/provider/service_packages_gen.go
-index 5e86dd274e..052b7ed81e 100644
+index 00077770ac..82e7fd9fd1 100644
 --- a/internal/provider/service_packages_gen.go
 +++ b/internal/provider/service_packages_gen.go
 @@ -51,7 +51,6 @@ import (
@@ -84,7 +84,7 @@ index 5e86dd274e..052b7ed81e 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/service/comprehend"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/computeoptimizer"
  	"github.com/hashicorp/terraform-provider-aws/internal/service/configservice"
-@@ -258,7 +257,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
+@@ -257,7 +256,7 @@ func servicePackages(context.Context) []conns.ServicePackage {
  		codestarconnections.ServicePackage,
  		codestarnotifications.ServicePackage,
  		cognitoidentity.ServicePackage,
@@ -112,7 +112,7 @@ index e29cdd9663..9063f6faf0 100644
  	fwtypes "github.com/hashicorp/terraform-provider-aws/internal/framework/types"
  	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
 diff --git a/internal/service/cognitoidp/managed_user_pool_client_test.go b/internal/service/cognitoidp/managed_user_pool_client_test.go
-index 159397323f..7a02dd594b 100644
+index 038b05dee0..be26e22e7f 100644
 --- a/internal/service/cognitoidp/managed_user_pool_client_test.go
 +++ b/internal/service/cognitoidp/managed_user_pool_client_test.go
 @@ -1,3 +1,5 @@

@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *                 .type(&#34;S&#34;)
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.main&#34;)
+ *                 .provider(aws.main())
  *                 .build());
  * 
  *         var exampleTableReplica = new TableReplica(&#34;exampleTableReplica&#34;, TableReplicaArgs.builder()        
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;Pozo&#34;, &#34;Amargo&#34;)
  *             ))
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.alt&#34;)
+ *                 .provider(aws.alt())
  *                 .build());
  * 
  *     }

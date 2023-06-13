@@ -24,7 +24,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,8 +120,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //

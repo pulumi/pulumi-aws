@@ -103,8 +103,11 @@ import {PolicyDocument} from "../iam";
  *         Name: vpc,
  *     },
  * });
- * const selectedSubnetIds = selectedVpc.then(selectedVpc => aws.ec2.getSubnetIds({
- *     vpcId: selectedVpc.id,
+ * const selectedSubnets = selectedVpc.then(selectedVpc => aws.ec2.getSubnets({
+ *     filters: [{
+ *         name: "vpc-id",
+ *         values: [selectedVpc.id],
+ *     }],
  *     tags: {
  *         Tier: "private",
  *     },
@@ -130,8 +133,8 @@ import {PolicyDocument} from "../iam";
  *     },
  *     vpcOptions: {
  *         subnetIds: [
- *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids?.[0]),
- *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids?.[1]),
+ *             selectedSubnets.then(selectedSubnets => selectedSubnets.ids?.[0]),
+ *             selectedSubnets.then(selectedSubnets => selectedSubnets.ids?.[1]),
  *         ],
  *         securityGroupIds: [esSecurityGroup.id],
  *     },

@@ -65,6 +65,25 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * @deprecated
+     * this attribute has been deprecated
+     * 
+     */
+    @Deprecated /* this attribute has been deprecated */
+    @Import(name="tagsAll")
+    private @Nullable Map<String,String> tagsAll;
+
+    /**
+     * @deprecated
+     * this attribute has been deprecated
+     * 
+     */
+    @Deprecated /* this attribute has been deprecated */
+    public Optional<Map<String,String>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private GetDataSetPlainArgs() {}
 
     private GetDataSetPlainArgs(GetDataSetPlainArgs $) {
@@ -72,6 +91,7 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.columnLevelPermissionRules = $.columnLevelPermissionRules;
         this.dataSetId = $.dataSetId;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -127,6 +147,19 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * this attribute has been deprecated
+         * 
+         */
+        @Deprecated /* this attribute has been deprecated */
+        public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
+            $.tagsAll = tagsAll;
             return this;
         }
 

@@ -32,7 +32,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,8 +60,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,10 +99,10 @@ import (
 // "fmt"
 //
 // "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sqs"
+// "github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+// "github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+// "github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+// "github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
 // "github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 // )
 // func main() {
@@ -265,13 +265,13 @@ import (
 // _, err = sns.NewTopic(ctx, "sns-topicTopic", &sns.TopicArgs{
 // DisplayName: *pulumi.String(sns.Display_name),
 // Policy: *pulumi.String(sns_topic_policy.Json),
-// }, pulumi.Provider("aws.sns"))
+// }, pulumi.Provider(aws.Sns))
 // if err != nil {
 // return err
 // }
 // _, err = sqs.NewQueue(ctx, "sqs-queue", &sqs.QueueArgs{
 // Policy: *pulumi.String(sqs_queue_policy.Json),
-// }, pulumi.Provider("aws.sqs"))
+// }, pulumi.Provider(aws.Sqs))
 // if err != nil {
 // return err
 // }
@@ -279,7 +279,7 @@ import (
 // Topic: sns_topicTopic.Arn,
 // Protocol: pulumi.String("sqs"),
 // Endpoint: sqs_queue.Arn,
-// }, pulumi.Provider("aws.sns2sqs"))
+// }, pulumi.Provider(aws.Sns2sqs))
 // if err != nil {
 // return err
 // }

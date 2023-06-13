@@ -14,8 +14,6 @@ import (
 // Provides an AWS Client VPN endpoint for OpenVPN clients. For more information on usage, please see the
 // [AWS Client VPN Administrator's Guide](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html).
 //
-// > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `securityGroups` argument and a Client VPN endpoint resource with a `securityGroupIds` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
-//
 // ## Example Usage
 //
 // ```go
@@ -23,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -95,10 +93,6 @@ type Endpoint struct {
 	SessionTimeoutHours pulumi.IntPtrOutput `pulumi:"sessionTimeoutHours"`
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel pulumi.BoolPtrOutput `pulumi:"splitTunnel"`
-	// **Deprecated** The current state of the Client VPN endpoint.
-	//
-	// Deprecated: This attribute has been deprecated.
-	Status pulumi.StringOutput `pulumi:"status"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -180,10 +174,6 @@ type endpointState struct {
 	SessionTimeoutHours *int `pulumi:"sessionTimeoutHours"`
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel *bool `pulumi:"splitTunnel"`
-	// **Deprecated** The current state of the Client VPN endpoint.
-	//
-	// Deprecated: This attribute has been deprecated.
-	Status *string `pulumi:"status"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -225,10 +215,6 @@ type EndpointState struct {
 	SessionTimeoutHours pulumi.IntPtrInput
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel pulumi.BoolPtrInput
-	// **Deprecated** The current state of the Client VPN endpoint.
-	//
-	// Deprecated: This attribute has been deprecated.
-	Status pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -471,13 +457,6 @@ func (o EndpointOutput) SessionTimeoutHours() pulumi.IntPtrOutput {
 // Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 func (o EndpointOutput) SplitTunnel() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.SplitTunnel }).(pulumi.BoolPtrOutput)
-}
-
-// **Deprecated** The current state of the Client VPN endpoint.
-//
-// Deprecated: This attribute has been deprecated.
-func (o EndpointOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

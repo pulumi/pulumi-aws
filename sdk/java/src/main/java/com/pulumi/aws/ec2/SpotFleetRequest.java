@@ -25,6 +25,9 @@ import javax.annotation.Nullable;
  * Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
  * instances to be requested on the Spot market.
  * 
+ * &gt; **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+ * We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+ * 
  * ## Example Usage
  * ### Using launch specifications
  * ```java
@@ -231,7 +234,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetSubnetIdsArgs;
+ * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
  * import com.pulumi.aws.ec2.LaunchTemplate;
  * import com.pulumi.aws.ec2.LaunchTemplateArgs;
  * import com.pulumi.aws.ec2.SpotFleetRequest;
@@ -252,8 +255,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
- *             .vpcId(var_.vpc_id())
+ *         final var example = Ec2Functions.getSubnets(GetSubnetsArgs.builder()
+ *             .filters(GetSubnetsFilterArgs.builder()
+ *                 .name(&#34;vpc-id&#34;)
+ *                 .values(var_.vpc_id())
+ *                 .build())
  *             .build());
  * 
  *         var fooLaunchTemplate = new LaunchTemplate(&#34;fooLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
@@ -274,13 +280,13 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .overrides(                
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(data.aws_subnets().example().ids()[0])
+ *                         .subnetId(example.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[0]))
  *                         .build(),
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(data.aws_subnets().example().ids()[1])
+ *                         .subnetId(example.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[1]))
  *                         .build(),
  *                     SpotFleetRequestLaunchTemplateConfigOverrideArgs.builder()
- *                         .subnetId(data.aws_subnets().example().ids()[2])
+ *                         .subnetId(example.applyValue(getSubnetsResult -&gt; getSubnetsResult.ids()[2]))
  *                         .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()

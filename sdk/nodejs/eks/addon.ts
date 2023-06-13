@@ -23,11 +23,9 @@ import * as utilities from "../utilities";
  *     addonName: "vpc-cni",
  * });
  * ```
- * ## Example Update add-on usage with resolveConflicts and PRESERVE
+ * ## Example Update add-on usage with resolveConflictsOnUpdate and PRESERVE
  *
- * `resolveConflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
- *
- * > **Note:** `resolveConflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
+ * `resolveConflictsOnUpdate` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -37,7 +35,7 @@ import * as utilities from "../utilities";
  *     clusterName: aws_eks_cluster.example.name,
  *     addonName: "coredns",
  *     addonVersion: "v1.8.7-eksbuild.3",
- *     resolveConflicts: "PRESERVE",
+ *     resolveConflictsOnUpdate: "PRESERVE",
  * });
  * ```
  *
@@ -61,11 +59,23 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.Addon("example", {
+ *     clusterName: "mycluster",
  *     addonName: "coredns",
  *     addonVersion: "v1.8.7-eksbuild.3",
- *     clusterName: "mycluster",
- *     configurationValues: "{\"replicaCount\":4,\"resources\":{\"limits\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"}}}",
- *     resolveConflicts: "OVERWRITE",
+ *     resolveConflictsOnCreate: "OVERWRITE",
+ *     configurationValues: JSON.stringify({
+ *         replicaCount: 4,
+ *         resources: {
+ *             limits: {
+ *                 cpu: "100m",
+ *                 memory: "150Mi",
+ *             },
+ *             requests: {
+ *                 cpu: "100m",
+ *                 memory: "150Mi",
+ *             },
+ *         },
+ *     }),
  * });
  * ```
  *
@@ -142,11 +152,19 @@ export class Addon extends pulumi.CustomResource {
      */
     public readonly preserve!: pulumi.Output<boolean | undefined>;
     /**
-     * Define how to resolve parameter value conflicts
-     * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     *
+     * @deprecated The "resolve_conflicts" attribute can't be set to "PRESERVE" on initial resource creation. Use "resolve_conflicts_on_create" and/or "resolve_conflicts_on_update" instead
      */
     public readonly resolveConflicts!: pulumi.Output<string | undefined>;
+    /**
+     * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+     */
+    public readonly resolveConflictsOnCreate!: pulumi.Output<string | undefined>;
+    /**
+     * How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE` and `OVERWRITE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     */
+    public readonly resolveConflictsOnUpdate!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an
      * existing IAM role to bind to the add-on's service account. The role must be
@@ -192,6 +210,8 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
             resourceInputs["preserve"] = state ? state.preserve : undefined;
             resourceInputs["resolveConflicts"] = state ? state.resolveConflicts : undefined;
+            resourceInputs["resolveConflictsOnCreate"] = state ? state.resolveConflictsOnCreate : undefined;
+            resourceInputs["resolveConflictsOnUpdate"] = state ? state.resolveConflictsOnUpdate : undefined;
             resourceInputs["serviceAccountRoleArn"] = state ? state.serviceAccountRoleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -209,6 +229,8 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["configurationValues"] = args ? args.configurationValues : undefined;
             resourceInputs["preserve"] = args ? args.preserve : undefined;
             resourceInputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
+            resourceInputs["resolveConflictsOnCreate"] = args ? args.resolveConflictsOnCreate : undefined;
+            resourceInputs["resolveConflictsOnUpdate"] = args ? args.resolveConflictsOnUpdate : undefined;
             resourceInputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -262,11 +284,19 @@ export interface AddonState {
      */
     preserve?: pulumi.Input<boolean>;
     /**
-     * Define how to resolve parameter value conflicts
-     * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     *
+     * @deprecated The "resolve_conflicts" attribute can't be set to "PRESERVE" on initial resource creation. Use "resolve_conflicts_on_create" and/or "resolve_conflicts_on_update" instead
      */
     resolveConflicts?: pulumi.Input<string>;
+    /**
+     * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+     */
+    resolveConflictsOnCreate?: pulumi.Input<string>;
+    /**
+     * How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE` and `OVERWRITE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     */
+    resolveConflictsOnUpdate?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of an
      * existing IAM role to bind to the add-on's service account. The role must be
@@ -320,11 +350,19 @@ export interface AddonArgs {
      */
     preserve?: pulumi.Input<boolean>;
     /**
-     * Define how to resolve parameter value conflicts
-     * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolveConflictsOnCreate` and `resolveConflictsOnUpdate` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     *
+     * @deprecated The "resolve_conflicts" attribute can't be set to "PRESERVE" on initial resource creation. Use "resolve_conflicts_on_create" and/or "resolve_conflicts_on_update" instead
      */
     resolveConflicts?: pulumi.Input<string>;
+    /**
+     * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
+     */
+    resolveConflictsOnCreate?: pulumi.Input<string>;
+    /**
+     * How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE` and `OVERWRITE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     */
+    resolveConflictsOnUpdate?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of an
      * existing IAM role to bind to the add-on's service account. The role must be

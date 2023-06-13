@@ -56,6 +56,14 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * The Primary Contact can be imported using the `account_id`, e.g.,
+ * 
+ * ```sh
+ *  $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
+ * ```
+ * 
  */
 @ResourceType(type="aws:account/primaryContact:PrimaryContact")
 public class PrimaryContact extends com.pulumi.resources.CustomResource {

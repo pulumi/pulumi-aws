@@ -56,11 +56,6 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             AllowRemoteVpcDnsResolution = true,
     ///         },
-    ///         Requester = new Aws.Ec2.Inputs.PeeringConnectionOptionsRequesterArgs
-    ///         {
-    ///             AllowVpcToRemoteClassicLink = true,
-    ///             AllowClassicLinkToRemoteVpc = true,
-    ///         },
     ///     });
     /// 
     /// });

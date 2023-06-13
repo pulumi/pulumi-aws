@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,7 +86,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -195,10 +195,6 @@ type Instance struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
-	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
-	//
-	// Deprecated: use `ipv6_addresses` attribute instead
-	Ipv6Address pulumi.StringOutput `pulumi:"ipv6Address"`
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// A Boolean value indicating whether this instance has a static IP assigned to it.
@@ -279,10 +275,6 @@ type instanceState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
-	//
-	// Deprecated: use `ipv6_addresses` attribute instead
-	Ipv6Address *string `pulumi:"ipv6Address"`
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// A Boolean value indicating whether this instance has a static IP assigned to it.
@@ -326,10 +318,6 @@ type InstanceState struct {
 	CreatedAt pulumi.StringPtrInput
 	// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
 	IpAddressType pulumi.StringPtrInput
-	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
-	//
-	// Deprecated: use `ipv6_addresses` attribute instead
-	Ipv6Address pulumi.StringPtrInput
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses pulumi.StringArrayInput
 	// A Boolean value indicating whether this instance has a static IP assigned to it.
@@ -532,13 +520,6 @@ func (o InstanceOutput) CreatedAt() pulumi.StringOutput {
 // The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
 func (o InstanceOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
-}
-
-// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
-//
-// Deprecated: use `ipv6_addresses` attribute instead
-func (o InstanceOutput) Ipv6Address() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Ipv6Address }).(pulumi.StringOutput)
 }
 
 // List of IPv6 addresses for the Lightsail instance.

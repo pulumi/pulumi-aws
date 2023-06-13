@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,7 +71,7 @@ import (
 //				return err
 //			}
 //			_, err = rds.NewProxyTarget(ctx, "exampleProxyTarget", &rds.ProxyTargetArgs{
-//				DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Id),
+//				DbInstanceIdentifier: pulumi.Any(aws_db_instance.Example.Identifier),
 //				DbProxyName:          exampleProxy.Name,
 //				TargetGroupName:      exampleProxyDefaultTargetGroup.Name,
 //			})

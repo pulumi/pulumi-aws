@@ -19,22 +19,20 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string> BucketArn { get; set; } = null!;
 
         /// <summary>
-        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        /// Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
         /// </summary>
-        [Input("bufferInterval")]
-        public Input<int>? BufferInterval { get; set; }
+        [Input("bufferingInterval")]
+        public Input<int>? BufferingInterval { get; set; }
 
         /// <summary>
-        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+        /// Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
         /// We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
         /// </summary>
-        [Input("bufferSize")]
-        public Input<int>? BufferSize { get; set; }
+        [Input("bufferingSize")]
+        public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
         /// The CloudWatch Logging Options for the delivery stream. More details are given below
-        /// 
-        /// The `extended_s3_configuration` object supports the same fields from `s3_configuration` as well as the following:
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }

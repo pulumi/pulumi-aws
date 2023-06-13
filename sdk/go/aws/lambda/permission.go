@@ -14,6 +14,7 @@ import (
 // Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 //
 // ## Example Usage
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -22,8 +23,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,7 +86,7 @@ import (
 //	}
 //
 // ```
-// ## Usage with SNS
+// ### With SNS
 //
 // ```go
 // package main
@@ -94,9 +95,9 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -161,8 +162,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Specify Lambda permissions for API Gateway REST API
+// ### With API Gateway REST API
 //
 // ```go
 // package main
@@ -171,8 +171,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -201,8 +201,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Usage with CloudWatch log group
+// ### With CloudWatch Log Group
 //
 // ```go
 // package main
@@ -211,9 +210,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -286,15 +285,14 @@ import (
 //	}
 //
 // ```
-//
-// ## Example function URL cross-account invoke policy
+// ### With Cross-Account Invocation Policy
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -314,6 +312,36 @@ import (
 //				Principal:           pulumi.String("arn:aws:iam::444455556666:role/example"),
 //				SourceAccount:       pulumi.String("444455556666"),
 //				FunctionUrlAuthType: pulumi.String("AWS_IAM"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With `replaceTriggeredBy` Lifecycle Configuration
+//
+// If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewPermission(ctx, "logging", &lambda.PermissionArgs{
+//				Action:    pulumi.String("lambda:InvokeFunction"),
+//				Function:  pulumi.Any(aws_lambda_function.Example.Function_name),
+//				Principal: pulumi.String("events.amazonaws.com"),
+//				SourceArn: pulumi.String("arn:aws:events:eu-west-1:111122223333:rule/RunDaily"),
 //			})
 //			if err != nil {
 //				return err

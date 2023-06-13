@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *     engine: "postgres",
  *     engineVersion: "13.4",
  *     instanceClass: "db.t3.micro",
- *     name: "mydb",
+ *     dbName: "mydb",
  *     username: "masterusername",
  *     password: "mustbeeightcharacters",
  *     backupRetentionPeriod: 7,
@@ -55,13 +55,13 @@ import * as utilities from "../utilities";
  *     skipFinalSnapshot: true,
  * });
  * const defaultKey = new aws.kms.Key("defaultKey", {description: "Encryption key for automated backups"}, {
- *     provider: "aws.replica",
+ *     provider: aws.replica,
  * });
  * const defaultInstanceAutomatedBackupsReplication = new aws.rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", {
  *     sourceDbInstanceArn: defaultInstance.arn,
  *     kmsKeyId: defaultKey.arn,
  * }, {
- *     provider: "aws.replica",
+ *     provider: aws.replica,
  * });
  * ```
  *

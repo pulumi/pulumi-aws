@@ -157,21 +157,6 @@ namespace Pulumi.Aws.Ec2
         public Output<string> DhcpOptionsId { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag to enable/disable ClassicLink
-        /// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        /// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        /// </summary>
-        [Output("enableClassiclink")]
-        public Output<bool> EnableClassiclink { get; private set; } = null!;
-
-        /// <summary>
-        /// A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-        /// Only valid in regions and accounts that support EC2 Classic.
-        /// </summary>
-        [Output("enableClassiclinkDnsSupport")]
-        public Output<bool> EnableClassiclinkDnsSupport { get; private set; } = null!;
-
-        /// <summary>
         /// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         /// </summary>
         [Output("enableDnsHostnames")]
@@ -322,21 +307,6 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
-        /// A boolean flag to enable/disable ClassicLink
-        /// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        /// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        /// </summary>
-        [Input("enableClassiclink")]
-        public Input<bool>? EnableClassiclink { get; set; }
-
-        /// <summary>
-        /// A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-        /// Only valid in regions and accounts that support EC2 Classic.
-        /// </summary>
-        [Input("enableClassiclinkDnsSupport")]
-        public Input<bool>? EnableClassiclinkDnsSupport { get; set; }
-
-        /// <summary>
         /// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         /// </summary>
         [Input("enableDnsHostnames")]
@@ -454,21 +424,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("dhcpOptionsId")]
         public Input<string>? DhcpOptionsId { get; set; }
-
-        /// <summary>
-        /// A boolean flag to enable/disable ClassicLink
-        /// for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        /// See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        /// </summary>
-        [Input("enableClassiclink")]
-        public Input<bool>? EnableClassiclink { get; set; }
-
-        /// <summary>
-        /// A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-        /// Only valid in regions and accounts that support EC2 Classic.
-        /// </summary>
-        [Input("enableClassiclinkDnsSupport")]
-        public Input<bool>? EnableClassiclinkDnsSupport { get; set; }
 
         /// <summary>
         /// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.

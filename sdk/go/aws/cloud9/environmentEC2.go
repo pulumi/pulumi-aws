@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloud9"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,8 +50,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloud9"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,8 +90,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloud9"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloud9"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -118,7 +118,7 @@ import (
 //				Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (*string, error) {
 //					return &cloud9Instance.Id, nil
 //				}).(pulumi.StringPtrOutput),
-//				Vpc: pulumi.Bool(true),
+//				Domain: pulumi.String("vpc"),
 //			})
 //			if err != nil {
 //				return err

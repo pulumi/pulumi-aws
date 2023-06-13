@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  *             .engine(&#34;postgres&#34;)
  *             .engineVersion(&#34;13.4&#34;)
  *             .instanceClass(&#34;db.t3.micro&#34;)
- *             .name(&#34;mydb&#34;)
+ *             .dbName(&#34;mydb&#34;)
  *             .username(&#34;masterusername&#34;)
  *             .password(&#34;mustbeeightcharacters&#34;)
  *             .backupRetentionPeriod(7)
@@ -133,14 +133,14 @@ import javax.annotation.Nullable;
  *         var defaultKey = new Key(&#34;defaultKey&#34;, KeyArgs.builder()        
  *             .description(&#34;Encryption key for automated backups&#34;)
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.replica&#34;)
+ *                 .provider(aws.replica())
  *                 .build());
  * 
  *         var defaultInstanceAutomatedBackupsReplication = new InstanceAutomatedBackupsReplication(&#34;defaultInstanceAutomatedBackupsReplication&#34;, InstanceAutomatedBackupsReplicationArgs.builder()        
  *             .sourceDbInstanceArn(defaultInstance.arn())
  *             .kmsKeyId(defaultKey.arn())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.replica&#34;)
+ *                 .provider(aws.replica())
  *                 .build());
  * 
  *     }

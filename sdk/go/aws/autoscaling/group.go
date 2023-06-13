@@ -15,13 +15,7 @@ import (
 //
 // > **Note:** You must specify either `launchConfiguration`, `launchTemplate`, or `mixedInstancesPolicy`.
 //
-// > **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
-// both a standalone `autoscaling.Attachment` resource
-// (describing an ASG attached to an ELB or ALB), and an `autoscaling.Group`
-// with `loadBalancers` and `targetGroupArns` defined in-line. These two methods are not
-// mutually-exclusive. If `autoscaling.Attachment` resources are used, either alone or with inline
-// `loadBalancers` or `targetGroupArns`, the `autoscaling.Group` resource must be configured
-// to ignore changes to the `loadBalancers` and `targetGroupArns` arguments.
+// > **NOTE on Auto Scaling Groups, Attachments and Traffic Source Attachments:** Pulumi provides standalone Attachment (for attaching Classic Load Balancers and Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target groups) and Traffic Source Attachment (for attaching Load Balancers and VPC Lattice target groups) resources and an Auto Scaling Group resource with `loadBalancers`, `targetGroupArns` and `trafficSource` attributes. Do not use the same traffic source in more than one of these resources. Doing so will cause a conflict of attachments. A `lifecycle` configuration block can be used to suppress differences if necessary.
 //
 // ## Example Usage
 // ### With Latest Version Of Launch Template
@@ -31,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,8 +68,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -130,8 +124,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -195,8 +189,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -263,8 +257,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -321,8 +315,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -396,8 +390,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -477,7 +471,7 @@ import (
 //
 // The `minElbCapacity` parameter causes the provider to wait for at least the
 // requested number of instances to show up `"InService"` in all attached ELBs
-// during ASG creation.  It has no effect on ASG updates.
+// during ASG creation. It has no effect on ASG updates.
 //
 // If `waitForElbCapacity` is set, the provider will wait for exactly that number
 // of Instances to be `"InService"` in all attached ELBs on both creation and
@@ -512,7 +506,7 @@ type Group struct {
 
 	// ARN for this Auto Scaling Group
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrOutput `pulumi:"capacityRebalance"`
@@ -531,9 +525,9 @@ type Group struct {
 	// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics pulumi.StringArrayOutput `pulumi:"enabledMetrics"`
 	// Allows deleting the Auto Scaling Group without waiting
-	// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+	// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
 	// even if it's in the process of scaling a resource. Normally, this provider
-	// drains all the instances before deleting the group.  This bypasses that
+	// drains all the instances before deleting the group. This bypasses that
 	// behavior and potentially leaves resources dangling.
 	ForceDelete         pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	ForceDeleteWarmPool pulumi.BoolPtrOutput `pulumi:"forceDeleteWarmPool"`
@@ -558,7 +552,7 @@ type Group struct {
 	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate GroupLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
 	// List of elastic load balancer names to add to the autoscaling
-	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
+	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
 	LoadBalancers pulumi.StringArrayOutput `pulumi:"loadBalancers"`
 	// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
 	MaxInstanceLifetime pulumi.IntPtrOutput `pulumi:"maxInstanceLifetime"`
@@ -566,7 +560,7 @@ type Group struct {
 	MaxSize pulumi.IntOutput `pulumi:"maxSize"`
 	// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity pulumi.StringPtrOutput `pulumi:"metricsGranularity"`
-	// Setting this causes the provider to wait for
+	// Setting this causes Pulumi to wait for
 	// this number of instances from this Auto Scaling Group to show up healthy in the
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
@@ -576,7 +570,7 @@ type Group struct {
 	MinSize pulumi.IntOutput `pulumi:"minSize"`
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
 	MixedInstancesPolicy GroupMixedInstancesPolicyPtrOutput `pulumi:"mixedInstancesPolicy"`
-	// Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `namePrefix`.
+	// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -596,25 +590,23 @@ type Group struct {
 	// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayOutput `pulumi:"suspendedProcesses"`
-	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+	// Configuration block(s) containing resource tags. See Tag below for more details.
 	Tags GroupTagArrayOutput `pulumi:"tags"`
-	// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-	//
-	// Deprecated: Use tag instead
-	TagsCollection pulumi.StringMapArrayOutput `pulumi:"tagsCollection"`
-	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 	TargetGroupArns pulumi.StringArrayOutput `pulumi:"targetGroupArns"`
 	// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
 	TerminationPolicies pulumi.StringArrayOutput `pulumi:"terminationPolicies"`
+	// Attaches one or more traffic sources to the specified Auto Scaling group.
+	TrafficSources GroupTrafficSourceArrayOutput `pulumi:"trafficSources"`
 	// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
 	VpcZoneIdentifiers pulumi.StringArrayOutput `pulumi:"vpcZoneIdentifiers"`
 	// Maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-	// wait for ASG instances to be healthy before timing out.  (See also Waiting
+	// wait for ASG instances to be healthy before timing out. (See also Waiting
 	// for Capacity below.) Setting this to "0" causes
 	// the provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout pulumi.StringPtrOutput `pulumi:"waitForCapacityTimeout"`
-	// Setting this will cause the provider to wait
+	// Setting this will cause Pulumi to wait
 	// for exactly this number of healthy instances from this Auto Scaling Group in
 	// all attached load balancers on both create and update operations. (Takes
 	// precedence over `minElbCapacity` behavior.)
@@ -664,7 +656,7 @@ func GetGroup(ctx *pulumi.Context,
 type groupState struct {
 	// ARN for this Auto Scaling Group
 	Arn *string `pulumi:"arn"`
-	// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
@@ -683,9 +675,9 @@ type groupState struct {
 	// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics []string `pulumi:"enabledMetrics"`
 	// Allows deleting the Auto Scaling Group without waiting
-	// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+	// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
 	// even if it's in the process of scaling a resource. Normally, this provider
-	// drains all the instances before deleting the group.  This bypasses that
+	// drains all the instances before deleting the group. This bypasses that
 	// behavior and potentially leaves resources dangling.
 	ForceDelete         *bool `pulumi:"forceDelete"`
 	ForceDeleteWarmPool *bool `pulumi:"forceDeleteWarmPool"`
@@ -710,7 +702,7 @@ type groupState struct {
 	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate *GroupLaunchTemplate `pulumi:"launchTemplate"`
 	// List of elastic load balancer names to add to the autoscaling
-	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
+	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
 	LoadBalancers []string `pulumi:"loadBalancers"`
 	// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
 	MaxInstanceLifetime *int `pulumi:"maxInstanceLifetime"`
@@ -718,7 +710,7 @@ type groupState struct {
 	MaxSize *int `pulumi:"maxSize"`
 	// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity *string `pulumi:"metricsGranularity"`
-	// Setting this causes the provider to wait for
+	// Setting this causes Pulumi to wait for
 	// this number of instances from this Auto Scaling Group to show up healthy in the
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
@@ -728,7 +720,7 @@ type groupState struct {
 	MinSize *int `pulumi:"minSize"`
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
 	MixedInstancesPolicy *GroupMixedInstancesPolicy `pulumi:"mixedInstancesPolicy"`
-	// Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `namePrefix`.
+	// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -748,25 +740,23 @@ type groupState struct {
 	// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
-	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+	// Configuration block(s) containing resource tags. See Tag below for more details.
 	Tags []GroupTag `pulumi:"tags"`
-	// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-	//
-	// Deprecated: Use tag instead
-	TagsCollection []map[string]string `pulumi:"tagsCollection"`
-	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
 	TerminationPolicies []string `pulumi:"terminationPolicies"`
+	// Attaches one or more traffic sources to the specified Auto Scaling group.
+	TrafficSources []GroupTrafficSource `pulumi:"trafficSources"`
 	// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
 	VpcZoneIdentifiers []string `pulumi:"vpcZoneIdentifiers"`
 	// Maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-	// wait for ASG instances to be healthy before timing out.  (See also Waiting
+	// wait for ASG instances to be healthy before timing out. (See also Waiting
 	// for Capacity below.) Setting this to "0" causes
 	// the provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout *string `pulumi:"waitForCapacityTimeout"`
-	// Setting this will cause the provider to wait
+	// Setting this will cause Pulumi to wait
 	// for exactly this number of healthy instances from this Auto Scaling Group in
 	// all attached load balancers on both create and update operations. (Takes
 	// precedence over `minElbCapacity` behavior.)
@@ -782,7 +772,7 @@ type groupState struct {
 type GroupState struct {
 	// ARN for this Auto Scaling Group
 	Arn pulumi.StringPtrInput
-	// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrInput
@@ -801,9 +791,9 @@ type GroupState struct {
 	// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics pulumi.StringArrayInput
 	// Allows deleting the Auto Scaling Group without waiting
-	// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+	// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
 	// even if it's in the process of scaling a resource. Normally, this provider
-	// drains all the instances before deleting the group.  This bypasses that
+	// drains all the instances before deleting the group. This bypasses that
 	// behavior and potentially leaves resources dangling.
 	ForceDelete         pulumi.BoolPtrInput
 	ForceDeleteWarmPool pulumi.BoolPtrInput
@@ -828,7 +818,7 @@ type GroupState struct {
 	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate GroupLaunchTemplatePtrInput
 	// List of elastic load balancer names to add to the autoscaling
-	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
+	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
 	LoadBalancers pulumi.StringArrayInput
 	// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
 	MaxInstanceLifetime pulumi.IntPtrInput
@@ -836,7 +826,7 @@ type GroupState struct {
 	MaxSize pulumi.IntPtrInput
 	// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity pulumi.StringPtrInput
-	// Setting this causes the provider to wait for
+	// Setting this causes Pulumi to wait for
 	// this number of instances from this Auto Scaling Group to show up healthy in the
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
@@ -846,7 +836,7 @@ type GroupState struct {
 	MinSize pulumi.IntPtrInput
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
 	MixedInstancesPolicy GroupMixedInstancesPolicyPtrInput
-	// Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `namePrefix`.
+	// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -866,25 +856,23 @@ type GroupState struct {
 	// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayInput
-	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+	// Configuration block(s) containing resource tags. See Tag below for more details.
 	Tags GroupTagArrayInput
-	// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-	//
-	// Deprecated: Use tag instead
-	TagsCollection pulumi.StringMapArrayInput
-	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 	TargetGroupArns pulumi.StringArrayInput
 	// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
 	TerminationPolicies pulumi.StringArrayInput
+	// Attaches one or more traffic sources to the specified Auto Scaling group.
+	TrafficSources GroupTrafficSourceArrayInput
 	// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
 	VpcZoneIdentifiers pulumi.StringArrayInput
 	// Maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-	// wait for ASG instances to be healthy before timing out.  (See also Waiting
+	// wait for ASG instances to be healthy before timing out. (See also Waiting
 	// for Capacity below.) Setting this to "0" causes
 	// the provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout pulumi.StringPtrInput
-	// Setting this will cause the provider to wait
+	// Setting this will cause Pulumi to wait
 	// for exactly this number of healthy instances from this Auto Scaling Group in
 	// all attached load balancers on both create and update operations. (Takes
 	// precedence over `minElbCapacity` behavior.)
@@ -902,7 +890,7 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
@@ -921,9 +909,9 @@ type groupArgs struct {
 	// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics []string `pulumi:"enabledMetrics"`
 	// Allows deleting the Auto Scaling Group without waiting
-	// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+	// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
 	// even if it's in the process of scaling a resource. Normally, this provider
-	// drains all the instances before deleting the group.  This bypasses that
+	// drains all the instances before deleting the group. This bypasses that
 	// behavior and potentially leaves resources dangling.
 	ForceDelete         *bool `pulumi:"forceDelete"`
 	ForceDeleteWarmPool *bool `pulumi:"forceDeleteWarmPool"`
@@ -948,7 +936,7 @@ type groupArgs struct {
 	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate *GroupLaunchTemplate `pulumi:"launchTemplate"`
 	// List of elastic load balancer names to add to the autoscaling
-	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
+	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
 	LoadBalancers []string `pulumi:"loadBalancers"`
 	// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
 	MaxInstanceLifetime *int `pulumi:"maxInstanceLifetime"`
@@ -956,7 +944,7 @@ type groupArgs struct {
 	MaxSize int `pulumi:"maxSize"`
 	// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity *string `pulumi:"metricsGranularity"`
-	// Setting this causes the provider to wait for
+	// Setting this causes Pulumi to wait for
 	// this number of instances from this Auto Scaling Group to show up healthy in the
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
@@ -966,7 +954,7 @@ type groupArgs struct {
 	MinSize int `pulumi:"minSize"`
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
 	MixedInstancesPolicy *GroupMixedInstancesPolicy `pulumi:"mixedInstancesPolicy"`
-	// Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `namePrefix`.
+	// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -984,25 +972,23 @@ type groupArgs struct {
 	// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
-	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+	// Configuration block(s) containing resource tags. See Tag below for more details.
 	Tags []GroupTag `pulumi:"tags"`
-	// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-	//
-	// Deprecated: Use tag instead
-	TagsCollection []map[string]string `pulumi:"tagsCollection"`
-	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
 	TerminationPolicies []string `pulumi:"terminationPolicies"`
+	// Attaches one or more traffic sources to the specified Auto Scaling group.
+	TrafficSources []GroupTrafficSource `pulumi:"trafficSources"`
 	// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
 	VpcZoneIdentifiers []string `pulumi:"vpcZoneIdentifiers"`
 	// Maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-	// wait for ASG instances to be healthy before timing out.  (See also Waiting
+	// wait for ASG instances to be healthy before timing out. (See also Waiting
 	// for Capacity below.) Setting this to "0" causes
 	// the provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout *string `pulumi:"waitForCapacityTimeout"`
-	// Setting this will cause the provider to wait
+	// Setting this will cause Pulumi to wait
 	// for exactly this number of healthy instances from this Auto Scaling Group in
 	// all attached load balancers on both create and update operations. (Takes
 	// precedence over `minElbCapacity` behavior.)
@@ -1015,7 +1001,7 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayInput
 	// Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrInput
@@ -1034,9 +1020,9 @@ type GroupArgs struct {
 	// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics pulumi.StringArrayInput
 	// Allows deleting the Auto Scaling Group without waiting
-	// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+	// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
 	// even if it's in the process of scaling a resource. Normally, this provider
-	// drains all the instances before deleting the group.  This bypasses that
+	// drains all the instances before deleting the group. This bypasses that
 	// behavior and potentially leaves resources dangling.
 	ForceDelete         pulumi.BoolPtrInput
 	ForceDeleteWarmPool pulumi.BoolPtrInput
@@ -1061,7 +1047,7 @@ type GroupArgs struct {
 	// Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
 	LaunchTemplate GroupLaunchTemplatePtrInput
 	// List of elastic load balancer names to add to the autoscaling
-	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
+	// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
 	LoadBalancers pulumi.StringArrayInput
 	// Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
 	MaxInstanceLifetime pulumi.IntPtrInput
@@ -1069,7 +1055,7 @@ type GroupArgs struct {
 	MaxSize pulumi.IntInput
 	// Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
 	MetricsGranularity pulumi.StringPtrInput
-	// Setting this causes the provider to wait for
+	// Setting this causes Pulumi to wait for
 	// this number of instances from this Auto Scaling Group to show up healthy in the
 	// ELB only on creation. Updates will not wait on ELB instance number changes.
 	// (See also Waiting for Capacity below.)
@@ -1079,7 +1065,7 @@ type GroupArgs struct {
 	MinSize pulumi.IntInput
 	// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
 	MixedInstancesPolicy GroupMixedInstancesPolicyPtrInput
-	// Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `namePrefix`.
+	// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -1097,25 +1083,23 @@ type GroupArgs struct {
 	// List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayInput
-	// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+	// Configuration block(s) containing resource tags. See Tag below for more details.
 	Tags GroupTagArrayInput
-	// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-	//
-	// Deprecated: Use tag instead
-	TagsCollection pulumi.StringMapArrayInput
-	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 	TargetGroupArns pulumi.StringArrayInput
 	// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
 	TerminationPolicies pulumi.StringArrayInput
+	// Attaches one or more traffic sources to the specified Auto Scaling group.
+	TrafficSources GroupTrafficSourceArrayInput
 	// List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
 	VpcZoneIdentifiers pulumi.StringArrayInput
 	// Maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-	// wait for ASG instances to be healthy before timing out.  (See also Waiting
+	// wait for ASG instances to be healthy before timing out. (See also Waiting
 	// for Capacity below.) Setting this to "0" causes
 	// the provider to skip all Capacity Waiting behavior.
 	WaitForCapacityTimeout pulumi.StringPtrInput
-	// Setting this will cause the provider to wait
+	// Setting this will cause Pulumi to wait
 	// for exactly this number of healthy instances from this Auto Scaling Group in
 	// all attached load balancers on both create and update operations. (Takes
 	// precedence over `minElbCapacity` behavior.)
@@ -1218,7 +1202,7 @@ func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpcZoneIdentifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpcZoneIdentifier`.
 func (o GroupOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
@@ -1261,9 +1245,9 @@ func (o GroupOutput) EnabledMetrics() pulumi.StringArrayOutput {
 }
 
 // Allows deleting the Auto Scaling Group without waiting
-// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
+// for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
 // even if it's in the process of scaling a resource. Normally, this provider
-// drains all the instances before deleting the group.  This bypasses that
+// drains all the instances before deleting the group. This bypasses that
 // behavior and potentially leaves resources dangling.
 func (o GroupOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
@@ -1312,7 +1296,7 @@ func (o GroupOutput) LaunchTemplate() GroupLaunchTemplatePtrOutput {
 }
 
 // List of elastic load balancer names to add to the autoscaling
-// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead.
+// group names. Only valid for classic load balancers. For ALBs, use `targetGroupArns` instead. To remove all load balancer attachments an empty list should be specified.
 func (o GroupOutput) LoadBalancers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.LoadBalancers }).(pulumi.StringArrayOutput)
 }
@@ -1332,7 +1316,7 @@ func (o GroupOutput) MetricsGranularity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.MetricsGranularity }).(pulumi.StringPtrOutput)
 }
 
-// Setting this causes the provider to wait for
+// Setting this causes Pulumi to wait for
 // this number of instances from this Auto Scaling Group to show up healthy in the
 // ELB only on creation. Updates will not wait on ELB instance number changes.
 // (See also Waiting for Capacity below.)
@@ -1351,7 +1335,7 @@ func (o GroupOutput) MixedInstancesPolicy() GroupMixedInstancesPolicyPtrOutput {
 	return o.ApplyT(func(v *Group) GroupMixedInstancesPolicyPtrOutput { return v.MixedInstancesPolicy }).(GroupMixedInstancesPolicyPtrOutput)
 }
 
-// Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `namePrefix`.
+// Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `namePrefix`.
 func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -1392,19 +1376,12 @@ func (o GroupOutput) SuspendedProcesses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.SuspendedProcesses }).(pulumi.StringArrayOutput)
 }
 
-// Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
+// Configuration block(s) containing resource tags. See Tag below for more details.
 func (o GroupOutput) Tags() GroupTagArrayOutput {
 	return o.ApplyT(func(v *Group) GroupTagArrayOutput { return v.Tags }).(GroupTagArrayOutput)
 }
 
-// Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-//
-// Deprecated: Use tag instead
-func (o GroupOutput) TagsCollection() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v *Group) pulumi.StringMapArrayOutput { return v.TagsCollection }).(pulumi.StringMapArrayOutput)
-}
-
-// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
+// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 func (o GroupOutput) TargetGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.TargetGroupArns }).(pulumi.StringArrayOutput)
 }
@@ -1414,6 +1391,11 @@ func (o GroupOutput) TerminationPolicies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.TerminationPolicies }).(pulumi.StringArrayOutput)
 }
 
+// Attaches one or more traffic sources to the specified Auto Scaling group.
+func (o GroupOutput) TrafficSources() GroupTrafficSourceArrayOutput {
+	return o.ApplyT(func(v *Group) GroupTrafficSourceArrayOutput { return v.TrafficSources }).(GroupTrafficSourceArrayOutput)
+}
+
 // List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availabilityZones`.
 func (o GroupOutput) VpcZoneIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.VpcZoneIdentifiers }).(pulumi.StringArrayOutput)
@@ -1421,14 +1403,14 @@ func (o GroupOutput) VpcZoneIdentifiers() pulumi.StringArrayOutput {
 
 // Maximum
 // [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-// wait for ASG instances to be healthy before timing out.  (See also Waiting
+// wait for ASG instances to be healthy before timing out. (See also Waiting
 // for Capacity below.) Setting this to "0" causes
 // the provider to skip all Capacity Waiting behavior.
 func (o GroupOutput) WaitForCapacityTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.WaitForCapacityTimeout }).(pulumi.StringPtrOutput)
 }
 
-// Setting this will cause the provider to wait
+// Setting this will cause Pulumi to wait
 // for exactly this number of healthy instances from this Auto Scaling Group in
 // all attached load balancers on both create and update operations. (Takes
 // precedence over `minElbCapacity` behavior.)

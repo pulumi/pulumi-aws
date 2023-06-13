@@ -25,6 +25,9 @@ __all__ = [
     'DomainEncryptAtRest',
     'DomainLogPublishingOption',
     'DomainNodeToNodeEncryption',
+    'DomainOffPeakWindowOptions',
+    'DomainOffPeakWindowOptionsOffPeakWindow',
+    'DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime',
     'DomainSamlOptionsSamlOptions',
     'DomainSamlOptionsSamlOptionsIdp',
     'DomainSnapshotOptions',
@@ -43,6 +46,9 @@ __all__ = [
     'GetDomainEncryptionAtRestResult',
     'GetDomainLogPublishingOptionResult',
     'GetDomainNodeToNodeEncryptionResult',
+    'GetDomainOffPeakWindowOptionsResult',
+    'GetDomainOffPeakWindowOptionsOffPeakWindowResult',
+    'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult',
     'GetDomainSnapshotOptionResult',
     'GetDomainVpcOptionResult',
 ]
@@ -946,6 +952,117 @@ class DomainNodeToNodeEncryption(dict):
 
 
 @pulumi.output_type
+class DomainOffPeakWindowOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offPeakWindow":
+            suggest = "off_peak_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainOffPeakWindowOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainOffPeakWindowOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainOffPeakWindowOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 off_peak_window: Optional['outputs.DomainOffPeakWindowOptionsOffPeakWindow'] = None):
+        """
+        :param bool enabled: Enabled disabled toggle for off-peak update window.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if off_peak_window is not None:
+            pulumi.set(__self__, "off_peak_window", off_peak_window)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enabled disabled toggle for off-peak update window.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="offPeakWindow")
+    def off_peak_window(self) -> Optional['outputs.DomainOffPeakWindowOptionsOffPeakWindow']:
+        return pulumi.get(self, "off_peak_window")
+
+
+@pulumi.output_type
+class DomainOffPeakWindowOptionsOffPeakWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "windowStartTime":
+            suggest = "window_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainOffPeakWindowOptionsOffPeakWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainOffPeakWindowOptionsOffPeakWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainOffPeakWindowOptionsOffPeakWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 window_start_time: Optional['outputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime'] = None):
+        """
+        :param 'DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs' window_start_time: 10h window for updates
+        """
+        if window_start_time is not None:
+            pulumi.set(__self__, "window_start_time", window_start_time)
+
+    @property
+    @pulumi.getter(name="windowStartTime")
+    def window_start_time(self) -> Optional['outputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime']:
+        """
+        10h window for updates
+        """
+        return pulumi.get(self, "window_start_time")
+
+
+@pulumi.output_type
+class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime(dict):
+    def __init__(__self__, *,
+                 hours: Optional[int] = None,
+                 minutes: Optional[int] = None):
+        """
+        :param int hours: Starting hour of the 10-hour window for updates
+        :param int minutes: Starting minute of the 10-hour window for updates
+        """
+        if hours is not None:
+            pulumi.set(__self__, "hours", hours)
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Optional[int]:
+        """
+        Starting hour of the 10-hour window for updates
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[int]:
+        """
+        Starting minute of the 10-hour window for updates
+        """
+        return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
 class DomainSamlOptionsSamlOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1339,7 +1456,7 @@ class GetDomainAdvancedSecurityOptionResult(dict):
                  enabled: bool,
                  internal_user_database_enabled: bool):
         """
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         :param bool internal_user_database_enabled: Whether the internal user database is enabled.
         """
         pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
@@ -1355,7 +1472,7 @@ class GetDomainAdvancedSecurityOptionResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
 
@@ -1611,7 +1728,7 @@ class GetDomainClusterConfigColdStorageOptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         """
         pulumi.set(__self__, "enabled", enabled)
 
@@ -1619,7 +1736,7 @@ class GetDomainClusterConfigColdStorageOptionResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
 
@@ -1650,7 +1767,7 @@ class GetDomainCognitoOptionResult(dict):
                  role_arn: str,
                  user_pool_id: str):
         """
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         :param str identity_pool_id: Cognito Identity pool used by the domain.
         :param str role_arn: IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
         :param str user_pool_id: Cognito User pool used by the domain.
@@ -1664,7 +1781,7 @@ class GetDomainCognitoOptionResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
 
@@ -1761,7 +1878,7 @@ class GetDomainEncryptionAtRestResult(dict):
                  enabled: bool,
                  kms_key_id: str):
         """
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         :param str kms_key_id: KMS key id used to encrypt data at rest.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1771,7 +1888,7 @@ class GetDomainEncryptionAtRestResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
 
@@ -1792,7 +1909,7 @@ class GetDomainLogPublishingOptionResult(dict):
                  log_type: str):
         """
         :param str cloudwatch_log_group_arn: CloudWatch Log Group where the logs are published.
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         :param str log_type: Type of OpenSearch log being published.
         """
         pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
@@ -1811,7 +1928,7 @@ class GetDomainLogPublishingOptionResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
 
@@ -1829,7 +1946,7 @@ class GetDomainNodeToNodeEncryptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
-        :param bool enabled: Whether node to node encryption is enabled.
+        :param bool enabled: Enabled disabled toggle for off-peak update window
         """
         pulumi.set(__self__, "enabled", enabled)
 
@@ -1837,9 +1954,81 @@ class GetDomainNodeToNodeEncryptionResult(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether node to node encryption is enabled.
+        Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class GetDomainOffPeakWindowOptionsResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 off_peak_windows: Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowResult']):
+        """
+        :param bool enabled: Enabled disabled toggle for off-peak update window
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "off_peak_windows", off_peak_windows)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Enabled disabled toggle for off-peak update window
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="offPeakWindows")
+    def off_peak_windows(self) -> Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowResult']:
+        return pulumi.get(self, "off_peak_windows")
+
+
+@pulumi.output_type
+class GetDomainOffPeakWindowOptionsOffPeakWindowResult(dict):
+    def __init__(__self__, *,
+                 window_start_times: Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult']):
+        """
+        :param Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs'] window_start_times: 10h window for updates
+        """
+        pulumi.set(__self__, "window_start_times", window_start_times)
+
+    @property
+    @pulumi.getter(name="windowStartTimes")
+    def window_start_times(self) -> Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult']:
+        """
+        10h window for updates
+        """
+        return pulumi.get(self, "window_start_times")
+
+
+@pulumi.output_type
+class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult(dict):
+    def __init__(__self__, *,
+                 hours: int,
+                 minutes: int):
+        """
+        :param int hours: Starting hour of the 10-hour window for updates
+        :param int minutes: Starting minute of the 10-hour window for updates
+        """
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> int:
+        """
+        Starting hour of the 10-hour window for updates
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> int:
+        """
+        Starting minute of the 10-hour window for updates
+        """
+        return pulumi.get(self, "minutes")
 
 
 @pulumi.output_type

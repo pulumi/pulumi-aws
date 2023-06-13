@@ -27,7 +27,7 @@ import (
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/mitchellh/go-homedir"
-	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
@@ -624,7 +624,7 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(awsShim.NewProvider())
+	p := shimv2.NewProvider(awsShim.NewProvider(), shimv2.WithDiffStrategy(shimv2.PlanState))
 
 	prov := tfbridge.ProviderInfo{
 		P:           p,
@@ -1625,14 +1625,6 @@ func Provider() tfbridge.ProviderInfo {
 					"auto_minor_version_upgrade": {
 						Type: "boolean",
 					},
-				},
-			},
-			"aws_elasticache_security_group": {
-				Tok: awsResource(elasticacheMod, "SecurityGroup"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {Default: managedByPulumi},
-					// // Use "ingress" instead of "ingresses" to match AWS APIs
-					// "ingress": {Name: "ingress"},
 				},
 			},
 			"aws_elasticache_subnet_group": {
@@ -2664,10 +2656,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_location_tracker_association": {Tok: awsResource(locationMod, "TrackerAssociation")},
 
 			// Macie
-			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
-			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
-			"aws_macie2_custom_data_identifier":    {Tok: awsResource(macieMod, "CustomDataIdentifier")},
-			"aws_macie2_findings_filter":           {Tok: awsResource(macieMod, "FindingsFilter")},
+			"aws_macie2_custom_data_identifier": {Tok: awsResource(macieMod, "CustomDataIdentifier")},
+			"aws_macie2_findings_filter":        {Tok: awsResource(macieMod, "FindingsFilter")},
 			// Macie2
 			"aws_macie2_account":                             {Tok: awsResource(macie2Mod, "Account")},
 			"aws_macie2_classification_job":                  {Tok: awsResource(macie2Mod, "ClassificationJob")},
@@ -2913,14 +2903,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_instance_role_association": {
 				Tok: awsResource(rdsMod, "RoleAssociation"),
 			},
-			"aws_db_security_group": {
-				Tok: awsResource(rdsMod, "SecurityGroup"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {Default: managedByPulumi},
-					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
-				},
-			},
 			"aws_db_snapshot": {Tok: awsResource(rdsMod, "Snapshot")},
 			"aws_db_subnet_group": {
 				Tok: awsResource(rdsMod, "SubnetGroup"),
@@ -2955,14 +2937,6 @@ func Provider() tfbridge.ProviderInfo {
 					"description": {
 						Default: managedByPulumi,
 					},
-				},
-			},
-			"aws_redshift_security_group": {
-				Tok: awsResource(redshiftMod, "SecurityGroup"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"description": {Default: managedByPulumi},
-					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
 				},
 			},
 			"aws_redshift_snapshot_copy_grant": {Tok: awsResource(redshiftMod, "SnapshotCopyGrant")},
@@ -3751,6 +3725,26 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(quicksightMod, "Template"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// HACK: remove this field for now as it breaks dotnet codegen due to our current type naming strategy.
+					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
+					"definition": {
+						Omit: true,
+					},
+				},
+			},
+			"aws_quicksight_analysis": {
+				Tok: awsResource(quicksightMod, "Analysis"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
+					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
+					"definition": {
+						Omit: true,
+					},
+				},
+			},
+			"aws_quicksight_dashboard": {
+				Tok: awsResource(quicksightMod, "Dashboard"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// HACK: remove this field for now as it breaks dotnet and java codegen due to our current type naming strategy.
 					// https://github.com/pulumi/pulumi-terraform-bridge/issues/1118
 					"definition": {
 						Omit: true,

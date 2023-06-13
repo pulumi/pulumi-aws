@@ -29,7 +29,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,8 +62,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -123,8 +123,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/efs"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -203,9 +203,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //

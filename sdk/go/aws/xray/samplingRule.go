@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/xray"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/xray"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -34,7 +34,7 @@ import (
 //				FixedRate:     pulumi.Float64(0.05),
 //				Host:          pulumi.String("*"),
 //				HttpMethod:    pulumi.String("*"),
-//				Priority:      pulumi.Int(10000),
+//				Priority:      pulumi.Int(9999),
 //				ReservoirSize: pulumi.Int(1),
 //				ResourceArn:   pulumi.String("*"),
 //				RuleName:      pulumi.String("example"),

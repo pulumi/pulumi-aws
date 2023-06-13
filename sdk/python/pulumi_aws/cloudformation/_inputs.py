@@ -14,6 +14,7 @@ __all__ = [
     'StackSetAutoDeploymentArgs',
     'StackSetInstanceDeploymentTargetsArgs',
     'StackSetInstanceOperationPreferencesArgs',
+    'StackSetManagedExecutionArgs',
     'StackSetOperationPreferencesArgs',
 ]
 
@@ -217,6 +218,29 @@ class StackSetInstanceOperationPreferencesArgs:
     @region_orders.setter
     def region_orders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "region_orders", value)
+
+
+@pulumi.input_type
+class StackSetManagedExecutionArgs:
+    def __init__(__self__, *,
+                 active: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] active: When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+        """
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+        """
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active", value)
 
 
 @pulumi.input_type

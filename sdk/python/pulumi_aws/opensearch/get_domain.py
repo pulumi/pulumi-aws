@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetDomainResult',
@@ -22,7 +23,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, engine_version=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, processing=None, snapshot_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, engine_version=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, snapshot_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -76,6 +77,10 @@ class GetDomainResult:
         pulumi.set(__self__, "id", id)
         if kibana_endpoint and not isinstance(kibana_endpoint, str):
             raise TypeError("Expected argument 'kibana_endpoint' to be a str")
+        if kibana_endpoint is not None:
+            warnings.warn("""use 'dashboard_endpoint' attribute instead""", DeprecationWarning)
+            pulumi.log.warn("""kibana_endpoint is deprecated: use 'dashboard_endpoint' attribute instead""")
+
         pulumi.set(__self__, "kibana_endpoint", kibana_endpoint)
         if log_publishing_options and not isinstance(log_publishing_options, list):
             raise TypeError("Expected argument 'log_publishing_options' to be a list")
@@ -83,6 +88,9 @@ class GetDomainResult:
         if node_to_node_encryptions and not isinstance(node_to_node_encryptions, list):
             raise TypeError("Expected argument 'node_to_node_encryptions' to be a list")
         pulumi.set(__self__, "node_to_node_encryptions", node_to_node_encryptions)
+        if off_peak_window_options and not isinstance(off_peak_window_options, dict):
+            raise TypeError("Expected argument 'off_peak_window_options' to be a dict")
+        pulumi.set(__self__, "off_peak_window_options", off_peak_window_options)
         if processing and not isinstance(processing, bool):
             raise TypeError("Expected argument 'processing' to be a bool")
         pulumi.set(__self__, "processing", processing)
@@ -233,7 +241,7 @@ class GetDomainResult:
     @pulumi.getter(name="kibanaEndpoint")
     def kibana_endpoint(self) -> str:
         """
-        Domain-specific endpoint used to access the Kibana application. OpenSearch Dashboards do not use Kibana, so this attribute will be **DEPRECATED** in a future version.
+        (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         """
         return pulumi.get(self, "kibana_endpoint")
 
@@ -252,6 +260,14 @@ class GetDomainResult:
         Domain in transit encryption related options.
         """
         return pulumi.get(self, "node_to_node_encryptions")
+
+    @property
+    @pulumi.getter(name="offPeakWindowOptions")
+    def off_peak_window_options(self) -> Optional['outputs.GetDomainOffPeakWindowOptionsResult']:
+        """
+        Off Peak update options
+        """
+        return pulumi.get(self, "off_peak_window_options")
 
     @property
     @pulumi.getter
@@ -312,6 +328,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             kibana_endpoint=self.kibana_endpoint,
             log_publishing_options=self.log_publishing_options,
             node_to_node_encryptions=self.node_to_node_encryptions,
+            off_peak_window_options=self.off_peak_window_options,
             processing=self.processing,
             snapshot_options=self.snapshot_options,
             tags=self.tags,
@@ -319,6 +336,7 @@ class AwaitableGetDomainResult(GetDomainResult):
 
 
 def get_domain(domain_name: Optional[str] = None,
+               off_peak_window_options: Optional[pulumi.InputType['GetDomainOffPeakWindowOptionsArgs']] = None,
                tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
@@ -335,10 +353,12 @@ def get_domain(domain_name: Optional[str] = None,
 
 
     :param str domain_name: Name of the domain.
+    :param pulumi.InputType['GetDomainOffPeakWindowOptionsArgs'] off_peak_window_options: Off Peak update options
     :param Mapping[str, str] tags: Tags assigned to the domain.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
+    __args__['offPeakWindowOptions'] = off_peak_window_options
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:opensearch/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult).value
@@ -364,6 +384,7 @@ def get_domain(domain_name: Optional[str] = None,
         kibana_endpoint=__ret__.kibana_endpoint,
         log_publishing_options=__ret__.log_publishing_options,
         node_to_node_encryptions=__ret__.node_to_node_encryptions,
+        off_peak_window_options=__ret__.off_peak_window_options,
         processing=__ret__.processing,
         snapshot_options=__ret__.snapshot_options,
         tags=__ret__.tags,
@@ -372,6 +393,7 @@ def get_domain(domain_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
+                      off_peak_window_options: Optional[pulumi.Input[Optional[pulumi.InputType['GetDomainOffPeakWindowOptionsArgs']]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -388,6 +410,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str domain_name: Name of the domain.
+    :param pulumi.InputType['GetDomainOffPeakWindowOptionsArgs'] off_peak_window_options: Off Peak update options
     :param Mapping[str, str] tags: Tags assigned to the domain.
     """
     ...

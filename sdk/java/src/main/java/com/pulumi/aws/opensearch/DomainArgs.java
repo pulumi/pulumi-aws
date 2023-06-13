@@ -12,6 +12,7 @@ import com.pulumi.aws.opensearch.inputs.DomainEbsOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainEncryptAtRestArgs;
 import com.pulumi.aws.opensearch.inputs.DomainLogPublishingOptionArgs;
 import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
+import com.pulumi.aws.opensearch.inputs.DomainOffPeakWindowOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainSnapshotOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainVpcOptionsArgs;
 import com.pulumi.core.Output;
@@ -183,14 +184,18 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+     * Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+     * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+     * Defaults to the lastest version of OpenSearch.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+     * @return Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+     * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+     * Defaults to the lastest version of OpenSearch.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -225,6 +230,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<DomainNodeToNodeEncryptionArgs>> nodeToNodeEncryption() {
         return Optional.ofNullable(this.nodeToNodeEncryption);
+    }
+
+    /**
+     * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+     * 
+     */
+    @Import(name="offPeakWindowOptions")
+    private @Nullable Output<DomainOffPeakWindowOptionsArgs> offPeakWindowOptions;
+
+    /**
+     * @return Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+     * 
+     */
+    public Optional<Output<DomainOffPeakWindowOptionsArgs>> offPeakWindowOptions() {
+        return Optional.ofNullable(this.offPeakWindowOptions);
     }
 
     /**
@@ -288,6 +308,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         this.engineVersion = $.engineVersion;
         this.logPublishingOptions = $.logPublishingOptions;
         this.nodeToNodeEncryption = $.nodeToNodeEncryption;
+        this.offPeakWindowOptions = $.offPeakWindowOptions;
         this.snapshotOptions = $.snapshotOptions;
         this.tags = $.tags;
         this.vpcOptions = $.vpcOptions;
@@ -526,7 +547,9 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+         * @param engineVersion Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+         * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+         * Defaults to the lastest version of OpenSearch.
          * 
          * @return builder
          * 
@@ -537,7 +560,9 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`. See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains). Defaults to `OpenSearch_1.1`.
+         * @param engineVersion Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
+         * See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
+         * Defaults to the lastest version of OpenSearch.
          * 
          * @return builder
          * 
@@ -596,6 +621,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder nodeToNodeEncryption(DomainNodeToNodeEncryptionArgs nodeToNodeEncryption) {
             return nodeToNodeEncryption(Output.of(nodeToNodeEncryption));
+        }
+
+        /**
+         * @param offPeakWindowOptions Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder offPeakWindowOptions(@Nullable Output<DomainOffPeakWindowOptionsArgs> offPeakWindowOptions) {
+            $.offPeakWindowOptions = offPeakWindowOptions;
+            return this;
+        }
+
+        /**
+         * @param offPeakWindowOptions Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder offPeakWindowOptions(DomainOffPeakWindowOptionsArgs offPeakWindowOptions) {
+            return offPeakWindowOptions(Output.of(offPeakWindowOptions));
         }
 
         /**

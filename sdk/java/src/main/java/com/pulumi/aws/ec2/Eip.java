@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var lb = new Eip(&#34;lb&#34;, EipArgs.builder()        
  *             .instance(aws_instance.web().id())
- *             .vpc(true)
+ *             .domain(&#34;vpc&#34;)
  *             .build());
  * 
  *     }
@@ -86,13 +86,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var one = new Eip(&#34;one&#34;, EipArgs.builder()        
- *             .vpc(true)
+ *             .domain(&#34;vpc&#34;)
  *             .networkInterface(multi_ip.id())
  *             .associateWithPrivateIp(&#34;10.0.0.10&#34;)
  *             .build());
  * 
  *         var two = new Eip(&#34;two&#34;, EipArgs.builder()        
- *             .vpc(true)
+ *             .domain(&#34;vpc&#34;)
  *             .networkInterface(multi_ip.id())
  *             .associateWithPrivateIp(&#34;10.0.0.11&#34;)
  *             .build());
@@ -156,7 +156,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bar = new Eip(&#34;bar&#34;, EipArgs.builder()        
- *             .vpc(true)
+ *             .domain(&#34;vpc&#34;)
  *             .instance(foo.id())
  *             .associateWithPrivateIp(&#34;10.0.0.12&#34;)
  *             .build(), CustomResourceOptions.builder()
@@ -189,8 +189,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var byoip_ip = new Eip(&#34;byoip-ip&#34;, EipArgs.builder()        
+ *             .domain(&#34;vpc&#34;)
  *             .publicIpv4Pool(&#34;ipv4pool-ec2-012345&#34;)
- *             .vpc(true)
  *             .build());
  * 
  *     }
@@ -313,14 +313,14 @@ public class Eip extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customerOwnedIpv4Pool);
     }
     /**
-     * Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
+     * Indicates if this EIP is for use in VPC (`vpc`).
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
-     * @return Indicates if this EIP is for use in VPC (`vpc`) or EC2-Classic (`standard`).
+     * @return Indicates if this EIP is for use in VPC (`vpc`).
      * 
      */
     public Output<String> domain() {
@@ -469,7 +469,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Boolean if the EIP is in a VPC or not.
+     * Boolean if the EIP is in a VPC or not. Use `domain` instead.
      * Defaults to `true` unless the region supports EC2-Classic.
      * 
      * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
@@ -477,12 +477,16 @@ public class Eip extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
      * case both options are defined as the api only requires one or the other.
      * 
+     * @deprecated
+     * use domain attribute instead
+     * 
      */
+    @Deprecated /* use domain attribute instead */
     @Export(name="vpc", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> vpc;
 
     /**
-     * @return Boolean if the EIP is in a VPC or not.
+     * @return Boolean if the EIP is in a VPC or not. Use `domain` instead.
      * Defaults to `true` unless the region supports EC2-Classic.
      * 
      * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.

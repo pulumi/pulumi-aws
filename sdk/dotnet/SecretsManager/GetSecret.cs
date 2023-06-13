@@ -175,18 +175,6 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string Policy;
         /// <summary>
-        /// Whether rotation is enabled or not.
-        /// </summary>
-        public readonly bool RotationEnabled;
-        /// <summary>
-        /// Rotation Lambda function ARN if rotation is enabled.
-        /// </summary>
-        public readonly string RotationLambdaArn;
-        /// <summary>
-        /// Rotation rules if rotation is enabled.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.GetSecretRotationRuleResult> RotationRules;
-        /// <summary>
         /// Tags of the secret.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -205,12 +193,6 @@ namespace Pulumi.Aws.SecretsManager
 
             string policy,
 
-            bool rotationEnabled,
-
-            string rotationLambdaArn,
-
-            ImmutableArray<Outputs.GetSecretRotationRuleResult> rotationRules,
-
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -219,9 +201,6 @@ namespace Pulumi.Aws.SecretsManager
             KmsKeyId = kmsKeyId;
             Name = name;
             Policy = policy;
-            RotationEnabled = rotationEnabled;
-            RotationLambdaArn = rotationLambdaArn;
-            RotationRules = rotationRules;
             Tags = tags;
         }
     }

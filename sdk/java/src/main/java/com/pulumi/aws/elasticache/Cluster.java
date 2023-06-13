@@ -602,24 +602,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.securityGroupIds;
     }
     /**
-     * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     * 
-     * @deprecated
-     * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     * 
-     */
-    @Deprecated /* With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version. */
-    @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> securityGroupNames;
-
-    /**
-     * @return List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     * 
-     */
-    public Output<List<String>> securityGroupNames() {
-        return this.securityGroupNames;
-    }
-    /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
      * 
      */

@@ -53,7 +53,7 @@ namespace Pulumi.Aws.DynamoDB
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.main",
+    ///         Provider = aws.Main,
     ///     });
     /// 
     ///     var exampleTableReplica = new Aws.DynamoDB.TableReplica("exampleTableReplica", new()
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.DynamoDB
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.alt",
+    ///         Provider = aws.Alt,
     ///     });
     /// 
     /// });

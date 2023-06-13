@@ -583,6 +583,20 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.userPoolConfig);
     }
     /**
+     * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+     * 
+     */
+    @Export(name="visibility", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> visibility;
+
+    /**
+     * @return Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
+     * 
+     */
+    public Output<Optional<String>> visibility() {
+        return Codegen.optional(this.visibility);
+    }
+    /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      * 
      */

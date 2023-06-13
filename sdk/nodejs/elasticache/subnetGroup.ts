@@ -7,10 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an ElastiCache Subnet Group resource.
  *
- * > **NOTE:** ElastiCache Subnet Groups are only for use when working with an
- * ElastiCache cluster **inside** of a VPC. If you are on EC2 Classic, see the
- * ElastiCache Security Group resource.
- *
  * ## Example Usage
  *
  * ```typescript

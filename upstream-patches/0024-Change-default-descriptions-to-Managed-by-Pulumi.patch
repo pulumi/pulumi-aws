@@ -1,37 +1,40 @@
-From 42e925f4c29a6fd1fa4951db4865c855a5f2b4a9 Mon Sep 17 00:00:00 2001
+From a44d2ad81c2d526aa85bbf1dbe5e4be2e30459a2 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
 Subject: [PATCH 24/29] Change default descriptions to "Managed by Pulumi"
 
 ---
- internal/service/apigateway/api_key.go               | 2 +-
- internal/service/appsync/api_key.go                  | 2 +-
- internal/service/cloudfront/origin_access_control.go | 2 +-
- internal/service/docdb/cluster_parameter_group.go    | 2 +-
- internal/service/docdb/subnet_group.go               | 2 +-
- internal/service/ec2/vpc_security_group.go           | 2 +-
- internal/service/elasticache/parameter_group.go      | 2 +-
- internal/service/elasticache/security_group.go       | 2 +-
- internal/service/elasticache/subnet_group.go         | 2 +-
- internal/service/mediapackage/channel.go             | 2 +-
- internal/service/memorydb/cluster.go                 | 2 +-
- internal/service/memorydb/parameter_group.go         | 2 +-
- internal/service/memorydb/subnet_group.go            | 2 +-
- internal/service/neptune/cluster_parameter_group.go  | 2 +-
- internal/service/neptune/parameter_group.go          | 2 +-
- internal/service/neptune/subnet_group.go             | 2 +-
- internal/service/rds/cluster_parameter_group.go      | 2 +-
- internal/service/rds/option_group.go                 | 2 +-
- internal/service/rds/parameter_group.go              | 2 +-
- internal/service/rds/security_group.go               | 2 +-
- internal/service/rds/subnet_group.go                 | 2 +-
- internal/service/redshift/parameter_group.go         | 2 +-
- internal/service/redshift/security_group.go          | 2 +-
- internal/service/redshift/subnet_group.go            | 2 +-
- internal/service/route53/record.go                   | 6 +++---
- internal/service/route53/zone.go                     | 2 +-
- internal/service/route53/zone_association.go         | 4 ++--
- 27 files changed, 30 insertions(+), 30 deletions(-)
+ internal/service/apigateway/api_key.go        |   2 +-
+ internal/service/appsync/api_key.go           |   2 +-
+ .../cloudfront/origin_access_control.go       |   2 +-
+ .../service/docdb/cluster_parameter_group.go  |   2 +-
+ internal/service/docdb/subnet_group.go        |   2 +-
+ internal/service/ec2/vpc_security_group.go    |   2 +-
+ .../service/elasticache/parameter_group.go    |   2 +-
+ .../service/elasticache/security_group.go     | 127 +++++++
+ internal/service/elasticache/subnet_group.go  |   2 +-
+ internal/service/mediapackage/channel.go      |   2 +-
+ internal/service/memorydb/cluster.go          |   2 +-
+ internal/service/memorydb/parameter_group.go  |   2 +-
+ internal/service/memorydb/subnet_group.go     |   2 +-
+ .../neptune/cluster_parameter_group.go        |   2 +-
+ internal/service/neptune/parameter_group.go   |   2 +-
+ internal/service/neptune/subnet_group.go      |   2 +-
+ .../service/rds/cluster_parameter_group.go    |   2 +-
+ internal/service/rds/option_group.go          |   2 +-
+ internal/service/rds/parameter_group.go       |   2 +-
+ internal/service/rds/security_group.go        | 316 ++++++++++++++++++
+ internal/service/rds/subnet_group.go          |   2 +-
+ internal/service/redshift/parameter_group.go  |   2 +-
+ internal/service/redshift/security_group.go   | 291 ++++++++++++++++
+ internal/service/redshift/subnet_group.go     |   2 +-
+ internal/service/route53/record.go            |   6 +-
+ internal/service/route53/zone.go              |   2 +-
+ internal/service/route53/zone_association.go  |   4 +-
+ 27 files changed, 761 insertions(+), 27 deletions(-)
+ create mode 100644 internal/service/elasticache/security_group.go
+ create mode 100644 internal/service/rds/security_group.go
+ create mode 100644 internal/service/redshift/security_group.go
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
 index 91e801ffab..c6cff958f7 100644
@@ -99,7 +102,7 @@ index d9c7a8b511..9dd8bec272 100644
  
  			"subnet_ids": {
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 4f2bcf2202..449b5996da 100644
+index 2d7d00102e..7aa9af59d4 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
 @@ -60,7 +60,7 @@ func ResourceSecurityGroup() *schema.Resource {
@@ -125,18 +128,138 @@ index ae30f42a8d..3ea5cd0762 100644
  			"arn": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/elasticache/security_group.go b/internal/service/elasticache/security_group.go
-index 22d907b7d4..f587fcbcce 100644
---- a/internal/service/elasticache/security_group.go
+new file mode 100644
+index 0000000000..f587fcbcce
+--- /dev/null
 +++ b/internal/service/elasticache/security_group.go
-@@ -31,7 +31,7 @@ func ResourceSecurityGroup() *schema.Resource {
- 				Type:     schema.TypeString,
- 				Optional: true,
- 				ForceNew: true,
--				Default:  "Managed by Terraform",
+@@ -0,0 +1,127 @@
++package elasticache
++
++import (
++	"context"
++	"log"
++	"time"
++
++	"github.com/aws/aws-sdk-go/aws"
++	"github.com/aws/aws-sdk-go/service/elasticache"
++	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
++	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
++)
++
++// @SDKResource("aws_elasticache_security_group")
++func ResourceSecurityGroup() *schema.Resource {
++	return &schema.Resource{
++		CreateWithoutTimeout: resourceSecurityGroupCreate,
++		ReadWithoutTimeout:   resourceSecurityGroupRead,
++		DeleteWithoutTimeout: resourceSecurityGroupDelete,
++		Importer: &schema.ResourceImporter{
++			StateContext: schema.ImportStatePassthroughContext,
++		},
++
++		Schema: map[string]*schema.Schema{
++			"description": {
++				Type:     schema.TypeString,
++				Optional: true,
++				ForceNew: true,
 +				Default:  "Managed by Pulumi",
- 			},
- 			"name": {
- 				Type:     schema.TypeString,
++			},
++			"name": {
++				Type:     schema.TypeString,
++				Required: true,
++				ForceNew: true,
++			},
++			"security_group_names": {
++				Type:     schema.TypeSet,
++				Required: true,
++				ForceNew: true,
++				Elem:     &schema.Schema{Type: schema.TypeString},
++				Set:      schema.HashString,
++			},
++		},
++
++		DeprecationMessage: `With the retirement of EC2-Classic the aws_elasticache_security_group resource has been deprecated and will be removed in a future version.`,
++	}
++}
++
++func resourceSecurityGroupCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	return sdkdiag.AppendErrorf(diags, `with the retirement of EC2-Classic no new ElastiCache Security Groups can be created`)
++}
++
++func resourceSecurityGroupRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	conn := meta.(*conns.AWSClient).ElastiCacheConn()
++	req := &elasticache.DescribeCacheSecurityGroupsInput{
++		CacheSecurityGroupName: aws.String(d.Id()),
++	}
++
++	res, err := conn.DescribeCacheSecurityGroupsWithContext(ctx, req)
++	if err != nil {
++		return sdkdiag.AppendErrorf(diags, "reading ElastiCache Cache Security Group (%s): %s", d.Id(), err)
++	}
++	if len(res.CacheSecurityGroups) == 0 {
++		return sdkdiag.AppendErrorf(diags, "reading ElastiCache Cache Security Group (%s): empty response", d.Id())
++	}
++
++	var group *elasticache.CacheSecurityGroup
++	for _, g := range res.CacheSecurityGroups {
++		if aws.StringValue(g.CacheSecurityGroupName) == d.Id() {
++			group = g
++		}
++	}
++	if group == nil {
++		return sdkdiag.AppendErrorf(diags, "reading ElastiCache Cache Security Group (%s): not found", d.Id())
++	}
++
++	d.Set("name", group.CacheSecurityGroupName)
++	d.Set("description", group.Description)
++
++	sgNames := make([]string, 0, len(group.EC2SecurityGroups))
++	for _, sg := range group.EC2SecurityGroups {
++		sgNames = append(sgNames, *sg.EC2SecurityGroupName)
++	}
++	d.Set("security_group_names", sgNames)
++
++	return diags
++}
++
++func resourceSecurityGroupDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	conn := meta.(*conns.AWSClient).ElastiCacheConn()
++
++	log.Printf("[DEBUG] Cache security group delete: %s", d.Id())
++
++	err := retry.RetryContext(ctx, 5*time.Minute, func() *retry.RetryError {
++		_, err := conn.DeleteCacheSecurityGroupWithContext(ctx, &elasticache.DeleteCacheSecurityGroupInput{
++			CacheSecurityGroupName: aws.String(d.Id()),
++		})
++
++		if tfawserr.ErrCodeEquals(err, "InvalidCacheSecurityGroupState", "DependencyViolation") {
++			return retry.RetryableError(err)
++		}
++
++		if err != nil {
++			return retry.RetryableError(err)
++		}
++
++		return nil
++	})
++
++	if tfresource.TimedOut(err) {
++		_, err = conn.DeleteCacheSecurityGroupWithContext(ctx, &elasticache.DeleteCacheSecurityGroupInput{
++			CacheSecurityGroupName: aws.String(d.Id()),
++		})
++	}
++	if err != nil {
++		return sdkdiag.AppendErrorf(diags, "deleting ElastiCache Cache Security Group (%s): %s", d.Id(), err)
++	}
++	return diags
++}
 diff --git a/internal/service/elasticache/subnet_group.go b/internal/service/elasticache/subnet_group.go
 index 80cbca91e9..64822098f8 100644
 --- a/internal/service/elasticache/subnet_group.go
@@ -281,18 +404,327 @@ index 8505b0e3ef..220453ba6b 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/security_group.go b/internal/service/rds/security_group.go
-index c4afc8c981..54d4e61495 100644
---- a/internal/service/rds/security_group.go
+new file mode 100644
+index 0000000000..54d4e61495
+--- /dev/null
 +++ b/internal/service/rds/security_group.go
-@@ -47,7 +47,7 @@ func ResourceSecurityGroup() *schema.Resource {
- 				Type:     schema.TypeString,
- 				Optional: true,
- 				ForceNew: true,
--				Default:  "Managed by Terraform",
+@@ -0,0 +1,316 @@
++package rds
++
++import (
++	"bytes"
++	"context"
++	"fmt"
++	"log"
++
++	"github.com/aws/aws-sdk-go/aws"
++	"github.com/aws/aws-sdk-go/service/rds"
++	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++	"github.com/hashicorp/terraform-provider-aws/internal/create"
++	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
++	tftags "github.com/hashicorp/terraform-provider-aws/internal/tags"
++	"github.com/hashicorp/terraform-provider-aws/internal/verify"
++	"github.com/hashicorp/terraform-provider-aws/names"
++)
++
++// @SDKResource("aws_db_security_group", name="DB Security Group")
++// @Tags(identifierAttribute="arn")
++func ResourceSecurityGroup() *schema.Resource {
++	return &schema.Resource{
++		CreateWithoutTimeout: resourceSecurityGroupCreate,
++		ReadWithoutTimeout:   resourceSecurityGroupRead,
++		UpdateWithoutTimeout: resourceSecurityGroupUpdate,
++		DeleteWithoutTimeout: resourceSecurityGroupDelete,
++		Importer: &schema.ResourceImporter{
++			StateContext: schema.ImportStatePassthroughContext,
++		},
++
++		Schema: map[string]*schema.Schema{
++			"arn": {
++				Type:     schema.TypeString,
++				Computed: true,
++			},
++
++			"name": {
++				Type:     schema.TypeString,
++				Required: true,
++				ForceNew: true,
++			},
++
++			"description": {
++				Type:     schema.TypeString,
++				Optional: true,
++				ForceNew: true,
 +				Default:  "Managed by Pulumi",
- 			},
- 
- 			"ingress": {
++			},
++
++			"ingress": {
++				Type:     schema.TypeSet,
++				Required: true,
++				Elem: &schema.Resource{
++					Schema: map[string]*schema.Schema{
++						"cidr": {
++							Type:     schema.TypeString,
++							Optional: true,
++						},
++
++						"security_group_name": {
++							Type:     schema.TypeString,
++							Optional: true,
++							Computed: true,
++						},
++
++						"security_group_id": {
++							Type:     schema.TypeString,
++							Optional: true,
++							Computed: true,
++						},
++
++						"security_group_owner_id": {
++							Type:     schema.TypeString,
++							Optional: true,
++							Computed: true,
++						},
++					},
++				},
++				Set: resourceSecurityGroupIngressHash,
++			},
++
++			names.AttrTags:    tftags.TagsSchema(),
++			names.AttrTagsAll: tftags.TagsSchemaComputed(),
++		},
++
++		CustomizeDiff: verify.SetTagsDiff,
++
++		DeprecationMessage: `With the retirement of EC2-Classic the aws_db_security_group resource has been deprecated and will be removed in a future version.`,
++	}
++}
++
++func resourceSecurityGroupCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	return sdkdiag.AppendErrorf(diags, `with the retirement of EC2-Classic no new RDS DB Security Groups can be created`)
++}
++
++func resourceSecurityGroupRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++
++	sg, err := resourceSecurityGroupRetrieve(ctx, d, meta)
++	if err != nil {
++		return sdkdiag.AppendErrorf(diags, "reading RDS DB Security Group (%s): %s", d.Id(), err)
++	}
++
++	d.Set("name", sg.DBSecurityGroupName)
++	d.Set("description", sg.DBSecurityGroupDescription)
++
++	// Create an empty schema.Set to hold all ingress rules
++	rules := &schema.Set{
++		F: resourceSecurityGroupIngressHash,
++	}
++
++	for _, v := range sg.IPRanges {
++		rule := map[string]interface{}{"cidr": *v.CIDRIP}
++		rules.Add(rule)
++	}
++
++	for _, g := range sg.EC2SecurityGroups {
++		rule := map[string]interface{}{}
++		if g.EC2SecurityGroupId != nil {
++			rule["security_group_id"] = aws.StringValue(g.EC2SecurityGroupId)
++		}
++		if g.EC2SecurityGroupName != nil {
++			rule["security_group_name"] = aws.StringValue(g.EC2SecurityGroupName)
++		}
++		if g.EC2SecurityGroupOwnerId != nil {
++			rule["security_group_owner_id"] = aws.StringValue(g.EC2SecurityGroupOwnerId)
++		}
++		rules.Add(rule)
++	}
++
++	d.Set("ingress", rules)
++
++	arn := aws.StringValue(sg.DBSecurityGroupArn)
++	d.Set("arn", arn)
++
++	return diags
++}
++
++func resourceSecurityGroupUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	conn := meta.(*conns.AWSClient).RDSConn()
++
++	if d.HasChange("ingress") {
++		sg, err := resourceSecurityGroupRetrieve(ctx, d, meta)
++		if err != nil {
++			return sdkdiag.AppendErrorf(diags, "updating RDS DB Security Group (%s): %s", d.Id(), err)
++		}
++
++		oi, ni := d.GetChange("ingress")
++		if oi == nil {
++			oi = new(schema.Set)
++		}
++		if ni == nil {
++			ni = new(schema.Set)
++		}
++
++		ois := oi.(*schema.Set)
++		nis := ni.(*schema.Set)
++		removeIngress := ois.Difference(nis).List()
++		newIngress := nis.Difference(ois).List()
++
++		// DELETE old Ingress rules
++		for _, ing := range removeIngress {
++			err := resourceSecurityGroupRevokeRule(ctx, ing, *sg.DBSecurityGroupName, conn)
++			if err != nil {
++				return sdkdiag.AppendErrorf(diags, "updating RDS DB Security Group (%s): revoking ingress: %s", d.Id(), err)
++			}
++		}
++
++		// ADD new/updated Ingress rules
++		for _, ing := range newIngress {
++			err := resourceSecurityGroupAuthorizeRule(ctx, ing, *sg.DBSecurityGroupName, conn)
++			if err != nil {
++				return sdkdiag.AppendErrorf(diags, "updating RDS DB Security Group (%s): authorizing ingress: %s", d.Id(), err)
++			}
++		}
++	}
++
++	return append(diags, resourceSecurityGroupRead(ctx, d, meta)...)
++}
++
++func resourceSecurityGroupDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	conn := meta.(*conns.AWSClient).RDSConn()
++
++	log.Printf("[DEBUG] DB Security Group destroy: %v", d.Id())
++
++	opts := rds.DeleteDBSecurityGroupInput{DBSecurityGroupName: aws.String(d.Id())}
++
++	_, err := conn.DeleteDBSecurityGroupWithContext(ctx, &opts)
++	if err != nil {
++		if tfawserr.ErrCodeEquals(err, "InvalidDBSecurityGroup.NotFound") {
++			return diags
++		}
++		return sdkdiag.AppendErrorf(diags, "deleting RDS DB Security Group (%s): %s", d.Id(), err)
++	}
++
++	return diags
++}
++
++func resourceSecurityGroupRetrieve(ctx context.Context, d *schema.ResourceData, meta interface{}) (*rds.DBSecurityGroup, error) {
++	conn := meta.(*conns.AWSClient).RDSConn()
++
++	opts := rds.DescribeDBSecurityGroupsInput{
++		DBSecurityGroupName: aws.String(d.Id()),
++	}
++
++	log.Printf("[DEBUG] DB Security Group describe configuration: %#v", opts)
++
++	resp, err := conn.DescribeDBSecurityGroupsWithContext(ctx, &opts)
++	if err != nil {
++		return nil, fmt.Errorf("Error retrieving DB Security Groups: %s", err)
++	}
++
++	if len(resp.DBSecurityGroups) != 1 ||
++		aws.StringValue(resp.DBSecurityGroups[0].DBSecurityGroupName) != d.Id() {
++		return nil, fmt.Errorf("Unable to find DB Security Group: %#v", resp.DBSecurityGroups)
++	}
++
++	return resp.DBSecurityGroups[0], nil
++}
++
++// Authorizes the ingress rule on the db security group
++func resourceSecurityGroupAuthorizeRule(ctx context.Context, ingress interface{}, dbSecurityGroupName string, conn *rds.RDS) error {
++	ing := ingress.(map[string]interface{})
++
++	opts := rds.AuthorizeDBSecurityGroupIngressInput{
++		DBSecurityGroupName: aws.String(dbSecurityGroupName),
++	}
++
++	if attr, ok := ing["cidr"]; ok && attr != "" {
++		opts.CIDRIP = aws.String(attr.(string))
++	}
++
++	if attr, ok := ing["security_group_name"]; ok && attr != "" {
++		opts.EC2SecurityGroupName = aws.String(attr.(string))
++	}
++
++	if attr, ok := ing["security_group_id"]; ok && attr != "" {
++		opts.EC2SecurityGroupId = aws.String(attr.(string))
++	}
++
++	if attr, ok := ing["security_group_owner_id"]; ok && attr != "" {
++		opts.EC2SecurityGroupOwnerId = aws.String(attr.(string))
++	}
++
++	log.Printf("[DEBUG] Authorize ingress rule configuration: %#v", opts)
++
++	_, err := conn.AuthorizeDBSecurityGroupIngressWithContext(ctx, &opts)
++	if err != nil {
++		return fmt.Errorf("Error authorizing security group ingress: %s", err)
++	}
++
++	return nil
++}
++
++// Revokes the ingress rule on the db security group
++func resourceSecurityGroupRevokeRule(ctx context.Context, ingress interface{}, dbSecurityGroupName string, conn *rds.RDS) error {
++	ing := ingress.(map[string]interface{})
++
++	opts := rds.RevokeDBSecurityGroupIngressInput{
++		DBSecurityGroupName: aws.String(dbSecurityGroupName),
++	}
++
++	if attr, ok := ing["cidr"]; ok && attr != "" {
++		opts.CIDRIP = aws.String(attr.(string))
++	}
++
++	if attr, ok := ing["security_group_name"]; ok && attr != "" {
++		opts.EC2SecurityGroupName = aws.String(attr.(string))
++	}
++
++	if attr, ok := ing["security_group_id"]; ok && attr != "" {
++		opts.EC2SecurityGroupId = aws.String(attr.(string))
++	}
++
++	if attr, ok := ing["security_group_owner_id"]; ok && attr != "" {
++		opts.EC2SecurityGroupOwnerId = aws.String(attr.(string))
++	}
++
++	log.Printf("[DEBUG] Revoking ingress rule configuration: %#v", opts)
++
++	_, err := conn.RevokeDBSecurityGroupIngressWithContext(ctx, &opts)
++	if err != nil {
++		return fmt.Errorf("Error revoking security group ingress: %s", err)
++	}
++
++	return nil
++}
++
++func resourceSecurityGroupIngressHash(v interface{}) int {
++	var buf bytes.Buffer
++	m := v.(map[string]interface{})
++
++	if v, ok := m["cidr"]; ok {
++		buf.WriteString(fmt.Sprintf("%s-", v.(string)))
++	}
++
++	if v, ok := m["security_group_name"]; ok {
++		buf.WriteString(fmt.Sprintf("%s-", v.(string)))
++	}
++
++	if v, ok := m["security_group_id"]; ok {
++		buf.WriteString(fmt.Sprintf("%s-", v.(string)))
++	}
++
++	if v, ok := m["security_group_owner_id"]; ok {
++		buf.WriteString(fmt.Sprintf("%s-", v.(string)))
++	}
++
++	return create.StringHashcode(buf.String())
++}
 diff --git a/internal/service/rds/subnet_group.go b/internal/service/rds/subnet_group.go
 index a90240c0e2..3aa4b8e7cc 100644
 --- a/internal/service/rds/subnet_group.go
@@ -320,18 +752,302 @@ index 50166017e0..00c8a9e190 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/redshift/security_group.go b/internal/service/redshift/security_group.go
-index bc859c8e7e..47b5d7cda2 100644
---- a/internal/service/redshift/security_group.go
+new file mode 100644
+index 0000000000..47b5d7cda2
+--- /dev/null
 +++ b/internal/service/redshift/security_group.go
-@@ -47,7 +47,7 @@ func ResourceSecurityGroup() *schema.Resource {
- 				Type:     schema.TypeString,
- 				Optional: true,
- 				ForceNew: true,
--				Default:  "Managed by Terraform",
+@@ -0,0 +1,291 @@
++package redshift
++
++import (
++	"bytes"
++	"context"
++	"fmt"
++	"log"
++	"regexp"
++
++	"github.com/aws/aws-sdk-go/aws"
++	"github.com/aws/aws-sdk-go/service/redshift"
++	"github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2/tfawserr"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/retry"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
++	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
++	"github.com/hashicorp/terraform-provider-aws/internal/conns"
++	"github.com/hashicorp/terraform-provider-aws/internal/create"
++	"github.com/hashicorp/terraform-provider-aws/internal/errs/sdkdiag"
++	"github.com/hashicorp/terraform-provider-aws/internal/tfresource"
++)
++
++// @SDKResource("aws_redshift_security_group")
++func ResourceSecurityGroup() *schema.Resource {
++	return &schema.Resource{
++		CreateWithoutTimeout: resourceSecurityGroupCreate,
++		ReadWithoutTimeout:   resourceSecurityGroupRead,
++		UpdateWithoutTimeout: resourceSecurityGroupUpdate,
++		DeleteWithoutTimeout: resourceSecurityGroupDelete,
++		Importer: &schema.ResourceImporter{
++			StateContext: schema.ImportStatePassthroughContext,
++		},
++
++		Schema: map[string]*schema.Schema{
++			"name": {
++				Type:     schema.TypeString,
++				Required: true,
++				ForceNew: true,
++				ValidateFunc: validation.All(
++					validation.StringLenBetween(1, 255),
++					validation.StringNotInSlice([]string{"default"}, false),
++					validation.StringMatch(regexp.MustCompile(`^[0-9a-z-]+$`), "must contain only lowercase alphanumeric characters and hyphens"),
++				),
++			},
++
++			"description": {
++				Type:     schema.TypeString,
++				Optional: true,
++				ForceNew: true,
 +				Default:  "Managed by Pulumi",
- 			},
- 
- 			"ingress": {
++			},
++
++			"ingress": {
++				Type:     schema.TypeSet,
++				Required: true,
++				Elem: &schema.Resource{
++					Schema: map[string]*schema.Schema{
++						"cidr": {
++							Type:     schema.TypeString,
++							Optional: true,
++						},
++
++						"security_group_name": {
++							Type:     schema.TypeString,
++							Optional: true,
++							Computed: true,
++						},
++
++						"security_group_owner_id": {
++							Type:     schema.TypeString,
++							Optional: true,
++							Computed: true,
++						},
++					},
++				},
++				Set: resourceSecurityGroupIngressHash,
++			},
++		},
++
++		DeprecationMessage: `With the retirement of EC2-Classic the aws_redshift_security_group resource has been deprecated and will be removed in a future version.`,
++	}
++}
++
++func resourceSecurityGroupCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	return sdkdiag.AppendErrorf(diags, `with the retirement of EC2-Classic no new Redshift Security Groups can be created`)
++}
++
++func resourceSecurityGroupRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	sg, err := resourceSecurityGroupRetrieve(ctx, d, meta)
++	if err != nil {
++		return sdkdiag.AppendErrorf(diags, "reading Redshift Security Group (%s): %s", d.Id(), err)
++	}
++
++	rules := &schema.Set{
++		F: resourceSecurityGroupIngressHash,
++	}
++
++	for _, v := range sg.IPRanges {
++		rule := map[string]interface{}{"cidr": aws.StringValue(v.CIDRIP)}
++		rules.Add(rule)
++	}
++
++	for _, g := range sg.EC2SecurityGroups {
++		rule := map[string]interface{}{
++			"security_group_name":     aws.StringValue(g.EC2SecurityGroupName),
++			"security_group_owner_id": aws.StringValue(g.EC2SecurityGroupOwnerId),
++		}
++		rules.Add(rule)
++	}
++
++	d.Set("ingress", rules)
++	d.Set("name", sg.ClusterSecurityGroupName)
++	d.Set("description", sg.Description)
++
++	return diags
++}
++
++func resourceSecurityGroupUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	conn := meta.(*conns.AWSClient).RedshiftConn()
++
++	if d.HasChange("ingress") {
++		o, n := d.GetChange("ingress")
++		if o == nil {
++			o = new(schema.Set)
++		}
++		if n == nil {
++			n = new(schema.Set)
++		}
++
++		os := o.(*schema.Set)
++		ns := n.(*schema.Set)
++
++		removeIngressRules := expandSGRevokeIngress(os.Difference(ns).List())
++		if len(removeIngressRules) > 0 {
++			for _, r := range removeIngressRules {
++				r.ClusterSecurityGroupName = aws.String(d.Id())
++
++				_, err := conn.RevokeClusterSecurityGroupIngressWithContext(ctx, &r)
++				if err != nil {
++					return sdkdiag.AppendErrorf(diags, "updating Redshift Security Group (%s): revoking ingress: %s", d.Id(), err)
++				}
++			}
++		}
++
++		addIngressRules := expandSGAuthorizeIngress(ns.Difference(os).List())
++		if len(addIngressRules) > 0 {
++			for _, r := range addIngressRules {
++				r.ClusterSecurityGroupName = aws.String(d.Id())
++
++				_, err := conn.AuthorizeClusterSecurityGroupIngressWithContext(ctx, &r)
++				if err != nil {
++					return sdkdiag.AppendErrorf(diags, "updating Redshift Security Group (%s): authorizing ingress: %s", d.Id(), err)
++				}
++			}
++		}
++	}
++	return append(diags, resourceSecurityGroupRead(ctx, d, meta)...)
++}
++
++func resourceSecurityGroupDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
++	var diags diag.Diagnostics
++	conn := meta.(*conns.AWSClient).RedshiftConn()
++
++	log.Printf("[DEBUG] Redshift Security Group destroy: %v", d.Id())
++	opts := redshift.DeleteClusterSecurityGroupInput{
++		ClusterSecurityGroupName: aws.String(d.Id()),
++	}
++
++	_, err := conn.DeleteClusterSecurityGroupWithContext(ctx, &opts)
++
++	if tfawserr.ErrCodeEquals(err, "InvalidRedshiftSecurityGroup.NotFound") {
++		return diags
++	}
++
++	if err != nil {
++		return sdkdiag.AppendErrorf(diags, "deleting Redshift Security Group (%s): %s", d.Id(), err)
++	}
++
++	return diags
++}
++
++func resourceSecurityGroupRetrieve(ctx context.Context, d *schema.ResourceData, meta interface{}) (*redshift.ClusterSecurityGroup, error) {
++	conn := meta.(*conns.AWSClient).RedshiftConn()
++
++	opts := redshift.DescribeClusterSecurityGroupsInput{
++		ClusterSecurityGroupName: aws.String(d.Id()),
++	}
++
++	resp, err := conn.DescribeClusterSecurityGroupsWithContext(ctx, &opts)
++	if err != nil {
++		return nil, &retry.NotFoundError{
++			LastError:   err,
++			LastRequest: opts,
++		}
++	}
++
++	if len(resp.ClusterSecurityGroups) == 0 || resp.ClusterSecurityGroups[0] == nil {
++		return nil, tfresource.NewEmptyResultError(opts)
++	}
++
++	if l := len(resp.ClusterSecurityGroups); l > 1 {
++		return nil, tfresource.NewTooManyResultsError(l, opts)
++	}
++
++	result := resp.ClusterSecurityGroups[0]
++	if aws.StringValue(result.ClusterSecurityGroupName) != d.Id() {
++		return nil, &retry.NotFoundError{
++			LastRequest: opts,
++		}
++	}
++
++	return result, nil
++}
++
++func resourceSecurityGroupIngressHash(v interface{}) int {
++	var buf bytes.Buffer
++	m := v.(map[string]interface{})
++
++	if v, ok := m["cidr"]; ok {
++		buf.WriteString(fmt.Sprintf("%s-", v.(string)))
++	}
++
++	if v, ok := m["security_group_name"]; ok {
++		buf.WriteString(fmt.Sprintf("%s-", v.(string)))
++	}
++
++	if v, ok := m["security_group_owner_id"]; ok {
++		buf.WriteString(fmt.Sprintf("%s-", v.(string)))
++	}
++
++	return create.StringHashcode(buf.String())
++}
++
++func expandSGAuthorizeIngress(configured []interface{}) []redshift.AuthorizeClusterSecurityGroupIngressInput {
++	var ingress []redshift.AuthorizeClusterSecurityGroupIngressInput
++
++	// Loop over our configured parameters and create
++	// an array of aws-sdk-go compatible objects
++	for _, pRaw := range configured {
++		data := pRaw.(map[string]interface{})
++
++		i := redshift.AuthorizeClusterSecurityGroupIngressInput{}
++
++		if v, ok := data["cidr"]; ok {
++			i.CIDRIP = aws.String(v.(string))
++		}
++
++		if v, ok := data["security_group_name"]; ok {
++			i.EC2SecurityGroupName = aws.String(v.(string))
++		}
++
++		if v, ok := data["security_group_owner_id"]; ok {
++			i.EC2SecurityGroupOwnerId = aws.String(v.(string))
++		}
++
++		ingress = append(ingress, i)
++	}
++
++	return ingress
++}
++
++func expandSGRevokeIngress(configured []interface{}) []redshift.RevokeClusterSecurityGroupIngressInput {
++	var ingress []redshift.RevokeClusterSecurityGroupIngressInput
++
++	// Loop over our configured parameters and create
++	// an array of aws-sdk-go compatible objects
++	for _, pRaw := range configured {
++		data := pRaw.(map[string]interface{})
++
++		i := redshift.RevokeClusterSecurityGroupIngressInput{}
++
++		if v, ok := data["cidr"]; ok {
++			i.CIDRIP = aws.String(v.(string))
++		}
++
++		if v, ok := data["security_group_name"]; ok {
++			i.EC2SecurityGroupName = aws.String(v.(string))
++		}
++
++		if v, ok := data["security_group_owner_id"]; ok {
++			i.EC2SecurityGroupOwnerId = aws.String(v.(string))
++		}
++
++		ingress = append(ingress, i)
++	}
++
++	return ingress
++}
 diff --git a/internal/service/redshift/subnet_group.go b/internal/service/redshift/subnet_group.go
 index 5b913c31ca..99e4387dc4 100644
 --- a/internal/service/redshift/subnet_group.go

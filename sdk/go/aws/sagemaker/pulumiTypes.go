@@ -10459,6 +10459,8 @@ type EndpointConfigurationProductionVariantServerlessConfig struct {
 	MaxConcurrency int `pulumi:"maxConcurrency"`
 	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb int `pulumi:"memorySizeInMb"`
+	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	ProvisionedConcurrency *int `pulumi:"provisionedConcurrency"`
 }
 
 // EndpointConfigurationProductionVariantServerlessConfigInput is an input type that accepts EndpointConfigurationProductionVariantServerlessConfigArgs and EndpointConfigurationProductionVariantServerlessConfigOutput values.
@@ -10477,6 +10479,8 @@ type EndpointConfigurationProductionVariantServerlessConfigArgs struct {
 	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
 	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb pulumi.IntInput `pulumi:"memorySizeInMb"`
+	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	ProvisionedConcurrency pulumi.IntPtrInput `pulumi:"provisionedConcurrency"`
 }
 
 func (EndpointConfigurationProductionVariantServerlessConfigArgs) ElementType() reflect.Type {
@@ -10566,6 +10570,11 @@ func (o EndpointConfigurationProductionVariantServerlessConfigOutput) MemorySize
 	return o.ApplyT(func(v EndpointConfigurationProductionVariantServerlessConfig) int { return v.MemorySizeInMb }).(pulumi.IntOutput)
 }
 
+// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+func (o EndpointConfigurationProductionVariantServerlessConfigOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariantServerlessConfig) *int { return v.ProvisionedConcurrency }).(pulumi.IntPtrOutput)
+}
+
 type EndpointConfigurationProductionVariantServerlessConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointConfigurationProductionVariantServerlessConfigPtrOutput) ElementType() reflect.Type {
@@ -10607,6 +10616,16 @@ func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MemoryS
 			return nil
 		}
 		return &v.MemorySizeInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationProductionVariantServerlessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedConcurrency
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -10973,6 +10992,8 @@ type EndpointConfigurationShadowProductionVariantServerlessConfig struct {
 	MaxConcurrency int `pulumi:"maxConcurrency"`
 	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb int `pulumi:"memorySizeInMb"`
+	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	ProvisionedConcurrency *int `pulumi:"provisionedConcurrency"`
 }
 
 // EndpointConfigurationShadowProductionVariantServerlessConfigInput is an input type that accepts EndpointConfigurationShadowProductionVariantServerlessConfigArgs and EndpointConfigurationShadowProductionVariantServerlessConfigOutput values.
@@ -10991,6 +11012,8 @@ type EndpointConfigurationShadowProductionVariantServerlessConfigArgs struct {
 	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
 	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
 	MemorySizeInMb pulumi.IntInput `pulumi:"memorySizeInMb"`
+	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+	ProvisionedConcurrency pulumi.IntPtrInput `pulumi:"provisionedConcurrency"`
 }
 
 func (EndpointConfigurationShadowProductionVariantServerlessConfigArgs) ElementType() reflect.Type {
@@ -11080,6 +11103,13 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigOutput) Memo
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantServerlessConfig) int { return v.MemorySizeInMb }).(pulumi.IntOutput)
 }
 
+// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+func (o EndpointConfigurationShadowProductionVariantServerlessConfigOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariantServerlessConfig) *int {
+		return v.ProvisionedConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
 type EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) ElementType() reflect.Type {
@@ -11121,6 +11151,16 @@ func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) M
 			return nil
 		}
 		return &v.MemorySizeInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `maxConcurrency`. Valid values are between `1` and `200`.
+func (o EndpointConfigurationShadowProductionVariantServerlessConfigPtrOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationShadowProductionVariantServerlessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedConcurrency
 	}).(pulumi.IntPtrOutput)
 }
 

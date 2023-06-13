@@ -13,7 +13,7 @@ import (
 
 // Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
 //
-// > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source.
+// > **NOTE:** By default this resource _only_ invokes the function when the arguments call for a create or replace. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source. To invoke the lambda function when the Pulumi resource is updated and deleted, see the CRUD Lifecycle Scope example below.
 //
 // > **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
 //
@@ -29,7 +29,7 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +71,107 @@ import (
 //	}
 //
 // ```
+// ### CRUD Lifecycle Scope
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"key1": "value1",
+//				"key2": "value2",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
+//				FunctionName:   pulumi.Any(aws_lambda_function.Lambda_function_test.Function_name),
+//				Input:          pulumi.String(json0),
+//				LifecycleScope: pulumi.String("CRUD"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **NOTE:** `lifecycleScope = "CRUD"` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumiKey` argument.
+//
+// The key `tf` gets added with subkeys:
+//
+// * `action` - Action Pulumi performs on the resource. Values are `create`, `update`, or `delete`.
+// * `prevInput` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
+//
+// When the resource from the example above is created, the Lambda will get following JSON payload:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// If the input value of `key1` changes to "valueB", then the lambda will be invoked again with the following JSON payload:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// When the invocation resource is removed, the final invocation will have the following JSON payload:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 type Invocation struct {
 	pulumi.CustomResourceState
 
@@ -80,10 +181,13 @@ type Invocation struct {
 	//
 	// The following arguments are optional:
 	Input pulumi.StringOutput `pulumi:"input"`
+	// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+	LifecycleScope pulumi.StringPtrOutput `pulumi:"lifecycleScope"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
 	// String result of the lambda function invocation.
-	Result pulumi.StringOutput `pulumi:"result"`
+	Result       pulumi.StringOutput    `pulumi:"result"`
+	TerraformKey pulumi.StringPtrOutput `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
 }
@@ -129,10 +233,13 @@ type invocationState struct {
 	//
 	// The following arguments are optional:
 	Input *string `pulumi:"input"`
+	// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+	LifecycleScope *string `pulumi:"lifecycleScope"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier *string `pulumi:"qualifier"`
 	// String result of the lambda function invocation.
-	Result *string `pulumi:"result"`
+	Result       *string `pulumi:"result"`
+	TerraformKey *string `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers map[string]string `pulumi:"triggers"`
 }
@@ -144,10 +251,13 @@ type InvocationState struct {
 	//
 	// The following arguments are optional:
 	Input pulumi.StringPtrInput
+	// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+	LifecycleScope pulumi.StringPtrInput
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 	Qualifier pulumi.StringPtrInput
 	// String result of the lambda function invocation.
-	Result pulumi.StringPtrInput
+	Result       pulumi.StringPtrInput
+	TerraformKey pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers pulumi.StringMapInput
 }
@@ -163,8 +273,11 @@ type invocationArgs struct {
 	//
 	// The following arguments are optional:
 	Input string `pulumi:"input"`
+	// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+	LifecycleScope *string `pulumi:"lifecycleScope"`
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-	Qualifier *string `pulumi:"qualifier"`
+	Qualifier    *string `pulumi:"qualifier"`
+	TerraformKey *string `pulumi:"terraformKey"`
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers map[string]string `pulumi:"triggers"`
 }
@@ -177,8 +290,11 @@ type InvocationArgs struct {
 	//
 	// The following arguments are optional:
 	Input pulumi.StringInput
+	// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+	LifecycleScope pulumi.StringPtrInput
 	// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-	Qualifier pulumi.StringPtrInput
+	Qualifier    pulumi.StringPtrInput
+	TerraformKey pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
 	Triggers pulumi.StringMapInput
 }
@@ -282,6 +398,11 @@ func (o InvocationOutput) Input() pulumi.StringOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.Input }).(pulumi.StringOutput)
 }
 
+// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
+func (o InvocationOutput) LifecycleScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Invocation) pulumi.StringPtrOutput { return v.LifecycleScope }).(pulumi.StringPtrOutput)
+}
+
 // Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
 func (o InvocationOutput) Qualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringPtrOutput { return v.Qualifier }).(pulumi.StringPtrOutput)
@@ -290,6 +411,10 @@ func (o InvocationOutput) Qualifier() pulumi.StringPtrOutput {
 // String result of the lambda function invocation.
 func (o InvocationOutput) Result() pulumi.StringOutput {
 	return o.ApplyT(func(v *Invocation) pulumi.StringOutput { return v.Result }).(pulumi.StringOutput)
+}
+
+func (o InvocationOutput) TerraformKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Invocation) pulumi.StringPtrOutput { return v.TerraformKey }).(pulumi.StringPtrOutput)
 }
 
 // Map of arbitrary keys and values that, when changed, will trigger a re-invocation.

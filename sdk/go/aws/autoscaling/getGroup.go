@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,6 +104,8 @@ type LookupGroupResult struct {
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// The termination policies for the group.
 	TerminationPolicies []string `pulumi:"terminationPolicies"`
+	// Traffic sources.
+	TrafficSources []GetGroupTrafficSource `pulumi:"trafficSources"`
 	// VPC ID for the group.
 	VpcZoneIdentifier string `pulumi:"vpcZoneIdentifier"`
 	// Current size of the warm pool.
@@ -276,6 +278,11 @@ func (o LookupGroupResultOutput) TargetGroupArns() pulumi.StringArrayOutput {
 // The termination policies for the group.
 func (o LookupGroupResultOutput) TerminationPolicies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.TerminationPolicies }).(pulumi.StringArrayOutput)
+}
+
+// Traffic sources.
+func (o LookupGroupResultOutput) TrafficSources() GetGroupTrafficSourceArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []GetGroupTrafficSource { return v.TrafficSources }).(GetGroupTrafficSourceArrayOutput)
 }
 
 // VPC ID for the group.

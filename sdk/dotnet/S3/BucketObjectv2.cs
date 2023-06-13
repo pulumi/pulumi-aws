@@ -171,7 +171,7 @@ namespace Pulumi.Aws.S3
     public partial class BucketObjectv2 : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
         /// </summary>
         [Output("acl")]
         public Output<string?> Acl { get; private set; } = null!;
@@ -383,7 +383,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketObjectv2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
@@ -553,7 +553,7 @@ namespace Pulumi.Aws.S3
     public sealed class BucketObjectv2State : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
+        /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }

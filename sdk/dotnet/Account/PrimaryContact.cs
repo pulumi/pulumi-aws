@@ -38,6 +38,14 @@ namespace Pulumi.Aws.Account
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// The Primary Contact can be imported using the `account_id`, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
+    /// ```
     /// </summary>
     [AwsResourceType("aws:account/primaryContact:PrimaryContact")]
     public partial class PrimaryContact : global::Pulumi.CustomResource

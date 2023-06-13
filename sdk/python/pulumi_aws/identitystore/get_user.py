@@ -23,7 +23,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, addresses=None, alternate_identifier=None, display_name=None, emails=None, external_ids=None, filter=None, id=None, identity_store_id=None, locale=None, names=None, nickname=None, phone_numbers=None, preferred_language=None, profile_url=None, timezone=None, title=None, user_id=None, user_name=None, user_type=None):
+    def __init__(__self__, addresses=None, alternate_identifier=None, display_name=None, emails=None, external_ids=None, id=None, identity_store_id=None, locale=None, names=None, nickname=None, phone_numbers=None, preferred_language=None, profile_url=None, timezone=None, title=None, user_id=None, user_name=None, user_type=None):
         if addresses and not isinstance(addresses, list):
             raise TypeError("Expected argument 'addresses' to be a list")
         pulumi.set(__self__, "addresses", addresses)
@@ -39,13 +39,6 @@ class GetUserResult:
         if external_ids and not isinstance(external_ids, list):
             raise TypeError("Expected argument 'external_ids' to be a list")
         pulumi.set(__self__, "external_ids", external_ids)
-        if filter and not isinstance(filter, dict):
-            raise TypeError("Expected argument 'filter' to be a dict")
-        if filter is not None:
-            warnings.warn("""Use the alternate_identifier attribute instead.""", DeprecationWarning)
-            pulumi.log.warn("""filter is deprecated: Use the alternate_identifier attribute instead.""")
-
-        pulumi.set(__self__, "filter", filter)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -122,11 +115,6 @@ class GetUserResult:
         List of identifiers issued to this resource by an external identity provider.
         """
         return pulumi.get(self, "external_ids")
-
-    @property
-    @pulumi.getter
-    def filter(self) -> Optional['outputs.GetUserFilterResult']:
-        return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
@@ -238,7 +226,6 @@ class AwaitableGetUserResult(GetUserResult):
             display_name=self.display_name,
             emails=self.emails,
             external_ids=self.external_ids,
-            filter=self.filter,
             id=self.id,
             identity_store_id=self.identity_store_id,
             locale=self.locale,
@@ -255,7 +242,6 @@ class AwaitableGetUserResult(GetUserResult):
 
 
 def get_user(alternate_identifier: Optional[pulumi.InputType['GetUserAlternateIdentifierArgs']] = None,
-             filter: Optional[pulumi.InputType['GetUserFilterArgs']] = None,
              identity_store_id: Optional[str] = None,
              user_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
@@ -263,18 +249,16 @@ def get_user(alternate_identifier: Optional[pulumi.InputType['GetUserAlternateId
     Use this data source to get an Identity Store User.
 
 
-    :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param pulumi.InputType['GetUserFilterArgs'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
+    :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id`. Detailed below.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
     :param str user_id: The identifier for a user in the Identity Store.
            
-           > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+           > Exactly one of the above arguments must be provided.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
-    __args__['filter'] = filter
     __args__['identityStoreId'] = identity_store_id
     __args__['userId'] = user_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -286,7 +270,6 @@ def get_user(alternate_identifier: Optional[pulumi.InputType['GetUserAlternateId
         display_name=__ret__.display_name,
         emails=__ret__.emails,
         external_ids=__ret__.external_ids,
-        filter=__ret__.filter,
         id=__ret__.id,
         identity_store_id=__ret__.identity_store_id,
         locale=__ret__.locale,
@@ -304,7 +287,6 @@ def get_user(alternate_identifier: Optional[pulumi.InputType['GetUserAlternateId
 
 @_utilities.lift_output_func(get_user)
 def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi.InputType['GetUserAlternateIdentifierArgs']]]] = None,
-                    filter: Optional[pulumi.Input[Optional[pulumi.InputType['GetUserFilterArgs']]]] = None,
                     identity_store_id: Optional[pulumi.Input[str]] = None,
                     user_id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
@@ -312,13 +294,12 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi.
     Use this data source to get an Identity Store User.
 
 
-    :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param pulumi.InputType['GetUserFilterArgs'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
+    :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id`. Detailed below.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
     :param str user_id: The identifier for a user in the Identity Store.
            
-           > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+           > Exactly one of the above arguments must be provided.
     """
     ...

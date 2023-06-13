@@ -163,12 +163,6 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<int>? IgnoreHeaderRows { get; set; }
 
         /// <summary>
-        /// Deprecated. This setting has no effect. Will be removed in a future version.
-        /// </summary>
-        [Input("ignoreHeadersRow")]
-        public Input<int>? IgnoreHeadersRow { get; set; }
-
-        /// <summary>
         /// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
         /// </summary>
         [Input("includeOpForFullLoad")]

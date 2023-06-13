@@ -55,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,7 +90,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,7 +120,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -156,8 +156,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -387,12 +387,6 @@ type Instance struct {
 	RestoreToPointInTime InstanceRestoreToPointInTimePtrOutput `pulumi:"restoreToPointInTime"`
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import InstanceS3ImportPtrOutput `pulumi:"s3Import"`
-	// List of DB Security Groups to
-	// associate. Only used for [DB Instances on the _EC2-Classic_
-	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
 	// is created. If false is specified, a DB snapshot is created before the DB
@@ -659,12 +653,6 @@ type instanceState struct {
 	RestoreToPointInTime *InstanceRestoreToPointInTime `pulumi:"restoreToPointInTime"`
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import *InstanceS3Import `pulumi:"s3Import"`
-	// List of DB Security Groups to
-	// associate. Only used for [DB Instances on the _EC2-Classic_
-	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
 	// is created. If false is specified, a DB snapshot is created before the DB
@@ -893,12 +881,6 @@ type InstanceState struct {
 	RestoreToPointInTime InstanceRestoreToPointInTimePtrInput
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import InstanceS3ImportPtrInput
-	// List of DB Security Groups to
-	// associate. Only used for [DB Instances on the _EC2-Classic_
-	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames pulumi.StringArrayInput
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
 	// is created. If false is specified, a DB snapshot is created before the DB
@@ -1112,12 +1094,6 @@ type instanceArgs struct {
 	RestoreToPointInTime *InstanceRestoreToPointInTime `pulumi:"restoreToPointInTime"`
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import *InstanceS3Import `pulumi:"s3Import"`
-	// List of DB Security Groups to
-	// associate. Only used for [DB Instances on the _EC2-Classic_
-	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
 	// is created. If false is specified, a DB snapshot is created before the DB
@@ -1324,12 +1300,6 @@ type InstanceArgs struct {
 	RestoreToPointInTime InstanceRestoreToPointInTimePtrInput
 	// Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 	S3Import InstanceS3ImportPtrInput
-	// List of DB Security Groups to
-	// associate. Only used for [DB Instances on the _EC2-Classic_
-	// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-	//
-	// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-	SecurityGroupNames pulumi.StringArrayInput
 	// Determines whether a final DB snapshot is
 	// created before the DB instance is deleted. If true is specified, no DBSnapshot
 	// is created. If false is specified, a DB snapshot is created before the DB
@@ -1824,15 +1794,6 @@ func (o InstanceOutput) RestoreToPointInTime() InstanceRestoreToPointInTimePtrOu
 // Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
 func (o InstanceOutput) S3Import() InstanceS3ImportPtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceS3ImportPtrOutput { return v.S3Import }).(InstanceS3ImportPtrOutput)
-}
-
-// List of DB Security Groups to
-// associate. Only used for [DB Instances on the _EC2-Classic_
-// Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-//
-// Deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-func (o InstanceOutput) SecurityGroupNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }
 
 // Determines whether a final DB snapshot is

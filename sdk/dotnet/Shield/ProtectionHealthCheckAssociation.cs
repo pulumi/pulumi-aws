@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Shield
     /// 
     ///     var exampleEip = new Aws.Ec2.Eip("exampleEip", new()
     ///     {
-    ///         Vpc = true,
+    ///         Domain = "vpc",
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },

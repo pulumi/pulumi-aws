@@ -37,10 +37,6 @@ type Provider struct {
 	Region pulumi.StringPtrOutput `pulumi:"region"`
 	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
-	// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-	//
-	// Deprecated: Use shared_credentials_files instead.
-	SharedCredentialsFile pulumi.StringPtrOutput `pulumi:"sharedCredentialsFile"`
 	// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
 	StsRegion pulumi.StringPtrOutput `pulumi:"stsRegion"`
 	// session token. A session token is only required if you are using temporary security credentials.
@@ -111,30 +107,16 @@ type providerArgs struct {
 	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
 	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
 	// Specific to the Amazon S3 service.
-	//
-	// Deprecated: Use s3_use_path_style instead.
-	S3ForcePathStyle *bool `pulumi:"s3ForcePathStyle"`
-	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-	// Specific to the Amazon S3 service.
 	S3UsePathStyle *bool `pulumi:"s3UsePathStyle"`
 	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	SecretKey *string `pulumi:"secretKey"`
 	// List of paths to shared config files. If not set, defaults to [~/.aws/config].
 	SharedConfigFiles []string `pulumi:"sharedConfigFiles"`
-	// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-	//
-	// Deprecated: Use shared_credentials_files instead.
-	SharedCredentialsFile *string `pulumi:"sharedCredentialsFile"`
 	// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
 	SharedCredentialsFiles []string `pulumi:"sharedCredentialsFiles"`
 	// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
 	// available/implemented.
 	SkipCredentialsValidation *bool `pulumi:"skipCredentialsValidation"`
-	// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-	//
-	// Deprecated: With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
-	SkipGetEc2Platforms *bool `pulumi:"skipGetEc2Platforms"`
 	// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
 	SkipMetadataApiCheck *bool `pulumi:"skipMetadataApiCheck"`
 	// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
@@ -188,30 +170,16 @@ type ProviderArgs struct {
 	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
 	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
 	// Specific to the Amazon S3 service.
-	//
-	// Deprecated: Use s3_use_path_style instead.
-	S3ForcePathStyle pulumi.BoolPtrInput
-	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
-	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
-	// Specific to the Amazon S3 service.
 	S3UsePathStyle pulumi.BoolPtrInput
 	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	SecretKey pulumi.StringPtrInput
 	// List of paths to shared config files. If not set, defaults to [~/.aws/config].
 	SharedConfigFiles pulumi.StringArrayInput
-	// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-	//
-	// Deprecated: Use shared_credentials_files instead.
-	SharedCredentialsFile pulumi.StringPtrInput
 	// List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
 	SharedCredentialsFiles pulumi.StringArrayInput
 	// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
 	// available/implemented.
 	SkipCredentialsValidation pulumi.BoolPtrInput
-	// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-	//
-	// Deprecated: With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.
-	SkipGetEc2Platforms pulumi.BoolPtrInput
 	// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
 	SkipMetadataApiCheck pulumi.BoolPtrInput
 	// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
@@ -308,13 +276,6 @@ func (o ProviderOutput) Region() pulumi.StringPtrOutput {
 // The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 func (o ProviderOutput) SecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SecretKey }).(pulumi.StringPtrOutput)
-}
-
-// The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
-//
-// Deprecated: Use shared_credentials_files instead.
-func (o ProviderOutput) SharedCredentialsFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SharedCredentialsFile }).(pulumi.StringPtrOutput)
 }
 
 // The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.

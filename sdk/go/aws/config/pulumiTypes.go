@@ -11,9 +11,7 @@ import (
 )
 
 type AssumeRole struct {
-	Duration *string `pulumi:"duration"`
-	// Deprecated: Use assume_role.duration instead
-	DurationSeconds   *int              `pulumi:"durationSeconds"`
+	Duration          *string           `pulumi:"duration"`
 	ExternalId        *string           `pulumi:"externalId"`
 	Policy            *string           `pulumi:"policy"`
 	PolicyArns        []string          `pulumi:"policyArns"`
@@ -36,9 +34,7 @@ type AssumeRoleInput interface {
 }
 
 type AssumeRoleArgs struct {
-	Duration pulumi.StringPtrInput `pulumi:"duration"`
-	// Deprecated: Use assume_role.duration instead
-	DurationSeconds   pulumi.IntPtrInput      `pulumi:"durationSeconds"`
+	Duration          pulumi.StringPtrInput   `pulumi:"duration"`
 	ExternalId        pulumi.StringPtrInput   `pulumi:"externalId"`
 	Policy            pulumi.StringPtrInput   `pulumi:"policy"`
 	PolicyArns        pulumi.StringArrayInput `pulumi:"policyArns"`
@@ -77,11 +73,6 @@ func (o AssumeRoleOutput) ToAssumeRoleOutputWithContext(ctx context.Context) Ass
 
 func (o AssumeRoleOutput) Duration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssumeRole) *string { return v.Duration }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: Use assume_role.duration instead
-func (o AssumeRoleOutput) DurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AssumeRole) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o AssumeRoleOutput) ExternalId() pulumi.StringPtrOutput {

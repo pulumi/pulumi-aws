@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Rds
         ///         Engine = "mysql",
         ///         EngineVersion = "5.6.17",
         ///         InstanceClass = "db.t2.micro",
-        ///         Name = "mydb",
+        ///         DbName = "mydb",
         ///         Username = "foo",
         ///         Password = "bar",
         ///         DbSubnetGroupName = "my_database_subnet_group",
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Rds
         /// 
         ///     var latestProdSnapshot = Aws.Rds.GetSnapshot.Invoke(new()
         ///     {
-        ///         DbInstanceIdentifier = prod.Id,
+        ///         DbInstanceIdentifier = prod.Identifier,
         ///         MostRecent = true,
         ///     });
         /// 
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Rds
         ///     var dev = new Aws.Rds.Instance("dev", new()
         ///     {
         ///         InstanceClass = "db.t2.micro",
-        ///         Name = "mydbdev",
+        ///         DbName = "mydbdev",
         ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
         ///     });
         /// 
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Rds
         ///         Engine = "mysql",
         ///         EngineVersion = "5.6.17",
         ///         InstanceClass = "db.t2.micro",
-        ///         Name = "mydb",
+        ///         DbName = "mydb",
         ///         Username = "foo",
         ///         Password = "bar",
         ///         DbSubnetGroupName = "my_database_subnet_group",
@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Rds
         /// 
         ///     var latestProdSnapshot = Aws.Rds.GetSnapshot.Invoke(new()
         ///     {
-        ///         DbInstanceIdentifier = prod.Id,
+        ///         DbInstanceIdentifier = prod.Identifier,
         ///         MostRecent = true,
         ///     });
         /// 
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Rds
         ///     var dev = new Aws.Rds.Instance("dev", new()
         ///     {
         ///         InstanceClass = "db.t2.micro",
-        ///         Name = "mydbdev",
+        ///         DbName = "mydbdev",
         ///         SnapshotIdentifier = latestProdSnapshot.Apply(getSnapshotResult =&gt; getSnapshotResult.Id),
         ///     });
         /// 

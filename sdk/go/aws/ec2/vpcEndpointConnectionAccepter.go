@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,7 +45,7 @@ import (
 //				SecurityGroupIds: pulumi.StringArray{
 //					aws_security_group.Test.Id,
 //				},
-//			}, pulumi.Provider("aws.alternate"))
+//			}, pulumi.Provider(aws.Alternate))
 //			if err != nil {
 //				return err
 //			}

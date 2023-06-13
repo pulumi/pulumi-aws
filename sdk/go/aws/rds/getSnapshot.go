@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -34,7 +34,7 @@ import (
 //				Engine:             pulumi.String("mysql"),
 //				EngineVersion:      pulumi.String("5.6.17"),
 //				InstanceClass:      pulumi.String("db.t2.micro"),
-//				Name:               pulumi.String("mydb"),
+//				DbName:             pulumi.String("mydb"),
 //				Username:           pulumi.String("foo"),
 //				Password:           pulumi.String("bar"),
 //				DbSubnetGroupName:  pulumi.String("my_database_subnet_group"),
@@ -44,12 +44,12 @@ import (
 //				return err
 //			}
 //			latestProdSnapshot := rds.LookupSnapshotOutput(ctx, rds.GetSnapshotOutputArgs{
-//				DbInstanceIdentifier: prod.ID(),
+//				DbInstanceIdentifier: prod.Identifier,
 //				MostRecent:           pulumi.Bool(true),
 //			}, nil)
 //			_, err = rds.NewInstance(ctx, "dev", &rds.InstanceArgs{
 //				InstanceClass: pulumi.String("db.t2.micro"),
-//				Name:          pulumi.String("mydbdev"),
+//				DbName:        pulumi.String("mydbdev"),
 //				SnapshotIdentifier: latestProdSnapshot.ApplyT(func(latestProdSnapshot rds.GetSnapshotResult) (*string, error) {
 //					return &latestProdSnapshot.Id, nil
 //				}).(pulumi.StringPtrOutput),

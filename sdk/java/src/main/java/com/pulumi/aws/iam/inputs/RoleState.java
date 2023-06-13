@@ -4,7 +4,6 @@
 package com.pulumi.aws.iam.inputs;
 
 import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
-import com.pulumi.aws.iam.inputs.RoleRoleLastUsedArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -202,21 +201,6 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-     * 
-     */
-    @Import(name="roleLastUseds")
-    private @Nullable Output<List<RoleRoleLastUsedArgs>> roleLastUseds;
-
-    /**
-     * @return Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-     * 
-     */
-    public Optional<Output<List<RoleRoleLastUsedArgs>>> roleLastUseds() {
-        return Optional.ofNullable(this.roleLastUseds);
-    }
-
-    /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -276,7 +260,6 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         this.namePrefix = $.namePrefix;
         this.path = $.path;
         this.permissionsBoundary = $.permissionsBoundary;
-        this.roleLastUseds = $.roleLastUseds;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.uniqueId = $.uniqueId;
@@ -560,37 +543,6 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder permissionsBoundary(String permissionsBoundary) {
             return permissionsBoundary(Output.of(permissionsBoundary));
-        }
-
-        /**
-         * @param roleLastUseds Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder roleLastUseds(@Nullable Output<List<RoleRoleLastUsedArgs>> roleLastUseds) {
-            $.roleLastUseds = roleLastUseds;
-            return this;
-        }
-
-        /**
-         * @param roleLastUseds Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder roleLastUseds(List<RoleRoleLastUsedArgs> roleLastUseds) {
-            return roleLastUseds(Output.of(roleLastUseds));
-        }
-
-        /**
-         * @param roleLastUseds Contains information about the last time that an IAM role was used. See `role_last_used` for details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder roleLastUseds(RoleRoleLastUsedArgs... roleLastUseds) {
-            return roleLastUseds(List.of(roleLastUseds));
         }
 
         /**

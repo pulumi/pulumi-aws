@@ -5,7 +5,6 @@ package com.pulumi.aws.connect.inputs;
 
 import com.pulumi.aws.connect.inputs.RoutingProfileMediaConcurrencyArgs;
 import com.pulumi.aws.connect.inputs.RoutingProfileQueueConfigArgs;
-import com.pulumi.aws.connect.inputs.RoutingProfileQueueConfigsAssociatedArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -126,25 +125,6 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * @deprecated
-     * Use the queue_configs instead
-     * 
-     */
-    @Deprecated /* Use the queue_configs instead */
-    @Import(name="queueConfigsAssociateds")
-    private @Nullable Output<List<RoutingProfileQueueConfigsAssociatedArgs>> queueConfigsAssociateds;
-
-    /**
-     * @deprecated
-     * Use the queue_configs instead
-     * 
-     */
-    @Deprecated /* Use the queue_configs instead */
-    public Optional<Output<List<RoutingProfileQueueConfigsAssociatedArgs>>> queueConfigsAssociateds() {
-        return Optional.ofNullable(this.queueConfigsAssociateds);
-    }
-
-    /**
      * The identifier for the Routing Profile.
      * 
      */
@@ -201,7 +181,6 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
         this.mediaConcurrencies = $.mediaConcurrencies;
         this.name = $.name;
         this.queueConfigs = $.queueConfigs;
-        this.queueConfigsAssociateds = $.queueConfigsAssociateds;
         this.routingProfileId = $.routingProfileId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -390,43 +369,6 @@ public final class RoutingProfileState extends com.pulumi.resources.ResourceArgs
          */
         public Builder queueConfigs(RoutingProfileQueueConfigArgs... queueConfigs) {
             return queueConfigs(List.of(queueConfigs));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Use the queue_configs instead
-         * 
-         */
-        @Deprecated /* Use the queue_configs instead */
-        public Builder queueConfigsAssociateds(@Nullable Output<List<RoutingProfileQueueConfigsAssociatedArgs>> queueConfigsAssociateds) {
-            $.queueConfigsAssociateds = queueConfigsAssociateds;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Use the queue_configs instead
-         * 
-         */
-        @Deprecated /* Use the queue_configs instead */
-        public Builder queueConfigsAssociateds(List<RoutingProfileQueueConfigsAssociatedArgs> queueConfigsAssociateds) {
-            return queueConfigsAssociateds(Output.of(queueConfigsAssociateds));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Use the queue_configs instead
-         * 
-         */
-        @Deprecated /* Use the queue_configs instead */
-        public Builder queueConfigsAssociateds(RoutingProfileQueueConfigsAssociatedArgs... queueConfigsAssociateds) {
-            return queueConfigsAssociateds(List.of(queueConfigsAssociateds));
         }
 
         /**

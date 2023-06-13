@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudcontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudcontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

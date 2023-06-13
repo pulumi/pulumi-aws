@@ -301,12 +301,6 @@ namespace Pulumi.Aws.Budgets
         public Output<string> BudgetType { get; private set; } = null!;
 
         /// <summary>
-        /// Map of CostFilters key/value pairs to apply to the budget.
-        /// </summary>
-        [Output("costFilterLegacy")]
-        public Output<ImmutableDictionary<string, string>> CostFilterLegacy { get; private set; } = null!;
-
-        /// <summary>
         /// A list of CostFilter name/values pair to apply to budget.
         /// </summary>
         [Output("costFilters")]
@@ -436,19 +430,6 @@ namespace Pulumi.Aws.Budgets
         [Input("budgetType", required: true)]
         public Input<string> BudgetType { get; set; } = null!;
 
-        [Input("costFilterLegacy")]
-        private InputMap<string>? _costFilterLegacy;
-
-        /// <summary>
-        /// Map of CostFilters key/value pairs to apply to the budget.
-        /// </summary>
-        [Obsolete(@"Use the attribute ""cost_filter"" instead.")]
-        public InputMap<string> CostFilterLegacy
-        {
-            get => _costFilterLegacy ?? (_costFilterLegacy = new InputMap<string>());
-            set => _costFilterLegacy = value;
-        }
-
         [Input("costFilters")]
         private InputList<Inputs.BudgetCostFilterArgs>? _costFilters;
 
@@ -564,19 +545,6 @@ namespace Pulumi.Aws.Budgets
         /// </summary>
         [Input("budgetType")]
         public Input<string>? BudgetType { get; set; }
-
-        [Input("costFilterLegacy")]
-        private InputMap<string>? _costFilterLegacy;
-
-        /// <summary>
-        /// Map of CostFilters key/value pairs to apply to the budget.
-        /// </summary>
-        [Obsolete(@"Use the attribute ""cost_filter"" instead.")]
-        public InputMap<string> CostFilterLegacy
-        {
-            get => _costFilterLegacy ?? (_costFilterLegacy = new InputMap<string>());
-            set => _costFilterLegacy = value;
-        }
 
         [Input("costFilters")]
         private InputList<Inputs.BudgetCostFilterGetArgs>? _costFilters;

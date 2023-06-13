@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -34,7 +34,7 @@ import (
 //				SecurityGroupIds: pulumi.StringArray{
 //					data.Aws_security_group.Example.Id,
 //				},
-//				SubnetIds: pulumi.Any(data.Aws_subnet_ids.Example.Ids),
+//				SubnetIds: pulumi.Any(data.Aws_subnets.Example.Ids),
 //				Tags: pulumi.StringMap{
 //					"Usage": pulumi.String("example"),
 //				},

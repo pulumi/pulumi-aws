@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .engine(&#34;mysql&#34;)
  *             .engineVersion(&#34;5.6.21&#34;)
  *             .instanceClass(&#34;db.t2.micro&#34;)
- *             .name(&#34;baz&#34;)
+ *             .dbName(&#34;baz&#34;)
  *             .password(&#34;barbarbarbar&#34;)
  *             .username(&#34;foo&#34;)
  *             .maintenanceWindow(&#34;Fri:09:00-Fri:09:30&#34;)
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
- *             .dbInstanceIdentifier(exampleInstance.id())
+ *             .dbInstanceIdentifier(exampleInstance.identifier())
  *             .dbSnapshotIdentifier(&#34;testsnapshot1234&#34;)
  *             .build());
  * 

@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Kinesis
     ///         {
     ///             RoleArn = aws_iam_role.Firehose_role.Arn,
     ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///             BufferSize = 64,
+    ///             BufferingSize = 64,
     ///             DynamicPartitioningConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs
     ///             {
     ///                 Enabled = true,
@@ -205,67 +205,6 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
-    /// ### S3 Destination (deprecated)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var bucket = new Aws.S3.BucketV2("bucket");
-    /// 
-    ///     var bucketAcl = new Aws.S3.BucketAclV2("bucketAcl", new()
-    ///     {
-    ///         Bucket = bucket.Id,
-    ///         Acl = "private",
-    ///     });
-    /// 
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "firehose.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var firehoseRole = new Aws.Iam.Role("firehoseRole", new()
-    ///     {
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
-    ///     {
-    ///         Destination = "s3",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = firehoseRole.Arn,
-    ///             BucketArn = bucket.Arn,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Redshift Destination
     /// 
     /// ```csharp
@@ -289,14 +228,6 @@ namespace Pulumi.Aws.Kinesis
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
     ///     {
     ///         Destination = "redshift",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///             BufferSize = 10,
-    ///             BufferInterval = 400,
-    ///             CompressionFormat = "GZIP",
-    ///         },
     ///         RedshiftConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs
     ///         {
     ///             RoleArn = aws_iam_role.Firehose_role.Arn,
@@ -312,12 +243,20 @@ namespace Pulumi.Aws.Kinesis
     ///             CopyOptions = "delimiter '|'",
     ///             DataTableColumns = "test-col",
     ///             S3BackupMode = "Enabled",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferingSize = 10,
+    ///                 BufferingInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
     ///             S3BackupConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs
     ///             {
     ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
     ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///                 BufferSize = 15,
-    ///                 BufferInterval = 300,
+    ///                 BufferingSize = 15,
+    ///                 BufferingInterval = 300,
     ///                 CompressionFormat = "GZIP",
     ///             },
     ///         },
@@ -340,20 +279,20 @@ namespace Pulumi.Aws.Kinesis
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
     ///     {
     ///         Destination = "elasticsearch",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///             BufferSize = 10,
-    ///             BufferInterval = 400,
-    ///             CompressionFormat = "GZIP",
-    ///         },
     ///         ElasticsearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs
     ///         {
     ///             DomainArn = testCluster.Arn,
     ///             RoleArn = aws_iam_role.Firehose_role.Arn,
     ///             IndexName = "test",
     ///             TypeName = "test",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferingSize = 10,
+    ///                 BufferingInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
     ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs
     ///             {
     ///                 Enabled = true,
@@ -463,17 +402,17 @@ namespace Pulumi.Aws.Kinesis
     ///     var test = new Aws.Kinesis.FirehoseDeliveryStream("test", new()
     ///     {
     ///         Destination = "elasticsearch",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///         },
     ///         ElasticsearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs
     ///         {
     ///             DomainArn = testCluster.Arn,
     ///             RoleArn = aws_iam_role.Firehose.Arn,
     ///             IndexName = "test",
     ///             TypeName = "test",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///             },
     ///             VpcConfig = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
     ///             {
     ///                 SubnetIds = new[]
@@ -513,19 +452,19 @@ namespace Pulumi.Aws.Kinesis
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
     ///     {
     ///         Destination = "opensearch",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose_role.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///             BufferSize = 10,
-    ///             BufferInterval = 400,
-    ///             CompressionFormat = "GZIP",
-    ///         },
     ///         OpensearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs
     ///         {
     ///             DomainArn = testCluster.Arn,
     ///             RoleArn = aws_iam_role.Firehose_role.Arn,
     ///             IndexName = "test",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferingSize = 10,
+    ///                 BufferingInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
     ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs
     ///             {
     ///                 Enabled = true,
@@ -632,16 +571,16 @@ namespace Pulumi.Aws.Kinesis
     ///     var test = new Aws.Kinesis.FirehoseDeliveryStream("test", new()
     ///     {
     ///         Destination = "opensearch",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///         },
     ///         OpensearchConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs
     ///         {
     ///             DomainArn = testCluster.Arn,
     ///             RoleArn = aws_iam_role.Firehose.Arn,
     ///             IndexName = "test",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///             },
     ///             VpcConfig = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs
     ///             {
     ///                 SubnetIds = new[]
@@ -679,14 +618,6 @@ namespace Pulumi.Aws.Kinesis
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
     ///     {
     ///         Destination = "splunk",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///             BufferSize = 10,
-    ///             BufferInterval = 400,
-    ///             CompressionFormat = "GZIP",
-    ///         },
     ///         SplunkConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSplunkConfigurationArgs
     ///         {
     ///             HecEndpoint = "https://http-inputs-mydomain.splunkcloud.com:443",
@@ -694,6 +625,14 @@ namespace Pulumi.Aws.Kinesis
     ///             HecAcknowledgmentTimeout = 600,
     ///             HecEndpointType = "Event",
     ///             S3BackupMode = "FailedEventsOnly",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferingSize = 10,
+    ///                 BufferingInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
     ///         },
     ///     });
     /// 
@@ -712,14 +651,6 @@ namespace Pulumi.Aws.Kinesis
     ///     var testStream = new Aws.Kinesis.FirehoseDeliveryStream("testStream", new()
     ///     {
     ///         Destination = "http_endpoint",
-    ///         S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamS3ConfigurationArgs
-    ///         {
-    ///             RoleArn = aws_iam_role.Firehose.Arn,
-    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
-    ///             BufferSize = 10,
-    ///             BufferInterval = 400,
-    ///             CompressionFormat = "GZIP",
-    ///         },
     ///         HttpEndpointConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs
     ///         {
     ///             Url = "https://aws-api.newrelic.com/firehose/v1",
@@ -729,6 +660,14 @@ namespace Pulumi.Aws.Kinesis
     ///             BufferingInterval = 600,
     ///             RoleArn = aws_iam_role.Firehose.Arn,
     ///             S3BackupMode = "FailedDataOnly",
+    ///             S3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 BufferingSize = 10,
+    ///                 BufferingInterval = 400,
+    ///                 CompressionFormat = "GZIP",
+    ///             },
     ///             RequestConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs
     ///             {
     ///                 ContentEncoding = "GZIP",
@@ -773,6 +712,7 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+        /// is redshift). More details are given below.
         /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
@@ -823,13 +763,6 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Output("redshiftConfiguration")]
         public Output<Outputs.FirehoseDeliveryStreamRedshiftConfiguration?> RedshiftConfiguration { get; private set; } = null!;
-
-        /// <summary>
-        /// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-        /// is redshift). More details are given below.
-        /// </summary>
-        [Output("s3Configuration")]
-        public Output<Outputs.FirehoseDeliveryStreamS3Configuration?> S3Configuration { get; private set; } = null!;
 
         /// <summary>
         /// Encrypt at rest options.
@@ -916,6 +849,7 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+        /// is redshift). More details are given below.
         /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
@@ -968,13 +902,6 @@ namespace Pulumi.Aws.Kinesis
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs>? RedshiftConfiguration { get; set; }
 
         /// <summary>
-        /// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-        /// is redshift). More details are given below.
-        /// </summary>
-        [Input("s3Configuration")]
-        public Input<Inputs.FirehoseDeliveryStreamS3ConfigurationArgs>? S3Configuration { get; set; }
-
-        /// <summary>
         /// Encrypt at rest options.
         /// Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         /// </summary>
@@ -1021,6 +948,7 @@ namespace Pulumi.Aws.Kinesis
 
         /// <summary>
         /// This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint` and `opensearch`.
+        /// is redshift). More details are given below.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
@@ -1071,13 +999,6 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("redshiftConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamRedshiftConfigurationGetArgs>? RedshiftConfiguration { get; set; }
-
-        /// <summary>
-        /// Required for non-S3 destinations. For S3 destination, use `extended_s3_configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
-        /// is redshift). More details are given below.
-        /// </summary>
-        [Input("s3Configuration")]
-        public Input<Inputs.FirehoseDeliveryStreamS3ConfigurationGetArgs>? S3Configuration { get; set; }
 
         /// <summary>
         /// Encrypt at rest options.

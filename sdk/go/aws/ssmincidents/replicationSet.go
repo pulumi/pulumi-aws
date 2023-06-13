@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,7 +91,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -122,8 +122,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

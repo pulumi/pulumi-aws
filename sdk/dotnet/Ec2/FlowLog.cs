@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> LogFormat { get; private set; } = null!;
 
         /// <summary>
-        /// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         /// </summary>
         [Output("logGroupName")]
         public Output<string> LogGroupName { get; private set; } = null!;
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogFormat { get; set; }
 
         /// <summary>
-        /// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
@@ -464,7 +464,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LogFormat { get; set; }
 
         /// <summary>
-        /// *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
+        /// **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }

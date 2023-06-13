@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/account"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/account"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -45,6 +45,16 @@ import (
 //			return nil
 //		})
 //	}
+//
+// ```
+//
+// ## Import
+//
+// The Primary Contact can be imported using the `account_id`, e.g.,
+//
+// ```sh
+//
+//	$ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
 //
 // ```
 type PrimaryContact struct {

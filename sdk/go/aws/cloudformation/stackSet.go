@@ -26,8 +26,8 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudformation"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -156,6 +156,8 @@ type StackSet struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 	ExecutionRoleName pulumi.StringOutput `pulumi:"executionRoleName"`
+	// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution StackSetManagedExecutionPtrOutput `pulumi:"managedExecution"`
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Preferences for how AWS CloudFormation performs a stack set update.
@@ -219,6 +221,8 @@ type stackSetState struct {
 	Description *string `pulumi:"description"`
 	// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 	ExecutionRoleName *string `pulumi:"executionRoleName"`
+	// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution *StackSetManagedExecution `pulumi:"managedExecution"`
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name *string `pulumi:"name"`
 	// Preferences for how AWS CloudFormation performs a stack set update.
@@ -254,6 +258,8 @@ type StackSetState struct {
 	Description pulumi.StringPtrInput
 	// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 	ExecutionRoleName pulumi.StringPtrInput
+	// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution StackSetManagedExecutionPtrInput
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name pulumi.StringPtrInput
 	// Preferences for how AWS CloudFormation performs a stack set update.
@@ -291,6 +297,8 @@ type stackSetArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 	ExecutionRoleName *string `pulumi:"executionRoleName"`
+	// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution *StackSetManagedExecution `pulumi:"managedExecution"`
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name *string `pulumi:"name"`
 	// Preferences for how AWS CloudFormation performs a stack set update.
@@ -321,6 +329,8 @@ type StackSetArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 	ExecutionRoleName pulumi.StringPtrInput
+	// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+	ManagedExecution StackSetManagedExecutionPtrInput
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name pulumi.StringPtrInput
 	// Preferences for how AWS CloudFormation performs a stack set update.
@@ -457,6 +467,11 @@ func (o StackSetOutput) Description() pulumi.StringPtrOutput {
 // Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
 func (o StackSetOutput) ExecutionRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSet) pulumi.StringOutput { return v.ExecutionRoleName }).(pulumi.StringOutput)
+}
+
+// Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+func (o StackSetOutput) ManagedExecution() StackSetManagedExecutionPtrOutput {
+	return o.ApplyT(func(v *StackSet) StackSetManagedExecutionPtrOutput { return v.ManagedExecution }).(StackSetManagedExecutionPtrOutput)
 }
 
 // Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.

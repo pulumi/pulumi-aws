@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ec2
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
-    ///         Provider = "aws.alternate",
+    ///         Provider = aws.Alternate,
     ///     });
     /// 
     ///     var exampleVpcEndpointConnectionAccepter = new Aws.Ec2.VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", new()

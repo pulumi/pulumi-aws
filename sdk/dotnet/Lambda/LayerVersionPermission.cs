@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
     /// 
+    /// &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are _not_ managed by Pulumi and may incur extra expense in your AWS account.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -84,6 +86,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("revisionId")]
         public Output<string> RevisionId { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        /// </summary>
+        [Output("skipDestroy")]
+        public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
         /// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
@@ -168,6 +176,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string> Principal { get; set; } = null!;
 
         /// <summary>
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
+
+        /// <summary>
         /// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
         /// </summary>
         [Input("statementId", required: true)]
@@ -222,6 +236,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("revisionId")]
         public Input<string>? RevisionId { get; set; }
+
+        /// <summary>
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
+        /// </summary>
+        [Input("skipDestroy")]
+        public Input<bool>? SkipDestroy { get; set; }
 
         /// <summary>
         /// The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.

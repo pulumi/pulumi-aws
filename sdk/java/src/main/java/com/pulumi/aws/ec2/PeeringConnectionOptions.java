@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.PeeringConnectionOptions;
  * import com.pulumi.aws.ec2.PeeringConnectionOptionsArgs;
  * import com.pulumi.aws.ec2.inputs.PeeringConnectionOptionsAccepterArgs;
- * import com.pulumi.aws.ec2.inputs.PeeringConnectionOptionsRequesterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,10 +73,6 @@ import javax.annotation.Nullable;
  *             .vpcPeeringConnectionId(fooVpcPeeringConnection.id())
  *             .accepter(PeeringConnectionOptionsAccepterArgs.builder()
  *                 .allowRemoteVpcDnsResolution(true)
- *                 .build())
- *             .requester(PeeringConnectionOptionsRequesterArgs.builder()
- *                 .allowVpcToRemoteClassicLink(true)
- *                 .allowClassicLinkToRemoteVpc(true)
  *                 .build())
  *             .build());
  * 

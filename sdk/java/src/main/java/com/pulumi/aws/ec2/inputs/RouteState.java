@@ -127,22 +127,14 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     /**
      * Identifier of an EC2 instance.
      * 
-     * @deprecated
-     * Use network_interface_id instead
-     * 
      */
-    @Deprecated /* Use network_interface_id instead */
     @Import(name="instanceId")
     private @Nullable Output<String> instanceId;
 
     /**
      * @return Identifier of an EC2 instance.
      * 
-     * @deprecated
-     * Use network_interface_id instead
-     * 
      */
-    @Deprecated /* Use network_interface_id instead */
     public Optional<Output<String>> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
@@ -502,11 +494,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use network_interface_id instead
-         * 
          */
-        @Deprecated /* Use network_interface_id instead */
         public Builder instanceId(@Nullable Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
@@ -517,11 +505,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use network_interface_id instead
-         * 
          */
-        @Deprecated /* Use network_interface_id instead */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }

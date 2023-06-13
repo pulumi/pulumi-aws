@@ -1,4 +1,4 @@
-From dd11f5457c405abc74a0a0e781492f9f2a0eee04 Mon Sep 17 00:00:00 2001
+From 86d7a60259026b352eecc02dbb739b4cc3ed2e58 Mon Sep 17 00:00:00 2001
 From: Richard Shade <richard@pulumi.com>
 Date: Fri, 6 Jan 2023 15:31:22 -0600
 Subject: [PATCH 19/29] fix: Adding back in removeAddons

@@ -1,4 +1,4 @@
-From 0e4273c577190cca8dd29bd0624e37ac446972a6 Mon Sep 17 00:00:00 2001
+From c9412d6d84053262d962dac9eb72d3a1f75229f2 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:05:11 +0000
 Subject: [PATCH 03/29] Add S3 legacy bucket to resources
@@ -41,19 +41,19 @@ https://github.com/hashicorp/terraform-provider-aws/pull/29717.
  create mode 100644 website/docs/r/s3_bucket_legacy.html.markdown
 
 diff --git a/go.mod b/go.mod
-index 74290b92ee..316165efc8 100644
+index dec48e6fd6..3af1d0a670 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -49,6 +49,7 @@ require (
- 	github.com/beevik/etree v1.1.4
+ 	github.com/beevik/etree v1.2.0
  	github.com/google/go-cmp v0.5.9
  	github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.20.0
 +	github.com/hashicorp/aws-sdk-go-base v1.1.0
- 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.25
- 	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.26
+ 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.28
+ 	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.29
  	github.com/hashicorp/awspolicyequivalence v1.6.0
 diff --git a/go.sum b/go.sum
-index 003d839f59..dcf760eb87 100644
+index 5aa20f8224..27fd228424 100644
 --- a/go.sum
 +++ b/go.sum
 @@ -21,6 +21,7 @@ github.com/apparentlymart/go-textseg/v13 v13.0.0/go.mod h1:ZK2fH7c4NqDTLtiYLvIkE
@@ -61,10 +61,10 @@ index 003d839f59..dcf760eb87 100644
  github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
  github.com/armon/go-socks5 v0.0.0-20160902184237-e75332964ef5/go.mod h1:wHh0iHkYZB8zMSxRWpUBQtwG5a7fFgvEO+odwuTv2gs=
 +github.com/aws/aws-sdk-go v1.31.9/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
- github.com/aws/aws-sdk-go v1.44.261 h1:PcTMX/QVk+P3yh2n34UzuXDF5FS2z5Lse2bt+r3IpU4=
- github.com/aws/aws-sdk-go v1.44.261/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8Phjh7fkwI=
- github.com/aws/aws-sdk-go-v2 v1.17.4/go.mod h1:uzbQtefpm44goOPmdKyAlXSNcwlRgF3ePWVW6EtJvvw=
-@@ -169,6 +170,7 @@ github.com/go-git/go-billy/v5 v5.3.1/go.mod h1:pmpqyWchKfYfrkb/UVH4otLvyi/5gJlGI
+ github.com/aws/aws-sdk-go v1.44.273 h1:CX8O0gK+cGrgUyv7bgJ6QQP9mQg7u5mweHdNzULH47c=
+ github.com/aws/aws-sdk-go v1.44.273/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8Phjh7fkwI=
+ github.com/aws/aws-sdk-go-v2 v1.18.0 h1:882kkTpSFhdgYRKVZ/VCgf7sd0ru57p2JCxz4/oN5RY=
+@@ -161,6 +162,7 @@ github.com/go-git/go-billy/v5 v5.3.1/go.mod h1:pmpqyWchKfYfrkb/UVH4otLvyi/5gJlGI
  github.com/go-git/go-git-fixtures/v4 v4.2.1/go.mod h1:K8zd3kDUAykwTdDCr+I0per6Y6vMiRR/nnVTBtavnB0=
  github.com/go-git/go-git/v5 v5.4.2 h1:BXyZu9t0VkbiHtqrsvdq39UDhGJTl1h55VW6CSC4aY4=
  github.com/go-git/go-git/v5 v5.4.2/go.mod h1:gQ1kArt6d+n+BGd+/B/I74HwRTLhth2+zti4ihgckDc=
@@ -72,16 +72,16 @@ index 003d839f59..dcf760eb87 100644
  github.com/go-test/deep v1.0.3 h1:ZrJSEWsXzPOxaZnFteGEfooLba+ju3FYIbOrS+rQd68=
  github.com/golang/protobuf v1.1.0/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
  github.com/golang/protobuf v1.3.1/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
-@@ -187,6 +189,8 @@ github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
+@@ -179,6 +181,8 @@ github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
  github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
  github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.20.0 h1:xc1OYpWvNo6dhnzemfjwtbNxeu3Ag4Wr6yT8BOo0/q0=
  github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.20.0/go.mod h1:cdTE6F2pCKQobug+RqRaQp7Kz9hIEqiSvpPmb6E5G1w=
 +github.com/hashicorp/aws-sdk-go-base v1.1.0 h1:27urM3JAp6v+Oj/Ea5ULZwuFPK9cO1RUdEpV+rNdSAc=
 +github.com/hashicorp/aws-sdk-go-base v1.1.0/go.mod h1:2fRjWDv3jJBeN6mVWFHV6hFTNeFBx2gpDLQaZNxUVAY=
- github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.25 h1:C/rKj4J49TzpuWZG8FCzTJeMHB5YjeIE7/RyanYfrYA=
- github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.25/go.mod h1:wzIwDL7rJ5Eb/PsdohG3Mpd/Gfy6wo07XytpTpTdQ0M=
- github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.26 h1:6Vs31BbjeG4oRO/MdvAO6XWOfv1HxcVbXJq8nwYr1cw=
-@@ -256,6 +260,7 @@ github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i
+ github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.28 h1:ZPi6zWIkChrz2A/UuY6uW+a/f/Q/YYfsRGgrimN2T0Y=
+ github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.28/go.mod h1:SrGbQeiwYYJN8R0ZZcDHXI2D3nxjPxa3J/dOD44zth0=
+ github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.29 h1:+jnBsCje/ZAQn3wCuNZxo+SUxCFK0Tqvsvy5X0hYBGw=
+@@ -250,6 +254,7 @@ github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i
  github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
  github.com/jessevdk/go-flags v1.5.0/go.mod h1:Fw0T6WPc1dYxT4mKEZRfG5kJhaTDP9pj1c2EWnYs/m4=
  github.com/jhump/protoreflect v1.6.0 h1:h5jfMVslIg6l29nsMs0D8Wj17RDVdNYti0vDN/PZZoE=
@@ -89,7 +89,7 @@ index 003d839f59..dcf760eb87 100644
  github.com/jmespath/go-jmespath v0.4.0 h1:BEgLn5cpjn8UN1mAw4NjwDrS35OdebyEtFe+9YPoQUg=
  github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHWvzYPziyZiYoo=
  github.com/jmespath/go-jmespath/internal/testify v1.5.1 h1:shLQSRRSCCPj3f2gpwzGwWFoC7ycTf1rcQZHOlsJ6N8=
-@@ -377,6 +382,7 @@ golang.org/x/mod v0.8.0/go.mod h1:iBbtSCu2XBx23ZKBPSOrRkjjQPZFPuis4dIYUhu/chs=
+@@ -371,6 +376,7 @@ golang.org/x/mod v0.8.0/go.mod h1:iBbtSCu2XBx23ZKBPSOrRkjjQPZFPuis4dIYUhu/chs=
  golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
  golang.org/x/net v0.0.0-20190603091049-60506f45cf65/go.mod h1:HSz+uSET+XFnRR8LxR5pz3Of3rY3CfYBVs4xY44aLks=
  golang.org/x/net v0.0.0-20190620200207-3b0461eec859/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
@@ -98,7 +98,7 @@ index 003d839f59..dcf760eb87 100644
  golang.org/x/net v0.0.0-20210326060303-6b1517762897/go.mod h1:uSPa2vr4CLtc/ILN5odXGNXS6mhrKVzTaCXzk9m6W3k=
  golang.org/x/net v0.0.0-20220722155237-a158d28d115b/go.mod h1:XRhObCWvk6IyKnWLug+ECip1KBveYUHfp+8e9klMJ9c=
 diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index f78c6dd638..c89e665400 100644
+index d06e2e26ea..83a9786f34 100644
 --- a/internal/provider/provider.go
 +++ b/internal/provider/provider.go
 @@ -8,6 +8,8 @@ import (
@@ -110,7 +110,7 @@ index f78c6dd638..c89e665400 100644
  	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
  	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
  	multierror "github.com/hashicorp/go-multierror"
-@@ -246,7 +248,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
+@@ -222,7 +224,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
  		// should use the @SDKDataSource and @SDKResource function-level annotations
  		// rather than adding directly to these maps.
  		DataSourcesMap: make(map[string]*schema.Resource),

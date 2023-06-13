@@ -254,12 +254,6 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
-     * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    public readonly securityGroupNames!: pulumi.Output<string[]>;
-    /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
     public readonly snapshotArns!: pulumi.Output<string | undefined>;
@@ -328,7 +322,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["preferredOutpostArn"] = state ? state.preferredOutpostArn : undefined;
             resourceInputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            resourceInputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
             resourceInputs["snapshotArns"] = state ? state.snapshotArns : undefined;
             resourceInputs["snapshotName"] = state ? state.snapshotName : undefined;
             resourceInputs["snapshotRetentionLimit"] = state ? state.snapshotRetentionLimit : undefined;
@@ -360,7 +353,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["preferredOutpostArn"] = args ? args.preferredOutpostArn : undefined;
             resourceInputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            resourceInputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
             resourceInputs["snapshotArns"] = args ? args.snapshotArns : undefined;
             resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
             resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
@@ -504,12 +496,6 @@ export interface ClusterState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
     snapshotArns?: pulumi.Input<string>;
@@ -643,12 +629,6 @@ export interface ClusterArgs {
      * One or more VPC security groups associated with the cache cluster
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
-     *
-     * @deprecated With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
-     */
-    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */

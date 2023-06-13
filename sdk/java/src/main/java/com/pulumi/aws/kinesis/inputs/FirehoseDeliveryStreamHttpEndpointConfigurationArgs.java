@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs;
 import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs;
+import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -170,6 +171,21 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
     }
 
     /**
+     * The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    @Import(name="s3Configuration", required=true)
+    private Output<FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs> s3Configuration;
+
+    /**
+     * @return The S3 Configuration. See s3_configuration for more details.
+     * 
+     */
+    public Output<FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs> s3Configuration() {
+        return this.s3Configuration;
+    }
+
+    /**
      * The HTTP endpoint URL to which Kinesis Firehose sends your data.
      * 
      */
@@ -197,6 +213,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         this.retryDuration = $.retryDuration;
         this.roleArn = $.roleArn;
         this.s3BackupMode = $.s3BackupMode;
+        this.s3Configuration = $.s3Configuration;
         this.url = $.url;
     }
 
@@ -429,6 +446,27 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         /**
+         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3Configuration(Output<FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs> s3Configuration) {
+            $.s3Configuration = s3Configuration;
+            return this;
+        }
+
+        /**
+         * @param s3Configuration The S3 Configuration. See s3_configuration for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder s3Configuration(FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs s3Configuration) {
+            return s3Configuration(Output.of(s3Configuration));
+        }
+
+        /**
          * @param url The HTTP endpoint URL to which Kinesis Firehose sends your data.
          * 
          * @return builder
@@ -450,6 +488,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationArgs extends c
         }
 
         public FirehoseDeliveryStreamHttpEndpointConfigurationArgs build() {
+            $.s3Configuration = Objects.requireNonNull($.s3Configuration, "expected parameter 's3Configuration' to be non-null");
             $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
             return $;
         }

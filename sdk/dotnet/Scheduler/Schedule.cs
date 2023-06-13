@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Scheduler
     ///         {
     ///             Mode = "OFF",
     ///         },
-    ///         ScheduleExpression = "rate(1 hour)",
+    ///         ScheduleExpression = "rate(1 hours)",
     ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
     ///         {
     ///             Arn = aws_sqs_queue.Example.Arn,
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Scheduler
     ///         {
     ///             Mode = "OFF",
     ///         },
-    ///         ScheduleExpression = "rate(1 hour)",
+    ///         ScheduleExpression = "rate(1 hours)",
     ///         Target = new Aws.Scheduler.Inputs.ScheduleTargetArgs
     ///         {
     ///             Arn = "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",

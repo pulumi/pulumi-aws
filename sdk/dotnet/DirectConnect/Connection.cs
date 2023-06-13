@@ -192,7 +192,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The VLAN ID.
         /// </summary>
         [Output("vlanId")]
-        public Output<string> VlanId { get; private set; } = null!;
+        public Output<int> VlanId { get; private set; } = null!;
 
 
         /// <summary>
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The VLAN ID.
         /// </summary>
         [Input("vlanId")]
-        public Input<string>? VlanId { get; set; }
+        public Input<int>? VlanId { get; set; }
 
         public ConnectionState()
         {

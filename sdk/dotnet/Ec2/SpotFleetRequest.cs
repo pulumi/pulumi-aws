@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ec2
     /// Provides an EC2 Spot Fleet Request resource. This allows a fleet of Spot
     /// instances to be requested on the Spot market.
     /// 
+    /// &gt; **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+    /// We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
+    /// 
     /// ## Example Usage
     /// ### Using launch specifications
     /// 
@@ -127,9 +130,19 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = Aws.Ec2.GetSubnetIds.Invoke(new()
+    ///     var example = Aws.Ec2.GetSubnets.Invoke(new()
     ///     {
-    ///         VpcId = @var.Vpc_id,
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+    ///             {
+    ///                 Name = "vpc-id",
+    ///                 Values = new[]
+    ///                 {
+    ///                     @var.Vpc_id,
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     ///     var fooLaunchTemplate = new Aws.Ec2.LaunchTemplate("fooLaunchTemplate", new()
@@ -158,15 +171,15 @@ namespace Pulumi.Aws.Ec2
     ///                 {
     ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
     ///                     {
-    ///                         SubnetId = data.Aws_subnets.Example.Ids[0],
+    ///                         SubnetId = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[0]),
     ///                     },
     ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
     ///                     {
-    ///                         SubnetId = data.Aws_subnets.Example.Ids[1],
+    ///                         SubnetId = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[1]),
     ///                     },
     ///                     new Aws.Ec2.Inputs.SpotFleetRequestLaunchTemplateConfigOverrideArgs
     ///                     {
-    ///                         SubnetId = data.Aws_subnets.Example.Ids[2],
+    ///                         SubnetId = example.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[2]),
     ///                     },
     ///                 },
     ///             },

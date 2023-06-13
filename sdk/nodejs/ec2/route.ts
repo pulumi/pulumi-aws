@@ -123,10 +123,8 @@ export class Route extends pulumi.CustomResource {
     public readonly gatewayId!: pulumi.Output<string | undefined>;
     /**
      * Identifier of an EC2 instance.
-     *
-     * @deprecated Use network_interface_id instead
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    public /*out*/ readonly instanceId!: pulumi.Output<string>;
     /**
      * The AWS account ID of the owner of the EC2 instance.
      */
@@ -215,7 +213,6 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["destinationPrefixListId"] = args ? args.destinationPrefixListId : undefined;
             resourceInputs["egressOnlyGatewayId"] = args ? args.egressOnlyGatewayId : undefined;
             resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["localGatewayId"] = args ? args.localGatewayId : undefined;
             resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
@@ -223,6 +220,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
             resourceInputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
+            resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["instanceOwnerId"] = undefined /*out*/;
             resourceInputs["origin"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -268,8 +266,6 @@ export interface RouteState {
     gatewayId?: pulumi.Input<string>;
     /**
      * Identifier of an EC2 instance.
-     *
-     * @deprecated Use network_interface_id instead
      */
     instanceId?: pulumi.Input<string>;
     /**
@@ -352,12 +348,6 @@ export interface RouteArgs {
      * Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
      */
     gatewayId?: pulumi.Input<string>;
-    /**
-     * Identifier of an EC2 instance.
-     *
-     * @deprecated Use network_interface_id instead
-     */
-    instanceId?: pulumi.Input<string>;
     /**
      * Identifier of a Outpost local gateway.
      */

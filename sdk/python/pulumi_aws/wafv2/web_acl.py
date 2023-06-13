@@ -617,11 +617,17 @@ class WebAcl(pulumi.CustomResource):
                 statement=aws.wafv2.WebAclRuleStatementArgs(
                     rule_group_reference_statement=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementArgs(
                         arn=example.arn,
-                        excluded_rules=[
-                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs(
+                        rule_action_overrides=[
+                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs(
+                                action_to_use=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs(
+                                    count=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs(),
+                                ),
                                 name="rule-to-exclude-b",
                             ),
-                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs(
+                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs(
+                                action_to_use=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs(
+                                    count=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs(),
+                                ),
                                 name="rule-to-exclude-a",
                             ),
                         ],
@@ -866,11 +872,17 @@ class WebAcl(pulumi.CustomResource):
                 statement=aws.wafv2.WebAclRuleStatementArgs(
                     rule_group_reference_statement=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementArgs(
                         arn=example.arn,
-                        excluded_rules=[
-                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs(
+                        rule_action_overrides=[
+                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs(
+                                action_to_use=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs(
+                                    count=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs(),
+                                ),
                                 name="rule-to-exclude-b",
                             ),
-                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleArgs(
+                            aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs(
+                                action_to_use=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs(
+                                    count=aws.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs(),
+                                ),
                                 name="rule-to-exclude-a",
                             ),
                         ],

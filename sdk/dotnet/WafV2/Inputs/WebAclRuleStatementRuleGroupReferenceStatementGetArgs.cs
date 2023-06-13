@@ -18,17 +18,16 @@ namespace Pulumi.Aws.WafV2.Inputs
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
-        [Input("excludedRules")]
-        private InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleGetArgs>? _excludedRules;
+        [Input("ruleActionOverrides")]
+        private InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideGetArgs>? _ruleActionOverrides;
 
         /// <summary>
-        /// The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See `excluded_rule` below for details.
+        /// Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
         /// </summary>
-        [Obsolete(@"Use rule_action_override instead")]
-        public InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleGetArgs> ExcludedRules
+        public InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideGetArgs> RuleActionOverrides
         {
-            get => _excludedRules ?? (_excludedRules = new InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementExcludedRuleGetArgs>());
-            set => _excludedRules = value;
+            get => _ruleActionOverrides ?? (_ruleActionOverrides = new InputList<Inputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideGetArgs>());
+            set => _ruleActionOverrides = value;
         }
 
         public WebAclRuleStatementRuleGroupReferenceStatementGetArgs()

@@ -228,13 +228,13 @@ import javax.annotation.Nullable;
  *             .displayName(sns.display_name())
  *             .policy(sns_topic_policy.json())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.sns&#34;)
+ *                 .provider(aws.sns())
  *                 .build());
  * 
  *         var sqs_queue = new Queue(&#34;sqs-queue&#34;, QueueArgs.builder()        
  *             .policy(sqs_queue_policy.json())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.sqs&#34;)
+ *                 .provider(aws.sqs())
  *                 .build());
  * 
  *         var sns_topicTopicSubscription = new TopicSubscription(&#34;sns-topicTopicSubscription&#34;, TopicSubscriptionArgs.builder()        
@@ -242,7 +242,7 @@ import javax.annotation.Nullable;
  *             .protocol(&#34;sqs&#34;)
  *             .endpoint(sqs_queue.arn())
  *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.sns2sqs&#34;)
+ *                 .provider(aws.sns2sqs())
  *                 .build());
  * 
  *     }

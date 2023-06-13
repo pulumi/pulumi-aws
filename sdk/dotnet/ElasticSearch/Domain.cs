@@ -168,9 +168,19 @@ namespace Pulumi.Aws.ElasticSearch
     ///         },
     ///     });
     /// 
-    ///     var selectedSubnetIds = Aws.Ec2.GetSubnetIds.Invoke(new()
+    ///     var selectedSubnets = Aws.Ec2.GetSubnets.Invoke(new()
     ///     {
-    ///         VpcId = selectedVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.GetSubnetsFilterInputArgs
+    ///             {
+    ///                 Name = "vpc-id",
+    ///                 Values = new[]
+    ///                 {
+    ///                     selectedVpc.Apply(getVpcResult =&gt; getVpcResult.Id),
+    ///                 },
+    ///             },
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "Tier", "private" },
@@ -217,8 +227,8 @@ namespace Pulumi.Aws.ElasticSearch
     ///         {
     ///             SubnetIds = new[]
     ///             {
-    ///                 selectedSubnetIds.Apply(getSubnetIdsResult =&gt; getSubnetIdsResult.Ids[0]),
-    ///                 selectedSubnetIds.Apply(getSubnetIdsResult =&gt; getSubnetIdsResult.Ids[1]),
+    ///                 selectedSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[0]),
+    ///                 selectedSubnets.Apply(getSubnetsResult =&gt; getSubnetsResult.Ids[1]),
     ///             },
     ///             SecurityGroupIds = new[]
     ///             {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.cloudformation;
 
 import com.pulumi.aws.cloudformation.inputs.StackSetAutoDeploymentArgs;
+import com.pulumi.aws.cloudformation.inputs.StackSetManagedExecutionArgs;
 import com.pulumi.aws.cloudformation.inputs.StackSetOperationPreferencesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -107,6 +108,21 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> executionRoleName() {
         return Optional.ofNullable(this.executionRoleName);
+    }
+
+    /**
+     * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+     * 
+     */
+    @Import(name="managedExecution")
+    private @Nullable Output<StackSetManagedExecutionArgs> managedExecution;
+
+    /**
+     * @return Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+     * 
+     */
+    public Optional<Output<StackSetManagedExecutionArgs>> managedExecution() {
+        return Optional.ofNullable(this.managedExecution);
     }
 
     /**
@@ -223,6 +239,7 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
         this.capabilities = $.capabilities;
         this.description = $.description;
         this.executionRoleName = $.executionRoleName;
+        this.managedExecution = $.managedExecution;
         this.name = $.name;
         this.operationPreferences = $.operationPreferences;
         this.parameters = $.parameters;
@@ -384,6 +401,27 @@ public final class StackSetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder executionRoleName(String executionRoleName) {
             return executionRoleName(Output.of(executionRoleName));
+        }
+
+        /**
+         * @param managedExecution Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedExecution(@Nullable Output<StackSetManagedExecutionArgs> managedExecution) {
+            $.managedExecution = managedExecution;
+            return this;
+        }
+
+        /**
+         * @param managedExecution Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedExecution(StackSetManagedExecutionArgs managedExecution) {
+            return managedExecution(Output.of(managedExecution));
         }
 
         /**

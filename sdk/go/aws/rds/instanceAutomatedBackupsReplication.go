@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,9 +77,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,7 +98,7 @@ import (
 //				Engine:                pulumi.String("postgres"),
 //				EngineVersion:         pulumi.String("13.4"),
 //				InstanceClass:         pulumi.String("db.t3.micro"),
-//				Name:                  pulumi.String("mydb"),
+//				DbName:                pulumi.String("mydb"),
 //				Username:              pulumi.String("masterusername"),
 //				Password:              pulumi.String("mustbeeightcharacters"),
 //				BackupRetentionPeriod: pulumi.Int(7),
@@ -110,14 +110,14 @@ import (
 //			}
 //			defaultKey, err := kms.NewKey(ctx, "defaultKey", &kms.KeyArgs{
 //				Description: pulumi.String("Encryption key for automated backups"),
-//			}, pulumi.Provider("aws.replica"))
+//			}, pulumi.Provider(aws.Replica))
 //			if err != nil {
 //				return err
 //			}
 //			_, err = rds.NewInstanceAutomatedBackupsReplication(ctx, "defaultInstanceAutomatedBackupsReplication", &rds.InstanceAutomatedBackupsReplicationArgs{
 //				SourceDbInstanceArn: defaultInstance.Arn,
 //				KmsKeyId:            defaultKey.Arn,
-//			}, pulumi.Provider("aws.replica"))
+//			}, pulumi.Provider(aws.Replica))
 //			if err != nil {
 //				return err
 //			}

@@ -182,12 +182,6 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public /*out*/ readonly serial!: pulumi.Output<string>;
     /**
-     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     *
-     * @deprecated The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -229,7 +223,6 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["permanentDeletionTimeInDays"] = state ? state.permanentDeletionTimeInDays : undefined;
             resourceInputs["revocationConfiguration"] = state ? state.revocationConfiguration : undefined;
             resourceInputs["serial"] = state ? state.serial : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -254,7 +247,6 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["notAfter"] = undefined /*out*/;
             resourceInputs["notBefore"] = undefined /*out*/;
             resourceInputs["serial"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -314,12 +306,6 @@ export interface CertificateAuthorityState {
      * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      */
     serial?: pulumi.Input<string>;
-    /**
-     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     *
-     * @deprecated The reported value of the "status" attribute is often inaccurate. Use the resource's "enabled" attribute to explicitly set status.
-     */
-    status?: pulumi.Input<string>;
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly int HttpsPort;
         /// <summary>
-        /// The Custom KeepAlive timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        /// The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
         /// </summary>
         public readonly int? OriginKeepaliveTimeout;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string OriginProtocolPolicy;
         /// <summary>
-        /// The Custom Read timeout, in seconds. By default, AWS enforces a limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout).
+        /// The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
         /// </summary>
         public readonly int? OriginReadTimeout;
         /// <summary>

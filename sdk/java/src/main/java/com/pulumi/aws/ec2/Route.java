@@ -228,11 +228,7 @@ public class Route extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of an EC2 instance.
      * 
-     * @deprecated
-     * Use network_interface_id instead
-     * 
      */
-    @Deprecated /* Use network_interface_id instead */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 

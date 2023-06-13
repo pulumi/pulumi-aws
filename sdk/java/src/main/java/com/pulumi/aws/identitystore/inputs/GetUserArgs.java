@@ -4,7 +4,6 @@
 package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifierArgs;
-import com.pulumi.aws.identitystore.inputs.GetUserFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -18,41 +17,18 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUserArgs Empty = new GetUserArgs();
 
     /**
-     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id`. Detailed below.
      * 
      */
     @Import(name="alternateIdentifier")
     private @Nullable Output<GetUserAlternateIdentifierArgs> alternateIdentifier;
 
     /**
-     * @return A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+     * @return A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id`. Detailed below.
      * 
      */
     public Optional<Output<GetUserAlternateIdentifierArgs>> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
-    }
-
-    /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     * 
-     * @deprecated
-     * Use the alternate_identifier attribute instead.
-     * 
-     */
-    @Deprecated /* Use the alternate_identifier attribute instead. */
-    @Import(name="filter")
-    private @Nullable Output<GetUserFilterArgs> filter;
-
-    /**
-     * @return Configuration block for filtering by a unique attribute of the user. Detailed below.
-     * 
-     * @deprecated
-     * Use the alternate_identifier attribute instead.
-     * 
-     */
-    @Deprecated /* Use the alternate_identifier attribute instead. */
-    public Optional<Output<GetUserFilterArgs>> filter() {
-        return Optional.ofNullable(this.filter);
     }
 
     /**
@@ -77,7 +53,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The identifier for a user in the Identity Store.
      * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+     * &gt; Exactly one of the above arguments must be provided.
      * 
      */
     @Import(name="userId")
@@ -86,7 +62,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return The identifier for a user in the Identity Store.
      * 
-     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+     * &gt; Exactly one of the above arguments must be provided.
      * 
      */
     public Optional<Output<String>> userId() {
@@ -97,7 +73,6 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetUserArgs(GetUserArgs $) {
         this.alternateIdentifier = $.alternateIdentifier;
-        this.filter = $.filter;
         this.identityStoreId = $.identityStoreId;
         this.userId = $.userId;
     }
@@ -121,7 +96,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id`. Detailed below.
          * 
          * @return builder
          * 
@@ -132,42 +107,13 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id`. Detailed below.
          * 
          * @return builder
          * 
          */
         public Builder alternateIdentifier(GetUserAlternateIdentifierArgs alternateIdentifier) {
             return alternateIdentifier(Output.of(alternateIdentifier));
-        }
-
-        /**
-         * @param filter Configuration block for filtering by a unique attribute of the user. Detailed below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the alternate_identifier attribute instead.
-         * 
-         */
-        @Deprecated /* Use the alternate_identifier attribute instead. */
-        public Builder filter(@Nullable Output<GetUserFilterArgs> filter) {
-            $.filter = filter;
-            return this;
-        }
-
-        /**
-         * @param filter Configuration block for filtering by a unique attribute of the user. Detailed below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the alternate_identifier attribute instead.
-         * 
-         */
-        @Deprecated /* Use the alternate_identifier attribute instead. */
-        public Builder filter(GetUserFilterArgs filter) {
-            return filter(Output.of(filter));
         }
 
         /**
@@ -198,7 +144,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param userId The identifier for a user in the Identity Store.
          * 
-         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+         * &gt; Exactly one of the above arguments must be provided.
          * 
          * @return builder
          * 
@@ -211,7 +157,7 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param userId The identifier for a user in the Identity Store.
          * 
-         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
+         * &gt; Exactly one of the above arguments must be provided.
          * 
          * @return builder
          * 

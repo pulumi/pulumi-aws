@@ -41,6 +41,12 @@ public final class GetDataSetResult {
     private List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets;
     private List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations;
     private Map<String,String> tags;
+    /**
+     * @deprecated
+     * this attribute has been deprecated
+     * 
+     */
+    @Deprecated /* this attribute has been deprecated */
     private Map<String,String> tagsAll;
 
     private GetDataSetResult() {}
@@ -96,6 +102,12 @@ public final class GetDataSetResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @deprecated
+     * this attribute has been deprecated
+     * 
+     */
+    @Deprecated /* this attribute has been deprecated */
     public Map<String,String> tagsAll() {
         return this.tagsAll;
     }

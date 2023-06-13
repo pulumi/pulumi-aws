@@ -21,18 +21,18 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.GetTransitGatewayRouteTables(ctx, nil, nil)
+//			exampleTransitGatewayRouteTables, err := ec2.GetTransitGatewayRouteTables(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("example", data.Aws_ec2_transit_gateway_route_table.Example.Ids)
+//			ctx.Export("example", exampleTransitGatewayRouteTables.Ids)
 //			return nil
 //		})
 //	}

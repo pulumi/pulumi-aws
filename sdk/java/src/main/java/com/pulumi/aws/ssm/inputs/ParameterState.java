@@ -126,16 +126,24 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * 
+     * @deprecated
+     * this attribute has been deprecated
      * 
      */
+    @Deprecated /* this attribute has been deprecated */
     @Import(name="overwrite")
     private @Nullable Output<Boolean> overwrite;
 
     /**
-     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * 
+     * @deprecated
+     * this attribute has been deprecated
      * 
      */
+    @Deprecated /* this attribute has been deprecated */
     public Optional<Output<Boolean>> overwrite() {
         return Optional.ofNullable(this.overwrite);
     }
@@ -423,22 +431,30 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
          * 
          * @return builder
          * 
+         * @deprecated
+         * this attribute has been deprecated
+         * 
          */
+        @Deprecated /* this attribute has been deprecated */
         public Builder overwrite(@Nullable Output<Boolean> overwrite) {
             $.overwrite = overwrite;
             return this;
         }
 
         /**
-         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise.
+         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
          * 
          * @return builder
          * 
+         * @deprecated
+         * this attribute has been deprecated
+         * 
          */
+        @Deprecated /* this attribute has been deprecated */
         public Builder overwrite(Boolean overwrite) {
             return overwrite(Output.of(overwrite));
         }

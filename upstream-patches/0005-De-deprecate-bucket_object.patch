@@ -1,4 +1,4 @@
-From ab24f5f14290f866a4dad10a01335050190a68a8 Mon Sep 17 00:00:00 2001
+From d6e0d16dd1dafe254e58973843d4a28bb84afffd Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:06:11 +0000
 Subject: [PATCH 05/29] De-deprecate bucket_object
@@ -8,7 +8,7 @@ Subject: [PATCH 05/29] De-deprecate bucket_object
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/internal/service/s3/bucket_object.go b/internal/service/s3/bucket_object.go
-index 7d536a9fe6..0cb1f8b3f5 100644
+index 1340e045ea..f0a1ce7041 100644
 --- a/internal/service/s3/bucket_object.go
 +++ b/internal/service/s3/bucket_object.go
 @@ -60,7 +60,7 @@ func ResourceBucketObject() *schema.Resource {

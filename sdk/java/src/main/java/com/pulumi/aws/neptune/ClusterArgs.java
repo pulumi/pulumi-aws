@@ -396,14 +396,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      * 
      */
     @Import(name="snapshotIdentifier")
     private @Nullable Output<String> snapshotIdentifier;
 
     /**
-     * @return Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+     * @return Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      * 
      */
     public Optional<Output<String>> snapshotIdentifier() {
@@ -1063,7 +1063,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotIdentifier Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+         * @param snapshotIdentifier Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
          * 
          * @return builder
          * 
@@ -1074,7 +1074,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotIdentifier Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot.
+         * @param snapshotIdentifier Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
          * 
          * @return builder
          * 
