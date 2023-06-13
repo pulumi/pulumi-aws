@@ -396,6 +396,7 @@ on:
     branches:
     - master
     - main
+    - v6
     paths-ignore:
     - CHANGELOG.md
   repository_dispatch:
