@@ -635,7 +635,7 @@ func Provider() *tfbridge.ProviderInfo {
 	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
 	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialized")
 
-	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider), upstreamProvider.PluginFrameworkProvider)
+	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
 
 	prov := tfbridge.ProviderInfo{
 		P:           p,
