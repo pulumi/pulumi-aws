@@ -51,6 +51,15 @@ jobs:
     - name: Update Pulumi SDK (sdk/go.mod)
       run: cd sdk && go mod edit -require github.com/pulumi/pulumi/sdk/v3@v${{
         github.event.inputs.sdk_version }} && go mod tidy
+    - name: Clear GitHub Actions Ubuntu runner disk space
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        dotnet: false
+        android: true
+        haskell: true
+        swap-storage: true
+        large-packages: true
     - run: make tfgen
     - run: make build_sdks
     - id: create-pr

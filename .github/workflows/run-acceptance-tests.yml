@@ -187,6 +187,15 @@ jobs:
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
         repo: mikhailshilkov/schema-tools
+    - name: Clear GitHub Actions Ubuntu runner disk space
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        dotnet: false
+        android: true
+        haskell: true
+        swap-storage: true
+        large-packages: true
     - name: Build tfgen & provider binaries
       run: make provider
     - if: github.event_name == 'pull_request'

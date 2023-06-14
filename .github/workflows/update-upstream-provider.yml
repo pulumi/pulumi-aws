@@ -82,6 +82,15 @@ jobs:
         env.UPSTREAM_PROVIDER_ORG }}/${{ env.UPSTREAM_PROVIDER_REPO }}${{
         env.UPSTREAM_PROVIDER_MAJOR_VERSION }}@${{ env.UPSTREAM_PROVIDER_SHA }}
         && go mod tidy
+    - name: Clear GitHub Actions Ubuntu runner disk space
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        dotnet: false
+        android: true
+        haskell: true
+        swap-storage: true
+        large-packages: true
     - run: make tfgen
     - run: make build_sdks
     - if: ${{ !github.event.inputs.linked_issue_number }}
