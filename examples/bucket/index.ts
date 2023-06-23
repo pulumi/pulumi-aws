@@ -13,12 +13,15 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi";
+// Import the nested module directly to regression test:
+// https://github.com/pulumi/pulumi-aws/issues/772
+import { Bucket } from "@pulumi/aws/s3";
 import * as aws from "@pulumi/aws";
 
 const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
-const bucket = new aws.s3.Bucket("testbucket", {
+const bucket = new Bucket("testbucket", {
     serverSideEncryptionConfiguration: {
         rule: {
             applyServerSideEncryptionByDefault: {
@@ -30,8 +33,9 @@ const bucket = new aws.s3.Bucket("testbucket", {
 }, providerOpts);
 
 bucket.onObjectCreated("bucket-callback", async (event) => {
-    const awssdk = await import("aws-sdk");
-    const s3 = new awssdk.S3();
+    // Use `aws.sdk` property directly to validate it resolves both 
+    // at type checking time and at runtime correctly.
+    const s3 = new aws.sdk.S3();
 
     const recordFile = "lastPutFile.json";
 
