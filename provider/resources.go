@@ -1521,6 +1521,17 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_directory_service_radius_settings":           {Tok: awsResource(directoryserviceMod, "RadiusSettings")},
 			"aws_directory_service_region":                    {Tok: awsResource(directoryserviceMod, "ServiceRegion")},
 
+			"aws_directory_service_trust": {
+				Tok: awsResource(directoryserviceMod, "Trust"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"trust_state": {
+						// Without this rename, C# compilation fails as there is a TrustState
+						// class generated in the SDK that now conflicts with TrustState field.
+						CSharpName: "Truststate",
+					},
+				},
+			},
+
 			// Document DB
 			"aws_docdb_cluster":                 {Tok: awsResource(docdbMod, "Cluster")},
 			"aws_docdb_cluster_instance":        {Tok: awsResource(docdbMod, "ClusterInstance")},
@@ -7074,9 +7085,15 @@ func Provider() *tfbridge.ProviderInfo {
 		"aws_quicksight_ingestion": {
 			Tok: awsResource("QuickSight", "Ingestion"),
 		},
-		// "aws_quicksight_namespace": {
-		// 	Tok: awsResource("QuickSight", "Namespace"),
-		// },
+		"aws_quicksight_namespace": {
+			Tok: awsResource("QuickSight", "Namespace"),
+			Fields: map[string]*tfbridge.SchemaInfo{
+				"namespace": {
+					// Avoid conflict with "Namespace" class name that breaks compilation.
+					CSharpName: "NameSpace",
+				},
+			},
+		},
 		"aws_quicksight_folder_membership": {
 			Tok: awsResource("QuickSight", "FolderMembership"),
 		},
@@ -7091,15 +7108,6 @@ func Provider() *tfbridge.ProviderInfo {
 		}
 		prov.Resources[k] = v
 	}
-
-	// TODO fix C# compilation error for QuickSight Namespace
-	// error CS0542: 'Namespace': member names cannot be the same as their enclosing type
-	// 9 Warning(s)
-	// 1 Error(s)
-	prov.IgnoreMappings = append(prov.IgnoreMappings, "aws_quicksight_namespace")
-	// TODO fix C# compilation error for DirectoryService Trust
-	// error CS0542: 'TrustState': member names cannot be the same as their enclosing type
-	prov.IgnoreMappings = append(prov.IgnoreMappings, "aws_directory_service_trust")
 
 	if err := x.ComputeDefaults(&prov, x.TokensMappedModules("aws_", "", moduleMap,
 		func(mod, name string) (string, error) {

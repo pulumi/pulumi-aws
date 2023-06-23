@@ -75,6 +75,11 @@ export type Ingestion = import("./ingestion").Ingestion;
 export const Ingestion: typeof import("./ingestion").Ingestion = null as any;
 utilities.lazyLoad(exports, ["Ingestion"], () => require("./ingestion"));
 
+export { NamespaceArgs, NamespaceState } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+
 export { RefreshScheduleArgs, RefreshScheduleState } from "./refreshSchedule";
 export type RefreshSchedule = import("./refreshSchedule").RefreshSchedule;
 export const RefreshSchedule: typeof import("./refreshSchedule").RefreshSchedule = null as any;
@@ -127,6 +132,8 @@ const _module = {
                 return new IamPolicyAssignment(name, <any>undefined, { urn })
             case "aws:quicksight/ingestion:Ingestion":
                 return new Ingestion(name, <any>undefined, { urn })
+            case "aws:quicksight/namespace:Namespace":
+                return new Namespace(name, <any>undefined, { urn })
             case "aws:quicksight/refreshSchedule:RefreshSchedule":
                 return new RefreshSchedule(name, <any>undefined, { urn })
             case "aws:quicksight/template:Template":
@@ -153,6 +160,7 @@ pulumi.runtime.registerResourceModule("aws", "quicksight/group", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/groupMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/iamPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/ingestion", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/namespace", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/refreshSchedule", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/template", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/templateAlias", _module)

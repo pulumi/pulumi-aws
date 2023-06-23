@@ -19,6 +19,7 @@ from .group import *
 from .group_membership import *
 from .iam_policy_assignment import *
 from .ingestion import *
+from .namespace import *
 from .refresh_schedule import *
 from .template import *
 from .template_alias import *

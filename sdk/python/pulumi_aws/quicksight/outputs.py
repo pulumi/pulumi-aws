@@ -107,6 +107,7 @@ __all__ = [
     'DataSourceVpcConnectionProperties',
     'FolderPermission',
     'IamPolicyAssignmentIdentities',
+    'NamespaceTimeouts',
     'RefreshScheduleSchedule',
     'RefreshScheduleScheduleScheduleFrequency',
     'RefreshScheduleScheduleScheduleFrequencyRefreshOnDay',
@@ -4691,6 +4692,27 @@ class IamPolicyAssignmentIdentities(dict):
         Array of Quicksight user names to assign the policy to.
         """
         return pulumi.get(self, "users")
+
+
+@pulumi.output_type
+class NamespaceTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
 
 
 @pulumi.output_type

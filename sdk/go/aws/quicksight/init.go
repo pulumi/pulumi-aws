@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IamPolicyAssignment{}
 	case "aws:quicksight/ingestion:Ingestion":
 		r = &Ingestion{}
+	case "aws:quicksight/namespace:Namespace":
+		r = &Namespace{}
 	case "aws:quicksight/refreshSchedule:RefreshSchedule":
 		r = &RefreshSchedule{}
 	case "aws:quicksight/template:Template":
@@ -119,6 +121,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"quicksight/ingestion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/namespace",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
