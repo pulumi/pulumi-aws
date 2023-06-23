@@ -24,6 +24,7 @@ namespace Pulumi.Aws.AppIntegrations
     /// {
     ///     var example = new Aws.AppIntegrations.DataIntegration("example", new()
     ///     {
+    ///         Name = "example",
     ///         Description = "example",
     ///         KmsKey = aws_kms_key.Test.Arn,
     ///         SourceUri = "Salesforce://AppFlow/example",
@@ -162,8 +163,8 @@ namespace Pulumi.Aws.AppIntegrations
         /// <summary>
         /// Specifies the name of the Data Integration.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.

@@ -118,8 +118,8 @@ class RecordCidrRoutingPolicy(dict):
                  collection_id: str,
                  location_name: str):
         """
-        :param str collection_id: The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
-        :param str location_name: The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
+        :param str collection_id: The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
+        :param str location_name: The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
         """
         pulumi.set(__self__, "collection_id", collection_id)
         pulumi.set(__self__, "location_name", location_name)
@@ -128,7 +128,7 @@ class RecordCidrRoutingPolicy(dict):
     @pulumi.getter(name="collectionId")
     def collection_id(self) -> str:
         """
-        The CIDR collection ID. See the `aws_route53_cidr_collection` resource for more details.
+        The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
         """
         return pulumi.get(self, "collection_id")
 
@@ -136,7 +136,7 @@ class RecordCidrRoutingPolicy(dict):
     @pulumi.getter(name="locationName")
     def location_name(self) -> str:
         """
-        The CIDR collection location name. See the `aws_route53_cidr_location` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
+        The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
         """
         return pulumi.get(self, "location_name")
 

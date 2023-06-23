@@ -17,15 +17,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.emrcontainers.JobTemplate("example", {jobTemplateData: {
- *     executionRoleArn: aws_iam_role.example.arn,
- *     releaseLabel: "emr-6.10.0-latest",
- *     jobDriver: {
- *         sparkSqlJobDriver: {
- *             entryPoint: "default",
+ * const example = new aws.emrcontainers.JobTemplate("example", {
+ *     jobTemplateData: {
+ *         executionRoleArn: aws_iam_role.example.arn,
+ *         releaseLabel: "emr-6.10.0-latest",
+ *         jobDriver: {
+ *             sparkSqlJobDriver: {
+ *                 entryPoint: "default",
+ *             },
  *         },
  *     },
- * }});
+ *     name: "example",
+ * });
  * ```
  *
  * ## Import
@@ -113,6 +116,9 @@ export class JobTemplate extends pulumi.CustomResource {
             if ((!args || args.jobTemplateData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobTemplateData'");
             }
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["jobTemplateData"] = args ? args.jobTemplateData : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -170,7 +176,7 @@ export interface JobTemplateArgs {
     /**
      * The specified name of the job template.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

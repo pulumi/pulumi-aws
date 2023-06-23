@@ -358,16 +358,20 @@ func TestAccWebserver(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "webserver"),
-			EditDirs: []integration.EditDir{
-				// First, look up the server just created using get.  No new resources.
-				createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "get")),
-				// Next, patch the ingress rules by adding port 20: should be a quick update.
-				createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh")),
-				// Now do the reverse; this basically ensures that an update that deletes a property works.
-				createEditDir(filepath.Join(getCwd(t), "webserver")),
-				// Next patch the security group description, necessitating a full replacement of resources.
-				createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh_description")),
-			}})
+			//
+			// TODO[pulumi/pulumi#12859] temporarily disable EditDirs to workaround ProgramTest bug
+			//
+			// EditDirs: []integration.EditDir{
+			// 	// First, look up the server just created using get.  No new resources.
+			// 	createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "get")),
+			// 	// Next, patch the ingress rules by adding port 20: should be a quick update.
+			// 	createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh")),
+			// 	// Now do the reverse; this basically ensures that an update that deletes a property works.
+			// 	createEditDir(filepath.Join(getCwd(t), "webserver")),
+			// 	// Next patch the security group description, necessitating a full replacement of resources.
+			// 	createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh_description")),
+			// },
+		})
 
 	integration.ProgramTest(t, &test)
 }

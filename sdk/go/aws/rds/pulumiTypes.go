@@ -1034,6 +1034,154 @@ func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MinCapacity() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
+type ExportTaskTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+}
+
+// ExportTaskTimeoutsInput is an input type that accepts ExportTaskTimeoutsArgs and ExportTaskTimeoutsOutput values.
+// You can construct a concrete instance of `ExportTaskTimeoutsInput` via:
+//
+//	ExportTaskTimeoutsArgs{...}
+type ExportTaskTimeoutsInput interface {
+	pulumi.Input
+
+	ToExportTaskTimeoutsOutput() ExportTaskTimeoutsOutput
+	ToExportTaskTimeoutsOutputWithContext(context.Context) ExportTaskTimeoutsOutput
+}
+
+type ExportTaskTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (ExportTaskTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportTaskTimeouts)(nil)).Elem()
+}
+
+func (i ExportTaskTimeoutsArgs) ToExportTaskTimeoutsOutput() ExportTaskTimeoutsOutput {
+	return i.ToExportTaskTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ExportTaskTimeoutsArgs) ToExportTaskTimeoutsOutputWithContext(ctx context.Context) ExportTaskTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportTaskTimeoutsOutput)
+}
+
+func (i ExportTaskTimeoutsArgs) ToExportTaskTimeoutsPtrOutput() ExportTaskTimeoutsPtrOutput {
+	return i.ToExportTaskTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ExportTaskTimeoutsArgs) ToExportTaskTimeoutsPtrOutputWithContext(ctx context.Context) ExportTaskTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportTaskTimeoutsOutput).ToExportTaskTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ExportTaskTimeoutsPtrInput is an input type that accepts ExportTaskTimeoutsArgs, ExportTaskTimeoutsPtr and ExportTaskTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ExportTaskTimeoutsPtrInput` via:
+//
+//	        ExportTaskTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExportTaskTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToExportTaskTimeoutsPtrOutput() ExportTaskTimeoutsPtrOutput
+	ToExportTaskTimeoutsPtrOutputWithContext(context.Context) ExportTaskTimeoutsPtrOutput
+}
+
+type exportTaskTimeoutsPtrType ExportTaskTimeoutsArgs
+
+func ExportTaskTimeoutsPtr(v *ExportTaskTimeoutsArgs) ExportTaskTimeoutsPtrInput {
+	return (*exportTaskTimeoutsPtrType)(v)
+}
+
+func (*exportTaskTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportTaskTimeouts)(nil)).Elem()
+}
+
+func (i *exportTaskTimeoutsPtrType) ToExportTaskTimeoutsPtrOutput() ExportTaskTimeoutsPtrOutput {
+	return i.ToExportTaskTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *exportTaskTimeoutsPtrType) ToExportTaskTimeoutsPtrOutputWithContext(ctx context.Context) ExportTaskTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExportTaskTimeoutsPtrOutput)
+}
+
+type ExportTaskTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ExportTaskTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExportTaskTimeouts)(nil)).Elem()
+}
+
+func (o ExportTaskTimeoutsOutput) ToExportTaskTimeoutsOutput() ExportTaskTimeoutsOutput {
+	return o
+}
+
+func (o ExportTaskTimeoutsOutput) ToExportTaskTimeoutsOutputWithContext(ctx context.Context) ExportTaskTimeoutsOutput {
+	return o
+}
+
+func (o ExportTaskTimeoutsOutput) ToExportTaskTimeoutsPtrOutput() ExportTaskTimeoutsPtrOutput {
+	return o.ToExportTaskTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ExportTaskTimeoutsOutput) ToExportTaskTimeoutsPtrOutputWithContext(ctx context.Context) ExportTaskTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportTaskTimeouts) *ExportTaskTimeouts {
+		return &v
+	}).(ExportTaskTimeoutsPtrOutput)
+}
+
+func (o ExportTaskTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportTaskTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o ExportTaskTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportTaskTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type ExportTaskTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExportTaskTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExportTaskTimeouts)(nil)).Elem()
+}
+
+func (o ExportTaskTimeoutsPtrOutput) ToExportTaskTimeoutsPtrOutput() ExportTaskTimeoutsPtrOutput {
+	return o
+}
+
+func (o ExportTaskTimeoutsPtrOutput) ToExportTaskTimeoutsPtrOutputWithContext(ctx context.Context) ExportTaskTimeoutsPtrOutput {
+	return o
+}
+
+func (o ExportTaskTimeoutsPtrOutput) Elem() ExportTaskTimeoutsOutput {
+	return o.ApplyT(func(v *ExportTaskTimeouts) ExportTaskTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ExportTaskTimeouts
+		return ret
+	}).(ExportTaskTimeoutsOutput)
+}
+
+func (o ExportTaskTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTaskTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExportTaskTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportTaskTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type GlobalClusterGlobalClusterMember struct {
 	// Amazon Resource Name (ARN) of member DB Cluster
 	DbClusterArn *string `pulumi:"dbClusterArn"`
@@ -3470,6 +3618,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingConfigurationPtrInput)(nil)).Elem(), ClusterScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerlessv2ScalingConfigurationInput)(nil)).Elem(), ClusterServerlessv2ScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerlessv2ScalingConfigurationPtrInput)(nil)).Elem(), ClusterServerlessv2ScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExportTaskTimeoutsInput)(nil)).Elem(), ExportTaskTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExportTaskTimeoutsPtrInput)(nil)).Elem(), ExportTaskTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberArrayInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceBlueGreenUpdateInput)(nil)).Elem(), InstanceBlueGreenUpdateArgs{})
@@ -3518,6 +3668,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterServerlessv2ScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterServerlessv2ScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ExportTaskTimeoutsOutput{})
+	pulumi.RegisterOutputType(ExportTaskTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberArrayOutput{})
 	pulumi.RegisterOutputType(InstanceBlueGreenUpdateOutput{})

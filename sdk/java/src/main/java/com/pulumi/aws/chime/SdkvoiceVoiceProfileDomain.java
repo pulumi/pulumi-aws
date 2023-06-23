@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSdkvoiceVoiceProfileDomain = new SdkvoiceVoiceProfileDomain(&#34;exampleSdkvoiceVoiceProfileDomain&#34;, SdkvoiceVoiceProfileDomainArgs.builder()        
+ *             .name(&#34;ExampleVoiceProfileDomain&#34;)
  *             .serverSideEncryptionConfiguration(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs.builder()
  *                 .kmsKeyArn(exampleKey.arn())
  *                 .build())

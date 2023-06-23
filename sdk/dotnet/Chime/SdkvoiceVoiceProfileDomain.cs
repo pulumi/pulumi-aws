@@ -31,6 +31,7 @@ namespace Pulumi.Aws.Chime
     /// 
     ///     var exampleSdkvoiceVoiceProfileDomain = new Aws.Chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain", new()
     ///     {
+    ///         Name = "ExampleVoiceProfileDomain",
     ///         ServerSideEncryptionConfiguration = new Aws.Chime.Inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs
     ///         {
     ///             KmsKeyArn = exampleKey.Arn,
@@ -141,8 +142,8 @@ namespace Pulumi.Aws.Chime
         /// <summary>
         /// Name of Voice Profile Domain.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Configuration for server side encryption.

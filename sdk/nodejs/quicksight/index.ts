@@ -35,6 +35,11 @@ export type Folder = import("./folder").Folder;
 export const Folder: typeof import("./folder").Folder = null as any;
 utilities.lazyLoad(exports, ["Folder"], () => require("./folder"));
 
+export { FolderMembershipArgs, FolderMembershipState } from "./folderMembership";
+export type FolderMembership = import("./folderMembership").FolderMembership;
+export const FolderMembership: typeof import("./folderMembership").FolderMembership = null as any;
+utilities.lazyLoad(exports, ["FolderMembership"], () => require("./folderMembership"));
+
 export { GetDataSetArgs, GetDataSetResult, GetDataSetOutputArgs } from "./getDataSet";
 export const getDataSet: typeof import("./getDataSet").getDataSet = null as any;
 export const getDataSetOutput: typeof import("./getDataSet").getDataSetOutput = null as any;
@@ -60,15 +65,40 @@ export type GroupMembership = import("./groupMembership").GroupMembership;
 export const GroupMembership: typeof import("./groupMembership").GroupMembership = null as any;
 utilities.lazyLoad(exports, ["GroupMembership"], () => require("./groupMembership"));
 
+export { IamPolicyAssignmentArgs, IamPolicyAssignmentState } from "./iamPolicyAssignment";
+export type IamPolicyAssignment = import("./iamPolicyAssignment").IamPolicyAssignment;
+export const IamPolicyAssignment: typeof import("./iamPolicyAssignment").IamPolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["IamPolicyAssignment"], () => require("./iamPolicyAssignment"));
+
+export { IngestionArgs, IngestionState } from "./ingestion";
+export type Ingestion = import("./ingestion").Ingestion;
+export const Ingestion: typeof import("./ingestion").Ingestion = null as any;
+utilities.lazyLoad(exports, ["Ingestion"], () => require("./ingestion"));
+
+export { RefreshScheduleArgs, RefreshScheduleState } from "./refreshSchedule";
+export type RefreshSchedule = import("./refreshSchedule").RefreshSchedule;
+export const RefreshSchedule: typeof import("./refreshSchedule").RefreshSchedule = null as any;
+utilities.lazyLoad(exports, ["RefreshSchedule"], () => require("./refreshSchedule"));
+
 export { TemplateArgs, TemplateState } from "./template";
 export type Template = import("./template").Template;
 export const Template: typeof import("./template").Template = null as any;
 utilities.lazyLoad(exports, ["Template"], () => require("./template"));
 
+export { TemplateAliasArgs, TemplateAliasState } from "./templateAlias";
+export type TemplateAlias = import("./templateAlias").TemplateAlias;
+export const TemplateAlias: typeof import("./templateAlias").TemplateAlias = null as any;
+utilities.lazyLoad(exports, ["TemplateAlias"], () => require("./templateAlias"));
+
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
+export { VpcConnectionArgs, VpcConnectionState } from "./vpcConnection";
+export type VpcConnection = import("./vpcConnection").VpcConnection;
+export const VpcConnection: typeof import("./vpcConnection").VpcConnection = null as any;
+utilities.lazyLoad(exports, ["VpcConnection"], () => require("./vpcConnection"));
 
 
 const _module = {
@@ -87,14 +117,26 @@ const _module = {
                 return new DataSource(name, <any>undefined, { urn })
             case "aws:quicksight/folder:Folder":
                 return new Folder(name, <any>undefined, { urn })
+            case "aws:quicksight/folderMembership:FolderMembership":
+                return new FolderMembership(name, <any>undefined, { urn })
             case "aws:quicksight/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "aws:quicksight/groupMembership:GroupMembership":
                 return new GroupMembership(name, <any>undefined, { urn })
+            case "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment":
+                return new IamPolicyAssignment(name, <any>undefined, { urn })
+            case "aws:quicksight/ingestion:Ingestion":
+                return new Ingestion(name, <any>undefined, { urn })
+            case "aws:quicksight/refreshSchedule:RefreshSchedule":
+                return new RefreshSchedule(name, <any>undefined, { urn })
             case "aws:quicksight/template:Template":
                 return new Template(name, <any>undefined, { urn })
+            case "aws:quicksight/templateAlias:TemplateAlias":
+                return new TemplateAlias(name, <any>undefined, { urn })
             case "aws:quicksight/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "aws:quicksight/vpcConnection:VpcConnection":
+                return new VpcConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -106,7 +148,13 @@ pulumi.runtime.registerResourceModule("aws", "quicksight/dashboard", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/dataSet", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/dataSource", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/folder", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/folderMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/group", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/groupMembership", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/iamPolicyAssignment", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/ingestion", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/refreshSchedule", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/template", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/templateAlias", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/user", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/vpcConnection", _module)

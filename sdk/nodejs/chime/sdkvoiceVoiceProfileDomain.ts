@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  * });
  * const exampleSdkvoiceVoiceProfileDomain = new aws.chime.SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain", {
+ *     name: "ExampleVoiceProfileDomain",
  *     serverSideEncryptionConfiguration: {
  *         kmsKeyArn: exampleKey.arn,
  *     },
@@ -108,6 +109,9 @@ export class SdkvoiceVoiceProfileDomain extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as SdkvoiceVoiceProfileDomainArgs | undefined;
+            if ((!args || args.name === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if ((!args || args.serverSideEncryptionConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverSideEncryptionConfiguration'");
             }
@@ -158,7 +162,7 @@ export interface SdkvoiceVoiceProfileDomainArgs {
     /**
      * Name of Voice Profile Domain.
      */
-    name?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Configuration for server side encryption.
      */

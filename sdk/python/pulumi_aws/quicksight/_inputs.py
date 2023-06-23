@@ -105,11 +105,16 @@ __all__ = [
     'DataSourceSslPropertiesArgs',
     'DataSourceVpcConnectionPropertiesArgs',
     'FolderPermissionArgs',
+    'IamPolicyAssignmentIdentitiesArgs',
+    'RefreshScheduleScheduleArgs',
+    'RefreshScheduleScheduleScheduleFrequencyArgs',
+    'RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs',
     'TemplatePermissionArgs',
     'TemplateSourceEntityArgs',
     'TemplateSourceEntitySourceAnalysisArgs',
     'TemplateSourceEntitySourceAnalysisDataSetReferenceArgs',
     'TemplateSourceEntitySourceTemplateArgs',
+    'VpcConnectionTimeoutsArgs',
     'GetDataSetColumnLevelPermissionRuleArgs',
 ]
 
@@ -4407,6 +4412,200 @@ class FolderPermissionArgs:
 
 
 @pulumi.input_type
+class IamPolicyAssignmentIdentitiesArgs:
+    def __init__(__self__, *,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: Array of Quicksight user names to assign the policy to.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of Quicksight user names to assign the policy to.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "users", value)
+
+
+@pulumi.input_type
+class RefreshScheduleScheduleArgs:
+    def __init__(__self__, *,
+                 refresh_type: pulumi.Input[str],
+                 schedule_frequency: Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']] = None,
+                 start_after_date_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] refresh_type: The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+        :param pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs'] schedule_frequency: The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+        :param pulumi.Input[str] start_after_date_time: Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+        """
+        pulumi.set(__self__, "refresh_type", refresh_type)
+        if schedule_frequency is not None:
+            pulumi.set(__self__, "schedule_frequency", schedule_frequency)
+        if start_after_date_time is not None:
+            pulumi.set(__self__, "start_after_date_time", start_after_date_time)
+
+    @property
+    @pulumi.getter(name="refreshType")
+    def refresh_type(self) -> pulumi.Input[str]:
+        """
+        The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+        """
+        return pulumi.get(self, "refresh_type")
+
+    @refresh_type.setter
+    def refresh_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "refresh_type", value)
+
+    @property
+    @pulumi.getter(name="scheduleFrequency")
+    def schedule_frequency(self) -> Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']]:
+        """
+        The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+        """
+        return pulumi.get(self, "schedule_frequency")
+
+    @schedule_frequency.setter
+    def schedule_frequency(self, value: Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']]):
+        pulumi.set(self, "schedule_frequency", value)
+
+    @property
+    @pulumi.getter(name="startAfterDateTime")
+    def start_after_date_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+        """
+        return pulumi.get(self, "start_after_date_time")
+
+    @start_after_date_time.setter
+    def start_after_date_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_after_date_time", value)
+
+
+@pulumi.input_type
+class RefreshScheduleScheduleScheduleFrequencyArgs:
+    def __init__(__self__, *,
+                 interval: pulumi.Input[str],
+                 refresh_on_day: Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs']] = None,
+                 time_of_the_day: Optional[pulumi.Input[str]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] interval: The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+        :param pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs'] refresh_on_day: The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+        :param pulumi.Input[str] timezone: The timezone that you want the refresh schedule to use.
+        """
+        pulumi.set(__self__, "interval", interval)
+        if refresh_on_day is not None:
+            pulumi.set(__self__, "refresh_on_day", refresh_on_day)
+        if time_of_the_day is not None:
+            pulumi.set(__self__, "time_of_the_day", time_of_the_day)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[str]:
+        """
+        The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="refreshOnDay")
+    def refresh_on_day(self) -> Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs']]:
+        """
+        The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+        """
+        return pulumi.get(self, "refresh_on_day")
+
+    @refresh_on_day.setter
+    def refresh_on_day(self, value: Optional[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs']]):
+        pulumi.set(self, "refresh_on_day", value)
+
+    @property
+    @pulumi.getter(name="timeOfTheDay")
+    def time_of_the_day(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_of_the_day")
+
+    @time_of_the_day.setter
+    def time_of_the_day(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_of_the_day", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timezone that you want the refresh schedule to use.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
+
+
+@pulumi.input_type
+class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs:
+    def __init__(__self__, *,
+                 day_of_month: Optional[pulumi.Input[str]] = None,
+                 day_of_week: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] day_of_month: The day of the month that you want to schedule refresh on.
+        :param pulumi.Input[str] day_of_week: The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+        """
+        if day_of_month is not None:
+            pulumi.set(__self__, "day_of_month", day_of_month)
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> Optional[pulumi.Input[str]]:
+        """
+        The day of the month that you want to schedule refresh on.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @day_of_month.setter
+    def day_of_month(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "day_of_month", value)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[pulumi.Input[str]]:
+        """
+        The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "day_of_week", value)
+
+
+@pulumi.input_type
 class TemplatePermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -4576,6 +4775,47 @@ class TemplateSourceEntitySourceTemplateArgs:
     @arn.setter
     def arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "arn", value)
+
+
+@pulumi.input_type
+class VpcConnectionTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 
 @pulumi.input_type

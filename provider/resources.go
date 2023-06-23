@@ -16,6 +16,7 @@ package provider
 
 import (
 	"context"
+	_ "embed"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -28,6 +29,8 @@ import (
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+
+	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
@@ -62,6 +65,7 @@ const (
 	appautoscalingMod           = "AppAutoScaling"           // Application Auto Scaling
 	appRunnerMod                = "AppRunner"                // AppRunner
 	athenaMod                   = "Athena"                   // Athena
+	auditmanagerMod             = "Auditmanager"             // Audit Manager
 	autoscalingMod              = "AutoScaling"              // Auto Scaling
 	autoscalingPlansMod         = "AutoScalingPlans"         // Auto Scaling Plans
 	backupMod                   = "Backup"                   // Backup
@@ -622,9 +626,16 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
 var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
+//go:embed cmd/pulumi-resource-aws/bridge-metadata.json
+var metadata []byte
+
 // Provider returns additional overlaid schema and metadata associated with the aws package.
-func Provider() tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(awsShim.NewProvider(), shimv2.WithDiffStrategy(shimv2.PlanState))
+func Provider() *tfbridge.ProviderInfo {
+	ctx := context.Background()
+	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
+	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialized")
+
+	p := pftfbridge.MuxShimWithDisjointgPF(ctx, shimv2.NewProvider(upstreamProvider.SDKV2Provider, shimv2.WithDiffStrategy(shimv2.PlanState)), upstreamProvider.PluginFrameworkProvider)
 
 	prov := tfbridge.ProviderInfo{
 		P:           p,
@@ -636,6 +647,9 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:  "https://github.com/pulumi/pulumi-aws",
 		Version:     version.Version,
 		GitHubOrg:   "hashicorp",
+
+		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Type: awsTypeDefaultFile(awsMod, "Region"),
@@ -5928,6 +5942,20 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
+
+			"aws_auditmanager_control": {
+				Tok: awsDataSource(auditmanagerMod, "getControl"),
+			},
+			"aws_auditmanager_framework": {
+				Tok: awsDataSource(auditmanagerMod, "getFramework"),
+			},
+			"aws_vpc_security_group_rule": {
+				Tok: awsDataSource("Vpc", "getSecurityGroupRule"),
+			},
+			"aws_vpc_security_group_rules": {
+				Tok: awsDataSource("Vpc", "getSecurityGroupRules"),
+			},
+
 			// AWS
 			"aws_arn":                     {Tok: awsDataSource(awsMod, "getArn")},
 			"aws_availability_zone":       {Tok: awsDataSource(awsMod, "getAvailabilityZone")},
@@ -6101,7 +6129,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_security_group":                      {Tok: awsDataSource(ec2Mod, "getSecurityGroup")},
 			"aws_security_groups":                     {Tok: awsDataSource(ec2Mod, "getSecurityGroups")},
 			"aws_subnet":                              {Tok: awsDataSource(ec2Mod, "getSubnet")},
-			"aws_subnet_ids":                          {Tok: awsDataSource(ec2Mod, "getSubnetIds")},
 			"aws_key_pair":                            {Tok: awsDataSource(ec2Mod, "getKeyPair")},
 			"aws_subnets":                             {Tok: awsDataSource(ec2Mod, "getSubnets")},
 			"aws_vpc":                                 {Tok: awsDataSource(ec2Mod, "getVpc")},
@@ -6987,16 +7014,99 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameDataSource("aws_canonical_user_id", awsDataSource(awsMod, "getCanonicalUserId"),
 		awsDataSource(s3Mod, "getCanonicalUserId"), awsMod, s3Mod, nil)
 
-	err := x.ComputeDefaults(&prov, x.TokensMappedModules("aws_", "", moduleMap,
-		func(mod, name string) (string, error) {
-			return awsResource(mod, name).String(), nil
-		}))
-	contract.AssertNoErrorf(err, "failed to apply default token mappings")
-
 	prov.SetAutonaming(255, "-")
 
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
 	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
 
-	return prov
+	pluginFrameworkResoures := map[string]*tfbridge.ResourceInfo{
+		"aws_auditmanager_account_registration": {
+			Tok: awsResource(auditmanagerMod, "AccountRegistration"),
+		},
+		"aws_auditmanager_assessment": {
+			Tok: awsResource(auditmanagerMod, "Assessment"),
+		},
+		"aws_auditmanager_assessment_delegation": {
+			Tok: awsResource(auditmanagerMod, "AssessmentDelegation"),
+		},
+		"aws_auditmanager_assessment_report": {
+			Tok: awsResource(auditmanagerMod, "AssessmentReport"),
+		},
+		"aws_auditmanager_control": {
+			Tok: awsResource(auditmanagerMod, "Control"),
+		},
+		"aws_auditmanager_framework": {
+			Tok: awsResource(auditmanagerMod, "Framework"),
+		},
+		"aws_auditmanager_framework_share": {
+			Tok: awsResource(auditmanagerMod, "FrameworkShare"),
+		},
+		"aws_auditmanager_organization_admin_account_registration": {
+			Tok: awsResource(auditmanagerMod, "OrganizationAdminAccountRegistration"),
+		},
+		"aws_medialive_multiplex_program": {
+			Tok: awsResource(medialiveMod, "MultiplexProgram"),
+		},
+		"aws_rds_export_task": {
+			Tok: awsResource(rdsMod, "ExportTask"),
+		},
+		"aws_resourceexplorer2_index": {
+			Tok: awsResource("ResourceExplorer", "Index"),
+		},
+		"aws_resourceexplorer2_view": {
+			Tok: awsResource("ResourceExplorer", "View"),
+		},
+		"aws_route53_cidr_collection": {
+			Tok: awsResource(route53Mod, "CidrCollection"),
+		},
+		"aws_route53_cidr_location": {
+			Tok: awsResource(route53Mod, "CidrLocation"),
+		},
+		"aws_vpc_security_group_egress_rule": {
+			Tok: awsResource("Vpc", "SecurityGroupEgressRule"),
+		},
+		"aws_vpc_security_group_ingress_rule": {
+			Tok: awsResource("Vpc", "SecurityGroupIngressRule"),
+		},
+		"aws_quicksight_iam_policy_assignment": {
+			Tok: awsResource("QuickSight", "IamPolicyAssignment"),
+		},
+		"aws_quicksight_ingestion": {
+			Tok: awsResource("QuickSight", "Ingestion"),
+		},
+		// "aws_quicksight_namespace": {
+		// 	Tok: awsResource("QuickSight", "Namespace"),
+		// },
+		"aws_quicksight_folder_membership": {
+			Tok: awsResource("QuickSight", "FolderMembership"),
+		},
+		"aws_quicksight_refresh_schedule": {
+			Tok: awsResource("QuickSight", "RefreshSchedule"),
+		},
+	}
+
+	for k, v := range pluginFrameworkResoures {
+		if _, conflict := prov.Resources[k]; conflict {
+			panic(fmt.Sprintf("Resoruce already defined: %s", k))
+		}
+		prov.Resources[k] = v
+	}
+
+	// TODO fix C# compilation error for QuickSight Namespace
+	// error CS0542: 'Namespace': member names cannot be the same as their enclosing type
+	// 9 Warning(s)
+	// 1 Error(s)
+	prov.IgnoreMappings = append(prov.IgnoreMappings, "aws_quicksight_namespace")
+	// TODO fix C# compilation error for DirectoryService Trust
+	// error CS0542: 'TrustState': member names cannot be the same as their enclosing type
+	prov.IgnoreMappings = append(prov.IgnoreMappings, "aws_directory_service_trust")
+
+	if err := x.ComputeDefaults(&prov, x.TokensMappedModules("aws_", "", moduleMap,
+		func(mod, name string) (string, error) {
+			return awsResource(mod, name).String(), nil
+		})); err != nil {
+		contract.AssertNoErrorf(err, "failed to apply default token mappings")
+	}
+
+	return &prov
 }

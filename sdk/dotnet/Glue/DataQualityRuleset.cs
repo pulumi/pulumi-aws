@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
+    ///         Name = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///     });
     /// 
@@ -43,6 +44,7 @@ namespace Pulumi.Aws.Glue
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
     ///         Description = "example",
+    ///         Name = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///     });
     /// 
@@ -60,6 +62,7 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
+    ///         Name = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///         Tags = 
     ///         {
@@ -81,6 +84,7 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
+    ///         Name = "example",
     ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///         TargetTable = new Aws.Glue.Inputs.DataQualityRulesetTargetTableArgs
     ///         {
@@ -218,8 +222,8 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// Name of the data quality ruleset.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.

@@ -1,0 +1,16 @@
+name: plugin-framework-test
+runtime: yaml
+description: Check that Plugin Framework based resources can deploy alongside SDKv2 based resources.
+outputs: {}
+resources:
+  bucket-example:
+    type: aws:s3:Bucket
+  resourceexplorer-example:
+    type: aws:resourceexplorer/index:Index
+    properties:
+      type: LOCAL
+  cidrcollection-example:
+    type: aws:route53/cidrCollection:CidrCollection
+    properties:
+     name: collection-example
+variables: {}

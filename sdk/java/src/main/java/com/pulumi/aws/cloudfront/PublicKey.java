@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  *         var example = new PublicKey(&#34;example&#34;, PublicKeyArgs.builder()        
  *             .comment(&#34;test public key&#34;)
  *             .encodedKey(Files.readString(Paths.get(&#34;public_key.pem&#34;)))
+ *             .name(&#34;test_key&#34;)
  *             .build());
  * 
  *     }
