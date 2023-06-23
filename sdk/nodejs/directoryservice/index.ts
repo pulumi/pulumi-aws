@@ -45,6 +45,11 @@ export type SharedDirectoryAccepter = import("./sharedDirectoryAccepter").Shared
 export const SharedDirectoryAccepter: typeof import("./sharedDirectoryAccepter").SharedDirectoryAccepter = null as any;
 utilities.lazyLoad(exports, ["SharedDirectoryAccepter"], () => require("./sharedDirectoryAccepter"));
 
+export { TrustArgs, TrustState } from "./trust";
+export type Trust = import("./trust").Trust;
+export const Trust: typeof import("./trust").Trust = null as any;
+utilities.lazyLoad(exports, ["Trust"], () => require("./trust"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -64,6 +69,8 @@ const _module = {
                 return new SharedDirectory(name, <any>undefined, { urn })
             case "aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter":
                 return new SharedDirectoryAccepter(name, <any>undefined, { urn })
+            case "aws:directoryservice/trust:Trust":
+                return new Trust(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -76,3 +83,4 @@ pulumi.runtime.registerResourceModule("aws", "directoryservice/radiusSettings", 
 pulumi.runtime.registerResourceModule("aws", "directoryservice/serviceRegion", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/sharedDirectory", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/sharedDirectoryAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "directoryservice/trust", _module)

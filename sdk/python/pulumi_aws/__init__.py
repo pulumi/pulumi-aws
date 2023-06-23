@@ -3270,6 +3270,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "directoryservice/trust",
+  "fqn": "pulumi_aws.directoryservice",
+  "classes": {
+   "aws:directoryservice/trust:Trust": "Trust"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "dlm/lifecyclePolicy",
   "fqn": "pulumi_aws.dlm",
   "classes": {
@@ -7690,6 +7698,14 @@ _utilities.register(
   "fqn": "pulumi_aws.quicksight",
   "classes": {
    "aws:quicksight/ingestion:Ingestion": "Ingestion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "quicksight/namespace",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/namespace:Namespace": "Namespace"
   }
  },
  {

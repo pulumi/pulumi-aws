@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SharedDirectory{}
 	case "aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter":
 		r = &SharedDirectoryAccepter{}
+	case "aws:directoryservice/trust:Trust":
+		r = &Trust{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -81,6 +83,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"directoryservice/sharedDirectoryAccepter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"directoryservice/trust",
 		&module{version},
 	)
 }
