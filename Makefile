@@ -7,7 +7,7 @@ PROVIDER_PATH := provider/v5
 VERSION_PATH := $(PROVIDER_PATH)/pkg/version.Version
 TFGEN := pulumi-tfgen-$(PACK)
 PROVIDER := pulumi-resource-$(PACK)
-VERSION := $(shell pulumictl get version)
+VERSION := $(shell VERSION_PREFIX=5.0.0 pulumictl get version)
 JAVA_GEN := pulumi-java-gen
 JAVA_GEN_VERSION := v0.9.3
 TESTPARALLELISM := 10
@@ -48,9 +48,9 @@ install_sdks: install_dotnet_sdk install_python_sdk install_nodejs_sdk install_j
 
 only_build: build
 
-build_dotnet: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
+build_dotnet: DOTNET_VERSION := $(shell VERSION_PREFIX=5.0.0 pulumictl get version --language dotnet)
 build_dotnet: patch_upstream
-	pulumictl get version --language dotnet
+	VERSION_PREFIX=5.0.0 pulumictl get version --language dotnet
 	$(WORKING_DIR)/bin/$(TFGEN) dotnet --overlays provider/overlays/dotnet --out sdk/dotnet/
 	cd sdk/dotnet/ && \
 		echo "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
@@ -60,14 +60,14 @@ build_dotnet: patch_upstream
 build_go: patch_upstream
 	$(WORKING_DIR)/bin/$(TFGEN) go --overlays provider/overlays/go --out sdk/go/
 
-build_java: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
+build_java: PACKAGE_VERSION := $(shell VERSION_PREFIX=5.0.0 pulumictl get version --language generic)
 build_java: bin/pulumi-java-gen patch_upstream
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
 	cd sdk/java/ && \
 		echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
 		gradle --console=plain build
 
-build_nodejs: VERSION := $(shell pulumictl get version --language javascript)
+build_nodejs: VERSION := $(shell VERSION_PREFIX=5.0.0 pulumictl get version --language javascript)
 build_nodejs: patch_upstream
 	$(WORKING_DIR)/bin/$(TFGEN) nodejs --overlays provider/overlays/nodejs --out sdk/nodejs/
 	cd sdk/nodejs/ && \
@@ -77,7 +77,7 @@ build_nodejs: patch_upstream
 		cp ../../README.md ../../LICENSE* package.json yarn.lock ./bin/ && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
-build_python: PYPI_VERSION := $(shell pulumictl get version --language python)
+build_python: PYPI_VERSION := $(shell VERSION_PREFIX=5.0.0 pulumictl get version --language python)
 build_python: patch_upstream
 	$(WORKING_DIR)/bin/$(TFGEN) python --overlays provider/overlays/python --out sdk/python/
 	cd sdk/python/ && \

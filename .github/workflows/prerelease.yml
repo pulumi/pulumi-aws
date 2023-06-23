@@ -90,7 +90,7 @@ jobs:
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
     - name: Set PACKAGE_VERSION to Env
-      run: echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
+      run: echo "PACKAGE_VERSION=$(VERSION_PREFIX=5.0.0 pulumictl get version --language generic)" >>
         $GITHUB_ENV
     - name: Build SDK
       run: make build_${{ matrix.language }}
@@ -242,7 +242,7 @@ jobs:
         role-session-name: ${{ env.PROVIDER }}@githubActions
         role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
     - name: Set PreRelease Version
-      run: echo "GORELEASER_CURRENT_TAG=v$(pulumictl get version --language generic)"
+      run: echo "GORELEASER_CURRENT_TAG=v$(VERSION_PREFIX=5.0.0 pulumictl get version --language generic)"
         >> $GITHUB_ENV
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v2
@@ -315,7 +315,7 @@ jobs:
       run: tar -zxf ${{github.workspace}}/sdk/java.tar.gz -C
         ${{github.workspace}}/sdk/java
     - name: Set PACKAGE_VERSION to Env
-      run: echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
+      run: echo "PACKAGE_VERSION=$(VERSION_PREFIX=5.0.0 pulumictl get version --language generic)" >>
         $GITHUB_ENV
     - name: Publish Java SDK
       uses: gradle/gradle-build-action@9b814496b50909128c6a52622b416c5ffa04db49
