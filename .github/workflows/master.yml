@@ -232,7 +232,9 @@ jobs:
         android: true
         haskell: true
         swap-storage: true
-        large-packages: true
+        # TODO: enable once transient error with azure is resolved
+        # E: Failed to fetch http://azure.archive.ubuntu.com/ubuntu/pool/universe/d/dotnet7/aspnetcore-targeting-pack-7.0_7.0.105-0ubuntu1%7e22.04.1_amd64.deb  404  Not Found [IP: 40.81.13.82 80]
+        large-packages: false
     - name: Build tfgen & provider binaries
       run: make provider
     - if: github.event_name == 'pull_request'
