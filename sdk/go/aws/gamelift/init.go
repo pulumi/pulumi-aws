@@ -31,10 +31,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GameServerGroup{}
 	case "aws:gamelift/gameSessionQueue:GameSessionQueue":
 		r = &GameSessionQueue{}
-	case "aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration":
-		r = &MatchmakingConfiguration{}
-	case "aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet":
-		r = &MatchmakingRuleSet{}
 	case "aws:gamelift/script:Script":
 		r = &Script{}
 	default:
@@ -73,16 +69,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"gamelift/gameSessionQueue",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"gamelift/matchmakingConfiguration",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"gamelift/matchmakingRuleSet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

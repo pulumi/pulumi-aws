@@ -54,6 +54,7 @@ export function getRegions(args?: GetRegionsArgs, opts?: pulumi.InvokeOptions): 
     return pulumi.runtime.invoke("aws:index/getRegions:getRegions", {
         "allRegions": args.allRegions,
         "filters": args.filters,
+        "id": args.id,
     }, opts);
 }
 
@@ -69,6 +70,10 @@ export interface GetRegionsArgs {
      * Configuration block(s) to use as filters. Detailed below.
      */
     filters?: inputs.GetRegionsFilter[];
+    /**
+     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     */
+    id?: string;
 }
 
 /**
@@ -78,7 +83,7 @@ export interface GetRegionsResult {
     readonly allRegions?: boolean;
     readonly filters?: outputs.GetRegionsFilter[];
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      */
     readonly id: string;
     /**
@@ -142,4 +147,8 @@ export interface GetRegionsOutputArgs {
      * Configuration block(s) to use as filters. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.GetRegionsFilterArgs>[]>;
+    /**
+     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     */
+    id?: pulumi.Input<string>;
 }

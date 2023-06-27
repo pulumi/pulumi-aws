@@ -53,8 +53,82 @@ namespace Pulumi.Aws
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetPartitionResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetPartitionResult> InvokeAsync(GetPartitionArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws:index/getPartition:getPartition", args ?? new GetPartitionArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to lookup information about the current AWS partition in
+        /// which the provider is working.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetPartition.Invoke();
+        /// 
+        ///     var s3Policy = Aws.Iam.GetPolicyDocument.Invoke(new()
+        ///     {
+        ///         Statements = new[]
+        ///         {
+        ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+        ///             {
+        ///                 Actions = new[]
+        ///                 {
+        ///                     "s3:ListBucket",
+        ///                 },
+        ///                 Resources = new[]
+        ///                 {
+        ///                     $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:::my-bucket",
+        ///                 },
+        ///                 Sid = "1",
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPartitionResult> Invoke(GetPartitionInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartitionResult>("aws:index/getPartition:getPartition", args ?? new GetPartitionInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetPartitionArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+        /// </summary>
+        [Input("id")]
+        public string? Id { get; set; }
+
+        public GetPartitionArgs()
+        {
+        }
+        public static new GetPartitionArgs Empty => new GetPartitionArgs();
+    }
+
+    public sealed class GetPartitionInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        public GetPartitionInvokeArgs()
+        {
+        }
+        public static new GetPartitionInvokeArgs Empty => new GetPartitionInvokeArgs();
     }
 
 
@@ -66,7 +140,7 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string DnsSuffix;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
         /// </summary>
         public readonly string Id;
         /// <summary>

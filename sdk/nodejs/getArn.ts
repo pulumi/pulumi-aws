@@ -23,6 +23,7 @@ export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<G
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getArn:getArn", {
         "arn": args.arn,
+        "id": args.id,
     }, opts);
 }
 
@@ -34,6 +35,7 @@ export interface GetArnArgs {
      * ARN to parse.
      */
     arn: string;
+    id?: string;
 }
 
 /**
@@ -45,9 +47,6 @@ export interface GetArnResult {
      */
     readonly account: string;
     readonly arn: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     readonly id: string;
     /**
      * Partition that the resource is in.
@@ -94,4 +93,5 @@ export interface GetArnOutputArgs {
      * ARN to parse.
      */
     arn: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
 }

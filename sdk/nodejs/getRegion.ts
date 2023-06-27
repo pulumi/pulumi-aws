@@ -30,6 +30,7 @@ export function getRegion(args?: GetRegionArgs, opts?: pulumi.InvokeOptions): Pr
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getRegion:getRegion", {
         "endpoint": args.endpoint,
+        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -42,6 +43,7 @@ export interface GetRegionArgs {
      * EC2 endpoint of the region to select.
      */
     endpoint?: string;
+    id?: string;
     /**
      * Full name of the region to select.
      */
@@ -60,9 +62,6 @@ export interface GetRegionResult {
      * EC2 endpoint for the selected region.
      */
     readonly endpoint: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     readonly id: string;
     /**
      * Name of the selected region.
@@ -101,6 +100,7 @@ export interface GetRegionOutputArgs {
      * EC2 endpoint of the region to select.
      */
     endpoint?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * Full name of the region to select.
      */

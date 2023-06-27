@@ -40,8 +40,69 @@ namespace Pulumi.Aws
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetCallerIdentityResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCallerIdentityResult>("aws:index/getCallerIdentity:getCallerIdentity", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetCallerIdentityResult> InvokeAsync(GetCallerIdentityArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCallerIdentityResult>("aws:index/getCallerIdentity:getCallerIdentity", args ?? new GetCallerIdentityArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to get the access to the effective Account ID, User ID, and ARN in
+        /// which this provider is authorized.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var current = Aws.GetCallerIdentity.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accountId"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+        ///         ["callerArn"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.Arn),
+        ///         ["callerUser"] = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.UserId),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetCallerIdentityResult> Invoke(GetCallerIdentityInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCallerIdentityResult>("aws:index/getCallerIdentity:getCallerIdentity", args ?? new GetCallerIdentityInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetCallerIdentityArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Account ID number of the account that owns or contains the calling entity.
+        /// </summary>
+        [Input("id")]
+        public string? Id { get; set; }
+
+        public GetCallerIdentityArgs()
+        {
+        }
+        public static new GetCallerIdentityArgs Empty => new GetCallerIdentityArgs();
+    }
+
+    public sealed class GetCallerIdentityInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Account ID number of the account that owns or contains the calling entity.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        public GetCallerIdentityInvokeArgs()
+        {
+        }
+        public static new GetCallerIdentityInvokeArgs Empty => new GetCallerIdentityInvokeArgs();
     }
 
 
@@ -57,7 +118,7 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// Account ID number of the account that owns or contains the calling entity.
         /// </summary>
         public readonly string Id;
         /// <summary>

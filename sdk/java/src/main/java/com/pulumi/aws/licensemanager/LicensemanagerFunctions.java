@@ -33,6 +33,7 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
      * import java.util.List;
@@ -78,6 +79,7 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
      * import java.util.List;
@@ -123,6 +125,7 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
      * import java.util.List;
@@ -168,6 +171,7 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
      * import java.util.List;
@@ -213,6 +217,7 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
      * import java.util.List;
@@ -258,6 +263,7 @@ public final class LicensemanagerFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
      * import java.util.List;

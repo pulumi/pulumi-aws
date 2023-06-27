@@ -32,9 +32,6 @@ class GetDefaultTagsResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -56,7 +53,7 @@ class AwaitableGetDefaultTagsResult(GetDefaultTagsResult):
             tags=self.tags)
 
 
-def get_default_tags(tags: Optional[Mapping[str, str]] = None,
+def get_default_tags(id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultTagsResult:
     """
     Use this data source to get the default tags configured on the provider.
@@ -72,12 +69,9 @@ def get_default_tags(tags: Optional[Mapping[str, str]] = None,
 
     example = aws.get_default_tags()
     ```
-
-
-    :param Mapping[str, str] tags: Blocks of default tags set on the provider. See details below.
     """
     __args__ = dict()
-    __args__['tags'] = tags
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:index/getDefaultTags:getDefaultTags', __args__, opts=opts, typ=GetDefaultTagsResult).value
 
@@ -87,7 +81,7 @@ def get_default_tags(tags: Optional[Mapping[str, str]] = None,
 
 
 @_utilities.lift_output_func(get_default_tags)
-def get_default_tags_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+def get_default_tags_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultTagsResult]:
     """
     Use this data source to get the default tags configured on the provider.
@@ -103,8 +97,5 @@ def get_default_tags_output(tags: Optional[pulumi.Input[Optional[Mapping[str, st
 
     example = aws.get_default_tags()
     ```
-
-
-    :param Mapping[str, str] tags: Blocks of default tags set on the provider. See details below.
     """
     ...

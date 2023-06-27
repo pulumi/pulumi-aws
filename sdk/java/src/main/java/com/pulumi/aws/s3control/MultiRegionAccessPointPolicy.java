@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.s3control.MultiRegionAccessPoint;
  * import com.pulumi.aws.s3control.MultiRegionAccessPointArgs;

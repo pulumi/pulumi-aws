@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ram.ResourceShare;
  * import com.pulumi.aws.ram.ResourceShareArgs;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ram.PrincipalAssociation;
  * import com.pulumi.aws.ram.PrincipalAssociationArgs;
  * import com.pulumi.aws.ram.ResourceShareAccepter;

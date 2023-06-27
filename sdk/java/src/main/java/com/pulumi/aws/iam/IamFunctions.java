@@ -6879,6 +6879,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
      * import java.util.List;
@@ -6953,6 +6954,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
      * import java.util.List;
@@ -7027,6 +7029,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
      * import java.util.List;
@@ -7101,6 +7104,7 @@ public final class IamFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetSessionContextArgs;
      * import java.util.List;

@@ -2582,6 +2582,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cognito/managedUserPoolClient",
+  "fqn": "pulumi_aws.cognito",
+  "classes": {
+   "aws:cognito/managedUserPoolClient:ManagedUserPoolClient": "ManagedUserPoolClient"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cognito/resourceServer",
   "fqn": "pulumi_aws.cognito",
   "classes": {
@@ -5238,22 +5246,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "gamelift/matchmakingConfiguration",
-  "fqn": "pulumi_aws.gamelift",
-  "classes": {
-   "aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration": "MatchmakingConfiguration"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "gamelift/matchmakingRuleSet",
-  "fqn": "pulumi_aws.gamelift",
-  "classes": {
-   "aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet": "MatchmakingRuleSet"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "gamelift/script",
   "fqn": "pulumi_aws.gamelift",
   "classes": {
@@ -5282,6 +5274,30 @@ _utilities.register(
   "fqn": "pulumi_aws.globalaccelerator",
   "classes": {
    "aws:globalaccelerator/accelerator:Accelerator": "Accelerator"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "globalaccelerator/customRoutingAccelerator",
+  "fqn": "pulumi_aws.globalaccelerator",
+  "classes": {
+   "aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator": "CustomRoutingAccelerator"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "globalaccelerator/customRoutingEndpointGroup",
+  "fqn": "pulumi_aws.globalaccelerator",
+  "classes": {
+   "aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup": "CustomRoutingEndpointGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "globalaccelerator/customRoutingListener",
+  "fqn": "pulumi_aws.globalaccelerator",
+  "classes": {
+   "aws:globalaccelerator/customRoutingListener:CustomRoutingListener": "CustomRoutingListener"
   }
  },
  {
