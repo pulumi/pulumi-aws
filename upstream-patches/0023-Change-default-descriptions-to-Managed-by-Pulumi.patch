@@ -1,7 +1,7 @@
-From a44d2ad81c2d526aa85bbf1dbe5e4be2e30459a2 Mon Sep 17 00:00:00 2001
+From de5bef7792107bdf887ba557d2a875c5879083c2 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
-Subject: [PATCH 24/29] Change default descriptions to "Managed by Pulumi"
+Subject: [PATCH 23/27] Change default descriptions to "Managed by Pulumi"
 
 ---
  internal/service/apigateway/api_key.go        |   2 +-

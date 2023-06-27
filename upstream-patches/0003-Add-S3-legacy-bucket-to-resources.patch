@@ -1,7 +1,7 @@
 From c9412d6d84053262d962dac9eb72d3a1f75229f2 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:05:11 +0000
-Subject: [PATCH 03/29] Add S3 legacy bucket to resources
+Subject: [PATCH 03/27] Add S3 legacy bucket to resources
 
 This preserves the old S3 Resource in the SDK, by duplicating the code
 as a new service (in internal/service/s3legacy), and making an explicit
