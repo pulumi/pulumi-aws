@@ -1,7 +1,7 @@
-From 0b2534b3ccf725b01e461c9edea4b64c0e944a8d Mon Sep 17 00:00:00 2001
+From 9713fa85b21eab3a00a19f44343a753cd1565742 Mon Sep 17 00:00:00 2001
 From: Kyle Pitzen <kpitzen@pulumi.com>
 Date: Fri, 27 Jan 2023 09:37:43 -0600
-Subject: [PATCH 20/29] Reverts patches to S3BucketLegacy and GameLift
+Subject: [PATCH 19/27] Reverts patches to S3BucketLegacy and GameLift
 
 Previously, we were pulling along patches which removed a few simplifications
 to waiters in AWS GameLift, and a newer patch which plumbed through context.Context
@@ -13,10 +13,9 @@ call sites to plumb through the proper Context objects.
 ---
  .../gamelift/matchmaking_configuration.go     |  44 ++---
  .../service/gamelift/matchmaking_rule_set.go  |  42 ++---
- .../accelerator_data_source_reverted.go       |   2 +-
  internal/service/s3legacy/bucket_legacy.go    | 157 +++++++++---------
  internal/service/s3legacy/wait.go             |   4 +-
- 5 files changed, 125 insertions(+), 124 deletions(-)
+ 4 files changed, 124 insertions(+), 123 deletions(-)
 
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
 index 0a7c8ea635..d8ee20dc65 100644
@@ -306,19 +305,6 @@ index 28d15ecf5e..8c1189199f 100644
  	}
  
  	return nil
-diff --git a/internal/service/globalaccelerator/accelerator_data_source_reverted.go b/internal/service/globalaccelerator/accelerator_data_source_reverted.go
-index 3bd69472c8..1259a80d52 100644
---- a/internal/service/globalaccelerator/accelerator_data_source_reverted.go
-+++ b/internal/service/globalaccelerator/accelerator_data_source_reverted.go
-@@ -142,7 +142,7 @@ func dataSourceAcceleratorRead(ctx context.Context, d *schema.ResourceData, meta
- 		return diag.Errorf("error setting attributes: %w", err)
- 	}
- 
--	tags, err := ListTags(context.Background(), conn, d.Id())
-+	tags, err := ListTags(ctx, conn, d.Id())
- 	if err != nil {
- 		return diag.Errorf("error listing tags for Global Accelerator Accelerator (%s): %w", d.Id(), err)
- 	}
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
 index 8879116578..ba95f6c2b6 100644
 --- a/internal/service/s3legacy/bucket_legacy.go

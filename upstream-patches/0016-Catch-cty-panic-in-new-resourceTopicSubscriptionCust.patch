@@ -1,7 +1,7 @@
-From 3f169528f73f9b947063062d553023b73cc29d58 Mon Sep 17 00:00:00 2001
+From 140a0ffe3a58ce02680cf3afef2af6e7e1c5bb12 Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@gmail.com>
 Date: Thu, 1 Dec 2022 10:56:32 -0800
-Subject: [PATCH 17/29] Catch cty panic in new
+Subject: [PATCH 16/27] Catch cty panic in new
  resourceTopicSubscriptionCustomizeDiff.
 
 The root cause is not fully understood yet but this might unblock us.

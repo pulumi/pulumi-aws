@@ -1,7 +1,7 @@
-From 86d7a60259026b352eecc02dbb739b4cc3ed2e58 Mon Sep 17 00:00:00 2001
+From 964e2ce4cac4d0561a9e7f3ae22fdf80d4a6d295 Mon Sep 17 00:00:00 2001
 From: Richard Shade <richard@pulumi.com>
 Date: Fri, 6 Jan 2023 15:31:22 -0600
-Subject: [PATCH 19/29] fix: Adding back in removeAddons
+Subject: [PATCH 18/27] fix: Adding back in removeAddons
 
 ---
  internal/service/eks/cluster.go | 4 ++++

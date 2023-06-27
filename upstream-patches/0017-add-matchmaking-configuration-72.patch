@@ -1,7 +1,7 @@
-From cd21550f239724c15a3def9edcd5615e8657b6de Mon Sep 17 00:00:00 2001
+From e86814c1707a86acd4f97e9c03d68241d4e44a44 Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
-Subject: [PATCH 18/29] add matchmaking configuration (#72)
+Subject: [PATCH 17/27] add matchmaking configuration (#72)
 
 * add matchmaking configuration
 * add matchmaking rule set
@@ -9,14 +9,13 @@ Subject: [PATCH 18/29] add matchmaking configuration (#72)
   * Also fixes error codes for read operations
 * add resource docs
 ---
- internal/provider/provider.go                 |   4 +
  .../gamelift/matchmaking_configuration.go     | 386 ++++++++++++++++++
  .../matchmaking_configuration_test.go         | 267 ++++++++++++
  .../service/gamelift/matchmaking_rule_set.go  | 163 ++++++++
  .../gamelift/matchmaking_rule_set_test.go     | 138 +++++++
  ...ft_matchmaking_configuration.html.markdown | 106 +++++
  ...amelift_matchmaking_rule_set.html.markdown |  52 +++
- 7 files changed, 1116 insertions(+)
+ 6 files changed, 1112 insertions(+)
  create mode 100644 internal/service/gamelift/matchmaking_configuration.go
  create mode 100644 internal/service/gamelift/matchmaking_configuration_test.go
  create mode 100644 internal/service/gamelift/matchmaking_rule_set.go
@@ -24,28 +23,6 @@ Subject: [PATCH 18/29] add matchmaking configuration (#72)
  create mode 100644 website/docs/r/gamelift_matchmaking_configuration.html.markdown
  create mode 100644 website/docs/r/gamelift_matchmaking_rule_set.html.markdown
 
-diff --git a/internal/provider/provider.go b/internal/provider/provider.go
-index f3b7493b92..e7dd1d0f9b 100644
---- a/internal/provider/provider.go
-+++ b/internal/provider/provider.go
-@@ -9,6 +9,7 @@ import (
- 	"time"
- 
- 	"github.com/hashicorp/terraform-provider-aws/internal/service/ecr"
-+	"github.com/hashicorp/terraform-provider-aws/internal/service/gamelift"
- 	"github.com/hashicorp/terraform-provider-aws/internal/service/globalaccelerator"
- 	"github.com/hashicorp/terraform-provider-aws/internal/service/meta"
- 	"github.com/hashicorp/terraform-provider-aws/internal/service/s3legacy"
-@@ -253,6 +254,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
- 			"aws_globalaccelerator_accelerator":    globalaccelerator.ResourceAccelerator(),
- 			"aws_globalaccelerator_endpoint_group": globalaccelerator.ResourceEndpointGroup(),
- 			"aws_globalaccelerator_listener":       globalaccelerator.ResourceListener(),
-+
-+			"aws_gamelift_matchmaking_configuration": gamelift.ResourceMatchMakingConfiguration(),
-+			"aws_gamelift_matchmaking_rule_set":      gamelift.ResourceMatchmakingRuleSet(),
- 		},
- 	}
- 
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
 new file mode 100644
 index 0000000000..0a7c8ea635
