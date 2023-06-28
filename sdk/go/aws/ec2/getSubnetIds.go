@@ -15,6 +15,79 @@ import (
 // This resource can be useful for getting back a set of subnet ids for a vpc.
 //
 // > **NOTE:** The `ec2.getSubnetIds` data source has been deprecated and will be removed in a future version. Use the `ec2.getSubnets` data source instead.
+//
+// ## Example Usage
+//
+// The following shows outputting all cidr blocks for every subnet id in a vpc.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSubnetIds, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
+//				VpcId: _var.Vpc_id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet := "TODO: For expression"
+//			ctx.Export("subnetCidrBlocks", "TODO: For expression")
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// The following example retrieves a set of all subnets in a VPC with a custom
+// tag of `Tier` set to a value of "Private" so that the `ec2.Instance` resource
+// can loop through the subnets, putting instances across availability zones.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			private, err := ec2.GetSubnetIds(ctx, &ec2.GetSubnetIdsArgs{
+//				VpcId: _var.Vpc_id,
+//				Tags: map[string]interface{}{
+//					"Tier": "Private",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var app []*ec2.Instance
+//			for key0, val0 := range private.Ids {
+//				__res, err := ec2.NewInstance(ctx, fmt.Sprintf("app-%v", key0), &ec2.InstanceArgs{
+//					Ami:          pulumi.Any(_var.Ami),
+//					InstanceType: pulumi.String("t2.micro"),
+//					SubnetId:     pulumi.String(val0),
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				app = append(app, __res)
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs, opts ...pulumi.InvokeOption) (*GetSubnetIdsResult, error) {
 	var rv GetSubnetIdsResult
 	err := ctx.Invoke("aws:ec2/getSubnetIds:getSubnetIds", args, &rv, opts...)

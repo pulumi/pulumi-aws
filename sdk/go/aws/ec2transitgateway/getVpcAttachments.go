@@ -13,6 +13,39 @@ import (
 // Get information on EC2 Transit Gateway VPC Attachments.
 //
 // ## Example Usage
+// ### By Filter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			filtered, err := ec2transitgateway.GetVpcAttachments(ctx, &ec2transitgateway.GetVpcAttachmentsArgs{
+//				Filters: []ec2transitgateway.GetVpcAttachmentsFilter{
+//					{
+//						Name: "state",
+//						Values: []string{
+//							"pendingAcceptance",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_ := "TODO: For expression"
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetVpcAttachments(ctx *pulumi.Context, args *GetVpcAttachmentsArgs, opts ...pulumi.InvokeOption) (*GetVpcAttachmentsResult, error) {
 	var rv GetVpcAttachmentsResult
 	err := ctx.Invoke("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args, &rv, opts...)

@@ -33,7 +33,14 @@ import (
 //			}
 //			_, err = amp.NewRuleGroupNamespace(ctx, "demoRuleGroupNamespace", &amp.RuleGroupNamespaceArgs{
 //				WorkspaceId: demoWorkspace.ID(),
-//				Data:        pulumi.String("groups:\n  - name: test\n    rules:\n    - record: metric:recording_rule\n      expr: avg(rate(container_cpu_usage_seconds_total[5m]))\n"),
+//				Data: pulumi.String(`groups:
+//	  - name: test
+//	    rules:
+//	    - record: metric:recording_rule
+//	      expr: avg(rate(container_cpu_usage_seconds_total[5m]))
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

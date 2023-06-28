@@ -29,7 +29,26 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("API_KEY"),
-//				Schema:             pulumi.String("type Mutation {\n  putPost(id: ID!, title: String!): Post\n}\n\ntype Post {\n  id: ID!\n  title: String!\n}\n\ntype Query {\n  singlePost(id: ID!): Post\n}\n\nschema {\n  query: Query\n  mutation: Mutation\n}\n"),
+//				Schema: pulumi.String(`type Mutation {
+//	  putPost(id: ID!, title: String!): Post
+//	}
+//
+//	type Post {
+//	  id: ID!
+//	  title: String!
+//	}
+//
+//	type Query {
+//	  singlePost(id: ID!): Post
+//	}
+//
+//	schema {
+//	  query: Query
+//	  mutation: Mutation
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -46,11 +65,30 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewFunction(ctx, "exampleFunction", &appsync.FunctionArgs{
-//				ApiId:                   exampleGraphQLApi.ID(),
-//				DataSource:              exampleDataSource.Name,
-//				Name:                    pulumi.String("example"),
-//				RequestMappingTemplate:  pulumi.String("{\n    \"version\": \"2018-05-29\",\n    \"method\": \"GET\",\n    \"resourcePath\": \"/\",\n    \"params\":{\n        \"headers\": $utils.http.copyheaders($ctx.request.headers)\n    }\n}\n"),
-//				ResponseMappingTemplate: pulumi.String("#if($ctx.result.statusCode == 200)\n    $ctx.result.body\n#else\n    $utils.appendError($ctx.result.body, $ctx.result.statusCode)\n#end\n"),
+//				ApiId:      exampleGraphQLApi.ID(),
+//				DataSource: exampleDataSource.Name,
+//				Name:       pulumi.String("example"),
+//				RequestMappingTemplate: pulumi.String(`{
+//	    "version": "2018-05-29",
+//	    "method": "GET",
+//	    "resourcePath": "/",
+//	    "params":{
+//	        "headers": $utils.http.copyheaders($ctx.request.headers)
+//	    }
+//	}
+//
+// `),
+//
+//				ResponseMappingTemplate: pulumi.String(`#if($ctx.result.statusCode == 200)
+//	    $ctx.result.body
+//
+// #else
+//
+//	$utils.appendError($ctx.result.body, $ctx.result.statusCode)
+//
+// #end
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
