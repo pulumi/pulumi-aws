@@ -74,7 +74,7 @@ def get_broker_nodes(cluster_arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.msk.get_broker_nodes(cluster_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.msk.get_broker_nodes(cluster_arn=aws_msk_cluster["example"]["arn"])
     ```
 
 
@@ -86,9 +86,9 @@ def get_broker_nodes(cluster_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:msk/getBrokerNodes:getBrokerNodes', __args__, opts=opts, typ=GetBrokerNodesResult).value
 
     return AwaitableGetBrokerNodesResult(
-        cluster_arn=__ret__.cluster_arn,
-        id=__ret__.id,
-        node_info_lists=__ret__.node_info_lists)
+        cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        node_info_lists=pulumi.get(__ret__, 'node_info_lists'))
 
 
 @_utilities.lift_output_func(get_broker_nodes)
@@ -103,7 +103,7 @@ def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.msk.get_broker_nodes(cluster_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.msk.get_broker_nodes(cluster_arn=aws_msk_cluster["example"]["arn"])
     ```
 
 

@@ -351,11 +351,11 @@ class ListenerRule(pulumi.CustomResource):
                 forward=aws.vpclattice.ListenerRuleActionForwardArgs(
                     target_groups=[
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            target_group_identifier=aws_vpclattice_target_group["example"]["id"],
                             weight=1,
                         ),
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            target_group_identifier=aws_vpclattice_target_group["example2"]["id"],
                             weight=2,
                         ),
                     ],
@@ -449,11 +449,11 @@ class ListenerRule(pulumi.CustomResource):
                 forward=aws.vpclattice.ListenerRuleActionForwardArgs(
                     target_groups=[
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            target_group_identifier=aws_vpclattice_target_group["example"]["id"],
                             weight=1,
                         ),
                         aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            target_group_identifier=aws_vpclattice_target_group["example2"]["id"],
                             weight=2,
                         ),
                     ],

@@ -38,8 +38,24 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewTaskDefinition(ctx, "mongoEcs/taskDefinitionTaskDefinition", &ecs.TaskDefinitionArgs{
-//				Family:               pulumi.String("mongodb"),
-//				ContainerDefinitions: pulumi.String("[\n  {\n    \"cpu\": 128,\n    \"environment\": [{\n      \"name\": \"SECRET\",\n      \"value\": \"KEY\"\n    }],\n    \"essential\": true,\n    \"image\": \"mongo:latest\",\n    \"memory\": 128,\n    \"memoryReservation\": 64,\n    \"name\": \"mongodb\"\n  }\n]\n"),
+//				Family: pulumi.String("mongodb"),
+//				ContainerDefinitions: pulumi.String(`[
+//	  {
+//	    "cpu": 128,
+//	    "environment": [{
+//	      "name": "SECRET",
+//	      "value": "KEY"
+//	    }],
+//	    "essential": true,
+//	    "image": "mongo:latest",
+//	    "memory": 128,
+//	    "memoryReservation": 64,
+//	    "name": "mongodb"
+//	  }
+//
+// ]
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

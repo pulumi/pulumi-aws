@@ -160,15 +160,15 @@ def get_approval_rule_template(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate', __args__, opts=opts, typ=GetApprovalRuleTemplateResult).value
 
     return AwaitableGetApprovalRuleTemplateResult(
-        approval_rule_template_id=__ret__.approval_rule_template_id,
-        content=__ret__.content,
-        creation_date=__ret__.creation_date,
-        description=__ret__.description,
-        id=__ret__.id,
-        last_modified_date=__ret__.last_modified_date,
-        last_modified_user=__ret__.last_modified_user,
-        name=__ret__.name,
-        rule_content_sha256=__ret__.rule_content_sha256)
+        approval_rule_template_id=pulumi.get(__ret__, 'approval_rule_template_id'),
+        content=pulumi.get(__ret__, 'content'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_date=pulumi.get(__ret__, 'last_modified_date'),
+        last_modified_user=pulumi.get(__ret__, 'last_modified_user'),
+        name=pulumi.get(__ret__, 'name'),
+        rule_content_sha256=pulumi.get(__ret__, 'rule_content_sha256'))
 
 
 @_utilities.lift_output_func(get_approval_rule_template)

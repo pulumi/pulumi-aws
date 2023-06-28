@@ -114,11 +114,11 @@ def get_instance_profiles(role_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getInstanceProfiles:getInstanceProfiles', __args__, opts=opts, typ=GetInstanceProfilesResult).value
 
     return AwaitableGetInstanceProfilesResult(
-        arns=__ret__.arns,
-        id=__ret__.id,
-        names=__ret__.names,
-        paths=__ret__.paths,
-        role_name=__ret__.role_name)
+        arns=pulumi.get(__ret__, 'arns'),
+        id=pulumi.get(__ret__, 'id'),
+        names=pulumi.get(__ret__, 'names'),
+        paths=pulumi.get(__ret__, 'paths'),
+        role_name=pulumi.get(__ret__, 'role_name'))
 
 
 @_utilities.lift_output_func(get_instance_profiles)

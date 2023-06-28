@@ -159,8 +159,8 @@ def get_connection(connection_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_connection(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        connection_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.networkmanager.get_connection(global_network_id=var["global_network_id"],
+        connection_id=var["connection_id"])
     ```
 
 
@@ -176,16 +176,16 @@ def get_connection(connection_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:networkmanager/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
 
     return AwaitableGetConnectionResult(
-        arn=__ret__.arn,
-        connected_device_id=__ret__.connected_device_id,
-        connected_link_id=__ret__.connected_link_id,
-        connection_id=__ret__.connection_id,
-        description=__ret__.description,
-        device_id=__ret__.device_id,
-        global_network_id=__ret__.global_network_id,
-        id=__ret__.id,
-        link_id=__ret__.link_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        connected_device_id=pulumi.get(__ret__, 'connected_device_id'),
+        connected_link_id=pulumi.get(__ret__, 'connected_link_id'),
+        connection_id=pulumi.get(__ret__, 'connection_id'),
+        description=pulumi.get(__ret__, 'description'),
+        device_id=pulumi.get(__ret__, 'device_id'),
+        global_network_id=pulumi.get(__ret__, 'global_network_id'),
+        id=pulumi.get(__ret__, 'id'),
+        link_id=pulumi.get(__ret__, 'link_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_connection)
@@ -202,8 +202,8 @@ def get_connection_output(connection_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_connection(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        connection_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.networkmanager.get_connection(global_network_id=var["global_network_id"],
+        connection_id=var["connection_id"])
     ```
 
 

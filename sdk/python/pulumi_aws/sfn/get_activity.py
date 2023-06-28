@@ -100,10 +100,10 @@ def get_activity(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:sfn/getActivity:getActivity', __args__, opts=opts, typ=GetActivityResult).value
 
     return AwaitableGetActivityResult(
-        arn=__ret__.arn,
-        creation_date=__ret__.creation_date,
-        id=__ret__.id,
-        name=__ret__.name)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_activity)

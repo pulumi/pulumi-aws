@@ -190,17 +190,17 @@ def get_gateway_route(mesh_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:appmesh/getGatewayRoute:getGatewayRoute', __args__, opts=opts, typ=GetGatewayRouteResult).value
 
     return AwaitableGetGatewayRouteResult(
-        arn=__ret__.arn,
-        created_date=__ret__.created_date,
-        id=__ret__.id,
-        last_updated_date=__ret__.last_updated_date,
-        mesh_name=__ret__.mesh_name,
-        mesh_owner=__ret__.mesh_owner,
-        name=__ret__.name,
-        resource_owner=__ret__.resource_owner,
-        specs=__ret__.specs,
-        tags=__ret__.tags,
-        virtual_gateway_name=__ret__.virtual_gateway_name)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        mesh_name=pulumi.get(__ret__, 'mesh_name'),
+        mesh_owner=pulumi.get(__ret__, 'mesh_owner'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_owner=pulumi.get(__ret__, 'resource_owner'),
+        specs=pulumi.get(__ret__, 'specs'),
+        tags=pulumi.get(__ret__, 'tags'),
+        virtual_gateway_name=pulumi.get(__ret__, 'virtual_gateway_name'))
 
 
 @_utilities.lift_output_func(get_gateway_route)

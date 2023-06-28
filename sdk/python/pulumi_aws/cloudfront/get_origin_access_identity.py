@@ -145,13 +145,13 @@ def get_origin_access_identity(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity', __args__, opts=opts, typ=GetOriginAccessIdentityResult).value
 
     return AwaitableGetOriginAccessIdentityResult(
-        caller_reference=__ret__.caller_reference,
-        cloudfront_access_identity_path=__ret__.cloudfront_access_identity_path,
-        comment=__ret__.comment,
-        etag=__ret__.etag,
-        iam_arn=__ret__.iam_arn,
-        id=__ret__.id,
-        s3_canonical_user_id=__ret__.s3_canonical_user_id)
+        caller_reference=pulumi.get(__ret__, 'caller_reference'),
+        cloudfront_access_identity_path=pulumi.get(__ret__, 'cloudfront_access_identity_path'),
+        comment=pulumi.get(__ret__, 'comment'),
+        etag=pulumi.get(__ret__, 'etag'),
+        iam_arn=pulumi.get(__ret__, 'iam_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        s3_canonical_user_id=pulumi.get(__ret__, 's3_canonical_user_id'))
 
 
 @_utilities.lift_output_func(get_origin_access_identity)

@@ -274,10 +274,10 @@ class ResolverEndpoint(pulumi.CustomResource):
             ],
             ip_addresses=[
                 aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["sn1"]["id"],
                 ),
                 aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["sn2"]["id"],
                     ip="10.0.64.4",
                 ),
             ],
@@ -328,10 +328,10 @@ class ResolverEndpoint(pulumi.CustomResource):
             ],
             ip_addresses=[
                 aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["sn1"]["id"],
                 ),
                 aws.route53.ResolverEndpointIpAddressArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["sn2"]["id"],
                     ip="10.0.64.4",
                 ),
             ],

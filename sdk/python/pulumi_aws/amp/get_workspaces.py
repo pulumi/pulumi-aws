@@ -124,11 +124,11 @@ def get_workspaces(alias_prefix: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:amp/getWorkspaces:getWorkspaces', __args__, opts=opts, typ=GetWorkspacesResult).value
 
     return AwaitableGetWorkspacesResult(
-        alias_prefix=__ret__.alias_prefix,
-        aliases=__ret__.aliases,
-        arns=__ret__.arns,
-        id=__ret__.id,
-        workspace_ids=__ret__.workspace_ids)
+        alias_prefix=pulumi.get(__ret__, 'alias_prefix'),
+        aliases=pulumi.get(__ret__, 'aliases'),
+        arns=pulumi.get(__ret__, 'arns'),
+        id=pulumi.get(__ret__, 'id'),
+        workspace_ids=pulumi.get(__ret__, 'workspace_ids'))
 
 
 @_utilities.lift_output_func(get_workspaces)

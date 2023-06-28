@@ -313,7 +313,7 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.waf.WebAcl("example", logging_configuration=aws.waf.WebAclLoggingConfigurationArgs(
-            log_destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
             redacted_fields=aws.waf.WebAclLoggingConfigurationRedactedFieldsArgs(
                 field_to_matches=[
                     aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
@@ -401,7 +401,7 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.waf.WebAcl("example", logging_configuration=aws.waf.WebAclLoggingConfigurationArgs(
-            log_destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
             redacted_fields=aws.waf.WebAclLoggingConfigurationRedactedFieldsArgs(
                 field_to_matches=[
                     aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(

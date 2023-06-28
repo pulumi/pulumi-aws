@@ -73,5 +73,5 @@ def get_sites(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesR
     __ret__ = pulumi.runtime.invoke('aws:outposts/getSites:getSites', __args__, opts=opts, typ=GetSitesResult).value
 
     return AwaitableGetSitesResult(
-        id=__ret__.id,
-        ids=__ret__.ids)
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'))

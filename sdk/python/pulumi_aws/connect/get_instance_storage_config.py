@@ -115,11 +115,11 @@ def get_instance_storage_config(association_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getInstanceStorageConfig:getInstanceStorageConfig', __args__, opts=opts, typ=GetInstanceStorageConfigResult).value
 
     return AwaitableGetInstanceStorageConfigResult(
-        association_id=__ret__.association_id,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        resource_type=__ret__.resource_type,
-        storage_configs=__ret__.storage_configs)
+        association_id=pulumi.get(__ret__, 'association_id'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        resource_type=pulumi.get(__ret__, 'resource_type'),
+        storage_configs=pulumi.get(__ret__, 'storage_configs'))
 
 
 @_utilities.lift_output_func(get_instance_storage_config)

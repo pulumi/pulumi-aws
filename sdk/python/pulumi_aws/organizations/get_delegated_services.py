@@ -89,9 +89,9 @@ def get_delegated_services(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:organizations/getDelegatedServices:getDelegatedServices', __args__, opts=opts, typ=GetDelegatedServicesResult).value
 
     return AwaitableGetDelegatedServicesResult(
-        account_id=__ret__.account_id,
-        delegated_services=__ret__.delegated_services,
-        id=__ret__.id)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        delegated_services=pulumi.get(__ret__, 'delegated_services'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_delegated_services)

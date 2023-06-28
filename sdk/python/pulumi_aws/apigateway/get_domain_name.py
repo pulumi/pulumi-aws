@@ -236,21 +236,21 @@ def get_domain_name(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getDomainName:getDomainName', __args__, opts=opts, typ=GetDomainNameResult).value
 
     return AwaitableGetDomainNameResult(
-        arn=__ret__.arn,
-        certificate_arn=__ret__.certificate_arn,
-        certificate_name=__ret__.certificate_name,
-        certificate_upload_date=__ret__.certificate_upload_date,
-        cloudfront_domain_name=__ret__.cloudfront_domain_name,
-        cloudfront_zone_id=__ret__.cloudfront_zone_id,
-        domain_name=__ret__.domain_name,
-        endpoint_configurations=__ret__.endpoint_configurations,
-        id=__ret__.id,
-        regional_certificate_arn=__ret__.regional_certificate_arn,
-        regional_certificate_name=__ret__.regional_certificate_name,
-        regional_domain_name=__ret__.regional_domain_name,
-        regional_zone_id=__ret__.regional_zone_id,
-        security_policy=__ret__.security_policy,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
+        certificate_name=pulumi.get(__ret__, 'certificate_name'),
+        certificate_upload_date=pulumi.get(__ret__, 'certificate_upload_date'),
+        cloudfront_domain_name=pulumi.get(__ret__, 'cloudfront_domain_name'),
+        cloudfront_zone_id=pulumi.get(__ret__, 'cloudfront_zone_id'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        endpoint_configurations=pulumi.get(__ret__, 'endpoint_configurations'),
+        id=pulumi.get(__ret__, 'id'),
+        regional_certificate_arn=pulumi.get(__ret__, 'regional_certificate_arn'),
+        regional_certificate_name=pulumi.get(__ret__, 'regional_certificate_name'),
+        regional_domain_name=pulumi.get(__ret__, 'regional_domain_name'),
+        regional_zone_id=pulumi.get(__ret__, 'regional_zone_id'),
+        security_policy=pulumi.get(__ret__, 'security_policy'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_domain_name)

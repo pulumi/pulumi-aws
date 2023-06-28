@@ -14,6 +14,32 @@ import (
 // Profile IDs to another resource.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/appconfig"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleConfigurationProfiles, err := appconfig.GetConfigurationProfiles(ctx, &appconfig.GetConfigurationProfilesArgs{
+//				ApplicationId: "a1d3rpe",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_ := "TODO: For expression"
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetConfigurationProfiles(ctx *pulumi.Context, args *GetConfigurationProfilesArgs, opts ...pulumi.InvokeOption) (*GetConfigurationProfilesResult, error) {
 	var rv GetConfigurationProfilesResult
 	err := ctx.Invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args, &rv, opts...)

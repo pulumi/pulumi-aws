@@ -54,6 +54,9 @@ class AttachmentArgs:
         """
         ARN of an ALB Target Group.
         """
+        warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
+        pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
+
         return pulumi.get(self, "alb_target_group_arn")
 
     @alb_target_group_arn.setter
@@ -117,6 +120,9 @@ class _AttachmentState:
         """
         ARN of an ALB Target Group.
         """
+        warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
+        pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
+
         return pulumi.get(self, "alb_target_group_arn")
 
     @alb_target_group_arn.setter
@@ -352,6 +358,9 @@ class Attachment(pulumi.CustomResource):
         """
         ARN of an ALB Target Group.
         """
+        warnings.warn("""Use lb_target_group_arn instead""", DeprecationWarning)
+        pulumi.log.warn("""alb_target_group_arn is deprecated: Use lb_target_group_arn instead""")
+
         return pulumi.get(self, "alb_target_group_arn")
 
     @property

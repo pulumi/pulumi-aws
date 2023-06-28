@@ -97,10 +97,10 @@ def get_delegation_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts, typ=GetDelegationSetResult).value
 
     return AwaitableGetDelegationSetResult(
-        arn=__ret__.arn,
-        caller_reference=__ret__.caller_reference,
-        id=__ret__.id,
-        name_servers=__ret__.name_servers)
+        arn=pulumi.get(__ret__, 'arn'),
+        caller_reference=pulumi.get(__ret__, 'caller_reference'),
+        id=pulumi.get(__ret__, 'id'),
+        name_servers=pulumi.get(__ret__, 'name_servers'))
 
 
 @_utilities.lift_output_func(get_delegation_set)

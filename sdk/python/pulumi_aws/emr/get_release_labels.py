@@ -93,9 +93,9 @@ def get_release_labels(filters: Optional[pulumi.InputType['GetReleaseLabelsFilte
     __ret__ = pulumi.runtime.invoke('aws:emr/getReleaseLabels:getReleaseLabels', __args__, opts=opts, typ=GetReleaseLabelsResult).value
 
     return AwaitableGetReleaseLabelsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        release_labels=__ret__.release_labels)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        release_labels=pulumi.get(__ret__, 'release_labels'))
 
 
 @_utilities.lift_output_func(get_release_labels)

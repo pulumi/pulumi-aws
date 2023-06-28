@@ -61,10 +61,6 @@ class GetClusterResult:
         pulumi.set(__self__, "cluster_revision_number", cluster_revision_number)
         if cluster_security_groups and not isinstance(cluster_security_groups, list):
             raise TypeError("Expected argument 'cluster_security_groups' to be a list")
-        if cluster_security_groups is not None:
-            warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
-
         pulumi.set(__self__, "cluster_security_groups", cluster_security_groups)
         if cluster_subnet_group_name and not isinstance(cluster_subnet_group_name, str):
             raise TypeError("Expected argument 'cluster_subnet_group_name' to be a str")
@@ -250,6 +246,9 @@ class GetClusterResult:
         """
         The security groups associated with the cluster
         """
+        warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "cluster_security_groups")
 
     @property
@@ -530,14 +529,14 @@ def get_cluster(cluster_identifier: Optional[str] = None,
     example_stream = aws.kinesis.FirehoseDeliveryStream("exampleStream",
         destination="redshift",
         s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-            role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-            bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role_arn=aws_iam_role["firehose_role"]["arn"],
+            bucket_arn=aws_s3_bucket["bucket"]["arn"],
             buffer_size=10,
             buffer_interval=400,
             compression_format="GZIP",
         ),
         redshift_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs(
-            role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role_arn=aws_iam_role["firehose_role"]["arn"],
             cluster_jdbcurl=f"jdbc:redshift://{example.endpoint}/{example.database_name}",
             username="exampleuser",
             password="Exampl3Pass",
@@ -558,46 +557,46 @@ def get_cluster(cluster_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:redshift/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        allow_version_upgrade=__ret__.allow_version_upgrade,
-        aqua_configuration_status=__ret__.aqua_configuration_status,
-        arn=__ret__.arn,
-        automated_snapshot_retention_period=__ret__.automated_snapshot_retention_period,
-        availability_zone=__ret__.availability_zone,
-        availability_zone_relocation_enabled=__ret__.availability_zone_relocation_enabled,
-        bucket_name=__ret__.bucket_name,
-        cluster_identifier=__ret__.cluster_identifier,
-        cluster_nodes=__ret__.cluster_nodes,
-        cluster_parameter_group_name=__ret__.cluster_parameter_group_name,
-        cluster_public_key=__ret__.cluster_public_key,
-        cluster_revision_number=__ret__.cluster_revision_number,
-        cluster_security_groups=__ret__.cluster_security_groups,
-        cluster_subnet_group_name=__ret__.cluster_subnet_group_name,
-        cluster_type=__ret__.cluster_type,
-        cluster_version=__ret__.cluster_version,
-        database_name=__ret__.database_name,
-        default_iam_role_arn=__ret__.default_iam_role_arn,
-        elastic_ip=__ret__.elastic_ip,
-        enable_logging=__ret__.enable_logging,
-        encrypted=__ret__.encrypted,
-        endpoint=__ret__.endpoint,
-        enhanced_vpc_routing=__ret__.enhanced_vpc_routing,
-        iam_roles=__ret__.iam_roles,
-        id=__ret__.id,
-        kms_key_id=__ret__.kms_key_id,
-        log_destination_type=__ret__.log_destination_type,
-        log_exports=__ret__.log_exports,
-        maintenance_track_name=__ret__.maintenance_track_name,
-        manual_snapshot_retention_period=__ret__.manual_snapshot_retention_period,
-        master_username=__ret__.master_username,
-        node_type=__ret__.node_type,
-        number_of_nodes=__ret__.number_of_nodes,
-        port=__ret__.port,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        publicly_accessible=__ret__.publicly_accessible,
-        s3_key_prefix=__ret__.s3_key_prefix,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id,
-        vpc_security_group_ids=__ret__.vpc_security_group_ids)
+        allow_version_upgrade=pulumi.get(__ret__, 'allow_version_upgrade'),
+        aqua_configuration_status=pulumi.get(__ret__, 'aqua_configuration_status'),
+        arn=pulumi.get(__ret__, 'arn'),
+        automated_snapshot_retention_period=pulumi.get(__ret__, 'automated_snapshot_retention_period'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        availability_zone_relocation_enabled=pulumi.get(__ret__, 'availability_zone_relocation_enabled'),
+        bucket_name=pulumi.get(__ret__, 'bucket_name'),
+        cluster_identifier=pulumi.get(__ret__, 'cluster_identifier'),
+        cluster_nodes=pulumi.get(__ret__, 'cluster_nodes'),
+        cluster_parameter_group_name=pulumi.get(__ret__, 'cluster_parameter_group_name'),
+        cluster_public_key=pulumi.get(__ret__, 'cluster_public_key'),
+        cluster_revision_number=pulumi.get(__ret__, 'cluster_revision_number'),
+        cluster_security_groups=pulumi.get(__ret__, 'cluster_security_groups'),
+        cluster_subnet_group_name=pulumi.get(__ret__, 'cluster_subnet_group_name'),
+        cluster_type=pulumi.get(__ret__, 'cluster_type'),
+        cluster_version=pulumi.get(__ret__, 'cluster_version'),
+        database_name=pulumi.get(__ret__, 'database_name'),
+        default_iam_role_arn=pulumi.get(__ret__, 'default_iam_role_arn'),
+        elastic_ip=pulumi.get(__ret__, 'elastic_ip'),
+        enable_logging=pulumi.get(__ret__, 'enable_logging'),
+        encrypted=pulumi.get(__ret__, 'encrypted'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        enhanced_vpc_routing=pulumi.get(__ret__, 'enhanced_vpc_routing'),
+        iam_roles=pulumi.get(__ret__, 'iam_roles'),
+        id=pulumi.get(__ret__, 'id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        log_destination_type=pulumi.get(__ret__, 'log_destination_type'),
+        log_exports=pulumi.get(__ret__, 'log_exports'),
+        maintenance_track_name=pulumi.get(__ret__, 'maintenance_track_name'),
+        manual_snapshot_retention_period=pulumi.get(__ret__, 'manual_snapshot_retention_period'),
+        master_username=pulumi.get(__ret__, 'master_username'),
+        node_type=pulumi.get(__ret__, 'node_type'),
+        number_of_nodes=pulumi.get(__ret__, 'number_of_nodes'),
+        port=pulumi.get(__ret__, 'port'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        s3_key_prefix=pulumi.get(__ret__, 's3_key_prefix'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'),
+        vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 
 
 @_utilities.lift_output_func(get_cluster)
@@ -617,14 +616,14 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
     example_stream = aws.kinesis.FirehoseDeliveryStream("exampleStream",
         destination="redshift",
         s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-            role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-            bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role_arn=aws_iam_role["firehose_role"]["arn"],
+            bucket_arn=aws_s3_bucket["bucket"]["arn"],
             buffer_size=10,
             buffer_interval=400,
             compression_format="GZIP",
         ),
         redshift_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs(
-            role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role_arn=aws_iam_role["firehose_role"]["arn"],
             cluster_jdbcurl=f"jdbc:redshift://{example.endpoint}/{example.database_name}",
             username="exampleuser",
             password="Exampl3Pass",

@@ -206,7 +206,16 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("AWS_IAM"),
-//				Schema:             pulumi.String("schema {\n	query: Query\n}\ntype Query {\n  test: Int\n}\n\n"),
+//				Schema: pulumi.String(`schema {
+//		query: Query
+//	}
+//
+//	type Query {
+//	  test: Int
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

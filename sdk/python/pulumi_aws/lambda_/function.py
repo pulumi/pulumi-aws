@@ -1275,6 +1275,36 @@ class Function(pulumi.CustomResource):
         > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 
         ## Example Usage
+        ### Basic Example
+
+        ```python
+        import pulumi
+        import pulumi_archive as archive
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
+        lambda_ = archive.get_file(type="zip",
+            source_file="lambda.js",
+            output_path="lambda_function_payload.zip")
+        test_lambda = aws.lambda_.Function("testLambda",
+            code=pulumi.FileArchive("lambda_function_payload.zip"),
+            role=iam_for_lambda.arn,
+            handler="index.test",
+            runtime="nodejs16.x",
+            environment=aws.lambda_.FunctionEnvironmentArgs(
+                variables={
+                    "foo": "bar",
+                },
+            ))
+        ```
         ### Lambda Layers
 
         ```python
@@ -1388,7 +1418,7 @@ class Function(pulumi.CustomResource):
             description="IAM policy for logging from a lambda",
             policy=lambda_logging_policy_document.json)
         lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
-            role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role=aws_iam_role["iam_for_lambda"]["name"],
             policy_arn=lambda_logging_policy.arn)
         test_lambda = aws.lambda_.Function("testLambda", opts=pulumi.ResourceOptions(depends_on=[
                 lambda_logs,
@@ -1467,6 +1497,36 @@ class Function(pulumi.CustomResource):
         > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 
         ## Example Usage
+        ### Basic Example
+
+        ```python
+        import pulumi
+        import pulumi_archive as archive
+        import pulumi_aws as aws
+
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["lambda.amazonaws.com"],
+            )],
+            actions=["sts:AssumeRole"],
+        )])
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=assume_role.json)
+        lambda_ = archive.get_file(type="zip",
+            source_file="lambda.js",
+            output_path="lambda_function_payload.zip")
+        test_lambda = aws.lambda_.Function("testLambda",
+            code=pulumi.FileArchive("lambda_function_payload.zip"),
+            role=iam_for_lambda.arn,
+            handler="index.test",
+            runtime="nodejs16.x",
+            environment=aws.lambda_.FunctionEnvironmentArgs(
+                variables={
+                    "foo": "bar",
+                },
+            ))
+        ```
         ### Lambda Layers
 
         ```python
@@ -1580,7 +1640,7 @@ class Function(pulumi.CustomResource):
             description="IAM policy for logging from a lambda",
             policy=lambda_logging_policy_document.json)
         lambda_logs = aws.iam.RolePolicyAttachment("lambdaLogs",
-            role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role=aws_iam_role["iam_for_lambda"]["name"],
             policy_arn=lambda_logging_policy.arn)
         test_lambda = aws.lambda_.Function("testLambda", opts=pulumi.ResourceOptions(depends_on=[
                 lambda_logs,

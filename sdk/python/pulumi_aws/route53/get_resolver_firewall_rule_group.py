@@ -172,18 +172,18 @@ def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup', __args__, opts=opts, typ=GetResolverFirewallRuleGroupResult).value
 
     return AwaitableGetResolverFirewallRuleGroupResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        creator_request_id=__ret__.creator_request_id,
-        firewall_rule_group_id=__ret__.firewall_rule_group_id,
-        id=__ret__.id,
-        modification_time=__ret__.modification_time,
-        name=__ret__.name,
-        owner_id=__ret__.owner_id,
-        rule_count=__ret__.rule_count,
-        share_status=__ret__.share_status,
-        status=__ret__.status,
-        status_message=__ret__.status_message)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        creator_request_id=pulumi.get(__ret__, 'creator_request_id'),
+        firewall_rule_group_id=pulumi.get(__ret__, 'firewall_rule_group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        modification_time=pulumi.get(__ret__, 'modification_time'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        rule_count=pulumi.get(__ret__, 'rule_count'),
+        share_status=pulumi.get(__ret__, 'share_status'),
+        status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'))
 
 
 @_utilities.lift_output_func(get_resolver_firewall_rule_group)

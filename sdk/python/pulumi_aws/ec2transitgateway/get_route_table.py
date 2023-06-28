@@ -162,13 +162,13 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getRouteTable:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult).value
 
     return AwaitableGetRouteTableResult(
-        arn=__ret__.arn,
-        default_association_route_table=__ret__.default_association_route_table,
-        default_propagation_route_table=__ret__.default_propagation_route_table,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        tags=__ret__.tags,
-        transit_gateway_id=__ret__.transit_gateway_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        default_association_route_table=pulumi.get(__ret__, 'default_association_route_table'),
+        default_propagation_route_table=pulumi.get(__ret__, 'default_propagation_route_table'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
 
 
 @_utilities.lift_output_func(get_route_table)

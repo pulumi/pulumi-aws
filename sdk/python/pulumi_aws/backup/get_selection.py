@@ -110,7 +110,7 @@ def get_selection(plan_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_selection(plan_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.backup.get_selection(plan_id=data["aws_backup_plan"]["example"]["id"],
         selection_id="selection-id-example")
     ```
 
@@ -125,12 +125,12 @@ def get_selection(plan_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:backup/getSelection:getSelection', __args__, opts=opts, typ=GetSelectionResult).value
 
     return AwaitableGetSelectionResult(
-        iam_role_arn=__ret__.iam_role_arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        plan_id=__ret__.plan_id,
-        resources=__ret__.resources,
-        selection_id=__ret__.selection_id)
+        iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        plan_id=pulumi.get(__ret__, 'plan_id'),
+        resources=pulumi.get(__ret__, 'resources'),
+        selection_id=pulumi.get(__ret__, 'selection_id'))
 
 
 @_utilities.lift_output_func(get_selection)
@@ -146,7 +146,7 @@ def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.backup.get_selection(plan_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.backup.get_selection(plan_id=data["aws_backup_plan"]["example"]["id"],
         selection_id="selection-id-example")
     ```
 

@@ -28,7 +28,20 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resourcegroups.NewGroup(ctx, "test", &resourcegroups.GroupArgs{
 //				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
-//					Query: pulumi.String("{\n  \"ResourceTypeFilters\": [\n    \"AWS::EC2::Instance\"\n  ],\n  \"TagFilters\": [\n    {\n      \"Key\": \"Stage\",\n      \"Values\": [\"Test\"]\n    }\n  ]\n}\n\n"),
+//					Query: pulumi.String(`{
+//	  "ResourceTypeFilters": [
+//	    "AWS::EC2::Instance"
+//	  ],
+//	  "TagFilters": [
+//	    {
+//	      "Key": "Stage",
+//	      "Values": ["Test"]
+//	    }
+//	  ]
+//	}
+//
+// `),
+//
 //				},
 //			})
 //			if err != nil {

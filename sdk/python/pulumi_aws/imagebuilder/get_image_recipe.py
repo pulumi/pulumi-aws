@@ -224,20 +224,20 @@ def get_image_recipe(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getImageRecipe:getImageRecipe', __args__, opts=opts, typ=GetImageRecipeResult).value
 
     return AwaitableGetImageRecipeResult(
-        arn=__ret__.arn,
-        block_device_mappings=__ret__.block_device_mappings,
-        components=__ret__.components,
-        date_created=__ret__.date_created,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        parent_image=__ret__.parent_image,
-        platform=__ret__.platform,
-        tags=__ret__.tags,
-        user_data_base64=__ret__.user_data_base64,
-        version=__ret__.version,
-        working_directory=__ret__.working_directory)
+        arn=pulumi.get(__ret__, 'arn'),
+        block_device_mappings=pulumi.get(__ret__, 'block_device_mappings'),
+        components=pulumi.get(__ret__, 'components'),
+        date_created=pulumi.get(__ret__, 'date_created'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        parent_image=pulumi.get(__ret__, 'parent_image'),
+        platform=pulumi.get(__ret__, 'platform'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_data_base64=pulumi.get(__ret__, 'user_data_base64'),
+        version=pulumi.get(__ret__, 'version'),
+        working_directory=pulumi.get(__ret__, 'working_directory'))
 
 
 @_utilities.lift_output_func(get_image_recipe)

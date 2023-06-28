@@ -119,6 +119,9 @@ class VpcArgs:
         for the VPC. Only valid in regions and accounts that support EC2 Classic.
         See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         """
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink")
 
     @enable_classiclink.setter
@@ -132,6 +135,9 @@ class VpcArgs:
         A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
         Only valid in regions and accounts that support EC2 Classic.
         """
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink_dns_support")
 
     @enable_classiclink_dns_support.setter
@@ -473,6 +479,9 @@ class _VpcState:
         for the VPC. Only valid in regions and accounts that support EC2 Classic.
         See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         """
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink")
 
     @enable_classiclink.setter
@@ -486,6 +495,9 @@ class _VpcState:
         A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
         Only valid in regions and accounts that support EC2 Classic.
         """
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink_dns_support")
 
     @enable_classiclink_dns_support.setter
@@ -1071,6 +1083,9 @@ class Vpc(pulumi.CustomResource):
         for the VPC. Only valid in regions and accounts that support EC2 Classic.
         See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         """
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink")
 
     @property
@@ -1080,6 +1095,9 @@ class Vpc(pulumi.CustomResource):
         A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
         Only valid in regions and accounts that support EC2 Classic.
         """
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink_dns_support")
 
     @property

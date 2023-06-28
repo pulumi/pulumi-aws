@@ -29,7 +29,25 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				BuildSpec: pulumi.String("  version: 0.1\n  frontend:\n    phases:\n      preBuild:\n        commands:\n          - yarn install\n      build:\n        commands:\n          - yarn run build\n    artifacts:\n      baseDirectory: build\n      files:\n        - '**/*'\n    cache:\n      paths:\n        - node_modules/**/*\n\n"),
+//				BuildSpec: pulumi.String(`  version: 0.1
+//	  frontend:
+//	    phases:
+//	      preBuild:
+//	        commands:
+//	          - yarn install
+//	      build:
+//	        commands:
+//	          - yarn run build
+//	    artifacts:
+//	      baseDirectory: build
+//	      files:
+//	        - '**/*'
+//	    cache:
+//	      paths:
+//	        - node_modules/**/*
+//
+// `),
+//
 //				CustomRules: amplify.AppCustomRuleArray{
 //					&amplify.AppCustomRuleArgs{
 //						Source: pulumi.String("/<*>"),

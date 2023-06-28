@@ -173,9 +173,9 @@ def get_permissions(catalog_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
         data_location=aws.lakeformation.GetPermissionsDataLocationArgs(
-            arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            arn=aws_lakeformation_resource["test"]["arn"],
         ))
     ```
     ### Permissions For A Glue Catalog Database
@@ -184,9 +184,9 @@ def get_permissions(catalog_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
         database=aws.lakeformation.GetPermissionsDatabaseArgs(
-            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            name=aws_glue_catalog_database["test"]["name"],
             catalog_id="110376042874",
         ))
     ```
@@ -196,7 +196,7 @@ def get_permissions(catalog_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
         lf_tag_policy=aws.lakeformation.GetPermissionsLfTagPolicyArgs(
             resource_type="DATABASE",
             expressions=[
@@ -244,18 +244,18 @@ def get_permissions(catalog_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lakeformation/getPermissions:getPermissions', __args__, opts=opts, typ=GetPermissionsResult).value
 
     return AwaitableGetPermissionsResult(
-        catalog_id=__ret__.catalog_id,
-        catalog_resource=__ret__.catalog_resource,
-        data_location=__ret__.data_location,
-        database=__ret__.database,
-        id=__ret__.id,
-        lf_tag=__ret__.lf_tag,
-        lf_tag_policy=__ret__.lf_tag_policy,
-        permissions=__ret__.permissions,
-        permissions_with_grant_options=__ret__.permissions_with_grant_options,
-        principal=__ret__.principal,
-        table=__ret__.table,
-        table_with_columns=__ret__.table_with_columns)
+        catalog_id=pulumi.get(__ret__, 'catalog_id'),
+        catalog_resource=pulumi.get(__ret__, 'catalog_resource'),
+        data_location=pulumi.get(__ret__, 'data_location'),
+        database=pulumi.get(__ret__, 'database'),
+        id=pulumi.get(__ret__, 'id'),
+        lf_tag=pulumi.get(__ret__, 'lf_tag'),
+        lf_tag_policy=pulumi.get(__ret__, 'lf_tag_policy'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        permissions_with_grant_options=pulumi.get(__ret__, 'permissions_with_grant_options'),
+        principal=pulumi.get(__ret__, 'principal'),
+        table=pulumi.get(__ret__, 'table'),
+        table_with_columns=pulumi.get(__ret__, 'table_with_columns'))
 
 
 @_utilities.lift_output_func(get_permissions)
@@ -281,9 +281,9 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
         data_location=aws.lakeformation.GetPermissionsDataLocationArgs(
-            arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            arn=aws_lakeformation_resource["test"]["arn"],
         ))
     ```
     ### Permissions For A Glue Catalog Database
@@ -292,9 +292,9 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
         database=aws.lakeformation.GetPermissionsDatabaseArgs(
-            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            name=aws_glue_catalog_database["test"]["name"],
             catalog_id="110376042874",
         ))
     ```
@@ -304,7 +304,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
         lf_tag_policy=aws.lakeformation.GetPermissionsLfTagPolicyArgs(
             resource_type="DATABASE",
             expressions=[

@@ -174,7 +174,7 @@ class RequestValidator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigateway.RequestValidator("example",
-            rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
             validate_request_body=True,
             validate_request_parameters=True)
         ```
@@ -210,7 +210,7 @@ class RequestValidator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apigateway.RequestValidator("example",
-            rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
             validate_request_body=True,
             validate_request_parameters=True)
         ```

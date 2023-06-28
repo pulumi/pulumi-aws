@@ -359,7 +359,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             description="Example Configuration Profile",
             location_uri="hosted",
             validators=[aws.appconfig.ConfigurationProfileValidatorArgs(
-                content=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                content=aws_lambda_function["example"]["arn"],
                 type="LAMBDA",
             )],
             tags={
@@ -406,7 +406,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             description="Example Configuration Profile",
             location_uri="hosted",
             validators=[aws.appconfig.ConfigurationProfileValidatorArgs(
-                content=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                content=aws_lambda_function["example"]["arn"],
                 type="LAMBDA",
             )],
             tags={

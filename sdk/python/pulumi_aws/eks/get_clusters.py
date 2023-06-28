@@ -64,5 +64,5 @@ def get_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClu
     __ret__ = pulumi.runtime.invoke('aws:eks/getClusters:getClusters', __args__, opts=opts, typ=GetClustersResult).value
 
     return AwaitableGetClustersResult(
-        id=__ret__.id,
-        names=__ret__.names)
+        id=pulumi.get(__ret__, 'id'),
+        names=pulumi.get(__ret__, 'names'))

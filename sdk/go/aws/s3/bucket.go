@@ -75,7 +75,17 @@ import (
 //				Website: &s3.BucketWebsiteArgs{
 //					IndexDocument: pulumi.String("index.html"),
 //					ErrorDocument: pulumi.String("error.html"),
-//					RoutingRules:  pulumi.Any("[{\n    \"Condition\": {\n        \"KeyPrefixEquals\": \"docs/\"\n    },\n    \"Redirect\": {\n        \"ReplaceKeyPrefixWith\": \"documents/\"\n    }\n}]\n"),
+//					RoutingRules: pulumi.Any(`[{
+//	    "Condition": {
+//	        "KeyPrefixEquals": "docs/"
+//	    },
+//	    "Redirect": {
+//	        "ReplaceKeyPrefixWith": "documents/"
+//	    }
+//	}]
+//
+// `),
+//
 //				},
 //			})
 //			if err != nil {
@@ -306,7 +316,22 @@ import (
 //				return err
 //			}
 //			replicationRole, err := iam.NewRole(ctx, "replicationRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.Any("{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"s3.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n"),
+//				AssumeRolePolicy: pulumi.Any(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Action": "sts:AssumeRole",
+//	      "Principal": {
+//	        "Service": "s3.amazonaws.com"
+//	      },
+//	      "Effect": "Allow",
+//	      "Sid": ""
+//	    }
+//	  ]
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

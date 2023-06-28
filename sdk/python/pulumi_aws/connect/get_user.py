@@ -216,18 +216,18 @@ def get_user(instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        arn=__ret__.arn,
-        directory_user_id=__ret__.directory_user_id,
-        hierarchy_group_id=__ret__.hierarchy_group_id,
-        id=__ret__.id,
-        identity_infos=__ret__.identity_infos,
-        instance_id=__ret__.instance_id,
-        name=__ret__.name,
-        phone_configs=__ret__.phone_configs,
-        routing_profile_id=__ret__.routing_profile_id,
-        security_profile_ids=__ret__.security_profile_ids,
-        tags=__ret__.tags,
-        user_id=__ret__.user_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        directory_user_id=pulumi.get(__ret__, 'directory_user_id'),
+        hierarchy_group_id=pulumi.get(__ret__, 'hierarchy_group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_infos=pulumi.get(__ret__, 'identity_infos'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        name=pulumi.get(__ret__, 'name'),
+        phone_configs=pulumi.get(__ret__, 'phone_configs'),
+        routing_profile_id=pulumi.get(__ret__, 'routing_profile_id'),
+        security_profile_ids=pulumi.get(__ret__, 'security_profile_ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_id=pulumi.get(__ret__, 'user_id'))
 
 
 @_utilities.lift_output_func(get_user)

@@ -91,11 +91,11 @@ def get_credentials(registry_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ecr/getCredentials:getCredentials', __args__, opts=opts, typ=GetCredentialsResult).value
 
     return AwaitableGetCredentialsResult(
-        authorization_token=__ret__.authorization_token,
-        expires_at=__ret__.expires_at,
-        id=__ret__.id,
-        proxy_endpoint=__ret__.proxy_endpoint,
-        registry_id=__ret__.registry_id)
+        authorization_token=pulumi.get(__ret__, 'authorization_token'),
+        expires_at=pulumi.get(__ret__, 'expires_at'),
+        id=pulumi.get(__ret__, 'id'),
+        proxy_endpoint=pulumi.get(__ret__, 'proxy_endpoint'),
+        registry_id=pulumi.get(__ret__, 'registry_id'))
 
 
 @_utilities.lift_output_func(get_credentials)

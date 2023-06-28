@@ -232,7 +232,7 @@ class EventPermission(pulumi.CustomResource):
             condition=aws.cloudwatch.EventPermissionConditionArgs(
                 key="aws:PrincipalOrgID",
                 type="StringEquals",
-                value=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                value=aws_organizations_organization["example"]["id"],
             ))
         ```
 
@@ -289,7 +289,7 @@ class EventPermission(pulumi.CustomResource):
             condition=aws.cloudwatch.EventPermissionConditionArgs(
                 key="aws:PrincipalOrgID",
                 type="StringEquals",
-                value=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                value=aws_organizations_organization["example"]["id"],
             ))
         ```
 

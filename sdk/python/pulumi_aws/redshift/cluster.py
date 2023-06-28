@@ -327,6 +327,9 @@ class ClusterArgs:
         """
         A list of security groups to be associated with this cluster.
         """
+        warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "cluster_security_groups")
 
     @cluster_security_groups.setter
@@ -1022,6 +1025,9 @@ class _ClusterState:
         """
         A list of security groups to be associated with this cluster.
         """
+        warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "cluster_security_groups")
 
     @cluster_security_groups.setter
@@ -1951,6 +1957,9 @@ class Cluster(pulumi.CustomResource):
         """
         A list of security groups to be associated with this cluster.
         """
+        warnings.warn("""With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""cluster_security_groups is deprecated: With the retirement of EC2-Classic the cluster_security_groups attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "cluster_security_groups")
 
     @property

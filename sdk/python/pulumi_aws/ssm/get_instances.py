@@ -93,9 +93,9 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     __ret__ = pulumi.runtime.invoke('aws:ssm/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult).value
 
     return AwaitableGetInstancesResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'))
 
 
 @_utilities.lift_output_func(get_instances)

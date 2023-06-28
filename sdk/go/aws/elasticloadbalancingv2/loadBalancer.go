@@ -15,6 +15,76 @@ import (
 // > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
 //
 // ## Example Usage
+// ### Application Load Balancer
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
+//				Internal:         pulumi.Bool(false),
+//				LoadBalancerType: pulumi.String("application"),
+//				SecurityGroups: pulumi.StringArray{
+//					aws_security_group.Lb_sg.Id,
+//				},
+//				Subnets:                  "TODO: For expression",
+//				EnableDeletionProtection: pulumi.Bool(true),
+//				AccessLogs: &lb.LoadBalancerAccessLogsArgs{
+//					Bucket:  pulumi.Any(aws_s3_bucket.Lb_logs.Id),
+//					Prefix:  pulumi.String("test-lb"),
+//					Enabled: pulumi.Bool(true),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Network Load Balancer
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
+//				Internal:                 pulumi.Bool(false),
+//				LoadBalancerType:         pulumi.String("network"),
+//				Subnets:                  "TODO: For expression",
+//				EnableDeletionProtection: pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Specifying Elastic IPs
 //
 // ```go

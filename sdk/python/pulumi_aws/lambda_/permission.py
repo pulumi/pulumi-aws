@@ -555,7 +555,7 @@ class Permission(pulumi.CustomResource):
             authorization_type="AWS_IAM")
         url_permission = aws.lambda_.Permission("urlPermission",
             action="lambda:InvokeFunctionUrl",
-            function=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            function=aws_lambda_function["example"]["function_name"],
             principal="arn:aws:iam::444455556666:role/example",
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
@@ -731,7 +731,7 @@ class Permission(pulumi.CustomResource):
             authorization_type="AWS_IAM")
         url_permission = aws.lambda_.Permission("urlPermission",
             action="lambda:InvokeFunctionUrl",
-            function=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            function=aws_lambda_function["example"]["function_name"],
             principal="arn:aws:iam::444455556666:role/example",
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")

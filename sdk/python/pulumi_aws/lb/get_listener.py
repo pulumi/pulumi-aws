@@ -166,16 +166,16 @@ def get_listener(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lb/getListener:getListener', __args__, opts=opts, typ=GetListenerResult).value
 
     return AwaitableGetListenerResult(
-        alpn_policy=__ret__.alpn_policy,
-        arn=__ret__.arn,
-        certificate_arn=__ret__.certificate_arn,
-        default_actions=__ret__.default_actions,
-        id=__ret__.id,
-        load_balancer_arn=__ret__.load_balancer_arn,
-        port=__ret__.port,
-        protocol=__ret__.protocol,
-        ssl_policy=__ret__.ssl_policy,
-        tags=__ret__.tags)
+        alpn_policy=pulumi.get(__ret__, 'alpn_policy'),
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
+        default_actions=pulumi.get(__ret__, 'default_actions'),
+        id=pulumi.get(__ret__, 'id'),
+        load_balancer_arn=pulumi.get(__ret__, 'load_balancer_arn'),
+        port=pulumi.get(__ret__, 'port'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        ssl_policy=pulumi.get(__ret__, 'ssl_policy'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_listener)

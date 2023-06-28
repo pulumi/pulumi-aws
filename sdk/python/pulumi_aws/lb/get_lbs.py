@@ -93,9 +93,9 @@ def get_lbs(tags: Optional[Mapping[str, str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:lb/getLbs:getLbs', __args__, opts=opts, typ=GetLbsResult).value
 
     return AwaitableGetLbsResult(
-        arns=__ret__.arns,
-        id=__ret__.id,
-        tags=__ret__.tags)
+        arns=pulumi.get(__ret__, 'arns'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_lbs)

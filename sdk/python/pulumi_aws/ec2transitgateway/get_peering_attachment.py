@@ -154,13 +154,13 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment', __args__, opts=opts, typ=GetPeeringAttachmentResult).value
 
     return AwaitableGetPeeringAttachmentResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        peer_account_id=__ret__.peer_account_id,
-        peer_region=__ret__.peer_region,
-        peer_transit_gateway_id=__ret__.peer_transit_gateway_id,
-        tags=__ret__.tags,
-        transit_gateway_id=__ret__.transit_gateway_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        peer_account_id=pulumi.get(__ret__, 'peer_account_id'),
+        peer_region=pulumi.get(__ret__, 'peer_region'),
+        peer_transit_gateway_id=pulumi.get(__ret__, 'peer_transit_gateway_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
 
 
 @_utilities.lift_output_func(get_peering_attachment)

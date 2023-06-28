@@ -116,11 +116,11 @@ def get_stream_key(channel_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ivs/getStreamKey:getStreamKey', __args__, opts=opts, typ=GetStreamKeyResult).value
 
     return AwaitableGetStreamKeyResult(
-        arn=__ret__.arn,
-        channel_arn=__ret__.channel_arn,
-        id=__ret__.id,
-        tags=__ret__.tags,
-        value=__ret__.value)
+        arn=pulumi.get(__ret__, 'arn'),
+        channel_arn=pulumi.get(__ret__, 'channel_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_stream_key)

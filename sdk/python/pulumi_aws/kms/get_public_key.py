@@ -179,16 +179,16 @@ def get_public_key(grant_tokens: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:kms/getPublicKey:getPublicKey', __args__, opts=opts, typ=GetPublicKeyResult).value
 
     return AwaitableGetPublicKeyResult(
-        arn=__ret__.arn,
-        customer_master_key_spec=__ret__.customer_master_key_spec,
-        encryption_algorithms=__ret__.encryption_algorithms,
-        grant_tokens=__ret__.grant_tokens,
-        id=__ret__.id,
-        key_id=__ret__.key_id,
-        key_usage=__ret__.key_usage,
-        public_key=__ret__.public_key,
-        public_key_pem=__ret__.public_key_pem,
-        signing_algorithms=__ret__.signing_algorithms)
+        arn=pulumi.get(__ret__, 'arn'),
+        customer_master_key_spec=pulumi.get(__ret__, 'customer_master_key_spec'),
+        encryption_algorithms=pulumi.get(__ret__, 'encryption_algorithms'),
+        grant_tokens=pulumi.get(__ret__, 'grant_tokens'),
+        id=pulumi.get(__ret__, 'id'),
+        key_id=pulumi.get(__ret__, 'key_id'),
+        key_usage=pulumi.get(__ret__, 'key_usage'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        public_key_pem=pulumi.get(__ret__, 'public_key_pem'),
+        signing_algorithms=pulumi.get(__ret__, 'signing_algorithms'))
 
 
 @_utilities.lift_output_func(get_public_key)

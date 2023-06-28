@@ -188,17 +188,17 @@ def get_signing_profile(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:signer/getSigningProfile:getSigningProfile', __args__, opts=opts, typ=GetSigningProfileResult).value
 
     return AwaitableGetSigningProfileResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        platform_display_name=__ret__.platform_display_name,
-        platform_id=__ret__.platform_id,
-        revocation_records=__ret__.revocation_records,
-        signature_validity_periods=__ret__.signature_validity_periods,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        version=__ret__.version,
-        version_arn=__ret__.version_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        platform_display_name=pulumi.get(__ret__, 'platform_display_name'),
+        platform_id=pulumi.get(__ret__, 'platform_id'),
+        revocation_records=pulumi.get(__ret__, 'revocation_records'),
+        signature_validity_periods=pulumi.get(__ret__, 'signature_validity_periods'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'),
+        version_arn=pulumi.get(__ret__, 'version_arn'))
 
 
 @_utilities.lift_output_func(get_signing_profile)

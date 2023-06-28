@@ -190,17 +190,17 @@ def get_configuration_profile(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:appconfig/getConfigurationProfile:getConfigurationProfile', __args__, opts=opts, typ=GetConfigurationProfileResult).value
 
     return AwaitableGetConfigurationProfileResult(
-        application_id=__ret__.application_id,
-        arn=__ret__.arn,
-        configuration_profile_id=__ret__.configuration_profile_id,
-        description=__ret__.description,
-        id=__ret__.id,
-        location_uri=__ret__.location_uri,
-        name=__ret__.name,
-        retrieval_role_arn=__ret__.retrieval_role_arn,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        validators=__ret__.validators)
+        application_id=pulumi.get(__ret__, 'application_id'),
+        arn=pulumi.get(__ret__, 'arn'),
+        configuration_profile_id=pulumi.get(__ret__, 'configuration_profile_id'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        location_uri=pulumi.get(__ret__, 'location_uri'),
+        name=pulumi.get(__ret__, 'name'),
+        retrieval_role_arn=pulumi.get(__ret__, 'retrieval_role_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        validators=pulumi.get(__ret__, 'validators'))
 
 
 @_utilities.lift_output_func(get_configuration_profile)

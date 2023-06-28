@@ -151,11 +151,11 @@ def get_roles(name_regex: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getRoles:getRoles', __args__, opts=opts, typ=GetRolesResult).value
 
     return AwaitableGetRolesResult(
-        arns=__ret__.arns,
-        id=__ret__.id,
-        name_regex=__ret__.name_regex,
-        names=__ret__.names,
-        path_prefix=__ret__.path_prefix)
+        arns=pulumi.get(__ret__, 'arns'),
+        id=pulumi.get(__ret__, 'id'),
+        name_regex=pulumi.get(__ret__, 'name_regex'),
+        names=pulumi.get(__ret__, 'names'),
+        path_prefix=pulumi.get(__ret__, 'path_prefix'))
 
 
 @_utilities.lift_output_func(get_roles)

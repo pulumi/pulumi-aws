@@ -64,10 +64,6 @@ class GetInstanceResult:
         pulumi.set(__self__, "db_parameter_groups", db_parameter_groups)
         if db_security_groups and not isinstance(db_security_groups, list):
             raise TypeError("Expected argument 'db_security_groups' to be a list")
-        if db_security_groups is not None:
-            warnings.warn("""With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
-            pulumi.log.warn("""db_security_groups is deprecated: With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.""")
-
         pulumi.set(__self__, "db_security_groups", db_security_groups)
         if db_subnet_group and not isinstance(db_subnet_group, str):
             raise TypeError("Expected argument 'db_subnet_group' to be a str")
@@ -264,6 +260,9 @@ class GetInstanceResult:
         """
         Provides List of DB security groups associated to this DB instance.
         """
+        warnings.warn("""With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""db_security_groups is deprecated: With the retirement of EC2-Classic the db_security_groups attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "db_security_groups")
 
     @property
@@ -572,49 +571,49 @@ def get_instance(db_instance_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:rds/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
     return AwaitableGetInstanceResult(
-        address=__ret__.address,
-        allocated_storage=__ret__.allocated_storage,
-        auto_minor_version_upgrade=__ret__.auto_minor_version_upgrade,
-        availability_zone=__ret__.availability_zone,
-        backup_retention_period=__ret__.backup_retention_period,
-        ca_cert_identifier=__ret__.ca_cert_identifier,
-        db_cluster_identifier=__ret__.db_cluster_identifier,
-        db_instance_arn=__ret__.db_instance_arn,
-        db_instance_class=__ret__.db_instance_class,
-        db_instance_identifier=__ret__.db_instance_identifier,
-        db_instance_port=__ret__.db_instance_port,
-        db_name=__ret__.db_name,
-        db_parameter_groups=__ret__.db_parameter_groups,
-        db_security_groups=__ret__.db_security_groups,
-        db_subnet_group=__ret__.db_subnet_group,
-        enabled_cloudwatch_logs_exports=__ret__.enabled_cloudwatch_logs_exports,
-        endpoint=__ret__.endpoint,
-        engine=__ret__.engine,
-        engine_version=__ret__.engine_version,
-        hosted_zone_id=__ret__.hosted_zone_id,
-        id=__ret__.id,
-        iops=__ret__.iops,
-        kms_key_id=__ret__.kms_key_id,
-        license_model=__ret__.license_model,
-        master_user_secrets=__ret__.master_user_secrets,
-        master_username=__ret__.master_username,
-        monitoring_interval=__ret__.monitoring_interval,
-        monitoring_role_arn=__ret__.monitoring_role_arn,
-        multi_az=__ret__.multi_az,
-        network_type=__ret__.network_type,
-        option_group_memberships=__ret__.option_group_memberships,
-        port=__ret__.port,
-        preferred_backup_window=__ret__.preferred_backup_window,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        publicly_accessible=__ret__.publicly_accessible,
-        replicate_source_db=__ret__.replicate_source_db,
-        resource_id=__ret__.resource_id,
-        storage_encrypted=__ret__.storage_encrypted,
-        storage_throughput=__ret__.storage_throughput,
-        storage_type=__ret__.storage_type,
-        tags=__ret__.tags,
-        timezone=__ret__.timezone,
-        vpc_security_groups=__ret__.vpc_security_groups)
+        address=pulumi.get(__ret__, 'address'),
+        allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
+        auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
+        ca_cert_identifier=pulumi.get(__ret__, 'ca_cert_identifier'),
+        db_cluster_identifier=pulumi.get(__ret__, 'db_cluster_identifier'),
+        db_instance_arn=pulumi.get(__ret__, 'db_instance_arn'),
+        db_instance_class=pulumi.get(__ret__, 'db_instance_class'),
+        db_instance_identifier=pulumi.get(__ret__, 'db_instance_identifier'),
+        db_instance_port=pulumi.get(__ret__, 'db_instance_port'),
+        db_name=pulumi.get(__ret__, 'db_name'),
+        db_parameter_groups=pulumi.get(__ret__, 'db_parameter_groups'),
+        db_security_groups=pulumi.get(__ret__, 'db_security_groups'),
+        db_subnet_group=pulumi.get(__ret__, 'db_subnet_group'),
+        enabled_cloudwatch_logs_exports=pulumi.get(__ret__, 'enabled_cloudwatch_logs_exports'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        engine=pulumi.get(__ret__, 'engine'),
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
+        id=pulumi.get(__ret__, 'id'),
+        iops=pulumi.get(__ret__, 'iops'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        license_model=pulumi.get(__ret__, 'license_model'),
+        master_user_secrets=pulumi.get(__ret__, 'master_user_secrets'),
+        master_username=pulumi.get(__ret__, 'master_username'),
+        monitoring_interval=pulumi.get(__ret__, 'monitoring_interval'),
+        monitoring_role_arn=pulumi.get(__ret__, 'monitoring_role_arn'),
+        multi_az=pulumi.get(__ret__, 'multi_az'),
+        network_type=pulumi.get(__ret__, 'network_type'),
+        option_group_memberships=pulumi.get(__ret__, 'option_group_memberships'),
+        port=pulumi.get(__ret__, 'port'),
+        preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        replicate_source_db=pulumi.get(__ret__, 'replicate_source_db'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        storage_encrypted=pulumi.get(__ret__, 'storage_encrypted'),
+        storage_throughput=pulumi.get(__ret__, 'storage_throughput'),
+        storage_type=pulumi.get(__ret__, 'storage_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        timezone=pulumi.get(__ret__, 'timezone'),
+        vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
 
 
 @_utilities.lift_output_func(get_instance)

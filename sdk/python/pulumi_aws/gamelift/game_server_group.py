@@ -472,7 +472,7 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=aws_launch_template["example"]["id"],
             ),
             max_size=1,
             min_size=1,
@@ -507,7 +507,7 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=aws_launch_template["example"]["id"],
                 version="1",
             ),
             max_size=1,
@@ -601,7 +601,7 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=aws_launch_template["example"]["id"],
             ),
             max_size=1,
             min_size=1,
@@ -636,7 +636,7 @@ class GameServerGroup(pulumi.CustomResource):
                 ),
             ],
             launch_template=aws.gamelift.GameServerGroupLaunchTemplateArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=aws_launch_template["example"]["id"],
                 version="1",
             ),
             max_size=1,

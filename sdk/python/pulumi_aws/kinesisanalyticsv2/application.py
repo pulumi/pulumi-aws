@@ -543,7 +543,7 @@ class Application(pulumi.CustomResource):
                             ),
                         ),
                         kinesis_streams_input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs(
-                            resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            resource_arn=aws_kinesis_stream["example"]["arn"],
                         ),
                     ),
                     outputs=[
@@ -553,7 +553,7 @@ class Application(pulumi.CustomResource):
                                 record_format_type="JSON",
                             ),
                             lambda_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs(
-                                resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                resource_arn=aws_lambda_function["example"]["arn"],
                             ),
                         ),
                         aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
@@ -562,7 +562,7 @@ class Application(pulumi.CustomResource):
                                 record_format_type="CSV",
                             ),
                             kinesis_firehose_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs(
-                                resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                resource_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
                             ),
                         ),
                     ],
@@ -583,7 +583,7 @@ class Application(pulumi.CustomResource):
                             ),
                         ),
                         s3_reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs(
-                            bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            bucket_arn=aws_s3_bucket["example"]["arn"],
                             file_key="KEY-1",
                         ),
                     ),
@@ -770,7 +770,7 @@ class Application(pulumi.CustomResource):
                             ),
                         ),
                         kinesis_streams_input=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs(
-                            resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            resource_arn=aws_kinesis_stream["example"]["arn"],
                         ),
                     ),
                     outputs=[
@@ -780,7 +780,7 @@ class Application(pulumi.CustomResource):
                                 record_format_type="JSON",
                             ),
                             lambda_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs(
-                                resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                resource_arn=aws_lambda_function["example"]["arn"],
                             ),
                         ),
                         aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs(
@@ -789,7 +789,7 @@ class Application(pulumi.CustomResource):
                                 record_format_type="CSV",
                             ),
                             kinesis_firehose_output=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs(
-                                resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                resource_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
                             ),
                         ),
                     ],
@@ -810,7 +810,7 @@ class Application(pulumi.CustomResource):
                             ),
                         ),
                         s3_reference_data_source=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs(
-                            bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            bucket_arn=aws_s3_bucket["example"]["arn"],
                             file_key="KEY-1",
                         ),
                     ),

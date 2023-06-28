@@ -665,7 +665,7 @@ class Policy(pulumi.CustomResource):
             health_check_grace_period=300,
             health_check_type="ELB",
             force_delete=True,
-            launch_configuration=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+            launch_configuration=aws_launch_configuration["foo"]["name"])
         bat = aws.autoscaling.Policy("bat",
             scaling_adjustment=4,
             adjustment_type="ChangeInCapacity",
@@ -901,7 +901,7 @@ class Policy(pulumi.CustomResource):
             health_check_grace_period=300,
             health_check_type="ELB",
             force_delete=True,
-            launch_configuration=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+            launch_configuration=aws_launch_configuration["foo"]["name"])
         bat = aws.autoscaling.Policy("bat",
             scaling_adjustment=4,
             adjustment_type="ChangeInCapacity",

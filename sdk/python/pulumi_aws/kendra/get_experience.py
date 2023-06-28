@@ -210,19 +210,19 @@ def get_experience(experience_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:kendra/getExperience:getExperience', __args__, opts=opts, typ=GetExperienceResult).value
 
     return AwaitableGetExperienceResult(
-        arn=__ret__.arn,
-        configurations=__ret__.configurations,
-        created_at=__ret__.created_at,
-        description=__ret__.description,
-        endpoints=__ret__.endpoints,
-        error_message=__ret__.error_message,
-        experience_id=__ret__.experience_id,
-        id=__ret__.id,
-        index_id=__ret__.index_id,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        status=__ret__.status,
-        updated_at=__ret__.updated_at)
+        arn=pulumi.get(__ret__, 'arn'),
+        configurations=pulumi.get(__ret__, 'configurations'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        description=pulumi.get(__ret__, 'description'),
+        endpoints=pulumi.get(__ret__, 'endpoints'),
+        error_message=pulumi.get(__ret__, 'error_message'),
+        experience_id=pulumi.get(__ret__, 'experience_id'),
+        id=pulumi.get(__ret__, 'id'),
+        index_id=pulumi.get(__ret__, 'index_id'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        status=pulumi.get(__ret__, 'status'),
+        updated_at=pulumi.get(__ret__, 'updated_at'))
 
 
 @_utilities.lift_output_func(get_experience)

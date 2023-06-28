@@ -32,10 +32,6 @@ class GetPolicyDocumentResult:
         pulumi.set(__self__, "json", json)
         if override_json and not isinstance(override_json, str):
             raise TypeError("Expected argument 'override_json' to be a str")
-        if override_json is not None:
-            warnings.warn("""Use the attribute \"override_policy_documents\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""override_json is deprecated: Use the attribute \"override_policy_documents\" instead.""")
-
         pulumi.set(__self__, "override_json", override_json)
         if override_policy_documents and not isinstance(override_policy_documents, list):
             raise TypeError("Expected argument 'override_policy_documents' to be a list")
@@ -45,10 +41,6 @@ class GetPolicyDocumentResult:
         pulumi.set(__self__, "policy_id", policy_id)
         if source_json and not isinstance(source_json, str):
             raise TypeError("Expected argument 'source_json' to be a str")
-        if source_json is not None:
-            warnings.warn("""Use the attribute \"source_policy_documents\" instead.""", DeprecationWarning)
-            pulumi.log.warn("""source_json is deprecated: Use the attribute \"source_policy_documents\" instead.""")
-
         pulumi.set(__self__, "source_json", source_json)
         if source_policy_documents and not isinstance(source_policy_documents, list):
             raise TypeError("Expected argument 'source_policy_documents' to be a list")
@@ -79,6 +71,9 @@ class GetPolicyDocumentResult:
     @property
     @pulumi.getter(name="overrideJson")
     def override_json(self) -> Optional[str]:
+        warnings.warn("""Use the attribute \"override_policy_documents\" instead.""", DeprecationWarning)
+        pulumi.log.warn("""override_json is deprecated: Use the attribute \"override_policy_documents\" instead.""")
+
         return pulumi.get(self, "override_json")
 
     @property
@@ -94,6 +89,9 @@ class GetPolicyDocumentResult:
     @property
     @pulumi.getter(name="sourceJson")
     def source_json(self) -> Optional[str]:
+        warnings.warn("""Use the attribute \"source_policy_documents\" instead.""", DeprecationWarning)
+        pulumi.log.warn("""source_json is deprecated: Use the attribute \"source_policy_documents\" instead.""")
+
         return pulumi.get(self, "source_json")
 
     @property
@@ -461,15 +459,15 @@ def get_policy_document(override_json: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getPolicyDocument:getPolicyDocument', __args__, opts=opts, typ=GetPolicyDocumentResult).value
 
     return AwaitableGetPolicyDocumentResult(
-        id=__ret__.id,
-        json=__ret__.json,
-        override_json=__ret__.override_json,
-        override_policy_documents=__ret__.override_policy_documents,
-        policy_id=__ret__.policy_id,
-        source_json=__ret__.source_json,
-        source_policy_documents=__ret__.source_policy_documents,
-        statements=__ret__.statements,
-        version=__ret__.version)
+        id=pulumi.get(__ret__, 'id'),
+        json=pulumi.get(__ret__, 'json'),
+        override_json=pulumi.get(__ret__, 'override_json'),
+        override_policy_documents=pulumi.get(__ret__, 'override_policy_documents'),
+        policy_id=pulumi.get(__ret__, 'policy_id'),
+        source_json=pulumi.get(__ret__, 'source_json'),
+        source_policy_documents=pulumi.get(__ret__, 'source_policy_documents'),
+        statements=pulumi.get(__ret__, 'statements'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_policy_document)

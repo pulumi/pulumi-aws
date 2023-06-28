@@ -158,7 +158,7 @@ def get_addon(addon_name: Optional[str] = None,
     import pulumi_aws as aws
 
     example = aws.eks.get_addon(addon_name="vpc-cni",
-        cluster_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        cluster_name=aws_eks_cluster["example"]["name"])
     pulumi.export("eksAddonOutputs", aws_eks_addon["example"])
     ```
 
@@ -175,16 +175,16 @@ def get_addon(addon_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:eks/getAddon:getAddon', __args__, opts=opts, typ=GetAddonResult).value
 
     return AwaitableGetAddonResult(
-        addon_name=__ret__.addon_name,
-        addon_version=__ret__.addon_version,
-        arn=__ret__.arn,
-        cluster_name=__ret__.cluster_name,
-        configuration_values=__ret__.configuration_values,
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        modified_at=__ret__.modified_at,
-        service_account_role_arn=__ret__.service_account_role_arn,
-        tags=__ret__.tags)
+        addon_name=pulumi.get(__ret__, 'addon_name'),
+        addon_version=pulumi.get(__ret__, 'addon_version'),
+        arn=pulumi.get(__ret__, 'arn'),
+        cluster_name=pulumi.get(__ret__, 'cluster_name'),
+        configuration_values=pulumi.get(__ret__, 'configuration_values'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        modified_at=pulumi.get(__ret__, 'modified_at'),
+        service_account_role_arn=pulumi.get(__ret__, 'service_account_role_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_addon)
@@ -202,7 +202,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     import pulumi_aws as aws
 
     example = aws.eks.get_addon(addon_name="vpc-cni",
-        cluster_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        cluster_name=aws_eks_cluster["example"]["name"])
     pulumi.export("eksAddonOutputs", aws_eks_addon["example"])
     ```
 

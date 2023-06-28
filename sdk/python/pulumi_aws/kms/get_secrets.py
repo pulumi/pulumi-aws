@@ -81,9 +81,9 @@ def get_secrets(secrets: Optional[Sequence[pulumi.InputType['GetSecretsSecretArg
     __ret__ = pulumi.runtime.invoke('aws:kms/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult).value
 
     return AwaitableGetSecretsResult(
-        id=__ret__.id,
-        plaintext=__ret__.plaintext,
-        secrets=__ret__.secrets)
+        id=pulumi.get(__ret__, 'id'),
+        plaintext=pulumi.get(__ret__, 'plaintext'),
+        secrets=pulumi.get(__ret__, 'secrets'))
 
 
 @_utilities.lift_output_func(get_secrets)

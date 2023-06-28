@@ -177,16 +177,16 @@ def get_function(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudtrail/getFunction:getFunction', __args__, opts=opts, typ=GetFunctionResult).value
 
     return AwaitableGetFunctionResult(
-        arn=__ret__.arn,
-        code=__ret__.code,
-        comment=__ret__.comment,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        runtime=__ret__.runtime,
-        stage=__ret__.stage,
-        status=__ret__.status)
+        arn=pulumi.get(__ret__, 'arn'),
+        code=pulumi.get(__ret__, 'code'),
+        comment=pulumi.get(__ret__, 'comment'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        runtime=pulumi.get(__ret__, 'runtime'),
+        stage=pulumi.get(__ret__, 'stage'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_function)

@@ -145,6 +145,9 @@ class ClusterBrokerNodeGroupInfo(dict):
         """
         The size in GiB of the EBS volume for the data drive on each broker node.
         """
+        warnings.warn("""use 'storage_info' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""ebs_volume_size is deprecated: use 'storage_info' argument instead""")
+
         return pulumi.get(self, "ebs_volume_size")
 
     @property
