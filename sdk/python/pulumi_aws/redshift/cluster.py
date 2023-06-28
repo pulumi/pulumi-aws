@@ -677,6 +677,7 @@ class _ClusterState:
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 cluster_namespace_arn: Optional[pulumi.Input[str]] = None,
                  cluster_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_public_key: Optional[pulumi.Input[str]] = None,
@@ -724,6 +725,7 @@ class _ClusterState:
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
+        :param pulumi.Input[str] cluster_namespace_arn: The namespace Amazon Resource Name (ARN) of the cluster
         :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
@@ -787,6 +789,8 @@ class _ClusterState:
             pulumi.set(__self__, "availability_zone_relocation_enabled", availability_zone_relocation_enabled)
         if cluster_identifier is not None:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if cluster_namespace_arn is not None:
+            pulumi.set(__self__, "cluster_namespace_arn", cluster_namespace_arn)
         if cluster_nodes is not None:
             pulumi.set(__self__, "cluster_nodes", cluster_nodes)
         if cluster_parameter_group_name is not None:
@@ -955,6 +959,18 @@ class _ClusterState:
     @cluster_identifier.setter
     def cluster_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="clusterNamespaceArn")
+    def cluster_namespace_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace Amazon Resource Name (ARN) of the cluster
+        """
+        return pulumi.get(self, "cluster_namespace_arn")
+
+    @cluster_namespace_arn.setter
+    def cluster_namespace_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_namespace_arn", value)
 
     @property
     @pulumi.getter(name="clusterNodes")
@@ -1654,6 +1670,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
+            __props__.__dict__["cluster_namespace_arn"] = None
             __props__.__dict__["cluster_nodes"] = None
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["tags_all"] = None
@@ -1677,6 +1694,7 @@ class Cluster(pulumi.CustomResource):
             availability_zone: Optional[pulumi.Input[str]] = None,
             availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
             cluster_identifier: Optional[pulumi.Input[str]] = None,
+            cluster_namespace_arn: Optional[pulumi.Input[str]] = None,
             cluster_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterNodeArgs']]]]] = None,
             cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
             cluster_public_key: Optional[pulumi.Input[str]] = None,
@@ -1729,6 +1747,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
+        :param pulumi.Input[str] cluster_namespace_arn: The namespace Amazon Resource Name (ARN) of the cluster
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterNodeArgs']]]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
@@ -1785,6 +1804,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["availability_zone_relocation_enabled"] = availability_zone_relocation_enabled
         __props__.__dict__["cluster_identifier"] = cluster_identifier
+        __props__.__dict__["cluster_namespace_arn"] = cluster_namespace_arn
         __props__.__dict__["cluster_nodes"] = cluster_nodes
         __props__.__dict__["cluster_parameter_group_name"] = cluster_parameter_group_name
         __props__.__dict__["cluster_public_key"] = cluster_public_key
@@ -1887,6 +1907,14 @@ class Cluster(pulumi.CustomResource):
         The Cluster Identifier. Must be a lower case string.
         """
         return pulumi.get(self, "cluster_identifier")
+
+    @property
+    @pulumi.getter(name="clusterNamespaceArn")
+    def cluster_namespace_arn(self) -> pulumi.Output[str]:
+        """
+        The namespace Amazon Resource Name (ARN) of the cluster
+        """
+        return pulumi.get(self, "cluster_namespace_arn")
 
     @property
     @pulumi.getter(name="clusterNodes")

@@ -357,6 +357,26 @@ namespace Pulumi.Aws.S3
     /// {
     /// });
     /// ```
+    /// ### Emit events to EventBridge
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bucket = new Aws.S3.BucketV2("bucket");
+    /// 
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucketNotification", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Eventbridge = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -378,7 +398,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable Amazon EventBridge notifications.
+        /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         /// </summary>
         [Output("eventbridge")]
         public Output<bool?> Eventbridge { get; private set; } = null!;
@@ -456,7 +476,7 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable Amazon EventBridge notifications.
+        /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         /// </summary>
         [Input("eventbridge")]
         public Input<bool>? Eventbridge { get; set; }
@@ -514,7 +534,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// Whether to enable Amazon EventBridge notifications.
+        /// Whether to enable Amazon EventBridge notifications. Defaults to `false`.
         /// </summary>
         [Input("eventbridge")]
         public Input<bool>? Eventbridge { get; set; }

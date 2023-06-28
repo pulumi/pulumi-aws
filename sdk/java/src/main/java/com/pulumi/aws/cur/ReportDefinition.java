@@ -47,7 +47,9 @@ import javax.annotation.Nullable;
  *             .additionalArtifacts(            
  *                 &#34;REDSHIFT&#34;,
  *                 &#34;QUICKSIGHT&#34;)
- *             .additionalSchemaElements(&#34;RESOURCES&#34;)
+ *             .additionalSchemaElements(            
+ *                 &#34;RESOURCES&#34;,
+ *                 &#34;SPLIT_COST_ALLOCATION_DATA&#34;)
  *             .compression(&#34;GZIP&#34;)
  *             .format(&#34;textORcsv&#34;)
  *             .reportName(&#34;example-cur-report-definition&#34;)
@@ -86,14 +88,14 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.additionalArtifacts);
     }
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
      * 
      */
     @Export(name="additionalSchemaElements", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> additionalSchemaElements;
 
     /**
-     * @return A list of schema elements. Valid values are: `RESOURCES`.
+     * @return A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
      * 
      */
     public Output<List<String>> additionalSchemaElements() {

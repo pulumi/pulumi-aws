@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,10 +31,26 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.dnsRecordIpType);
     }
 
+    /**
+     * Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `private_dns_enabled` is `true`.
+     * 
+     */
+    @Import(name="privateDnsOnlyForInboundResolverEndpoint")
+    private @Nullable Output<Boolean> privateDnsOnlyForInboundResolverEndpoint;
+
+    /**
+     * @return Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `private_dns_enabled` is `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> privateDnsOnlyForInboundResolverEndpoint() {
+        return Optional.ofNullable(this.privateDnsOnlyForInboundResolverEndpoint);
+    }
+
     private VpcEndpointDnsOptionsArgs() {}
 
     private VpcEndpointDnsOptionsArgs(VpcEndpointDnsOptionsArgs $) {
         this.dnsRecordIpType = $.dnsRecordIpType;
+        this.privateDnsOnlyForInboundResolverEndpoint = $.privateDnsOnlyForInboundResolverEndpoint;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class VpcEndpointDnsOptionsArgs extends com.pulumi.resources.Resour
          */
         public Builder dnsRecordIpType(String dnsRecordIpType) {
             return dnsRecordIpType(Output.of(dnsRecordIpType));
+        }
+
+        /**
+         * @param privateDnsOnlyForInboundResolverEndpoint Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `private_dns_enabled` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsOnlyForInboundResolverEndpoint(@Nullable Output<Boolean> privateDnsOnlyForInboundResolverEndpoint) {
+            $.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
+            return this;
+        }
+
+        /**
+         * @param privateDnsOnlyForInboundResolverEndpoint Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `private_dns_enabled` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsOnlyForInboundResolverEndpoint(Boolean privateDnsOnlyForInboundResolverEndpoint) {
+            return privateDnsOnlyForInboundResolverEndpoint(Output.of(privateDnsOnlyForInboundResolverEndpoint));
         }
 
         public VpcEndpointDnsOptionsArgs build() {

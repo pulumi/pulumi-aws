@@ -35,6 +35,9 @@ type Provider struct {
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 	Region pulumi.StringPtrOutput `pulumi:"region"`
+	// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+	// `AWS_RETRY_MODE` environment variable.
+	RetryMode pulumi.StringPtrOutput `pulumi:"retryMode"`
 	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
 	// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
@@ -104,6 +107,9 @@ type providerArgs struct {
 	Profile *string `pulumi:"profile"`
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 	Region *string `pulumi:"region"`
+	// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+	// `AWS_RETRY_MODE` environment variable.
+	RetryMode *string `pulumi:"retryMode"`
 	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
 	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
 	// Specific to the Amazon S3 service.
@@ -167,6 +173,9 @@ type ProviderArgs struct {
 	Profile pulumi.StringPtrInput
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 	Region pulumi.StringPtrInput
+	// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+	// `AWS_RETRY_MODE` environment variable.
+	RetryMode pulumi.StringPtrInput
 	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
 	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
 	// Specific to the Amazon S3 service.
@@ -271,6 +280,12 @@ func (o ProviderOutput) Profile() pulumi.StringPtrOutput {
 // The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 func (o ProviderOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+// `AWS_RETRY_MODE` environment variable.
+func (o ProviderOutput) RetryMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.RetryMode }).(pulumi.StringPtrOutput)
 }
 
 // The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.

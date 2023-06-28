@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { SdkvoiceGlobalSettingsArgs, SdkvoiceGlobalSettingsState } from "./sdkvoiceGlobalSettings";
+export type SdkvoiceGlobalSettings = import("./sdkvoiceGlobalSettings").SdkvoiceGlobalSettings;
+export const SdkvoiceGlobalSettings: typeof import("./sdkvoiceGlobalSettings").SdkvoiceGlobalSettings = null as any;
+utilities.lazyLoad(exports, ["SdkvoiceGlobalSettings"], () => require("./sdkvoiceGlobalSettings"));
+
+export { SdkvoiceSipMediaApplicationArgs, SdkvoiceSipMediaApplicationState } from "./sdkvoiceSipMediaApplication";
+export type SdkvoiceSipMediaApplication = import("./sdkvoiceSipMediaApplication").SdkvoiceSipMediaApplication;
+export const SdkvoiceSipMediaApplication: typeof import("./sdkvoiceSipMediaApplication").SdkvoiceSipMediaApplication = null as any;
+utilities.lazyLoad(exports, ["SdkvoiceSipMediaApplication"], () => require("./sdkvoiceSipMediaApplication"));
+
+export { SdkvoiceSipRuleArgs, SdkvoiceSipRuleState } from "./sdkvoiceSipRule";
+export type SdkvoiceSipRule = import("./sdkvoiceSipRule").SdkvoiceSipRule;
+export const SdkvoiceSipRule: typeof import("./sdkvoiceSipRule").SdkvoiceSipRule = null as any;
+utilities.lazyLoad(exports, ["SdkvoiceSipRule"], () => require("./sdkvoiceSipRule"));
+
 export { SdkvoiceVoiceProfileDomainArgs, SdkvoiceVoiceProfileDomainState } from "./sdkvoiceVoiceProfileDomain";
 export type SdkvoiceVoiceProfileDomain = import("./sdkvoiceVoiceProfileDomain").SdkvoiceVoiceProfileDomain;
 export const SdkvoiceVoiceProfileDomain: typeof import("./sdkvoiceVoiceProfileDomain").SdkvoiceVoiceProfileDomain = null as any;
@@ -50,6 +65,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings":
+                return new SdkvoiceGlobalSettings(name, <any>undefined, { urn })
+            case "aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication":
+                return new SdkvoiceSipMediaApplication(name, <any>undefined, { urn })
+            case "aws:chime/sdkvoiceSipRule:SdkvoiceSipRule":
+                return new SdkvoiceSipRule(name, <any>undefined, { urn })
             case "aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain":
                 return new SdkvoiceVoiceProfileDomain(name, <any>undefined, { urn })
             case "aws:chime/voiceConnector:VoiceConnector":
@@ -71,6 +92,9 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "chime/sdkvoiceGlobalSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "chime/sdkvoiceSipMediaApplication", _module)
+pulumi.runtime.registerResourceModule("aws", "chime/sdkvoiceSipRule", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/sdkvoiceVoiceProfileDomain", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnector", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorGroup", _module)

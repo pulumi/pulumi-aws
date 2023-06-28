@@ -29,7 +29,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic
- * 
  * ```java
  * package generated_program;
  * 
@@ -56,6 +55,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
  * import com.pulumi.aws.msk.Cluster;
  * import com.pulumi.aws.msk.ClusterArgs;
  * import com.pulumi.aws.msk.inputs.ClusterBrokerNodeGroupInfoArgs;
@@ -143,8 +143,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testStream = new FirehoseDeliveryStream(&#34;testStream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .destination(&#34;s3&#34;)
- *             .s3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .destination(&#34;extended_s3&#34;)
+ *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
+ *                 .roleArn(firehoseRole.arn())
+ *                 .bucketArn(bucket.arn())
+ *                 .build())
  *             .tags(Map.of(&#34;LogDeliveryEnabled&#34;, &#34;placeholder&#34;))
  *             .build());
  * 

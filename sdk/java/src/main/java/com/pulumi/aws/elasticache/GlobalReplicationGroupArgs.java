@@ -60,7 +60,8 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
      * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
      * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
      * 
@@ -73,7 +74,8 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
      * When creating, by default the Global Replication Group inherits the version of the primary replication group.
      * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
      * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
      * 
@@ -249,7 +251,8 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
          * When creating, by default the Global Replication Group inherits the version of the primary replication group.
          * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
          * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-         * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+         * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+         * When the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
          * 
@@ -266,7 +269,8 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
          * When creating, by default the Global Replication Group inherits the version of the primary replication group.
          * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
          * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-         * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+         * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+         * When the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
          * 

@@ -35,6 +35,31 @@ export type OutboundConnection = import("./outboundConnection").OutboundConnecti
 export const OutboundConnection: typeof import("./outboundConnection").OutboundConnection = null as any;
 utilities.lazyLoad(exports, ["OutboundConnection"], () => require("./outboundConnection"));
 
+export { ServerlessAccessPolicyArgs, ServerlessAccessPolicyState } from "./serverlessAccessPolicy";
+export type ServerlessAccessPolicy = import("./serverlessAccessPolicy").ServerlessAccessPolicy;
+export const ServerlessAccessPolicy: typeof import("./serverlessAccessPolicy").ServerlessAccessPolicy = null as any;
+utilities.lazyLoad(exports, ["ServerlessAccessPolicy"], () => require("./serverlessAccessPolicy"));
+
+export { ServerlessCollectionArgs, ServerlessCollectionState } from "./serverlessCollection";
+export type ServerlessCollection = import("./serverlessCollection").ServerlessCollection;
+export const ServerlessCollection: typeof import("./serverlessCollection").ServerlessCollection = null as any;
+utilities.lazyLoad(exports, ["ServerlessCollection"], () => require("./serverlessCollection"));
+
+export { ServerlessSecurityConfigArgs, ServerlessSecurityConfigState } from "./serverlessSecurityConfig";
+export type ServerlessSecurityConfig = import("./serverlessSecurityConfig").ServerlessSecurityConfig;
+export const ServerlessSecurityConfig: typeof import("./serverlessSecurityConfig").ServerlessSecurityConfig = null as any;
+utilities.lazyLoad(exports, ["ServerlessSecurityConfig"], () => require("./serverlessSecurityConfig"));
+
+export { ServerlessSecurityPolicyArgs, ServerlessSecurityPolicyState } from "./serverlessSecurityPolicy";
+export type ServerlessSecurityPolicy = import("./serverlessSecurityPolicy").ServerlessSecurityPolicy;
+export const ServerlessSecurityPolicy: typeof import("./serverlessSecurityPolicy").ServerlessSecurityPolicy = null as any;
+utilities.lazyLoad(exports, ["ServerlessSecurityPolicy"], () => require("./serverlessSecurityPolicy"));
+
+export { ServerlessVpcEndpointArgs, ServerlessVpcEndpointState } from "./serverlessVpcEndpoint";
+export type ServerlessVpcEndpoint = import("./serverlessVpcEndpoint").ServerlessVpcEndpoint;
+export const ServerlessVpcEndpoint: typeof import("./serverlessVpcEndpoint").ServerlessVpcEndpoint = null as any;
+utilities.lazyLoad(exports, ["ServerlessVpcEndpoint"], () => require("./serverlessVpcEndpoint"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -50,6 +75,16 @@ const _module = {
                 return new InboundConnectionAccepter(name, <any>undefined, { urn })
             case "aws:opensearch/outboundConnection:OutboundConnection":
                 return new OutboundConnection(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy":
+                return new ServerlessAccessPolicy(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessCollection:ServerlessCollection":
+                return new ServerlessCollection(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig":
+                return new ServerlessSecurityConfig(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy":
+                return new ServerlessSecurityPolicy(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint":
+                return new ServerlessVpcEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -60,3 +95,8 @@ pulumi.runtime.registerResourceModule("aws", "opensearch/domainPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/domainSamlOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/inboundConnectionAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/outboundConnection", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessAccessPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessCollection", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessSecurityConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessSecurityPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessVpcEndpoint", _module)

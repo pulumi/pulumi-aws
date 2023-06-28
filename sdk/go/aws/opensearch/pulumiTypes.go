@@ -3892,6 +3892,511 @@ func (o OutboundConnectionRemoteDomainInfoPtrOutput) Region() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerlessCollectionTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+}
+
+// ServerlessCollectionTimeoutsInput is an input type that accepts ServerlessCollectionTimeoutsArgs and ServerlessCollectionTimeoutsOutput values.
+// You can construct a concrete instance of `ServerlessCollectionTimeoutsInput` via:
+//
+//	ServerlessCollectionTimeoutsArgs{...}
+type ServerlessCollectionTimeoutsInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionTimeoutsOutput() ServerlessCollectionTimeoutsOutput
+	ToServerlessCollectionTimeoutsOutputWithContext(context.Context) ServerlessCollectionTimeoutsOutput
+}
+
+type ServerlessCollectionTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (ServerlessCollectionTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsOutput() ServerlessCollectionTimeoutsOutput {
+	return i.ToServerlessCollectionTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionTimeoutsOutput)
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return i.ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionTimeoutsArgs) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionTimeoutsOutput).ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ServerlessCollectionTimeoutsPtrInput is an input type that accepts ServerlessCollectionTimeoutsArgs, ServerlessCollectionTimeoutsPtr and ServerlessCollectionTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ServerlessCollectionTimeoutsPtrInput` via:
+//
+//	        ServerlessCollectionTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessCollectionTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput
+	ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Context) ServerlessCollectionTimeoutsPtrOutput
+}
+
+type serverlessCollectionTimeoutsPtrType ServerlessCollectionTimeoutsArgs
+
+func ServerlessCollectionTimeoutsPtr(v *ServerlessCollectionTimeoutsArgs) ServerlessCollectionTimeoutsPtrInput {
+	return (*serverlessCollectionTimeoutsPtrType)(v)
+}
+
+func (*serverlessCollectionTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (i *serverlessCollectionTimeoutsPtrType) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return i.ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessCollectionTimeoutsPtrType) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionTimeoutsPtrOutput)
+}
+
+type ServerlessCollectionTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsOutput() ServerlessCollectionTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return o.ToServerlessCollectionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCollectionTimeoutsOutput) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessCollectionTimeouts) *ServerlessCollectionTimeouts {
+		return &v
+	}).(ServerlessCollectionTimeoutsPtrOutput)
+}
+
+func (o ServerlessCollectionTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCollectionTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessCollectionTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessCollectionTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessCollectionTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCollectionTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) ToServerlessCollectionTimeoutsPtrOutput() ServerlessCollectionTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) ToServerlessCollectionTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessCollectionTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) Elem() ServerlessCollectionTimeoutsOutput {
+	return o.ApplyT(func(v *ServerlessCollectionTimeouts) ServerlessCollectionTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessCollectionTimeouts
+		return ret
+	}).(ServerlessCollectionTimeoutsOutput)
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollectionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessCollectionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessCollectionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessSecurityConfigSamlOptions struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute *string `pulumi:"groupAttribute"`
+	// The XML IdP metadata file generated from your identity provider.
+	Metadata string `pulumi:"metadata"`
+	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+	SessionTimeout *int `pulumi:"sessionTimeout"`
+	// User attribute for this SAML integration.
+	UserAttribute *string `pulumi:"userAttribute"`
+}
+
+// ServerlessSecurityConfigSamlOptionsInput is an input type that accepts ServerlessSecurityConfigSamlOptionsArgs and ServerlessSecurityConfigSamlOptionsOutput values.
+// You can construct a concrete instance of `ServerlessSecurityConfigSamlOptionsInput` via:
+//
+//	ServerlessSecurityConfigSamlOptionsArgs{...}
+type ServerlessSecurityConfigSamlOptionsInput interface {
+	pulumi.Input
+
+	ToServerlessSecurityConfigSamlOptionsOutput() ServerlessSecurityConfigSamlOptionsOutput
+	ToServerlessSecurityConfigSamlOptionsOutputWithContext(context.Context) ServerlessSecurityConfigSamlOptionsOutput
+}
+
+type ServerlessSecurityConfigSamlOptionsArgs struct {
+	// Group attribute for this SAML integration.
+	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
+	// The XML IdP metadata file generated from your identity provider.
+	Metadata pulumi.StringInput `pulumi:"metadata"`
+	// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+	SessionTimeout pulumi.IntPtrInput `pulumi:"sessionTimeout"`
+	// User attribute for this SAML integration.
+	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
+}
+
+func (ServerlessSecurityConfigSamlOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsOutput() ServerlessSecurityConfigSamlOptionsOutput {
+	return i.ToServerlessSecurityConfigSamlOptionsOutputWithContext(context.Background())
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigSamlOptionsOutput)
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return i.ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessSecurityConfigSamlOptionsArgs) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigSamlOptionsOutput).ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx)
+}
+
+// ServerlessSecurityConfigSamlOptionsPtrInput is an input type that accepts ServerlessSecurityConfigSamlOptionsArgs, ServerlessSecurityConfigSamlOptionsPtr and ServerlessSecurityConfigSamlOptionsPtrOutput values.
+// You can construct a concrete instance of `ServerlessSecurityConfigSamlOptionsPtrInput` via:
+//
+//	        ServerlessSecurityConfigSamlOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessSecurityConfigSamlOptionsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput
+	ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput
+}
+
+type serverlessSecurityConfigSamlOptionsPtrType ServerlessSecurityConfigSamlOptionsArgs
+
+func ServerlessSecurityConfigSamlOptionsPtr(v *ServerlessSecurityConfigSamlOptionsArgs) ServerlessSecurityConfigSamlOptionsPtrInput {
+	return (*serverlessSecurityConfigSamlOptionsPtrType)(v)
+}
+
+func (*serverlessSecurityConfigSamlOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (i *serverlessSecurityConfigSamlOptionsPtrType) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return i.ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessSecurityConfigSamlOptionsPtrType) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessSecurityConfigSamlOptionsPtrOutput)
+}
+
+type ServerlessSecurityConfigSamlOptionsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessSecurityConfigSamlOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsOutput() ServerlessSecurityConfigSamlOptionsOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o.ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessSecurityConfigSamlOptionsOutput) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessSecurityConfigSamlOptions) *ServerlessSecurityConfigSamlOptions {
+		return &v
+	}).(ServerlessSecurityConfigSamlOptionsPtrOutput)
+}
+
+// Group attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
+}
+
+// The XML IdP metadata file generated from your identity provider.
+func (o ServerlessSecurityConfigSamlOptionsOutput) Metadata() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) string { return v.Metadata }).(pulumi.StringOutput)
+}
+
+// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+func (o ServerlessSecurityConfigSamlOptionsOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) *int { return v.SessionTimeout }).(pulumi.IntPtrOutput)
+}
+
+// User attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessSecurityConfigSamlOptions) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessSecurityConfigSamlOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessSecurityConfigSamlOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessSecurityConfigSamlOptions)(nil)).Elem()
+}
+
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) ToServerlessSecurityConfigSamlOptionsPtrOutput() ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) ToServerlessSecurityConfigSamlOptionsPtrOutputWithContext(ctx context.Context) ServerlessSecurityConfigSamlOptionsPtrOutput {
+	return o
+}
+
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) Elem() ServerlessSecurityConfigSamlOptionsOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) ServerlessSecurityConfigSamlOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessSecurityConfigSamlOptions
+		return ret
+	}).(ServerlessSecurityConfigSamlOptionsOutput)
+}
+
+// Group attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// The XML IdP metadata file generated from your identity provider.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Metadata
+	}).(pulumi.StringPtrOutput)
+}
+
+// Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) SessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SessionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// User attribute for this SAML integration.
+func (o ServerlessSecurityConfigSamlOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessSecurityConfigSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessVpcEndpointTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+	Update *string `pulumi:"update"`
+}
+
+// ServerlessVpcEndpointTimeoutsInput is an input type that accepts ServerlessVpcEndpointTimeoutsArgs and ServerlessVpcEndpointTimeoutsOutput values.
+// You can construct a concrete instance of `ServerlessVpcEndpointTimeoutsInput` via:
+//
+//	ServerlessVpcEndpointTimeoutsArgs{...}
+type ServerlessVpcEndpointTimeoutsInput interface {
+	pulumi.Input
+
+	ToServerlessVpcEndpointTimeoutsOutput() ServerlessVpcEndpointTimeoutsOutput
+	ToServerlessVpcEndpointTimeoutsOutputWithContext(context.Context) ServerlessVpcEndpointTimeoutsOutput
+}
+
+type ServerlessVpcEndpointTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ServerlessVpcEndpointTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsOutput() ServerlessVpcEndpointTimeoutsOutput {
+	return i.ToServerlessVpcEndpointTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointTimeoutsOutput)
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return i.ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessVpcEndpointTimeoutsArgs) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointTimeoutsOutput).ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ServerlessVpcEndpointTimeoutsPtrInput is an input type that accepts ServerlessVpcEndpointTimeoutsArgs, ServerlessVpcEndpointTimeoutsPtr and ServerlessVpcEndpointTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ServerlessVpcEndpointTimeoutsPtrInput` via:
+//
+//	        ServerlessVpcEndpointTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessVpcEndpointTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput
+	ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Context) ServerlessVpcEndpointTimeoutsPtrOutput
+}
+
+type serverlessVpcEndpointTimeoutsPtrType ServerlessVpcEndpointTimeoutsArgs
+
+func ServerlessVpcEndpointTimeoutsPtr(v *ServerlessVpcEndpointTimeoutsArgs) ServerlessVpcEndpointTimeoutsPtrInput {
+	return (*serverlessVpcEndpointTimeoutsPtrType)(v)
+}
+
+func (*serverlessVpcEndpointTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (i *serverlessVpcEndpointTimeoutsPtrType) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return i.ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessVpcEndpointTimeoutsPtrType) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessVpcEndpointTimeoutsPtrOutput)
+}
+
+type ServerlessVpcEndpointTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ServerlessVpcEndpointTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsOutput() ServerlessVpcEndpointTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o.ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessVpcEndpointTimeouts) *ServerlessVpcEndpointTimeouts {
+		return &v
+	}).(ServerlessVpcEndpointTimeoutsPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerlessVpcEndpointTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ServerlessVpcEndpointTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessVpcEndpointTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessVpcEndpointTimeouts)(nil)).Elem()
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) ToServerlessVpcEndpointTimeoutsPtrOutput() ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) ToServerlessVpcEndpointTimeoutsPtrOutputWithContext(ctx context.Context) ServerlessVpcEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Elem() ServerlessVpcEndpointTimeoutsOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) ServerlessVpcEndpointTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessVpcEndpointTimeouts
+		return ret
+	}).(ServerlessVpcEndpointTimeoutsOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerlessVpcEndpointTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerlessVpcEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetDomainAdvancedSecurityOption struct {
 	AnonymousAuthEnabled bool `pulumi:"anonymousAuthEnabled"`
 	// Enabled disabled toggle for off-peak update window
@@ -5928,6 +6433,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionLocalDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionLocalDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionRemoteDomainInfoPtrInput)(nil)).Elem(), OutboundConnectionRemoteDomainInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsPtrInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsPtrInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessVpcEndpointTimeoutsInput)(nil)).Elem(), ServerlessVpcEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessVpcEndpointTimeoutsPtrInput)(nil)).Elem(), ServerlessVpcEndpointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionArrayInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionInput)(nil)).Elem(), GetDomainAutoTuneOptionArgs{})
@@ -6007,6 +6518,12 @@ func init() {
 	pulumi.RegisterOutputType(OutboundConnectionLocalDomainInfoPtrOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionRemoteDomainInfoPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsOutput{})
+	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessVpcEndpointTimeoutsOutput{})
+	pulumi.RegisterOutputType(ServerlessVpcEndpointTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainAutoTuneOptionOutput{})

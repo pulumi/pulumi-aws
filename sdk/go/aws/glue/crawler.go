@@ -253,7 +253,8 @@ type Crawler struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration pulumi.StringPtrOutput `pulumi:"configuration"`
 	// Glue database where results are written.
-	DatabaseName pulumi.StringOutput           `pulumi:"databaseName"`
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets CrawlerDeltaTargetArrayOutput `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -332,7 +333,8 @@ type crawlerState struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
 	// Glue database where results are written.
-	DatabaseName *string              `pulumi:"databaseName"`
+	DatabaseName *string `pulumi:"databaseName"`
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets []CrawlerDeltaTarget `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
@@ -378,6 +380,7 @@ type CrawlerState struct {
 	Configuration pulumi.StringPtrInput
 	// Glue database where results are written.
 	DatabaseName pulumi.StringPtrInput
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets CrawlerDeltaTargetArrayInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
@@ -424,7 +427,8 @@ type crawlerArgs struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
 	// Glue database where results are written.
-	DatabaseName string               `pulumi:"databaseName"`
+	DatabaseName string `pulumi:"databaseName"`
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets []CrawlerDeltaTarget `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
@@ -467,6 +471,7 @@ type CrawlerArgs struct {
 	Configuration pulumi.StringPtrInput
 	// Glue database where results are written.
 	DatabaseName pulumi.StringInput
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets CrawlerDeltaTargetArrayInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
@@ -611,6 +616,7 @@ func (o CrawlerOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// List of nested Delta Lake target arguments. See Delta Target below.
 func (o CrawlerOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerDeltaTargetArrayOutput { return v.DeltaTargets }).(CrawlerDeltaTargetArrayOutput)
 }

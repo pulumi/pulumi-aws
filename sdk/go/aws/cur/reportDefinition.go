@@ -36,6 +36,7 @@ import (
 //				},
 //				AdditionalSchemaElements: pulumi.StringArray{
 //					pulumi.String("RESOURCES"),
+//					pulumi.String("SPLIT_COST_ALLOCATION_DATA"),
 //				},
 //				Compression: pulumi.String("GZIP"),
 //				Format:      pulumi.String("textORcsv"),
@@ -67,7 +68,7 @@ type ReportDefinition struct {
 
 	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 	AdditionalArtifacts pulumi.StringArrayOutput `pulumi:"additionalArtifacts"`
-	// A list of schema elements. Valid values are: `RESOURCES`.
+	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 	AdditionalSchemaElements pulumi.StringArrayOutput `pulumi:"additionalSchemaElements"`
 	// The Amazon Resource Name (ARN) specifying the cur report.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -143,7 +144,7 @@ func GetReportDefinition(ctx *pulumi.Context,
 type reportDefinitionState struct {
 	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 	AdditionalArtifacts []string `pulumi:"additionalArtifacts"`
-	// A list of schema elements. Valid values are: `RESOURCES`.
+	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 	AdditionalSchemaElements []string `pulumi:"additionalSchemaElements"`
 	// The Amazon Resource Name (ARN) specifying the cur report.
 	Arn *string `pulumi:"arn"`
@@ -170,7 +171,7 @@ type reportDefinitionState struct {
 type ReportDefinitionState struct {
 	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 	AdditionalArtifacts pulumi.StringArrayInput
-	// A list of schema elements. Valid values are: `RESOURCES`.
+	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 	AdditionalSchemaElements pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) specifying the cur report.
 	Arn pulumi.StringPtrInput
@@ -201,7 +202,7 @@ func (ReportDefinitionState) ElementType() reflect.Type {
 type reportDefinitionArgs struct {
 	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 	AdditionalArtifacts []string `pulumi:"additionalArtifacts"`
-	// A list of schema elements. Valid values are: `RESOURCES`.
+	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 	AdditionalSchemaElements []string `pulumi:"additionalSchemaElements"`
 	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
 	Compression string `pulumi:"compression"`
@@ -227,7 +228,7 @@ type reportDefinitionArgs struct {
 type ReportDefinitionArgs struct {
 	// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
 	AdditionalArtifacts pulumi.StringArrayInput
-	// A list of schema elements. Valid values are: `RESOURCES`.
+	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 	AdditionalSchemaElements pulumi.StringArrayInput
 	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
 	Compression pulumi.StringInput
@@ -341,7 +342,7 @@ func (o ReportDefinitionOutput) AdditionalArtifacts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringArrayOutput { return v.AdditionalArtifacts }).(pulumi.StringArrayOutput)
 }
 
-// A list of schema elements. Valid values are: `RESOURCES`.
+// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
 func (o ReportDefinitionOutput) AdditionalSchemaElements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringArrayOutput { return v.AdditionalSchemaElements }).(pulumi.StringArrayOutput)
 }

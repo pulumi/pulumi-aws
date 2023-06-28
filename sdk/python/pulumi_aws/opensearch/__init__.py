@@ -11,5 +11,10 @@ from .domain_saml_options import *
 from .get_domain import *
 from .inbound_connection_accepter import *
 from .outbound_connection import *
+from .serverless_access_policy import *
+from .serverless_collection import *
+from .serverless_security_config import *
+from .serverless_security_policy import *
+from .serverless_vpc_endpoint import *
 from ._inputs import *
 from . import outputs

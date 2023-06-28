@@ -337,9 +337,11 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The operating system the patch baseline applies to.
         /// Valid values are
+        /// `ALMA_LINUX`,
         /// `AMAZON_LINUX`,
         /// `AMAZON_LINUX_2`,
         /// `AMAZON_LINUX_2022`,
+        /// `AMAZON_LINUX_2023`,
         /// `CENTOS`,
         /// `DEBIAN`,
         /// `MACOS`,
@@ -506,9 +508,11 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The operating system the patch baseline applies to.
         /// Valid values are
+        /// `ALMA_LINUX`,
         /// `AMAZON_LINUX`,
         /// `AMAZON_LINUX_2`,
         /// `AMAZON_LINUX_2022`,
+        /// `AMAZON_LINUX_2023`,
         /// `CENTOS`,
         /// `DEBIAN`,
         /// `MACOS`,
@@ -655,9 +659,11 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// The operating system the patch baseline applies to.
         /// Valid values are
+        /// `ALMA_LINUX`,
         /// `AMAZON_LINUX`,
         /// `AMAZON_LINUX_2`,
         /// `AMAZON_LINUX_2022`,
+        /// `AMAZON_LINUX_2023`,
         /// `CENTOS`,
         /// `DEBIAN`,
         /// `MACOS`,

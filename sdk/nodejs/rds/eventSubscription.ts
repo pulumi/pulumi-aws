@@ -113,7 +113,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly sourceIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
      */
     public readonly sourceType!: pulumi.Output<string | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface EventSubscriptionState {
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
      */
     sourceType?: pulumi.Input<string>;
     /**
@@ -250,7 +250,7 @@ export interface EventSubscriptionArgs {
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster` or `db-cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
      */
     sourceType?: pulumi.Input<string>;
     /**

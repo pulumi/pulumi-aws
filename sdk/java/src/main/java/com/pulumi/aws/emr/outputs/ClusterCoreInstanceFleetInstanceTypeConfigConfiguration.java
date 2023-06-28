@@ -4,7 +4,6 @@
 package com.pulumi.aws.emr.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -22,7 +21,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration {
      * @return Map of properties specified within a configuration classification.
      * 
      */
-    private @Nullable Map<String,Object> properties;
+    private @Nullable Map<String,String> properties;
 
     private ClusterCoreInstanceFleetInstanceTypeConfigConfiguration() {}
     /**
@@ -36,7 +35,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration {
      * @return Map of properties specified within a configuration classification.
      * 
      */
-    public Map<String,Object> properties() {
+    public Map<String,String> properties() {
         return this.properties == null ? Map.of() : this.properties;
     }
 
@@ -50,7 +49,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String classification;
-        private @Nullable Map<String,Object> properties;
+        private @Nullable Map<String,String> properties;
         public Builder() {}
         public Builder(ClusterCoreInstanceFleetInstanceTypeConfigConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,7 +63,7 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder properties(@Nullable Map<String,Object> properties) {
+        public Builder properties(@Nullable Map<String,String> properties) {
             this.properties = properties;
             return this;
         }

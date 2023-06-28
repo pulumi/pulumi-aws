@@ -158,7 +158,7 @@ import (
 // },
 // Environment: &codebuild.ProjectEnvironmentArgs{
 // ComputeType: pulumi.String("BUILD_GENERAL1_SMALL"),
-// Image: pulumi.String("aws/codebuild/standard:1.0"),
+// Image: pulumi.String("aws/codebuild/amazonlinux2-x86_64-standard:4.0"),
 // Type: pulumi.String("LINUX_CONTAINER"),
 // ImagePullCredentialsType: pulumi.String("CODEBUILD"),
 // EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
@@ -229,7 +229,7 @@ import (
 // },
 // Environment: &codebuild.ProjectEnvironmentArgs{
 // ComputeType: pulumi.String("BUILD_GENERAL1_SMALL"),
-// Image: pulumi.String("aws/codebuild/standard:1.0"),
+// Image: pulumi.String("aws/codebuild/amazonlinux2-x86_64-standard:4.0"),
 // Type: pulumi.String("LINUX_CONTAINER"),
 // ImagePullCredentialsType: pulumi.String("CODEBUILD"),
 // EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{

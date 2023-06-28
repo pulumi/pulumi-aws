@@ -15,14 +15,18 @@ __all__ = ['RouteTableAssociationArgs', 'RouteTableAssociation']
 class RouteTableAssociationArgs:
     def __init__(__self__, *,
                  transit_gateway_attachment_id: pulumi.Input[str],
-                 transit_gateway_route_table_id: pulumi.Input[str]):
+                 transit_gateway_route_table_id: pulumi.Input[str],
+                 replace_existing_association: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RouteTableAssociation resource.
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+        :param pulumi.Input[bool] replace_existing_association: Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+        if replace_existing_association is not None:
+            pulumi.set(__self__, "replace_existing_association", replace_existing_association)
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
@@ -48,21 +52,37 @@ class RouteTableAssociationArgs:
     def transit_gateway_route_table_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "transit_gateway_route_table_id", value)
 
+    @property
+    @pulumi.getter(name="replaceExistingAssociation")
+    def replace_existing_association(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+        """
+        return pulumi.get(self, "replace_existing_association")
+
+    @replace_existing_association.setter
+    def replace_existing_association(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replace_existing_association", value)
+
 
 @pulumi.input_type
 class _RouteTableAssociationState:
     def __init__(__self__, *,
+                 replace_existing_association: Optional[pulumi.Input[bool]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RouteTableAssociation resources.
+        :param pulumi.Input[bool] replace_existing_association: Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         :param pulumi.Input[str] resource_id: Identifier of the resource
         :param pulumi.Input[str] resource_type: Type of the resource
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
+        if replace_existing_association is not None:
+            pulumi.set(__self__, "replace_existing_association", replace_existing_association)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if resource_type is not None:
@@ -71,6 +91,18 @@ class _RouteTableAssociationState:
             pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_route_table_id is not None:
             pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+
+    @property
+    @pulumi.getter(name="replaceExistingAssociation")
+    def replace_existing_association(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+        """
+        return pulumi.get(self, "replace_existing_association")
+
+    @replace_existing_association.setter
+    def replace_existing_association(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replace_existing_association", value)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -126,6 +158,7 @@ class RouteTableAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 replace_existing_association: Optional[pulumi.Input[bool]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -153,6 +186,7 @@ class RouteTableAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] replace_existing_association: Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
@@ -199,6 +233,7 @@ class RouteTableAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 replace_existing_association: Optional[pulumi.Input[bool]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -210,6 +245,7 @@ class RouteTableAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RouteTableAssociationArgs.__new__(RouteTableAssociationArgs)
 
+            __props__.__dict__["replace_existing_association"] = replace_existing_association
             if transit_gateway_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_attachment_id'")
             __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
@@ -228,6 +264,7 @@ class RouteTableAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            replace_existing_association: Optional[pulumi.Input[bool]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
             resource_type: Optional[pulumi.Input[str]] = None,
             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
@@ -239,6 +276,7 @@ class RouteTableAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] replace_existing_association: Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
         :param pulumi.Input[str] resource_id: Identifier of the resource
         :param pulumi.Input[str] resource_type: Type of the resource
         :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
@@ -248,11 +286,20 @@ class RouteTableAssociation(pulumi.CustomResource):
 
         __props__ = _RouteTableAssociationState.__new__(_RouteTableAssociationState)
 
+        __props__.__dict__["replace_existing_association"] = replace_existing_association
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["resource_type"] = resource_type
         __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         __props__.__dict__["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         return RouteTableAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="replaceExistingAssociation")
+    def replace_existing_association(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `ec2transitgateway.VpcAttachment` resource should be used.
+        """
+        return pulumi.get(self, "replace_existing_association")
 
     @property
     @pulumi.getter(name="resourceId")

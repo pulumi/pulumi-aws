@@ -195,7 +195,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public /*out*/ readonly sourceSecurityGroupId!: pulumi.Output<string>;
     /**
-     * A list of subnet IDs to attach to the ELB.
+     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      */
     public readonly subnets!: pulumi.Output<string[]>;
     /**
@@ -368,7 +368,7 @@ export interface LoadBalancerState {
      */
     sourceSecurityGroupId?: pulumi.Input<string>;
     /**
-     * A list of subnet IDs to attach to the ELB.
+     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -457,7 +457,7 @@ export interface LoadBalancerArgs {
      */
     sourceSecurityGroup?: pulumi.Input<string>;
     /**
-     * A list of subnet IDs to attach to the ELB.
+     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**

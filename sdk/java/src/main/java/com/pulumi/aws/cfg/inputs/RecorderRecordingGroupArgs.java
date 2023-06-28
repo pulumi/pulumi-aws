@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.cfg.inputs;
 
+import com.pulumi.aws.cfg.inputs.RecorderRecordingGroupExclusionByResourceTypeArgs;
+import com.pulumi.aws.cfg.inputs.RecorderRecordingGroupRecordingStrategyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -33,6 +35,21 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+     * 
+     */
+    @Import(name="exclusionByResourceTypes")
+    private @Nullable Output<List<RecorderRecordingGroupExclusionByResourceTypeArgs>> exclusionByResourceTypes;
+
+    /**
+     * @return An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+     * 
+     */
+    public Optional<Output<List<RecorderRecordingGroupExclusionByResourceTypeArgs>>> exclusionByResourceTypes() {
+        return Optional.ofNullable(this.exclusionByResourceTypes);
+    }
+
+    /**
      * Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
      * 
      */
@@ -45,6 +62,21 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<Boolean>> includeGlobalResourceTypes() {
         return Optional.ofNullable(this.includeGlobalResourceTypes);
+    }
+
+    /**
+     * Recording Strategy - see below..
+     * 
+     */
+    @Import(name="recordingStrategies")
+    private @Nullable Output<List<RecorderRecordingGroupRecordingStrategyArgs>> recordingStrategies;
+
+    /**
+     * @return Recording Strategy - see below..
+     * 
+     */
+    public Optional<Output<List<RecorderRecordingGroupRecordingStrategyArgs>>> recordingStrategies() {
+        return Optional.ofNullable(this.recordingStrategies);
     }
 
     /**
@@ -66,7 +98,9 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
 
     private RecorderRecordingGroupArgs(RecorderRecordingGroupArgs $) {
         this.allSupported = $.allSupported;
+        this.exclusionByResourceTypes = $.exclusionByResourceTypes;
         this.includeGlobalResourceTypes = $.includeGlobalResourceTypes;
+        this.recordingStrategies = $.recordingStrategies;
         this.resourceTypes = $.resourceTypes;
     }
 
@@ -110,6 +144,37 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param exclusionByResourceTypes An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exclusionByResourceTypes(@Nullable Output<List<RecorderRecordingGroupExclusionByResourceTypeArgs>> exclusionByResourceTypes) {
+            $.exclusionByResourceTypes = exclusionByResourceTypes;
+            return this;
+        }
+
+        /**
+         * @param exclusionByResourceTypes An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exclusionByResourceTypes(List<RecorderRecordingGroupExclusionByResourceTypeArgs> exclusionByResourceTypes) {
+            return exclusionByResourceTypes(Output.of(exclusionByResourceTypes));
+        }
+
+        /**
+         * @param exclusionByResourceTypes An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exclusionByResourceTypes(RecorderRecordingGroupExclusionByResourceTypeArgs... exclusionByResourceTypes) {
+            return exclusionByResourceTypes(List.of(exclusionByResourceTypes));
+        }
+
+        /**
          * @param includeGlobalResourceTypes Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
          * 
          * @return builder
@@ -128,6 +193,37 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
          */
         public Builder includeGlobalResourceTypes(Boolean includeGlobalResourceTypes) {
             return includeGlobalResourceTypes(Output.of(includeGlobalResourceTypes));
+        }
+
+        /**
+         * @param recordingStrategies Recording Strategy - see below..
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recordingStrategies(@Nullable Output<List<RecorderRecordingGroupRecordingStrategyArgs>> recordingStrategies) {
+            $.recordingStrategies = recordingStrategies;
+            return this;
+        }
+
+        /**
+         * @param recordingStrategies Recording Strategy - see below..
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recordingStrategies(List<RecorderRecordingGroupRecordingStrategyArgs> recordingStrategies) {
+            return recordingStrategies(Output.of(recordingStrategies));
+        }
+
+        /**
+         * @param recordingStrategies Recording Strategy - see below..
+         * 
+         * @return builder
+         * 
+         */
+        public Builder recordingStrategies(RecorderRecordingGroupRecordingStrategyArgs... recordingStrategies) {
+            return recordingStrategies(List.of(recordingStrategies));
         }
 
         /**

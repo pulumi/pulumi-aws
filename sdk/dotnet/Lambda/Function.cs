@@ -408,7 +408,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> QualifiedInvokeArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         /// </summary>
         [Output("replaceSecurityGroupsOnDestroy")]
         public Output<bool?> ReplaceSecurityGroupsOnDestroy { get; private set; } = null!;
@@ -692,7 +692,7 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? Publish { get; set; }
 
         /// <summary>
-        /// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         /// </summary>
         [Input("replaceSecurityGroupsOnDestroy")]
         public Input<bool>? ReplaceSecurityGroupsOnDestroy { get; set; }
@@ -703,6 +703,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         /// </summary>
+        [Obsolete(@"AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.")]
         public InputList<string> ReplacementSecurityGroupIds
         {
             get => _replacementSecurityGroupIds ?? (_replacementSecurityGroupIds = new InputList<string>());
@@ -948,7 +949,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? QualifiedInvokeArn { get; set; }
 
         /// <summary>
-        /// Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
         /// </summary>
         [Input("replaceSecurityGroupsOnDestroy")]
         public Input<bool>? ReplaceSecurityGroupsOnDestroy { get; set; }
@@ -959,6 +960,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
         /// </summary>
+        [Obsolete(@"AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.")]
         public InputList<string> ReplacementSecurityGroupIds
         {
             get => _replacementSecurityGroupIds ?? (_replacementSecurityGroupIds = new InputList<string>());

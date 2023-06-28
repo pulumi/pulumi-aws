@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2transitgateway.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class RouteTableAssociationState extends com.pulumi.resources.ResourceArgs {
 
     public static final RouteTableAssociationState Empty = new RouteTableAssociationState();
+
+    /**
+     * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+     * 
+     */
+    @Import(name="replaceExistingAssociation")
+    private @Nullable Output<Boolean> replaceExistingAssociation;
+
+    /**
+     * @return Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+     * 
+     */
+    public Optional<Output<Boolean>> replaceExistingAssociation() {
+        return Optional.ofNullable(this.replaceExistingAssociation);
+    }
 
     /**
      * Identifier of the resource
@@ -78,6 +94,7 @@ public final class RouteTableAssociationState extends com.pulumi.resources.Resou
     private RouteTableAssociationState() {}
 
     private RouteTableAssociationState(RouteTableAssociationState $) {
+        this.replaceExistingAssociation = $.replaceExistingAssociation;
         this.resourceId = $.resourceId;
         this.resourceType = $.resourceType;
         this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
@@ -100,6 +117,27 @@ public final class RouteTableAssociationState extends com.pulumi.resources.Resou
 
         public Builder(RouteTableAssociationState defaults) {
             $ = new RouteTableAssociationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param replaceExistingAssociation Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replaceExistingAssociation(@Nullable Output<Boolean> replaceExistingAssociation) {
+            $.replaceExistingAssociation = replaceExistingAssociation;
+            return this;
+        }
+
+        /**
+         * @param replaceExistingAssociation Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replaceExistingAssociation(Boolean replaceExistingAssociation) {
+            return replaceExistingAssociation(Output.of(replaceExistingAssociation));
         }
 
         /**

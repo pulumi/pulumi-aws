@@ -155,6 +155,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The namespace Amazon Resource Name (ARN) of the cluster
+     * 
+     */
+    @Import(name="clusterNamespaceArn")
+    private @Nullable Output<String> clusterNamespaceArn;
+
+    /**
+     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * 
+     */
+    public Optional<Output<String>> clusterNamespaceArn() {
+        return Optional.ofNullable(this.clusterNamespaceArn);
+    }
+
+    /**
      * The nodes in the cluster. Cluster node blocks are documented below
      * 
      */
@@ -706,6 +721,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.availabilityZone = $.availabilityZone;
         this.availabilityZoneRelocationEnabled = $.availabilityZoneRelocationEnabled;
         this.clusterIdentifier = $.clusterIdentifier;
+        this.clusterNamespaceArn = $.clusterNamespaceArn;
         this.clusterNodes = $.clusterNodes;
         this.clusterParameterGroupName = $.clusterParameterGroupName;
         this.clusterPublicKey = $.clusterPublicKey;
@@ -939,6 +955,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
+        }
+
+        /**
+         * @param clusterNamespaceArn The namespace Amazon Resource Name (ARN) of the cluster
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusterNamespaceArn(@Nullable Output<String> clusterNamespaceArn) {
+            $.clusterNamespaceArn = clusterNamespaceArn;
+            return this;
+        }
+
+        /**
+         * @param clusterNamespaceArn The namespace Amazon Resource Name (ARN) of the cluster
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clusterNamespaceArn(String clusterNamespaceArn) {
+            return clusterNamespaceArn(Output.of(clusterNamespaceArn));
         }
 
         /**

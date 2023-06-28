@@ -3437,6 +3437,160 @@ func (o GetDedicatedIpPoolDedicatedIpArrayOutput) Index(i pulumi.IntInput) GetDe
 	}).(GetDedicatedIpPoolDedicatedIpOutput)
 }
 
+type GetEmailIdentityDkimSigningAttribute struct {
+	// [Easy DKIM] The key length of the DKIM key pair in use.
+	CurrentSigningKeyLength string `pulumi:"currentSigningKeyLength"`
+	DomainSigningPrivateKey string `pulumi:"domainSigningPrivateKey"`
+	DomainSigningSelector   string `pulumi:"domainSigningSelector"`
+	// [Easy DKIM] The last time a key pair was generated for this identity.
+	LastKeyGenerationTimestamp string `pulumi:"lastKeyGenerationTimestamp"`
+	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+	NextSigningKeyLength string `pulumi:"nextSigningKeyLength"`
+	// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+	SigningAttributesOrigin string `pulumi:"signingAttributesOrigin"`
+	// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+	Status string `pulumi:"status"`
+	// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
+	Tokens []string `pulumi:"tokens"`
+}
+
+// GetEmailIdentityDkimSigningAttributeInput is an input type that accepts GetEmailIdentityDkimSigningAttributeArgs and GetEmailIdentityDkimSigningAttributeOutput values.
+// You can construct a concrete instance of `GetEmailIdentityDkimSigningAttributeInput` via:
+//
+//	GetEmailIdentityDkimSigningAttributeArgs{...}
+type GetEmailIdentityDkimSigningAttributeInput interface {
+	pulumi.Input
+
+	ToGetEmailIdentityDkimSigningAttributeOutput() GetEmailIdentityDkimSigningAttributeOutput
+	ToGetEmailIdentityDkimSigningAttributeOutputWithContext(context.Context) GetEmailIdentityDkimSigningAttributeOutput
+}
+
+type GetEmailIdentityDkimSigningAttributeArgs struct {
+	// [Easy DKIM] The key length of the DKIM key pair in use.
+	CurrentSigningKeyLength pulumi.StringInput `pulumi:"currentSigningKeyLength"`
+	DomainSigningPrivateKey pulumi.StringInput `pulumi:"domainSigningPrivateKey"`
+	DomainSigningSelector   pulumi.StringInput `pulumi:"domainSigningSelector"`
+	// [Easy DKIM] The last time a key pair was generated for this identity.
+	LastKeyGenerationTimestamp pulumi.StringInput `pulumi:"lastKeyGenerationTimestamp"`
+	// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+	NextSigningKeyLength pulumi.StringInput `pulumi:"nextSigningKeyLength"`
+	// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+	SigningAttributesOrigin pulumi.StringInput `pulumi:"signingAttributesOrigin"`
+	// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+	Status pulumi.StringInput `pulumi:"status"`
+	// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
+	Tokens pulumi.StringArrayInput `pulumi:"tokens"`
+}
+
+func (GetEmailIdentityDkimSigningAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEmailIdentityDkimSigningAttribute)(nil)).Elem()
+}
+
+func (i GetEmailIdentityDkimSigningAttributeArgs) ToGetEmailIdentityDkimSigningAttributeOutput() GetEmailIdentityDkimSigningAttributeOutput {
+	return i.ToGetEmailIdentityDkimSigningAttributeOutputWithContext(context.Background())
+}
+
+func (i GetEmailIdentityDkimSigningAttributeArgs) ToGetEmailIdentityDkimSigningAttributeOutputWithContext(ctx context.Context) GetEmailIdentityDkimSigningAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEmailIdentityDkimSigningAttributeOutput)
+}
+
+// GetEmailIdentityDkimSigningAttributeArrayInput is an input type that accepts GetEmailIdentityDkimSigningAttributeArray and GetEmailIdentityDkimSigningAttributeArrayOutput values.
+// You can construct a concrete instance of `GetEmailIdentityDkimSigningAttributeArrayInput` via:
+//
+//	GetEmailIdentityDkimSigningAttributeArray{ GetEmailIdentityDkimSigningAttributeArgs{...} }
+type GetEmailIdentityDkimSigningAttributeArrayInput interface {
+	pulumi.Input
+
+	ToGetEmailIdentityDkimSigningAttributeArrayOutput() GetEmailIdentityDkimSigningAttributeArrayOutput
+	ToGetEmailIdentityDkimSigningAttributeArrayOutputWithContext(context.Context) GetEmailIdentityDkimSigningAttributeArrayOutput
+}
+
+type GetEmailIdentityDkimSigningAttributeArray []GetEmailIdentityDkimSigningAttributeInput
+
+func (GetEmailIdentityDkimSigningAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEmailIdentityDkimSigningAttribute)(nil)).Elem()
+}
+
+func (i GetEmailIdentityDkimSigningAttributeArray) ToGetEmailIdentityDkimSigningAttributeArrayOutput() GetEmailIdentityDkimSigningAttributeArrayOutput {
+	return i.ToGetEmailIdentityDkimSigningAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i GetEmailIdentityDkimSigningAttributeArray) ToGetEmailIdentityDkimSigningAttributeArrayOutputWithContext(ctx context.Context) GetEmailIdentityDkimSigningAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEmailIdentityDkimSigningAttributeArrayOutput)
+}
+
+type GetEmailIdentityDkimSigningAttributeOutput struct{ *pulumi.OutputState }
+
+func (GetEmailIdentityDkimSigningAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEmailIdentityDkimSigningAttribute)(nil)).Elem()
+}
+
+func (o GetEmailIdentityDkimSigningAttributeOutput) ToGetEmailIdentityDkimSigningAttributeOutput() GetEmailIdentityDkimSigningAttributeOutput {
+	return o
+}
+
+func (o GetEmailIdentityDkimSigningAttributeOutput) ToGetEmailIdentityDkimSigningAttributeOutputWithContext(ctx context.Context) GetEmailIdentityDkimSigningAttributeOutput {
+	return o
+}
+
+// [Easy DKIM] The key length of the DKIM key pair in use.
+func (o GetEmailIdentityDkimSigningAttributeOutput) CurrentSigningKeyLength() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.CurrentSigningKeyLength }).(pulumi.StringOutput)
+}
+
+func (o GetEmailIdentityDkimSigningAttributeOutput) DomainSigningPrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.DomainSigningPrivateKey }).(pulumi.StringOutput)
+}
+
+func (o GetEmailIdentityDkimSigningAttributeOutput) DomainSigningSelector() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.DomainSigningSelector }).(pulumi.StringOutput)
+}
+
+// [Easy DKIM] The last time a key pair was generated for this identity.
+func (o GetEmailIdentityDkimSigningAttributeOutput) LastKeyGenerationTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.LastKeyGenerationTimestamp }).(pulumi.StringOutput)
+}
+
+// [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
+func (o GetEmailIdentityDkimSigningAttributeOutput) NextSigningKeyLength() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.NextSigningKeyLength }).(pulumi.StringOutput)
+}
+
+// A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+func (o GetEmailIdentityDkimSigningAttributeOutput) SigningAttributesOrigin() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.SigningAttributesOrigin }).(pulumi.StringOutput)
+}
+
+// Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+func (o GetEmailIdentityDkimSigningAttributeOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
+func (o GetEmailIdentityDkimSigningAttributeOutput) Tokens() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEmailIdentityDkimSigningAttribute) []string { return v.Tokens }).(pulumi.StringArrayOutput)
+}
+
+type GetEmailIdentityDkimSigningAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEmailIdentityDkimSigningAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEmailIdentityDkimSigningAttribute)(nil)).Elem()
+}
+
+func (o GetEmailIdentityDkimSigningAttributeArrayOutput) ToGetEmailIdentityDkimSigningAttributeArrayOutput() GetEmailIdentityDkimSigningAttributeArrayOutput {
+	return o
+}
+
+func (o GetEmailIdentityDkimSigningAttributeArrayOutput) ToGetEmailIdentityDkimSigningAttributeArrayOutputWithContext(ctx context.Context) GetEmailIdentityDkimSigningAttributeArrayOutput {
+	return o
+}
+
+func (o GetEmailIdentityDkimSigningAttributeArrayOutput) Index(i pulumi.IntInput) GetEmailIdentityDkimSigningAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEmailIdentityDkimSigningAttribute {
+		return vs[0].([]GetEmailIdentityDkimSigningAttribute)[vs[1].(int)]
+	}).(GetEmailIdentityDkimSigningAttributeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsPtrInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
@@ -3488,6 +3642,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationSetVdmOptionGuardianOptionArrayInput)(nil)).Elem(), GetConfigurationSetVdmOptionGuardianOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDedicatedIpPoolDedicatedIpArrayInput)(nil)).Elem(), GetDedicatedIpPoolDedicatedIpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailIdentityDkimSigningAttributeInput)(nil)).Elem(), GetEmailIdentityDkimSigningAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEmailIdentityDkimSigningAttributeArrayInput)(nil)).Elem(), GetEmailIdentityDkimSigningAttributeArray{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationEventDestinationOutput{})
@@ -3538,4 +3694,6 @@ func init() {
 	pulumi.RegisterOutputType(GetConfigurationSetVdmOptionGuardianOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDedicatedIpPoolDedicatedIpOutput{})
 	pulumi.RegisterOutputType(GetDedicatedIpPoolDedicatedIpArrayOutput{})
+	pulumi.RegisterOutputType(GetEmailIdentityDkimSigningAttributeOutput{})
+	pulumi.RegisterOutputType(GetEmailIdentityDkimSigningAttributeArrayOutput{})
 }

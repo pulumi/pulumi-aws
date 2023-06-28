@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,21 +19,37 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs extends
      * Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
      * 
      */
-    @Import(name="ruleOrder", required=true)
-    private Output<String> ruleOrder;
+    @Import(name="ruleOrder")
+    private @Nullable Output<String> ruleOrder;
 
     /**
      * @return Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
      * 
      */
-    public Output<String> ruleOrder() {
-        return this.ruleOrder;
+    public Optional<Output<String>> ruleOrder() {
+        return Optional.ofNullable(this.ruleOrder);
+    }
+
+    /**
+     * Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+     * 
+     */
+    @Import(name="streamExceptionPolicy")
+    private @Nullable Output<String> streamExceptionPolicy;
+
+    /**
+     * @return Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+     * 
+     */
+    public Optional<Output<String>> streamExceptionPolicy() {
+        return Optional.ofNullable(this.streamExceptionPolicy);
     }
 
     private FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs() {}
 
     private FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs(FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs $) {
         this.ruleOrder = $.ruleOrder;
+        this.streamExceptionPolicy = $.streamExceptionPolicy;
     }
 
     public static Builder builder() {
@@ -58,7 +76,7 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs extends
          * @return builder
          * 
          */
-        public Builder ruleOrder(Output<String> ruleOrder) {
+        public Builder ruleOrder(@Nullable Output<String> ruleOrder) {
             $.ruleOrder = ruleOrder;
             return this;
         }
@@ -73,8 +91,28 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs extends
             return ruleOrder(Output.of(ruleOrder));
         }
 
+        /**
+         * @param streamExceptionPolicy Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamExceptionPolicy(@Nullable Output<String> streamExceptionPolicy) {
+            $.streamExceptionPolicy = streamExceptionPolicy;
+            return this;
+        }
+
+        /**
+         * @param streamExceptionPolicy Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamExceptionPolicy(String streamExceptionPolicy) {
+            return streamExceptionPolicy(Output.of(streamExceptionPolicy));
+        }
+
         public FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs build() {
-            $.ruleOrder = Objects.requireNonNull($.ruleOrder, "expected parameter 'ruleOrder' to be non-null");
             return $;
         }
     }

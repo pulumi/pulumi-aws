@@ -163,7 +163,7 @@ export interface GetInstanceResult {
      */
     readonly optionGroupMemberships: string[];
     /**
-     * Database port.
+     * Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `dbInstancePort` is typically the preferred choice.
      */
     readonly port: number;
     /**

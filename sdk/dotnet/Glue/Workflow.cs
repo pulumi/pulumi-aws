@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Glue
         /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
         [Output("defaultRunProperties")]
-        public Output<ImmutableDictionary<string, object>?> DefaultRunProperties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> DefaultRunProperties { get; private set; } = null!;
 
         /// <summary>
         /// Description of the workflow.
@@ -166,14 +166,14 @@ namespace Pulumi.Aws.Glue
     public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultRunProperties")]
-        private InputMap<object>? _defaultRunProperties;
+        private InputMap<string>? _defaultRunProperties;
 
         /// <summary>
         /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
-        public InputMap<object> DefaultRunProperties
+        public InputMap<string> DefaultRunProperties
         {
-            get => _defaultRunProperties ?? (_defaultRunProperties = new InputMap<object>());
+            get => _defaultRunProperties ?? (_defaultRunProperties = new InputMap<string>());
             set => _defaultRunProperties = value;
         }
 
@@ -222,14 +222,14 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Arn { get; set; }
 
         [Input("defaultRunProperties")]
-        private InputMap<object>? _defaultRunProperties;
+        private InputMap<string>? _defaultRunProperties;
 
         /// <summary>
         /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         /// </summary>
-        public InputMap<object> DefaultRunProperties
+        public InputMap<string> DefaultRunProperties
         {
-            get => _defaultRunProperties ?? (_defaultRunProperties = new InputMap<object>());
+            get => _defaultRunProperties ?? (_defaultRunProperties = new InputMap<string>());
             set => _defaultRunProperties = value;
         }
 

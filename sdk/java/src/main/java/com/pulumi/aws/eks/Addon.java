@@ -19,11 +19,6 @@ import javax.annotation.Nullable;
 /**
  * Manages an EKS add-on.
  * 
- * &gt; **Note:** Amazon EKS add-on can only be used with Amazon EKS Clusters
- * running version 1.18 with platform version eks.3 or later
- * because add-ons rely on the Server-side Apply Kubernetes feature,
- * which is only available in Kubernetes 1.18 and later.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -81,7 +76,7 @@ import javax.annotation.Nullable;
  *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
  *             .clusterName(aws_eks_cluster.example().name())
  *             .addonName(&#34;coredns&#34;)
- *             .addonVersion(&#34;v1.8.7-eksbuild.3&#34;)
+ *             .addonVersion(&#34;v1.10.1-eksbuild.1&#34;)
  *             .resolveConflictsOnUpdate(&#34;PRESERVE&#34;)
  *             .build());
  * 
@@ -146,7 +141,7 @@ import javax.annotation.Nullable;
  *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
  *             .clusterName(&#34;mycluster&#34;)
  *             .addonName(&#34;coredns&#34;)
- *             .addonVersion(&#34;v1.8.7-eksbuild.3&#34;)
+ *             .addonVersion(&#34;v1.10.1-eksbuild.1&#34;)
  *             .resolveConflictsOnCreate(&#34;OVERWRITE&#34;)
  *             .configurationValues(serializeJson(
  *                 jsonObject(
@@ -332,14 +327,14 @@ public class Addon extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.resolveConflictsOnCreate);
     }
     /**
-     * How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE` and `OVERWRITE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      * 
      */
     @Export(name="resolveConflictsOnUpdate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resolveConflictsOnUpdate;
 
     /**
-     * @return How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE` and `OVERWRITE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+     * @return How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      * 
      */
     public Output<Optional<String>> resolveConflictsOnUpdate() {

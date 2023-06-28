@@ -1326,7 +1326,7 @@ class UserPoolEmailConfigurationArgs:
                  source_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] configuration_set: Email configuration set name from SES.
-        :param pulumi.Input[str] email_sending_account: Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+        :param pulumi.Input[str] email_sending_account: Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
         :param pulumi.Input[str] from_email_address: Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\\"John Smith Ph.D.\\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
         :param pulumi.Input[str] reply_to_email_address: REPLY-TO email address.
         :param pulumi.Input[str] source_arn: ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
@@ -1358,7 +1358,7 @@ class UserPoolEmailConfigurationArgs:
     @pulumi.getter(name="emailSendingAccount")
     def email_sending_account(self) -> Optional[pulumi.Input[str]]:
         """
-        Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+        Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
         """
         return pulumi.get(self, "email_sending_account")
 

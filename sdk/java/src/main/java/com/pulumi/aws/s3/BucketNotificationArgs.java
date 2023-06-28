@@ -40,14 +40,14 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Whether to enable Amazon EventBridge notifications.
+     * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      * 
      */
     @Import(name="eventbridge")
     private @Nullable Output<Boolean> eventbridge;
 
     /**
-     * @return Whether to enable Amazon EventBridge notifications.
+     * @return Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> eventbridge() {
@@ -153,7 +153,7 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param eventbridge Whether to enable Amazon EventBridge notifications.
+         * @param eventbridge Whether to enable Amazon EventBridge notifications. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class BucketNotificationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param eventbridge Whether to enable Amazon EventBridge notifications.
+         * @param eventbridge Whether to enable Amazon EventBridge notifications. Defaults to `false`.
          * 
          * @return builder
          * 

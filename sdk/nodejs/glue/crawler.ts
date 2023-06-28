@@ -175,6 +175,9 @@ export class Crawler extends pulumi.CustomResource {
      * Glue database where results are written.
      */
     public readonly databaseName!: pulumi.Output<string>;
+    /**
+     * List of nested Delta Lake target arguments. See Delta Target below.
+     */
     public readonly deltaTargets!: pulumi.Output<outputs.glue.CrawlerDeltaTarget[] | undefined>;
     /**
      * Description of the crawler.
@@ -333,6 +336,9 @@ export interface CrawlerState {
      * Glue database where results are written.
      */
     databaseName?: pulumi.Input<string>;
+    /**
+     * List of nested Delta Lake target arguments. See Delta Target below.
+     */
     deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTarget>[]>;
     /**
      * Description of the crawler.
@@ -417,6 +423,9 @@ export interface CrawlerArgs {
      * Glue database where results are written.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * List of nested Delta Lake target arguments. See Delta Target below.
+     */
     deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTarget>[]>;
     /**
      * Description of the crawler.

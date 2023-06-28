@@ -14,14 +14,14 @@ __all__ = ['WorkflowArgs', 'Workflow']
 @pulumi.input_type
 class WorkflowArgs:
     def __init__(__self__, *,
-                 default_run_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 default_run_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  max_concurrent_runs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
-        :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[str] description: Description of the workflow.
         :param pulumi.Input[int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
         :param pulumi.Input[str] name: The name you assign to this workflow.
@@ -40,14 +40,14 @@ class WorkflowArgs:
 
     @property
     @pulumi.getter(name="defaultRunProperties")
-    def default_run_properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def default_run_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         """
         return pulumi.get(self, "default_run_properties")
 
     @default_run_properties.setter
-    def default_run_properties(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def default_run_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "default_run_properties", value)
 
     @property
@@ -103,7 +103,7 @@ class WorkflowArgs:
 class _WorkflowState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 default_run_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 default_run_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  max_concurrent_runs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class _WorkflowState:
         """
         Input properties used for looking up and filtering Workflow resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Workflow
-        :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[str] description: Description of the workflow.
         :param pulumi.Input[int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
         :param pulumi.Input[str] name: The name you assign to this workflow.
@@ -148,14 +148,14 @@ class _WorkflowState:
 
     @property
     @pulumi.getter(name="defaultRunProperties")
-    def default_run_properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def default_run_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         """
         return pulumi.get(self, "default_run_properties")
 
     @default_run_properties.setter
-    def default_run_properties(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def default_run_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "default_run_properties", value)
 
     @property
@@ -224,7 +224,7 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_run_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 default_run_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  max_concurrent_runs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -272,7 +272,7 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[str] description: Description of the workflow.
         :param pulumi.Input[int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
         :param pulumi.Input[str] name: The name you assign to this workflow.
@@ -339,7 +339,7 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_run_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 default_run_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  max_concurrent_runs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -371,7 +371,7 @@ class Workflow(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            default_run_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+            default_run_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             max_concurrent_runs: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -385,7 +385,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Workflow
-        :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[str] description: Description of the workflow.
         :param pulumi.Input[int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
         :param pulumi.Input[str] name: The name you assign to this workflow.
@@ -415,7 +415,7 @@ class Workflow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultRunProperties")
-    def default_run_properties(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
+    def default_run_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         """

@@ -19,14 +19,14 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public Input<double>? PercentTraffic { get; set; }
 
         [Input("stageVariableOverrides")]
-        private InputMap<object>? _stageVariableOverrides;
+        private InputMap<string>? _stageVariableOverrides;
 
         /// <summary>
         /// Map of overridden stage `variables` (including new variables) for the canary deployment.
         /// </summary>
-        public InputMap<object> StageVariableOverrides
+        public InputMap<string> StageVariableOverrides
         {
-            get => _stageVariableOverrides ?? (_stageVariableOverrides = new InputMap<object>());
+            get => _stageVariableOverrides ?? (_stageVariableOverrides = new InputMap<string>());
             set => _stageVariableOverrides = value;
         }
 

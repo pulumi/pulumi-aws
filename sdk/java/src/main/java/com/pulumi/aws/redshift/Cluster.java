@@ -193,6 +193,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterIdentifier;
     }
     /**
+     * The namespace Amazon Resource Name (ARN) of the cluster
+     * 
+     */
+    @Export(name="clusterNamespaceArn", refs={String.class}, tree="[0]")
+    private Output<String> clusterNamespaceArn;
+
+    /**
+     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * 
+     */
+    public Output<String> clusterNamespaceArn() {
+        return this.clusterNamespaceArn;
+    }
+    /**
      * The nodes in the cluster. Cluster node blocks are documented below
      * 
      */

@@ -92,6 +92,21 @@ public final class TaskOptionsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+     * 
+     */
+    @Import(name="objectTags")
+    private @Nullable Output<String> objectTags;
+
+    /**
+     * @return Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+     * 
+     */
+    public Optional<Output<String>> objectTags() {
+        return Optional.ofNullable(this.objectTags);
+    }
+
+    /**
      * Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
      * 
      */
@@ -152,14 +167,14 @@ public final class TaskOptionsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+     * Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
      * 
      */
     @Import(name="securityDescriptorCopyFlags")
     private @Nullable Output<String> securityDescriptorCopyFlags;
 
     /**
-     * @return Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+     * @return Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
      * 
      */
     public Optional<Output<String>> securityDescriptorCopyFlags() {
@@ -234,6 +249,7 @@ public final class TaskOptionsArgs extends com.pulumi.resources.ResourceArgs {
         this.gid = $.gid;
         this.logLevel = $.logLevel;
         this.mtime = $.mtime;
+        this.objectTags = $.objectTags;
         this.overwriteMode = $.overwriteMode;
         this.posixPermissions = $.posixPermissions;
         this.preserveDeletedFiles = $.preserveDeletedFiles;
@@ -369,6 +385,27 @@ public final class TaskOptionsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param objectTags Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder objectTags(@Nullable Output<String> objectTags) {
+            $.objectTags = objectTags;
+            return this;
+        }
+
+        /**
+         * @param objectTags Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder objectTags(String objectTags) {
+            return objectTags(Output.of(objectTags));
+        }
+
+        /**
          * @param overwriteMode Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
          * 
          * @return builder
@@ -453,7 +490,7 @@ public final class TaskOptionsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityDescriptorCopyFlags Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+         * @param securityDescriptorCopyFlags Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
          * 
          * @return builder
          * 
@@ -464,7 +501,7 @@ public final class TaskOptionsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityDescriptorCopyFlags Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+         * @param securityDescriptorCopyFlags Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
          * 
          * @return builder
          * 

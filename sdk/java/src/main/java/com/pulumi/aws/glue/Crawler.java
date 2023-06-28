@@ -338,9 +338,17 @@ public class Crawler extends com.pulumi.resources.CustomResource {
     public Output<String> databaseName() {
         return this.databaseName;
     }
+    /**
+     * List of nested Delta Lake target arguments. See Delta Target below.
+     * 
+     */
     @Export(name="deltaTargets", refs={List.class,CrawlerDeltaTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerDeltaTarget>> deltaTargets;
 
+    /**
+     * @return List of nested Delta Lake target arguments. See Delta Target below.
+     * 
+     */
     public Output<Optional<List<CrawlerDeltaTarget>>> deltaTargets() {
         return Codegen.optional(this.deltaTargets);
     }

@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OntapVolumeTieringPolicy {
+    /**
+     * @return Specifies the number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+     * 
+     */
     private @Nullable Integer coolingPeriod;
     /**
      * @return Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
@@ -20,6 +24,10 @@ public final class OntapVolumeTieringPolicy {
     private @Nullable String name;
 
     private OntapVolumeTieringPolicy() {}
+    /**
+     * @return Specifies the number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+     * 
+     */
     public Optional<Integer> coolingPeriod() {
         return Optional.ofNullable(this.coolingPeriod);
     }

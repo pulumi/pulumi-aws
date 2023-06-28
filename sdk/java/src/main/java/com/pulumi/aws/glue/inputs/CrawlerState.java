@@ -94,9 +94,17 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.databaseName);
     }
 
+    /**
+     * List of nested Delta Lake target arguments. See Delta Target below.
+     * 
+     */
     @Import(name="deltaTargets")
     private @Nullable Output<List<CrawlerDeltaTargetArgs>> deltaTargets;
 
+    /**
+     * @return List of nested Delta Lake target arguments. See Delta Target below.
+     * 
+     */
     public Optional<Output<List<CrawlerDeltaTargetArgs>>> deltaTargets() {
         return Optional.ofNullable(this.deltaTargets);
     }
@@ -493,15 +501,33 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
             return databaseName(Output.of(databaseName));
         }
 
+        /**
+         * @param deltaTargets List of nested Delta Lake target arguments. See Delta Target below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deltaTargets(@Nullable Output<List<CrawlerDeltaTargetArgs>> deltaTargets) {
             $.deltaTargets = deltaTargets;
             return this;
         }
 
+        /**
+         * @param deltaTargets List of nested Delta Lake target arguments. See Delta Target below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deltaTargets(List<CrawlerDeltaTargetArgs> deltaTargets) {
             return deltaTargets(Output.of(deltaTargets));
         }
 
+        /**
+         * @param deltaTargets List of nested Delta Lake target arguments. See Delta Target below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deltaTargets(CrawlerDeltaTargetArgs... deltaTargets) {
             return deltaTargets(List.of(deltaTargets));
         }

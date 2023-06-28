@@ -118,6 +118,14 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('region') or _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
 
     @property
+    def retry_mode(self) -> Optional[str]:
+        """
+        Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+        `AWS_RETRY_MODE` environment variable.
+        """
+        return __config__.get('retryMode')
+
+    @property
     def s3_use_path_style(self) -> Optional[bool]:
         """
         Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By

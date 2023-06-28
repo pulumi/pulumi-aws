@@ -336,9 +336,6 @@ func NewDataSet(ctx *pulumi.Context,
 	if args.ImportMode == nil {
 		return nil, errors.New("invalid value for required argument 'ImportMode'")
 	}
-	if args.PhysicalTableMaps == nil {
-		return nil, errors.New("invalid value for required argument 'PhysicalTableMaps'")
-	}
 	var resource DataSet
 	err := ctx.RegisterResource("aws:quicksight/dataSet:DataSet", name, args, &resource, opts...)
 	if err != nil {

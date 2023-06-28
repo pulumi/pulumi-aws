@@ -63,6 +63,11 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly region!: pulumi.Output<Region | undefined>;
     /**
+     * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+     * `AWS_RETRY_MODE` environment variable.
+     */
+    public readonly retryMode!: pulumi.Output<string | undefined>;
+    /**
      * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
      */
     public readonly secretKey!: pulumi.Output<string | undefined>;
@@ -102,6 +107,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
             resourceInputs["profile"] = args ? args.profile : undefined;
             resourceInputs["region"] = (args ? args.region : undefined) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+            resourceInputs["retryMode"] = args ? args.retryMode : undefined;
             resourceInputs["s3UsePathStyle"] = pulumi.output(args ? args.s3UsePathStyle : undefined).apply(JSON.stringify);
             resourceInputs["secretKey"] = args ? args.secretKey : undefined;
             resourceInputs["sharedConfigFiles"] = pulumi.output(args ? args.sharedConfigFiles : undefined).apply(JSON.stringify);
@@ -177,6 +183,11 @@ export interface ProviderArgs {
      * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
      */
     region?: pulumi.Input<Region>;
+    /**
+     * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+     * `AWS_RETRY_MODE` environment variable.
+     */
+    retryMode?: pulumi.Input<string>;
     /**
      * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
      * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).

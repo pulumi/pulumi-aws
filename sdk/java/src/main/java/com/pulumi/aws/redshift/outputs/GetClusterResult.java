@@ -56,6 +56,11 @@ public final class GetClusterResult {
      */
     private String clusterIdentifier;
     /**
+     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * 
+     */
+    private String clusterNamespaceArn;
+    /**
      * @return Nodes in the cluster. Cluster node blocks are documented below
      * 
      */
@@ -92,7 +97,7 @@ public final class GetClusterResult {
      */
     private String databaseName;
     /**
-     * @return ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return The ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     private String defaultIamRoleArn;
@@ -265,6 +270,13 @@ public final class GetClusterResult {
         return this.clusterIdentifier;
     }
     /**
+     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * 
+     */
+    public String clusterNamespaceArn() {
+        return this.clusterNamespaceArn;
+    }
+    /**
      * @return Nodes in the cluster. Cluster node blocks are documented below
      * 
      */
@@ -317,7 +329,7 @@ public final class GetClusterResult {
         return this.databaseName;
     }
     /**
-     * @return ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return The ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     public String defaultIamRoleArn() {
@@ -495,6 +507,7 @@ public final class GetClusterResult {
         private Boolean availabilityZoneRelocationEnabled;
         private String bucketName;
         private String clusterIdentifier;
+        private String clusterNamespaceArn;
         private List<GetClusterClusterNode> clusterNodes;
         private String clusterParameterGroupName;
         private String clusterPublicKey;
@@ -537,6 +550,7 @@ public final class GetClusterResult {
     	      this.availabilityZoneRelocationEnabled = defaults.availabilityZoneRelocationEnabled;
     	      this.bucketName = defaults.bucketName;
     	      this.clusterIdentifier = defaults.clusterIdentifier;
+    	      this.clusterNamespaceArn = defaults.clusterNamespaceArn;
     	      this.clusterNodes = defaults.clusterNodes;
     	      this.clusterParameterGroupName = defaults.clusterParameterGroupName;
     	      this.clusterPublicKey = defaults.clusterPublicKey;
@@ -608,6 +622,11 @@ public final class GetClusterResult {
         @CustomType.Setter
         public Builder clusterIdentifier(String clusterIdentifier) {
             this.clusterIdentifier = Objects.requireNonNull(clusterIdentifier);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clusterNamespaceArn(String clusterNamespaceArn) {
+            this.clusterNamespaceArn = Objects.requireNonNull(clusterNamespaceArn);
             return this;
         }
         @CustomType.Setter
@@ -787,6 +806,7 @@ public final class GetClusterResult {
             o.availabilityZoneRelocationEnabled = availabilityZoneRelocationEnabled;
             o.bucketName = bucketName;
             o.clusterIdentifier = clusterIdentifier;
+            o.clusterNamespaceArn = clusterNamespaceArn;
             o.clusterNodes = clusterNodes;
             o.clusterParameterGroupName = clusterParameterGroupName;
             o.clusterPublicKey = clusterPublicKey;

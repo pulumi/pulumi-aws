@@ -31,14 +31,14 @@ public final class UserPoolEmailConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+     * Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
      * 
      */
     @Import(name="emailSendingAccount")
     private @Nullable Output<String> emailSendingAccount;
 
     /**
-     * @return Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+     * @return Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
      * 
      */
     public Optional<Output<String>> emailSendingAccount() {
@@ -140,7 +140,7 @@ public final class UserPoolEmailConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param emailSendingAccount Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+         * @param emailSendingAccount Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class UserPoolEmailConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param emailSendingAccount Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+         * @param emailSendingAccount Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
          * 
          * @return builder
          * 

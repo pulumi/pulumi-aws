@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Template{}
 	case "aws:quicksight/templateAlias:TemplateAlias":
 		r = &TemplateAlias{}
+	case "aws:quicksight/theme:Theme":
+		r = &Theme{}
 	case "aws:quicksight/user:User":
 		r = &User{}
 	case "aws:quicksight/vpcConnection:VpcConnection":
@@ -141,6 +143,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"quicksight/templateAlias",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/theme",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -6668,6 +6668,356 @@ func (o InstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) Instan
 	}).(InstanceEphemeralBlockDeviceOutput)
 }
 
+type InstanceInstanceMarketOptions struct {
+	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+	MarketType *string `pulumi:"marketType"`
+	// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+	SpotOptions *InstanceInstanceMarketOptionsSpotOptions `pulumi:"spotOptions"`
+}
+
+// InstanceInstanceMarketOptionsInput is an input type that accepts InstanceInstanceMarketOptionsArgs and InstanceInstanceMarketOptionsOutput values.
+// You can construct a concrete instance of `InstanceInstanceMarketOptionsInput` via:
+//
+//	InstanceInstanceMarketOptionsArgs{...}
+type InstanceInstanceMarketOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceMarketOptionsOutput() InstanceInstanceMarketOptionsOutput
+	ToInstanceInstanceMarketOptionsOutputWithContext(context.Context) InstanceInstanceMarketOptionsOutput
+}
+
+type InstanceInstanceMarketOptionsArgs struct {
+	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+	MarketType pulumi.StringPtrInput `pulumi:"marketType"`
+	// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+	SpotOptions InstanceInstanceMarketOptionsSpotOptionsPtrInput `pulumi:"spotOptions"`
+}
+
+func (InstanceInstanceMarketOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceMarketOptions)(nil)).Elem()
+}
+
+func (i InstanceInstanceMarketOptionsArgs) ToInstanceInstanceMarketOptionsOutput() InstanceInstanceMarketOptionsOutput {
+	return i.ToInstanceInstanceMarketOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceMarketOptionsArgs) ToInstanceInstanceMarketOptionsOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsOutput)
+}
+
+func (i InstanceInstanceMarketOptionsArgs) ToInstanceInstanceMarketOptionsPtrOutput() InstanceInstanceMarketOptionsPtrOutput {
+	return i.ToInstanceInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceMarketOptionsArgs) ToInstanceInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsOutput).ToInstanceInstanceMarketOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceInstanceMarketOptionsPtrInput is an input type that accepts InstanceInstanceMarketOptionsArgs, InstanceInstanceMarketOptionsPtr and InstanceInstanceMarketOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceInstanceMarketOptionsPtrInput` via:
+//
+//	        InstanceInstanceMarketOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceInstanceMarketOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceMarketOptionsPtrOutput() InstanceInstanceMarketOptionsPtrOutput
+	ToInstanceInstanceMarketOptionsPtrOutputWithContext(context.Context) InstanceInstanceMarketOptionsPtrOutput
+}
+
+type instanceInstanceMarketOptionsPtrType InstanceInstanceMarketOptionsArgs
+
+func InstanceInstanceMarketOptionsPtr(v *InstanceInstanceMarketOptionsArgs) InstanceInstanceMarketOptionsPtrInput {
+	return (*instanceInstanceMarketOptionsPtrType)(v)
+}
+
+func (*instanceInstanceMarketOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceInstanceMarketOptions)(nil)).Elem()
+}
+
+func (i *instanceInstanceMarketOptionsPtrType) ToInstanceInstanceMarketOptionsPtrOutput() InstanceInstanceMarketOptionsPtrOutput {
+	return i.ToInstanceInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceInstanceMarketOptionsPtrType) ToInstanceInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsPtrOutput)
+}
+
+type InstanceInstanceMarketOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceMarketOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceMarketOptions)(nil)).Elem()
+}
+
+func (o InstanceInstanceMarketOptionsOutput) ToInstanceInstanceMarketOptionsOutput() InstanceInstanceMarketOptionsOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsOutput) ToInstanceInstanceMarketOptionsOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsOutput) ToInstanceInstanceMarketOptionsPtrOutput() InstanceInstanceMarketOptionsPtrOutput {
+	return o.ToInstanceInstanceMarketOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceInstanceMarketOptionsOutput) ToInstanceInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceInstanceMarketOptions) *InstanceInstanceMarketOptions {
+		return &v
+	}).(InstanceInstanceMarketOptionsPtrOutput)
+}
+
+// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+func (o InstanceInstanceMarketOptionsOutput) MarketType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptions) *string { return v.MarketType }).(pulumi.StringPtrOutput)
+}
+
+// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+func (o InstanceInstanceMarketOptionsOutput) SpotOptions() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptions) *InstanceInstanceMarketOptionsSpotOptions { return v.SpotOptions }).(InstanceInstanceMarketOptionsSpotOptionsPtrOutput)
+}
+
+type InstanceInstanceMarketOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceMarketOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceInstanceMarketOptions)(nil)).Elem()
+}
+
+func (o InstanceInstanceMarketOptionsPtrOutput) ToInstanceInstanceMarketOptionsPtrOutput() InstanceInstanceMarketOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsPtrOutput) ToInstanceInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsPtrOutput) Elem() InstanceInstanceMarketOptionsOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptions) InstanceInstanceMarketOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceInstanceMarketOptions
+		return ret
+	}).(InstanceInstanceMarketOptionsOutput)
+}
+
+// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+func (o InstanceInstanceMarketOptionsPtrOutput) MarketType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MarketType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+func (o InstanceInstanceMarketOptionsPtrOutput) SpotOptions() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptions) *InstanceInstanceMarketOptionsSpotOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SpotOptions
+	}).(InstanceInstanceMarketOptionsSpotOptionsPtrOutput)
+}
+
+type InstanceInstanceMarketOptionsSpotOptions struct {
+	// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
+	// The maximum hourly price that you're willing to pay for a Spot Instance.
+	MaxPrice *string `pulumi:"maxPrice"`
+	// The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+	SpotInstanceType *string `pulumi:"spotInstanceType"`
+	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+	ValidUntil *string `pulumi:"validUntil"`
+}
+
+// InstanceInstanceMarketOptionsSpotOptionsInput is an input type that accepts InstanceInstanceMarketOptionsSpotOptionsArgs and InstanceInstanceMarketOptionsSpotOptionsOutput values.
+// You can construct a concrete instance of `InstanceInstanceMarketOptionsSpotOptionsInput` via:
+//
+//	InstanceInstanceMarketOptionsSpotOptionsArgs{...}
+type InstanceInstanceMarketOptionsSpotOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceMarketOptionsSpotOptionsOutput() InstanceInstanceMarketOptionsSpotOptionsOutput
+	ToInstanceInstanceMarketOptionsSpotOptionsOutputWithContext(context.Context) InstanceInstanceMarketOptionsSpotOptionsOutput
+}
+
+type InstanceInstanceMarketOptionsSpotOptionsArgs struct {
+	// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+	InstanceInterruptionBehavior pulumi.StringPtrInput `pulumi:"instanceInterruptionBehavior"`
+	// The maximum hourly price that you're willing to pay for a Spot Instance.
+	MaxPrice pulumi.StringPtrInput `pulumi:"maxPrice"`
+	// The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+	SpotInstanceType pulumi.StringPtrInput `pulumi:"spotInstanceType"`
+	// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+	ValidUntil pulumi.StringPtrInput `pulumi:"validUntil"`
+}
+
+func (InstanceInstanceMarketOptionsSpotOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceMarketOptionsSpotOptions)(nil)).Elem()
+}
+
+func (i InstanceInstanceMarketOptionsSpotOptionsArgs) ToInstanceInstanceMarketOptionsSpotOptionsOutput() InstanceInstanceMarketOptionsSpotOptionsOutput {
+	return i.ToInstanceInstanceMarketOptionsSpotOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceMarketOptionsSpotOptionsArgs) ToInstanceInstanceMarketOptionsSpotOptionsOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsSpotOptionsOutput)
+}
+
+func (i InstanceInstanceMarketOptionsSpotOptionsArgs) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutput() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return i.ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceInstanceMarketOptionsSpotOptionsArgs) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsSpotOptionsOutput).ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceInstanceMarketOptionsSpotOptionsPtrInput is an input type that accepts InstanceInstanceMarketOptionsSpotOptionsArgs, InstanceInstanceMarketOptionsSpotOptionsPtr and InstanceInstanceMarketOptionsSpotOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceInstanceMarketOptionsSpotOptionsPtrInput` via:
+//
+//	        InstanceInstanceMarketOptionsSpotOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceInstanceMarketOptionsSpotOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceInstanceMarketOptionsSpotOptionsPtrOutput() InstanceInstanceMarketOptionsSpotOptionsPtrOutput
+	ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(context.Context) InstanceInstanceMarketOptionsSpotOptionsPtrOutput
+}
+
+type instanceInstanceMarketOptionsSpotOptionsPtrType InstanceInstanceMarketOptionsSpotOptionsArgs
+
+func InstanceInstanceMarketOptionsSpotOptionsPtr(v *InstanceInstanceMarketOptionsSpotOptionsArgs) InstanceInstanceMarketOptionsSpotOptionsPtrInput {
+	return (*instanceInstanceMarketOptionsSpotOptionsPtrType)(v)
+}
+
+func (*instanceInstanceMarketOptionsSpotOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceInstanceMarketOptionsSpotOptions)(nil)).Elem()
+}
+
+func (i *instanceInstanceMarketOptionsSpotOptionsPtrType) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutput() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return i.ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceInstanceMarketOptionsSpotOptionsPtrType) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceInstanceMarketOptionsSpotOptionsPtrOutput)
+}
+
+type InstanceInstanceMarketOptionsSpotOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceMarketOptionsSpotOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceInstanceMarketOptionsSpotOptions)(nil)).Elem()
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) ToInstanceInstanceMarketOptionsSpotOptionsOutput() InstanceInstanceMarketOptionsSpotOptionsOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) ToInstanceInstanceMarketOptionsSpotOptionsOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutput() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o.ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceInstanceMarketOptionsSpotOptions) *InstanceInstanceMarketOptionsSpotOptions {
+		return &v
+	}).(InstanceInstanceMarketOptionsSpotOptionsPtrOutput)
+}
+
+// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptionsSpotOptions) *string { return v.InstanceInterruptionBehavior }).(pulumi.StringPtrOutput)
+}
+
+// The maximum hourly price that you're willing to pay for a Spot Instance.
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) MaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptionsSpotOptions) *string { return v.MaxPrice }).(pulumi.StringPtrOutput)
+}
+
+// The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) SpotInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptionsSpotOptions) *string { return v.SpotInstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+func (o InstanceInstanceMarketOptionsSpotOptionsOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceInstanceMarketOptionsSpotOptions) *string { return v.ValidUntil }).(pulumi.StringPtrOutput)
+}
+
+type InstanceInstanceMarketOptionsSpotOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceInstanceMarketOptionsSpotOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceInstanceMarketOptionsSpotOptions)(nil)).Elem()
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutput() InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) ToInstanceInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx context.Context) InstanceInstanceMarketOptionsSpotOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) Elem() InstanceInstanceMarketOptionsSpotOptionsOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptionsSpotOptions) InstanceInstanceMarketOptionsSpotOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceInstanceMarketOptionsSpotOptions
+		return ret
+	}).(InstanceInstanceMarketOptionsSpotOptionsOutput)
+}
+
+// The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) InstanceInterruptionBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceInterruptionBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum hourly price that you're willing to pay for a Spot Instance.
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) MaxPrice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPrice
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) SpotInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpotInstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+func (o InstanceInstanceMarketOptionsSpotOptionsPtrOutput) ValidUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceInstanceMarketOptionsSpotOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidUntil
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceLaunchTemplate struct {
 	// ID of the launch template. Conflicts with `name`.
 	Id *string `pulumi:"id"`
@@ -24546,8 +24896,7 @@ func (o NetworkInterfaceAttachmentTypeArrayOutput) Index(i pulumi.IntInput) Netw
 }
 
 type PeeringConnectionOptionsAccepter struct {
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -24563,8 +24912,7 @@ type PeeringConnectionOptionsAccepterInput interface {
 }
 
 type PeeringConnectionOptionsAccepterArgs struct {
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -24645,8 +24993,7 @@ func (o PeeringConnectionOptionsAccepterOutput) ToPeeringConnectionOptionsAccept
 	}).(PeeringConnectionOptionsAccepterPtrOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsAccepterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PeeringConnectionOptionsAccepter) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
 }
@@ -24675,8 +25022,7 @@ func (o PeeringConnectionOptionsAccepterPtrOutput) Elem() PeeringConnectionOptio
 	}).(PeeringConnectionOptionsAccepterOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsAccepterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PeeringConnectionOptionsAccepter) *bool {
 		if v == nil {
@@ -24687,8 +25033,7 @@ func (o PeeringConnectionOptionsAccepterPtrOutput) AllowRemoteVpcDnsResolution()
 }
 
 type PeeringConnectionOptionsRequester struct {
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -24704,8 +25049,7 @@ type PeeringConnectionOptionsRequesterInput interface {
 }
 
 type PeeringConnectionOptionsRequesterArgs struct {
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -24786,8 +25130,7 @@ func (o PeeringConnectionOptionsRequesterOutput) ToPeeringConnectionOptionsReque
 	}).(PeeringConnectionOptionsRequesterPtrOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsRequesterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PeeringConnectionOptionsRequester) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
 }
@@ -24816,8 +25159,7 @@ func (o PeeringConnectionOptionsRequesterPtrOutput) Elem() PeeringConnectionOpti
 	}).(PeeringConnectionOptionsRequesterOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsRequesterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PeeringConnectionOptionsRequester) *bool {
 		if v == nil {
@@ -31714,6 +32056,8 @@ func (o VpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) VpcEndpointDnsE
 type VpcEndpointDnsOptions struct {
 	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 	DnsRecordIpType *string `pulumi:"dnsRecordIpType"`
+	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `privateDnsEnabled` is `true`.
+	PrivateDnsOnlyForInboundResolverEndpoint *bool `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 }
 
 // VpcEndpointDnsOptionsInput is an input type that accepts VpcEndpointDnsOptionsArgs and VpcEndpointDnsOptionsOutput values.
@@ -31730,6 +32074,8 @@ type VpcEndpointDnsOptionsInput interface {
 type VpcEndpointDnsOptionsArgs struct {
 	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 	DnsRecordIpType pulumi.StringPtrInput `pulumi:"dnsRecordIpType"`
+	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `privateDnsEnabled` is `true`.
+	PrivateDnsOnlyForInboundResolverEndpoint pulumi.BoolPtrInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 }
 
 func (VpcEndpointDnsOptionsArgs) ElementType() reflect.Type {
@@ -31814,6 +32160,11 @@ func (o VpcEndpointDnsOptionsOutput) DnsRecordIpType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointDnsOptions) *string { return v.DnsRecordIpType }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `privateDnsEnabled` is `true`.
+func (o VpcEndpointDnsOptionsOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcEndpointDnsOptions) *bool { return v.PrivateDnsOnlyForInboundResolverEndpoint }).(pulumi.BoolPtrOutput)
+}
+
 type VpcEndpointDnsOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointDnsOptionsPtrOutput) ElementType() reflect.Type {
@@ -31846,6 +32197,16 @@ func (o VpcEndpointDnsOptionsPtrOutput) DnsRecordIpType() pulumi.StringPtrOutput
 		}
 		return v.DnsRecordIpType
 	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `privateDnsEnabled` is `true`.
+func (o VpcEndpointDnsOptionsPtrOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsOnlyForInboundResolverEndpoint
+	}).(pulumi.BoolPtrOutput)
 }
 
 type VpcEndpointServicePrivateDnsNameConfiguration struct {
@@ -56717,6 +57078,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEnclaveOptionsPtrInput)(nil)).Elem(), InstanceEnclaveOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEphemeralBlockDeviceInput)(nil)).Elem(), InstanceEphemeralBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEphemeralBlockDeviceArrayInput)(nil)).Elem(), InstanceEphemeralBlockDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInstanceMarketOptionsInput)(nil)).Elem(), InstanceInstanceMarketOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInstanceMarketOptionsPtrInput)(nil)).Elem(), InstanceInstanceMarketOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInstanceMarketOptionsSpotOptionsInput)(nil)).Elem(), InstanceInstanceMarketOptionsSpotOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInstanceMarketOptionsSpotOptionsPtrInput)(nil)).Elem(), InstanceInstanceMarketOptionsSpotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplateInput)(nil)).Elem(), InstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplatePtrInput)(nil)).Elem(), InstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMaintenanceOptionsInput)(nil)).Elem(), InstanceMaintenanceOptionsArgs{})
@@ -57544,6 +57909,10 @@ func init() {
 	pulumi.RegisterOutputType(InstanceEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceMarketOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceMarketOptionsPtrOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceMarketOptionsSpotOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceInstanceMarketOptionsSpotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(InstanceMaintenanceOptionsOutput{})

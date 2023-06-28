@@ -65,6 +65,13 @@ namespace Pulumi.Aws
         public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+        /// `AWS_RETRY_MODE` environment variable.
+        /// </summary>
+        [Output("retryMode")]
+        public Output<string?> RetryMode { get; private set; } = null!;
+
+        /// <summary>
         /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         [Output("secretKey")]
@@ -209,6 +216,13 @@ namespace Pulumi.Aws
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+        /// `AWS_RETRY_MODE` environment variable.
+        /// </summary>
+        [Input("retryMode")]
+        public Input<string>? RetryMode { get; set; }
 
         /// <summary>
         /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By

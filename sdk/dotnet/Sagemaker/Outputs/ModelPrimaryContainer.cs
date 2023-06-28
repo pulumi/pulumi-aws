@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// <summary>
         /// The registry path where the inference code image is stored in Amazon ECR.
         /// </summary>
-        public readonly string Image;
+        public readonly string? Image;
         /// <summary>
         /// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         /// </summary>
@@ -38,6 +38,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// The URL for the S3 location where model artifacts are stored.
         /// </summary>
         public readonly string? ModelDataUrl;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the model package to use to create the model.
+        /// </summary>
+        public readonly string? ModelPackageName;
 
         [OutputConstructor]
         private ModelPrimaryContainer(
@@ -45,13 +49,15 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             ImmutableDictionary<string, string>? environment,
 
-            string image,
+            string? image,
 
             Outputs.ModelPrimaryContainerImageConfig? imageConfig,
 
             string? mode,
 
-            string? modelDataUrl)
+            string? modelDataUrl,
+
+            string? modelPackageName)
         {
             ContainerHostname = containerHostname;
             Environment = environment;
@@ -59,6 +65,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             ImageConfig = imageConfig;
             Mode = mode;
             ModelDataUrl = modelDataUrl;
+            ModelPackageName = modelPackageName;
         }
     }
 }

@@ -14,8 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class PeeringConnectionOptionsRequester
     {
         /// <summary>
-        /// Allow a local VPC to resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in the peer VPC.
+        /// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         /// </summary>
         public readonly bool? AllowRemoteVpcDnsResolution;
 

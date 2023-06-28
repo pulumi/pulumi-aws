@@ -65,6 +65,63 @@ import (
 //	}
 //
 // ```
+// ### Spot instance example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			thisAmi, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"amazon",
+//				},
+//				Filters: []ec2.GetAmiFilter{
+//					{
+//						Name: "architecture",
+//						Values: []string{
+//							"arm64",
+//						},
+//					},
+//					{
+//						Name: "name",
+//						Values: []string{
+//							"al2023-ami-2023*",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewInstance(ctx, "thisInstance", &ec2.InstanceArgs{
+//				Ami: *pulumi.String(thisAmi.Id),
+//				InstanceMarketOptions: &ec2.InstanceInstanceMarketOptionsArgs{
+//					SpotOptions: &ec2.InstanceInstanceMarketOptionsSpotOptionsArgs{
+//						MaxPrice: pulumi.String("0.0031"),
+//					},
+//				},
+//				InstanceType: pulumi.String("t4g.nano"),
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("test-spot"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Network and credit specification example
 //
 // ```go
@@ -296,6 +353,10 @@ type Instance struct {
 	IamInstanceProfile pulumi.StringOutput `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringOutput `pulumi:"instanceInitiatedShutdownBehavior"`
+	// Indicates whether this is a Spot Instance or a Scheduled Instance.
+	InstanceLifecycle pulumi.StringOutput `pulumi:"instanceLifecycle"`
+	// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+	InstanceMarketOptions InstanceInstanceMarketOptionsOutput `pulumi:"instanceMarketOptions"`
 	// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState pulumi.StringOutput `pulumi:"instanceState"`
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -348,6 +409,8 @@ type Instance struct {
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
+	// If the request is a Spot Instance request, the ID of the request.
+	SpotInstanceRequestId pulumi.StringOutput `pulumi:"spotInstanceRequestId"`
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -447,6 +510,10 @@ type instanceState struct {
 	IamInstanceProfile interface{} `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
+	// Indicates whether this is a Spot Instance or a Scheduled Instance.
+	InstanceLifecycle *string `pulumi:"instanceLifecycle"`
+	// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+	InstanceMarketOptions *InstanceInstanceMarketOptions `pulumi:"instanceMarketOptions"`
 	// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState *string `pulumi:"instanceState"`
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -499,6 +566,8 @@ type instanceState struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
+	// If the request is a Spot Instance request, the ID of the request.
+	SpotInstanceRequestId *string `pulumi:"spotInstanceRequestId"`
 	// VPC Subnet ID to launch in.
 	SubnetId *string `pulumi:"subnetId"`
 	// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -570,6 +639,10 @@ type InstanceState struct {
 	IamInstanceProfile pulumi.Input
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
+	// Indicates whether this is a Spot Instance or a Scheduled Instance.
+	InstanceLifecycle pulumi.StringPtrInput
+	// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+	InstanceMarketOptions InstanceInstanceMarketOptionsPtrInput
 	// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState pulumi.StringPtrInput
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -622,6 +695,8 @@ type InstanceState struct {
 	SecurityGroups pulumi.StringArrayInput
 	// Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 	SourceDestCheck pulumi.BoolPtrInput
+	// If the request is a Spot Instance request, the ID of the request.
+	SpotInstanceRequestId pulumi.StringPtrInput
 	// VPC Subnet ID to launch in.
 	SubnetId pulumi.StringPtrInput
 	// Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -695,6 +770,8 @@ type instanceArgs struct {
 	IamInstanceProfile interface{} `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
+	// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+	InstanceMarketOptions *InstanceInstanceMarketOptions `pulumi:"instanceMarketOptions"`
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType *string `pulumi:"instanceType"`
 	// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -801,6 +878,8 @@ type InstanceArgs struct {
 	IamInstanceProfile pulumi.Input
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
+	// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+	InstanceMarketOptions InstanceInstanceMarketOptionsPtrInput
 	// Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringPtrInput
 	// Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -1059,6 +1138,16 @@ func (o InstanceOutput) InstanceInitiatedShutdownBehavior() pulumi.StringOutput 
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceInitiatedShutdownBehavior }).(pulumi.StringOutput)
 }
 
+// Indicates whether this is a Spot Instance or a Scheduled Instance.
+func (o InstanceOutput) InstanceLifecycle() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceLifecycle }).(pulumi.StringOutput)
+}
+
+// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+func (o InstanceOutput) InstanceMarketOptions() InstanceInstanceMarketOptionsOutput {
+	return o.ApplyT(func(v *Instance) InstanceInstanceMarketOptionsOutput { return v.InstanceMarketOptions }).(InstanceInstanceMarketOptionsOutput)
+}
+
 // State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 func (o InstanceOutput) InstanceState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceState }).(pulumi.StringOutput)
@@ -1181,6 +1270,11 @@ func (o InstanceOutput) SecurityGroups() pulumi.StringArrayOutput {
 // Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
 func (o InstanceOutput) SourceDestCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.SourceDestCheck }).(pulumi.BoolPtrOutput)
+}
+
+// If the request is a Spot Instance request, the ID of the request.
+func (o InstanceOutput) SpotInstanceRequestId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.SpotInstanceRequestId }).(pulumi.StringOutput)
 }
 
 // VPC Subnet ID to launch in.

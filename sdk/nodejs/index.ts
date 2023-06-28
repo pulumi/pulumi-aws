@@ -188,6 +188,7 @@ import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
 import * as emrserverless from "./emrserverless";
 import * as evidently from "./evidently";
+import * as finspace from "./finspace";
 import * as fis from "./fis";
 import * as fms from "./fms";
 import * as fsx from "./fsx";
@@ -382,6 +383,7 @@ export {
     emrcontainers,
     emrserverless,
     evidently,
+    finspace,
     fis,
     fms,
     fsx,

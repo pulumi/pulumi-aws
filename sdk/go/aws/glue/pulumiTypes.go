@@ -3694,7 +3694,7 @@ func (o CrawlerLakeFormationConfigurationPtrOutput) UseLakeFormationCredentials(
 }
 
 type CrawlerLineageConfiguration struct {
-	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 	CrawlerLineageSettings *string `pulumi:"crawlerLineageSettings"`
 }
 
@@ -3710,7 +3710,7 @@ type CrawlerLineageConfigurationInput interface {
 }
 
 type CrawlerLineageConfigurationArgs struct {
-	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 	CrawlerLineageSettings pulumi.StringPtrInput `pulumi:"crawlerLineageSettings"`
 }
 
@@ -3791,7 +3791,7 @@ func (o CrawlerLineageConfigurationOutput) ToCrawlerLineageConfigurationPtrOutpu
 	}).(CrawlerLineageConfigurationPtrOutput)
 }
 
-// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 func (o CrawlerLineageConfigurationOutput) CrawlerLineageSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerLineageConfiguration) *string { return v.CrawlerLineageSettings }).(pulumi.StringPtrOutput)
 }
@@ -3820,7 +3820,7 @@ func (o CrawlerLineageConfigurationPtrOutput) Elem() CrawlerLineageConfiguration
 	}).(CrawlerLineageConfigurationOutput)
 }
 
-// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 func (o CrawlerLineageConfigurationPtrOutput) CrawlerLineageSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerLineageConfiguration) *string {
 		if v == nil {
@@ -4873,6 +4873,8 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 }
 
 type DataQualityRulesetTargetTable struct {
+	// The catalog id where the AWS Glue table exists.
+	CatalogId *string `pulumi:"catalogId"`
 	// Name of the database where the AWS Glue table exists.
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the AWS Glue table.
@@ -4891,6 +4893,8 @@ type DataQualityRulesetTargetTableInput interface {
 }
 
 type DataQualityRulesetTargetTableArgs struct {
+	// The catalog id where the AWS Glue table exists.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// Name of the database where the AWS Glue table exists.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the AWS Glue table.
@@ -4974,6 +4978,11 @@ func (o DataQualityRulesetTargetTableOutput) ToDataQualityRulesetTargetTablePtrO
 	}).(DataQualityRulesetTargetTablePtrOutput)
 }
 
+// The catalog id where the AWS Glue table exists.
+func (o DataQualityRulesetTargetTableOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataQualityRulesetTargetTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
 // Name of the database where the AWS Glue table exists.
 func (o DataQualityRulesetTargetTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataQualityRulesetTargetTable) string { return v.DatabaseName }).(pulumi.StringOutput)
@@ -5006,6 +5015,16 @@ func (o DataQualityRulesetTargetTablePtrOutput) Elem() DataQualityRulesetTargetT
 		var ret DataQualityRulesetTargetTable
 		return ret
 	}).(DataQualityRulesetTargetTableOutput)
+}
+
+// The catalog id where the AWS Glue table exists.
+func (o DataQualityRulesetTargetTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRulesetTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the database where the AWS Glue table exists.

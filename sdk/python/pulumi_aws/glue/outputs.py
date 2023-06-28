@@ -1616,7 +1616,7 @@ class CrawlerLineageConfiguration(dict):
     def __init__(__self__, *,
                  crawler_lineage_settings: Optional[str] = None):
         """
-        :param str crawler_lineage_settings: Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+        :param str crawler_lineage_settings: Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
         """
         if crawler_lineage_settings is not None:
             pulumi.set(__self__, "crawler_lineage_settings", crawler_lineage_settings)
@@ -1625,7 +1625,7 @@ class CrawlerLineageConfiguration(dict):
     @pulumi.getter(name="crawlerLineageSettings")
     def crawler_lineage_settings(self) -> Optional[str]:
         """
-        Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+        Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
         """
         return pulumi.get(self, "crawler_lineage_settings")
 
@@ -2040,6 +2040,8 @@ class DataQualityRulesetTargetTable(dict):
             suggest = "database_name"
         elif key == "tableName":
             suggest = "table_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataQualityRulesetTargetTable. Access the value via the '{suggest}' property getter instead.")
@@ -2054,13 +2056,17 @@ class DataQualityRulesetTargetTable(dict):
 
     def __init__(__self__, *,
                  database_name: str,
-                 table_name: str):
+                 table_name: str,
+                 catalog_id: Optional[str] = None):
         """
         :param str database_name: Name of the database where the AWS Glue table exists.
         :param str table_name: Name of the AWS Glue table.
+        :param str catalog_id: The catalog id where the AWS Glue table exists.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -2077,6 +2083,14 @@ class DataQualityRulesetTargetTable(dict):
         Name of the AWS Glue table.
         """
         return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        The catalog id where the AWS Glue table exists.
+        """
+        return pulumi.get(self, "catalog_id")
 
 
 @pulumi.output_type

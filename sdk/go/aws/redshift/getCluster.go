@@ -46,6 +46,8 @@ type LookupClusterResult struct {
 	BucketName string `pulumi:"bucketName"`
 	// Cluster identifier
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// The namespace Amazon Resource Name (ARN) of the cluster
+	ClusterNamespaceArn string `pulumi:"clusterNamespaceArn"`
 	// Nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes []GetClusterClusterNode `pulumi:"clusterNodes"`
 	// The name of the parameter group to be associated with this cluster
@@ -61,7 +63,7 @@ type LookupClusterResult struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// Name of the default database in the cluster
 	DatabaseName string `pulumi:"databaseName"`
-	// ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+	// The ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn string `pulumi:"defaultIamRoleArn"`
 	// Elastic IP of the cluster
 	ElasticIp string `pulumi:"elasticIp"`
@@ -189,6 +191,11 @@ func (o LookupClusterResultOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
+// The namespace Amazon Resource Name (ARN) of the cluster
+func (o LookupClusterResultOutput) ClusterNamespaceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterNamespaceArn }).(pulumi.StringOutput)
+}
+
 // Nodes in the cluster. Cluster node blocks are documented below
 func (o LookupClusterResultOutput) ClusterNodes() GetClusterClusterNodeArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterClusterNode { return v.ClusterNodes }).(GetClusterClusterNodeArrayOutput)
@@ -228,7 +235,7 @@ func (o LookupClusterResultOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+// The ARN for the IAM role that was set as default for the cluster when the cluster was created.
 func (o LookupClusterResultOutput) DefaultIamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
 }

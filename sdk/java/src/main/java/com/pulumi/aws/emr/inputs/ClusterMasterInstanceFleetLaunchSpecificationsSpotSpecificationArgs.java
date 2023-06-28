@@ -17,14 +17,14 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificati
     public static final ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs Empty = new ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs();
 
     /**
-     * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+     * Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
      * 
      */
     @Import(name="allocationStrategy", required=true)
     private Output<String> allocationStrategy;
 
     /**
-     * @return Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+     * @return Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
      * 
      */
     public Output<String> allocationStrategy() {
@@ -104,7 +104,7 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificati
         }
 
         /**
-         * @param allocationStrategy Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * @param allocationStrategy Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificati
         }
 
         /**
-         * @param allocationStrategy Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * @param allocationStrategy Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
          * 
          * @return builder
          * 

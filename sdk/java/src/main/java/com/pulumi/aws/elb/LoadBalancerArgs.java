@@ -256,14 +256,14 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of subnet IDs to attach to the ELB.
+     * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
     @Import(name="subnets")
     private @Nullable Output<List<String>> subnets;
 
     /**
-     * @return A list of subnet IDs to attach to the ELB.
+     * @return A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
     public Optional<Output<List<String>>> subnets() {
@@ -696,7 +696,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the ELB.
+         * @param subnets A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
          * 
          * @return builder
          * 
@@ -707,7 +707,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the ELB.
+         * @param subnets A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
          * 
          * @return builder
          * 
@@ -717,7 +717,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnets A list of subnet IDs to attach to the ELB.
+         * @param subnets A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
          * 
          * @return builder
          * 

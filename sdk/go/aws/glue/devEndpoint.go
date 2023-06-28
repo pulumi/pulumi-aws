@@ -88,7 +88,7 @@ type DevEndpoint struct {
 	pulumi.CustomResourceState
 
 	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.MapOutput `pulumi:"arguments"`
+	Arguments pulumi.StringMapOutput `pulumi:"arguments"`
 	// The ARN of the endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS availability zone where this endpoint is located.
@@ -172,7 +172,7 @@ func GetDevEndpoint(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DevEndpoint resources.
 type devEndpointState struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments map[string]interface{} `pulumi:"arguments"`
+	Arguments map[string]string `pulumi:"arguments"`
 	// The ARN of the endpoint.
 	Arn *string `pulumi:"arn"`
 	// The AWS availability zone where this endpoint is located.
@@ -225,7 +225,7 @@ type devEndpointState struct {
 
 type DevEndpointState struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.MapInput
+	Arguments pulumi.StringMapInput
 	// The ARN of the endpoint.
 	Arn pulumi.StringPtrInput
 	// The AWS availability zone where this endpoint is located.
@@ -282,7 +282,7 @@ func (DevEndpointState) ElementType() reflect.Type {
 
 type devEndpointArgs struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments map[string]interface{} `pulumi:"arguments"`
+	Arguments map[string]string `pulumi:"arguments"`
 	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
 	ExtraJarsS3Path *string `pulumi:"extraJarsS3Path"`
 	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
@@ -316,7 +316,7 @@ type devEndpointArgs struct {
 // The set of arguments for constructing a DevEndpoint resource.
 type DevEndpointArgs struct {
 	// A map of arguments used to configure the endpoint.
-	Arguments pulumi.MapInput
+	Arguments pulumi.StringMapInput
 	// Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
 	ExtraJarsS3Path pulumi.StringPtrInput
 	// Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
@@ -435,8 +435,8 @@ func (o DevEndpointOutput) ToDevEndpointOutputWithContext(ctx context.Context) D
 }
 
 // A map of arguments used to configure the endpoint.
-func (o DevEndpointOutput) Arguments() pulumi.MapOutput {
-	return o.ApplyT(func(v *DevEndpoint) pulumi.MapOutput { return v.Arguments }).(pulumi.MapOutput)
+func (o DevEndpointOutput) Arguments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringMapOutput { return v.Arguments }).(pulumi.StringMapOutput)
 }
 
 // The ARN of the endpoint.

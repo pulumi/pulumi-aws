@@ -223,7 +223,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         public Output<string> SourceSecurityGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the ELB.
+        /// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
@@ -417,7 +417,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the ELB.
+        /// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         /// </summary>
         public InputList<string> Subnets
         {
@@ -590,7 +590,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// A list of subnet IDs to attach to the ELB.
+        /// A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
         /// </summary>
         public InputList<string> Subnets
         {

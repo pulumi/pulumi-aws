@@ -528,7 +528,7 @@ namespace Pulumi.Aws.Quicksight
             set => _permissions = value;
         }
 
-        [Input("physicalTableMaps", required: true)]
+        [Input("physicalTableMaps")]
         private InputList<Inputs.DataSetPhysicalTableMapArgs>? _physicalTableMaps;
 
         /// <summary>
