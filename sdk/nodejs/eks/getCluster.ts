@@ -20,13 +20,10 @@ import * as utilities from "../utilities";
  *     const example = await aws.eks.getCluster({
  *         name: "example",
  *     });
- *     const endpoint = example.endpoint;
- *     const kubeconfig_certificate_authority_data = example.certificateAuthorities?.[0]?.data;
- *     const identity_oidc_issuer = example.identities?.[0]?.oidcs?.[0]?.issuer;
  *     return {
- *         endpoint: endpoint,
- *         "kubeconfig-certificate-authority-data": kubeconfig_certificate_authority_data,
- *         "identity-oidc-issuer": identity_oidc_issuer,
+ *         endpoint: example.endpoint,
+ *         "kubeconfig-certificate-authority-data": example.certificateAuthorities?.[0]?.data,
+ *         "identity-oidc-issuer": example.identities?.[0]?.oidcs?.[0]?.issuer,
  *     };
  * }
  * ```
@@ -137,13 +134,10 @@ export interface GetClusterResult {
  *     const example = await aws.eks.getCluster({
  *         name: "example",
  *     });
- *     const endpoint = example.endpoint;
- *     const kubeconfig_certificate_authority_data = example.certificateAuthorities?.[0]?.data;
- *     const identity_oidc_issuer = example.identities?.[0]?.oidcs?.[0]?.issuer;
  *     return {
- *         endpoint: endpoint,
- *         "kubeconfig-certificate-authority-data": kubeconfig_certificate_authority_data,
- *         "identity-oidc-issuer": identity_oidc_issuer,
+ *         endpoint: example.endpoint,
+ *         "kubeconfig-certificate-authority-data": example.certificateAuthorities?.[0]?.data,
+ *         "identity-oidc-issuer": example.identities?.[0]?.oidcs?.[0]?.issuer,
  *     };
  * }
  * ```
