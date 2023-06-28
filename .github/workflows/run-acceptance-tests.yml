@@ -98,6 +98,12 @@ jobs:
         $GITHUB_ENV
     - name: Build SDK
       run: make build_${{ matrix.language }}
+    # Commit all changed files back to the repository
+    - name: Commit generated SDK
+      uses: rquitales/git-recommit-action@v1
+      with:
+        commit_message: "[automated] Add generated SDKs"
+        file_pattern: sdk/
     - name: Check worktree clean
       run: ./ci-scripts/ci/check-worktree-is-clean
     - name: Compress SDK folder
