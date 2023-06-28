@@ -13,14 +13,14 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("statements", required: true)]
-        private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementGetArgs>? _statements;
+        private InputList<Inputs.WebAclRuleStatementGetArgs>? _statements;
 
         /// <summary>
-        /// Statements to combine with `OR` logic. You can use any statements that can be nested. See `statement` above for details.
+        /// The statements to combine.
         /// </summary>
-        public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementGetArgs> Statements
+        public InputList<Inputs.WebAclRuleStatementGetArgs> Statements
         {
-            get => _statements ?? (_statements = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementGetArgs>());
+            get => _statements ?? (_statements = new InputList<Inputs.WebAclRuleStatementGetArgs>());
             set => _statements = value;
         }
 

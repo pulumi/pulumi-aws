@@ -14,12 +14,12 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement
     {
         /// <summary>
-        /// The statement to negate. You can use any statement that can be nested. See Statement above for details.
+        /// The statements to combine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatement> Statements;
+        public readonly ImmutableArray<Outputs.RuleGroupRuleStatement> Statements;
 
         [OutputConstructor]
-        private RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement(ImmutableArray<Outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatement> statements)
+        private RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement(ImmutableArray<Outputs.RuleGroupRuleStatement> statements)
         {
             Statements = statements;
         }
