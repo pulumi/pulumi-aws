@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementOrStatementStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementOrStatement {
     /**
-     * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See `statement` above for details.
+     * @return The statements to combine.
      * 
      */
-    private List<WebAclRuleStatementOrStatementStatement> statements;
+    private List<WebAclRuleStatement> statements;
 
     private WebAclRuleStatementOrStatement() {}
     /**
-     * @return Statements to combine with `OR` logic. You can use any statements that can be nested. See `statement` above for details.
+     * @return The statements to combine.
      * 
      */
-    public List<WebAclRuleStatementOrStatementStatement> statements() {
+    public List<WebAclRuleStatement> statements() {
         return this.statements;
     }
 
@@ -34,7 +34,7 @@ public final class WebAclRuleStatementOrStatement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<WebAclRuleStatementOrStatementStatement> statements;
+        private List<WebAclRuleStatement> statements;
         public Builder() {}
         public Builder(WebAclRuleStatementOrStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,11 +42,11 @@ public final class WebAclRuleStatementOrStatement {
         }
 
         @CustomType.Setter
-        public Builder statements(List<WebAclRuleStatementOrStatementStatement> statements) {
+        public Builder statements(List<WebAclRuleStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
-        public Builder statements(WebAclRuleStatementOrStatementStatement... statements) {
+        public Builder statements(WebAclRuleStatement... statements) {
             return statements(List.of(statements));
         }
         public WebAclRuleStatementOrStatement build() {

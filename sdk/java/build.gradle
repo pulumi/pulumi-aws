@@ -29,7 +29,7 @@ java {
 
 compileJava {
     options.fork = true
-    options.forkOptions.jvmArgs.addAll(["-Xmx16g"])
+    options.forkOptions.jvmArgs.addAll(["-Xmx4g"])
 }
 
 repositories {
@@ -43,7 +43,7 @@ repositories {
 dependencies {
     implementation("com.google.code.findbugs:jsr305:3.0.2")
     implementation("com.google.code.gson:gson:2.8.9")
-    implementation("com.pulumi:pulumi:0.9.3")
+    implementation("com.pulumi:pulumi:0.9.2")
 }
 
 task sourcesJar(type: Jar) {
@@ -125,10 +125,6 @@ javadoc {
         options.addBooleanOption('html5', true)
     }
     options.jFlags("-Xmx8g", "-Xms512m")
-}
-
-jar {
-    zip64 = true
 }
 
 if (publishRepoUsername) {

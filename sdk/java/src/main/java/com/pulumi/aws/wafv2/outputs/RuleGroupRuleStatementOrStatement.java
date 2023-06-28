@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementOrStatementStatement;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementOrStatement {
     /**
-     * @return The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+     * @return The statements to combine.
      * 
      */
-    private List<RuleGroupRuleStatementOrStatementStatement> statements;
+    private List<RuleGroupRuleStatement> statements;
 
     private RuleGroupRuleStatementOrStatement() {}
     /**
-     * @return The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+     * @return The statements to combine.
      * 
      */
-    public List<RuleGroupRuleStatementOrStatementStatement> statements() {
+    public List<RuleGroupRuleStatement> statements() {
         return this.statements;
     }
 
@@ -34,7 +34,7 @@ public final class RuleGroupRuleStatementOrStatement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<RuleGroupRuleStatementOrStatementStatement> statements;
+        private List<RuleGroupRuleStatement> statements;
         public Builder() {}
         public Builder(RuleGroupRuleStatementOrStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,11 +42,11 @@ public final class RuleGroupRuleStatementOrStatement {
         }
 
         @CustomType.Setter
-        public Builder statements(List<RuleGroupRuleStatementOrStatementStatement> statements) {
+        public Builder statements(List<RuleGroupRuleStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
-        public Builder statements(RuleGroupRuleStatementOrStatementStatement... statements) {
+        public Builder statements(RuleGroupRuleStatement... statements) {
             return statements(List.of(statements));
         }
         public RuleGroupRuleStatementOrStatement build() {
