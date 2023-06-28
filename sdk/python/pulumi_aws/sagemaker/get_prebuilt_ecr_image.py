@@ -141,13 +141,13 @@ def get_prebuilt_ecr_image(dns_suffix: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage', __args__, opts=opts, typ=GetPrebuiltEcrImageResult).value
 
     return AwaitableGetPrebuiltEcrImageResult(
-        dns_suffix=__ret__.dns_suffix,
-        id=__ret__.id,
-        image_tag=__ret__.image_tag,
-        region=__ret__.region,
-        registry_id=__ret__.registry_id,
-        registry_path=__ret__.registry_path,
-        repository_name=__ret__.repository_name)
+        dns_suffix=pulumi.get(__ret__, 'dns_suffix'),
+        id=pulumi.get(__ret__, 'id'),
+        image_tag=pulumi.get(__ret__, 'image_tag'),
+        region=pulumi.get(__ret__, 'region'),
+        registry_id=pulumi.get(__ret__, 'registry_id'),
+        registry_path=pulumi.get(__ret__, 'registry_path'),
+        repository_name=pulumi.get(__ret__, 'repository_name'))
 
 
 @_utilities.lift_output_func(get_prebuilt_ecr_image)

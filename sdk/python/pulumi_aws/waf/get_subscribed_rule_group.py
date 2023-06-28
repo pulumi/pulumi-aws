@@ -102,9 +102,9 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup', __args__, opts=opts, typ=GetSubscribedRuleGroupResult).value
 
     return AwaitableGetSubscribedRuleGroupResult(
-        id=__ret__.id,
-        metric_name=__ret__.metric_name,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        metric_name=pulumi.get(__ret__, 'metric_name'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_subscribed_rule_group)

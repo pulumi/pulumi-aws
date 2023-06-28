@@ -237,7 +237,7 @@ def get_directory(directory_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.directoryservice.get_directory(directory_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.directoryservice.get_directory(directory_id=aws_directory_service_directory["main"]["id"])
     ```
 
 
@@ -251,23 +251,23 @@ def get_directory(directory_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:directoryservice/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult).value
 
     return AwaitableGetDirectoryResult(
-        access_url=__ret__.access_url,
-        alias=__ret__.alias,
-        connect_settings=__ret__.connect_settings,
-        description=__ret__.description,
-        directory_id=__ret__.directory_id,
-        dns_ip_addresses=__ret__.dns_ip_addresses,
-        edition=__ret__.edition,
-        enable_sso=__ret__.enable_sso,
-        id=__ret__.id,
-        name=__ret__.name,
-        radius_settings=__ret__.radius_settings,
-        security_group_id=__ret__.security_group_id,
-        short_name=__ret__.short_name,
-        size=__ret__.size,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vpc_settings=__ret__.vpc_settings)
+        access_url=pulumi.get(__ret__, 'access_url'),
+        alias=pulumi.get(__ret__, 'alias'),
+        connect_settings=pulumi.get(__ret__, 'connect_settings'),
+        description=pulumi.get(__ret__, 'description'),
+        directory_id=pulumi.get(__ret__, 'directory_id'),
+        dns_ip_addresses=pulumi.get(__ret__, 'dns_ip_addresses'),
+        edition=pulumi.get(__ret__, 'edition'),
+        enable_sso=pulumi.get(__ret__, 'enable_sso'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        radius_settings=pulumi.get(__ret__, 'radius_settings'),
+        security_group_id=pulumi.get(__ret__, 'security_group_id'),
+        short_name=pulumi.get(__ret__, 'short_name'),
+        size=pulumi.get(__ret__, 'size'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vpc_settings=pulumi.get(__ret__, 'vpc_settings'))
 
 
 @_utilities.lift_output_func(get_directory)
@@ -283,7 +283,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.directoryservice.get_directory(directory_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.directoryservice.get_directory(directory_id=aws_directory_service_directory["main"]["id"])
     ```
 
 

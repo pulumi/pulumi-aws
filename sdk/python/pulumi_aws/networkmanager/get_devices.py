@@ -96,7 +96,7 @@ def get_devices(global_network_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_devices(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.networkmanager.get_devices(global_network_id=var["global_network_id"],
         tags={
             "Env": "test",
         })
@@ -115,11 +115,11 @@ def get_devices(global_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:networkmanager/getDevices:getDevices', __args__, opts=opts, typ=GetDevicesResult).value
 
     return AwaitableGetDevicesResult(
-        global_network_id=__ret__.global_network_id,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        site_id=__ret__.site_id,
-        tags=__ret__.tags)
+        global_network_id=pulumi.get(__ret__, 'global_network_id'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        site_id=pulumi.get(__ret__, 'site_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_devices)
@@ -136,7 +136,7 @@ def get_devices_output(global_network_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_devices(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.networkmanager.get_devices(global_network_id=var["global_network_id"],
         tags={
             "Env": "test",
         })

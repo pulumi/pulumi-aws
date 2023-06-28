@@ -192,17 +192,17 @@ def get_server_certificate(latest: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getServerCertificate:getServerCertificate', __args__, opts=opts, typ=GetServerCertificateResult).value
 
     return AwaitableGetServerCertificateResult(
-        arn=__ret__.arn,
-        certificate_body=__ret__.certificate_body,
-        certificate_chain=__ret__.certificate_chain,
-        expiration_date=__ret__.expiration_date,
-        id=__ret__.id,
-        latest=__ret__.latest,
-        name=__ret__.name,
-        name_prefix=__ret__.name_prefix,
-        path=__ret__.path,
-        path_prefix=__ret__.path_prefix,
-        upload_date=__ret__.upload_date)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate_body=pulumi.get(__ret__, 'certificate_body'),
+        certificate_chain=pulumi.get(__ret__, 'certificate_chain'),
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        id=pulumi.get(__ret__, 'id'),
+        latest=pulumi.get(__ret__, 'latest'),
+        name=pulumi.get(__ret__, 'name'),
+        name_prefix=pulumi.get(__ret__, 'name_prefix'),
+        path=pulumi.get(__ret__, 'path'),
+        path_prefix=pulumi.get(__ret__, 'path_prefix'),
+        upload_date=pulumi.get(__ret__, 'upload_date'))
 
 
 @_utilities.lift_output_func(get_server_certificate)

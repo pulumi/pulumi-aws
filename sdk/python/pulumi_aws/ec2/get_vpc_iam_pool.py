@@ -314,26 +314,26 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcIamPool:getVpcIamPool', __args__, opts=opts, typ=GetVpcIamPoolResult).value
 
     return AwaitableGetVpcIamPoolResult(
-        address_family=__ret__.address_family,
-        allocation_default_netmask_length=__ret__.allocation_default_netmask_length,
-        allocation_max_netmask_length=__ret__.allocation_max_netmask_length,
-        allocation_min_netmask_length=__ret__.allocation_min_netmask_length,
-        allocation_resource_tags=__ret__.allocation_resource_tags,
-        arn=__ret__.arn,
-        auto_import=__ret__.auto_import,
-        aws_service=__ret__.aws_service,
-        description=__ret__.description,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ipam_pool_id=__ret__.ipam_pool_id,
-        ipam_scope_id=__ret__.ipam_scope_id,
-        ipam_scope_type=__ret__.ipam_scope_type,
-        locale=__ret__.locale,
-        pool_depth=__ret__.pool_depth,
-        publicly_advertisable=__ret__.publicly_advertisable,
-        source_ipam_pool_id=__ret__.source_ipam_pool_id,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        address_family=pulumi.get(__ret__, 'address_family'),
+        allocation_default_netmask_length=pulumi.get(__ret__, 'allocation_default_netmask_length'),
+        allocation_max_netmask_length=pulumi.get(__ret__, 'allocation_max_netmask_length'),
+        allocation_min_netmask_length=pulumi.get(__ret__, 'allocation_min_netmask_length'),
+        allocation_resource_tags=pulumi.get(__ret__, 'allocation_resource_tags'),
+        arn=pulumi.get(__ret__, 'arn'),
+        auto_import=pulumi.get(__ret__, 'auto_import'),
+        aws_service=pulumi.get(__ret__, 'aws_service'),
+        description=pulumi.get(__ret__, 'description'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'),
+        ipam_scope_id=pulumi.get(__ret__, 'ipam_scope_id'),
+        ipam_scope_type=pulumi.get(__ret__, 'ipam_scope_type'),
+        locale=pulumi.get(__ret__, 'locale'),
+        pool_depth=pulumi.get(__ret__, 'pool_depth'),
+        publicly_advertisable=pulumi.get(__ret__, 'publicly_advertisable'),
+        source_ipam_pool_id=pulumi.get(__ret__, 'source_ipam_pool_id'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_vpc_iam_pool)

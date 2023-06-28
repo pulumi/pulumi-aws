@@ -138,12 +138,12 @@ def get_local_gateway(filters: Optional[Sequence[pulumi.InputType['GetLocalGatew
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLocalGateway:getLocalGateway', __args__, opts=opts, typ=GetLocalGatewayResult).value
 
     return AwaitableGetLocalGatewayResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        outpost_arn=__ret__.outpost_arn,
-        owner_id=__ret__.owner_id,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_local_gateway)

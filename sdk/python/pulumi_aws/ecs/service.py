@@ -1006,7 +1006,7 @@ class Service(pulumi.CustomResource):
                 field="cpu",
             )],
             load_balancers=[aws.ecs.ServiceLoadBalancerArgs(
-                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                target_group_arn=aws_lb_target_group["foo"]["arn"],
                 container_name="mongo",
                 container_port=8080,
             )],
@@ -1135,7 +1135,7 @@ class Service(pulumi.CustomResource):
                 field="cpu",
             )],
             load_balancers=[aws.ecs.ServiceLoadBalancerArgs(
-                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                target_group_arn=aws_lb_target_group["foo"]["arn"],
                 container_name="mongo",
                 container_port=8080,
             )],

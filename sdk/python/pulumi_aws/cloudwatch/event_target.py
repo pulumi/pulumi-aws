@@ -735,10 +735,10 @@ class EventTarget(pulumi.CustomResource):
 
         example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
         # ...
-        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=aws_api_gateway_rest_api["example"]["id"])
         # ...
         example_stage = aws.apigateway.Stage("exampleStage",
-            rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
             deployment=example_deployment.id)
         # ...
         example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
@@ -1042,10 +1042,10 @@ class EventTarget(pulumi.CustomResource):
 
         example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
         # ...
-        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=aws_api_gateway_rest_api["example"]["id"])
         # ...
         example_stage = aws.apigateway.Stage("exampleStage",
-            rest_api=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            rest_api=aws_api_gateway_rest_api["example"]["id"],
             deployment=example_deployment.id)
         # ...
         example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",

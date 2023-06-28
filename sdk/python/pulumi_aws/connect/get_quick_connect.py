@@ -168,14 +168,14 @@ def get_quick_connect(instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getQuickConnect:getQuickConnect', __args__, opts=opts, typ=GetQuickConnectResult).value
 
     return AwaitableGetQuickConnectResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        name=__ret__.name,
-        quick_connect_configs=__ret__.quick_connect_configs,
-        quick_connect_id=__ret__.quick_connect_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        name=pulumi.get(__ret__, 'name'),
+        quick_connect_configs=pulumi.get(__ret__, 'quick_connect_configs'),
+        quick_connect_id=pulumi.get(__ret__, 'quick_connect_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_quick_connect)

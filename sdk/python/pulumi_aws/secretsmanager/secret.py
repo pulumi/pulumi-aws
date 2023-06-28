@@ -172,6 +172,9 @@ class SecretArgs:
         """
         ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         """
+        warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rotation_lambda_arn is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
+
         return pulumi.get(self, "rotation_lambda_arn")
 
     @rotation_lambda_arn.setter
@@ -184,6 +187,9 @@ class SecretArgs:
         """
         Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         """
+        warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rotation_rules is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
+
         return pulumi.get(self, "rotation_rules")
 
     @rotation_rules.setter
@@ -389,6 +395,9 @@ class _SecretState:
         """
         Whether automatic rotation is enabled for this secret.
         """
+        warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rotation_enabled is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
+
         return pulumi.get(self, "rotation_enabled")
 
     @rotation_enabled.setter
@@ -401,6 +410,9 @@ class _SecretState:
         """
         ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         """
+        warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rotation_lambda_arn is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
+
         return pulumi.get(self, "rotation_lambda_arn")
 
     @rotation_lambda_arn.setter
@@ -413,6 +425,9 @@ class _SecretState:
         """
         Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         """
+        warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rotation_rules is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
+
         return pulumi.get(self, "rotation_rules")
 
     @rotation_rules.setter
@@ -758,6 +773,9 @@ class Secret(pulumi.CustomResource):
         """
         Whether automatic rotation is enabled for this secret.
         """
+        warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rotation_enabled is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
+
         return pulumi.get(self, "rotation_enabled")
 
     @property
@@ -766,6 +784,9 @@ class Secret(pulumi.CustomResource):
         """
         ARN of the Lambda function that can rotate the secret. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         """
+        warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rotation_lambda_arn is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
+
         return pulumi.get(self, "rotation_lambda_arn")
 
     @property
@@ -774,6 +795,9 @@ class Secret(pulumi.CustomResource):
         """
         Configuration block for the rotation configuration of this secret. Defined below. Use the `secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
         """
+        warnings.warn("""Use the aws_secretsmanager_secret_rotation resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rotation_rules is deprecated: Use the aws_secretsmanager_secret_rotation resource instead""")
+
         return pulumi.get(self, "rotation_rules")
 
     @property

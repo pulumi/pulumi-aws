@@ -531,7 +531,7 @@ class Channel(pulumi.CustomResource):
             ),
             input_attachments=[aws.medialive.ChannelInputAttachmentArgs(
                 input_attachment_name="example-input",
-                input_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                input_id=aws_medialive_input["example"]["id"],
             )],
             destinations=[aws.medialive.ChannelDestinationArgs(
                 id="destination",
@@ -637,7 +637,7 @@ class Channel(pulumi.CustomResource):
             ),
             input_attachments=[aws.medialive.ChannelInputAttachmentArgs(
                 input_attachment_name="example-input",
-                input_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                input_id=aws_medialive_input["example"]["id"],
             )],
             destinations=[aws.medialive.ChannelDestinationArgs(
                 id="destination",

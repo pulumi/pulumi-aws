@@ -140,13 +140,13 @@ def get_event_integration(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:appintegrations/getEventIntegration:getEventIntegration', __args__, opts=opts, typ=GetEventIntegrationResult).value
 
     return AwaitableGetEventIntegrationResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        event_filters=__ret__.event_filters,
-        eventbridge_bus=__ret__.eventbridge_bus,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        event_filters=pulumi.get(__ret__, 'event_filters'),
+        eventbridge_bus=pulumi.get(__ret__, 'eventbridge_bus'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_event_integration)

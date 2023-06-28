@@ -263,23 +263,23 @@ def get_cluster(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:eks/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        arn=__ret__.arn,
-        certificate_authorities=__ret__.certificate_authorities,
-        cluster_id=__ret__.cluster_id,
-        created_at=__ret__.created_at,
-        enabled_cluster_log_types=__ret__.enabled_cluster_log_types,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        kubernetes_network_configs=__ret__.kubernetes_network_configs,
-        name=__ret__.name,
-        outpost_configs=__ret__.outpost_configs,
-        platform_version=__ret__.platform_version,
-        role_arn=__ret__.role_arn,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        version=__ret__.version,
-        vpc_config=__ret__.vpc_config)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate_authorities=pulumi.get(__ret__, 'certificate_authorities'),
+        cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        enabled_cluster_log_types=pulumi.get(__ret__, 'enabled_cluster_log_types'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        kubernetes_network_configs=pulumi.get(__ret__, 'kubernetes_network_configs'),
+        name=pulumi.get(__ret__, 'name'),
+        outpost_configs=pulumi.get(__ret__, 'outpost_configs'),
+        platform_version=pulumi.get(__ret__, 'platform_version'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'),
+        vpc_config=pulumi.get(__ret__, 'vpc_config'))
 
 
 @_utilities.lift_output_func(get_cluster)

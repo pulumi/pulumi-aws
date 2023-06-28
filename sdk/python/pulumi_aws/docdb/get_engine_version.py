@@ -172,16 +172,16 @@ def get_engine_version(engine: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:docdb/getEngineVersion:getEngineVersion', __args__, opts=opts, typ=GetEngineVersionResult).value
 
     return AwaitableGetEngineVersionResult(
-        engine=__ret__.engine,
-        engine_description=__ret__.engine_description,
-        exportable_log_types=__ret__.exportable_log_types,
-        id=__ret__.id,
-        parameter_group_family=__ret__.parameter_group_family,
-        preferred_versions=__ret__.preferred_versions,
-        supports_log_exports_to_cloudwatch=__ret__.supports_log_exports_to_cloudwatch,
-        valid_upgrade_targets=__ret__.valid_upgrade_targets,
-        version=__ret__.version,
-        version_description=__ret__.version_description)
+        engine=pulumi.get(__ret__, 'engine'),
+        engine_description=pulumi.get(__ret__, 'engine_description'),
+        exportable_log_types=pulumi.get(__ret__, 'exportable_log_types'),
+        id=pulumi.get(__ret__, 'id'),
+        parameter_group_family=pulumi.get(__ret__, 'parameter_group_family'),
+        preferred_versions=pulumi.get(__ret__, 'preferred_versions'),
+        supports_log_exports_to_cloudwatch=pulumi.get(__ret__, 'supports_log_exports_to_cloudwatch'),
+        valid_upgrade_targets=pulumi.get(__ret__, 'valid_upgrade_targets'),
+        version=pulumi.get(__ret__, 'version'),
+        version_description=pulumi.get(__ret__, 'version_description'))
 
 
 @_utilities.lift_output_func(get_engine_version)

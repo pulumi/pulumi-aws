@@ -126,12 +126,12 @@ def get_regex_pattern_set(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:wafv2/getRegexPatternSet:getRegexPatternSet', __args__, opts=opts, typ=GetRegexPatternSetResult).value
 
     return AwaitableGetRegexPatternSetResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        regular_expressions=__ret__.regular_expressions,
-        scope=__ret__.scope)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        regular_expressions=pulumi.get(__ret__, 'regular_expressions'),
+        scope=pulumi.get(__ret__, 'scope'))
 
 
 @_utilities.lift_output_func(get_regex_pattern_set)

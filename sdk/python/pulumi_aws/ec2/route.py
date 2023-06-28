@@ -192,6 +192,9 @@ class RouteArgs:
         """
         Identifier of an EC2 instance.
         """
+        warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
+        pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
+
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -453,6 +456,9 @@ class _RouteState:
         """
         Identifier of an EC2 instance.
         """
+        warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
+        pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
+
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -955,6 +961,9 @@ class Route(pulumi.CustomResource):
         """
         Identifier of an EC2 instance.
         """
+        warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
+        pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
+
         return pulumi.get(self, "instance_id")
 
     @property

@@ -234,20 +234,20 @@ def get_zone(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:route53/getZone:getZone', __args__, opts=opts, typ=GetZoneResult).value
 
     return AwaitableGetZoneResult(
-        arn=__ret__.arn,
-        caller_reference=__ret__.caller_reference,
-        comment=__ret__.comment,
-        id=__ret__.id,
-        linked_service_description=__ret__.linked_service_description,
-        linked_service_principal=__ret__.linked_service_principal,
-        name=__ret__.name,
-        name_servers=__ret__.name_servers,
-        primary_name_server=__ret__.primary_name_server,
-        private_zone=__ret__.private_zone,
-        resource_record_set_count=__ret__.resource_record_set_count,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id,
-        zone_id=__ret__.zone_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        caller_reference=pulumi.get(__ret__, 'caller_reference'),
+        comment=pulumi.get(__ret__, 'comment'),
+        id=pulumi.get(__ret__, 'id'),
+        linked_service_description=pulumi.get(__ret__, 'linked_service_description'),
+        linked_service_principal=pulumi.get(__ret__, 'linked_service_principal'),
+        name=pulumi.get(__ret__, 'name'),
+        name_servers=pulumi.get(__ret__, 'name_servers'),
+        primary_name_server=pulumi.get(__ret__, 'primary_name_server'),
+        private_zone=pulumi.get(__ret__, 'private_zone'),
+        resource_record_set_count=pulumi.get(__ret__, 'resource_record_set_count'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'),
+        zone_id=pulumi.get(__ret__, 'zone_id'))
 
 
 @_utilities.lift_output_func(get_zone)

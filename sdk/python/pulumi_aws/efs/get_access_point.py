@@ -161,15 +161,15 @@ def get_access_point(access_point_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:efs/getAccessPoint:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult).value
 
     return AwaitableGetAccessPointResult(
-        access_point_id=__ret__.access_point_id,
-        arn=__ret__.arn,
-        file_system_arn=__ret__.file_system_arn,
-        file_system_id=__ret__.file_system_id,
-        id=__ret__.id,
-        owner_id=__ret__.owner_id,
-        posix_users=__ret__.posix_users,
-        root_directories=__ret__.root_directories,
-        tags=__ret__.tags)
+        access_point_id=pulumi.get(__ret__, 'access_point_id'),
+        arn=pulumi.get(__ret__, 'arn'),
+        file_system_arn=pulumi.get(__ret__, 'file_system_arn'),
+        file_system_id=pulumi.get(__ret__, 'file_system_id'),
+        id=pulumi.get(__ret__, 'id'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        posix_users=pulumi.get(__ret__, 'posix_users'),
+        root_directories=pulumi.get(__ret__, 'root_directories'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_access_point)

@@ -160,15 +160,15 @@ def get_certificate(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:rds/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        arn=__ret__.arn,
-        certificate_type=__ret__.certificate_type,
-        customer_override=__ret__.customer_override,
-        customer_override_valid_till=__ret__.customer_override_valid_till,
-        id=__ret__.id,
-        latest_valid_till=__ret__.latest_valid_till,
-        thumbprint=__ret__.thumbprint,
-        valid_from=__ret__.valid_from,
-        valid_till=__ret__.valid_till)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate_type=pulumi.get(__ret__, 'certificate_type'),
+        customer_override=pulumi.get(__ret__, 'customer_override'),
+        customer_override_valid_till=pulumi.get(__ret__, 'customer_override_valid_till'),
+        id=pulumi.get(__ret__, 'id'),
+        latest_valid_till=pulumi.get(__ret__, 'latest_valid_till'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        valid_from=pulumi.get(__ret__, 'valid_from'),
+        valid_till=pulumi.get(__ret__, 'valid_till'))
 
 
 @_utilities.lift_output_func(get_certificate)

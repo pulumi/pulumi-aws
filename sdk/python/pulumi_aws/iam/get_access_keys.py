@@ -90,9 +90,9 @@ def get_access_keys(user: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getAccessKeys:getAccessKeys', __args__, opts=opts, typ=GetAccessKeysResult).value
 
     return AwaitableGetAccessKeysResult(
-        access_keys=__ret__.access_keys,
-        id=__ret__.id,
-        user=__ret__.user)
+        access_keys=pulumi.get(__ret__, 'access_keys'),
+        id=pulumi.get(__ret__, 'id'),
+        user=pulumi.get(__ret__, 'user'))
 
 
 @_utilities.lift_output_func(get_access_keys)

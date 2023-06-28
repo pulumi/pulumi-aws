@@ -195,16 +195,16 @@ def get_task_definition(task_definition: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ecs/getTaskDefinition:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult).value
 
     return AwaitableGetTaskDefinitionResult(
-        arn=__ret__.arn,
-        arn_without_revision=__ret__.arn_without_revision,
-        execution_role_arn=__ret__.execution_role_arn,
-        family=__ret__.family,
-        id=__ret__.id,
-        network_mode=__ret__.network_mode,
-        revision=__ret__.revision,
-        status=__ret__.status,
-        task_definition=__ret__.task_definition,
-        task_role_arn=__ret__.task_role_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        arn_without_revision=pulumi.get(__ret__, 'arn_without_revision'),
+        execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
+        family=pulumi.get(__ret__, 'family'),
+        id=pulumi.get(__ret__, 'id'),
+        network_mode=pulumi.get(__ret__, 'network_mode'),
+        revision=pulumi.get(__ret__, 'revision'),
+        status=pulumi.get(__ret__, 'status'),
+        task_definition=pulumi.get(__ret__, 'task_definition'),
+        task_role_arn=pulumi.get(__ret__, 'task_role_arn'))
 
 
 @_utilities.lift_output_func(get_task_definition)

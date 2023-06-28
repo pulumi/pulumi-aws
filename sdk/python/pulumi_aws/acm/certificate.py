@@ -740,17 +740,17 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domainName: {
-            name: dvo.resourceRecordName,
-            record: dvo.resourceRecordValue,
-            type: dvo.resourceRecordType,
+        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domain_name: {
+            name: dvo.resource_record_name,
+            record: dvo.resource_record_value,
+            type: dvo.resource_record_type,
         } for dvo in aws_acm_certificate.example.domain_validation_options})]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
                 name=range["value"]["name"],
                 records=[range["value"]["record"]],
                 ttl=60,
-                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                type=aws.route53/recordtype.RecordType(range["value"]["type"]),
                 zone_id=aws_route53_zone["example"]["zone_id"]))
         ```
 
@@ -891,17 +891,17 @@ class Certificate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = []
-        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domainName: {
-            name: dvo.resourceRecordName,
-            record: dvo.resourceRecordValue,
-            type: dvo.resourceRecordType,
+        for range in [{"key": k, "value": v} for [k, v] in enumerate({dvo.domain_name: {
+            name: dvo.resource_record_name,
+            record: dvo.resource_record_value,
+            type: dvo.resource_record_type,
         } for dvo in aws_acm_certificate.example.domain_validation_options})]:
             example.append(aws.route53.Record(f"example-{range['key']}",
                 allow_overwrite=True,
                 name=range["value"]["name"],
                 records=[range["value"]["record"]],
                 ttl=60,
-                type=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                type=aws.route53/recordtype.RecordType(range["value"]["type"]),
                 zone_id=aws_route53_zone["example"]["zone_id"]))
         ```
 

@@ -120,11 +120,11 @@ def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] 
     __ret__ = pulumi.runtime.invoke('aws:ec2/getEips:getEips', __args__, opts=opts, typ=GetEipsResult).value
 
     return AwaitableGetEipsResult(
-        allocation_ids=__ret__.allocation_ids,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        public_ips=__ret__.public_ips,
-        tags=__ret__.tags)
+        allocation_ids=pulumi.get(__ret__, 'allocation_ids'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        public_ips=pulumi.get(__ret__, 'public_ips'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_eips)

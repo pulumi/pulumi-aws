@@ -228,20 +228,20 @@ def get_api(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigatewayv2/getApi:getApi', __args__, opts=opts, typ=GetApiResult).value
 
     return AwaitableGetApiResult(
-        api_endpoint=__ret__.api_endpoint,
-        api_id=__ret__.api_id,
-        api_key_selection_expression=__ret__.api_key_selection_expression,
-        arn=__ret__.arn,
-        cors_configurations=__ret__.cors_configurations,
-        description=__ret__.description,
-        disable_execute_api_endpoint=__ret__.disable_execute_api_endpoint,
-        execution_arn=__ret__.execution_arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        protocol_type=__ret__.protocol_type,
-        route_selection_expression=__ret__.route_selection_expression,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        api_endpoint=pulumi.get(__ret__, 'api_endpoint'),
+        api_id=pulumi.get(__ret__, 'api_id'),
+        api_key_selection_expression=pulumi.get(__ret__, 'api_key_selection_expression'),
+        arn=pulumi.get(__ret__, 'arn'),
+        cors_configurations=pulumi.get(__ret__, 'cors_configurations'),
+        description=pulumi.get(__ret__, 'description'),
+        disable_execute_api_endpoint=pulumi.get(__ret__, 'disable_execute_api_endpoint'),
+        execution_arn=pulumi.get(__ret__, 'execution_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        protocol_type=pulumi.get(__ret__, 'protocol_type'),
+        route_selection_expression=pulumi.get(__ret__, 'route_selection_expression'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_api)

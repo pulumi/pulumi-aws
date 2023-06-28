@@ -90,9 +90,9 @@ def get_organizational_unit_descendant_accounts(parent_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:organizations/getOrganizationalUnitDescendantAccounts:getOrganizationalUnitDescendantAccounts', __args__, opts=opts, typ=GetOrganizationalUnitDescendantAccountsResult).value
 
     return AwaitableGetOrganizationalUnitDescendantAccountsResult(
-        accounts=__ret__.accounts,
-        id=__ret__.id,
-        parent_id=__ret__.parent_id)
+        accounts=pulumi.get(__ret__, 'accounts'),
+        id=pulumi.get(__ret__, 'id'),
+        parent_id=pulumi.get(__ret__, 'parent_id'))
 
 
 @_utilities.lift_output_func(get_organizational_unit_descendant_accounts)

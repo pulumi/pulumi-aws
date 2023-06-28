@@ -90,9 +90,9 @@ def get_organizational_units(parent_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:organizations/getOrganizationalUnits:getOrganizationalUnits', __args__, opts=opts, typ=GetOrganizationalUnitsResult).value
 
     return AwaitableGetOrganizationalUnitsResult(
-        childrens=__ret__.childrens,
-        id=__ret__.id,
-        parent_id=__ret__.parent_id)
+        childrens=pulumi.get(__ret__, 'childrens'),
+        id=pulumi.get(__ret__, 'id'),
+        parent_id=pulumi.get(__ret__, 'parent_id'))
 
 
 @_utilities.lift_output_func(get_organizational_units)

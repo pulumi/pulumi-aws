@@ -155,14 +155,14 @@ def get_snapshot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:memorydb/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
-        arn=__ret__.arn,
-        cluster_configurations=__ret__.cluster_configurations,
-        cluster_name=__ret__.cluster_name,
-        id=__ret__.id,
-        kms_key_arn=__ret__.kms_key_arn,
-        name=__ret__.name,
-        source=__ret__.source,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        cluster_configurations=pulumi.get(__ret__, 'cluster_configurations'),
+        cluster_name=pulumi.get(__ret__, 'cluster_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
+        name=pulumi.get(__ret__, 'name'),
+        source=pulumi.get(__ret__, 'source'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_snapshot)

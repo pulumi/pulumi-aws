@@ -75,6 +75,9 @@ class CoreNetworkArgs:
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         """
+        warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "base_policy_region")
 
     @base_policy_region.setter
@@ -127,6 +130,9 @@ class CoreNetworkArgs:
         """
         Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information. Conflicts with `create_base_policy`.
         """
+        warnings.warn("""Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""policy_document is deprecated: Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -233,6 +239,9 @@ class _CoreNetworkState:
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         """
+        warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "base_policy_region")
 
     @base_policy_region.setter
@@ -321,6 +330,9 @@ class _CoreNetworkState:
         """
         Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information. Conflicts with `create_base_policy`.
         """
+        warnings.warn("""Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""policy_document is deprecated: Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -826,6 +838,9 @@ class CoreNetwork(pulumi.CustomResource):
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         """
+        warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "base_policy_region")
 
     @property
@@ -886,6 +901,9 @@ class CoreNetwork(pulumi.CustomResource):
         """
         Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information. Conflicts with `create_base_policy`.
         """
+        warnings.warn("""Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""policy_document is deprecated: Use the aws_networkmanager_core_network_policy_attachment resource instead. This attribute will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "policy_document")
 
     @property

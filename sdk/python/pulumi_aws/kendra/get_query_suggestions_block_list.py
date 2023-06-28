@@ -237,21 +237,21 @@ def get_query_suggestions_block_list(index_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList', __args__, opts=opts, typ=GetQuerySuggestionsBlockListResult).value
 
     return AwaitableGetQuerySuggestionsBlockListResult(
-        arn=__ret__.arn,
-        created_at=__ret__.created_at,
-        description=__ret__.description,
-        error_message=__ret__.error_message,
-        file_size_bytes=__ret__.file_size_bytes,
-        id=__ret__.id,
-        index_id=__ret__.index_id,
-        item_count=__ret__.item_count,
-        name=__ret__.name,
-        query_suggestions_block_list_id=__ret__.query_suggestions_block_list_id,
-        role_arn=__ret__.role_arn,
-        source_s3_paths=__ret__.source_s3_paths,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        updated_at=__ret__.updated_at)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        description=pulumi.get(__ret__, 'description'),
+        error_message=pulumi.get(__ret__, 'error_message'),
+        file_size_bytes=pulumi.get(__ret__, 'file_size_bytes'),
+        id=pulumi.get(__ret__, 'id'),
+        index_id=pulumi.get(__ret__, 'index_id'),
+        item_count=pulumi.get(__ret__, 'item_count'),
+        name=pulumi.get(__ret__, 'name'),
+        query_suggestions_block_list_id=pulumi.get(__ret__, 'query_suggestions_block_list_id'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        source_s3_paths=pulumi.get(__ret__, 'source_s3_paths'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        updated_at=pulumi.get(__ret__, 'updated_at'))
 
 
 @_utilities.lift_output_func(get_query_suggestions_block_list)

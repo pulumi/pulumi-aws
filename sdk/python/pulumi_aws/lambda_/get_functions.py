@@ -85,6 +85,6 @@ def get_functions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFu
     __ret__ = pulumi.runtime.invoke('aws:lambda/getFunctions:getFunctions', __args__, opts=opts, typ=GetFunctionsResult).value
 
     return AwaitableGetFunctionsResult(
-        function_arns=__ret__.function_arns,
-        function_names=__ret__.function_names,
-        id=__ret__.id)
+        function_arns=pulumi.get(__ret__, 'function_arns'),
+        function_names=pulumi.get(__ret__, 'function_names'),
+        id=pulumi.get(__ret__, 'id'))

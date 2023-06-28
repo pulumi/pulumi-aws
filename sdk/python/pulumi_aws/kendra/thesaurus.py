@@ -311,8 +311,8 @@ class Thesaurus(pulumi.CustomResource):
             index_id=aws_kendra_index["example"]["id"],
             role_arn=aws_iam_role["example"]["arn"],
             source_s3_path=aws.kendra.ThesaurusSourceS3PathArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
             ),
             tags={
                 "Name": "Example Kendra Thesaurus",
@@ -357,8 +357,8 @@ class Thesaurus(pulumi.CustomResource):
             index_id=aws_kendra_index["example"]["id"],
             role_arn=aws_iam_role["example"]["arn"],
             source_s3_path=aws.kendra.ThesaurusSourceS3PathArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
             ),
             tags={
                 "Name": "Example Kendra Thesaurus",

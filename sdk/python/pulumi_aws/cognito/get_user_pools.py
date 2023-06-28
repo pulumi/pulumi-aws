@@ -88,8 +88,8 @@ def get_user_pools(name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    selected_rest_api = aws.apigateway.get_rest_api(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-    selected_user_pools = aws.cognito.get_user_pools(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    selected_rest_api = aws.apigateway.get_rest_api(name=var["api_gateway_name"])
+    selected_user_pools = aws.cognito.get_user_pools(name=var["cognito_user_pool_name"])
     cognito = aws.apigateway.Authorizer("cognito",
         type="COGNITO_USER_POOLS",
         rest_api=selected_rest_api.id,
@@ -105,10 +105,10 @@ def get_user_pools(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPools:getUserPools', __args__, opts=opts, typ=GetUserPoolsResult).value
 
     return AwaitableGetUserPoolsResult(
-        arns=__ret__.arns,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        name=__ret__.name)
+        arns=pulumi.get(__ret__, 'arns'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_user_pools)
@@ -123,8 +123,8 @@ def get_user_pools_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    selected_rest_api = aws.apigateway.get_rest_api(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-    selected_user_pools = aws.cognito.get_user_pools(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    selected_rest_api = aws.apigateway.get_rest_api(name=var["api_gateway_name"])
+    selected_user_pools = aws.cognito.get_user_pools(name=var["cognito_user_pool_name"])
     cognito = aws.apigateway.Authorizer("cognito",
         type="COGNITO_USER_POOLS",
         rest_api=selected_rest_api.id,

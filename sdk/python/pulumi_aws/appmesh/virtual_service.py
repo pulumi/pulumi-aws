@@ -293,7 +293,7 @@ class VirtualService(pulumi.CustomResource):
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_node=aws.appmesh.VirtualServiceSpecProviderVirtualNodeArgs(
-                        virtual_node_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        virtual_node_name=aws_appmesh_virtual_node["serviceb1"]["name"],
                     ),
                 ),
             ))
@@ -309,7 +309,7 @@ class VirtualService(pulumi.CustomResource):
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_router=aws.appmesh.VirtualServiceSpecProviderVirtualRouterArgs(
-                        virtual_router_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
                     ),
                 ),
             ))
@@ -352,7 +352,7 @@ class VirtualService(pulumi.CustomResource):
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_node=aws.appmesh.VirtualServiceSpecProviderVirtualNodeArgs(
-                        virtual_node_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        virtual_node_name=aws_appmesh_virtual_node["serviceb1"]["name"],
                     ),
                 ),
             ))
@@ -368,7 +368,7 @@ class VirtualService(pulumi.CustomResource):
             spec=aws.appmesh.VirtualServiceSpecArgs(
                 provider=aws.appmesh.VirtualServiceSpecProviderArgs(
                     virtual_router=aws.appmesh.VirtualServiceSpecProviderVirtualRouterArgs(
-                        virtual_router_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
                     ),
                 ),
             ))

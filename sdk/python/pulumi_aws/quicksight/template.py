@@ -399,7 +399,7 @@ class Template(pulumi.CustomResource):
             version_description="version",
             source_entity=aws.quicksight.TemplateSourceEntityArgs(
                 source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    arn=aws_quicksight_template["source"]["arn"],
                 ),
             ))
         ```
@@ -445,7 +445,7 @@ class Template(pulumi.CustomResource):
             version_description="version",
             source_entity=aws.quicksight.TemplateSourceEntityArgs(
                 source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
-                    arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    arn=aws_quicksight_template["source"]["arn"],
                 ),
             ))
         ```

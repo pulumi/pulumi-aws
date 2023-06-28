@@ -179,15 +179,15 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
     __ret__ = pulumi.runtime.invoke('aws:ram/getResourceShare:getResourceShare', __args__, opts=opts, typ=GetResourceShareResult).value
 
     return AwaitableGetResourceShareResult(
-        arn=__ret__.arn,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        name=__ret__.name,
-        owning_account_id=__ret__.owning_account_id,
-        resource_owner=__ret__.resource_owner,
-        resource_share_status=__ret__.resource_share_status,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owning_account_id=pulumi.get(__ret__, 'owning_account_id'),
+        resource_owner=pulumi.get(__ret__, 'resource_owner'),
+        resource_share_status=pulumi.get(__ret__, 'resource_share_status'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_resource_share)

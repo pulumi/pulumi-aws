@@ -420,11 +420,11 @@ class Pipeline(pulumi.CustomResource):
             input_bucket=aws_s3_bucket["input_bucket"]["id"],
             role=aws_iam_role["test_role"]["arn"],
             content_config=aws.elastictranscoder.PipelineContentConfigArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["content_bucket"]["id"],
                 storage_class="Standard",
             ),
             thumbnail_config=aws.elastictranscoder.PipelineThumbnailConfigArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["thumb_bucket"]["id"],
                 storage_class="Standard",
             ))
         ```
@@ -476,11 +476,11 @@ class Pipeline(pulumi.CustomResource):
             input_bucket=aws_s3_bucket["input_bucket"]["id"],
             role=aws_iam_role["test_role"]["arn"],
             content_config=aws.elastictranscoder.PipelineContentConfigArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["content_bucket"]["id"],
                 storage_class="Standard",
             ),
             thumbnail_config=aws.elastictranscoder.PipelineThumbnailConfigArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["thumb_bucket"]["id"],
                 storage_class="Standard",
             ))
         ```

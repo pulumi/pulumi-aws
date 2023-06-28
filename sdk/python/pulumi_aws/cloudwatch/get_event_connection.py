@@ -117,11 +117,11 @@ def get_event_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getEventConnection:getEventConnection', __args__, opts=opts, typ=GetEventConnectionResult).value
 
     return AwaitableGetEventConnectionResult(
-        arn=__ret__.arn,
-        authorization_type=__ret__.authorization_type,
-        id=__ret__.id,
-        name=__ret__.name,
-        secret_arn=__ret__.secret_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        authorization_type=pulumi.get(__ret__, 'authorization_type'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        secret_arn=pulumi.get(__ret__, 'secret_arn'))
 
 
 @_utilities.lift_output_func(get_event_connection)

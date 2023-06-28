@@ -113,11 +113,11 @@ def get_apis(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigatewayv2/getApis:getApis', __args__, opts=opts, typ=GetApisResult).value
 
     return AwaitableGetApisResult(
-        id=__ret__.id,
-        ids=__ret__.ids,
-        name=__ret__.name,
-        protocol_type=__ret__.protocol_type,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        name=pulumi.get(__ret__, 'name'),
+        protocol_type=pulumi.get(__ret__, 'protocol_type'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_apis)

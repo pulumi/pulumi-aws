@@ -146,13 +146,13 @@ def get_origin_request_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy', __args__, opts=opts, typ=GetOriginRequestPolicyResult).value
 
     return AwaitableGetOriginRequestPolicyResult(
-        comment=__ret__.comment,
-        cookies_configs=__ret__.cookies_configs,
-        etag=__ret__.etag,
-        headers_configs=__ret__.headers_configs,
-        id=__ret__.id,
-        name=__ret__.name,
-        query_strings_configs=__ret__.query_strings_configs)
+        comment=pulumi.get(__ret__, 'comment'),
+        cookies_configs=pulumi.get(__ret__, 'cookies_configs'),
+        etag=pulumi.get(__ret__, 'etag'),
+        headers_configs=pulumi.get(__ret__, 'headers_configs'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        query_strings_configs=pulumi.get(__ret__, 'query_strings_configs'))
 
 
 @_utilities.lift_output_func(get_origin_request_policy)

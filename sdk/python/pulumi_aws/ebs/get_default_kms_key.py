@@ -77,5 +77,5 @@ def get_default_kms_key(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     __ret__ = pulumi.runtime.invoke('aws:ebs/getDefaultKmsKey:getDefaultKmsKey', __args__, opts=opts, typ=GetDefaultKmsKeyResult).value
 
     return AwaitableGetDefaultKmsKeyResult(
-        id=__ret__.id,
-        key_arn=__ret__.key_arn)
+        id=pulumi.get(__ret__, 'id'),
+        key_arn=pulumi.get(__ret__, 'key_arn'))

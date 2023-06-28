@@ -170,7 +170,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             policy_type_name="BackendServerAuthenticationPolicyType",
             policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
                 name="PublicKeyPolicyName",
-                value=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                value=aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"]["policy_name"],
             )])
         wu_tang_backend_auth_policies_443 = aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443",
             load_balancer_name=wu_tang.name,
@@ -225,7 +225,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             policy_type_name="BackendServerAuthenticationPolicyType",
             policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
                 name="PublicKeyPolicyName",
-                value=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                value=aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"]["policy_name"],
             )])
         wu_tang_backend_auth_policies_443 = aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443",
             load_balancer_name=wu_tang.name,

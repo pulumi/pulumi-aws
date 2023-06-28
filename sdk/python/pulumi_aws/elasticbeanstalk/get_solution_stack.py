@@ -108,10 +108,10 @@ def get_solution_stack(most_recent: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getSolutionStack:getSolutionStack', __args__, opts=opts, typ=GetSolutionStackResult).value
 
     return AwaitableGetSolutionStackResult(
-        id=__ret__.id,
-        most_recent=__ret__.most_recent,
-        name=__ret__.name,
-        name_regex=__ret__.name_regex)
+        id=pulumi.get(__ret__, 'id'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        name=pulumi.get(__ret__, 'name'),
+        name_regex=pulumi.get(__ret__, 'name_regex'))
 
 
 @_utilities.lift_output_func(get_solution_stack)

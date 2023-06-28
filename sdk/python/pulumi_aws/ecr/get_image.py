@@ -161,15 +161,15 @@ def get_image(image_digest: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ecr/getImage:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
-        id=__ret__.id,
-        image_digest=__ret__.image_digest,
-        image_pushed_at=__ret__.image_pushed_at,
-        image_size_in_bytes=__ret__.image_size_in_bytes,
-        image_tag=__ret__.image_tag,
-        image_tags=__ret__.image_tags,
-        most_recent=__ret__.most_recent,
-        registry_id=__ret__.registry_id,
-        repository_name=__ret__.repository_name)
+        id=pulumi.get(__ret__, 'id'),
+        image_digest=pulumi.get(__ret__, 'image_digest'),
+        image_pushed_at=pulumi.get(__ret__, 'image_pushed_at'),
+        image_size_in_bytes=pulumi.get(__ret__, 'image_size_in_bytes'),
+        image_tag=pulumi.get(__ret__, 'image_tag'),
+        image_tags=pulumi.get(__ret__, 'image_tags'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        registry_id=pulumi.get(__ret__, 'registry_id'),
+        repository_name=pulumi.get(__ret__, 'repository_name'))
 
 
 @_utilities.lift_output_func(get_image)

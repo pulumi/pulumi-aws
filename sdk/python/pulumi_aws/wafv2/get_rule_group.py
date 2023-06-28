@@ -113,11 +113,11 @@ def get_rule_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:wafv2/getRuleGroup:getRuleGroup', __args__, opts=opts, typ=GetRuleGroupResult).value
 
     return AwaitableGetRuleGroupResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        scope=__ret__.scope)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        scope=pulumi.get(__ret__, 'scope'))
 
 
 @_utilities.lift_output_func(get_rule_group)

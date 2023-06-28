@@ -249,21 +249,21 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('aws:ssm/getPatchBaseline:getPatchBaseline', __args__, opts=opts, typ=GetPatchBaselineResult).value
 
     return AwaitableGetPatchBaselineResult(
-        approval_rules=__ret__.approval_rules,
-        approved_patches=__ret__.approved_patches,
-        approved_patches_compliance_level=__ret__.approved_patches_compliance_level,
-        approved_patches_enable_non_security=__ret__.approved_patches_enable_non_security,
-        default_baseline=__ret__.default_baseline,
-        description=__ret__.description,
-        global_filters=__ret__.global_filters,
-        id=__ret__.id,
-        name=__ret__.name,
-        name_prefix=__ret__.name_prefix,
-        operating_system=__ret__.operating_system,
-        owner=__ret__.owner,
-        rejected_patches=__ret__.rejected_patches,
-        rejected_patches_action=__ret__.rejected_patches_action,
-        sources=__ret__.sources)
+        approval_rules=pulumi.get(__ret__, 'approval_rules'),
+        approved_patches=pulumi.get(__ret__, 'approved_patches'),
+        approved_patches_compliance_level=pulumi.get(__ret__, 'approved_patches_compliance_level'),
+        approved_patches_enable_non_security=pulumi.get(__ret__, 'approved_patches_enable_non_security'),
+        default_baseline=pulumi.get(__ret__, 'default_baseline'),
+        description=pulumi.get(__ret__, 'description'),
+        global_filters=pulumi.get(__ret__, 'global_filters'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        name_prefix=pulumi.get(__ret__, 'name_prefix'),
+        operating_system=pulumi.get(__ret__, 'operating_system'),
+        owner=pulumi.get(__ret__, 'owner'),
+        rejected_patches=pulumi.get(__ret__, 'rejected_patches'),
+        rejected_patches_action=pulumi.get(__ret__, 'rejected_patches_action'),
+        sources=pulumi.get(__ret__, 'sources'))
 
 
 @_utilities.lift_output_func(get_patch_baseline)

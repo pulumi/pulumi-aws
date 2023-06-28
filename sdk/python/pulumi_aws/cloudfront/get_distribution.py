@@ -190,17 +190,17 @@ def get_distribution(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getDistribution:getDistribution', __args__, opts=opts, typ=GetDistributionResult).value
 
     return AwaitableGetDistributionResult(
-        aliases=__ret__.aliases,
-        arn=__ret__.arn,
-        domain_name=__ret__.domain_name,
-        enabled=__ret__.enabled,
-        etag=__ret__.etag,
-        hosted_zone_id=__ret__.hosted_zone_id,
-        id=__ret__.id,
-        in_progress_validation_batches=__ret__.in_progress_validation_batches,
-        last_modified_time=__ret__.last_modified_time,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        aliases=pulumi.get(__ret__, 'aliases'),
+        arn=pulumi.get(__ret__, 'arn'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        etag=pulumi.get(__ret__, 'etag'),
+        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
+        id=pulumi.get(__ret__, 'id'),
+        in_progress_validation_batches=pulumi.get(__ret__, 'in_progress_validation_batches'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_distribution)

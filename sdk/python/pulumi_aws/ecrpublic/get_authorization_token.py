@@ -111,8 +111,8 @@ def get_authorization_token(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
     __ret__ = pulumi.runtime.invoke('aws:ecrpublic/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts, typ=GetAuthorizationTokenResult).value
 
     return AwaitableGetAuthorizationTokenResult(
-        authorization_token=__ret__.authorization_token,
-        expires_at=__ret__.expires_at,
-        id=__ret__.id,
-        password=__ret__.password,
-        user_name=__ret__.user_name)
+        authorization_token=pulumi.get(__ret__, 'authorization_token'),
+        expires_at=pulumi.get(__ret__, 'expires_at'),
+        id=pulumi.get(__ret__, 'id'),
+        password=pulumi.get(__ret__, 'password'),
+        user_name=pulumi.get(__ret__, 'user_name'))

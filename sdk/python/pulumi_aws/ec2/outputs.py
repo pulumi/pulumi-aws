@@ -11427,6 +11427,9 @@ class PeeringConnectionOptionsAccepter(dict):
         with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
         to the remote VPC. This option is not supported for inter-region VPC peering.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_classic_link_to_remote_vpc")
 
     @property
@@ -11446,6 +11449,9 @@ class PeeringConnectionOptionsAccepter(dict):
         instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
         connection. This option is not supported for inter-region VPC peering.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_vpc_to_remote_classic_link")
 
 
@@ -11501,6 +11507,9 @@ class PeeringConnectionOptionsRequester(dict):
         with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
         to the remote VPC. This option is not supported for inter-region VPC peering.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_classic_link_to_remote_vpc")
 
     @property
@@ -11520,6 +11529,9 @@ class PeeringConnectionOptionsRequester(dict):
         instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
         connection. This option is not supported for inter-region VPC peering.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_vpc_to_remote_classic_link")
 
 
@@ -11688,6 +11700,9 @@ class RouteTableRoute(dict):
         """
         Identifier of an EC2 instance.
         """
+        warnings.warn("""Use network_interface_id instead""", DeprecationWarning)
+        pulumi.log.warn("""instance_id is deprecated: Use network_interface_id instead""")
+
         return pulumi.get(self, "instance_id")
 
     @property
@@ -14791,6 +14806,9 @@ class VpcPeeringConnectionAccepter(dict):
         with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
         to the remote VPC.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_classic_link_to_remote_vpc")
 
     @property
@@ -14810,6 +14828,9 @@ class VpcPeeringConnectionAccepter(dict):
         instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
         connection.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_vpc_to_remote_classic_link")
 
 
@@ -14862,6 +14883,9 @@ class VpcPeeringConnectionAccepterAccepter(dict):
         Indicates whether a local ClassicLink connection can communicate
         with the peer VPC over the VPC Peering Connection.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_classic_link_to_remote_vpc")
 
     @property
@@ -14880,6 +14904,9 @@ class VpcPeeringConnectionAccepterAccepter(dict):
         Indicates whether a local VPC can communicate with a ClassicLink
         connection in the peer VPC over the VPC Peering Connection.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_vpc_to_remote_classic_link")
 
 
@@ -14932,6 +14959,9 @@ class VpcPeeringConnectionAccepterRequester(dict):
         Indicates whether a local ClassicLink connection can communicate
         with the peer VPC over the VPC Peering Connection.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_classic_link_to_remote_vpc")
 
     @property
@@ -14950,6 +14980,9 @@ class VpcPeeringConnectionAccepterRequester(dict):
         Indicates whether a local VPC can communicate with a ClassicLink
         connection in the peer VPC over the VPC Peering Connection.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_vpc_to_remote_classic_link")
 
 
@@ -15005,6 +15038,9 @@ class VpcPeeringConnectionRequester(dict):
         with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
         to the remote VPC.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_classic_link_to_remote_vpc is deprecated: With the retirement of EC2-Classic the allow_classic_link_to_remote_vpc attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_classic_link_to_remote_vpc")
 
     @property
@@ -15024,6 +15060,9 @@ class VpcPeeringConnectionRequester(dict):
         instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
         connection.
         """
+        warnings.warn("""With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""allow_vpc_to_remote_classic_link is deprecated: With the retirement of EC2-Classic the allow_vpc_to_remote_classic_link attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "allow_vpc_to_remote_classic_link")
 
 

@@ -155,14 +155,14 @@ def get_key(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getKey:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        last_updated_date=__ret__.last_updated_date,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        value=__ret__.value)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_key)

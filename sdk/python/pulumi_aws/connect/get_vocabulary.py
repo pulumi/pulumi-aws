@@ -203,17 +203,17 @@ def get_vocabulary(instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getVocabulary:getVocabulary', __args__, opts=opts, typ=GetVocabularyResult).value
 
     return AwaitableGetVocabularyResult(
-        arn=__ret__.arn,
-        content=__ret__.content,
-        failure_reason=__ret__.failure_reason,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        language_code=__ret__.language_code,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        vocabulary_id=__ret__.vocabulary_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        content=pulumi.get(__ret__, 'content'),
+        failure_reason=pulumi.get(__ret__, 'failure_reason'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        language_code=pulumi.get(__ret__, 'language_code'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vocabulary_id=pulumi.get(__ret__, 'vocabulary_id'))
 
 
 @_utilities.lift_output_func(get_vocabulary)

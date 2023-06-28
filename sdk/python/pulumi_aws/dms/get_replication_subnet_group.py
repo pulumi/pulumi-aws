@@ -129,7 +129,7 @@ def get_replication_subnet_group(replication_subnet_group_id: Optional[str] = No
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=aws_dms_replication_subnet_group["test"]["replication_subnet_group_id"])
     ```
 
 
@@ -142,14 +142,14 @@ def get_replication_subnet_group(replication_subnet_group_id: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup', __args__, opts=opts, typ=GetReplicationSubnetGroupResult).value
 
     return AwaitableGetReplicationSubnetGroupResult(
-        id=__ret__.id,
-        replication_subnet_group_arn=__ret__.replication_subnet_group_arn,
-        replication_subnet_group_description=__ret__.replication_subnet_group_description,
-        replication_subnet_group_id=__ret__.replication_subnet_group_id,
-        subnet_group_status=__ret__.subnet_group_status,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        id=pulumi.get(__ret__, 'id'),
+        replication_subnet_group_arn=pulumi.get(__ret__, 'replication_subnet_group_arn'),
+        replication_subnet_group_description=pulumi.get(__ret__, 'replication_subnet_group_description'),
+        replication_subnet_group_id=pulumi.get(__ret__, 'replication_subnet_group_id'),
+        subnet_group_status=pulumi.get(__ret__, 'subnet_group_status'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_replication_subnet_group)
@@ -166,7 +166,7 @@ def get_replication_subnet_group_output(replication_subnet_group_id: Optional[pu
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    test = aws.dms.get_replication_subnet_group(replication_subnet_group_id=aws_dms_replication_subnet_group["test"]["replication_subnet_group_id"])
     ```
 
 

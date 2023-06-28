@@ -282,7 +282,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             ],
             event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
                 event="ASSESSMENT_RUN_COMPLETED",
-                topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                topic_arn=aws_sns_topic["example"]["arn"],
             )])
         ```
 
@@ -329,7 +329,7 @@ class AssessmentTemplate(pulumi.CustomResource):
             ],
             event_subscriptions=[aws.inspector.AssessmentTemplateEventSubscriptionArgs(
                 event="ASSESSMENT_RUN_COMPLETED",
-                topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                topic_arn=aws_sns_topic["example"]["arn"],
             )])
         ```
 

@@ -341,11 +341,11 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_iam_user["test"]["arn"],
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_iam_role["test"]["arn"],
             )])
         ```
         ### Enable EMR access to LakeFormation resources
@@ -365,11 +365,11 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_iam_user["test"]["arn"],
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_iam_role["test"]["arn"],
             )],
             allow_external_data_filtering=True,
             external_data_filtering_allow_lists=[
@@ -432,11 +432,11 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_iam_user["test"]["arn"],
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_iam_role["test"]["arn"],
             )])
         ```
         ### Enable EMR access to LakeFormation resources
@@ -456,11 +456,11 @@ class DataLakeSettings(pulumi.CustomResource):
                     "ALTER",
                     "DROP",
                 ],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_iam_user["test"]["arn"],
             )],
             create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
                 permissions=["ALL"],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_iam_role["test"]["arn"],
             )],
             allow_external_data_filtering=True,
             external_data_filtering_allow_lists=[

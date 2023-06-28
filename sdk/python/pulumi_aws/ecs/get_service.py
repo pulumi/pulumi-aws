@@ -149,7 +149,7 @@ def get_service(cluster_arn: Optional[str] = None,
     import pulumi_aws as aws
 
     example = aws.ecs.get_service(service_name="example",
-        cluster_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        cluster_arn=data["aws_ecs_cluster"]["example"]["arn"])
     ```
 
 
@@ -165,15 +165,15 @@ def get_service(cluster_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ecs/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        arn=__ret__.arn,
-        cluster_arn=__ret__.cluster_arn,
-        desired_count=__ret__.desired_count,
-        id=__ret__.id,
-        launch_type=__ret__.launch_type,
-        scheduling_strategy=__ret__.scheduling_strategy,
-        service_name=__ret__.service_name,
-        tags=__ret__.tags,
-        task_definition=__ret__.task_definition)
+        arn=pulumi.get(__ret__, 'arn'),
+        cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
+        desired_count=pulumi.get(__ret__, 'desired_count'),
+        id=pulumi.get(__ret__, 'id'),
+        launch_type=pulumi.get(__ret__, 'launch_type'),
+        scheduling_strategy=pulumi.get(__ret__, 'scheduling_strategy'),
+        service_name=pulumi.get(__ret__, 'service_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        task_definition=pulumi.get(__ret__, 'task_definition'))
 
 
 @_utilities.lift_output_func(get_service)
@@ -192,7 +192,7 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     import pulumi_aws as aws
 
     example = aws.ecs.get_service(service_name="example",
-        cluster_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        cluster_arn=data["aws_ecs_cluster"]["example"]["arn"])
     ```
 
 

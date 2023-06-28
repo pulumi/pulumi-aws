@@ -100,10 +100,10 @@ def get_detector(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:guardduty/getDetector:getDetector', __args__, opts=opts, typ=GetDetectorResult).value
 
     return AwaitableGetDetectorResult(
-        finding_publishing_frequency=__ret__.finding_publishing_frequency,
-        id=__ret__.id,
-        service_role_arn=__ret__.service_role_arn,
-        status=__ret__.status)
+        finding_publishing_frequency=pulumi.get(__ret__, 'finding_publishing_frequency'),
+        id=pulumi.get(__ret__, 'id'),
+        service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_detector)

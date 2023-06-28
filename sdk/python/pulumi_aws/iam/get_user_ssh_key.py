@@ -138,13 +138,13 @@ def get_user_ssh_key(encoding: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getUserSshKey:getUserSshKey', __args__, opts=opts, typ=GetUserSshKeyResult).value
 
     return AwaitableGetUserSshKeyResult(
-        encoding=__ret__.encoding,
-        fingerprint=__ret__.fingerprint,
-        id=__ret__.id,
-        public_key=__ret__.public_key,
-        ssh_public_key_id=__ret__.ssh_public_key_id,
-        status=__ret__.status,
-        username=__ret__.username)
+        encoding=pulumi.get(__ret__, 'encoding'),
+        fingerprint=pulumi.get(__ret__, 'fingerprint'),
+        id=pulumi.get(__ret__, 'id'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        ssh_public_key_id=pulumi.get(__ret__, 'ssh_public_key_id'),
+        status=pulumi.get(__ret__, 'status'),
+        username=pulumi.get(__ret__, 'username'))
 
 
 @_utilities.lift_output_func(get_user_ssh_key)

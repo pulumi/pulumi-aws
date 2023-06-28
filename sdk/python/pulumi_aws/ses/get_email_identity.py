@@ -91,9 +91,9 @@ def get_email_identity(email: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ses/getEmailIdentity:getEmailIdentity', __args__, opts=opts, typ=GetEmailIdentityResult).value
 
     return AwaitableGetEmailIdentityResult(
-        arn=__ret__.arn,
-        email=__ret__.email,
-        id=__ret__.id)
+        arn=pulumi.get(__ret__, 'arn'),
+        email=pulumi.get(__ret__, 'email'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_email_identity)

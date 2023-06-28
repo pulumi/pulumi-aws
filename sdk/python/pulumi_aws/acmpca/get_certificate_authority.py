@@ -229,20 +229,20 @@ def get_certificate_authority(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult).value
 
     return AwaitableGetCertificateAuthorityResult(
-        arn=__ret__.arn,
-        certificate=__ret__.certificate,
-        certificate_chain=__ret__.certificate_chain,
-        certificate_signing_request=__ret__.certificate_signing_request,
-        id=__ret__.id,
-        key_storage_security_standard=__ret__.key_storage_security_standard,
-        not_after=__ret__.not_after,
-        not_before=__ret__.not_before,
-        revocation_configurations=__ret__.revocation_configurations,
-        serial=__ret__.serial,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        usage_mode=__ret__.usage_mode)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate=pulumi.get(__ret__, 'certificate'),
+        certificate_chain=pulumi.get(__ret__, 'certificate_chain'),
+        certificate_signing_request=pulumi.get(__ret__, 'certificate_signing_request'),
+        id=pulumi.get(__ret__, 'id'),
+        key_storage_security_standard=pulumi.get(__ret__, 'key_storage_security_standard'),
+        not_after=pulumi.get(__ret__, 'not_after'),
+        not_before=pulumi.get(__ret__, 'not_before'),
+        revocation_configurations=pulumi.get(__ret__, 'revocation_configurations'),
+        serial=pulumi.get(__ret__, 'serial'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        usage_mode=pulumi.get(__ret__, 'usage_mode'))
 
 
 @_utilities.lift_output_func(get_certificate_authority)

@@ -1038,14 +1038,14 @@ class SpotFleetRequest(pulumi.CustomResource):
                     ami="ami-1234",
                     spot_price="2.793",
                     placement_tenancy="dedicated",
-                    iam_instance_profile_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
                 ),
                 aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
                     instance_type="m4.4xlarge",
                     ami="ami-5678",
                     key_name="my-key",
                     spot_price="1.117",
-                    iam_instance_profile_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
                     availability_zone="us-west-1a",
                     subnet_id="subnet-1234",
                     weighted_capacity="35",
@@ -1091,7 +1091,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        example = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
@@ -1108,13 +1108,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
                 overrides=[
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=data["aws_subnets"]["example"]["ids"],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=data["aws_subnets"]["example"]["ids"],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=data["aws_subnets"]["example"]["ids"],
                     ),
                 ],
             )],
@@ -1215,14 +1215,14 @@ class SpotFleetRequest(pulumi.CustomResource):
                     ami="ami-1234",
                     spot_price="2.793",
                     placement_tenancy="dedicated",
-                    iam_instance_profile_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
                 ),
                 aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
                     instance_type="m4.4xlarge",
                     ami="ami-5678",
                     key_name="my-key",
                     spot_price="1.117",
-                    iam_instance_profile_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    iam_instance_profile_arn=aws_iam_instance_profile["example"]["arn"],
                     availability_zone="us-west-1a",
                     subnet_id="subnet-1234",
                     weighted_capacity="35",
@@ -1268,7 +1268,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        example = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
         foo_launch_template = aws.ec2.LaunchTemplate("fooLaunchTemplate",
             image_id="ami-516b9131",
             instance_type="m1.small",
@@ -1285,13 +1285,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                 ),
                 overrides=[
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=data["aws_subnets"]["example"]["ids"],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=data["aws_subnets"]["example"]["ids"],
                     ),
                     aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        subnet_id=data["aws_subnets"]["example"]["ids"],
                     ),
                 ],
             )],

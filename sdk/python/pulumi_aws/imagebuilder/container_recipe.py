@@ -610,11 +610,11 @@ class ContainerRecipe(pulumi.CustomResource):
             container_type="DOCKER",
             parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository=aws.imagebuilder.ContainerRecipeTargetRepositoryArgs(
-                repository_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                repository_name=aws_ecr_repository["example"]["name"],
                 service="ECR",
             ),
             components=[aws.imagebuilder.ContainerRecipeComponentArgs(
-                component_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                component_arn=aws_imagebuilder_component["example"]["arn"],
                 parameters=[
                     aws.imagebuilder.ContainerRecipeComponentParameterArgs(
                         name="Parameter1",
@@ -679,11 +679,11 @@ class ContainerRecipe(pulumi.CustomResource):
             container_type="DOCKER",
             parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository=aws.imagebuilder.ContainerRecipeTargetRepositoryArgs(
-                repository_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                repository_name=aws_ecr_repository["example"]["name"],
                 service="ECR",
             ),
             components=[aws.imagebuilder.ContainerRecipeComponentArgs(
-                component_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                component_arn=aws_imagebuilder_component["example"]["arn"],
                 parameters=[
                     aws.imagebuilder.ContainerRecipeComponentParameterArgs(
                         name="Parameter1",

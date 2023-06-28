@@ -133,10 +133,10 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInterfaces:getNetworkInterfaces', __args__, opts=opts, typ=GetNetworkInterfacesResult).value
 
     return AwaitableGetNetworkInterfacesResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_interfaces)

@@ -174,16 +174,16 @@ def get_connection(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:glue/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
 
     return AwaitableGetConnectionResult(
-        arn=__ret__.arn,
-        catalog_id=__ret__.catalog_id,
-        connection_properties=__ret__.connection_properties,
-        connection_type=__ret__.connection_type,
-        description=__ret__.description,
-        id=__ret__.id,
-        match_criterias=__ret__.match_criterias,
-        name=__ret__.name,
-        physical_connection_requirements=__ret__.physical_connection_requirements,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        catalog_id=pulumi.get(__ret__, 'catalog_id'),
+        connection_properties=pulumi.get(__ret__, 'connection_properties'),
+        connection_type=pulumi.get(__ret__, 'connection_type'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        match_criterias=pulumi.get(__ret__, 'match_criterias'),
+        name=pulumi.get(__ret__, 'name'),
+        physical_connection_requirements=pulumi.get(__ret__, 'physical_connection_requirements'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_connection)

@@ -361,6 +361,9 @@ class _InstanceState:
         """
         (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
         """
+        warnings.warn("""use `ipv6_addresses` attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""ipv6_address is deprecated: use `ipv6_addresses` attribute instead""")
+
         return pulumi.get(self, "ipv6_address")
 
     @ipv6_address.setter
@@ -986,6 +989,9 @@ class Instance(pulumi.CustomResource):
         """
         (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
         """
+        warnings.warn("""use `ipv6_addresses` attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""ipv6_address is deprecated: use `ipv6_addresses` attribute instead""")
+
         return pulumi.get(self, "ipv6_address")
 
     @property

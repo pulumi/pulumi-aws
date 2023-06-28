@@ -432,7 +432,7 @@ class Service(pulumi.CustomResource):
             service_name="example",
             source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
                 authentication_configuration=aws.apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs(
-                    connection_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    connection_arn=aws_apprunner_connection["example"]["arn"],
                 ),
                 code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArgs(
                     code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs(
@@ -454,7 +454,7 @@ class Service(pulumi.CustomResource):
             network_configuration=aws.apprunner.ServiceNetworkConfigurationArgs(
                 egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArgs(
                     egress_type="VPC",
-                    vpc_connector_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    vpc_connector_arn=aws_apprunner_vpc_connector["connector"]["arn"],
                 ),
             ),
             tags={
@@ -557,7 +557,7 @@ class Service(pulumi.CustomResource):
             service_name="example",
             source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
                 authentication_configuration=aws.apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs(
-                    connection_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    connection_arn=aws_apprunner_connection["example"]["arn"],
                 ),
                 code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArgs(
                     code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs(
@@ -579,7 +579,7 @@ class Service(pulumi.CustomResource):
             network_configuration=aws.apprunner.ServiceNetworkConfigurationArgs(
                 egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArgs(
                     egress_type="VPC",
-                    vpc_connector_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    vpc_connector_arn=aws_apprunner_vpc_connector["connector"]["arn"],
                 ),
             ),
             tags={

@@ -127,12 +127,12 @@ def get_location(location_code: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:directconnect/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult).value
 
     return AwaitableGetLocationResult(
-        available_macsec_port_speeds=__ret__.available_macsec_port_speeds,
-        available_port_speeds=__ret__.available_port_speeds,
-        available_providers=__ret__.available_providers,
-        id=__ret__.id,
-        location_code=__ret__.location_code,
-        location_name=__ret__.location_name)
+        available_macsec_port_speeds=pulumi.get(__ret__, 'available_macsec_port_speeds'),
+        available_port_speeds=pulumi.get(__ret__, 'available_port_speeds'),
+        available_providers=pulumi.get(__ret__, 'available_providers'),
+        id=pulumi.get(__ret__, 'id'),
+        location_code=pulumi.get(__ret__, 'location_code'),
+        location_name=pulumi.get(__ret__, 'location_name'))
 
 
 @_utilities.lift_output_func(get_location)

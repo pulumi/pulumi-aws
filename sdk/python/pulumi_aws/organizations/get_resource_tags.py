@@ -91,9 +91,9 @@ def get_resource_tags(resource_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:organizations/getResourceTags:getResourceTags', __args__, opts=opts, typ=GetResourceTagsResult).value
 
     return AwaitableGetResourceTagsResult(
-        id=__ret__.id,
-        resource_id=__ret__.resource_id,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_resource_tags)

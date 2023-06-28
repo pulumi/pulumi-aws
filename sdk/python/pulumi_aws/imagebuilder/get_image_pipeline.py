@@ -272,24 +272,24 @@ def get_image_pipeline(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getImagePipeline:getImagePipeline', __args__, opts=opts, typ=GetImagePipelineResult).value
 
     return AwaitableGetImagePipelineResult(
-        arn=__ret__.arn,
-        container_recipe_arn=__ret__.container_recipe_arn,
-        date_created=__ret__.date_created,
-        date_last_run=__ret__.date_last_run,
-        date_next_run=__ret__.date_next_run,
-        date_updated=__ret__.date_updated,
-        description=__ret__.description,
-        distribution_configuration_arn=__ret__.distribution_configuration_arn,
-        enhanced_image_metadata_enabled=__ret__.enhanced_image_metadata_enabled,
-        id=__ret__.id,
-        image_recipe_arn=__ret__.image_recipe_arn,
-        image_tests_configurations=__ret__.image_tests_configurations,
-        infrastructure_configuration_arn=__ret__.infrastructure_configuration_arn,
-        name=__ret__.name,
-        platform=__ret__.platform,
-        schedules=__ret__.schedules,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        container_recipe_arn=pulumi.get(__ret__, 'container_recipe_arn'),
+        date_created=pulumi.get(__ret__, 'date_created'),
+        date_last_run=pulumi.get(__ret__, 'date_last_run'),
+        date_next_run=pulumi.get(__ret__, 'date_next_run'),
+        date_updated=pulumi.get(__ret__, 'date_updated'),
+        description=pulumi.get(__ret__, 'description'),
+        distribution_configuration_arn=pulumi.get(__ret__, 'distribution_configuration_arn'),
+        enhanced_image_metadata_enabled=pulumi.get(__ret__, 'enhanced_image_metadata_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        image_recipe_arn=pulumi.get(__ret__, 'image_recipe_arn'),
+        image_tests_configurations=pulumi.get(__ret__, 'image_tests_configurations'),
+        infrastructure_configuration_arn=pulumi.get(__ret__, 'infrastructure_configuration_arn'),
+        name=pulumi.get(__ret__, 'name'),
+        platform=pulumi.get(__ret__, 'platform'),
+        schedules=pulumi.get(__ret__, 'schedules'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_image_pipeline)

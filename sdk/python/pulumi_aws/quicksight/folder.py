@@ -384,7 +384,7 @@ class Folder(pulumi.CustomResource):
                     "quicksight:DescribeFolderPermissions",
                     "quicksight:UpdateFolderPermissions",
                 ],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_quicksight_user["example"]["arn"],
             )])
         ```
         ### With Parent Folder
@@ -456,7 +456,7 @@ class Folder(pulumi.CustomResource):
                     "quicksight:DescribeFolderPermissions",
                     "quicksight:UpdateFolderPermissions",
                 ],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_quicksight_user["example"]["arn"],
             )])
         ```
         ### With Parent Folder

@@ -237,7 +237,7 @@ class TargetGroup(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_identifier=aws_vpc["example"]["id"],
             ))
         ```
         ### Basic usage with Health check
@@ -251,7 +251,7 @@ class TargetGroup(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_identifier=aws_vpc["example"]["id"],
                 protocol_version="HTTP1",
                 health_check=aws.vpclattice.TargetGroupConfigHealthCheckArgs(
                     enabled=True,
@@ -318,7 +318,7 @@ class TargetGroup(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_identifier=aws_vpc["example"]["id"],
             ))
         ```
         ### Basic usage with Health check
@@ -332,7 +332,7 @@ class TargetGroup(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=443,
                 protocol="HTTPS",
-                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_identifier=aws_vpc["example"]["id"],
                 protocol_version="HTTP1",
                 health_check=aws.vpclattice.TargetGroupConfigHealthCheckArgs(
                     enabled=True,
