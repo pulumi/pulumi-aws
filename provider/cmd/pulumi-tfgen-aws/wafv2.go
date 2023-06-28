@@ -91,6 +91,5 @@ func replaceWafV2TypesWithRecursive(pulumiPackageSpec *schema.PackageSpec) {
 	// Now remove all elided types from the schema.
 	for _, tok := range elidedTypes {
 		delete(pulumiPackageSpec.Types, tok)
-		fmt.Println(tok)
 	}
 }
