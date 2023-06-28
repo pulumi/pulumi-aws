@@ -1,7 +1,7 @@
-From 37460340a79b4e10c23a15a6421cbb69b878d147 Mon Sep 17 00:00:00 2001
+From 874c8921e7abfe51dcbdc74e766d17044be8ebf0 Mon Sep 17 00:00:00 2001
 From: Ramon Quitales <ramon@pulumi.com>
 Date: Thu, 18 May 2023 15:21:33 -0700
-Subject: [PATCH 27/27] Fix spurrious json diff for redrive_policy
+Subject: [PATCH 27/28] Fix spurrious json diff for redrive_policy
 
 We need to normalize the json input to compare agasint the one stored
 in state.

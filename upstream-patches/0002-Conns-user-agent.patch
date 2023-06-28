@@ -1,7 +1,7 @@
-From 6e7269d84b6866b433e28b614fbbaffb5f5cd264 Mon Sep 17 00:00:00 2001
+From b9ddbc9aabdf214e38493ac4b2a70aa83f2032e8 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:03:31 +0000
-Subject: [PATCH 02/27] Conns user agent
+Subject: [PATCH 02/28] Conns user agent
 
 Replace the useragent used for AWS client connections with a
 Pulumi-flavoured one.
@@ -10,7 +10,7 @@ Pulumi-flavoured one.
  1 file changed, 3 insertions(+), 4 deletions(-)
 
 diff --git a/internal/conns/conns.go b/internal/conns/conns.go
-index 3283a23e50..d7f0a5d3a2 100644
+index 73c5ca024b..e48f7f6ed0 100644
 --- a/internal/conns/conns.go
 +++ b/internal/conns/conns.go
 @@ -9,7 +9,6 @@ import (
@@ -21,7 +21,7 @@ index 3283a23e50..d7f0a5d3a2 100644
  )
  
  // ServicePackage is the minimal interface exported from each AWS service package.
-@@ -77,10 +76,10 @@ func NewSessionForRegion(cfg *aws.Config, region, terraformVersion string) (*ses
+@@ -77,10 +76,10 @@ func NewSessionForRegion(cfg *aws_sdkv1.Config, region, terraformVersion string)
  
  func StdUserAgentProducts(terraformVersion string) *awsbase.APNInfo {
  	return &awsbase.APNInfo{

@@ -1,7 +1,7 @@
-From 03584ac6bc82c1c32410c3360c135d7cb1cdb0f1 Mon Sep 17 00:00:00 2001
+From e76480b843cddc9d714fa11f554e33beda44abb4 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 15 Nov 2022 10:08:05 +0000
-Subject: [PATCH 13/27] Add dedicated_host docs
+Subject: [PATCH 13/28] Add dedicated_host docs
 
 ---
  website/docs/d/dedicated_host.html.markdown | 75 +++++++++++++++++++++

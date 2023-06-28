@@ -1,7 +1,7 @@
-From 20eb8daad2dab473b9abc62fa6add8c04c2dfd50 Mon Sep 17 00:00:00 2001
+From 2a0a86c7cdba879ae04d3afcf4584ce1a50e9509 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel.dbphoto@gmail.com>
 Date: Tue, 28 Mar 2023 19:54:00 +0100
-Subject: [PATCH 24/27] remove required elements from schema and fix tests
+Subject: [PATCH 24/28] remove required elements from schema and fix tests
  (#77)
 
 Co-authored-by: Lee Briggs <lee@leebriggs.co.uk>
@@ -13,7 +13,7 @@ Co-authored-by: Lee Briggs <lee@leebriggs.co.uk>
  4 files changed, 41 insertions(+), 33 deletions(-)
 
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
-index e17f71e6b6..4a0ccf149d 100644
+index 0b869023c5..72f7d31d85 100644
 --- a/internal/service/gamelift/matchmaking_configuration.go
 +++ b/internal/service/gamelift/matchmaking_configuration.go
 @@ -29,7 +29,7 @@ func ResourceMatchMakingConfiguration() *schema.Resource {
@@ -176,7 +176,7 @@ index 7bd8451404..ce5ee93c99 100644
  		})
  
 diff --git a/internal/service/gamelift/matchmaking_rule_set.go b/internal/service/gamelift/matchmaking_rule_set.go
-index 254c96efc6..54b86a0426 100644
+index fcd99983c3..d9f2424b7a 100644
 --- a/internal/service/gamelift/matchmaking_rule_set.go
 +++ b/internal/service/gamelift/matchmaking_rule_set.go
 @@ -119,11 +119,11 @@ func resourceMatchmakingRuleSetRead(ctx context.Context, d *schema.ResourceData,

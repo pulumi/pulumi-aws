@@ -1,7 +1,7 @@
-From 2c21c14192211f8b046102cab97908d186ab1fc5 Mon Sep 17 00:00:00 2001
+From 99e8bae36f4a24ba03ba4236108807bde9fcf7b2 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Thu, 17 Nov 2022 09:55:46 +0000
-Subject: [PATCH 15/27] Un-deprecate RDS instance name
+Subject: [PATCH 15/28] Un-deprecate RDS instance name
 
 We don't have a good migration story yet so this just adds noise for users.
 
@@ -11,7 +11,7 @@ Reference: https://github.com/pulumi/pulumi-aws/issues/2203
  1 file changed, 10 insertions(+)
 
 diff --git a/internal/service/rds/instance.go b/internal/service/rds/instance.go
-index 7fe8740160..7aacd18b77 100644
+index 3c05f0cb17..b4ff776f62 100644
 --- a/internal/service/rds/instance.go
 +++ b/internal/service/rds/instance.go
 @@ -397,6 +397,16 @@ func ResourceInstance() *schema.Resource {

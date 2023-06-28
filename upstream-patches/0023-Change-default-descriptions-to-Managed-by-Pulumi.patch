@@ -1,7 +1,7 @@
-From de5bef7792107bdf887ba557d2a875c5879083c2 Mon Sep 17 00:00:00 2001
+From 5d5cf0c415c7e19b331bb2abf1b1e9641bcc5d32 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
-Subject: [PATCH 23/27] Change default descriptions to "Managed by Pulumi"
+Subject: [PATCH 23/28] Change default descriptions to "Managed by Pulumi"
 
 ---
  internal/service/apigateway/api_key.go        |   2 +-
@@ -37,7 +37,7 @@ Subject: [PATCH 23/27] Change default descriptions to "Managed by Pulumi"
  create mode 100644 internal/service/redshift/security_group.go
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
-index 91e801ffab..c6cff958f7 100644
+index b6c82d47df..48c77ab6c3 100644
 --- a/internal/service/apigateway/api_key.go
 +++ b/internal/service/apigateway/api_key.go
 @@ -44,7 +44,7 @@ func ResourceAPIKey() *schema.Resource {
@@ -50,7 +50,7 @@ index 91e801ffab..c6cff958f7 100644
  
  			"enabled": {
 diff --git a/internal/service/appsync/api_key.go b/internal/service/appsync/api_key.go
-index bb9540d018..4df7ce2332 100644
+index 2211661f01..2775a9688a 100644
 --- a/internal/service/appsync/api_key.go
 +++ b/internal/service/appsync/api_key.go
 @@ -32,7 +32,7 @@ func ResourceAPIKey() *schema.Resource {
@@ -63,7 +63,7 @@ index bb9540d018..4df7ce2332 100644
  			"api_id": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/cloudfront/origin_access_control.go b/internal/service/cloudfront/origin_access_control.go
-index edf5062876..e41ad22892 100644
+index 2a22bba93a..410d74d56c 100644
 --- a/internal/service/cloudfront/origin_access_control.go
 +++ b/internal/service/cloudfront/origin_access_control.go
 @@ -34,7 +34,7 @@ func ResourceOriginAccessControl() *schema.Resource {
@@ -76,7 +76,7 @@ index edf5062876..e41ad22892 100644
  			},
  			"etag": {
 diff --git a/internal/service/docdb/cluster_parameter_group.go b/internal/service/docdb/cluster_parameter_group.go
-index 9409aee851..b4a1152ffa 100644
+index 4120a9957f..302ab791f5 100644
 --- a/internal/service/docdb/cluster_parameter_group.go
 +++ b/internal/service/docdb/cluster_parameter_group.go
 @@ -66,7 +66,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -89,7 +89,7 @@ index 9409aee851..b4a1152ffa 100644
  			"parameter": {
  				Type:     schema.TypeSet,
 diff --git a/internal/service/docdb/subnet_group.go b/internal/service/docdb/subnet_group.go
-index d9c7a8b511..9dd8bec272 100644
+index c7a1f4f3de..0660d76ed4 100644
 --- a/internal/service/docdb/subnet_group.go
 +++ b/internal/service/docdb/subnet_group.go
 @@ -60,7 +60,7 @@ func ResourceSubnetGroup() *schema.Resource {
@@ -102,7 +102,7 @@ index d9c7a8b511..9dd8bec272 100644
  
  			"subnet_ids": {
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 2d7d00102e..7aa9af59d4 100644
+index b5c87e25ab..704d5b4a3d 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
 @@ -60,7 +60,7 @@ func ResourceSecurityGroup() *schema.Resource {
@@ -115,7 +115,7 @@ index 2d7d00102e..7aa9af59d4 100644
  			},
  			"egress":  securityGroupRuleSetNestedBlock,
 diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
-index ae30f42a8d..3ea5cd0762 100644
+index e2e5733b05..d023b6b301 100644
 --- a/internal/service/elasticache/parameter_group.go
 +++ b/internal/service/elasticache/parameter_group.go
 @@ -52,7 +52,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -129,7 +129,7 @@ index ae30f42a8d..3ea5cd0762 100644
  				Type:     schema.TypeString,
 diff --git a/internal/service/elasticache/security_group.go b/internal/service/elasticache/security_group.go
 new file mode 100644
-index 0000000000..f587fcbcce
+index 0000000000..f77ca2b249
 --- /dev/null
 +++ b/internal/service/elasticache/security_group.go
 @@ -0,0 +1,127 @@
@@ -193,7 +193,7 @@ index 0000000000..f587fcbcce
 +
 +func resourceSecurityGroupRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 +	var diags diag.Diagnostics
-+	conn := meta.(*conns.AWSClient).ElastiCacheConn()
++	conn := meta.(*conns.AWSClient).ElastiCacheConn(ctx)
 +	req := &elasticache.DescribeCacheSecurityGroupsInput{
 +		CacheSecurityGroupName: aws.String(d.Id()),
 +	}
@@ -230,7 +230,7 @@ index 0000000000..f587fcbcce
 +
 +func resourceSecurityGroupDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 +	var diags diag.Diagnostics
-+	conn := meta.(*conns.AWSClient).ElastiCacheConn()
++	conn := meta.(*conns.AWSClient).ElastiCacheConn(ctx)
 +
 +	log.Printf("[DEBUG] Cache security group delete: %s", d.Id())
 +
@@ -261,7 +261,7 @@ index 0000000000..f587fcbcce
 +	return diags
 +}
 diff --git a/internal/service/elasticache/subnet_group.go b/internal/service/elasticache/subnet_group.go
-index 80cbca91e9..64822098f8 100644
+index 1c22fc0d26..ea9ba8496a 100644
 --- a/internal/service/elasticache/subnet_group.go
 +++ b/internal/service/elasticache/subnet_group.go
 @@ -42,7 +42,7 @@ func ResourceSubnetGroup() *schema.Resource {
@@ -274,7 +274,7 @@ index 80cbca91e9..64822098f8 100644
  			"name": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/mediapackage/channel.go b/internal/service/mediapackage/channel.go
-index 5945c2ebb6..2cdf08a3c6 100644
+index 9e1fb8e706..329156abd0 100644
 --- a/internal/service/mediapackage/channel.go
 +++ b/internal/service/mediapackage/channel.go
 @@ -46,7 +46,7 @@ func ResourceChannel() *schema.Resource {
@@ -287,7 +287,7 @@ index 5945c2ebb6..2cdf08a3c6 100644
  			"hls_ingest": {
  				Type:     schema.TypeList,
 diff --git a/internal/service/memorydb/cluster.go b/internal/service/memorydb/cluster.go
-index 2b4e13a169..c4e6aa20ff 100644
+index de57a53ad2..c7186f3ab5 100644
 --- a/internal/service/memorydb/cluster.go
 +++ b/internal/service/memorydb/cluster.go
 @@ -69,7 +69,7 @@ func ResourceCluster() *schema.Resource {
@@ -300,7 +300,7 @@ index 2b4e13a169..c4e6aa20ff 100644
  			"engine_patch_version": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/parameter_group.go b/internal/service/memorydb/parameter_group.go
-index ab62865640..f5ec795966 100644
+index 1a17005ab5..f2ae91145a 100644
 --- a/internal/service/memorydb/parameter_group.go
 +++ b/internal/service/memorydb/parameter_group.go
 @@ -47,7 +47,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -313,7 +313,7 @@ index ab62865640..f5ec795966 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/memorydb/subnet_group.go b/internal/service/memorydb/subnet_group.go
-index a9ff4ed56f..0a007dbbd4 100644
+index 2428ed4e74..4e88c9aad6 100644
 --- a/internal/service/memorydb/subnet_group.go
 +++ b/internal/service/memorydb/subnet_group.go
 @@ -42,7 +42,7 @@ func ResourceSubnetGroup() *schema.Resource {
@@ -326,7 +326,7 @@ index a9ff4ed56f..0a007dbbd4 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/neptune/cluster_parameter_group.go b/internal/service/neptune/cluster_parameter_group.go
-index 92e8cbe29c..91c4668bf7 100644
+index fb9b4f90cc..2b65213791 100644
 --- a/internal/service/neptune/cluster_parameter_group.go
 +++ b/internal/service/neptune/cluster_parameter_group.go
 @@ -62,7 +62,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -339,7 +339,7 @@ index 92e8cbe29c..91c4668bf7 100644
  			"parameter": {
  				Type:     schema.TypeSet,
 diff --git a/internal/service/neptune/parameter_group.go b/internal/service/neptune/parameter_group.go
-index 8ea1ed8611..a9d28f939c 100644
+index 540f7666c9..f941113668 100644
 --- a/internal/service/neptune/parameter_group.go
 +++ b/internal/service/neptune/parameter_group.go
 @@ -58,7 +58,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -352,7 +352,7 @@ index 8ea1ed8611..a9d28f939c 100644
  			"parameter": {
  				Type:     schema.TypeSet,
 diff --git a/internal/service/neptune/subnet_group.go b/internal/service/neptune/subnet_group.go
-index 47f7d3f21e..24945bf3e0 100644
+index 22ad30c776..ccf8a3d237 100644
 --- a/internal/service/neptune/subnet_group.go
 +++ b/internal/service/neptune/subnet_group.go
 @@ -41,7 +41,7 @@ func ResourceSubnetGroup() *schema.Resource {
@@ -365,7 +365,7 @@ index 47f7d3f21e..24945bf3e0 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/rds/cluster_parameter_group.go b/internal/service/rds/cluster_parameter_group.go
-index 54f60de7ed..73bc03802a 100644
+index 3f750044e8..af0b651897 100644
 --- a/internal/service/rds/cluster_parameter_group.go
 +++ b/internal/service/rds/cluster_parameter_group.go
 @@ -47,7 +47,7 @@ func ResourceClusterParameterGroup() *schema.Resource {
@@ -378,7 +378,7 @@ index 54f60de7ed..73bc03802a 100644
  			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/option_group.go b/internal/service/rds/option_group.go
-index b940b731c4..4ad2288586 100644
+index fad116f7fa..7948ee8774 100644
 --- a/internal/service/rds/option_group.go
 +++ b/internal/service/rds/option_group.go
 @@ -75,7 +75,7 @@ func ResourceOptionGroup() *schema.Resource {
@@ -391,7 +391,7 @@ index b940b731c4..4ad2288586 100644
  
  			"option": {
 diff --git a/internal/service/rds/parameter_group.go b/internal/service/rds/parameter_group.go
-index 8505b0e3ef..220453ba6b 100644
+index 5290e2aeec..e2a8746559 100644
 --- a/internal/service/rds/parameter_group.go
 +++ b/internal/service/rds/parameter_group.go
 @@ -48,7 +48,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -405,7 +405,7 @@ index 8505b0e3ef..220453ba6b 100644
  				Type:     schema.TypeString,
 diff --git a/internal/service/rds/security_group.go b/internal/service/rds/security_group.go
 new file mode 100644
-index 0000000000..54d4e61495
+index 0000000000..4f04bdc861
 --- /dev/null
 +++ b/internal/service/rds/security_group.go
 @@ -0,0 +1,316 @@
@@ -553,7 +553,7 @@ index 0000000000..54d4e61495
 +
 +func resourceSecurityGroupUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 +	var diags diag.Diagnostics
-+	conn := meta.(*conns.AWSClient).RDSConn()
++	conn := meta.(*conns.AWSClient).RDSConn(ctx)
 +
 +	if d.HasChange("ingress") {
 +		sg, err := resourceSecurityGroupRetrieve(ctx, d, meta)
@@ -596,7 +596,7 @@ index 0000000000..54d4e61495
 +
 +func resourceSecurityGroupDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 +	var diags diag.Diagnostics
-+	conn := meta.(*conns.AWSClient).RDSConn()
++	conn := meta.(*conns.AWSClient).RDSConn(ctx)
 +
 +	log.Printf("[DEBUG] DB Security Group destroy: %v", d.Id())
 +
@@ -614,7 +614,7 @@ index 0000000000..54d4e61495
 +}
 +
 +func resourceSecurityGroupRetrieve(ctx context.Context, d *schema.ResourceData, meta interface{}) (*rds.DBSecurityGroup, error) {
-+	conn := meta.(*conns.AWSClient).RDSConn()
++	conn := meta.(*conns.AWSClient).RDSConn(ctx)
 +
 +	opts := rds.DescribeDBSecurityGroupsInput{
 +		DBSecurityGroupName: aws.String(d.Id()),
@@ -726,7 +726,7 @@ index 0000000000..54d4e61495
 +	return create.StringHashcode(buf.String())
 +}
 diff --git a/internal/service/rds/subnet_group.go b/internal/service/rds/subnet_group.go
-index a90240c0e2..3aa4b8e7cc 100644
+index 81ad1759ec..404cc6ee7a 100644
 --- a/internal/service/rds/subnet_group.go
 +++ b/internal/service/rds/subnet_group.go
 @@ -40,7 +40,7 @@ func ResourceSubnetGroup() *schema.Resource {
@@ -739,7 +739,7 @@ index a90240c0e2..3aa4b8e7cc 100644
  			"name": {
  				Type:          schema.TypeString,
 diff --git a/internal/service/redshift/parameter_group.go b/internal/service/redshift/parameter_group.go
-index 50166017e0..00c8a9e190 100644
+index 66c05790bb..1b43b35384 100644
 --- a/internal/service/redshift/parameter_group.go
 +++ b/internal/service/redshift/parameter_group.go
 @@ -47,7 +47,7 @@ func ResourceParameterGroup() *schema.Resource {
@@ -753,7 +753,7 @@ index 50166017e0..00c8a9e190 100644
  				Type:     schema.TypeString,
 diff --git a/internal/service/redshift/security_group.go b/internal/service/redshift/security_group.go
 new file mode 100644
-index 0000000000..47b5d7cda2
+index 0000000000..050fee663a
 --- /dev/null
 +++ b/internal/service/redshift/security_group.go
 @@ -0,0 +1,291 @@
@@ -878,7 +878,7 @@ index 0000000000..47b5d7cda2
 +
 +func resourceSecurityGroupUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 +	var diags diag.Diagnostics
-+	conn := meta.(*conns.AWSClient).RedshiftConn()
++	conn := meta.(*conns.AWSClient).RedshiftConn(ctx)
 +
 +	if d.HasChange("ingress") {
 +		o, n := d.GetChange("ingress")
@@ -921,7 +921,7 @@ index 0000000000..47b5d7cda2
 +
 +func resourceSecurityGroupDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 +	var diags diag.Diagnostics
-+	conn := meta.(*conns.AWSClient).RedshiftConn()
++	conn := meta.(*conns.AWSClient).RedshiftConn(ctx)
 +
 +	log.Printf("[DEBUG] Redshift Security Group destroy: %v", d.Id())
 +	opts := redshift.DeleteClusterSecurityGroupInput{
@@ -942,7 +942,7 @@ index 0000000000..47b5d7cda2
 +}
 +
 +func resourceSecurityGroupRetrieve(ctx context.Context, d *schema.ResourceData, meta interface{}) (*redshift.ClusterSecurityGroup, error) {
-+	conn := meta.(*conns.AWSClient).RedshiftConn()
++	conn := meta.(*conns.AWSClient).RedshiftConn(ctx)
 +
 +	opts := redshift.DescribeClusterSecurityGroupsInput{
 +		ClusterSecurityGroupName: aws.String(d.Id()),
@@ -1049,7 +1049,7 @@ index 0000000000..47b5d7cda2
 +	return ingress
 +}
 diff --git a/internal/service/redshift/subnet_group.go b/internal/service/redshift/subnet_group.go
-index 5b913c31ca..99e4387dc4 100644
+index dc0f76aa5d..96144c4c22 100644
 --- a/internal/service/redshift/subnet_group.go
 +++ b/internal/service/redshift/subnet_group.go
 @@ -42,7 +42,7 @@ func ResourceSubnetGroup() *schema.Resource {
@@ -1062,7 +1062,7 @@ index 5b913c31ca..99e4387dc4 100644
  			"name": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index 88172c234e..4918032a1a 100644
+index e3e0a3b302..47b565ca68 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
 @@ -302,7 +302,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte
@@ -1093,7 +1093,7 @@ index 88172c234e..4918032a1a 100644
  			{
  				Action:            aws.String(route53.ChangeActionDelete),
 diff --git a/internal/service/route53/zone.go b/internal/service/route53/zone.go
-index 2e28d31976..7883498190 100644
+index 836b6cd667..dcd630e05b 100644
 --- a/internal/service/route53/zone.go
 +++ b/internal/service/route53/zone.go
 @@ -56,7 +56,7 @@ func ResourceZone() *schema.Resource {
@@ -1106,7 +1106,7 @@ index 2e28d31976..7883498190 100644
  			},
  			"delegation_set_id": {
 diff --git a/internal/service/route53/zone_association.go b/internal/service/route53/zone_association.go
-index 943575f77d..5f748aa85f 100644
+index 185e8c3b51..706532ed66 100644
 --- a/internal/service/route53/zone_association.go
 +++ b/internal/service/route53/zone_association.go
 @@ -73,7 +73,7 @@ func resourceZoneAssociationCreate(ctx context.Context, d *schema.ResourceData,

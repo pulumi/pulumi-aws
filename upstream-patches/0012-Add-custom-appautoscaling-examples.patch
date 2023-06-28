@@ -1,7 +1,7 @@
-From 1a5809e1664d7b0eaa9eb41df928de27a7478caa Mon Sep 17 00:00:00 2001
+From a4498b18d5756bc8496ac53d57cf2f3431f5222e Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Wed, 9 Nov 2022 17:37:35 +0000
-Subject: [PATCH 12/27] Add custom appautoscaling examples
+Subject: [PATCH 12/28] Add custom appautoscaling examples
 
 ---
  .../r/appautoscaling_policy.html.markdown     | 28 +++++++++++++++++++

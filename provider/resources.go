@@ -128,6 +128,7 @@ const (
 	emrMod                      = "Emr"                      // Elastic MapReduce
 	emrContainersMod            = "EmrContainers"            // Elastic MapReduce Containers
 	emrServerlessMod            = "EmrServerless"            // Elastic MapReduce Serverless
+	finspaceMod                 = "Finspace"                 // FinSpace
 	fisMod                      = "Fis"                      // Fault Injection System
 	fmsMod                      = "Fms"                      // FMS
 	fsxMod                      = "Fsx"                      // FSX
@@ -327,6 +328,7 @@ var moduleMap = map[string]string{
 	"emr":                             emrMod,
 	"emrcontainers":                   emrContainersMod,
 	"emrserverless":                   emrServerlessMod,
+	"finspace":                        finspaceMod,
 	"fis":                             fisMod,
 	"fms":                             fmsMod,
 	"fsx":                             fsxMod,

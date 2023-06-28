@@ -1,7 +1,7 @@
-From 9713fa85b21eab3a00a19f44343a753cd1565742 Mon Sep 17 00:00:00 2001
+From c7783350a11f951d2a927eeab7b6dd6b7f526e53 Mon Sep 17 00:00:00 2001
 From: Kyle Pitzen <kpitzen@pulumi.com>
 Date: Fri, 27 Jan 2023 09:37:43 -0600
-Subject: [PATCH 19/27] Reverts patches to S3BucketLegacy and GameLift
+Subject: [PATCH 19/28] Reverts patches to S3BucketLegacy and GameLift
 
 Previously, we were pulling along patches which removed a few simplifications
 to waiters in AWS GameLift, and a newer patch which plumbed through context.Context
@@ -11,14 +11,14 @@ and in GameLift - specifically matchmaking configurations and rulesets.
 This PR reverts our patches which will prevent future merge conflicts, and updates
 call sites to plumb through the proper Context objects.
 ---
- .../gamelift/matchmaking_configuration.go     |  44 ++---
- .../service/gamelift/matchmaking_rule_set.go  |  42 ++---
- internal/service/s3legacy/bucket_legacy.go    | 157 +++++++++---------
+ .../gamelift/matchmaking_configuration.go     |  52 +++---
+ .../service/gamelift/matchmaking_rule_set.go  |  50 ++---
+ internal/service/s3legacy/bucket_legacy.go    | 175 +++++++++---------
  internal/service/s3legacy/wait.go             |   4 +-
- 4 files changed, 124 insertions(+), 123 deletions(-)
+ 4 files changed, 141 insertions(+), 140 deletions(-)
 
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
-index 0a7c8ea635..d8ee20dc65 100644
+index 0a7c8ea635..3e9159433c 100644
 --- a/internal/service/gamelift/matchmaking_configuration.go
 +++ b/internal/service/gamelift/matchmaking_configuration.go
 @@ -2,13 +2,13 @@ package gamelift
@@ -51,16 +51,18 @@ index 0a7c8ea635..d8ee20dc65 100644
  		Importer: &schema.ResourceImporter{
  			StateContext: schema.ImportStatePassthroughContext,
  		},
-@@ -145,7 +145,7 @@ func ResourceMatchMakingConfiguration() *schema.Resource {
+@@ -145,8 +145,8 @@ func ResourceMatchMakingConfiguration() *schema.Resource {
  	}
  }
  
 -func resourceMatchmakingConfigurationCreate(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).GameLiftConn()
 +func resourceMatchmakingConfigurationCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).GameLiftConn()
++	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
  	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
  	tags := defaultTagsConfig.MergeTags(tftags.New(context.Background(), d.Get("tags").(map[string]interface{})))
-@@ -193,14 +193,14 @@ func resourceMatchmakingConfigurationCreate(d *schema.ResourceData, meta interfa
+ 
+@@ -193,15 +193,15 @@ func resourceMatchmakingConfigurationCreate(d *schema.ResourceData, meta interfa
  	log.Printf("[INFO] Creating GameLift Matchmaking Configuration: %s", input)
  	out, err := conn.CreateMatchmakingConfiguration(&input)
  	if err != nil {
@@ -74,10 +76,12 @@ index 0a7c8ea635..d8ee20dc65 100644
  }
  
 -func resourceMatchmakingConfigurationRead(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).GameLiftConn()
 +func resourceMatchmakingConfigurationRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).GameLiftConn()
++	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
  	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
  	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
+ 
 @@ -215,7 +215,7 @@ func resourceMatchmakingConfigurationRead(d *schema.ResourceData, meta interface
  			d.SetId("")
  			return nil
@@ -96,12 +100,12 @@ index 0a7c8ea635..d8ee20dc65 100644
  			len(configurations), d.Id())
  	}
  	configuration := configurations[0]
-@@ -249,27 +249,27 @@ func resourceMatchmakingConfigurationRead(d *schema.ResourceData, meta interface
+@@ -249,28 +249,28 @@ func resourceMatchmakingConfigurationRead(d *schema.ResourceData, meta interface
  	d.Set("rule_set_arn", configuration.RuleSetArn)
  	d.Set("rule_set_name", configuration.RuleSetName)
  
 -	tags, err := ListTags(context.Background(), conn, arn)
-+	tags, err := ListTags(ctx, conn, arn)
++	tags, err := listTags(ctx, conn, arn)
  
  	if err != nil {
 -		return fmt.Errorf("error listing tags for GameLift Matchmaking Configuration (%s): %s", arn, err)
@@ -125,10 +129,12 @@ index 0a7c8ea635..d8ee20dc65 100644
  }
  
 -func resourceMatchmakingConfigurationUpdate(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).GameLiftConn()
 +func resourceMatchmakingConfigurationUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).GameLiftConn()
++	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
  
  	log.Printf("[INFO] Updating GameLift Matchmaking Configuration: %s", d.Id())
+ 
 @@ -317,7 +317,7 @@ func resourceMatchmakingConfigurationUpdate(d *schema.ResourceData, meta interfa
  
  	_, err := conn.UpdateMatchmakingConfiguration(&input)
@@ -138,13 +144,13 @@ index 0a7c8ea635..d8ee20dc65 100644
  	}
  
  	arn := d.Id()
-@@ -325,15 +325,15 @@ func resourceMatchmakingConfigurationUpdate(d *schema.ResourceData, meta interfa
+@@ -325,16 +325,16 @@ func resourceMatchmakingConfigurationUpdate(d *schema.ResourceData, meta interfa
  	if d.HasChange("tags_all") {
  		o, n := d.GetChange("tags_all")
  
 -		if err := UpdateTags(context.Background(), conn, arn, o, n); err != nil {
 -			return fmt.Errorf("error updating GameLift Matchmaking Configuration (%s) tags: %s", arn, err)
-+		if err := UpdateTags(ctx, conn, arn, o, n); err != nil {
++		if err := updateTags(ctx, conn, arn, o, n); err != nil {
 +			return diag.Errorf("error updating GameLift Matchmaking Configuration (%s) tags: %s", arn, err)
  		}
  	}
@@ -154,10 +160,12 @@ index 0a7c8ea635..d8ee20dc65 100644
  }
  
 -func resourceMatchmakingConfigurationDelete(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).GameLiftConn()
 +func resourceMatchmakingConfigurationDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).GameLiftConn()
++	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
  	log.Printf("[INFO] Deleting GameLift Matchmaking Configuration: %s", d.Id())
  	_, err := conn.DeleteMatchmakingConfiguration(&gamelift.DeleteMatchmakingConfigurationInput{
+ 		Name: aws.String(d.Id()),
 @@ -343,7 +343,7 @@ func resourceMatchmakingConfigurationDelete(d *schema.ResourceData, meta interfa
  		return nil
  	}
@@ -168,7 +176,7 @@ index 0a7c8ea635..d8ee20dc65 100644
  
  	return nil
 diff --git a/internal/service/gamelift/matchmaking_rule_set.go b/internal/service/gamelift/matchmaking_rule_set.go
-index 28d15ecf5e..8c1189199f 100644
+index 28d15ecf5e..d65d506bcc 100644
 --- a/internal/service/gamelift/matchmaking_rule_set.go
 +++ b/internal/service/gamelift/matchmaking_rule_set.go
 @@ -2,12 +2,12 @@ package gamelift
@@ -200,16 +208,18 @@ index 28d15ecf5e..8c1189199f 100644
  		Importer: &schema.ResourceImporter{
  			StateContext: schema.ImportStatePassthroughContext,
  		},
-@@ -57,7 +57,7 @@ func ResourceMatchmakingRuleSet() *schema.Resource {
+@@ -57,8 +57,8 @@ func ResourceMatchmakingRuleSet() *schema.Resource {
  	}
  }
  
 -func resourceMatchmakingRuleSetCreate(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).GameLiftConn()
 +func resourceMatchmakingRuleSetCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).GameLiftConn()
++	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
  	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
  	tags := defaultTagsConfig.MergeTags(tftags.New(context.Background(), d.Get("tags").(map[string]interface{})))
-@@ -70,15 +70,15 @@ func resourceMatchmakingRuleSetCreate(d *schema.ResourceData, meta interface{})
+ 
+@@ -70,16 +70,16 @@ func resourceMatchmakingRuleSetCreate(d *schema.ResourceData, meta interface{})
  	log.Printf("[INFO] Creating GameLift Matchmaking Rule Set: %s", input)
  	out, err := conn.CreateMatchmakingRuleSet(&input)
  	if err != nil {
@@ -224,10 +234,12 @@ index 28d15ecf5e..8c1189199f 100644
  }
  
 -func resourceMatchmakingRuleSetRead(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).GameLiftConn()
 +func resourceMatchmakingRuleSetRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).GameLiftConn()
++	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
  	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
  
+ 	log.Printf("[INFO] Describing GameLift Matchmaking Rule Set: %s", d.Id())
 @@ -92,7 +92,7 @@ func resourceMatchmakingRuleSetRead(d *schema.ResourceData, meta interface{}) er
  			d.SetId("")
  			return nil
@@ -246,12 +258,12 @@ index 28d15ecf5e..8c1189199f 100644
  			len(ruleSets), d.Id())
  	}
  	ruleSet := ruleSets[0]
-@@ -112,24 +112,24 @@ func resourceMatchmakingRuleSetRead(d *schema.ResourceData, meta interface{}) er
+@@ -112,25 +112,25 @@ func resourceMatchmakingRuleSetRead(d *schema.ResourceData, meta interface{}) er
  	d.Set("name", ruleSet.RuleSetName)
  	d.Set("rule_set_body", ruleSet.RuleSetBody)
  
 -	tags, err := ListTags(context.Background(), conn, arn)
-+	tags, err := ListTags(ctx, conn, arn)
++	tags, err := listTags(ctx, conn, arn)
  
  	if err != nil {
 -		return fmt.Errorf("error listing tags for GameLift Matchmaking Rule Set (%s): %s", arn, err)
@@ -272,17 +284,19 @@ index 28d15ecf5e..8c1189199f 100644
  }
  
 -func resourceMatchmakingRuleSetUpdate(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).GameLiftConn()
 +func resourceMatchmakingRuleSetUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).GameLiftConn()
++	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
  
  	log.Printf("[INFO] Updating GameLift Matchmaking Rule Set: %s", d.Id())
-@@ -138,15 +138,15 @@ func resourceMatchmakingRuleSetUpdate(d *schema.ResourceData, meta interface{})
+ 
+@@ -138,16 +138,16 @@ func resourceMatchmakingRuleSetUpdate(d *schema.ResourceData, meta interface{})
  	if d.HasChange("tags_all") {
  		o, n := d.GetChange("tags_all")
  
 -		if err := UpdateTags(context.Background(), conn, arn, o, n); err != nil {
 -			return fmt.Errorf("error updating GameLift Matchmaking Rule Set (%s) tags: %s", arn, err)
-+		if err := UpdateTags(ctx, conn, arn, o, n); err != nil {
++		if err := updateTags(ctx, conn, arn, o, n); err != nil {
 +			return diag.Errorf("error updating GameLift Matchmaking Rule Set (%s) tags: %s", arn, err)
  		}
  	}
@@ -292,10 +306,12 @@ index 28d15ecf5e..8c1189199f 100644
  }
  
 -func resourceMatchmakingRuleSetDelete(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).GameLiftConn()
 +func resourceMatchmakingRuleSetDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).GameLiftConn()
++	conn := meta.(*conns.AWSClient).GameLiftConn(ctx)
  	log.Printf("[INFO] Deleting GameLift Matchmaking Rule Set: %s", d.Id())
  	_, err := conn.DeleteMatchmakingRuleSet(&gamelift.DeleteMatchmakingRuleSetInput{
+ 		Name: aws.String(d.Id()),
 @@ -156,7 +156,7 @@ func resourceMatchmakingRuleSetDelete(d *schema.ResourceData, meta interface{})
  		return nil
  	}
@@ -306,7 +322,7 @@ index 28d15ecf5e..8c1189199f 100644
  
  	return nil
 diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
-index 8879116578..ba95f6c2b6 100644
+index 8879116578..aaa275fc0e 100644
 --- a/internal/service/s3legacy/bucket_legacy.go
 +++ b/internal/service/s3legacy/bucket_legacy.go
 @@ -20,6 +20,7 @@ import (
@@ -317,7 +333,7 @@ index 8879116578..ba95f6c2b6 100644
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
-@@ -34,10 +35,10 @@ import (
+@@ -34,12 +35,12 @@ import (
  
  func ResourceBucketLegacy() *schema.Resource {
  	return &schema.Resource{
@@ -330,17 +346,22 @@ index 8879116578..ba95f6c2b6 100644
 +		UpdateWithoutTimeout: resourceBucketLegacyUpdate,
 +		DeleteWithoutTimeout: resourceBucketLegacyDelete,
  		Importer: &schema.ResourceImporter{
- 			State: schema.ImportStatePassthrough,
+-			State: schema.ImportStatePassthrough,
++			StateContext: schema.ImportStatePassthroughContext,
  		},
-@@ -670,7 +671,7 @@ func ResourceBucketLegacy() *schema.Resource {
+ 
+ 		Schema: map[string]*schema.Schema{
+@@ -670,8 +671,8 @@ func ResourceBucketLegacy() *schema.Resource {
  	}
  }
  
 -func resourceBucketLegacyCreate(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).S3Conn()
 +func resourceBucketLegacyCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).S3Conn()
++	conn := meta.(*conns.AWSClient).S3Conn(ctx)
  
  	// Get the bucket and acl
+ 	var bucket string
 @@ -708,7 +709,7 @@ func resourceBucketLegacyCreate(d *schema.ResourceData, meta interface{}) error
  	}
  
@@ -350,7 +371,7 @@ index 8879116578..ba95f6c2b6 100644
  	}
  
  	// S3 Object Lock can only be enabled on bucket creation.
-@@ -735,15 +736,15 @@ func resourceBucketLegacyCreate(d *schema.ResourceData, meta interface{}) error
+@@ -735,16 +736,16 @@ func resourceBucketLegacyCreate(d *schema.ResourceData, meta interface{}) error
  		_, err = conn.CreateBucket(req)
  	}
  	if err != nil {
@@ -365,10 +386,12 @@ index 8879116578..ba95f6c2b6 100644
  }
  
 -func resourceBucketLegacyUpdate(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).S3Conn()
 +func resourceBucketLegacyUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).S3Conn()
++	conn := meta.(*conns.AWSClient).S3Conn(ctx)
  
  	if d.HasChange("tags_all") {
+ 		o, n := d.GetChange("tags_all")
 @@ -755,25 +756,25 @@ func resourceBucketLegacyUpdate(d *schema.ResourceData, meta interface{}) error
  			return nil, terr
  		})
@@ -399,7 +422,7 @@ index 8879116578..ba95f6c2b6 100644
  		}
  	}
  
-@@ -784,74 +785,74 @@ func resourceBucketLegacyUpdate(d *schema.ResourceData, meta interface{}) error
+@@ -784,75 +785,75 @@ func resourceBucketLegacyUpdate(d *schema.ResourceData, meta interface{}) error
  			if versioning := expandVersioningWhenIsNewResourceLegacy(v); versioning != nil {
  				err := resourceBucketLegacyVersioningUpdate(conn, d.Id(), versioning)
  				if err != nil {
@@ -484,16 +507,18 @@ index 8879116578..ba95f6c2b6 100644
  }
  
 -func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).S3Conn()
 +func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).S3Conn()
++	conn := meta.(*conns.AWSClient).S3Conn(ctx)
  	defaultTagsConfig := meta.(*conns.AWSClient).DefaultTagsConfig
  	ignoreTagsConfig := meta.(*conns.AWSClient).IgnoreTagsConfig
+ 
 @@ -895,7 +896,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
  	}
  
  	if err != nil {
 -		return fmt.Errorf("error reading S3 Bucket (%s): %w", d.Id(), err)
-+		return diag.Errorf("error reading S3 Bucket (%s): %w", d.Id(), err)
++		return diag.Errorf("error reading S3 Bucket (%s): %s", d.Id(), err)
  	}
  
  	// In the import case, we won't have this
@@ -515,14 +540,14 @@ index 8879116578..ba95f6c2b6 100644
  
  				if err != nil {
 -					return fmt.Errorf("while setting policy (%s), encountered: %w", aws.StringValue(v), err)
-+					return diag.Errorf("while setting policy (%s), encountered: %w", aws.StringValue(v), err)
++					return diag.Errorf("while setting policy (%s), encountered: %s", aws.StringValue(v), err)
  				}
  
  				policyToSet, err = structure.NormalizeJsonString(policyToSet)
  
  				if err != nil {
 -					return fmt.Errorf("policy (%s) contains invalid JSON: %w", d.Get("policy").(string), err)
-+					return diag.Errorf("policy (%s) contains invalid JSON: %w", d.Get("policy").(string), err)
++					return diag.Errorf("policy (%s) contains invalid JSON: %s", d.Get("policy").(string), err)
  				}
  
  				d.Set("policy", policyToSet)
@@ -600,13 +625,13 @@ index 8879116578..ba95f6c2b6 100644
  
  	if err != nil {
 -		return fmt.Errorf("error getting S3 Bucket versioning (%s): %w", d.Id(), err)
-+		return diag.Errorf("error getting S3 Bucket versioning (%s): %w", d.Id(), err)
++		return diag.Errorf("error getting S3 Bucket versioning (%s): %s", d.Id(), err)
  	}
  
  	if versioning, ok := versioningResponse.(*s3.GetBucketVersioningOutput); ok {
  		if err := d.Set("versioning", flattenVersioningLegacy(versioning)); err != nil {
 -			return fmt.Errorf("error setting versioning: %w", err)
-+			return diag.Errorf("error setting versioning: %w", err)
++			return diag.Errorf("error setting versioning: %s", err)
  		}
  	}
  
@@ -740,9 +765,12 @@ index 8879116578..ba95f6c2b6 100644
  	}
  	d.Set("bucket_regional_domain_name", regionalEndpoint)
  
-@@ -1365,14 +1366,14 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1363,16 +1364,16 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+ 	}
+ 
  	// Add website_endpoint as an attribute
- 	websiteEndpoint, err := websiteLegacyEndpoint(meta.(*conns.AWSClient), d)
+-	websiteEndpoint, err := websiteLegacyEndpoint(meta.(*conns.AWSClient), d)
++	websiteEndpoint, err := websiteLegacyEndpoint(ctx, meta.(*conns.AWSClient), d)
  	if err != nil {
 -		return err
 +		return diag.FromErr(err)
@@ -778,24 +806,35 @@ index 8879116578..ba95f6c2b6 100644
  	//lintignore:AWSR002
  	if err := d.Set("tags", tags.RemoveDefaultConfig(defaultTagsConfig).Map()); err != nil {
 -		return fmt.Errorf("error setting tags: %w", err)
-+		return diag.Errorf("error setting tags: %w", err)
++		return diag.Errorf("error setting tags: %s", err)
  	}
  
  	if err := d.Set("tags_all", tags.Map()); err != nil {
 -		return fmt.Errorf("error setting tags_all: %w", err)
-+		return diag.Errorf("error setting tags_all: %w", err)
++		return diag.Errorf("error setting tags_all: %s", err)
  	}
  
  	arn := arn.ARN{
-@@ -1412,7 +1413,7 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
+@@ -1412,8 +1413,8 @@ func resourceBucketLegacyRead(d *schema.ResourceData, meta interface{}) error {
  	return nil
  }
  
 -func resourceBucketLegacyDelete(d *schema.ResourceData, meta interface{}) error {
+-	conn := meta.(*conns.AWSClient).S3Conn()
 +func resourceBucketLegacyDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
- 	conn := meta.(*conns.AWSClient).S3Conn()
++	conn := meta.(*conns.AWSClient).S3Conn(ctx)
  
  	log.Printf("[DEBUG] S3 Delete Bucket: %s", d.Id())
+ 	_, err := conn.DeleteBucket(&s3.DeleteBucketInput{
+@@ -1429,7 +1430,7 @@ func resourceBucketLegacyDelete(d *schema.ResourceData, meta interface{}) error
+ 			// Use a S3 service client that can handle multiple slashes in URIs.
+ 			// While aws_s3_bucket_object resources cannot create these object
+ 			// keys, other AWS services and applications using the S3 Bucket can.
+-			conn = meta.(*conns.AWSClient).S3ConnURICleaningDisabled()
++			conn = meta.(*conns.AWSClient).S3ConnURICleaningDisabled(ctx)
+ 
+ 			// bucket may have things delete them
+ 			log.Printf("[DEBUG] S3 Bucket attempting to forceDestroy %+v", err)
 @@ -1444,28 +1445,28 @@ func resourceBucketLegacyDelete(d *schema.ResourceData, meta interface{}) error
  			err = DeleteAllObjectVersions(conn, d.Id(), "", objectLockEnabled, false)
  
@@ -826,7 +865,7 @@ index 8879116578..ba95f6c2b6 100644
  
  	if err != nil {
 -		return fmt.Errorf("policy (%s) is an invalid JSON: %w", policy, err)
-+		return diag.Errorf("policy (%s) is an invalid JSON: %w", policy, err)
++		return diag.Errorf("policy (%s) is an invalid JSON: %s", policy, err)
  	}
  
  	if policy != "" {
@@ -882,6 +921,24 @@ index 8879116578..ba95f6c2b6 100644
  		}
  	}
  	return nil
+@@ -1751,7 +1752,7 @@ func resourceBucketLegacyWebsiteDelete(conn *s3.S3, d *schema.ResourceData) erro
+ 	return nil
+ }
+ 
+-func websiteLegacyEndpoint(client *conns.AWSClient, d *schema.ResourceData) (*S3WebsiteLegacy, error) {
++func websiteLegacyEndpoint(ctx context.Context, client *conns.AWSClient, d *schema.ResourceData) (*S3WebsiteLegacy, error) {
+ 	// If the bucket doesn't have a website configuration, return an empty
+ 	// endpoint
+ 	if _, ok := d.GetOk("website"); !ok {
+@@ -1763,7 +1764,7 @@ func websiteLegacyEndpoint(client *conns.AWSClient, d *schema.ResourceData) (*S3
+ 	// Lookup the region for this bucket
+ 
+ 	locationResponse, err := retryOnAWSCode(s3.ErrCodeNoSuchBucket, func() (interface{}, error) {
+-		return client.S3Conn().GetBucketLocation(
++		return client.S3Conn(ctx).GetBucketLocation(
+ 			&s3.GetBucketLocationInput{
+ 				Bucket: aws.String(bucket),
+ 			},
 @@ -1948,7 +1949,7 @@ func resourceBucketLegacyRequestPayerUpdate(conn *s3.S3, d *schema.ResourceData)
  	return nil
  }
