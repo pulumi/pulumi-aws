@@ -7002,7 +7002,7 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
-	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
+	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketNameNew"
 
 	return prov
 }
