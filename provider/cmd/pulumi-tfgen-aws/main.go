@@ -21,5 +21,9 @@ import (
 
 func main() {
 	info := aws.Provider()
+
+	// Replace WafV2 types.
+	info.SchemaPostProcessor = replaceWafV2TypesWithRecursive
+
 	pftfgen.MainWithMuxer("aws", *info)
 }
