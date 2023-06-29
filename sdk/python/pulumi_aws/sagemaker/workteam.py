@@ -293,9 +293,9 @@ class Workteam(pulumi.CustomResource):
             description="example",
             member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
                 cognito_member_definition=aws.sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs(
-                    client_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    user_pool=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    user_group=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    client_id=aws_cognito_user_pool_client["example"]["id"],
+                    user_pool=aws_cognito_user_pool_domain["example"]["user_pool_id"],
+                    user_group=aws_cognito_user_group["example"]["id"],
                 ),
             )])
         ```
@@ -355,9 +355,9 @@ class Workteam(pulumi.CustomResource):
             description="example",
             member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
                 cognito_member_definition=aws.sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs(
-                    client_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    user_pool=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    user_group=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    client_id=aws_cognito_user_pool_client["example"]["id"],
+                    user_pool=aws_cognito_user_pool_domain["example"]["user_pool_id"],
+                    user_group=aws_cognito_user_group["example"]["id"],
                 ),
             )])
         ```

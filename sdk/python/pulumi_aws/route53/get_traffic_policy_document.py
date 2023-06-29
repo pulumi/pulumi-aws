@@ -251,14 +251,14 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
     __ret__ = pulumi.runtime.invoke('aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument', __args__, opts=opts, typ=GetTrafficPolicyDocumentResult).value
 
     return AwaitableGetTrafficPolicyDocumentResult(
-        endpoints=__ret__.endpoints,
-        id=__ret__.id,
-        json=__ret__.json,
-        record_type=__ret__.record_type,
-        rules=__ret__.rules,
-        start_endpoint=__ret__.start_endpoint,
-        start_rule=__ret__.start_rule,
-        version=__ret__.version)
+        endpoints=pulumi.get(__ret__, 'endpoints'),
+        id=pulumi.get(__ret__, 'id'),
+        json=pulumi.get(__ret__, 'json'),
+        record_type=pulumi.get(__ret__, 'record_type'),
+        rules=pulumi.get(__ret__, 'rules'),
+        start_endpoint=pulumi.get(__ret__, 'start_endpoint'),
+        start_rule=pulumi.get(__ret__, 'start_rule'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_traffic_policy_document)

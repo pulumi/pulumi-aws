@@ -27,10 +27,6 @@ class GetBucketObjectResult:
         pulumi.set(__self__, "body", body)
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
-        if bucket is not None:
-            warnings.warn("""Use the aws_s3_object data source instead""", DeprecationWarning)
-            pulumi.log.warn("""bucket is deprecated: Use the aws_s3_object data source instead""")
-
         pulumi.set(__self__, "bucket", bucket)
         if bucket_key_enabled and not isinstance(bucket_key_enabled, bool):
             raise TypeError("Expected argument 'bucket_key_enabled' to be a bool")
@@ -116,6 +112,9 @@ class GetBucketObjectResult:
     @property
     @pulumi.getter
     def bucket(self) -> str:
+        warnings.warn("""Use the aws_s3_object data source instead""", DeprecationWarning)
+        pulumi.log.warn("""bucket is deprecated: Use the aws_s3_object data source instead""")
+
         return pulumi.get(self, "bucket")
 
     @property
@@ -386,7 +385,7 @@ def get_bucket_object(bucket: Optional[str] = None,
         s3_bucket=lambda_.id,
         s3_key=lambda_.key,
         s3_object_version=lambda_.version_id,
-        role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        role=aws_iam_role["iam_for_lambda"]["arn"],
         handler="exports.test")
     ```
 
@@ -406,32 +405,32 @@ def get_bucket_object(bucket: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucketObject:getBucketObject', __args__, opts=opts, typ=GetBucketObjectResult).value
 
     return AwaitableGetBucketObjectResult(
-        body=__ret__.body,
-        bucket=__ret__.bucket,
-        bucket_key_enabled=__ret__.bucket_key_enabled,
-        cache_control=__ret__.cache_control,
-        content_disposition=__ret__.content_disposition,
-        content_encoding=__ret__.content_encoding,
-        content_language=__ret__.content_language,
-        content_length=__ret__.content_length,
-        content_type=__ret__.content_type,
-        etag=__ret__.etag,
-        expiration=__ret__.expiration,
-        expires=__ret__.expires,
-        id=__ret__.id,
-        key=__ret__.key,
-        last_modified=__ret__.last_modified,
-        metadata=__ret__.metadata,
-        object_lock_legal_hold_status=__ret__.object_lock_legal_hold_status,
-        object_lock_mode=__ret__.object_lock_mode,
-        object_lock_retain_until_date=__ret__.object_lock_retain_until_date,
-        range=__ret__.range,
-        server_side_encryption=__ret__.server_side_encryption,
-        sse_kms_key_id=__ret__.sse_kms_key_id,
-        storage_class=__ret__.storage_class,
-        tags=__ret__.tags,
-        version_id=__ret__.version_id,
-        website_redirect_location=__ret__.website_redirect_location)
+        body=pulumi.get(__ret__, 'body'),
+        bucket=pulumi.get(__ret__, 'bucket'),
+        bucket_key_enabled=pulumi.get(__ret__, 'bucket_key_enabled'),
+        cache_control=pulumi.get(__ret__, 'cache_control'),
+        content_disposition=pulumi.get(__ret__, 'content_disposition'),
+        content_encoding=pulumi.get(__ret__, 'content_encoding'),
+        content_language=pulumi.get(__ret__, 'content_language'),
+        content_length=pulumi.get(__ret__, 'content_length'),
+        content_type=pulumi.get(__ret__, 'content_type'),
+        etag=pulumi.get(__ret__, 'etag'),
+        expiration=pulumi.get(__ret__, 'expiration'),
+        expires=pulumi.get(__ret__, 'expires'),
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        object_lock_legal_hold_status=pulumi.get(__ret__, 'object_lock_legal_hold_status'),
+        object_lock_mode=pulumi.get(__ret__, 'object_lock_mode'),
+        object_lock_retain_until_date=pulumi.get(__ret__, 'object_lock_retain_until_date'),
+        range=pulumi.get(__ret__, 'range'),
+        server_side_encryption=pulumi.get(__ret__, 'server_side_encryption'),
+        sse_kms_key_id=pulumi.get(__ret__, 'sse_kms_key_id'),
+        storage_class=pulumi.get(__ret__, 'storage_class'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version_id=pulumi.get(__ret__, 'version_id'),
+        website_redirect_location=pulumi.get(__ret__, 'website_redirect_location'))
 
 
 @_utilities.lift_output_func(get_bucket_object)
@@ -482,7 +481,7 @@ def get_bucket_object_output(bucket: Optional[pulumi.Input[str]] = None,
         s3_bucket=lambda_.id,
         s3_key=lambda_.key,
         s3_object_version=lambda_.version_id,
-        role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        role=aws_iam_role["iam_for_lambda"]["arn"],
         handler="exports.test")
     ```
 

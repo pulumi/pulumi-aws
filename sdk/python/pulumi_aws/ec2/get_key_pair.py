@@ -199,17 +199,17 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
     __ret__ = pulumi.runtime.invoke('aws:ec2/getKeyPair:getKeyPair', __args__, opts=opts, typ=GetKeyPairResult).value
 
     return AwaitableGetKeyPairResult(
-        arn=__ret__.arn,
-        create_time=__ret__.create_time,
-        filters=__ret__.filters,
-        fingerprint=__ret__.fingerprint,
-        id=__ret__.id,
-        include_public_key=__ret__.include_public_key,
-        key_name=__ret__.key_name,
-        key_pair_id=__ret__.key_pair_id,
-        key_type=__ret__.key_type,
-        public_key=__ret__.public_key,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        create_time=pulumi.get(__ret__, 'create_time'),
+        filters=pulumi.get(__ret__, 'filters'),
+        fingerprint=pulumi.get(__ret__, 'fingerprint'),
+        id=pulumi.get(__ret__, 'id'),
+        include_public_key=pulumi.get(__ret__, 'include_public_key'),
+        key_name=pulumi.get(__ret__, 'key_name'),
+        key_pair_id=pulumi.get(__ret__, 'key_pair_id'),
+        key_type=pulumi.get(__ret__, 'key_type'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_key_pair)

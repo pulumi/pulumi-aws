@@ -133,13 +133,13 @@ def get_group(alternate_identifier: Optional[pulumi.InputType['GetGroupAlternate
     __ret__ = pulumi.runtime.invoke('aws:identitystore/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        alternate_identifier=__ret__.alternate_identifier,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        external_ids=__ret__.external_ids,
-        group_id=__ret__.group_id,
-        id=__ret__.id,
-        identity_store_id=__ret__.identity_store_id)
+        alternate_identifier=pulumi.get(__ret__, 'alternate_identifier'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        external_ids=pulumi.get(__ret__, 'external_ids'),
+        group_id=pulumi.get(__ret__, 'group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_store_id=pulumi.get(__ret__, 'identity_store_id'))
 
 
 @_utilities.lift_output_func(get_group)

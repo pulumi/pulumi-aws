@@ -114,10 +114,10 @@ def get_region(endpoint: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__, opts=opts, typ=GetRegionResult).value
 
     return AwaitableGetRegionResult(
-        description=__ret__.description,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        name=__ret__.name)
+        description=pulumi.get(__ret__, 'description'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_region)

@@ -167,15 +167,15 @@ def get_environment(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:appconfig/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
-        application_id=__ret__.application_id,
-        arn=__ret__.arn,
-        description=__ret__.description,
-        environment_id=__ret__.environment_id,
-        id=__ret__.id,
-        monitors=__ret__.monitors,
-        name=__ret__.name,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        application_id=pulumi.get(__ret__, 'application_id'),
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        environment_id=pulumi.get(__ret__, 'environment_id'),
+        id=pulumi.get(__ret__, 'id'),
+        monitors=pulumi.get(__ret__, 'monitors'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_environment)

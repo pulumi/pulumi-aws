@@ -240,21 +240,21 @@ def get_product(accept_language: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult).value
 
     return AwaitableGetProductResult(
-        accept_language=__ret__.accept_language,
-        arn=__ret__.arn,
-        created_time=__ret__.created_time,
-        description=__ret__.description,
-        distributor=__ret__.distributor,
-        has_default_path=__ret__.has_default_path,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        status=__ret__.status,
-        support_description=__ret__.support_description,
-        support_email=__ret__.support_email,
-        support_url=__ret__.support_url,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        arn=pulumi.get(__ret__, 'arn'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        description=pulumi.get(__ret__, 'description'),
+        distributor=pulumi.get(__ret__, 'distributor'),
+        has_default_path=pulumi.get(__ret__, 'has_default_path'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        status=pulumi.get(__ret__, 'status'),
+        support_description=pulumi.get(__ret__, 'support_description'),
+        support_email=pulumi.get(__ret__, 'support_email'),
+        support_url=pulumi.get(__ret__, 'support_url'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_product)

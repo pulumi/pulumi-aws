@@ -207,18 +207,18 @@ def get_stack(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudformation/getStack:getStack', __args__, opts=opts, typ=GetStackResult).value
 
     return AwaitableGetStackResult(
-        capabilities=__ret__.capabilities,
-        description=__ret__.description,
-        disable_rollback=__ret__.disable_rollback,
-        iam_role_arn=__ret__.iam_role_arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        notification_arns=__ret__.notification_arns,
-        outputs=__ret__.outputs,
-        parameters=__ret__.parameters,
-        tags=__ret__.tags,
-        template_body=__ret__.template_body,
-        timeout_in_minutes=__ret__.timeout_in_minutes)
+        capabilities=pulumi.get(__ret__, 'capabilities'),
+        description=pulumi.get(__ret__, 'description'),
+        disable_rollback=pulumi.get(__ret__, 'disable_rollback'),
+        iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        notification_arns=pulumi.get(__ret__, 'notification_arns'),
+        outputs=pulumi.get(__ret__, 'outputs'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_body=pulumi.get(__ret__, 'template_body'),
+        timeout_in_minutes=pulumi.get(__ret__, 'timeout_in_minutes'))
 
 
 @_utilities.lift_output_func(get_stack)

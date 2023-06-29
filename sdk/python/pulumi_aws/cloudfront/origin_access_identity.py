@@ -193,7 +193,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         # ... other configuration ...
         example = aws.cloudfront.Distribution("example", origins=[aws.cloudfront.DistributionOriginArgs(
             s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                origin_access_identity=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                origin_access_identity=aws_cloudfront_origin_access_identity["example"]["cloudfront_access_identity_path"],
             ),
         )])
         ```
@@ -276,7 +276,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         # ... other configuration ...
         example = aws.cloudfront.Distribution("example", origins=[aws.cloudfront.DistributionOriginArgs(
             s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                origin_access_identity=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                origin_access_identity=aws_cloudfront_origin_access_identity["example"]["cloudfront_access_identity_path"],
             ),
         )])
         ```

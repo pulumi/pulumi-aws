@@ -124,12 +124,12 @@ def get_custom_plugin(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:mskconnect/getCustomPlugin:getCustomPlugin', __args__, opts=opts, typ=GetCustomPluginResult).value
 
     return AwaitableGetCustomPluginResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        latest_revision=__ret__.latest_revision,
-        name=__ret__.name,
-        state=__ret__.state)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        latest_revision=pulumi.get(__ret__, 'latest_revision'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'))
 
 
 @_utilities.lift_output_func(get_custom_plugin)

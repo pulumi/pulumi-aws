@@ -129,12 +129,12 @@ def get_dedicated_ip_pool(pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:sesv2/getDedicatedIpPool:getDedicatedIpPool', __args__, opts=opts, typ=GetDedicatedIpPoolResult).value
 
     return AwaitableGetDedicatedIpPoolResult(
-        arn=__ret__.arn,
-        dedicated_ips=__ret__.dedicated_ips,
-        id=__ret__.id,
-        pool_name=__ret__.pool_name,
-        scaling_mode=__ret__.scaling_mode,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        dedicated_ips=pulumi.get(__ret__, 'dedicated_ips'),
+        id=pulumi.get(__ret__, 'id'),
+        pool_name=pulumi.get(__ret__, 'pool_name'),
+        scaling_mode=pulumi.get(__ret__, 'scaling_mode'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_dedicated_ip_pool)

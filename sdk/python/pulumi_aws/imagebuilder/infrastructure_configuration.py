@@ -558,7 +558,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             terminate_instance_on_failure=True,
             logging=aws.imagebuilder.InfrastructureConfigurationLoggingArgs(
                 s3_logs=aws.imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs(
-                    s3_bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    s3_bucket_name=aws_s3_bucket["example"]["bucket"],
                     s3_key_prefix="logs",
                 ),
             ),
@@ -622,7 +622,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             terminate_instance_on_failure=True,
             logging=aws.imagebuilder.InfrastructureConfigurationLoggingArgs(
                 s3_logs=aws.imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs(
-                    s3_bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    s3_bucket_name=aws_s3_bucket["example"]["bucket"],
                     s3_key_prefix="logs",
                 ),
             ),

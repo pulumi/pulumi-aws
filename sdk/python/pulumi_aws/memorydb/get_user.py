@@ -140,13 +140,13 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:memorydb/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        access_string=__ret__.access_string,
-        arn=__ret__.arn,
-        authentication_modes=__ret__.authentication_modes,
-        id=__ret__.id,
-        minimum_engine_version=__ret__.minimum_engine_version,
-        tags=__ret__.tags,
-        user_name=__ret__.user_name)
+        access_string=pulumi.get(__ret__, 'access_string'),
+        arn=pulumi.get(__ret__, 'arn'),
+        authentication_modes=pulumi.get(__ret__, 'authentication_modes'),
+        id=pulumi.get(__ret__, 'id'),
+        minimum_engine_version=pulumi.get(__ret__, 'minimum_engine_version'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(get_user)

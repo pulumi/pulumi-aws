@@ -68,6 +68,9 @@ class CoreNetworkArgs:
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         """
+        warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "base_policy_region")
 
     @base_policy_region.setter
@@ -207,6 +210,9 @@ class _CoreNetworkState:
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         """
+        warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "base_policy_region")
 
     @base_policy_region.setter
@@ -774,6 +780,9 @@ class CoreNetwork(pulumi.CustomResource):
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         """
+        warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "base_policy_region")
 
     @property

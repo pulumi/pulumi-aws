@@ -223,7 +223,7 @@ class Hsm(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cluster = aws.cloudhsmv2.get_cluster(cluster_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        cluster = aws.cloudhsmv2.get_cluster(cluster_id=var["cloudhsm_cluster_id"])
         cloudhsm_v2_hsm = aws.cloudhsmv2.Hsm("cloudhsmV2Hsm",
             subnet_id=cluster.subnet_ids[0],
             cluster_id=cluster.cluster_id)
@@ -261,7 +261,7 @@ class Hsm(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        cluster = aws.cloudhsmv2.get_cluster(cluster_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        cluster = aws.cloudhsmv2.get_cluster(cluster_id=var["cloudhsm_cluster_id"])
         cloudhsm_v2_hsm = aws.cloudhsmv2.Hsm("cloudhsmV2Hsm",
             subnet_id=cluster.subnet_ids[0],
             cluster_id=cluster.cluster_id)

@@ -93,10 +93,10 @@ def get_outpost_instance_type(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:outposts/getOutpostInstanceType:getOutpostInstanceType', __args__, opts=opts, typ=GetOutpostInstanceTypeResult).value
 
     return AwaitableGetOutpostInstanceTypeResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        instance_type=__ret__.instance_type,
-        preferred_instance_types=__ret__.preferred_instance_types)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_type=pulumi.get(__ret__, 'instance_type'),
+        preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'))
 
 
 @_utilities.lift_output_func(get_outpost_instance_type)

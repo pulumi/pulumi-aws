@@ -141,14 +141,14 @@ def get_parameters_by_path(path: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ssm/getParametersByPath:getParametersByPath', __args__, opts=opts, typ=GetParametersByPathResult).value
 
     return AwaitableGetParametersByPathResult(
-        arns=__ret__.arns,
-        id=__ret__.id,
-        names=__ret__.names,
-        path=__ret__.path,
-        recursive=__ret__.recursive,
-        types=__ret__.types,
-        values=__ret__.values,
-        with_decryption=__ret__.with_decryption)
+        arns=pulumi.get(__ret__, 'arns'),
+        id=pulumi.get(__ret__, 'id'),
+        names=pulumi.get(__ret__, 'names'),
+        path=pulumi.get(__ret__, 'path'),
+        recursive=pulumi.get(__ret__, 'recursive'),
+        types=pulumi.get(__ret__, 'types'),
+        values=pulumi.get(__ret__, 'values'),
+        with_decryption=pulumi.get(__ret__, 'with_decryption'))
 
 
 @_utilities.lift_output_func(get_parameters_by_path)

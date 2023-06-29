@@ -99,7 +99,7 @@ def get_resolver_firewall_rules(action: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=aws_route53_resolver_firewall_rule_group["example"]["id"])
     ```
 
 
@@ -115,11 +115,11 @@ def get_resolver_firewall_rules(action: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverFirewallRules:getResolverFirewallRules', __args__, opts=opts, typ=GetResolverFirewallRulesResult).value
 
     return AwaitableGetResolverFirewallRulesResult(
-        action=__ret__.action,
-        firewall_rule_group_id=__ret__.firewall_rule_group_id,
-        firewall_rules=__ret__.firewall_rules,
-        id=__ret__.id,
-        priority=__ret__.priority)
+        action=pulumi.get(__ret__, 'action'),
+        firewall_rule_group_id=pulumi.get(__ret__, 'firewall_rule_group_id'),
+        firewall_rules=pulumi.get(__ret__, 'firewall_rules'),
+        id=pulumi.get(__ret__, 'id'),
+        priority=pulumi.get(__ret__, 'priority'))
 
 
 @_utilities.lift_output_func(get_resolver_firewall_rules)
@@ -138,7 +138,7 @@ def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[st
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=aws_route53_resolver_firewall_rule_group["example"]["id"])
     ```
 
 

@@ -94,10 +94,10 @@ def get_attachments(filters: Optional[Sequence[pulumi.InputType['GetAttachmentsF
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getAttachments:getAttachments', __args__, opts=opts, typ=GetAttachmentsResult).value
 
     return AwaitableGetAttachmentsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_attachments)

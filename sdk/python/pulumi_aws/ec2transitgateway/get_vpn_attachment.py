@@ -102,8 +102,8 @@ def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttach
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        vpn_connection_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
+        vpn_connection_id=aws_vpn_connection["example"]["id"])
     ```
     ### Filter
 
@@ -132,11 +132,11 @@ def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttach
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpnAttachment:getVpnAttachment', __args__, opts=opts, typ=GetVpnAttachmentResult).value
 
     return AwaitableGetVpnAttachmentResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        tags=__ret__.tags,
-        transit_gateway_id=__ret__.transit_gateway_id,
-        vpn_connection_id=__ret__.vpn_connection_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
+        vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'))
 
 
 @_utilities.lift_output_func(get_vpn_attachment)
@@ -157,8 +157,8 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        vpn_connection_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
+        vpn_connection_id=aws_vpn_connection["example"]["id"])
     ```
     ### Filter
 

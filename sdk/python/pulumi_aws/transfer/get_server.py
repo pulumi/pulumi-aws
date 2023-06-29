@@ -209,19 +209,19 @@ def get_server(server_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:transfer/getServer:getServer', __args__, opts=opts, typ=GetServerResult).value
 
     return AwaitableGetServerResult(
-        arn=__ret__.arn,
-        certificate=__ret__.certificate,
-        domain=__ret__.domain,
-        endpoint=__ret__.endpoint,
-        endpoint_type=__ret__.endpoint_type,
-        id=__ret__.id,
-        identity_provider_type=__ret__.identity_provider_type,
-        invocation_role=__ret__.invocation_role,
-        logging_role=__ret__.logging_role,
-        protocols=__ret__.protocols,
-        security_policy_name=__ret__.security_policy_name,
-        server_id=__ret__.server_id,
-        url=__ret__.url)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate=pulumi.get(__ret__, 'certificate'),
+        domain=pulumi.get(__ret__, 'domain'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        endpoint_type=pulumi.get(__ret__, 'endpoint_type'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_provider_type=pulumi.get(__ret__, 'identity_provider_type'),
+        invocation_role=pulumi.get(__ret__, 'invocation_role'),
+        logging_role=pulumi.get(__ret__, 'logging_role'),
+        protocols=pulumi.get(__ret__, 'protocols'),
+        security_policy_name=pulumi.get(__ret__, 'security_policy_name'),
+        server_id=pulumi.get(__ret__, 'server_id'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_server)

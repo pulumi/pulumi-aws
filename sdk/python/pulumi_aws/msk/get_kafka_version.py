@@ -105,10 +105,10 @@ def get_kafka_version(preferred_versions: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:msk/getKafkaVersion:getKafkaVersion', __args__, opts=opts, typ=GetKafkaVersionResult).value
 
     return AwaitableGetKafkaVersionResult(
-        id=__ret__.id,
-        preferred_versions=__ret__.preferred_versions,
-        status=__ret__.status,
-        version=__ret__.version)
+        id=pulumi.get(__ret__, 'id'),
+        preferred_versions=pulumi.get(__ret__, 'preferred_versions'),
+        status=pulumi.get(__ret__, 'status'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_kafka_version)

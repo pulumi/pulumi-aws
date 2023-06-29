@@ -224,20 +224,20 @@ def get_mount_target(access_point_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:efs/getMountTarget:getMountTarget', __args__, opts=opts, typ=GetMountTargetResult).value
 
     return AwaitableGetMountTargetResult(
-        access_point_id=__ret__.access_point_id,
-        availability_zone_id=__ret__.availability_zone_id,
-        availability_zone_name=__ret__.availability_zone_name,
-        dns_name=__ret__.dns_name,
-        file_system_arn=__ret__.file_system_arn,
-        file_system_id=__ret__.file_system_id,
-        id=__ret__.id,
-        ip_address=__ret__.ip_address,
-        mount_target_dns_name=__ret__.mount_target_dns_name,
-        mount_target_id=__ret__.mount_target_id,
-        network_interface_id=__ret__.network_interface_id,
-        owner_id=__ret__.owner_id,
-        security_groups=__ret__.security_groups,
-        subnet_id=__ret__.subnet_id)
+        access_point_id=pulumi.get(__ret__, 'access_point_id'),
+        availability_zone_id=pulumi.get(__ret__, 'availability_zone_id'),
+        availability_zone_name=pulumi.get(__ret__, 'availability_zone_name'),
+        dns_name=pulumi.get(__ret__, 'dns_name'),
+        file_system_arn=pulumi.get(__ret__, 'file_system_arn'),
+        file_system_id=pulumi.get(__ret__, 'file_system_id'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        mount_target_dns_name=pulumi.get(__ret__, 'mount_target_dns_name'),
+        mount_target_id=pulumi.get(__ret__, 'mount_target_id'),
+        network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        security_groups=pulumi.get(__ret__, 'security_groups'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'))
 
 
 @_utilities.lift_output_func(get_mount_target)

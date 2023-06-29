@@ -186,16 +186,16 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[pulumi.InputType['GetOpenZf
     __ret__ = pulumi.runtime.invoke('aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot', __args__, opts=opts, typ=GetOpenZfsSnapshotResult).value
 
     return AwaitableGetOpenZfsSnapshotResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        most_recent=__ret__.most_recent,
-        name=__ret__.name,
-        snapshot_id=__ret__.snapshot_id,
-        snapshot_ids=__ret__.snapshot_ids,
-        tags=__ret__.tags,
-        volume_id=__ret__.volume_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        name=pulumi.get(__ret__, 'name'),
+        snapshot_id=pulumi.get(__ret__, 'snapshot_id'),
+        snapshot_ids=pulumi.get(__ret__, 'snapshot_ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        volume_id=pulumi.get(__ret__, 'volume_id'))
 
 
 @_utilities.lift_output_func(get_open_zfs_snapshot)

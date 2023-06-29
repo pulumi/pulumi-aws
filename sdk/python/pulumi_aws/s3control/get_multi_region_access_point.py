@@ -173,16 +173,16 @@ def get_multi_region_access_point(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint', __args__, opts=opts, typ=GetMultiRegionAccessPointResult).value
 
     return AwaitableGetMultiRegionAccessPointResult(
-        account_id=__ret__.account_id,
-        alias=__ret__.alias,
-        arn=__ret__.arn,
-        created_at=__ret__.created_at,
-        domain_name=__ret__.domain_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        public_access_blocks=__ret__.public_access_blocks,
-        regions=__ret__.regions,
-        status=__ret__.status)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        alias=pulumi.get(__ret__, 'alias'),
+        arn=pulumi.get(__ret__, 'arn'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        public_access_blocks=pulumi.get(__ret__, 'public_access_blocks'),
+        regions=pulumi.get(__ret__, 'regions'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_multi_region_access_point)

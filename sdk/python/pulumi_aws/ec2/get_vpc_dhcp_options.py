@@ -210,17 +210,17 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions', __args__, opts=opts, typ=GetVpcDhcpOptionsResult).value
 
     return AwaitableGetVpcDhcpOptionsResult(
-        arn=__ret__.arn,
-        dhcp_options_id=__ret__.dhcp_options_id,
-        domain_name=__ret__.domain_name,
-        domain_name_servers=__ret__.domain_name_servers,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        netbios_name_servers=__ret__.netbios_name_servers,
-        netbios_node_type=__ret__.netbios_node_type,
-        ntp_servers=__ret__.ntp_servers,
-        owner_id=__ret__.owner_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        dhcp_options_id=pulumi.get(__ret__, 'dhcp_options_id'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        domain_name_servers=pulumi.get(__ret__, 'domain_name_servers'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        netbios_name_servers=pulumi.get(__ret__, 'netbios_name_servers'),
+        netbios_node_type=pulumi.get(__ret__, 'netbios_node_type'),
+        ntp_servers=pulumi.get(__ret__, 'ntp_servers'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_vpc_dhcp_options)

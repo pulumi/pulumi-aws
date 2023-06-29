@@ -217,7 +217,7 @@ class ResourceSet(pulumi.CustomResource):
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
             resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
             )])
         ```
 
@@ -257,7 +257,7 @@ class ResourceSet(pulumi.CustomResource):
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
             resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
             )])
         ```
 

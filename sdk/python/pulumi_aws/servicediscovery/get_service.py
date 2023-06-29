@@ -52,10 +52,6 @@ class GetServiceResult:
         pulumi.set(__self__, "tags", tags)
         if tags_all and not isinstance(tags_all, dict):
             raise TypeError("Expected argument 'tags_all' to be a dict")
-        if tags_all is not None:
-            warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: this attribute has been deprecated""")
-
         pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -133,6 +129,9 @@ class GetServiceResult:
         """
         (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: this attribute has been deprecated""")
+
         return pulumi.get(self, "tags_all")
 
 
@@ -187,16 +186,16 @@ def get_service(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:servicediscovery/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        dns_configs=__ret__.dns_configs,
-        health_check_configs=__ret__.health_check_configs,
-        health_check_custom_configs=__ret__.health_check_custom_configs,
-        id=__ret__.id,
-        name=__ret__.name,
-        namespace_id=__ret__.namespace_id,
-        tags=__ret__.tags,
-        tags_all=__ret__.tags_all)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        dns_configs=pulumi.get(__ret__, 'dns_configs'),
+        health_check_configs=pulumi.get(__ret__, 'health_check_configs'),
+        health_check_custom_configs=pulumi.get(__ret__, 'health_check_custom_configs'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace_id=pulumi.get(__ret__, 'namespace_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tags_all=pulumi.get(__ret__, 'tags_all'))
 
 
 @_utilities.lift_output_func(get_service)

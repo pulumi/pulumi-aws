@@ -122,11 +122,11 @@ def get_portfolio_constraints(accept_language: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints', __args__, opts=opts, typ=GetPortfolioConstraintsResult).value
 
     return AwaitableGetPortfolioConstraintsResult(
-        accept_language=__ret__.accept_language,
-        details=__ret__.details,
-        id=__ret__.id,
-        portfolio_id=__ret__.portfolio_id,
-        product_id=__ret__.product_id)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        details=pulumi.get(__ret__, 'details'),
+        id=pulumi.get(__ret__, 'id'),
+        portfolio_id=pulumi.get(__ret__, 'portfolio_id'),
+        product_id=pulumi.get(__ret__, 'product_id'))
 
 
 @_utilities.lift_output_func(get_portfolio_constraints)

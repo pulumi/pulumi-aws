@@ -115,11 +115,11 @@ def get_pipeline(pipeline_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:datapipeline/getPipeline:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        pipeline_id=__ret__.pipeline_id,
-        tags=__ret__.tags)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        pipeline_id=pulumi.get(__ret__, 'pipeline_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_pipeline)

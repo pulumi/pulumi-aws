@@ -135,14 +135,14 @@ def get_framework(control_sets: Optional[Sequence[pulumi.InputType['GetFramework
     __ret__ = pulumi.runtime.invoke('aws:auditmanager/getFramework:getFramework', __args__, opts=opts, typ=GetFrameworkResult).value
 
     return AwaitableGetFrameworkResult(
-        arn=__ret__.arn,
-        compliance_type=__ret__.compliance_type,
-        control_sets=__ret__.control_sets,
-        description=__ret__.description,
-        framework_type=__ret__.framework_type,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        compliance_type=pulumi.get(__ret__, 'compliance_type'),
+        control_sets=pulumi.get(__ret__, 'control_sets'),
+        description=pulumi.get(__ret__, 'description'),
+        framework_type=pulumi.get(__ret__, 'framework_type'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_framework)

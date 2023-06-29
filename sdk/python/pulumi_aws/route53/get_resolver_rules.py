@@ -160,13 +160,13 @@ def get_resolver_rules(name_regex: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverRules:getResolverRules', __args__, opts=opts, typ=GetResolverRulesResult).value
 
     return AwaitableGetResolverRulesResult(
-        id=__ret__.id,
-        name_regex=__ret__.name_regex,
-        owner_id=__ret__.owner_id,
-        resolver_endpoint_id=__ret__.resolver_endpoint_id,
-        resolver_rule_ids=__ret__.resolver_rule_ids,
-        rule_type=__ret__.rule_type,
-        share_status=__ret__.share_status)
+        id=pulumi.get(__ret__, 'id'),
+        name_regex=pulumi.get(__ret__, 'name_regex'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),
+        resolver_rule_ids=pulumi.get(__ret__, 'resolver_rule_ids'),
+        rule_type=pulumi.get(__ret__, 'rule_type'),
+        share_status=pulumi.get(__ret__, 'share_status'))
 
 
 @_utilities.lift_output_func(get_resolver_rules)

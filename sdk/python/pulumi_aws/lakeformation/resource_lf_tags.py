@@ -239,7 +239,7 @@ class ResourceLfTags(pulumi.CustomResource):
             ])
         example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
             database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                name=aws_glue_catalog_database["example"]["name"],
             ),
             lf_tags=[aws.lakeformation.ResourceLfTagsLfTagArgs(
                 key=example_lf_tag.key,
@@ -277,7 +277,7 @@ class ResourceLfTags(pulumi.CustomResource):
             ])
         example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
             database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                name=aws_glue_catalog_database["example"]["name"],
             ),
             lf_tags=[
                 aws.lakeformation.ResourceLfTagsLfTagArgs(
@@ -333,7 +333,7 @@ class ResourceLfTags(pulumi.CustomResource):
             ])
         example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
             database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                name=aws_glue_catalog_database["example"]["name"],
             ),
             lf_tags=[aws.lakeformation.ResourceLfTagsLfTagArgs(
                 key=example_lf_tag.key,
@@ -371,7 +371,7 @@ class ResourceLfTags(pulumi.CustomResource):
             ])
         example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
             database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                name=aws_glue_catalog_database["example"]["name"],
             ),
             lf_tags=[
                 aws.lakeformation.ResourceLfTagsLfTagArgs(

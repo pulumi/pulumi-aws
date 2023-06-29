@@ -137,13 +137,13 @@ def get_alias(function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lambda/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult).value
 
     return AwaitableGetAliasResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        function_name=__ret__.function_name,
-        function_version=__ret__.function_version,
-        id=__ret__.id,
-        invoke_arn=__ret__.invoke_arn,
-        name=__ret__.name)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        function_name=pulumi.get(__ret__, 'function_name'),
+        function_version=pulumi.get(__ret__, 'function_version'),
+        id=pulumi.get(__ret__, 'id'),
+        invoke_arn=pulumi.get(__ret__, 'invoke_arn'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_alias)

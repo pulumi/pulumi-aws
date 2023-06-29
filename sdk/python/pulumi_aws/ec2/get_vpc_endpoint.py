@@ -279,7 +279,7 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
     import pulumi
     import pulumi_aws as aws
 
-    s3 = aws.ec2.get_vpc_endpoint(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    s3 = aws.ec2.get_vpc_endpoint(vpc_id=aws_vpc["foo"]["id"],
         service_name="com.amazonaws.us-west-2.s3")
     private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("privateS3",
         vpc_endpoint_id=s3.id,
@@ -309,27 +309,27 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpoint:getVpcEndpoint', __args__, opts=opts, typ=GetVpcEndpointResult).value
 
     return AwaitableGetVpcEndpointResult(
-        arn=__ret__.arn,
-        cidr_blocks=__ret__.cidr_blocks,
-        dns_entries=__ret__.dns_entries,
-        dns_options=__ret__.dns_options,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ip_address_type=__ret__.ip_address_type,
-        network_interface_ids=__ret__.network_interface_ids,
-        owner_id=__ret__.owner_id,
-        policy=__ret__.policy,
-        prefix_list_id=__ret__.prefix_list_id,
-        private_dns_enabled=__ret__.private_dns_enabled,
-        requester_managed=__ret__.requester_managed,
-        route_table_ids=__ret__.route_table_ids,
-        security_group_ids=__ret__.security_group_ids,
-        service_name=__ret__.service_name,
-        state=__ret__.state,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags,
-        vpc_endpoint_type=__ret__.vpc_endpoint_type,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        cidr_blocks=pulumi.get(__ret__, 'cidr_blocks'),
+        dns_entries=pulumi.get(__ret__, 'dns_entries'),
+        dns_options=pulumi.get(__ret__, 'dns_options'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
+        network_interface_ids=pulumi.get(__ret__, 'network_interface_ids'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        policy=pulumi.get(__ret__, 'policy'),
+        prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'),
+        private_dns_enabled=pulumi.get(__ret__, 'private_dns_enabled'),
+        requester_managed=pulumi.get(__ret__, 'requester_managed'),
+        route_table_ids=pulumi.get(__ret__, 'route_table_ids'),
+        security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
+        service_name=pulumi.get(__ret__, 'service_name'),
+        state=pulumi.get(__ret__, 'state'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_endpoint_type=pulumi.get(__ret__, 'vpc_endpoint_type'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_vpc_endpoint)
@@ -350,7 +350,7 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi
     import pulumi_aws as aws
 
-    s3 = aws.ec2.get_vpc_endpoint(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    s3 = aws.ec2.get_vpc_endpoint(vpc_id=aws_vpc["foo"]["id"],
         service_name="com.amazonaws.us-west-2.s3")
     private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("privateS3",
         vpc_endpoint_id=s3.id,

@@ -107,7 +107,7 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dynamodb.get_table_item(table_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test = aws.dynamodb.get_table_item(table_name=aws_dynamodb_table["example"]["name"],
         expression_attribute_names={
             "#P": "Percentile",
         },
@@ -136,12 +136,12 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
     __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTableItem:getTableItem', __args__, opts=opts, typ=GetTableItemResult).value
 
     return AwaitableGetTableItemResult(
-        expression_attribute_names=__ret__.expression_attribute_names,
-        id=__ret__.id,
-        item=__ret__.item,
-        key=__ret__.key,
-        projection_expression=__ret__.projection_expression,
-        table_name=__ret__.table_name)
+        expression_attribute_names=pulumi.get(__ret__, 'expression_attribute_names'),
+        id=pulumi.get(__ret__, 'id'),
+        item=pulumi.get(__ret__, 'item'),
+        key=pulumi.get(__ret__, 'key'),
+        projection_expression=pulumi.get(__ret__, 'projection_expression'),
+        table_name=pulumi.get(__ret__, 'table_name'))
 
 
 @_utilities.lift_output_func(get_table_item)
@@ -160,7 +160,7 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dynamodb.get_table_item(table_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test = aws.dynamodb.get_table_item(table_name=aws_dynamodb_table["example"]["name"],
         expression_attribute_names={
             "#P": "Percentile",
         },

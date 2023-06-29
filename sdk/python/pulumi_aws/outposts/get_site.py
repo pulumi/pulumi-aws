@@ -100,10 +100,10 @@ def get_site(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:outposts/getSite:getSite', __args__, opts=opts, typ=GetSiteResult).value
 
     return AwaitableGetSiteResult(
-        account_id=__ret__.account_id,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_site)

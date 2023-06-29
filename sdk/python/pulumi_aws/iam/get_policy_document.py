@@ -427,13 +427,13 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     __ret__ = pulumi.runtime.invoke('aws:iam/getPolicyDocument:getPolicyDocument', __args__, opts=opts, typ=GetPolicyDocumentResult).value
 
     return AwaitableGetPolicyDocumentResult(
-        id=__ret__.id,
-        json=__ret__.json,
-        override_policy_documents=__ret__.override_policy_documents,
-        policy_id=__ret__.policy_id,
-        source_policy_documents=__ret__.source_policy_documents,
-        statements=__ret__.statements,
-        version=__ret__.version)
+        id=pulumi.get(__ret__, 'id'),
+        json=pulumi.get(__ret__, 'json'),
+        override_policy_documents=pulumi.get(__ret__, 'override_policy_documents'),
+        policy_id=pulumi.get(__ret__, 'policy_id'),
+        source_policy_documents=pulumi.get(__ret__, 'source_policy_documents'),
+        statements=pulumi.get(__ret__, 'statements'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_policy_document)

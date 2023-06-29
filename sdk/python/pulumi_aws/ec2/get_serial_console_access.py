@@ -73,5 +73,5 @@ def get_serial_console_access(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess', __args__, opts=opts, typ=GetSerialConsoleAccessResult).value
 
     return AwaitableGetSerialConsoleAccessResult(
-        enabled=__ret__.enabled,
-        id=__ret__.id)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'))

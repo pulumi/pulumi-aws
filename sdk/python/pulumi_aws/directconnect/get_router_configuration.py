@@ -133,12 +133,12 @@ def get_router_configuration(router_type_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:directconnect/getRouterConfiguration:getRouterConfiguration', __args__, opts=opts, typ=GetRouterConfigurationResult).value
 
     return AwaitableGetRouterConfigurationResult(
-        customer_router_config=__ret__.customer_router_config,
-        id=__ret__.id,
-        router_type_identifier=__ret__.router_type_identifier,
-        routers=__ret__.routers,
-        virtual_interface_id=__ret__.virtual_interface_id,
-        virtual_interface_name=__ret__.virtual_interface_name)
+        customer_router_config=pulumi.get(__ret__, 'customer_router_config'),
+        id=pulumi.get(__ret__, 'id'),
+        router_type_identifier=pulumi.get(__ret__, 'router_type_identifier'),
+        routers=pulumi.get(__ret__, 'routers'),
+        virtual_interface_id=pulumi.get(__ret__, 'virtual_interface_id'),
+        virtual_interface_name=pulumi.get(__ret__, 'virtual_interface_name'))
 
 
 @_utilities.lift_output_func(get_router_configuration)

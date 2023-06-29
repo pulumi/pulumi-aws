@@ -189,6 +189,9 @@ class EipArgs:
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         case both options are defined as the api only requires one or the other.
         """
+        warnings.warn("""use domain attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
+
         return pulumi.get(self, "vpc")
 
     @vpc.setter
@@ -518,6 +521,9 @@ class _EipState:
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         case both options are defined as the api only requires one or the other.
         """
+        warnings.warn("""use domain attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
+
         return pulumi.get(self, "vpc")
 
     @vpc.setter
@@ -1048,5 +1054,8 @@ class Eip(pulumi.CustomResource):
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         case both options are defined as the api only requires one or the other.
         """
+        warnings.warn("""use domain attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
+
         return pulumi.get(self, "vpc")
 

@@ -114,11 +114,11 @@ def get_alias(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:kms/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult).value
 
     return AwaitableGetAliasResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        target_key_arn=__ret__.target_key_arn,
-        target_key_id=__ret__.target_key_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        target_key_arn=pulumi.get(__ret__, 'target_key_arn'),
+        target_key_id=pulumi.get(__ret__, 'target_key_id'))
 
 
 @_utilities.lift_output_func(get_alias)

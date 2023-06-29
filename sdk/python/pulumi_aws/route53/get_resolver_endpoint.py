@@ -160,15 +160,15 @@ def get_resolver_endpoint(filters: Optional[Sequence[pulumi.InputType['GetResolv
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverEndpoint:getResolverEndpoint', __args__, opts=opts, typ=GetResolverEndpointResult).value
 
     return AwaitableGetResolverEndpointResult(
-        arn=__ret__.arn,
-        direction=__ret__.direction,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ip_addresses=__ret__.ip_addresses,
-        name=__ret__.name,
-        resolver_endpoint_id=__ret__.resolver_endpoint_id,
-        status=__ret__.status,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        direction=pulumi.get(__ret__, 'direction'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
+        name=pulumi.get(__ret__, 'name'),
+        resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),
+        status=pulumi.get(__ret__, 'status'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_resolver_endpoint)

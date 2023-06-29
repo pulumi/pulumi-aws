@@ -391,7 +391,7 @@ class Listener(pulumi.CustomResource):
             alpn_policy="HTTP2Preferred",
             default_actions=[aws.lb.ListenerDefaultActionArgs(
                 type="forward",
-                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                target_group_arn=aws_lb_target_group["front_end"]["arn"],
             )])
         ```
         ### Redirect Action
@@ -512,7 +512,7 @@ class Listener(pulumi.CustomResource):
         example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer",
             load_balancer_type="gateway",
             subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
-                subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                subnet_id=aws_subnet["example"]["id"],
             )])
         example_target_group = aws.lb.TargetGroup("exampleTargetGroup",
             port=6081,
@@ -601,7 +601,7 @@ class Listener(pulumi.CustomResource):
             alpn_policy="HTTP2Preferred",
             default_actions=[aws.lb.ListenerDefaultActionArgs(
                 type="forward",
-                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                target_group_arn=aws_lb_target_group["front_end"]["arn"],
             )])
         ```
         ### Redirect Action
@@ -722,7 +722,7 @@ class Listener(pulumi.CustomResource):
         example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer",
             load_balancer_type="gateway",
             subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
-                subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                subnet_id=aws_subnet["example"]["id"],
             )])
         example_target_group = aws.lb.TargetGroup("exampleTargetGroup",
             port=6081,

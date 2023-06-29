@@ -174,16 +174,16 @@ def get_configuration_set(configuration_set_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:sesv2/getConfigurationSet:getConfigurationSet', __args__, opts=opts, typ=GetConfigurationSetResult).value
 
     return AwaitableGetConfigurationSetResult(
-        arn=__ret__.arn,
-        configuration_set_name=__ret__.configuration_set_name,
-        delivery_options=__ret__.delivery_options,
-        id=__ret__.id,
-        reputation_options=__ret__.reputation_options,
-        sending_options=__ret__.sending_options,
-        suppression_options=__ret__.suppression_options,
-        tags=__ret__.tags,
-        tracking_options=__ret__.tracking_options,
-        vdm_options=__ret__.vdm_options)
+        arn=pulumi.get(__ret__, 'arn'),
+        configuration_set_name=pulumi.get(__ret__, 'configuration_set_name'),
+        delivery_options=pulumi.get(__ret__, 'delivery_options'),
+        id=pulumi.get(__ret__, 'id'),
+        reputation_options=pulumi.get(__ret__, 'reputation_options'),
+        sending_options=pulumi.get(__ret__, 'sending_options'),
+        suppression_options=pulumi.get(__ret__, 'suppression_options'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tracking_options=pulumi.get(__ret__, 'tracking_options'),
+        vdm_options=pulumi.get(__ret__, 'vdm_options'))
 
 
 @_utilities.lift_output_func(get_configuration_set)

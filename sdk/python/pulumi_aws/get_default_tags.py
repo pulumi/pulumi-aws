@@ -82,8 +82,8 @@ def get_default_tags(tags: Optional[Mapping[str, str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:index/getDefaultTags:getDefaultTags', __args__, opts=opts, typ=GetDefaultTagsResult).value
 
     return AwaitableGetDefaultTagsResult(
-        id=__ret__.id,
-        tags=__ret__.tags)
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_default_tags)

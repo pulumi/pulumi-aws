@@ -176,7 +176,7 @@ class VirtualCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrcontainers.VirtualCluster("example", container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
-            id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            id=aws_eks_cluster["example"]["name"],
             type="EKS",
             info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
                 eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(
@@ -217,7 +217,7 @@ class VirtualCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrcontainers.VirtualCluster("example", container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
-            id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            id=aws_eks_cluster["example"]["name"],
             type="EKS",
             info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
                 eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(

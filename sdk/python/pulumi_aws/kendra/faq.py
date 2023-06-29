@@ -430,8 +430,8 @@ class Faq(pulumi.CustomResource):
             index_id=aws_kendra_index["example"]["id"],
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
             ),
             tags={
                 "Name": "Example Kendra Faq",
@@ -448,8 +448,8 @@ class Faq(pulumi.CustomResource):
             file_format="CSV",
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
             ))
         ```
         ### With Language Code
@@ -463,8 +463,8 @@ class Faq(pulumi.CustomResource):
             language_code="en",
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
             ))
         ```
 
@@ -509,8 +509,8 @@ class Faq(pulumi.CustomResource):
             index_id=aws_kendra_index["example"]["id"],
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
             ),
             tags={
                 "Name": "Example Kendra Faq",
@@ -527,8 +527,8 @@ class Faq(pulumi.CustomResource):
             file_format="CSV",
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
             ))
         ```
         ### With Language Code
@@ -542,8 +542,8 @@ class Faq(pulumi.CustomResource):
             language_code="en",
             role_arn=aws_iam_role["example"]["arn"],
             s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                key=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["example"]["id"],
+                key=aws_s3_object["example"]["key"],
             ))
         ```
 

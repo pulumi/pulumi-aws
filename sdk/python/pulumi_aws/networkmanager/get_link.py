@@ -160,8 +160,8 @@ def get_link(global_network_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_link(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        link_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.networkmanager.get_link(global_network_id=var["global_network_id"],
+        link_id=var["link_id"])
     ```
 
 
@@ -177,16 +177,16 @@ def get_link(global_network_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:networkmanager/getLink:getLink', __args__, opts=opts, typ=GetLinkResult).value
 
     return AwaitableGetLinkResult(
-        arn=__ret__.arn,
-        bandwidths=__ret__.bandwidths,
-        description=__ret__.description,
-        global_network_id=__ret__.global_network_id,
-        id=__ret__.id,
-        link_id=__ret__.link_id,
-        provider_name=__ret__.provider_name,
-        site_id=__ret__.site_id,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        bandwidths=pulumi.get(__ret__, 'bandwidths'),
+        description=pulumi.get(__ret__, 'description'),
+        global_network_id=pulumi.get(__ret__, 'global_network_id'),
+        id=pulumi.get(__ret__, 'id'),
+        link_id=pulumi.get(__ret__, 'link_id'),
+        provider_name=pulumi.get(__ret__, 'provider_name'),
+        site_id=pulumi.get(__ret__, 'site_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_link)
@@ -203,8 +203,8 @@ def get_link_output(global_network_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_link(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        link_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.networkmanager.get_link(global_network_id=var["global_network_id"],
+        link_id=var["link_id"])
     ```
 
 

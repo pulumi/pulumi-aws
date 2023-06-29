@@ -255,23 +255,23 @@ def get_cloud_formation_type(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudformation/getCloudFormationType:getCloudFormationType', __args__, opts=opts, typ=GetCloudFormationTypeResult).value
 
     return AwaitableGetCloudFormationTypeResult(
-        arn=__ret__.arn,
-        default_version_id=__ret__.default_version_id,
-        deprecated_status=__ret__.deprecated_status,
-        description=__ret__.description,
-        documentation_url=__ret__.documentation_url,
-        execution_role_arn=__ret__.execution_role_arn,
-        id=__ret__.id,
-        is_default_version=__ret__.is_default_version,
-        logging_configs=__ret__.logging_configs,
-        provisioning_type=__ret__.provisioning_type,
-        schema=__ret__.schema,
-        source_url=__ret__.source_url,
-        type=__ret__.type,
-        type_arn=__ret__.type_arn,
-        type_name=__ret__.type_name,
-        version_id=__ret__.version_id,
-        visibility=__ret__.visibility)
+        arn=pulumi.get(__ret__, 'arn'),
+        default_version_id=pulumi.get(__ret__, 'default_version_id'),
+        deprecated_status=pulumi.get(__ret__, 'deprecated_status'),
+        description=pulumi.get(__ret__, 'description'),
+        documentation_url=pulumi.get(__ret__, 'documentation_url'),
+        execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        is_default_version=pulumi.get(__ret__, 'is_default_version'),
+        logging_configs=pulumi.get(__ret__, 'logging_configs'),
+        provisioning_type=pulumi.get(__ret__, 'provisioning_type'),
+        schema=pulumi.get(__ret__, 'schema'),
+        source_url=pulumi.get(__ret__, 'source_url'),
+        type=pulumi.get(__ret__, 'type'),
+        type_arn=pulumi.get(__ret__, 'type_arn'),
+        type_name=pulumi.get(__ret__, 'type_name'),
+        version_id=pulumi.get(__ret__, 'version_id'),
+        visibility=pulumi.get(__ret__, 'visibility'))
 
 
 @_utilities.lift_output_func(get_cloud_formation_type)

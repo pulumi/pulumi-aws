@@ -100,7 +100,7 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
         netmask_length=28)
     test_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation",
         ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
@@ -120,11 +120,11 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr', __args__, opts=opts, typ=GetIpamPreviewNextCidrResult).value
 
     return AwaitableGetIpamPreviewNextCidrResult(
-        cidr=__ret__.cidr,
-        disallowed_cidrs=__ret__.disallowed_cidrs,
-        id=__ret__.id,
-        ipam_pool_id=__ret__.ipam_pool_id,
-        netmask_length=__ret__.netmask_length)
+        cidr=pulumi.get(__ret__, 'cidr'),
+        disallowed_cidrs=pulumi.get(__ret__, 'disallowed_cidrs'),
+        id=pulumi.get(__ret__, 'id'),
+        ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'),
+        netmask_length=pulumi.get(__ret__, 'netmask_length'))
 
 
 @_utilities.lift_output_func(get_ipam_preview_next_cidr)
@@ -145,7 +145,7 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Op
     import pulumi
     import pulumi_aws as aws
 
-    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
         netmask_length=28)
     test_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation",
         ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],

@@ -263,22 +263,22 @@ def get_volume(filters: Optional[Sequence[pulumi.InputType['GetVolumeFilterArgs'
     __ret__ = pulumi.runtime.invoke('aws:ebs/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        arn=__ret__.arn,
-        availability_zone=__ret__.availability_zone,
-        encrypted=__ret__.encrypted,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        iops=__ret__.iops,
-        kms_key_id=__ret__.kms_key_id,
-        most_recent=__ret__.most_recent,
-        multi_attach_enabled=__ret__.multi_attach_enabled,
-        outpost_arn=__ret__.outpost_arn,
-        size=__ret__.size,
-        snapshot_id=__ret__.snapshot_id,
-        tags=__ret__.tags,
-        throughput=__ret__.throughput,
-        volume_id=__ret__.volume_id,
-        volume_type=__ret__.volume_type)
+        arn=pulumi.get(__ret__, 'arn'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        encrypted=pulumi.get(__ret__, 'encrypted'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        iops=pulumi.get(__ret__, 'iops'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        multi_attach_enabled=pulumi.get(__ret__, 'multi_attach_enabled'),
+        outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
+        size=pulumi.get(__ret__, 'size'),
+        snapshot_id=pulumi.get(__ret__, 'snapshot_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        throughput=pulumi.get(__ret__, 'throughput'),
+        volume_id=pulumi.get(__ret__, 'volume_id'),
+        volume_type=pulumi.get(__ret__, 'volume_type'))
 
 
 @_utilities.lift_output_func(get_volume)

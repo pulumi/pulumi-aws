@@ -200,18 +200,18 @@ def get_report_definition(report_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cur/getReportDefinition:getReportDefinition', __args__, opts=opts, typ=GetReportDefinitionResult).value
 
     return AwaitableGetReportDefinitionResult(
-        additional_artifacts=__ret__.additional_artifacts,
-        additional_schema_elements=__ret__.additional_schema_elements,
-        compression=__ret__.compression,
-        format=__ret__.format,
-        id=__ret__.id,
-        refresh_closed_reports=__ret__.refresh_closed_reports,
-        report_name=__ret__.report_name,
-        report_versioning=__ret__.report_versioning,
-        s3_bucket=__ret__.s3_bucket,
-        s3_prefix=__ret__.s3_prefix,
-        s3_region=__ret__.s3_region,
-        time_unit=__ret__.time_unit)
+        additional_artifacts=pulumi.get(__ret__, 'additional_artifacts'),
+        additional_schema_elements=pulumi.get(__ret__, 'additional_schema_elements'),
+        compression=pulumi.get(__ret__, 'compression'),
+        format=pulumi.get(__ret__, 'format'),
+        id=pulumi.get(__ret__, 'id'),
+        refresh_closed_reports=pulumi.get(__ret__, 'refresh_closed_reports'),
+        report_name=pulumi.get(__ret__, 'report_name'),
+        report_versioning=pulumi.get(__ret__, 'report_versioning'),
+        s3_bucket=pulumi.get(__ret__, 's3_bucket'),
+        s3_prefix=pulumi.get(__ret__, 's3_prefix'),
+        s3_region=pulumi.get(__ret__, 's3_region'),
+        time_unit=pulumi.get(__ret__, 'time_unit'))
 
 
 @_utilities.lift_output_func(get_report_definition)

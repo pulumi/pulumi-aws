@@ -150,10 +150,10 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
     __ret__ = pulumi.runtime.invoke('aws:pricing/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult).value
 
     return AwaitableGetProductResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        result=__ret__.result,
-        service_code=__ret__.service_code)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        result=pulumi.get(__ret__, 'result'),
+        service_code=pulumi.get(__ret__, 'service_code'))
 
 
 @_utilities.lift_output_func(get_product)

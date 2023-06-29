@@ -128,12 +128,12 @@ def get_sink(sink_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:oam/getSink:getSink', __args__, opts=opts, typ=GetSinkResult).value
 
     return AwaitableGetSinkResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        sink_id=__ret__.sink_id,
-        sink_identifier=__ret__.sink_identifier,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        sink_id=pulumi.get(__ret__, 'sink_id'),
+        sink_identifier=pulumi.get(__ret__, 'sink_identifier'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_sink)

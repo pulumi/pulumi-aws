@@ -89,9 +89,9 @@ def get_queues(queue_name_prefix: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:sqs/getQueues:getQueues', __args__, opts=opts, typ=GetQueuesResult).value
 
     return AwaitableGetQueuesResult(
-        id=__ret__.id,
-        queue_name_prefix=__ret__.queue_name_prefix,
-        queue_urls=__ret__.queue_urls)
+        id=pulumi.get(__ret__, 'id'),
+        queue_name_prefix=pulumi.get(__ret__, 'queue_name_prefix'),
+        queue_urls=pulumi.get(__ret__, 'queue_urls'))
 
 
 @_utilities.lift_output_func(get_queues)

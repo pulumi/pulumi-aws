@@ -134,6 +134,28 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     instances (e.g., managed via autoscaling group), as the output may change at any time
     and you'd need to re-run `apply` every time an instance comes up or dies.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test_instances = aws.ec2.get_instances(instance_tags={
+            "Role": "HardWorker",
+        },
+        filters=[aws.ec2.GetInstancesFilterArgs(
+            name="instance.group-id",
+            values=["sg-12345678"],
+        )],
+        instance_state_names=[
+            "running",
+            "stopped",
+        ])
+    test_eip = []
+    for range in [{"value": i} for i in range(0, len(test_instances.ids))]:
+        test_eip.append(aws.ec2.Eip(f"testEip-{range['value']}", instance=test_instances.ids[range["value"]]))
+    ```
+
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
@@ -150,14 +172,14 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult).value
 
     return AwaitableGetInstancesResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        instance_state_names=__ret__.instance_state_names,
-        instance_tags=__ret__.instance_tags,
-        ipv6_addresses=__ret__.ipv6_addresses,
-        private_ips=__ret__.private_ips,
-        public_ips=__ret__.public_ips)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        instance_state_names=pulumi.get(__ret__, 'instance_state_names'),
+        instance_tags=pulumi.get(__ret__, 'instance_tags'),
+        ipv6_addresses=pulumi.get(__ret__, 'ipv6_addresses'),
+        private_ips=pulumi.get(__ret__, 'private_ips'),
+        public_ips=pulumi.get(__ret__, 'public_ips'))
 
 
 @_utilities.lift_output_func(get_instances)
@@ -173,6 +195,28 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     > **Note:** It's strongly discouraged to use this data source for querying ephemeral
     instances (e.g., managed via autoscaling group), as the output may change at any time
     and you'd need to re-run `apply` every time an instance comes up or dies.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test_instances = aws.ec2.get_instances(instance_tags={
+            "Role": "HardWorker",
+        },
+        filters=[aws.ec2.GetInstancesFilterArgs(
+            name="instance.group-id",
+            values=["sg-12345678"],
+        )],
+        instance_state_names=[
+            "running",
+            "stopped",
+        ])
+    test_eip = []
+    for range in [{"value": i} for i in range(0, len(test_instances.ids))]:
+        test_eip.append(aws.ec2.Eip(f"testEip-{range['value']}", instance=test_instances.ids[range["value"]]))
+    ```
 
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are

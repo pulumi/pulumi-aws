@@ -266,7 +266,7 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_instance(replication_instance_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    test = aws.dms.get_replication_instance(replication_instance_id=aws_dms_replication_instance["test"]["replication_instance_id"])
     ```
 
 
@@ -284,25 +284,25 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:dms/getReplicationInstance:getReplicationInstance', __args__, opts=opts, typ=GetReplicationInstanceResult).value
 
     return AwaitableGetReplicationInstanceResult(
-        allocated_storage=__ret__.allocated_storage,
-        allow_major_version_upgrade=__ret__.allow_major_version_upgrade,
-        apply_immediately=__ret__.apply_immediately,
-        auto_minor_version_upgrade=__ret__.auto_minor_version_upgrade,
-        availability_zone=__ret__.availability_zone,
-        engine_version=__ret__.engine_version,
-        id=__ret__.id,
-        kms_key_arn=__ret__.kms_key_arn,
-        multi_az=__ret__.multi_az,
-        preferred_maintenance_window=__ret__.preferred_maintenance_window,
-        publicly_accessible=__ret__.publicly_accessible,
-        replication_instance_arn=__ret__.replication_instance_arn,
-        replication_instance_class=__ret__.replication_instance_class,
-        replication_instance_id=__ret__.replication_instance_id,
-        replication_instance_private_ips=__ret__.replication_instance_private_ips,
-        replication_instance_public_ips=__ret__.replication_instance_public_ips,
-        replication_subnet_group_id=__ret__.replication_subnet_group_id,
-        tags=__ret__.tags,
-        vpc_security_group_ids=__ret__.vpc_security_group_ids)
+        allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
+        allow_major_version_upgrade=pulumi.get(__ret__, 'allow_major_version_upgrade'),
+        apply_immediately=pulumi.get(__ret__, 'apply_immediately'),
+        auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        id=pulumi.get(__ret__, 'id'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
+        multi_az=pulumi.get(__ret__, 'multi_az'),
+        preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
+        publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        replication_instance_arn=pulumi.get(__ret__, 'replication_instance_arn'),
+        replication_instance_class=pulumi.get(__ret__, 'replication_instance_class'),
+        replication_instance_id=pulumi.get(__ret__, 'replication_instance_id'),
+        replication_instance_private_ips=pulumi.get(__ret__, 'replication_instance_private_ips'),
+        replication_instance_public_ips=pulumi.get(__ret__, 'replication_instance_public_ips'),
+        replication_subnet_group_id=pulumi.get(__ret__, 'replication_subnet_group_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 
 
 @_utilities.lift_output_func(get_replication_instance)
@@ -318,7 +318,7 @@ def get_replication_instance_output(replication_instance_id: Optional[pulumi.Inp
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.dms.get_replication_instance(replication_instance_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    test = aws.dms.get_replication_instance(replication_instance_id=aws_dms_replication_instance["test"]["replication_instance_id"])
     ```
 
 

@@ -711,8 +711,8 @@ class DeploymentGroup(pulumi.CustomResource):
                 deployment_type="BLUE_GREEN",
             ),
             ecs_service=aws.codedeploy.DeploymentGroupEcsServiceArgs(
-                cluster_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                service_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                cluster_name=aws_ecs_cluster["example"]["name"],
+                service_name=aws_ecs_service["example"]["name"],
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 target_group_pair_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs(
@@ -721,10 +721,10 @@ class DeploymentGroup(pulumi.CustomResource):
                     ),
                     target_groups=[
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            name=aws_lb_target_group["blue"]["name"],
                         ),
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            name=aws_lb_target_group["green"]["name"],
                         ),
                     ],
                 ),
@@ -747,7 +747,7 @@ class DeploymentGroup(pulumi.CustomResource):
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 elb_infos=[aws.codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=aws_elb["example"]["name"],
                 )],
             ),
             blue_green_deployment_config=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs(
@@ -886,8 +886,8 @@ class DeploymentGroup(pulumi.CustomResource):
                 deployment_type="BLUE_GREEN",
             ),
             ecs_service=aws.codedeploy.DeploymentGroupEcsServiceArgs(
-                cluster_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                service_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                cluster_name=aws_ecs_cluster["example"]["name"],
+                service_name=aws_ecs_service["example"]["name"],
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 target_group_pair_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs(
@@ -896,10 +896,10 @@ class DeploymentGroup(pulumi.CustomResource):
                     ),
                     target_groups=[
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            name=aws_lb_target_group["blue"]["name"],
                         ),
                         aws.codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs(
-                            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            name=aws_lb_target_group["green"]["name"],
                         ),
                     ],
                 ),
@@ -922,7 +922,7 @@ class DeploymentGroup(pulumi.CustomResource):
             ),
             load_balancer_info=aws.codedeploy.DeploymentGroupLoadBalancerInfoArgs(
                 elb_infos=[aws.codedeploy.DeploymentGroupLoadBalancerInfoElbInfoArgs(
-                    name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    name=aws_elb["example"]["name"],
                 )],
             ),
             blue_green_deployment_config=aws.codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs(

@@ -176,16 +176,16 @@ def get_compute_environment(compute_environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:batch/getComputeEnvironment:getComputeEnvironment', __args__, opts=opts, typ=GetComputeEnvironmentResult).value
 
     return AwaitableGetComputeEnvironmentResult(
-        arn=__ret__.arn,
-        compute_environment_name=__ret__.compute_environment_name,
-        ecs_cluster_arn=__ret__.ecs_cluster_arn,
-        id=__ret__.id,
-        service_role=__ret__.service_role,
-        state=__ret__.state,
-        status=__ret__.status,
-        status_reason=__ret__.status_reason,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        compute_environment_name=pulumi.get(__ret__, 'compute_environment_name'),
+        ecs_cluster_arn=pulumi.get(__ret__, 'ecs_cluster_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        service_role=pulumi.get(__ret__, 'service_role'),
+        state=pulumi.get(__ret__, 'state'),
+        status=pulumi.get(__ret__, 'status'),
+        status_reason=pulumi.get(__ret__, 'status_reason'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_compute_environment)

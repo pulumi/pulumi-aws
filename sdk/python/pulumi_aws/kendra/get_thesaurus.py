@@ -249,22 +249,22 @@ def get_thesaurus(index_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:kendra/getThesaurus:getThesaurus', __args__, opts=opts, typ=GetThesaurusResult).value
 
     return AwaitableGetThesaurusResult(
-        arn=__ret__.arn,
-        created_at=__ret__.created_at,
-        description=__ret__.description,
-        error_message=__ret__.error_message,
-        file_size_bytes=__ret__.file_size_bytes,
-        id=__ret__.id,
-        index_id=__ret__.index_id,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        source_s3_paths=__ret__.source_s3_paths,
-        status=__ret__.status,
-        synonym_rule_count=__ret__.synonym_rule_count,
-        tags=__ret__.tags,
-        term_count=__ret__.term_count,
-        thesaurus_id=__ret__.thesaurus_id,
-        updated_at=__ret__.updated_at)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        description=pulumi.get(__ret__, 'description'),
+        error_message=pulumi.get(__ret__, 'error_message'),
+        file_size_bytes=pulumi.get(__ret__, 'file_size_bytes'),
+        id=pulumi.get(__ret__, 'id'),
+        index_id=pulumi.get(__ret__, 'index_id'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        source_s3_paths=pulumi.get(__ret__, 'source_s3_paths'),
+        status=pulumi.get(__ret__, 'status'),
+        synonym_rule_count=pulumi.get(__ret__, 'synonym_rule_count'),
+        tags=pulumi.get(__ret__, 'tags'),
+        term_count=pulumi.get(__ret__, 'term_count'),
+        thesaurus_id=pulumi.get(__ret__, 'thesaurus_id'),
+        updated_at=pulumi.get(__ret__, 'updated_at'))
 
 
 @_utilities.lift_output_func(get_thesaurus)

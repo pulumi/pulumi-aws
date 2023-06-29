@@ -90,9 +90,9 @@ def get_controls(target_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:controltower/getControls:getControls', __args__, opts=opts, typ=GetControlsResult).value
 
     return AwaitableGetControlsResult(
-        enabled_controls=__ret__.enabled_controls,
-        id=__ret__.id,
-        target_identifier=__ret__.target_identifier)
+        enabled_controls=pulumi.get(__ret__, 'enabled_controls'),
+        id=pulumi.get(__ret__, 'id'),
+        target_identifier=pulumi.get(__ret__, 'target_identifier'))
 
 
 @_utilities.lift_output_func(get_controls)

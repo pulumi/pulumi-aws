@@ -123,9 +123,9 @@ def get_service_account(region: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancing/getServiceAccount:getServiceAccount', __args__, opts=opts, typ=GetServiceAccountResult).value
 
     return AwaitableGetServiceAccountResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        region=__ret__.region)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 
 
 @_utilities.lift_output_func(get_service_account)

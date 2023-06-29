@@ -164,16 +164,16 @@ def get_accelerator(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:globalaccelerator/getAccelerator:getAccelerator', __args__, opts=opts, typ=GetAcceleratorResult).value
 
     return AwaitableGetAcceleratorResult(
-        arn=__ret__.arn,
-        attributes=__ret__.attributes,
-        dns_name=__ret__.dns_name,
-        enabled=__ret__.enabled,
-        hosted_zone_id=__ret__.hosted_zone_id,
-        id=__ret__.id,
-        ip_address_type=__ret__.ip_address_type,
-        ip_sets=__ret__.ip_sets,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        attributes=pulumi.get(__ret__, 'attributes'),
+        dns_name=pulumi.get(__ret__, 'dns_name'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
+        ip_sets=pulumi.get(__ret__, 'ip_sets'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_accelerator)

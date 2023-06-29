@@ -56,6 +56,9 @@ class OrganizationConfigurationArgs:
         """
         *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
+        warnings.warn("""Use auto_enable_organization_members instead""", DeprecationWarning)
+        pulumi.log.warn("""auto_enable is deprecated: Use auto_enable_organization_members instead""")
+
         return pulumi.get(self, "auto_enable")
 
     @auto_enable.setter
@@ -119,6 +122,9 @@ class _OrganizationConfigurationState:
         """
         *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
+        warnings.warn("""Use auto_enable_organization_members instead""", DeprecationWarning)
+        pulumi.log.warn("""auto_enable is deprecated: Use auto_enable_organization_members instead""")
+
         return pulumi.get(self, "auto_enable")
 
     @auto_enable.setter
@@ -348,6 +354,9 @@ class OrganizationConfiguration(pulumi.CustomResource):
         """
         *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
+        warnings.warn("""Use auto_enable_organization_members instead""", DeprecationWarning)
+        pulumi.log.warn("""auto_enable is deprecated: Use auto_enable_organization_members instead""")
+
         return pulumi.get(self, "auto_enable")
 
     @property

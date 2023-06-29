@@ -127,11 +127,11 @@ def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIds
     __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__, opts=opts, typ=GetSnapshotIdsResult).value
 
     return AwaitableGetSnapshotIdsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        owners=__ret__.owners,
-        restorable_by_user_ids=__ret__.restorable_by_user_ids)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        owners=pulumi.get(__ret__, 'owners'),
+        restorable_by_user_ids=pulumi.get(__ret__, 'restorable_by_user_ids'))
 
 
 @_utilities.lift_output_func(get_snapshot_ids)

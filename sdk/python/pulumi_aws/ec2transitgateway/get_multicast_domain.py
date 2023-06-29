@@ -246,21 +246,21 @@ def get_multicast_domain(filters: Optional[Sequence[pulumi.InputType['GetMultica
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getMulticastDomain:getMulticastDomain', __args__, opts=opts, typ=GetMulticastDomainResult).value
 
     return AwaitableGetMulticastDomainResult(
-        arn=__ret__.arn,
-        associations=__ret__.associations,
-        auto_accept_shared_associations=__ret__.auto_accept_shared_associations,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        igmpv2_support=__ret__.igmpv2_support,
-        members=__ret__.members,
-        owner_id=__ret__.owner_id,
-        sources=__ret__.sources,
-        state=__ret__.state,
-        static_sources_support=__ret__.static_sources_support,
-        tags=__ret__.tags,
-        transit_gateway_attachment_id=__ret__.transit_gateway_attachment_id,
-        transit_gateway_id=__ret__.transit_gateway_id,
-        transit_gateway_multicast_domain_id=__ret__.transit_gateway_multicast_domain_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        associations=pulumi.get(__ret__, 'associations'),
+        auto_accept_shared_associations=pulumi.get(__ret__, 'auto_accept_shared_associations'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        igmpv2_support=pulumi.get(__ret__, 'igmpv2_support'),
+        members=pulumi.get(__ret__, 'members'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        sources=pulumi.get(__ret__, 'sources'),
+        state=pulumi.get(__ret__, 'state'),
+        static_sources_support=pulumi.get(__ret__, 'static_sources_support'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
+        transit_gateway_multicast_domain_id=pulumi.get(__ret__, 'transit_gateway_multicast_domain_id'))
 
 
 @_utilities.lift_output_func(get_multicast_domain)

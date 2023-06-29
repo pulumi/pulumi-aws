@@ -152,14 +152,14 @@ def get_distribution_configuration(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration', __args__, opts=opts, typ=GetDistributionConfigurationResult).value
 
     return AwaitableGetDistributionConfigurationResult(
-        arn=__ret__.arn,
-        date_created=__ret__.date_created,
-        date_updated=__ret__.date_updated,
-        description=__ret__.description,
-        distributions=__ret__.distributions,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        date_created=pulumi.get(__ret__, 'date_created'),
+        date_updated=pulumi.get(__ret__, 'date_updated'),
+        description=pulumi.get(__ret__, 'description'),
+        distributions=pulumi.get(__ret__, 'distributions'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_distribution_configuration)

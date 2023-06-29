@@ -209,19 +209,19 @@ def get_proxy(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:rds/getProxy:getProxy', __args__, opts=opts, typ=GetProxyResult).value
 
     return AwaitableGetProxyResult(
-        arn=__ret__.arn,
-        auths=__ret__.auths,
-        debug_logging=__ret__.debug_logging,
-        endpoint=__ret__.endpoint,
-        engine_family=__ret__.engine_family,
-        id=__ret__.id,
-        idle_client_timeout=__ret__.idle_client_timeout,
-        name=__ret__.name,
-        require_tls=__ret__.require_tls,
-        role_arn=__ret__.role_arn,
-        vpc_id=__ret__.vpc_id,
-        vpc_security_group_ids=__ret__.vpc_security_group_ids,
-        vpc_subnet_ids=__ret__.vpc_subnet_ids)
+        arn=pulumi.get(__ret__, 'arn'),
+        auths=pulumi.get(__ret__, 'auths'),
+        debug_logging=pulumi.get(__ret__, 'debug_logging'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        engine_family=pulumi.get(__ret__, 'engine_family'),
+        id=pulumi.get(__ret__, 'id'),
+        idle_client_timeout=pulumi.get(__ret__, 'idle_client_timeout'),
+        name=pulumi.get(__ret__, 'name'),
+        require_tls=pulumi.get(__ret__, 'require_tls'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'),
+        vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'),
+        vpc_subnet_ids=pulumi.get(__ret__, 'vpc_subnet_ids'))
 
 
 @_utilities.lift_output_func(get_proxy)

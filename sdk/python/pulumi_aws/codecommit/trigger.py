@@ -122,7 +122,7 @@ class Trigger(pulumi.CustomResource):
             triggers=[aws.codecommit.TriggerTriggerArgs(
                 name="all",
                 events=["all"],
-                destination_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                destination_arn=aws_sns_topic["test"]["arn"],
             )])
         ```
 
@@ -151,7 +151,7 @@ class Trigger(pulumi.CustomResource):
             triggers=[aws.codecommit.TriggerTriggerArgs(
                 name="all",
                 events=["all"],
-                destination_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                destination_arn=aws_sns_topic["test"]["arn"],
             )])
         ```
 
