@@ -216,7 +216,6 @@
         "autoscaling/trafficSourceAttachment.ts",
         "autoscalingplans/index.ts",
         "autoscalingplans/scalingPlan.ts",
-        "awsMixins.ts",
         "backup/framework.ts",
         "backup/getFramework.ts",
         "backup/getPlan.ts",

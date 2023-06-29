@@ -6,7 +6,6 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./arn";
-export * from "./awsMixins";
 export { GetAmiArgs, GetAmiResult, GetAmiOutputArgs } from "./getAmi";
 export const getAmi: typeof import("./getAmi").getAmi = null as any;
 export const getAmiOutput: typeof import("./getAmi").getAmiOutput = null as any;
