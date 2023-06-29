@@ -139,6 +139,44 @@ namespace Pulumi.Aws.Acm
     /// 
     /// });
     /// ```
+    /// ### Referencing domain_validation_options With for_each Based Resources
+    /// 
+    /// See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new List&lt;Aws.Route53.Record&gt;();
+    ///     foreach (var range in .Select(dvo =&gt; 
+    ///     {
+    ///         return new Dictionary&lt;string, object?&gt;  
+    ///         {
+    ///             { "name", dvo.ResourceRecordName },
+    ///             { "record", dvo.ResourceRecordValue },
+    ///             { "type", dvo.ResourceRecordType },
+    ///         };
+    ///     }).Select(pair =&gt; new { pair.Key, pair.Value }))
+    ///     {
+    ///         example.Add(new Aws.Route53.Record($"example-{range.Key}", new()
+    ///         {
+    ///             AllowOverwrite = true,
+    ///             Name = range.Value.Name,
+    ///             Records = new[]
+    ///             {
+    ///                 range.Value.Record,
+    ///             },
+    ///             Ttl = 60,
+    ///             Type = System.Enum.Parse&lt;Aws.Route53/RecordType.RecordType&gt;(range.Value.Type),
+    ///             ZoneId = aws_route53_zone.Example.Zone_id,
+    ///         }));
+    ///     }
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

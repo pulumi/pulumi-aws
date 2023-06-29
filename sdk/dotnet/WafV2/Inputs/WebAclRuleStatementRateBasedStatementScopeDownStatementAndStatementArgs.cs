@@ -13,14 +13,14 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs : global::Pulumi.ResourceArgs
     {
         [Input("statements", required: true)]
-        private InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementArgs>? _statements;
+        private InputList<Inputs.WebAclRuleStatementArgs>? _statements;
 
         /// <summary>
-        /// Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
+        /// The statements to combine.
         /// </summary>
-        public InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementArgs> Statements
+        public InputList<Inputs.WebAclRuleStatementArgs> Statements
         {
-            get => _statements ?? (_statements = new InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementArgs>());
+            get => _statements ?? (_statements = new InputList<Inputs.WebAclRuleStatementArgs>());
             set => _statements = value;
         }
 

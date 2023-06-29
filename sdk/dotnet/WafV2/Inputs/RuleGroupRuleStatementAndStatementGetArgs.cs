@@ -13,14 +13,14 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleStatementAndStatementGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("statements", required: true)]
-        private InputList<Inputs.RuleGroupRuleStatementAndStatementStatementGetArgs>? _statements;
+        private InputList<Inputs.RuleGroupRuleStatementGetArgs>? _statements;
 
         /// <summary>
-        /// The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+        /// The statements to combine.
         /// </summary>
-        public InputList<Inputs.RuleGroupRuleStatementAndStatementStatementGetArgs> Statements
+        public InputList<Inputs.RuleGroupRuleStatementGetArgs> Statements
         {
-            get => _statements ?? (_statements = new InputList<Inputs.RuleGroupRuleStatementAndStatementStatementGetArgs>());
+            get => _statements ?? (_statements = new InputList<Inputs.RuleGroupRuleStatementGetArgs>());
             set => _statements = value;
         }
 

@@ -14,12 +14,12 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleStatementAndStatement
     {
         /// <summary>
-        /// The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+        /// The statements to combine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RuleGroupRuleStatementAndStatementStatement> Statements;
+        public readonly ImmutableArray<Outputs.RuleGroupRuleStatement> Statements;
 
         [OutputConstructor]
-        private RuleGroupRuleStatementAndStatement(ImmutableArray<Outputs.RuleGroupRuleStatementAndStatementStatement> statements)
+        private RuleGroupRuleStatementAndStatement(ImmutableArray<Outputs.RuleGroupRuleStatement> statements)
         {
             Statements = statements;
         }

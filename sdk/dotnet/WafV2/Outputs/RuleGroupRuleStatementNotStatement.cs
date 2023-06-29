@@ -14,12 +14,12 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleStatementNotStatement
     {
         /// <summary>
-        /// The statement to negate. You can use any statement that can be nested. See Statement above for details.
+        /// The statements to combine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.RuleGroupRuleStatementNotStatementStatement> Statements;
+        public readonly ImmutableArray<Outputs.RuleGroupRuleStatement> Statements;
 
         [OutputConstructor]
-        private RuleGroupRuleStatementNotStatement(ImmutableArray<Outputs.RuleGroupRuleStatementNotStatementStatement> statements)
+        private RuleGroupRuleStatementNotStatement(ImmutableArray<Outputs.RuleGroupRuleStatement> statements)
         {
             Statements = statements;
         }
