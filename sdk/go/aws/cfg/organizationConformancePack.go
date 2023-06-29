@@ -46,7 +46,22 @@ import (
 //						ParameterValue: pulumi.String("90"),
 //					},
 //				},
-//				TemplateBody: pulumi.String("Parameters:\n  AccessKeysRotatedParameterMaxAccessKeyAge:\n    Type: String\nResources:\n  IAMPasswordPolicy:\n    Properties:\n      ConfigRuleName: IAMPasswordPolicy\n      Source:\n        Owner: AWS\n        SourceIdentifier: IAM_PASSWORD_POLICY\n    Type: AWS::Config::ConfigRule\n"),
+//				TemplateBody: pulumi.String(`Parameters:
+//	  AccessKeysRotatedParameterMaxAccessKeyAge:
+//	    Type: String
+//
+// Resources:
+//
+//	IAMPasswordPolicy:
+//	  Properties:
+//	    ConfigRuleName: IAMPasswordPolicy
+//	    Source:
+//	      Owner: AWS
+//	      SourceIdentifier: IAM_PASSWORD_POLICY
+//	  Type: AWS::Config::ConfigRule
+//
+// `),
+//
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				aws_config_configuration_recorder.Example,
 //				exampleOrganization,
@@ -91,9 +106,19 @@ import (
 //				return err
 //			}
 //			exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-//				Bucket:  exampleBucketV2.ID(),
-//				Key:     pulumi.String("example-key"),
-//				Content: pulumi.String("Resources:\n  IAMPasswordPolicy:\n    Properties:\n      ConfigRuleName: IAMPasswordPolicy\n      Source:\n        Owner: AWS\n        SourceIdentifier: IAM_PASSWORD_POLICY\n    Type: AWS::Config::ConfigRule\n"),
+//				Bucket: exampleBucketV2.ID(),
+//				Key:    pulumi.String("example-key"),
+//				Content: pulumi.String(`Resources:
+//	  IAMPasswordPolicy:
+//	    Properties:
+//	      ConfigRuleName: IAMPasswordPolicy
+//	      Source:
+//	        Owner: AWS
+//	        SourceIdentifier: IAM_PASSWORD_POLICY
+//	    Type: AWS::Config::ConfigRule
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

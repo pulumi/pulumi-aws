@@ -32,7 +32,22 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewOrganizationCustomPolicyRule(ctx, "example", &cfg.OrganizationCustomPolicyRuleArgs{
 //				PolicyRuntime: pulumi.String("guard-2.x.x"),
-//				PolicyText:    pulumi.String("  let status = ['ACTIVE']\n\n  rule tableisactive when\n      resourceType == \"AWS::DynamoDB::Table\" {\n      configuration.tableStatus == %status\n  }\n\n  rule checkcompliance when\n      resourceType == \"AWS::DynamoDB::Table\"\n      tableisactive {\n          let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus\n          %pitr == \"ENABLED\"\n      }\n\n"),
+//				PolicyText: pulumi.String(`  let status = ['ACTIVE']
+//
+//	  rule tableisactive when
+//	      resourceType == "AWS::DynamoDB::Table" {
+//	      configuration.tableStatus == %status
+//	  }
+//
+//	  rule checkcompliance when
+//	      resourceType == "AWS::DynamoDB::Table"
+//	      tableisactive {
+//	          let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
+//	          %pitr == "ENABLED"
+//	      }
+//
+// `),
+//
 //				ResourceTypesScopes: pulumi.StringArray{
 //					pulumi.String("AWS::DynamoDB::Table"),
 //				},

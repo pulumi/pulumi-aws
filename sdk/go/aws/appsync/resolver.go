@@ -29,7 +29,26 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testGraphQLApi, err := appsync.NewGraphQLApi(ctx, "testGraphQLApi", &appsync.GraphQLApiArgs{
 //				AuthenticationType: pulumi.String("API_KEY"),
-//				Schema:             pulumi.String("type Mutation {\n	putPost(id: ID!, title: String!): Post\n}\n\ntype Post {\n	id: ID!\n	title: String!\n}\n\ntype Query {\n	singlePost(id: ID!): Post\n}\n\nschema {\n	query: Query\n	mutation: Mutation\n}\n"),
+//				Schema: pulumi.String(`type Mutation {
+//		putPost(id: ID!, title: String!): Post
+//	}
+//
+//	type Post {
+//		id: ID!
+//		title: String!
+//	}
+//
+//	type Query {
+//		singlePost(id: ID!): Post
+//	}
+//
+//	schema {
+//		query: Query
+//		mutation: Mutation
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
@@ -46,12 +65,31 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewResolver(ctx, "testResolver", &appsync.ResolverArgs{
-//				ApiId:            testGraphQLApi.ID(),
-//				Field:            pulumi.String("singlePost"),
-//				Type:             pulumi.String("Query"),
-//				DataSource:       testDataSource.Name,
-//				RequestTemplate:  pulumi.String("{\n    \"version\": \"2018-05-29\",\n    \"method\": \"GET\",\n    \"resourcePath\": \"/\",\n    \"params\":{\n        \"headers\": $utils.http.copyheaders($ctx.request.headers)\n    }\n}\n"),
-//				ResponseTemplate: pulumi.String("#if($ctx.result.statusCode == 200)\n    $ctx.result.body\n#else\n    $utils.appendError($ctx.result.body, $ctx.result.statusCode)\n#end\n"),
+//				ApiId:      testGraphQLApi.ID(),
+//				Field:      pulumi.String("singlePost"),
+//				Type:       pulumi.String("Query"),
+//				DataSource: testDataSource.Name,
+//				RequestTemplate: pulumi.String(`{
+//	    "version": "2018-05-29",
+//	    "method": "GET",
+//	    "resourcePath": "/",
+//	    "params":{
+//	        "headers": $utils.http.copyheaders($ctx.request.headers)
+//	    }
+//	}
+//
+// `),
+//
+//				ResponseTemplate: pulumi.String(`#if($ctx.result.statusCode == 200)
+//	    $ctx.result.body
+//
+// #else
+//
+//	$utils.appendError($ctx.result.body, $ctx.result.statusCode)
+//
+// #end
+// `),
+//
 //				CachingConfig: &appsync.ResolverCachingConfigArgs{
 //					CachingKeys: pulumi.StringArray{
 //						pulumi.String("$context.identity.sub"),

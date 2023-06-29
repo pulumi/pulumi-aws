@@ -28,7 +28,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewSecurityConfiguration(ctx, "foo", &emr.SecurityConfigurationArgs{
-//				Configuration: pulumi.String("{\n  \"EncryptionConfiguration\": {\n    \"AtRestEncryptionConfiguration\": {\n      \"S3EncryptionConfiguration\": {\n        \"EncryptionMode\": \"SSE-S3\"\n      },\n      \"LocalDiskEncryptionConfiguration\": {\n        \"EncryptionKeyProviderType\": \"AwsKms\",\n        \"AwsKmsKey\": \"arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key\"\n      }\n    },\n    \"EnableInTransitEncryption\": false,\n    \"EnableAtRestEncryption\": true\n  }\n}\n\n"),
+//				Configuration: pulumi.String(`{
+//	  "EncryptionConfiguration": {
+//	    "AtRestEncryptionConfiguration": {
+//	      "S3EncryptionConfiguration": {
+//	        "EncryptionMode": "SSE-S3"
+//	      },
+//	      "LocalDiskEncryptionConfiguration": {
+//	        "EncryptionKeyProviderType": "AwsKms",
+//	        "AwsKmsKey": "arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key"
+//	      }
+//	    },
+//	    "EnableInTransitEncryption": false,
+//	    "EnableAtRestEncryption": true
+//	  }
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

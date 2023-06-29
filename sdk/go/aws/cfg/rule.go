@@ -179,7 +179,19 @@ import (
 //					},
 //					CustomPolicyDetails: &cfg.RuleSourceCustomPolicyDetailsArgs{
 //						PolicyRuntime: pulumi.String("guard-2.x.x"),
-//						PolicyText:    pulumi.String("	  rule tableisactive when\n		  resourceType == \"AWS::DynamoDB::Table\" {\n		  configuration.tableStatus == ['ACTIVE']\n	  }\n	  \n	  rule checkcompliance when\n		  resourceType == \"AWS::DynamoDB::Table\"\n		  tableisactive {\n			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == \"ENABLED\"\n	  }\n"),
+//						PolicyText: pulumi.String(`	  rule tableisactive when
+//			  resourceType == "AWS::DynamoDB::Table" {
+//			  configuration.tableStatus == ['ACTIVE']
+//		  }
+//
+//		  rule checkcompliance when
+//			  resourceType == "AWS::DynamoDB::Table"
+//			  tableisactive {
+//				  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+//		  }
+//
+// `),
+//
 //					},
 //				},
 //			})

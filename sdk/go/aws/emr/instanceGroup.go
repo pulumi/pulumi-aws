@@ -77,7 +77,22 @@ type InstanceGroup struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -157,7 +172,22 @@ type instanceGroupState struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -203,7 +233,22 @@ type InstanceGroupState struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -253,7 +298,22 @@ type instanceGroupArgs struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -296,7 +356,22 @@ type InstanceGroupArgs struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-	// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -435,7 +510,24 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-//				ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+//				ConfigurationsJson: pulumi.String(`[
+//
+// {
+// "Classification": "hadoop-env",
+// "Configurations": [
+// {
+// "Classification": "export",
+// "Properties": {
+// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+// }
+// }
+// ],
+// "Properties": {}
+// }
+// ]
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

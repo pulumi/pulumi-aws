@@ -57,73 +57,88 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
-// if err != nil {
-// return err
-// }
-// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "exampleCoreNetwork", &networkmanager.CoreNetworkArgs{
-// GlobalNetworkId: exampleGlobalNetwork.ID(),
-// CreateBasePolicy: pulumi.Bool(true),
-// })
-// if err != nil {
-// return err
-// }
-// exampleVpcAttachment, err := networkmanager.NewVpcAttachment(ctx, "exampleVpcAttachment", &networkmanager.VpcAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID(),
-// SubnetArns: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:networkmanager-coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment.pp:31,20-45),
-// VpcArn: pulumi.Any(aws_vpc.Example.Arn),
-// })
-// if err != nil {
-// return err
-// }
-// exampleCoreNetworkPolicyDocument := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
-// CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
-// AsnRanges: pulumi.StringArray{
-// pulumi.String("65022-65534"),
-// },
-// EdgeLocations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
-// Location: pulumi.String("us-west-2"),
-// },
-// },
-// },
-// },
-// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
-// Name: pulumi.String("segment"),
-// },
-// },
-// SegmentActions: networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs{
-// Action: pulumi.String("create-route"),
-// Segment: pulumi.String("segment"),
-// DestinationCidrBlocks: pulumi.StringArray{
-// pulumi.String("0.0.0.0/0"),
-// },
-// Destinations: pulumi.StringArray{
-// exampleVpcAttachment.ID(),
-// },
-// },
-// },
-// }, nil);
-// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "exampleCoreNetworkPolicyAttachment", &networkmanager.CoreNetworkPolicyAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID(),
-// PolicyDocument: exampleCoreNetworkPolicyDocument.ApplyT(func(exampleCoreNetworkPolicyDocument networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
-// return &exampleCoreNetworkPolicyDocument.Json, nil
-// }).(pulumi.StringPtrOutput),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "exampleCoreNetwork", &networkmanager.CoreNetworkArgs{
+//				GlobalNetworkId:  exampleGlobalNetwork.ID(),
+//				CreateBasePolicy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			var splat0 []interface{}
+//			for _, val0 := range aws_subnet.Example {
+//				splat0 = append(splat0, val0.Arn)
+//			}
+//			exampleVpcAttachment, err := networkmanager.NewVpcAttachment(ctx, "exampleVpcAttachment", &networkmanager.VpcAttachmentArgs{
+//				CoreNetworkId: exampleCoreNetwork.ID(),
+//				SubnetArns:    toPulumiAnyArray(splat0),
+//				VpcArn:        pulumi.Any(aws_vpc.Example.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCoreNetworkPolicyDocument := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
+//				CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
+//					&networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
+//						AsnRanges: pulumi.StringArray{
+//							pulumi.String("65022-65534"),
+//						},
+//						EdgeLocations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{
+//							&networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
+//								Location: pulumi.String("us-west-2"),
+//							},
+//						},
+//					},
+//				},
+//				Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
+//					&networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+//						Name: pulumi.String("segment"),
+//					},
+//				},
+//				SegmentActions: networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArray{
+//					&networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs{
+//						Action:  pulumi.String("create-route"),
+//						Segment: pulumi.String("segment"),
+//						DestinationCidrBlocks: pulumi.StringArray{
+//							pulumi.String("0.0.0.0/0"),
+//						},
+//						Destinations: pulumi.StringArray{
+//							exampleVpcAttachment.ID(),
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "exampleCoreNetworkPolicyAttachment", &networkmanager.CoreNetworkPolicyAttachmentArgs{
+//				CoreNetworkId: exampleCoreNetwork.ID(),
+//				PolicyDocument: exampleCoreNetworkPolicyDocument.ApplyT(func(exampleCoreNetworkPolicyDocument networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
+//					return &exampleCoreNetworkPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+//	func toPulumiAnyArray(arr []Any) pulumi.AnyArray {
+//		var pulumiArr pulumi.AnyArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.Any(v))
+//		}
+//		return pulumiArr
+//	}
+//
 // ```
 // ### With VPC Attachment (Multi-Region)
 //
@@ -134,101 +149,120 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
-// if err != nil {
-// return err
-// }
-// exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "exampleCoreNetwork", &networkmanager.CoreNetworkArgs{
-// GlobalNetworkId: exampleGlobalNetwork.ID(),
-// BasePolicyRegions: pulumi.StringArray{
-// pulumi.String("us-west-2"),
-// pulumi.String("us-east-1"),
-// },
-// CreateBasePolicy: pulumi.Bool(true),
-// })
-// if err != nil {
-// return err
-// }
-// exampleUsWest2, err := networkmanager.NewVpcAttachment(ctx, "exampleUsWest2", &networkmanager.VpcAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID(),
-// SubnetArns: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:networkmanager-coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment.pp:47,20-55),
-// VpcArn: pulumi.Any(aws_vpc.Example_us_west_2.Arn),
-// })
-// if err != nil {
-// return err
-// }
-// exampleUsEast1, err := networkmanager.NewVpcAttachment(ctx, "exampleUsEast1", &networkmanager.VpcAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID(),
-// SubnetArns: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:networkmanager-coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment.pp:57,20-55),
-// VpcArn: pulumi.Any(aws_vpc.Example_us_east_1.Arn),
-// }, pulumi.Provider("alternate"))
-// if err != nil {
-// return err
-// }
-// exampleCoreNetworkPolicyDocument := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
-// CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
-// AsnRanges: pulumi.StringArray{
-// pulumi.String("65022-65534"),
-// },
-// EdgeLocations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
-// Location: pulumi.String("us-west-2"),
-// },
-// &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
-// Location: pulumi.String("us-east-1"),
-// },
-// },
-// },
-// },
-// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
-// Name: pulumi.String("segment"),
-// },
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
-// Name: pulumi.String("segment2"),
-// },
-// },
-// SegmentActions: networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs{
-// Action: pulumi.String("create-route"),
-// Segment: pulumi.String("segment"),
-// DestinationCidrBlocks: pulumi.StringArray{
-// pulumi.String("10.0.0.0/16"),
-// },
-// Destinations: pulumi.StringArray{
-// exampleUsWest2.ID(),
-// },
-// },
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs{
-// Action: pulumi.String("create-route"),
-// Segment: pulumi.String("segment"),
-// DestinationCidrBlocks: pulumi.StringArray{
-// pulumi.String("10.1.0.0/16"),
-// },
-// Destinations: pulumi.StringArray{
-// exampleUsEast1.ID(),
-// },
-// },
-// },
-// }, nil);
-// _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "exampleCoreNetworkPolicyAttachment", &networkmanager.CoreNetworkPolicyAttachmentArgs{
-// CoreNetworkId: exampleCoreNetwork.ID(),
-// PolicyDocument: exampleCoreNetworkPolicyDocument.ApplyT(func(exampleCoreNetworkPolicyDocument networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
-// return &exampleCoreNetworkPolicyDocument.Json, nil
-// }).(pulumi.StringPtrOutput),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGlobalNetwork, err := networkmanager.NewGlobalNetwork(ctx, "exampleGlobalNetwork", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "exampleCoreNetwork", &networkmanager.CoreNetworkArgs{
+//				GlobalNetworkId: exampleGlobalNetwork.ID(),
+//				BasePolicyRegions: pulumi.StringArray{
+//					pulumi.String("us-west-2"),
+//					pulumi.String("us-east-1"),
+//				},
+//				CreateBasePolicy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			var splat0 []interface{}
+//			for _, val0 := range aws_subnet.Example_us_west_2 {
+//				splat0 = append(splat0, val0.Arn)
+//			}
+//			exampleUsWest2, err := networkmanager.NewVpcAttachment(ctx, "exampleUsWest2", &networkmanager.VpcAttachmentArgs{
+//				CoreNetworkId: exampleCoreNetwork.ID(),
+//				SubnetArns:    toPulumiAnyArray(splat0),
+//				VpcArn:        pulumi.Any(aws_vpc.Example_us_west_2.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			var splat1 []interface{}
+//			for _, val0 := range aws_subnet.Example_us_east_1 {
+//				splat1 = append(splat1, val0.Arn)
+//			}
+//			exampleUsEast1, err := networkmanager.NewVpcAttachment(ctx, "exampleUsEast1", &networkmanager.VpcAttachmentArgs{
+//				CoreNetworkId: exampleCoreNetwork.ID(),
+//				SubnetArns:    toPulumiAnyArray(splat1),
+//				VpcArn:        pulumi.Any(aws_vpc.Example_us_east_1.Arn),
+//			}, pulumi.Provider("alternate"))
+//			if err != nil {
+//				return err
+//			}
+//			exampleCoreNetworkPolicyDocument := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
+//				CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
+//					&networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
+//						AsnRanges: pulumi.StringArray{
+//							pulumi.String("65022-65534"),
+//						},
+//						EdgeLocations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{
+//							&networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
+//								Location: pulumi.String("us-west-2"),
+//							},
+//							&networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
+//								Location: pulumi.String("us-east-1"),
+//							},
+//						},
+//					},
+//				},
+//				Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
+//					&networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+//						Name: pulumi.String("segment"),
+//					},
+//					&networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+//						Name: pulumi.String("segment2"),
+//					},
+//				},
+//				SegmentActions: networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArray{
+//					&networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs{
+//						Action:  pulumi.String("create-route"),
+//						Segment: pulumi.String("segment"),
+//						DestinationCidrBlocks: pulumi.StringArray{
+//							pulumi.String("10.0.0.0/16"),
+//						},
+//						Destinations: pulumi.StringArray{
+//							exampleUsWest2.ID(),
+//						},
+//					},
+//					&networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs{
+//						Action:  pulumi.String("create-route"),
+//						Segment: pulumi.String("segment"),
+//						DestinationCidrBlocks: pulumi.StringArray{
+//							pulumi.String("10.1.0.0/16"),
+//						},
+//						Destinations: pulumi.StringArray{
+//							exampleUsEast1.ID(),
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "exampleCoreNetworkPolicyAttachment", &networkmanager.CoreNetworkPolicyAttachmentArgs{
+//				CoreNetworkId: exampleCoreNetwork.ID(),
+//				PolicyDocument: exampleCoreNetworkPolicyDocument.ApplyT(func(exampleCoreNetworkPolicyDocument networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
+//					return &exampleCoreNetworkPolicyDocument.Json, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+//	func toPulumiAnyArray(arr []Any) pulumi.AnyArray {
+//		var pulumiArr pulumi.AnyArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.Any(v))
+//		}
+//		return pulumiArr
+//	}
+//
 // ```
 //
 // ## Import
