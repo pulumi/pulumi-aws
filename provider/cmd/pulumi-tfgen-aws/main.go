@@ -1,4 +1,4 @@
-// Copyright 2016-2018, Pulumi Corporation.
+// Copyright 2016-2023, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,5 +21,17 @@ import (
 )
 
 func main() {
-	tfgen.Main("aws", version.Version, aws.Provider())
+	tfgen.MainWithCustomGenerate("aws", version.Version, aws.Provider(), func(opts tfgen.GeneratorOptions) error {
+		// Create a generator with the specified settings.
+		g, err := tfgen.NewGenerator(opts)
+		if err != nil {
+			return err
+		}
+
+		// Replace WafV2 types.
+		g.SchemaPostProcessor = replaceWafV2TypesWithRecursive
+
+		// Generate code.
+		return g.Generate()
+	})
 }
