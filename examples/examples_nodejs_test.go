@@ -449,6 +449,15 @@ func TestAccKmsAliasTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccWafV2(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "wafv2"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	base := getBaseOptions()

@@ -1,0 +1,3 @@
+name: WafV2
+runtime: nodejs
+description: Check that the RuleGroup resource works fine after refactoring of Statement types to recursive.
