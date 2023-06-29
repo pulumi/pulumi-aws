@@ -7022,13 +7022,11 @@ func Provider() tfbridge.ProviderInfo {
 		if prov.Resources[key].Fields == nil {
 			prov.Resources[key].Fields = make(map[string]*tfbridge.SchemaInfo)
 		}
-		if f := prov.Resources[key].Fields["tags_all"]; f != nil {
-			f.XComputedInput = true
-		} else {
-			prov.Resources[key].Fields["tags_all"] = &tfbridge.SchemaInfo{
-				XComputedInput: true,
-			}
+		if f := prov.Resources[key].Fields["tags_all"]; f == nil {
+			prov.Resources[key].Fields["tags_all"] = &tfbridge.SchemaInfo{}
 		}
+		prov.Resources[key].Fields["tags_all"].XComputedInput = true
+
 		return true
 	})
 
