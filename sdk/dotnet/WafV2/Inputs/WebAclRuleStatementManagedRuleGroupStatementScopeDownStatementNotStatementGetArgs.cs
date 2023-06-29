@@ -13,14 +13,14 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("statements", required: true)]
-        private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementGetArgs>? _statements;
+        private InputList<Inputs.WebAclRuleStatementGetArgs>? _statements;
 
         /// <summary>
-        /// Statement to negate. You can use any statement that can be nested. See `statement` above for details.
+        /// The statements to combine.
         /// </summary>
-        public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementGetArgs> Statements
+        public InputList<Inputs.WebAclRuleStatementGetArgs> Statements
         {
-            get => _statements ?? (_statements = new InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementGetArgs>());
+            get => _statements ?? (_statements = new InputList<Inputs.WebAclRuleStatementGetArgs>());
             set => _statements = value;
         }
 

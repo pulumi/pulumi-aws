@@ -21,6 +21,72 @@ namespace Pulumi.Aws.Lambda
     /// &gt; To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
     /// 
     /// ## Example Usage
+    /// ### Basic Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Archive = Pulumi.Archive;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "lambda.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var iamForLambda = new Aws.Iam.Role("iamForLambda", new()
+    ///     {
+    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var lambda = Archive.GetFile.Invoke(new()
+    ///     {
+    ///         Type = "zip",
+    ///         SourceFile = "lambda.js",
+    ///         OutputPath = "lambda_function_payload.zip",
+    ///     });
+    /// 
+    ///     var testLambda = new Aws.Lambda.Function("testLambda", new()
+    ///     {
+    ///         Code = new FileArchive("lambda_function_payload.zip"),
+    ///         Role = iamForLambda.Arn,
+    ///         Handler = "index.test",
+    ///         Runtime = "nodejs16.x",
+    ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
+    ///         {
+    ///             Variables = 
+    ///             {
+    ///                 { "foo", "bar" },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Lambda Layers
     /// 
     /// ```csharp
