@@ -171,7 +171,7 @@ def get_container_definition(container_name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    ecs_mongo = aws.ecs.get_container_definition(task_definition=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    ecs_mongo = aws.ecs.get_container_definition(task_definition=aws_ecs_task_definition["mongo"]["id"],
         container_name="mongodb")
     ```
 
@@ -186,17 +186,17 @@ def get_container_definition(container_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ecs/getContainerDefinition:getContainerDefinition', __args__, opts=opts, typ=GetContainerDefinitionResult).value
 
     return AwaitableGetContainerDefinitionResult(
-        container_name=__ret__.container_name,
-        cpu=__ret__.cpu,
-        disable_networking=__ret__.disable_networking,
-        docker_labels=__ret__.docker_labels,
-        environment=__ret__.environment,
-        id=__ret__.id,
-        image=__ret__.image,
-        image_digest=__ret__.image_digest,
-        memory=__ret__.memory,
-        memory_reservation=__ret__.memory_reservation,
-        task_definition=__ret__.task_definition)
+        container_name=pulumi.get(__ret__, 'container_name'),
+        cpu=pulumi.get(__ret__, 'cpu'),
+        disable_networking=pulumi.get(__ret__, 'disable_networking'),
+        docker_labels=pulumi.get(__ret__, 'docker_labels'),
+        environment=pulumi.get(__ret__, 'environment'),
+        id=pulumi.get(__ret__, 'id'),
+        image=pulumi.get(__ret__, 'image'),
+        image_digest=pulumi.get(__ret__, 'image_digest'),
+        memory=pulumi.get(__ret__, 'memory'),
+        memory_reservation=pulumi.get(__ret__, 'memory_reservation'),
+        task_definition=pulumi.get(__ret__, 'task_definition'))
 
 
 @_utilities.lift_output_func(get_container_definition)
@@ -213,7 +213,7 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[str]] 
     import pulumi
     import pulumi_aws as aws
 
-    ecs_mongo = aws.ecs.get_container_definition(task_definition=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    ecs_mongo = aws.ecs.get_container_definition(task_definition=aws_ecs_task_definition["mongo"]["id"],
         container_name="mongodb")
     ```
 

@@ -249,22 +249,22 @@ def get_layer_version(compatible_architecture: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lambda/getLayerVersion:getLayerVersion', __args__, opts=opts, typ=GetLayerVersionResult).value
 
     return AwaitableGetLayerVersionResult(
-        arn=__ret__.arn,
-        compatible_architecture=__ret__.compatible_architecture,
-        compatible_architectures=__ret__.compatible_architectures,
-        compatible_runtime=__ret__.compatible_runtime,
-        compatible_runtimes=__ret__.compatible_runtimes,
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        id=__ret__.id,
-        layer_arn=__ret__.layer_arn,
-        layer_name=__ret__.layer_name,
-        license_info=__ret__.license_info,
-        signing_job_arn=__ret__.signing_job_arn,
-        signing_profile_version_arn=__ret__.signing_profile_version_arn,
-        source_code_hash=__ret__.source_code_hash,
-        source_code_size=__ret__.source_code_size,
-        version=__ret__.version)
+        arn=pulumi.get(__ret__, 'arn'),
+        compatible_architecture=pulumi.get(__ret__, 'compatible_architecture'),
+        compatible_architectures=pulumi.get(__ret__, 'compatible_architectures'),
+        compatible_runtime=pulumi.get(__ret__, 'compatible_runtime'),
+        compatible_runtimes=pulumi.get(__ret__, 'compatible_runtimes'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        layer_arn=pulumi.get(__ret__, 'layer_arn'),
+        layer_name=pulumi.get(__ret__, 'layer_name'),
+        license_info=pulumi.get(__ret__, 'license_info'),
+        signing_job_arn=pulumi.get(__ret__, 'signing_job_arn'),
+        signing_profile_version_arn=pulumi.get(__ret__, 'signing_profile_version_arn'),
+        source_code_hash=pulumi.get(__ret__, 'source_code_hash'),
+        source_code_size=pulumi.get(__ret__, 'source_code_size'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_layer_version)

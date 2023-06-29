@@ -99,9 +99,9 @@ def get_license_grants(filters: Optional[Sequence[pulumi.InputType['GetLicenseGr
     __ret__ = pulumi.runtime.invoke('aws:licensemanager/getLicenseGrants:getLicenseGrants', __args__, opts=opts, typ=GetLicenseGrantsResult).value
 
     return AwaitableGetLicenseGrantsResult(
-        arns=__ret__.arns,
-        filters=__ret__.filters,
-        id=__ret__.id)
+        arns=pulumi.get(__ret__, 'arns'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_license_grants)

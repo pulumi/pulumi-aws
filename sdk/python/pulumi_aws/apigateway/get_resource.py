@@ -115,11 +115,11 @@ def get_resource(path: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getResource:getResource', __args__, opts=opts, typ=GetResourceResult).value
 
     return AwaitableGetResourceResult(
-        id=__ret__.id,
-        parent_id=__ret__.parent_id,
-        path=__ret__.path,
-        path_part=__ret__.path_part,
-        rest_api_id=__ret__.rest_api_id)
+        id=pulumi.get(__ret__, 'id'),
+        parent_id=pulumi.get(__ret__, 'parent_id'),
+        path=pulumi.get(__ret__, 'path'),
+        path_part=pulumi.get(__ret__, 'path_part'),
+        rest_api_id=pulumi.get(__ret__, 'rest_api_id'))
 
 
 @_utilities.lift_output_func(get_resource)

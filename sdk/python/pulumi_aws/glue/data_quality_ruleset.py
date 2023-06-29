@@ -326,8 +326,8 @@ class DataQualityRuleset(pulumi.CustomResource):
             name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             target_table=aws.glue.DataQualityRulesetTargetTableArgs(
-                database_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                table_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                database_name=aws_glue_catalog_database["example"]["name"],
+                table_name=aws_glue_catalog_table["example"]["name"],
             ))
         ```
 
@@ -401,8 +401,8 @@ class DataQualityRuleset(pulumi.CustomResource):
             name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
             target_table=aws.glue.DataQualityRulesetTargetTableArgs(
-                database_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                table_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                database_name=aws_glue_catalog_database["example"]["name"],
+                table_name=aws_glue_catalog_table["example"]["name"],
             ))
         ```
 

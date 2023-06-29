@@ -143,13 +143,13 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
     __ret__ = pulumi.runtime.invoke('aws:costexplorer/getTags:getTags', __args__, opts=opts, typ=GetTagsResult).value
 
     return AwaitableGetTagsResult(
-        filter=__ret__.filter,
-        id=__ret__.id,
-        search_string=__ret__.search_string,
-        sort_bies=__ret__.sort_bies,
-        tag_key=__ret__.tag_key,
-        tags=__ret__.tags,
-        time_period=__ret__.time_period)
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        search_string=pulumi.get(__ret__, 'search_string'),
+        sort_bies=pulumi.get(__ret__, 'sort_bies'),
+        tag_key=pulumi.get(__ret__, 'tag_key'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_period=pulumi.get(__ret__, 'time_period'))
 
 
 @_utilities.lift_output_func(get_tags)

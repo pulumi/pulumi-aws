@@ -171,15 +171,15 @@ def get_intent(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lex/getIntent:getIntent', __args__, opts=opts, typ=GetIntentResult).value
 
     return AwaitableGetIntentResult(
-        arn=__ret__.arn,
-        checksum=__ret__.checksum,
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        id=__ret__.id,
-        last_updated_date=__ret__.last_updated_date,
-        name=__ret__.name,
-        parent_intent_signature=__ret__.parent_intent_signature,
-        version=__ret__.version)
+        arn=pulumi.get(__ret__, 'arn'),
+        checksum=pulumi.get(__ret__, 'checksum'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        name=pulumi.get(__ret__, 'name'),
+        parent_intent_signature=pulumi.get(__ret__, 'parent_intent_signature'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_intent)

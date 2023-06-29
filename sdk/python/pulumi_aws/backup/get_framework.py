@@ -167,15 +167,15 @@ def get_framework(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:backup/getFramework:getFramework', __args__, opts=opts, typ=GetFrameworkResult).value
 
     return AwaitableGetFrameworkResult(
-        arn=__ret__.arn,
-        controls=__ret__.controls,
-        creation_time=__ret__.creation_time,
-        deployment_status=__ret__.deployment_status,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        controls=pulumi.get(__ret__, 'controls'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        deployment_status=pulumi.get(__ret__, 'deployment_status'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_framework)

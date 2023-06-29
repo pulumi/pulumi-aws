@@ -100,8 +100,8 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_direct_connect_gateway_attachment(transit_gateway_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        dx_gateway_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.ec2transitgateway.get_direct_connect_gateway_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
+        dx_gateway_id=aws_dx_gateway["example"]["id"])
     ```
 
 
@@ -119,11 +119,11 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment', __args__, opts=opts, typ=GetDirectConnectGatewayAttachmentResult).value
 
     return AwaitableGetDirectConnectGatewayAttachmentResult(
-        dx_gateway_id=__ret__.dx_gateway_id,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        tags=__ret__.tags,
-        transit_gateway_id=__ret__.transit_gateway_id)
+        dx_gateway_id=pulumi.get(__ret__, 'dx_gateway_id'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
 
 
 @_utilities.lift_output_func(get_direct_connect_gateway_attachment)
@@ -142,8 +142,8 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_direct_connect_gateway_attachment(transit_gateway_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        dx_gateway_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.ec2transitgateway.get_direct_connect_gateway_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
+        dx_gateway_id=aws_dx_gateway["example"]["id"])
     ```
 
 

@@ -262,7 +262,7 @@ class FirewallPolicy(pulumi.CustomResource):
                 stateless_fragment_default_actions=["aws:drop"],
                 stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
                     priority=1,
-                    resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
                 )],
             ),
             tags={
@@ -308,7 +308,7 @@ class FirewallPolicy(pulumi.CustomResource):
                 stateless_fragment_default_actions=["aws:drop"],
                 stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
                     priority=1,
-                    resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
                 )],
             ),
             tags={

@@ -174,16 +174,16 @@ def get_service(service_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:vpclattice/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        arn=__ret__.arn,
-        auth_type=__ret__.auth_type,
-        certificate_arn=__ret__.certificate_arn,
-        custom_domain_name=__ret__.custom_domain_name,
-        dns_entries=__ret__.dns_entries,
-        id=__ret__.id,
-        name=__ret__.name,
-        service_identifier=__ret__.service_identifier,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        auth_type=pulumi.get(__ret__, 'auth_type'),
+        certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
+        custom_domain_name=pulumi.get(__ret__, 'custom_domain_name'),
+        dns_entries=pulumi.get(__ret__, 'dns_entries'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        service_identifier=pulumi.get(__ret__, 'service_identifier'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_service)

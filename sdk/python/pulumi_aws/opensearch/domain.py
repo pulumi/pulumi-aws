@@ -599,6 +599,9 @@ class _DomainState:
         """
         (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         """
+        warnings.warn("""use 'dashboard_endpoint' attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""kibana_endpoint is deprecated: use 'dashboard_endpoint' attribute instead""")
+
         return pulumi.get(self, "kibana_endpoint")
 
     @kibana_endpoint.setter
@@ -1524,6 +1527,9 @@ class Domain(pulumi.CustomResource):
         """
         (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         """
+        warnings.warn("""use 'dashboard_endpoint' attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""kibana_endpoint is deprecated: use 'dashboard_endpoint' attribute instead""")
+
         return pulumi.get(self, "kibana_endpoint")
 
     @property

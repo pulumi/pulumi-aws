@@ -76,5 +76,5 @@ def get_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLo
     __ret__ = pulumi.runtime.invoke('aws:directconnect/getLocations:getLocations', __args__, opts=opts, typ=GetLocationsResult).value
 
     return AwaitableGetLocationsResult(
-        id=__ret__.id,
-        location_codes=__ret__.location_codes)
+        id=pulumi.get(__ret__, 'id'),
+        location_codes=pulumi.get(__ret__, 'location_codes'))

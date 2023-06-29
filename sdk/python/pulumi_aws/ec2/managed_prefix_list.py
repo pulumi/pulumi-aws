@@ -290,11 +290,11 @@ class ManagedPrefixList(pulumi.CustomResource):
             max_entries=5,
             entries=[
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    cidr=aws_vpc["example"]["cidr_block"],
                     description="Primary",
                 ),
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
                     description="Secondary",
                 ),
             ],
@@ -353,11 +353,11 @@ class ManagedPrefixList(pulumi.CustomResource):
             max_entries=5,
             entries=[
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    cidr=aws_vpc["example"]["cidr_block"],
                     description="Primary",
                 ),
                 aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
                     description="Secondary",
                 ),
             ],

@@ -164,15 +164,15 @@ def get_reserved_instance_offering(db_instance_class: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:rds/getReservedInstanceOffering:getReservedInstanceOffering', __args__, opts=opts, typ=GetReservedInstanceOfferingResult).value
 
     return AwaitableGetReservedInstanceOfferingResult(
-        currency_code=__ret__.currency_code,
-        db_instance_class=__ret__.db_instance_class,
-        duration=__ret__.duration,
-        fixed_price=__ret__.fixed_price,
-        id=__ret__.id,
-        multi_az=__ret__.multi_az,
-        offering_id=__ret__.offering_id,
-        offering_type=__ret__.offering_type,
-        product_description=__ret__.product_description)
+        currency_code=pulumi.get(__ret__, 'currency_code'),
+        db_instance_class=pulumi.get(__ret__, 'db_instance_class'),
+        duration=pulumi.get(__ret__, 'duration'),
+        fixed_price=pulumi.get(__ret__, 'fixed_price'),
+        id=pulumi.get(__ret__, 'id'),
+        multi_az=pulumi.get(__ret__, 'multi_az'),
+        offering_id=pulumi.get(__ret__, 'offering_id'),
+        offering_type=pulumi.get(__ret__, 'offering_type'),
+        product_description=pulumi.get(__ret__, 'product_description'))
 
 
 @_utilities.lift_output_func(get_reserved_instance_offering)

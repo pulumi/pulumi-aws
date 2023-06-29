@@ -85,6 +85,6 @@ def get_active_receipt_rule_set(opts: Optional[pulumi.InvokeOptions] = None) -> 
     __ret__ = pulumi.runtime.invoke('aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet', __args__, opts=opts, typ=GetActiveReceiptRuleSetResult).value
 
     return AwaitableGetActiveReceiptRuleSetResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        rule_set_name=__ret__.rule_set_name)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        rule_set_name=pulumi.get(__ret__, 'rule_set_name'))

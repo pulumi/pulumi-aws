@@ -173,7 +173,7 @@ def get_network_insights_path(filters: Optional[Sequence[pulumi.InputType['GetNe
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_insights_path(network_insights_path_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.ec2.get_network_insights_path(network_insights_path_id=aws_ec2_network_insights_path["example"]["id"])
     ```
 
 
@@ -189,17 +189,17 @@ def get_network_insights_path(filters: Optional[Sequence[pulumi.InputType['GetNe
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath', __args__, opts=opts, typ=GetNetworkInsightsPathResult).value
 
     return AwaitableGetNetworkInsightsPathResult(
-        arn=__ret__.arn,
-        destination=__ret__.destination,
-        destination_ip=__ret__.destination_ip,
-        destination_port=__ret__.destination_port,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        network_insights_path_id=__ret__.network_insights_path_id,
-        protocol=__ret__.protocol,
-        source=__ret__.source,
-        source_ip=__ret__.source_ip,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        destination=pulumi.get(__ret__, 'destination'),
+        destination_ip=pulumi.get(__ret__, 'destination_ip'),
+        destination_port=pulumi.get(__ret__, 'destination_port'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        network_insights_path_id=pulumi.get(__ret__, 'network_insights_path_id'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        source=pulumi.get(__ret__, 'source'),
+        source_ip=pulumi.get(__ret__, 'source_ip'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_network_insights_path)
@@ -216,7 +216,7 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_insights_path(network_insights_path_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.ec2.get_network_insights_path(network_insights_path_id=aws_ec2_network_insights_path["example"]["id"])
     ```
 
 

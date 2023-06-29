@@ -205,17 +205,17 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
     __ret__ = pulumi.runtime.invoke('aws:ec2/getRouteTable:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult).value
 
     return AwaitableGetRouteTableResult(
-        arn=__ret__.arn,
-        associations=__ret__.associations,
-        filters=__ret__.filters,
-        gateway_id=__ret__.gateway_id,
-        id=__ret__.id,
-        owner_id=__ret__.owner_id,
-        route_table_id=__ret__.route_table_id,
-        routes=__ret__.routes,
-        subnet_id=__ret__.subnet_id,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        associations=pulumi.get(__ret__, 'associations'),
+        filters=pulumi.get(__ret__, 'filters'),
+        gateway_id=pulumi.get(__ret__, 'gateway_id'),
+        id=pulumi.get(__ret__, 'id'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        route_table_id=pulumi.get(__ret__, 'route_table_id'),
+        routes=pulumi.get(__ret__, 'routes'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_route_table)

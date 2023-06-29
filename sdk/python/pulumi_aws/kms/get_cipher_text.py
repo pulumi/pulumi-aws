@@ -123,11 +123,11 @@ def get_cipher_text(context: Optional[Mapping[str, str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:kms/getCipherText:getCipherText', __args__, opts=opts, typ=GetCipherTextResult).value
 
     return AwaitableGetCipherTextResult(
-        ciphertext_blob=__ret__.ciphertext_blob,
-        context=__ret__.context,
-        id=__ret__.id,
-        key_id=__ret__.key_id,
-        plaintext=__ret__.plaintext)
+        ciphertext_blob=pulumi.get(__ret__, 'ciphertext_blob'),
+        context=pulumi.get(__ret__, 'context'),
+        id=pulumi.get(__ret__, 'id'),
+        key_id=pulumi.get(__ret__, 'key_id'),
+        plaintext=pulumi.get(__ret__, 'plaintext'))
 
 
 @_utilities.lift_output_func(get_cipher_text)

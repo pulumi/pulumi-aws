@@ -516,7 +516,7 @@ class DataSource(pulumi.CustomResource):
             schedule="cron(9 10 1 * ? *)",
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
-                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    bucket_name=aws_s3_bucket["example"]["id"],
                 ),
             ))
         ```
@@ -535,7 +535,7 @@ class DataSource(pulumi.CustomResource):
                     access_control_list_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs(
                         key_path=f"s3://{aws_s3_bucket['example']['id']}/path-1",
                     ),
-                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    bucket_name=aws_s3_bucket["example"]["id"],
                 ),
             ))
         ```
@@ -615,7 +615,7 @@ class DataSource(pulumi.CustomResource):
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     authentication_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs(
                         basic_authentications=[aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs(
-                            credentials=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            credentials=aws_secretsmanager_secret["example"]["arn"],
                             host="a.example.com",
                             port=443,
                         )],
@@ -705,7 +705,7 @@ class DataSource(pulumi.CustomResource):
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     proxy_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs(
-                        credentials=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        credentials=aws_secretsmanager_secret["example"]["arn"],
                         host="a.example.com",
                         port=443,
                     ),
@@ -803,7 +803,7 @@ class DataSource(pulumi.CustomResource):
             schedule="cron(9 10 1 * ? *)",
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 s3_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationArgs(
-                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    bucket_name=aws_s3_bucket["example"]["id"],
                 ),
             ))
         ```
@@ -822,7 +822,7 @@ class DataSource(pulumi.CustomResource):
                     access_control_list_configuration=aws.kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs(
                         key_path=f"s3://{aws_s3_bucket['example']['id']}/path-1",
                     ),
-                    bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    bucket_name=aws_s3_bucket["example"]["id"],
                 ),
             ))
         ```
@@ -902,7 +902,7 @@ class DataSource(pulumi.CustomResource):
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     authentication_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs(
                         basic_authentications=[aws.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs(
-                            credentials=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                            credentials=aws_secretsmanager_secret["example"]["arn"],
                             host="a.example.com",
                             port=443,
                         )],
@@ -992,7 +992,7 @@ class DataSource(pulumi.CustomResource):
             configuration=aws.kendra.DataSourceConfigurationArgs(
                 web_crawler_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationArgs(
                     proxy_configuration=aws.kendra.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs(
-                        credentials=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        credentials=aws_secretsmanager_secret["example"]["arn"],
                         host="a.example.com",
                         port=443,
                     ),

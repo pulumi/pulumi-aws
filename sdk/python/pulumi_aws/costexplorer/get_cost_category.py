@@ -173,16 +173,16 @@ def get_cost_category(cost_category_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:costexplorer/getCostCategory:getCostCategory', __args__, opts=opts, typ=GetCostCategoryResult).value
 
     return AwaitableGetCostCategoryResult(
-        cost_category_arn=__ret__.cost_category_arn,
-        default_value=__ret__.default_value,
-        effective_end=__ret__.effective_end,
-        effective_start=__ret__.effective_start,
-        id=__ret__.id,
-        name=__ret__.name,
-        rule_version=__ret__.rule_version,
-        rules=__ret__.rules,
-        split_charge_rules=__ret__.split_charge_rules,
-        tags=__ret__.tags)
+        cost_category_arn=pulumi.get(__ret__, 'cost_category_arn'),
+        default_value=pulumi.get(__ret__, 'default_value'),
+        effective_end=pulumi.get(__ret__, 'effective_end'),
+        effective_start=pulumi.get(__ret__, 'effective_start'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        rule_version=pulumi.get(__ret__, 'rule_version'),
+        rules=pulumi.get(__ret__, 'rules'),
+        split_charge_rules=pulumi.get(__ret__, 'split_charge_rules'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_cost_category)

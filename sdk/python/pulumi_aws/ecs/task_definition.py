@@ -801,12 +801,12 @@ class TaskDefinition(pulumi.CustomResource):
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 efs_volume_configuration=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs(
-                    file_system_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    file_system_id=aws_efs_file_system["fs"]["id"],
                     root_directory="/opt/data",
                     transit_encryption="ENABLED",
                     transit_encryption_port=2999,
                     authorization_config=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs(
-                        access_point_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        access_point_id=aws_efs_access_point["test"]["id"],
                         iam="ENABLED",
                     ),
                 ),
@@ -831,11 +831,11 @@ class TaskDefinition(pulumi.CustomResource):
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 fsx_windows_file_server_volume_configuration=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs(
-                    file_system_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    file_system_id=aws_fsx_windows_file_system["test"]["id"],
                     root_directory="\\\\data",
                     authorization_config=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs(
                         credentials_parameter=test.arn,
-                        domain=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        domain=aws_directory_service_directory["test"]["name"],
                     ),
                 ),
             )])
@@ -1049,12 +1049,12 @@ class TaskDefinition(pulumi.CustomResource):
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 efs_volume_configuration=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs(
-                    file_system_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    file_system_id=aws_efs_file_system["fs"]["id"],
                     root_directory="/opt/data",
                     transit_encryption="ENABLED",
                     transit_encryption_port=2999,
                     authorization_config=aws.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs(
-                        access_point_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        access_point_id=aws_efs_access_point["test"]["id"],
                         iam="ENABLED",
                     ),
                 ),
@@ -1079,11 +1079,11 @@ class TaskDefinition(pulumi.CustomResource):
             volumes=[aws.ecs.TaskDefinitionVolumeArgs(
                 name="service-storage",
                 fsx_windows_file_server_volume_configuration=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs(
-                    file_system_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    file_system_id=aws_fsx_windows_file_system["test"]["id"],
                     root_directory="\\\\data",
                     authorization_config=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs(
                         credentials_parameter=test.arn,
-                        domain=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        domain=aws_directory_service_directory["test"]["name"],
                     ),
                 ),
             )])

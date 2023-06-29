@@ -310,26 +310,26 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
     __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
-        arn=__ret__.arn,
-        data_encryption_key_id=__ret__.data_encryption_key_id,
-        description=__ret__.description,
-        encrypted=__ret__.encrypted,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        kms_key_id=__ret__.kms_key_id,
-        most_recent=__ret__.most_recent,
-        outpost_arn=__ret__.outpost_arn,
-        owner_alias=__ret__.owner_alias,
-        owner_id=__ret__.owner_id,
-        owners=__ret__.owners,
-        restorable_by_user_ids=__ret__.restorable_by_user_ids,
-        snapshot_id=__ret__.snapshot_id,
-        snapshot_ids=__ret__.snapshot_ids,
-        state=__ret__.state,
-        storage_tier=__ret__.storage_tier,
-        tags=__ret__.tags,
-        volume_id=__ret__.volume_id,
-        volume_size=__ret__.volume_size)
+        arn=pulumi.get(__ret__, 'arn'),
+        data_encryption_key_id=pulumi.get(__ret__, 'data_encryption_key_id'),
+        description=pulumi.get(__ret__, 'description'),
+        encrypted=pulumi.get(__ret__, 'encrypted'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
+        owner_alias=pulumi.get(__ret__, 'owner_alias'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        owners=pulumi.get(__ret__, 'owners'),
+        restorable_by_user_ids=pulumi.get(__ret__, 'restorable_by_user_ids'),
+        snapshot_id=pulumi.get(__ret__, 'snapshot_id'),
+        snapshot_ids=pulumi.get(__ret__, 'snapshot_ids'),
+        state=pulumi.get(__ret__, 'state'),
+        storage_tier=pulumi.get(__ret__, 'storage_tier'),
+        tags=pulumi.get(__ret__, 'tags'),
+        volume_id=pulumi.get(__ret__, 'volume_id'),
+        volume_size=pulumi.get(__ret__, 'volume_size'))
 
 
 @_utilities.lift_output_func(get_snapshot)

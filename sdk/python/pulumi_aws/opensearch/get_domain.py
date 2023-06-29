@@ -77,10 +77,6 @@ class GetDomainResult:
         pulumi.set(__self__, "id", id)
         if kibana_endpoint and not isinstance(kibana_endpoint, str):
             raise TypeError("Expected argument 'kibana_endpoint' to be a str")
-        if kibana_endpoint is not None:
-            warnings.warn("""use 'dashboard_endpoint' attribute instead""", DeprecationWarning)
-            pulumi.log.warn("""kibana_endpoint is deprecated: use 'dashboard_endpoint' attribute instead""")
-
         pulumi.set(__self__, "kibana_endpoint", kibana_endpoint)
         if log_publishing_options and not isinstance(log_publishing_options, list):
             raise TypeError("Expected argument 'log_publishing_options' to be a list")
@@ -243,6 +239,9 @@ class GetDomainResult:
         """
         (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         """
+        warnings.warn("""use 'dashboard_endpoint' attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""kibana_endpoint is deprecated: use 'dashboard_endpoint' attribute instead""")
+
         return pulumi.get(self, "kibana_endpoint")
 
     @property
@@ -364,31 +363,31 @@ def get_domain(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:opensearch/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        access_policies=__ret__.access_policies,
-        advanced_options=__ret__.advanced_options,
-        advanced_security_options=__ret__.advanced_security_options,
-        arn=__ret__.arn,
-        auto_tune_options=__ret__.auto_tune_options,
-        cluster_configs=__ret__.cluster_configs,
-        cognito_options=__ret__.cognito_options,
-        created=__ret__.created,
-        dashboard_endpoint=__ret__.dashboard_endpoint,
-        deleted=__ret__.deleted,
-        domain_id=__ret__.domain_id,
-        domain_name=__ret__.domain_name,
-        ebs_options=__ret__.ebs_options,
-        encryption_at_rests=__ret__.encryption_at_rests,
-        endpoint=__ret__.endpoint,
-        engine_version=__ret__.engine_version,
-        id=__ret__.id,
-        kibana_endpoint=__ret__.kibana_endpoint,
-        log_publishing_options=__ret__.log_publishing_options,
-        node_to_node_encryptions=__ret__.node_to_node_encryptions,
-        off_peak_window_options=__ret__.off_peak_window_options,
-        processing=__ret__.processing,
-        snapshot_options=__ret__.snapshot_options,
-        tags=__ret__.tags,
-        vpc_options=__ret__.vpc_options)
+        access_policies=pulumi.get(__ret__, 'access_policies'),
+        advanced_options=pulumi.get(__ret__, 'advanced_options'),
+        advanced_security_options=pulumi.get(__ret__, 'advanced_security_options'),
+        arn=pulumi.get(__ret__, 'arn'),
+        auto_tune_options=pulumi.get(__ret__, 'auto_tune_options'),
+        cluster_configs=pulumi.get(__ret__, 'cluster_configs'),
+        cognito_options=pulumi.get(__ret__, 'cognito_options'),
+        created=pulumi.get(__ret__, 'created'),
+        dashboard_endpoint=pulumi.get(__ret__, 'dashboard_endpoint'),
+        deleted=pulumi.get(__ret__, 'deleted'),
+        domain_id=pulumi.get(__ret__, 'domain_id'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        ebs_options=pulumi.get(__ret__, 'ebs_options'),
+        encryption_at_rests=pulumi.get(__ret__, 'encryption_at_rests'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        engine_version=pulumi.get(__ret__, 'engine_version'),
+        id=pulumi.get(__ret__, 'id'),
+        kibana_endpoint=pulumi.get(__ret__, 'kibana_endpoint'),
+        log_publishing_options=pulumi.get(__ret__, 'log_publishing_options'),
+        node_to_node_encryptions=pulumi.get(__ret__, 'node_to_node_encryptions'),
+        off_peak_window_options=pulumi.get(__ret__, 'off_peak_window_options'),
+        processing=pulumi.get(__ret__, 'processing'),
+        snapshot_options=pulumi.get(__ret__, 'snapshot_options'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_options=pulumi.get(__ret__, 'vpc_options'))
 
 
 @_utilities.lift_output_func(get_domain)

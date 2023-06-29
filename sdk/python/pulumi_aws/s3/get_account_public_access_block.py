@@ -124,12 +124,12 @@ def get_account_public_access_block(account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock', __args__, opts=opts, typ=GetAccountPublicAccessBlockResult).value
 
     return AwaitableGetAccountPublicAccessBlockResult(
-        account_id=__ret__.account_id,
-        block_public_acls=__ret__.block_public_acls,
-        block_public_policy=__ret__.block_public_policy,
-        id=__ret__.id,
-        ignore_public_acls=__ret__.ignore_public_acls,
-        restrict_public_buckets=__ret__.restrict_public_buckets)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        block_public_acls=pulumi.get(__ret__, 'block_public_acls'),
+        block_public_policy=pulumi.get(__ret__, 'block_public_policy'),
+        id=pulumi.get(__ret__, 'id'),
+        ignore_public_acls=pulumi.get(__ret__, 'ignore_public_acls'),
+        restrict_public_buckets=pulumi.get(__ret__, 'restrict_public_buckets'))
 
 
 @_utilities.lift_output_func(get_account_public_access_block)

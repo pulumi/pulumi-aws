@@ -152,11 +152,11 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
     __ret__ = pulumi.runtime.invoke('aws:index/getPrefixList:getPrefixList', __args__, opts=opts, typ=GetPrefixListResult).value
 
     return AwaitableGetPrefixListResult(
-        cidr_blocks=__ret__.cidr_blocks,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        name=__ret__.name,
-        prefix_list_id=__ret__.prefix_list_id)
+        cidr_blocks=pulumi.get(__ret__, 'cidr_blocks'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'))
 
 
 @_utilities.lift_output_func(get_prefix_list)

@@ -97,10 +97,10 @@ def get_coip_pools(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolsFilt
     __ret__ = pulumi.runtime.invoke('aws:ec2/getCoipPools:getCoipPools', __args__, opts=opts, typ=GetCoipPoolsResult).value
 
     return AwaitableGetCoipPoolsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        pool_ids=__ret__.pool_ids,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        pool_ids=pulumi.get(__ret__, 'pool_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_coip_pools)

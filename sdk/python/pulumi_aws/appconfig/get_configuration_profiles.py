@@ -80,7 +80,7 @@ def get_configuration_profiles(application_id: Optional[str] = None,
 
     example_configuration_profiles = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
     example_configuration_profile = [aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
-        application_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)) for __key, __value in example_configuration_profiles.configuration_profile_ids]
+        application_id=aws_appconfig_application["example"]["id"]) for __key, __value in example_configuration_profiles.configuration_profile_ids]
     ```
 
 
@@ -92,9 +92,9 @@ def get_configuration_profiles(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:appconfig/getConfigurationProfiles:getConfigurationProfiles', __args__, opts=opts, typ=GetConfigurationProfilesResult).value
 
     return AwaitableGetConfigurationProfilesResult(
-        application_id=__ret__.application_id,
-        configuration_profile_ids=__ret__.configuration_profile_ids,
-        id=__ret__.id)
+        application_id=pulumi.get(__ret__, 'application_id'),
+        configuration_profile_ids=pulumi.get(__ret__, 'configuration_profile_ids'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_configuration_profiles)
@@ -113,7 +113,7 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[str]
 
     example_configuration_profiles = aws.appconfig.get_configuration_profiles(application_id="a1d3rpe")
     example_configuration_profile = [aws.appconfig.get_configuration_profile(configuration_profile_id=__value,
-        application_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)) for __key, __value in example_configuration_profiles.configuration_profile_ids]
+        application_id=aws_appconfig_application["example"]["id"]) for __key, __value in example_configuration_profiles.configuration_profile_ids]
     ```
 
 

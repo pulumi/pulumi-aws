@@ -76,6 +76,6 @@ def get_instances(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIn
     __ret__ = pulumi.runtime.invoke('aws:ssoadmin/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult).value
 
     return AwaitableGetInstancesResult(
-        arns=__ret__.arns,
-        id=__ret__.id,
-        identity_store_ids=__ret__.identity_store_ids)
+        arns=pulumi.get(__ret__, 'arns'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_store_ids=pulumi.get(__ret__, 'identity_store_ids'))

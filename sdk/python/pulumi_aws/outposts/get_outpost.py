@@ -199,18 +199,18 @@ def get_outpost(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:outposts/getOutpost:getOutpost', __args__, opts=opts, typ=GetOutpostResult).value
 
     return AwaitableGetOutpostResult(
-        arn=__ret__.arn,
-        availability_zone=__ret__.availability_zone,
-        availability_zone_id=__ret__.availability_zone_id,
-        description=__ret__.description,
-        id=__ret__.id,
-        lifecycle_status=__ret__.lifecycle_status,
-        name=__ret__.name,
-        owner_id=__ret__.owner_id,
-        site_arn=__ret__.site_arn,
-        site_id=__ret__.site_id,
-        supported_hardware_type=__ret__.supported_hardware_type,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        availability_zone_id=pulumi.get(__ret__, 'availability_zone_id'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        lifecycle_status=pulumi.get(__ret__, 'lifecycle_status'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        site_arn=pulumi.get(__ret__, 'site_arn'),
+        site_id=pulumi.get(__ret__, 'site_id'),
+        supported_hardware_type=pulumi.get(__ret__, 'supported_hardware_type'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_outpost)

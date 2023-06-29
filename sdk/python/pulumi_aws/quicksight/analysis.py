@@ -445,9 +445,9 @@ class Analysis(pulumi.CustomResource):
             analysis_id="example-id",
             source_entity=aws.quicksight.AnalysisSourceEntityArgs(
                 source_template=aws.quicksight.AnalysisSourceEntitySourceTemplateArgs(
-                    arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    arn=aws_quicksight_template["source"]["arn"],
                     data_set_references=[aws.quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
                         data_set_placeholder="1",
                     )],
                 ),
@@ -496,9 +496,9 @@ class Analysis(pulumi.CustomResource):
             analysis_id="example-id",
             source_entity=aws.quicksight.AnalysisSourceEntityArgs(
                 source_template=aws.quicksight.AnalysisSourceEntitySourceTemplateArgs(
-                    arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    arn=aws_quicksight_template["source"]["arn"],
                     data_set_references=[aws.quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
                         data_set_placeholder="1",
                     )],
                 ),

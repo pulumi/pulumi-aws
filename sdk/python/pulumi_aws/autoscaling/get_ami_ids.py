@@ -124,10 +124,10 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
     __ret__ = pulumi.runtime.invoke('aws:autoscaling/getAmiIds:getAmiIds', __args__, opts=opts, typ=GetAmiIdsResult).value
 
     return AwaitableGetAmiIdsResult(
-        arns=__ret__.arns,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        names=__ret__.names)
+        arns=pulumi.get(__ret__, 'arns'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        names=pulumi.get(__ret__, 'names'))
 
 
 @_utilities.lift_output_func(get_ami_ids)

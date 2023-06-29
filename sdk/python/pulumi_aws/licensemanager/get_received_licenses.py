@@ -98,9 +98,9 @@ def get_received_licenses(filters: Optional[Sequence[pulumi.InputType['GetReceiv
     __ret__ = pulumi.runtime.invoke('aws:licensemanager/getReceivedLicenses:getReceivedLicenses', __args__, opts=opts, typ=GetReceivedLicensesResult).value
 
     return AwaitableGetReceivedLicensesResult(
-        arns=__ret__.arns,
-        filters=__ret__.filters,
-        id=__ret__.id)
+        arns=pulumi.get(__ret__, 'arns'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_received_licenses)

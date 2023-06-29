@@ -136,12 +136,12 @@ def get_openid_connect_provider(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getOpenidConnectProvider:getOpenidConnectProvider', __args__, opts=opts, typ=GetOpenidConnectProviderResult).value
 
     return AwaitableGetOpenidConnectProviderResult(
-        arn=__ret__.arn,
-        client_id_lists=__ret__.client_id_lists,
-        id=__ret__.id,
-        tags=__ret__.tags,
-        thumbprint_lists=__ret__.thumbprint_lists,
-        url=__ret__.url)
+        arn=pulumi.get(__ret__, 'arn'),
+        client_id_lists=pulumi.get(__ret__, 'client_id_lists'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        thumbprint_lists=pulumi.get(__ret__, 'thumbprint_lists'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_openid_connect_provider)

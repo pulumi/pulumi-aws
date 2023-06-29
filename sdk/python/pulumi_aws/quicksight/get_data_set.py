@@ -74,10 +74,6 @@ class GetDataSetResult:
         pulumi.set(__self__, "tags", tags)
         if tags_all and not isinstance(tags_all, dict):
             raise TypeError("Expected argument 'tags_all' to be a dict")
-        if tags_all is not None:
-            warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: this attribute has been deprecated""")
-
         pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -166,6 +162,9 @@ class GetDataSetResult:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Mapping[str, str]:
+        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+        pulumi.log.warn("""tags_all is deprecated: this attribute has been deprecated""")
+
         return pulumi.get(self, "tags_all")
 
 
@@ -229,23 +228,23 @@ def get_data_set(aws_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:quicksight/getDataSet:getDataSet', __args__, opts=opts, typ=GetDataSetResult).value
 
     return AwaitableGetDataSetResult(
-        arn=__ret__.arn,
-        aws_account_id=__ret__.aws_account_id,
-        column_groups=__ret__.column_groups,
-        column_level_permission_rules=__ret__.column_level_permission_rules,
-        data_set_id=__ret__.data_set_id,
-        data_set_usage_configurations=__ret__.data_set_usage_configurations,
-        field_folders=__ret__.field_folders,
-        id=__ret__.id,
-        import_mode=__ret__.import_mode,
-        logical_table_maps=__ret__.logical_table_maps,
-        name=__ret__.name,
-        permissions=__ret__.permissions,
-        physical_table_maps=__ret__.physical_table_maps,
-        row_level_permission_data_sets=__ret__.row_level_permission_data_sets,
-        row_level_permission_tag_configurations=__ret__.row_level_permission_tag_configurations,
-        tags=__ret__.tags,
-        tags_all=__ret__.tags_all)
+        arn=pulumi.get(__ret__, 'arn'),
+        aws_account_id=pulumi.get(__ret__, 'aws_account_id'),
+        column_groups=pulumi.get(__ret__, 'column_groups'),
+        column_level_permission_rules=pulumi.get(__ret__, 'column_level_permission_rules'),
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        data_set_usage_configurations=pulumi.get(__ret__, 'data_set_usage_configurations'),
+        field_folders=pulumi.get(__ret__, 'field_folders'),
+        id=pulumi.get(__ret__, 'id'),
+        import_mode=pulumi.get(__ret__, 'import_mode'),
+        logical_table_maps=pulumi.get(__ret__, 'logical_table_maps'),
+        name=pulumi.get(__ret__, 'name'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        physical_table_maps=pulumi.get(__ret__, 'physical_table_maps'),
+        row_level_permission_data_sets=pulumi.get(__ret__, 'row_level_permission_data_sets'),
+        row_level_permission_tag_configurations=pulumi.get(__ret__, 'row_level_permission_tag_configurations'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tags_all=pulumi.get(__ret__, 'tags_all'))
 
 
 @_utilities.lift_output_func(get_data_set)

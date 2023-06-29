@@ -365,7 +365,7 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.worklink.Fleet("example", network=aws.worklink.FleetNetworkArgs(
-            vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            vpc_id=aws_vpc["test"]["id"],
             subnet_ids=[[__item["id"] for __item in aws_subnet["test"]]],
             security_group_ids=[aws_security_group["test"]["id"]],
         ))
@@ -430,7 +430,7 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.worklink.Fleet("example", network=aws.worklink.FleetNetworkArgs(
-            vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            vpc_id=aws_vpc["test"]["id"],
             subnet_ids=[[__item["id"] for __item in aws_subnet["test"]]],
             security_group_ids=[aws_security_group["test"]["id"]],
         ))

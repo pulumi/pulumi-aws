@@ -248,22 +248,22 @@ def get_directory(directory_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult).value
 
     return AwaitableGetDirectoryResult(
-        alias=__ret__.alias,
-        customer_user_name=__ret__.customer_user_name,
-        directory_id=__ret__.directory_id,
-        directory_name=__ret__.directory_name,
-        directory_type=__ret__.directory_type,
-        dns_ip_addresses=__ret__.dns_ip_addresses,
-        iam_role_id=__ret__.iam_role_id,
-        id=__ret__.id,
-        ip_group_ids=__ret__.ip_group_ids,
-        registration_code=__ret__.registration_code,
-        self_service_permissions=__ret__.self_service_permissions,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags,
-        workspace_access_properties=__ret__.workspace_access_properties,
-        workspace_creation_properties=__ret__.workspace_creation_properties,
-        workspace_security_group_id=__ret__.workspace_security_group_id)
+        alias=pulumi.get(__ret__, 'alias'),
+        customer_user_name=pulumi.get(__ret__, 'customer_user_name'),
+        directory_id=pulumi.get(__ret__, 'directory_id'),
+        directory_name=pulumi.get(__ret__, 'directory_name'),
+        directory_type=pulumi.get(__ret__, 'directory_type'),
+        dns_ip_addresses=pulumi.get(__ret__, 'dns_ip_addresses'),
+        iam_role_id=pulumi.get(__ret__, 'iam_role_id'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_group_ids=pulumi.get(__ret__, 'ip_group_ids'),
+        registration_code=pulumi.get(__ret__, 'registration_code'),
+        self_service_permissions=pulumi.get(__ret__, 'self_service_permissions'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        workspace_access_properties=pulumi.get(__ret__, 'workspace_access_properties'),
+        workspace_creation_properties=pulumi.get(__ret__, 'workspace_creation_properties'),
+        workspace_security_group_id=pulumi.get(__ret__, 'workspace_security_group_id'))
 
 
 @_utilities.lift_output_func(get_directory)

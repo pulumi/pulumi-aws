@@ -204,14 +204,14 @@ class SharedDirectory(pulumi.CustomResource):
             type="MicrosoftAD",
             edition="Standard",
             vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_id=aws_vpc["example"]["id"],
                 subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
             ))
         example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
             directory_id=example_directory.id,
             notes="You wanna have a catch?",
             target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=data["aws_caller_identity"]["receiver"]["account_id"],
             ))
         ```
 
@@ -253,14 +253,14 @@ class SharedDirectory(pulumi.CustomResource):
             type="MicrosoftAD",
             edition="Standard",
             vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_id=aws_vpc["example"]["id"],
                 subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
             ))
         example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
             directory_id=example_directory.id,
             notes="You wanna have a catch?",
             target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=data["aws_caller_identity"]["receiver"]["account_id"],
             ))
         ```
 

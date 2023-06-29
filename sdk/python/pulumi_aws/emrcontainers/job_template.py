@@ -209,7 +209,7 @@ class JobTemplate(pulumi.CustomResource):
 
         example = aws.emrcontainers.JobTemplate("example",
             job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
-                execution_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                execution_role_arn=aws_iam_role["example"]["arn"],
                 release_label="emr-6.10.0-latest",
                 job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
                     spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
@@ -253,7 +253,7 @@ class JobTemplate(pulumi.CustomResource):
 
         example = aws.emrcontainers.JobTemplate("example",
             job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
-                execution_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                execution_role_arn=aws_iam_role["example"]["arn"],
                 release_label="emr-6.10.0-latest",
                 job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
                     spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(

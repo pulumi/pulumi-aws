@@ -151,14 +151,14 @@ def get_route_calculator(calculator_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:location/getRouteCalculator:getRouteCalculator', __args__, opts=opts, typ=GetRouteCalculatorResult).value
 
     return AwaitableGetRouteCalculatorResult(
-        calculator_arn=__ret__.calculator_arn,
-        calculator_name=__ret__.calculator_name,
-        create_time=__ret__.create_time,
-        data_source=__ret__.data_source,
-        description=__ret__.description,
-        id=__ret__.id,
-        tags=__ret__.tags,
-        update_time=__ret__.update_time)
+        calculator_arn=pulumi.get(__ret__, 'calculator_arn'),
+        calculator_name=pulumi.get(__ret__, 'calculator_name'),
+        create_time=pulumi.get(__ret__, 'create_time'),
+        data_source=pulumi.get(__ret__, 'data_source'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        update_time=pulumi.get(__ret__, 'update_time'))
 
 
 @_utilities.lift_output_func(get_route_calculator)

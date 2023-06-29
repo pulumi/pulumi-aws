@@ -97,9 +97,9 @@ def get_addon_version(addon_name: Optional[str] = None,
     import pulumi_aws as aws
 
     default_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        kubernetes_version=aws_eks_cluster["example"]["version"])
     latest_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        kubernetes_version=aws_eks_cluster["example"]["version"],
         most_recent=True)
     vpc_cni = aws.eks.Addon("vpcCni",
         cluster_name=aws_eks_cluster["example"]["name"],
@@ -123,11 +123,11 @@ def get_addon_version(addon_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:eks/getAddonVersion:getAddonVersion', __args__, opts=opts, typ=GetAddonVersionResult).value
 
     return AwaitableGetAddonVersionResult(
-        addon_name=__ret__.addon_name,
-        id=__ret__.id,
-        kubernetes_version=__ret__.kubernetes_version,
-        most_recent=__ret__.most_recent,
-        version=__ret__.version)
+        addon_name=pulumi.get(__ret__, 'addon_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kubernetes_version=pulumi.get(__ret__, 'kubernetes_version'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_addon_version)
@@ -145,9 +145,9 @@ def get_addon_version_output(addon_name: Optional[pulumi.Input[str]] = None,
     import pulumi_aws as aws
 
     default_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        kubernetes_version=aws_eks_cluster["example"]["version"])
     latest_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+        kubernetes_version=aws_eks_cluster["example"]["version"],
         most_recent=True)
     vpc_cni = aws.eks.Addon("vpcCni",
         cluster_name=aws_eks_cluster["example"]["name"],

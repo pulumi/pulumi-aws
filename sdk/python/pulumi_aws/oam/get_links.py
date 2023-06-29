@@ -74,5 +74,5 @@ def get_links(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinksR
     __ret__ = pulumi.runtime.invoke('aws:oam/getLinks:getLinks', __args__, opts=opts, typ=GetLinksResult).value
 
     return AwaitableGetLinksResult(
-        arns=__ret__.arns,
-        id=__ret__.id)
+        arns=pulumi.get(__ret__, 'arns'),
+        id=pulumi.get(__ret__, 'id'))

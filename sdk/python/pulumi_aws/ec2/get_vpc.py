@@ -263,23 +263,23 @@ def get_vpc(cidr_block: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpc:getVpc', __args__, opts=opts, typ=GetVpcResult).value
 
     return AwaitableGetVpcResult(
-        arn=__ret__.arn,
-        cidr_block=__ret__.cidr_block,
-        cidr_block_associations=__ret__.cidr_block_associations,
-        default=__ret__.default,
-        dhcp_options_id=__ret__.dhcp_options_id,
-        enable_dns_hostnames=__ret__.enable_dns_hostnames,
-        enable_dns_support=__ret__.enable_dns_support,
-        enable_network_address_usage_metrics=__ret__.enable_network_address_usage_metrics,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        instance_tenancy=__ret__.instance_tenancy,
-        ipv6_association_id=__ret__.ipv6_association_id,
-        ipv6_cidr_block=__ret__.ipv6_cidr_block,
-        main_route_table_id=__ret__.main_route_table_id,
-        owner_id=__ret__.owner_id,
-        state=__ret__.state,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        cidr_block=pulumi.get(__ret__, 'cidr_block'),
+        cidr_block_associations=pulumi.get(__ret__, 'cidr_block_associations'),
+        default=pulumi.get(__ret__, 'default'),
+        dhcp_options_id=pulumi.get(__ret__, 'dhcp_options_id'),
+        enable_dns_hostnames=pulumi.get(__ret__, 'enable_dns_hostnames'),
+        enable_dns_support=pulumi.get(__ret__, 'enable_dns_support'),
+        enable_network_address_usage_metrics=pulumi.get(__ret__, 'enable_network_address_usage_metrics'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_tenancy=pulumi.get(__ret__, 'instance_tenancy'),
+        ipv6_association_id=pulumi.get(__ret__, 'ipv6_association_id'),
+        ipv6_cidr_block=pulumi.get(__ret__, 'ipv6_cidr_block'),
+        main_route_table_id=pulumi.get(__ret__, 'main_route_table_id'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_vpc)

@@ -164,15 +164,15 @@ def get_report_plan(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:backup/getReportPlan:getReportPlan', __args__, opts=opts, typ=GetReportPlanResult).value
 
     return AwaitableGetReportPlanResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        deployment_status=__ret__.deployment_status,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        report_delivery_channels=__ret__.report_delivery_channels,
-        report_settings=__ret__.report_settings,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        deployment_status=pulumi.get(__ret__, 'deployment_status'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        report_delivery_channels=pulumi.get(__ret__, 'report_delivery_channels'),
+        report_settings=pulumi.get(__ret__, 'report_settings'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_report_plan)

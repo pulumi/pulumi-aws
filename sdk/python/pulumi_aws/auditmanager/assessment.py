@@ -349,12 +349,12 @@ class Assessment(pulumi.CustomResource):
             ),
             framework_id=aws_auditmanager_framework["test"]["id"],
             roles=[aws.auditmanager.AssessmentRoleArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["test"]["arn"],
                 role_type="PROCESS_OWNER",
             )],
             scope=aws.auditmanager.AssessmentScopeArgs(
                 aws_accounts=[aws.auditmanager.AssessmentScopeAwsAccountArgs(
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=data["aws_caller_identity"]["current"]["account_id"],
                 )],
                 aws_services=[aws.auditmanager.AssessmentScopeAwsServiceArgs(
                     service_name="S3",
@@ -406,12 +406,12 @@ class Assessment(pulumi.CustomResource):
             ),
             framework_id=aws_auditmanager_framework["test"]["id"],
             roles=[aws.auditmanager.AssessmentRoleArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["test"]["arn"],
                 role_type="PROCESS_OWNER",
             )],
             scope=aws.auditmanager.AssessmentScopeArgs(
                 aws_accounts=[aws.auditmanager.AssessmentScopeAwsAccountArgs(
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=data["aws_caller_identity"]["current"]["account_id"],
                 )],
                 aws_services=[aws.auditmanager.AssessmentScopeAwsServiceArgs(
                     service_name="S3",

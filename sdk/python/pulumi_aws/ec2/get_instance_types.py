@@ -110,9 +110,9 @@ def get_instance_types(filters: Optional[Sequence[pulumi.InputType['GetInstanceT
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstanceTypes:getInstanceTypes', __args__, opts=opts, typ=GetInstanceTypesResult).value
 
     return AwaitableGetInstanceTypesResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        instance_types=__ret__.instance_types)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_types=pulumi.get(__ret__, 'instance_types'))
 
 
 @_utilities.lift_output_func(get_instance_types)

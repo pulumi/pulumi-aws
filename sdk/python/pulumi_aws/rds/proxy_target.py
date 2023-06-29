@@ -288,7 +288,7 @@ class ProxyTarget(pulumi.CustomResource):
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                secret_arn=aws_secretsmanager_secret["example"]["arn"],
             )],
             tags={
                 "Name": "example",
@@ -359,7 +359,7 @@ class ProxyTarget(pulumi.CustomResource):
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
-                secret_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                secret_arn=aws_secretsmanager_secret["example"]["arn"],
             )],
             tags={
                 "Name": "example",

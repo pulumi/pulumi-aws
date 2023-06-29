@@ -76,7 +76,7 @@ def get_resource_policy(resource_arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_resource_policy(resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.networkfirewall.get_resource_policy(resource_arn=var["resource_policy_arn"])
     ```
 
 
@@ -88,9 +88,9 @@ def get_resource_policy(resource_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:networkfirewall/getResourcePolicy:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult).value
 
     return AwaitableGetResourcePolicyResult(
-        id=__ret__.id,
-        policy=__ret__.policy,
-        resource_arn=__ret__.resource_arn)
+        id=pulumi.get(__ret__, 'id'),
+        policy=pulumi.get(__ret__, 'policy'),
+        resource_arn=pulumi.get(__ret__, 'resource_arn'))
 
 
 @_utilities.lift_output_func(get_resource_policy)
@@ -105,7 +105,7 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_resource_policy(resource_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.networkfirewall.get_resource_policy(resource_arn=var["resource_policy_arn"])
     ```
 
 

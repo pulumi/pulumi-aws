@@ -138,13 +138,13 @@ def get_state_machine(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:sfn/getStateMachine:getStateMachine', __args__, opts=opts, typ=GetStateMachineResult).value
 
     return AwaitableGetStateMachineResult(
-        arn=__ret__.arn,
-        creation_date=__ret__.creation_date,
-        definition=__ret__.definition,
-        id=__ret__.id,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        status=__ret__.status)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        definition=pulumi.get(__ret__, 'definition'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_state_machine)

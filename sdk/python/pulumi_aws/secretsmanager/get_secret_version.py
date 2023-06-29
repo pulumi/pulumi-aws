@@ -135,7 +135,7 @@ def get_secret_version(secret_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    secret_version = aws.secretsmanager.get_secret_version(secret_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    secret_version = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
     ```
     ### Retrieve Specific Secret Version
 
@@ -143,7 +143,7 @@ def get_secret_version(secret_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"],
         version_stage="example")
     ```
 
@@ -160,14 +160,14 @@ def get_secret_version(secret_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretVersion:getSecretVersion', __args__, opts=opts, typ=GetSecretVersionResult).value
 
     return AwaitableGetSecretVersionResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        secret_binary=__ret__.secret_binary,
-        secret_id=__ret__.secret_id,
-        secret_string=__ret__.secret_string,
-        version_id=__ret__.version_id,
-        version_stage=__ret__.version_stage,
-        version_stages=__ret__.version_stages)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        secret_binary=pulumi.get(__ret__, 'secret_binary'),
+        secret_id=pulumi.get(__ret__, 'secret_id'),
+        secret_string=pulumi.get(__ret__, 'secret_string'),
+        version_id=pulumi.get(__ret__, 'version_id'),
+        version_stage=pulumi.get(__ret__, 'version_stage'),
+        version_stages=pulumi.get(__ret__, 'version_stages'))
 
 
 @_utilities.lift_output_func(get_secret_version)
@@ -187,7 +187,7 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    secret_version = aws.secretsmanager.get_secret_version(secret_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    secret_version = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
     ```
     ### Retrieve Specific Secret Version
 
@@ -195,7 +195,7 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"],
         version_stage="example")
     ```
 

@@ -554,7 +554,7 @@ class Index(pulumi.CustomResource):
         example = aws.kendra.Index("example",
             role_arn=aws_iam_role["this"]["arn"],
             server_side_encryption_configuration=aws.kendra.IndexServerSideEncryptionConfigurationArgs(
-                kms_key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                kms_key_id=data["aws_kms_key"]["this"]["arn"],
             ))
         ```
         ### With user group resolution configuration
@@ -1137,7 +1137,7 @@ class Index(pulumi.CustomResource):
         example = aws.kendra.Index("example",
             role_arn=aws_iam_role["this"]["arn"],
             server_side_encryption_configuration=aws.kendra.IndexServerSideEncryptionConfigurationArgs(
-                kms_key_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                kms_key_id=data["aws_kms_key"]["this"]["arn"],
             ))
         ```
         ### With user group resolution configuration

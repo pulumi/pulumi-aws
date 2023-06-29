@@ -112,6 +112,9 @@ class GatewayAssociationArgs:
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""use 'associated_gateway_id' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""vpn_gateway_id is deprecated: use 'associated_gateway_id' argument instead""")
+
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -269,6 +272,9 @@ class _GatewayAssociationState:
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        warnings.warn("""use 'associated_gateway_id' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""vpn_gateway_id is deprecated: use 'associated_gateway_id' argument instead""")
+
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
@@ -598,5 +604,8 @@ class GatewayAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        warnings.warn("""use 'associated_gateway_id' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""vpn_gateway_id is deprecated: use 'associated_gateway_id' argument instead""")
+
         return pulumi.get(self, "vpn_gateway_id")
 

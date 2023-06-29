@@ -230,7 +230,7 @@ class DomainName(pulumi.CustomResource):
         example = aws.apigatewayv2.DomainName("example",
             domain_name="ws-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                certificate_arn=aws_acm_certificate["example"]["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
@@ -244,7 +244,7 @@ class DomainName(pulumi.CustomResource):
         example_domain_name = aws.apigatewayv2.DomainName("exampleDomainName",
             domain_name="http-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                certificate_arn=aws_acm_certificate["example"]["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
@@ -297,7 +297,7 @@ class DomainName(pulumi.CustomResource):
         example = aws.apigatewayv2.DomainName("example",
             domain_name="ws-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                certificate_arn=aws_acm_certificate["example"]["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
@@ -311,7 +311,7 @@ class DomainName(pulumi.CustomResource):
         example_domain_name = aws.apigatewayv2.DomainName("exampleDomainName",
             domain_name="http-api.example.com",
             domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                certificate_arn=aws_acm_certificate["example"]["arn"],
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))

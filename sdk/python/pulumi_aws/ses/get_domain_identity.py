@@ -103,10 +103,10 @@ def get_domain_identity(domain: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ses/getDomainIdentity:getDomainIdentity', __args__, opts=opts, typ=GetDomainIdentityResult).value
 
     return AwaitableGetDomainIdentityResult(
-        arn=__ret__.arn,
-        domain=__ret__.domain,
-        id=__ret__.id,
-        verification_token=__ret__.verification_token)
+        arn=pulumi.get(__ret__, 'arn'),
+        domain=pulumi.get(__ret__, 'domain'),
+        id=pulumi.get(__ret__, 'id'),
+        verification_token=pulumi.get(__ret__, 'verification_token'))
 
 
 @_utilities.lift_output_func(get_domain_identity)

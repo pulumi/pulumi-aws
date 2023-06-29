@@ -112,7 +112,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroupAttachment("example",
             target_group_identifier=aws_vpclattice_target_group["example"]["id"],
             target=aws.vpclattice.TargetGroupAttachmentTargetArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=aws_lb["example"]["arn"],
                 port=80,
             ))
         ```
@@ -141,7 +141,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroupAttachment("example",
             target_group_identifier=aws_vpclattice_target_group["example"]["id"],
             target=aws.vpclattice.TargetGroupAttachmentTargetArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=aws_lb["example"]["arn"],
                 port=80,
             ))
         ```
