@@ -7005,16 +7005,28 @@ func Provider() tfbridge.ProviderInfo {
 	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
 
 	prov.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
-		if _, ok := value.Schema().GetOk("tags_all"); ok {
-			if prov.Resources[key].Fields == nil {
-				prov.Resources[key].Fields = make(map[string]*tfbridge.SchemaInfo)
-			}
-			if f := prov.Resources[key].Fields["tags_all"]; f != nil {
-				f.ComputedInput = true
-			} else {
-				prov.Resources[key].Fields["tags_all"] = &tfbridge.SchemaInfo{
-					ComputedInput: true,
-				}
+		tagsF, ok := value.Schema().GetOk("tags")
+		if !ok {
+			return true
+		}
+		tagsAllF, ok := value.Schema().GetOk("tags_all")
+		if !ok {
+			return true
+		}
+
+		// tags_all must be present and computed, tags must be present and non-computed.
+		if tagsF.Computed() || !tagsAllF.Computed() {
+			return true
+		}
+
+		if prov.Resources[key].Fields == nil {
+			prov.Resources[key].Fields = make(map[string]*tfbridge.SchemaInfo)
+		}
+		if f := prov.Resources[key].Fields["tags_all"]; f != nil {
+			f.XComputedInput = true
+		} else {
+			prov.Resources[key].Fields["tags_all"] = &tfbridge.SchemaInfo{
+				XComputedInput: true,
 			}
 		}
 		return true
