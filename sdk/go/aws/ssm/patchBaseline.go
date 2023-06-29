@@ -226,8 +226,25 @@ import (
 //				OperatingSystem: pulumi.String("AMAZON_LINUX"),
 //				Sources: ssm.PatchBaselineSourceArray{
 //					&ssm.PatchBaselineSourceArgs{
-//						Configuration: pulumi.String("[amzn-main]\nname=amzn-main-Base\nmirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list\nmirrorlist_expire=300\nmetadata_expire=300\npriority=10\nfailovermethod=priority\nfastestmirror_enabled=0\ngpgcheck=1\ngpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga\nenabled=1\nretries=3\ntimeout=5\nreport_instanceid=yes\n\n"),
-//						Name:          pulumi.String("My-AL2017.09"),
+//						Configuration: pulumi.String(`[amzn-main]
+//
+// name=amzn-main-Base
+// mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
+// mirrorlist_expire=300
+// metadata_expire=300
+// priority=10
+// failovermethod=priority
+// fastestmirror_enabled=0
+// gpgcheck=1
+// gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga
+// enabled=1
+// retries=3
+// timeout=5
+// report_instanceid=yes
+//
+// `),
+//
+//						Name: pulumi.String("My-AL2017.09"),
 //						Products: pulumi.StringArray{
 //							pulumi.String("AmazonLinux2017.09"),
 //						},

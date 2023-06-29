@@ -138,7 +138,15 @@ import (
 //				SchemaChangePolicy: &glue.CrawlerSchemaChangePolicyArgs{
 //					DeleteBehavior: pulumi.String("LOG"),
 //				},
-//				Configuration: pulumi.String("{\n  \"Version\":1.0,\n  \"Grouping\": {\n    \"TableGroupingPolicy\": \"CombineCompatibleSchemas\"\n  }\n}\n"),
+//				Configuration: pulumi.String(`{
+//	  "Version":1.0,
+//	  "Grouping": {
+//	    "TableGroupingPolicy": "CombineCompatibleSchemas"
+//	  }
+//	}
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

@@ -33,7 +33,14 @@ import (
 //			}
 //			_, err = amp.NewAlertManagerDefinition(ctx, "demoAlertManagerDefinition", &amp.AlertManagerDefinitionArgs{
 //				WorkspaceId: demoWorkspace.ID(),
-//				Definition:  pulumi.String("alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"),
+//				Definition: pulumi.String(`alertmanager_config: |
+//	  route:
+//	    receiver: 'default'
+//	  receivers:
+//	    - name: 'default'
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

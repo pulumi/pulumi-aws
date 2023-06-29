@@ -130,7 +130,19 @@ import (
 //				},
 //				HumanLoopActivationConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigArgs{
 //					HumanLoopActivationConditionsConfig: &sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{
-//						HumanLoopActivationConditions: pulumi.String("        {\n			\"Conditions\": [\n			  {\n				\"ConditionType\": \"Sampling\",\n				\"ConditionParameters\": {\n				  \"RandomSamplingPercentage\": 5\n				}\n			  }\n			]\n		}\n"),
+//						HumanLoopActivationConditions: pulumi.String(`        {
+//				"Conditions": [
+//				  {
+//					"ConditionType": "Sampling",
+//					"ConditionParameters": {
+//					  "RandomSamplingPercentage": 5
+//					}
+//				  }
+//				]
+//			}
+//
+// `),
+//
 //					},
 //				},
 //				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{

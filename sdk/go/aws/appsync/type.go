@@ -34,9 +34,16 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewType(ctx, "exampleType", &appsync.TypeArgs{
-//				ApiId:      exampleGraphQLApi.ID(),
-//				Format:     pulumi.String("SDL"),
-//				Definition: pulumi.String("type Mutation\n\n{\nputPost(id: ID!,title: String! ): Post\n\n}\n"),
+//				ApiId:  exampleGraphQLApi.ID(),
+//				Format: pulumi.String("SDL"),
+//				Definition: pulumi.String(`type Mutation
+//
+// {
+// putPost(id: ID!,title: String! ): Post
+//
+// }
+// `),
+//
 //			})
 //			if err != nil {
 //				return err
