@@ -7004,5 +7004,21 @@ func Provider() tfbridge.ProviderInfo {
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
 	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
 
+	prov.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
+		if _, ok := value.Schema().GetOk("tags_all"); ok {
+			if prov.Resources[key].Fields == nil {
+				prov.Resources[key].Fields = make(map[string]*tfbridge.SchemaInfo)
+			}
+			if f := prov.Resources[key].Fields["tags_all"]; f != nil {
+				f.ComputedInput = true
+			} else {
+				prov.Resources[key].Fields["tags_all"] = &tfbridge.SchemaInfo{
+					ComputedInput: true,
+				}
+			}
+		}
+		return true
+	})
+
 	return prov
 }
