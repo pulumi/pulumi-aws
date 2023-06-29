@@ -21,6 +21,41 @@ import {ARN} from "..";
  * > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
  *
  * ## Example Usage
+ * ### Basic Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as archive from "@pulumi/archive";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const assumeRole = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["lambda.amazonaws.com"],
+ *         }],
+ *         actions: ["sts:AssumeRole"],
+ *     }],
+ * });
+ * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const lambda = archive.getFile({
+ *     type: "zip",
+ *     sourceFile: "lambda.js",
+ *     outputPath: "lambda_function_payload.zip",
+ * });
+ * const testLambda = new aws.lambda.Function("testLambda", {
+ *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
+ *     role: iamForLambda.arn,
+ *     handler: "index.test",
+ *     runtime: "nodejs16.x",
+ *     environment: {
+ *         variables: {
+ *             foo: "bar",
+ *         },
+ *     },
+ * });
+ * ```
  * ### Lambda Layers
  *
  * ```typescript
