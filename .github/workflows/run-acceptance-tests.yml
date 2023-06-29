@@ -186,26 +186,33 @@ jobs:
       name: Install Schema Tools
       uses: jaxxstorm/action-install-gh-release@v1.5.0
       with:
-        repo: mikhailshilkov/schema-tools
+        repo: pulumi/schema-tools
     - name: Build tfgen & provider binaries
       run: make provider
     - if: github.event_name == 'pull_request'
       name: Check Schema is Valid
-      run: >-
-        echo 'SCHEMA_CHANGES<<EOF' >> $GITHUB_ENV
-
-        schema-tools compare ${{ env.PROVIDER }} master --local-path=provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> $GITHUB_ENV
-
-        echo 'EOF' >> $GITHUB_ENV
-    - if: github.event_name == 'pull_request'
+      run: |
+        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+        {
+          echo "SCHEMA_CHANGES<<$EOF";
+          schema-tools compare -p ${{ env.PROVIDER }} -o ${{ github.event.repository.default_branch }} -n --local-path=provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json;
+          echo "$EOF";
+        } >> "$GITHUB_ENV"
+    - if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
       name: Comment on PR with Details of Schema Check
-      uses: thollander/actions-comment-pull-request@v1
+      uses: thollander/actions-comment-pull-request@v2
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        message: |
+        comment_tag: schemaCheck
+        message: >+
           ### Does the PR have any schema changes?
 
+
           ${{ env.SCHEMA_CHANGES }}
+
+
+          Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
+
     - name: Tar provider binaries
       run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
         github.workspace }}/bin/ pulumi-resource-${{ env.PROVIDER }}
