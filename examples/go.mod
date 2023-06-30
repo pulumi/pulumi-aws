@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/aws/aws-sdk-go v1.44.261
-	github.com/pulumi/pulumi/pkg/v3 v3.73.1-0.20230623071431-db579129f4c9
+	github.com/pulumi/pulumi/pkg/v3 v3.74.0
 	github.com/stretchr/testify v1.8.3
 )
 
@@ -148,7 +148,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.73.1-0.20230623071431-db579129f4c9 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.74.0 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
