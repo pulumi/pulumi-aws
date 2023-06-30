@@ -987,7 +987,7 @@ class UserPool(pulumi.CustomResource):
             sms_authentication_message="Your code is {####}",
             sms_configuration=aws.cognito.UserPoolSmsConfigurationArgs(
                 external_id="example",
-                sns_caller_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                sns_caller_arn=aws_iam_role["example"]["arn"],
                 sns_region="us-east-1",
             ),
             software_token_mfa_configuration=aws.cognito.UserPoolSoftwareTokenMfaConfigurationArgs(
@@ -1081,7 +1081,7 @@ class UserPool(pulumi.CustomResource):
             sms_authentication_message="Your code is {####}",
             sms_configuration=aws.cognito.UserPoolSmsConfigurationArgs(
                 external_id="example",
-                sns_caller_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                sns_caller_arn=aws_iam_role["example"]["arn"],
                 sns_region="us-east-1",
             ),
             software_token_mfa_configuration=aws.cognito.UserPoolSoftwareTokenMfaConfigurationArgs(

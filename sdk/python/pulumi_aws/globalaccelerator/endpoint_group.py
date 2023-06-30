@@ -404,7 +404,7 @@ class EndpointGroup(pulumi.CustomResource):
         example = aws.globalaccelerator.EndpointGroup("example",
             listener_arn=aws_globalaccelerator_listener["example"]["id"],
             endpoint_configurations=[aws.globalaccelerator.EndpointGroupEndpointConfigurationArgs(
-                endpoint_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                endpoint_id=aws_lb["example"]["arn"],
                 weight=100,
             )])
         ```
@@ -451,7 +451,7 @@ class EndpointGroup(pulumi.CustomResource):
         example = aws.globalaccelerator.EndpointGroup("example",
             listener_arn=aws_globalaccelerator_listener["example"]["id"],
             endpoint_configurations=[aws.globalaccelerator.EndpointGroupEndpointConfigurationArgs(
-                endpoint_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                endpoint_id=aws_lb["example"]["arn"],
                 weight=100,
             )])
         ```

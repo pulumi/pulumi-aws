@@ -15,6 +15,70 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// &gt; **Note:** `aws.alb.LoadBalancer` is known as `aws.lb.LoadBalancer`. The functionality is identical.
     /// 
     /// ## Example Usage
+    /// ### Application Load Balancer
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LB.LoadBalancer("test", new()
+    ///     {
+    ///         Internal = false,
+    ///         LoadBalancerType = "application",
+    ///         SecurityGroups = new[]
+    ///         {
+    ///             aws_security_group.Lb_sg.Id,
+    ///         },
+    ///         Subnets = .Select(subnet =&gt; 
+    ///         {
+    ///             return  subnet.Id;
+    ///         }),
+    ///         EnableDeletionProtection = true,
+    ///         AccessLogs = new Aws.LB.Inputs.LoadBalancerAccessLogsArgs
+    ///         {
+    ///             Bucket = aws_s3_bucket.Lb_logs.Id,
+    ///             Prefix = "test-lb",
+    ///             Enabled = true,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Network Load Balancer
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.LB.LoadBalancer("test", new()
+    ///     {
+    ///         Internal = false,
+    ///         LoadBalancerType = "network",
+    ///         Subnets = .Select(subnet =&gt; 
+    ///         {
+    ///             return  subnet.Id;
+    ///         }),
+    ///         EnableDeletionProtection = true,
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Specifying Elastic IPs
     /// 
     /// ```csharp

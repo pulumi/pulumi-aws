@@ -620,8 +620,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extendedS3Stream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=64,
                 dynamic_partitioning_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs(
                     enabled=True,
@@ -700,14 +700,14 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="redshift",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=10,
                 buffer_interval=400,
                 compression_format="GZIP",
             ),
             redshift_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
                 cluster_jdbcurl=pulumi.Output.all(test_cluster.endpoint, test_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
                 username="testuser",
                 password="T3stPass",
@@ -716,8 +716,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 data_table_columns="test-col",
                 s3_backup_mode="Enabled",
                 s3_backup_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs(
-                    role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    role_arn=aws_iam_role["firehose_role"]["arn"],
+                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
                     buffer_size=15,
                     buffer_interval=300,
                     compression_format="GZIP",
@@ -734,15 +734,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="elasticsearch",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=10,
                 buffer_interval=400,
                 compression_format="GZIP",
             ),
             elasticsearch_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs(
                 domain_arn=test_cluster.arn,
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
                 index_name="test",
                 type_name="test",
                 processing_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs(
@@ -805,17 +805,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ),
         ])
         firehose_elasticsearch_role_policy = aws.iam.RolePolicy("firehose-elasticsearchRolePolicy",
-            role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role=aws_iam_role["firehose"]["id"],
             policy=firehose_elasticsearch_policy_document.json)
         test = aws.kinesis.FirehoseDeliveryStream("test",
             destination="elasticsearch",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
             ),
             elasticsearch_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs(
                 domain_arn=test_cluster.arn,
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
                 index_name="test",
                 type_name="test",
                 vpc_config=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs(
@@ -824,7 +824,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                         aws_subnet["second"]["id"],
                     ],
                     security_group_ids=[aws_security_group["first"]["id"]],
-                    role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    role_arn=aws_iam_role["firehose"]["arn"],
                 ),
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
@@ -839,15 +839,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="opensearch",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=10,
                 buffer_interval=400,
                 compression_format="GZIP",
             ),
             opensearch_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs(
                 domain_arn=test_cluster.arn,
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
                 index_name="test",
                 processing_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs(
                     enabled=True,
@@ -885,7 +885,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ],
             ))
         firehose_opensearch = aws.iam.RolePolicy("firehose-opensearch",
-            role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role=aws_iam_role["firehose"]["id"],
             policy=pulumi.Output.all(test_cluster.arn, test_cluster.arn).apply(lambda testClusterArn, testClusterArn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
@@ -921,12 +921,12 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test = aws.kinesis.FirehoseDeliveryStream("test",
             destination="opensearch",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
             ),
             opensearch_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs(
                 domain_arn=test_cluster.arn,
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
                 index_name="test",
                 vpc_config=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs(
                     subnet_ids=[
@@ -934,7 +934,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                         aws_subnet["second"]["id"],
                     ],
                     security_group_ids=[aws_security_group["first"]["id"]],
-                    role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    role_arn=aws_iam_role["firehose"]["arn"],
                 ),
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
@@ -948,8 +948,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="splunk",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=10,
                 buffer_interval=400,
                 compression_format="GZIP",
@@ -971,8 +971,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="http_endpoint",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=10,
                 buffer_interval=400,
                 compression_format="GZIP",
@@ -983,7 +983,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 access_key="my-key",
                 buffering_size=15,
                 buffering_interval=600,
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
                 s3_backup_mode="FailedDataOnly",
                 request_configuration=aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs(
                     content_encoding="GZIP",
@@ -1105,8 +1105,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extendedS3Stream",
             destination="extended_s3",
             extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=64,
                 dynamic_partitioning_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs(
                     enabled=True,
@@ -1185,14 +1185,14 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="redshift",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=10,
                 buffer_interval=400,
                 compression_format="GZIP",
             ),
             redshift_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
                 cluster_jdbcurl=pulumi.Output.all(test_cluster.endpoint, test_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
                 username="testuser",
                 password="T3stPass",
@@ -1201,8 +1201,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 data_table_columns="test-col",
                 s3_backup_mode="Enabled",
                 s3_backup_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs(
-                    role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    role_arn=aws_iam_role["firehose_role"]["arn"],
+                    bucket_arn=aws_s3_bucket["bucket"]["arn"],
                     buffer_size=15,
                     buffer_interval=300,
                     compression_format="GZIP",
@@ -1219,15 +1219,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="elasticsearch",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=10,
                 buffer_interval=400,
                 compression_format="GZIP",
             ),
             elasticsearch_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs(
                 domain_arn=test_cluster.arn,
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
                 index_name="test",
                 type_name="test",
                 processing_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs(
@@ -1290,17 +1290,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             ),
         ])
         firehose_elasticsearch_role_policy = aws.iam.RolePolicy("firehose-elasticsearchRolePolicy",
-            role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role=aws_iam_role["firehose"]["id"],
             policy=firehose_elasticsearch_policy_document.json)
         test = aws.kinesis.FirehoseDeliveryStream("test",
             destination="elasticsearch",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
             ),
             elasticsearch_configuration=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs(
                 domain_arn=test_cluster.arn,
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
                 index_name="test",
                 type_name="test",
                 vpc_config=aws.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs(
@@ -1309,7 +1309,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                         aws_subnet["second"]["id"],
                     ],
                     security_group_ids=[aws_security_group["first"]["id"]],
-                    role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    role_arn=aws_iam_role["firehose"]["arn"],
                 ),
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_elasticsearch_role_policy]))
@@ -1324,15 +1324,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="opensearch",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=10,
                 buffer_interval=400,
                 compression_format="GZIP",
             ),
             opensearch_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs(
                 domain_arn=test_cluster.arn,
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose_role"]["arn"],
                 index_name="test",
                 processing_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs(
                     enabled=True,
@@ -1370,7 +1370,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ],
             ))
         firehose_opensearch = aws.iam.RolePolicy("firehose-opensearch",
-            role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            role=aws_iam_role["firehose"]["id"],
             policy=pulumi.Output.all(test_cluster.arn, test_cluster.arn).apply(lambda testClusterArn, testClusterArn1: f\"\"\"{{
           "Version": "2012-10-17",
           "Statement": [
@@ -1406,12 +1406,12 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test = aws.kinesis.FirehoseDeliveryStream("test",
             destination="opensearch",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
             ),
             opensearch_configuration=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationArgs(
                 domain_arn=test_cluster.arn,
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
                 index_name="test",
                 vpc_config=aws.kinesis.FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs(
                     subnet_ids=[
@@ -1419,7 +1419,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                         aws_subnet["second"]["id"],
                     ],
                     security_group_ids=[aws_security_group["first"]["id"]],
-                    role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    role_arn=aws_iam_role["firehose"]["arn"],
                 ),
             ),
             opts=pulumi.ResourceOptions(depends_on=[firehose_opensearch]))
@@ -1433,8 +1433,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="splunk",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=10,
                 buffer_interval=400,
                 compression_format="GZIP",
@@ -1456,8 +1456,8 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
             destination="http_endpoint",
             s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                bucket_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
+                bucket_arn=aws_s3_bucket["bucket"]["arn"],
                 buffer_size=10,
                 buffer_interval=400,
                 compression_format="GZIP",
@@ -1468,7 +1468,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 access_key="my-key",
                 buffering_size=15,
                 buffering_interval=600,
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["firehose"]["arn"],
                 s3_backup_mode="FailedDataOnly",
                 request_configuration=aws.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs(
                     content_encoding="GZIP",

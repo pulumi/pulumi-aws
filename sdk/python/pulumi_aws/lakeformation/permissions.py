@@ -511,7 +511,7 @@ class Permissions(pulumi.CustomResource):
             principal=aws_iam_role["workflow_role"]["arn"],
             permissions=["ALL"],
             data_location=aws.lakeformation.PermissionsDataLocationArgs(
-                arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                arn=aws_lakeformation_resource["example"]["arn"],
             ))
         ```
         ### Grant Permissions For A Glue Catalog Database
@@ -528,7 +528,7 @@ class Permissions(pulumi.CustomResource):
                 "DROP",
             ],
             database=aws.lakeformation.PermissionsDatabaseArgs(
-                name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                name=aws_glue_catalog_database["example"]["name"],
                 catalog_id="110376042874",
             ))
         ```
@@ -680,7 +680,7 @@ class Permissions(pulumi.CustomResource):
             principal=aws_iam_role["workflow_role"]["arn"],
             permissions=["ALL"],
             data_location=aws.lakeformation.PermissionsDataLocationArgs(
-                arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                arn=aws_lakeformation_resource["example"]["arn"],
             ))
         ```
         ### Grant Permissions For A Glue Catalog Database
@@ -697,7 +697,7 @@ class Permissions(pulumi.CustomResource):
                 "DROP",
             ],
             database=aws.lakeformation.PermissionsDatabaseArgs(
-                name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                name=aws_glue_catalog_database["example"]["name"],
                 catalog_id="110376042874",
             ))
         ```

@@ -547,7 +547,7 @@ class Role(pulumi.CustomResource):
             resources=["*"],
         )])
         example = aws.iam.Role("example",
-            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
             inline_policies=[
                 aws.iam.RoleInlinePolicyArgs(
                     name="my_inline_policy",
@@ -575,7 +575,7 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
             inline_policies=[aws.iam.RoleInlinePolicyArgs()])
         ```
         ### Example of Exclusive Managed Policies
@@ -608,7 +608,7 @@ class Role(pulumi.CustomResource):
             }],
         }))
         example = aws.iam.Role("example",
-            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
             managed_policy_arns=[
                 policy_one.arn,
                 policy_two.arn,
@@ -623,7 +623,7 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
             managed_policy_arns=[])
         ```
 
@@ -720,7 +720,7 @@ class Role(pulumi.CustomResource):
             resources=["*"],
         )])
         example = aws.iam.Role("example",
-            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
             inline_policies=[
                 aws.iam.RoleInlinePolicyArgs(
                     name="my_inline_policy",
@@ -748,7 +748,7 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
             inline_policies=[aws.iam.RoleInlinePolicyArgs()])
         ```
         ### Example of Exclusive Managed Policies
@@ -781,7 +781,7 @@ class Role(pulumi.CustomResource):
             }],
         }))
         example = aws.iam.Role("example",
-            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
             managed_policy_arns=[
                 policy_one.arn,
                 policy_two.arn,
@@ -796,7 +796,7 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            assume_role_policy=data["aws_iam_policy_document"]["instance_assume_role_policy"]["json"],
             managed_policy_arns=[])
         ```
 

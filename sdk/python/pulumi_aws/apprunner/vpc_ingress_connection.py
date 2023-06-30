@@ -241,8 +241,8 @@ class VpcIngressConnection(pulumi.CustomResource):
         example = aws.apprunner.VpcIngressConnection("example",
             service_arn=aws_apprunner_service["example"]["arn"],
             ingress_vpc_configuration=aws.apprunner.VpcIngressConnectionIngressVpcConfigurationArgs(
-                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                vpc_endpoint_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_id=aws_default_vpc["default"]["id"],
+                vpc_endpoint_id=aws_vpc_endpoint["apprunner"]["id"],
             ),
             tags={
                 "foo": "bar",
@@ -282,8 +282,8 @@ class VpcIngressConnection(pulumi.CustomResource):
         example = aws.apprunner.VpcIngressConnection("example",
             service_arn=aws_apprunner_service["example"]["arn"],
             ingress_vpc_configuration=aws.apprunner.VpcIngressConnectionIngressVpcConfigurationArgs(
-                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                vpc_endpoint_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_id=aws_default_vpc["default"]["id"],
+                vpc_endpoint_id=aws_vpc_endpoint["apprunner"]["id"],
             ),
             tags={
                 "foo": "bar",

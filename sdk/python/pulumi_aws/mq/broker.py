@@ -754,8 +754,8 @@ class Broker(pulumi.CustomResource):
 
         example = aws.mq.Broker("example",
             configuration=aws.mq.BrokerConfigurationArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                revision=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=aws_mq_configuration["test"]["id"],
+                revision=aws_mq_configuration["test"]["latest_revision"],
             ),
             engine_type="ActiveMQ",
             engine_version="5.15.9",
@@ -776,8 +776,8 @@ class Broker(pulumi.CustomResource):
 
         example = aws.mq.Broker("example",
             configuration=aws.mq.BrokerConfigurationArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                revision=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=aws_mq_configuration["test"]["id"],
+                revision=aws_mq_configuration["test"]["latest_revision"],
             ),
             engine_type="ActiveMQ",
             engine_version="5.15.9",
@@ -846,8 +846,8 @@ class Broker(pulumi.CustomResource):
 
         example = aws.mq.Broker("example",
             configuration=aws.mq.BrokerConfigurationArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                revision=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=aws_mq_configuration["test"]["id"],
+                revision=aws_mq_configuration["test"]["latest_revision"],
             ),
             engine_type="ActiveMQ",
             engine_version="5.15.9",
@@ -868,8 +868,8 @@ class Broker(pulumi.CustomResource):
 
         example = aws.mq.Broker("example",
             configuration=aws.mq.BrokerConfigurationArgs(
-                id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                revision=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                id=aws_mq_configuration["test"]["id"],
+                revision=aws_mq_configuration["test"]["latest_revision"],
             ),
             engine_type="ActiveMQ",
             engine_version="5.15.9",

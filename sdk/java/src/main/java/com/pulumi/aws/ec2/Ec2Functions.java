@@ -3913,6 +3913,53 @@ public final class Ec2Functions {
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetInstancesResult> getInstances() {
         return getInstances(GetInstancesArgs.Empty, InvokeOptions.Empty);
@@ -3925,6 +3972,53 @@ public final class Ec2Functions {
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain() {
@@ -3939,6 +4033,53 @@ public final class Ec2Functions {
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args) {
         return getInstances(args, InvokeOptions.Empty);
@@ -3951,6 +4092,53 @@ public final class Ec2Functions {
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args) {
@@ -3965,6 +4153,53 @@ public final class Ec2Functions {
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
@@ -3977,6 +4212,53 @@ public final class Ec2Functions {
      * &gt; **Note:** It&#39;s strongly discouraged to use this data source for querying ephemeral
      * instances (e.g., managed via autoscaling group), as the output may change at any time
      * and you&#39;d need to re-run `apply` every time an instance comes up or dies.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.Eip;
+     * import com.pulumi.aws.ec2.EipArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var testInstances = Ec2Functions.getInstances(GetInstancesArgs.builder()
+     *             .instanceTags(Map.of(&#34;Role&#34;, &#34;HardWorker&#34;))
+     *             .filters(GetInstancesFilterArgs.builder()
+     *                 .name(&#34;instance.group-id&#34;)
+     *                 .values(&#34;sg-12345678&#34;)
+     *                 .build())
+     *             .instanceStateNames(            
+     *                 &#34;running&#34;,
+     *                 &#34;stopped&#34;)
+     *             .build());
+     * 
+     *         for (var i = 0; i &lt; testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids()).length(); i++) {
+     *             new Eip(&#34;testEip-&#34; + i, EipArgs.builder()            
+     *                 .instance(testInstances.applyValue(getInstancesResult -&gt; getInstancesResult.ids())[range.value()])
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args, InvokeOptions options) {
@@ -16125,6 +16407,8 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections() {
         return getVpcPeeringConnections(GetVpcPeeringConnectionsArgs.Empty, InvokeOptions.Empty);
@@ -16135,6 +16419,8 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain() {
@@ -16147,6 +16433,8 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections(GetVpcPeeringConnectionsArgs args) {
         return getVpcPeeringConnections(args, InvokeOptions.Empty);
@@ -16157,6 +16445,8 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain(GetVpcPeeringConnectionsPlainArgs args) {
@@ -16169,6 +16459,8 @@ public final class Ec2Functions {
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVpcPeeringConnectionsResult> getVpcPeeringConnections(GetVpcPeeringConnectionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", TypeShape.of(GetVpcPeeringConnectionsResult.class), args, Utilities.withVersion(options));
@@ -16179,6 +16471,8 @@ public final class Ec2Functions {
      * 
      * Note: To use this data source in a count, the resources should exist before trying to access
      * the data source.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVpcPeeringConnectionsResult> getVpcPeeringConnectionsPlain(GetVpcPeeringConnectionsPlainArgs args, InvokeOptions options) {

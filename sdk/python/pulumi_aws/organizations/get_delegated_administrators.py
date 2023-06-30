@@ -89,9 +89,9 @@ def get_delegated_administrators(service_principal: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators', __args__, opts=opts, typ=GetDelegatedAdministratorsResult).value
 
     return AwaitableGetDelegatedAdministratorsResult(
-        delegated_administrators=__ret__.delegated_administrators,
-        id=__ret__.id,
-        service_principal=__ret__.service_principal)
+        delegated_administrators=pulumi.get(__ret__, 'delegated_administrators'),
+        id=pulumi.get(__ret__, 'id'),
+        service_principal=pulumi.get(__ret__, 'service_principal'))
 
 
 @_utilities.lift_output_func(get_delegated_administrators)

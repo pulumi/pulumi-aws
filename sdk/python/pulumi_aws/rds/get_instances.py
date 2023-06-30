@@ -106,10 +106,10 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     __ret__ = pulumi.runtime.invoke('aws:rds/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult).value
 
     return AwaitableGetInstancesResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        instance_arns=__ret__.instance_arns,
-        instance_identifiers=__ret__.instance_identifiers)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_arns=pulumi.get(__ret__, 'instance_arns'),
+        instance_identifiers=pulumi.get(__ret__, 'instance_identifiers'))
 
 
 @_utilities.lift_output_func(get_instances)

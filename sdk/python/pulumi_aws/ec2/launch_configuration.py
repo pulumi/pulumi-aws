@@ -330,6 +330,9 @@ class LaunchConfigurationArgs:
         """
         The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
         """
+        warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""vpc_classic_link_id is deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "vpc_classic_link_id")
 
     @vpc_classic_link_id.setter
@@ -342,6 +345,9 @@ class LaunchConfigurationArgs:
         """
         The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """
+        warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""vpc_classic_link_security_groups is deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "vpc_classic_link_security_groups")
 
     @vpc_classic_link_security_groups.setter
@@ -684,6 +690,9 @@ class _LaunchConfigurationState:
         """
         The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
         """
+        warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""vpc_classic_link_id is deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "vpc_classic_link_id")
 
     @vpc_classic_link_id.setter
@@ -696,6 +705,9 @@ class _LaunchConfigurationState:
         """
         The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """
+        warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""vpc_classic_link_security_groups is deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "vpc_classic_link_security_groups")
 
     @vpc_classic_link_security_groups.setter
@@ -1406,6 +1418,9 @@ class LaunchConfiguration(pulumi.CustomResource):
         """
         The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
         """
+        warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""vpc_classic_link_id is deprecated: With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "vpc_classic_link_id")
 
     @property
@@ -1414,5 +1429,8 @@ class LaunchConfiguration(pulumi.CustomResource):
         """
         The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
         """
+        warnings.warn("""With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""vpc_classic_link_security_groups is deprecated: With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "vpc_classic_link_security_groups")
 

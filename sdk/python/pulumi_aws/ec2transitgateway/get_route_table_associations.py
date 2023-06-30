@@ -89,7 +89,7 @@ def get_route_table_associations(filters: Optional[Sequence[pulumi.InputType['Ge
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_route_table_associations(transit_gateway_route_table_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.ec2transitgateway.get_route_table_associations(transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
     ```
 
 
@@ -108,10 +108,10 @@ def get_route_table_associations(filters: Optional[Sequence[pulumi.InputType['Ge
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getRouteTableAssociations:getRouteTableAssociations', __args__, opts=opts, typ=GetRouteTableAssociationsResult).value
 
     return AwaitableGetRouteTableAssociationsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        transit_gateway_route_table_id=__ret__.transit_gateway_route_table_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
 
 
 @_utilities.lift_output_func(get_route_table_associations)
@@ -128,7 +128,7 @@ def get_route_table_associations_output(filters: Optional[pulumi.Input[Optional[
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_route_table_associations(transit_gateway_route_table_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.ec2transitgateway.get_route_table_associations(transit_gateway_route_table_id=aws_ec2_transit_gateway_route_table["example"]["id"])
     ```
 
 

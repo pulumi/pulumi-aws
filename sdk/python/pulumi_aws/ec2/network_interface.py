@@ -800,7 +800,7 @@ class NetworkInterface(pulumi.CustomResource):
             private_ips=["10.0.0.50"],
             security_groups=[aws_security_group["web"]["id"]],
             attachments=[aws.ec2.NetworkInterfaceAttachmentArgs(
-                instance=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                instance=aws_instance["test"]["id"],
                 device_index=1,
             )])
         ```
@@ -873,7 +873,7 @@ class NetworkInterface(pulumi.CustomResource):
             private_ips=["10.0.0.50"],
             security_groups=[aws_security_group["web"]["id"]],
             attachments=[aws.ec2.NetworkInterfaceAttachmentArgs(
-                instance=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                instance=aws_instance["test"]["id"],
                 device_index=1,
             )])
         ```

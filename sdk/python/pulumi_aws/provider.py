@@ -354,6 +354,9 @@ class ProviderArgs:
         default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
         Specific to the Amazon S3 service.
         """
+        warnings.warn("""Use s3_use_path_style instead.""", DeprecationWarning)
+        pulumi.log.warn("""s3_force_path_style is deprecated: Use s3_use_path_style instead.""")
+
         return pulumi.get(self, "s3_force_path_style")
 
     @s3_force_path_style.setter
@@ -404,6 +407,9 @@ class ProviderArgs:
         """
         The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         """
+        warnings.warn("""Use shared_credentials_files instead.""", DeprecationWarning)
+        pulumi.log.warn("""shared_credentials_file is deprecated: Use shared_credentials_files instead.""")
+
         return pulumi.get(self, "shared_credentials_file")
 
     @shared_credentials_file.setter
@@ -441,6 +447,9 @@ class ProviderArgs:
         """
         Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
         """
+        warnings.warn("""With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""skip_get_ec2_platforms is deprecated: With the retirement of EC2-Classic the skip_get_ec2_platforms attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "skip_get_ec2_platforms")
 
     @skip_get_ec2_platforms.setter
@@ -810,6 +819,9 @@ class Provider(pulumi.ProviderResource):
         """
         The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         """
+        warnings.warn("""Use shared_credentials_files instead.""", DeprecationWarning)
+        pulumi.log.warn("""shared_credentials_file is deprecated: Use shared_credentials_files instead.""")
+
         return pulumi.get(self, "shared_credentials_file")
 
     @property

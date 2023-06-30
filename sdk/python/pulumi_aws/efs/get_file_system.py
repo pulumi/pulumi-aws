@@ -243,21 +243,21 @@ def get_file_system(creation_token: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:efs/getFileSystem:getFileSystem', __args__, opts=opts, typ=GetFileSystemResult).value
 
     return AwaitableGetFileSystemResult(
-        arn=__ret__.arn,
-        availability_zone_id=__ret__.availability_zone_id,
-        availability_zone_name=__ret__.availability_zone_name,
-        creation_token=__ret__.creation_token,
-        dns_name=__ret__.dns_name,
-        encrypted=__ret__.encrypted,
-        file_system_id=__ret__.file_system_id,
-        id=__ret__.id,
-        kms_key_id=__ret__.kms_key_id,
-        lifecycle_policy=__ret__.lifecycle_policy,
-        performance_mode=__ret__.performance_mode,
-        provisioned_throughput_in_mibps=__ret__.provisioned_throughput_in_mibps,
-        size_in_bytes=__ret__.size_in_bytes,
-        tags=__ret__.tags,
-        throughput_mode=__ret__.throughput_mode)
+        arn=pulumi.get(__ret__, 'arn'),
+        availability_zone_id=pulumi.get(__ret__, 'availability_zone_id'),
+        availability_zone_name=pulumi.get(__ret__, 'availability_zone_name'),
+        creation_token=pulumi.get(__ret__, 'creation_token'),
+        dns_name=pulumi.get(__ret__, 'dns_name'),
+        encrypted=pulumi.get(__ret__, 'encrypted'),
+        file_system_id=pulumi.get(__ret__, 'file_system_id'),
+        id=pulumi.get(__ret__, 'id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        lifecycle_policy=pulumi.get(__ret__, 'lifecycle_policy'),
+        performance_mode=pulumi.get(__ret__, 'performance_mode'),
+        provisioned_throughput_in_mibps=pulumi.get(__ret__, 'provisioned_throughput_in_mibps'),
+        size_in_bytes=pulumi.get(__ret__, 'size_in_bytes'),
+        tags=pulumi.get(__ret__, 'tags'),
+        throughput_mode=pulumi.get(__ret__, 'throughput_mode'))
 
 
 @_utilities.lift_output_func(get_file_system)

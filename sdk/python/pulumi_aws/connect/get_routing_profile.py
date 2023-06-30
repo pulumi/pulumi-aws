@@ -189,16 +189,16 @@ def get_routing_profile(instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getRoutingProfile:getRoutingProfile', __args__, opts=opts, typ=GetRoutingProfileResult).value
 
     return AwaitableGetRoutingProfileResult(
-        arn=__ret__.arn,
-        default_outbound_queue_id=__ret__.default_outbound_queue_id,
-        description=__ret__.description,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        media_concurrencies=__ret__.media_concurrencies,
-        name=__ret__.name,
-        queue_configs=__ret__.queue_configs,
-        routing_profile_id=__ret__.routing_profile_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        default_outbound_queue_id=pulumi.get(__ret__, 'default_outbound_queue_id'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        media_concurrencies=pulumi.get(__ret__, 'media_concurrencies'),
+        name=pulumi.get(__ret__, 'name'),
+        queue_configs=pulumi.get(__ret__, 'queue_configs'),
+        routing_profile_id=pulumi.get(__ret__, 'routing_profile_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_routing_profile)

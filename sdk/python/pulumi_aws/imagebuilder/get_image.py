@@ -249,22 +249,22 @@ def get_image(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getImage:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
-        arn=__ret__.arn,
-        build_version_arn=__ret__.build_version_arn,
-        container_recipe_arn=__ret__.container_recipe_arn,
-        date_created=__ret__.date_created,
-        distribution_configuration_arn=__ret__.distribution_configuration_arn,
-        enhanced_image_metadata_enabled=__ret__.enhanced_image_metadata_enabled,
-        id=__ret__.id,
-        image_recipe_arn=__ret__.image_recipe_arn,
-        image_tests_configurations=__ret__.image_tests_configurations,
-        infrastructure_configuration_arn=__ret__.infrastructure_configuration_arn,
-        name=__ret__.name,
-        os_version=__ret__.os_version,
-        output_resources=__ret__.output_resources,
-        platform=__ret__.platform,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        arn=pulumi.get(__ret__, 'arn'),
+        build_version_arn=pulumi.get(__ret__, 'build_version_arn'),
+        container_recipe_arn=pulumi.get(__ret__, 'container_recipe_arn'),
+        date_created=pulumi.get(__ret__, 'date_created'),
+        distribution_configuration_arn=pulumi.get(__ret__, 'distribution_configuration_arn'),
+        enhanced_image_metadata_enabled=pulumi.get(__ret__, 'enhanced_image_metadata_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        image_recipe_arn=pulumi.get(__ret__, 'image_recipe_arn'),
+        image_tests_configurations=pulumi.get(__ret__, 'image_tests_configurations'),
+        infrastructure_configuration_arn=pulumi.get(__ret__, 'infrastructure_configuration_arn'),
+        name=pulumi.get(__ret__, 'name'),
+        os_version=pulumi.get(__ret__, 'os_version'),
+        output_resources=pulumi.get(__ret__, 'output_resources'),
+        platform=pulumi.get(__ret__, 'platform'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_image)

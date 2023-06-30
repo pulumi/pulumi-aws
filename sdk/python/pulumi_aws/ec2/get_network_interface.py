@@ -294,26 +294,26 @@ def get_network_interface(filters: Optional[Sequence[pulumi.InputType['GetNetwor
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInterface:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult).value
 
     return AwaitableGetNetworkInterfaceResult(
-        arn=__ret__.arn,
-        associations=__ret__.associations,
-        attachments=__ret__.attachments,
-        availability_zone=__ret__.availability_zone,
-        description=__ret__.description,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        interface_type=__ret__.interface_type,
-        ipv6_addresses=__ret__.ipv6_addresses,
-        mac_address=__ret__.mac_address,
-        outpost_arn=__ret__.outpost_arn,
-        owner_id=__ret__.owner_id,
-        private_dns_name=__ret__.private_dns_name,
-        private_ip=__ret__.private_ip,
-        private_ips=__ret__.private_ips,
-        requester_id=__ret__.requester_id,
-        security_groups=__ret__.security_groups,
-        subnet_id=__ret__.subnet_id,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        associations=pulumi.get(__ret__, 'associations'),
+        attachments=pulumi.get(__ret__, 'attachments'),
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        description=pulumi.get(__ret__, 'description'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        interface_type=pulumi.get(__ret__, 'interface_type'),
+        ipv6_addresses=pulumi.get(__ret__, 'ipv6_addresses'),
+        mac_address=pulumi.get(__ret__, 'mac_address'),
+        outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
+        owner_id=pulumi.get(__ret__, 'owner_id'),
+        private_dns_name=pulumi.get(__ret__, 'private_dns_name'),
+        private_ip=pulumi.get(__ret__, 'private_ip'),
+        private_ips=pulumi.get(__ret__, 'private_ips'),
+        requester_id=pulumi.get(__ret__, 'requester_id'),
+        security_groups=pulumi.get(__ret__, 'security_groups'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_network_interface)

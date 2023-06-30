@@ -591,6 +591,9 @@ class GroupArgs:
         """
         Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
         """
+        warnings.warn("""Use tag instead""", DeprecationWarning)
+        pulumi.log.warn("""tags_collection is deprecated: Use tag instead""")
+
         return pulumi.get(self, "tags_collection")
 
     @tags_collection.setter
@@ -1294,6 +1297,9 @@ class _GroupState:
         """
         Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
         """
+        warnings.warn("""Use tag instead""", DeprecationWarning)
+        pulumi.log.warn("""tags_collection is deprecated: Use tag instead""")
+
         return pulumi.get(self, "tags_collection")
 
     @tags_collection.setter
@@ -2717,6 +2723,9 @@ class Group(pulumi.CustomResource):
         """
         Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
         """
+        warnings.warn("""Use tag instead""", DeprecationWarning)
+        pulumi.log.warn("""tags_collection is deprecated: Use tag instead""")
+
         return pulumi.get(self, "tags_collection")
 
     @property

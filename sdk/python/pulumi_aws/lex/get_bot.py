@@ -263,23 +263,23 @@ def get_bot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lex/getBot:getBot', __args__, opts=opts, typ=GetBotResult).value
 
     return AwaitableGetBotResult(
-        arn=__ret__.arn,
-        checksum=__ret__.checksum,
-        child_directed=__ret__.child_directed,
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        detect_sentiment=__ret__.detect_sentiment,
-        enable_model_improvements=__ret__.enable_model_improvements,
-        failure_reason=__ret__.failure_reason,
-        id=__ret__.id,
-        idle_session_ttl_in_seconds=__ret__.idle_session_ttl_in_seconds,
-        last_updated_date=__ret__.last_updated_date,
-        locale=__ret__.locale,
-        name=__ret__.name,
-        nlu_intent_confidence_threshold=__ret__.nlu_intent_confidence_threshold,
-        status=__ret__.status,
-        version=__ret__.version,
-        voice_id=__ret__.voice_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        checksum=pulumi.get(__ret__, 'checksum'),
+        child_directed=pulumi.get(__ret__, 'child_directed'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        description=pulumi.get(__ret__, 'description'),
+        detect_sentiment=pulumi.get(__ret__, 'detect_sentiment'),
+        enable_model_improvements=pulumi.get(__ret__, 'enable_model_improvements'),
+        failure_reason=pulumi.get(__ret__, 'failure_reason'),
+        id=pulumi.get(__ret__, 'id'),
+        idle_session_ttl_in_seconds=pulumi.get(__ret__, 'idle_session_ttl_in_seconds'),
+        last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        locale=pulumi.get(__ret__, 'locale'),
+        name=pulumi.get(__ret__, 'name'),
+        nlu_intent_confidence_threshold=pulumi.get(__ret__, 'nlu_intent_confidence_threshold'),
+        status=pulumi.get(__ret__, 'status'),
+        version=pulumi.get(__ret__, 'version'),
+        voice_id=pulumi.get(__ret__, 'voice_id'))
 
 
 @_utilities.lift_output_func(get_bot)

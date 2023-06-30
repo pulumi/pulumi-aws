@@ -131,12 +131,12 @@ def get_spot_price(availability_zone: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSpotPrice:getSpotPrice', __args__, opts=opts, typ=GetSpotPriceResult).value
 
     return AwaitableGetSpotPriceResult(
-        availability_zone=__ret__.availability_zone,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        instance_type=__ret__.instance_type,
-        spot_price=__ret__.spot_price,
-        spot_price_timestamp=__ret__.spot_price_timestamp)
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_type=pulumi.get(__ret__, 'instance_type'),
+        spot_price=pulumi.get(__ret__, 'spot_price'),
+        spot_price_timestamp=pulumi.get(__ret__, 'spot_price_timestamp'))
 
 
 @_utilities.lift_output_func(get_spot_price)

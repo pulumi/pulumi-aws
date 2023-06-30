@@ -127,12 +127,12 @@ def get_plan(plan_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:backup/getPlan:getPlan', __args__, opts=opts, typ=GetPlanResult).value
 
     return AwaitableGetPlanResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        plan_id=__ret__.plan_id,
-        tags=__ret__.tags,
-        version=__ret__.version)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        plan_id=pulumi.get(__ret__, 'plan_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_plan)

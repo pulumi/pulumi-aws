@@ -139,13 +139,13 @@ def get_log_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getLogGroup:getLogGroup', __args__, opts=opts, typ=GetLogGroupResult).value
 
     return AwaitableGetLogGroupResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        id=__ret__.id,
-        kms_key_id=__ret__.kms_key_id,
-        name=__ret__.name,
-        retention_in_days=__ret__.retention_in_days,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        id=pulumi.get(__ret__, 'id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        name=pulumi.get(__ret__, 'name'),
+        retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_log_group)

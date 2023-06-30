@@ -80,5 +80,5 @@ def get_canonical_user_id(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
     __ret__ = pulumi.runtime.invoke('aws:index/getCanonicalUserId:getCanonicalUserId', __args__, opts=opts, typ=GetCanonicalUserIdResult).value
 
     return AwaitableGetCanonicalUserIdResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'))

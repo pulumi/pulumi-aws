@@ -285,22 +285,22 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
     __ret__ = pulumi.runtime.invoke('aws:ec2/getElasticIp:getElasticIp', __args__, opts=opts, typ=GetElasticIpResult).value
 
     return AwaitableGetElasticIpResult(
-        association_id=__ret__.association_id,
-        carrier_ip=__ret__.carrier_ip,
-        customer_owned_ip=__ret__.customer_owned_ip,
-        customer_owned_ipv4_pool=__ret__.customer_owned_ipv4_pool,
-        domain=__ret__.domain,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        network_interface_id=__ret__.network_interface_id,
-        network_interface_owner_id=__ret__.network_interface_owner_id,
-        private_dns=__ret__.private_dns,
-        private_ip=__ret__.private_ip,
-        public_dns=__ret__.public_dns,
-        public_ip=__ret__.public_ip,
-        public_ipv4_pool=__ret__.public_ipv4_pool,
-        tags=__ret__.tags)
+        association_id=pulumi.get(__ret__, 'association_id'),
+        carrier_ip=pulumi.get(__ret__, 'carrier_ip'),
+        customer_owned_ip=pulumi.get(__ret__, 'customer_owned_ip'),
+        customer_owned_ipv4_pool=pulumi.get(__ret__, 'customer_owned_ipv4_pool'),
+        domain=pulumi.get(__ret__, 'domain'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
+        network_interface_owner_id=pulumi.get(__ret__, 'network_interface_owner_id'),
+        private_dns=pulumi.get(__ret__, 'private_dns'),
+        private_ip=pulumi.get(__ret__, 'private_ip'),
+        public_dns=pulumi.get(__ret__, 'public_dns'),
+        public_ip=pulumi.get(__ret__, 'public_ip'),
+        public_ipv4_pool=pulumi.get(__ret__, 'public_ipv4_pool'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_elastic_ip)

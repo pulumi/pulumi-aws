@@ -76,7 +76,7 @@ def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=aws_cognito_user_pool["my_pool"]["id"])
     ```
 
 
@@ -88,9 +88,9 @@ def get_user_pool_signing_certificate(user_pool_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate', __args__, opts=opts, typ=GetUserPoolSigningCertificateResult).value
 
     return AwaitableGetUserPoolSigningCertificateResult(
-        certificate=__ret__.certificate,
-        id=__ret__.id,
-        user_pool_id=__ret__.user_pool_id)
+        certificate=pulumi.get(__ret__, 'certificate'),
+        id=pulumi.get(__ret__, 'id'),
+        user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
 
 
 @_utilities.lift_output_func(get_user_pool_signing_certificate)
@@ -105,7 +105,7 @@ def get_user_pool_signing_certificate_output(user_pool_id: Optional[pulumi.Input
     import pulumi
     import pulumi_aws as aws
 
-    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    sc = aws.cognito.get_user_pool_signing_certificate(user_pool_id=aws_cognito_user_pool["my_pool"]["id"])
     ```
 
 

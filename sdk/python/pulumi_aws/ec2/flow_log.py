@@ -176,6 +176,9 @@ class FlowLogArgs:
         """
         *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         """
+        warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
+
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -453,6 +456,9 @@ class _FlowLogState:
         """
         *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         """
+        warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
+
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -974,6 +980,9 @@ class FlowLog(pulumi.CustomResource):
         """
         *Deprecated:* Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         """
+        warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
+
         return pulumi.get(self, "log_group_name")
 
     @property

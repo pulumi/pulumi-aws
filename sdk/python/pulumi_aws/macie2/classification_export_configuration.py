@@ -79,9 +79,9 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         example_account = aws.macie2.Account("exampleAccount")
         example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
-            bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            bucket_name=aws_s3_bucket["example"]["bucket"],
             key_prefix="exampleprefix/",
-            kms_key_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            kms_key_arn=aws_kms_key["example"]["arn"],
         ),
         opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
@@ -115,9 +115,9 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         example_account = aws.macie2.Account("exampleAccount")
         example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("exampleClassificationExportConfiguration", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
-            bucket_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            bucket_name=aws_s3_bucket["example"]["bucket"],
             key_prefix="exampleprefix/",
-            kms_key_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            kms_key_arn=aws_kms_key["example"]["arn"],
         ),
         opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```

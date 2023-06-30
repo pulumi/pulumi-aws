@@ -60,6 +60,9 @@ class ClusterArgs:
         """
         List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         """
+        warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+        pulumi.log.warn("""capacity_providers is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
+
         return pulumi.get(self, "capacity_providers")
 
     @capacity_providers.setter
@@ -84,6 +87,9 @@ class ClusterArgs:
         """
         Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         """
+        warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+        pulumi.log.warn("""default_capacity_provider_strategies is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
+
         return pulumi.get(self, "default_capacity_provider_strategies")
 
     @default_capacity_provider_strategies.setter
@@ -206,6 +212,9 @@ class _ClusterState:
         """
         List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         """
+        warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+        pulumi.log.warn("""capacity_providers is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
+
         return pulumi.get(self, "capacity_providers")
 
     @capacity_providers.setter
@@ -230,6 +239,9 @@ class _ClusterState:
         """
         Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         """
+        warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+        pulumi.log.warn("""default_capacity_provider_strategies is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
+
         return pulumi.get(self, "default_capacity_provider_strategies")
 
     @default_capacity_provider_strategies.setter
@@ -355,7 +367,7 @@ class Cluster(pulumi.CustomResource):
 
         example_cluster = aws.ecs.Cluster("exampleCluster")
         example_capacity_provider = aws.ecs.CapacityProvider("exampleCapacityProvider", auto_scaling_group_provider=aws.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            auto_scaling_group_arn=aws_autoscaling_group["example"]["arn"],
         ))
         example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
             cluster_name=example_cluster.name,
@@ -436,7 +448,7 @@ class Cluster(pulumi.CustomResource):
 
         example_cluster = aws.ecs.Cluster("exampleCluster")
         example_capacity_provider = aws.ecs.CapacityProvider("exampleCapacityProvider", auto_scaling_group_provider=aws.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-            auto_scaling_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            auto_scaling_group_arn=aws_autoscaling_group["example"]["arn"],
         ))
         example_cluster_capacity_providers = aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders",
             cluster_name=example_cluster.name,
@@ -567,6 +579,9 @@ class Cluster(pulumi.CustomResource):
         """
         List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         """
+        warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+        pulumi.log.warn("""capacity_providers is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
+
         return pulumi.get(self, "capacity_providers")
 
     @property
@@ -583,6 +598,9 @@ class Cluster(pulumi.CustomResource):
         """
         Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         """
+        warnings.warn("""Use the aws_ecs_cluster_capacity_providers resource instead""", DeprecationWarning)
+        pulumi.log.warn("""default_capacity_provider_strategies is deprecated: Use the aws_ecs_cluster_capacity_providers resource instead""")
+
         return pulumi.get(self, "default_capacity_provider_strategies")
 
     @property

@@ -22,6 +22,76 @@ import (
 // > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 //
 // ## Example Usage
+// ### Basic Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-archive/sdk/go/archive"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"lambda.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
+//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = archive.LookupFile(ctx, &archive.LookupFileArgs{
+//				Type:       "zip",
+//				SourceFile: pulumi.StringRef("lambda.js"),
+//				OutputPath: "lambda_function_payload.zip",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
+//				Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
+//				Role:    iamForLambda.Arn,
+//				Handler: pulumi.String("index.test"),
+//				Runtime: pulumi.String("nodejs16.x"),
+//				Environment: &lambda.FunctionEnvironmentArgs{
+//					Variables: pulumi.StringMap{
+//						"foo": pulumi.String("bar"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Lambda Layers
 //
 // ```go

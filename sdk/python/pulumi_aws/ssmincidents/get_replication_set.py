@@ -153,14 +153,14 @@ def get_replication_set(tags: Optional[Mapping[str, str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:ssmincidents/getReplicationSet:getReplicationSet', __args__, opts=opts, typ=GetReplicationSetResult).value
 
     return AwaitableGetReplicationSetResult(
-        arn=__ret__.arn,
-        created_by=__ret__.created_by,
-        deletion_protected=__ret__.deletion_protected,
-        id=__ret__.id,
-        last_modified_by=__ret__.last_modified_by,
-        regions=__ret__.regions,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        deletion_protected=pulumi.get(__ret__, 'deletion_protected'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        regions=pulumi.get(__ret__, 'regions'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_replication_set)

@@ -285,6 +285,9 @@ class ReplicationGroupClusterMode(dict):
         """
         Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
         """
+        warnings.warn("""Use root-level num_node_groups instead""", DeprecationWarning)
+        pulumi.log.warn("""num_node_groups is deprecated: Use root-level num_node_groups instead""")
+
         return pulumi.get(self, "num_node_groups")
 
     @property
@@ -293,6 +296,9 @@ class ReplicationGroupClusterMode(dict):
         """
         Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
         """
+        warnings.warn("""Use root-level replicas_per_node_group instead""", DeprecationWarning)
+        pulumi.log.warn("""replicas_per_node_group is deprecated: Use root-level replicas_per_node_group instead""")
+
         return pulumi.get(self, "replicas_per_node_group")
 
 

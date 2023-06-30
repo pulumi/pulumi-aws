@@ -84,5 +84,5 @@ def get_rules_packages(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitable
     __ret__ = pulumi.runtime.invoke('aws:inspector/getRulesPackages:getRulesPackages', __args__, opts=opts, typ=GetRulesPackagesResult).value
 
     return AwaitableGetRulesPackagesResult(
-        arns=__ret__.arns,
-        id=__ret__.id)
+        arns=pulumi.get(__ret__, 'arns'),
+        id=pulumi.get(__ret__, 'id'))

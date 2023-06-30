@@ -143,13 +143,13 @@ def get_parameter_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:memorydb/getParameterGroup:getParameterGroup', __args__, opts=opts, typ=GetParameterGroupResult).value
 
     return AwaitableGetParameterGroupResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        family=__ret__.family,
-        id=__ret__.id,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        family=pulumi.get(__ret__, 'family'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_parameter_group)

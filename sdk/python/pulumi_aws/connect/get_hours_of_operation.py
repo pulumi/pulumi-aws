@@ -34,10 +34,6 @@ class GetHoursOfOperationResult:
         pulumi.set(__self__, "description", description)
         if hours_of_operation_arn and not isinstance(hours_of_operation_arn, str):
             raise TypeError("Expected argument 'hours_of_operation_arn' to be a str")
-        if hours_of_operation_arn is not None:
-            warnings.warn("""use 'arn' attribute instead""", DeprecationWarning)
-            pulumi.log.warn("""hours_of_operation_arn is deprecated: use 'arn' attribute instead""")
-
         pulumi.set(__self__, "hours_of_operation_arn", hours_of_operation_arn)
         if hours_of_operation_id and not isinstance(hours_of_operation_id, str):
             raise TypeError("Expected argument 'hours_of_operation_id' to be a str")
@@ -88,6 +84,9 @@ class GetHoursOfOperationResult:
         """
         (**Deprecated**) ARN of the Hours of Operation.
         """
+        warnings.warn("""use 'arn' attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""hours_of_operation_arn is deprecated: use 'arn' attribute instead""")
+
         return pulumi.get(self, "hours_of_operation_arn")
 
     @property
@@ -202,16 +201,16 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getHoursOfOperation:getHoursOfOperation', __args__, opts=opts, typ=GetHoursOfOperationResult).value
 
     return AwaitableGetHoursOfOperationResult(
-        arn=__ret__.arn,
-        configs=__ret__.configs,
-        description=__ret__.description,
-        hours_of_operation_arn=__ret__.hours_of_operation_arn,
-        hours_of_operation_id=__ret__.hours_of_operation_id,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        time_zone=__ret__.time_zone)
+        arn=pulumi.get(__ret__, 'arn'),
+        configs=pulumi.get(__ret__, 'configs'),
+        description=pulumi.get(__ret__, 'description'),
+        hours_of_operation_arn=pulumi.get(__ret__, 'hours_of_operation_arn'),
+        hours_of_operation_id=pulumi.get(__ret__, 'hours_of_operation_id'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_zone=pulumi.get(__ret__, 'time_zone'))
 
 
 @_utilities.lift_output_func(get_hours_of_operation)

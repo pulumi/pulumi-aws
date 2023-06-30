@@ -11,6 +11,22 @@ import * as utilities from "../utilities";
  * Get information on EC2 Transit Gateway VPC Attachments.
  *
  * ## Example Usage
+ * ### By Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const filtered = aws.ec2transitgateway.getVpcAttachments({
+ *     filters: [{
+ *         name: "state",
+ *         values: ["pendingAcceptance"],
+ *     }],
+ * });
+ * const unit = .map(__index => (aws.ec2transitgateway.getVpcAttachment({
+ *     id: _arg0_.ids[__index],
+ * })));
+ * ```
  */
 export function getVpcAttachments(args?: GetVpcAttachmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentsResult> {
     args = args || {};
@@ -49,6 +65,22 @@ export interface GetVpcAttachmentsResult {
  * Get information on EC2 Transit Gateway VPC Attachments.
  *
  * ## Example Usage
+ * ### By Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const filtered = aws.ec2transitgateway.getVpcAttachments({
+ *     filters: [{
+ *         name: "state",
+ *         values: ["pendingAcceptance"],
+ *     }],
+ * });
+ * const unit = .map(__index => (aws.ec2transitgateway.getVpcAttachment({
+ *     id: _arg0_.ids[__index],
+ * })));
+ * ```
  */
 export function getVpcAttachmentsOutput(args?: GetVpcAttachmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcAttachmentsResult> {
     return pulumi.output(args).apply((a: any) => getVpcAttachments(a, opts))

@@ -204,17 +204,17 @@ def get_queue(instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult).value
 
     return AwaitableGetQueueResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        hours_of_operation_id=__ret__.hours_of_operation_id,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        max_contacts=__ret__.max_contacts,
-        name=__ret__.name,
-        outbound_caller_configs=__ret__.outbound_caller_configs,
-        queue_id=__ret__.queue_id,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        hours_of_operation_id=pulumi.get(__ret__, 'hours_of_operation_id'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        max_contacts=pulumi.get(__ret__, 'max_contacts'),
+        name=pulumi.get(__ret__, 'name'),
+        outbound_caller_configs=pulumi.get(__ret__, 'outbound_caller_configs'),
+        queue_id=pulumi.get(__ret__, 'queue_id'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_queue)

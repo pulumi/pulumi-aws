@@ -177,16 +177,16 @@ def get_quicksight_user(aws_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:quicksight/getQuicksightUser:getQuicksightUser', __args__, opts=opts, typ=GetQuicksightUserResult).value
 
     return AwaitableGetQuicksightUserResult(
-        active=__ret__.active,
-        arn=__ret__.arn,
-        aws_account_id=__ret__.aws_account_id,
-        email=__ret__.email,
-        id=__ret__.id,
-        identity_type=__ret__.identity_type,
-        namespace=__ret__.namespace,
-        principal_id=__ret__.principal_id,
-        user_name=__ret__.user_name,
-        user_role=__ret__.user_role)
+        active=pulumi.get(__ret__, 'active'),
+        arn=pulumi.get(__ret__, 'arn'),
+        aws_account_id=pulumi.get(__ret__, 'aws_account_id'),
+        email=pulumi.get(__ret__, 'email'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_type=pulumi.get(__ret__, 'identity_type'),
+        namespace=pulumi.get(__ret__, 'namespace'),
+        principal_id=pulumi.get(__ret__, 'principal_id'),
+        user_name=pulumi.get(__ret__, 'user_name'),
+        user_role=pulumi.get(__ret__, 'user_role'))
 
 
 @_utilities.lift_output_func(get_quicksight_user)

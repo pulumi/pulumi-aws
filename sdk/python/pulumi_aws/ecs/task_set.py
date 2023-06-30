@@ -631,7 +631,7 @@ class TaskSet(pulumi.CustomResource):
             cluster=aws_ecs_cluster["example"]["id"],
             task_definition=aws_ecs_task_definition["example"]["arn"],
             load_balancers=[aws.ecs.TaskSetLoadBalancerArgs(
-                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                target_group_arn=aws_lb_target_group["example"]["arn"],
                 container_name="mongo",
                 container_port=8080,
             )])
@@ -687,7 +687,7 @@ class TaskSet(pulumi.CustomResource):
             cluster=aws_ecs_cluster["example"]["id"],
             task_definition=aws_ecs_task_definition["example"]["arn"],
             load_balancers=[aws.ecs.TaskSetLoadBalancerArgs(
-                target_group_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                target_group_arn=aws_lb_target_group["example"]["arn"],
                 container_name="mongo",
                 container_port=8080,
             )])

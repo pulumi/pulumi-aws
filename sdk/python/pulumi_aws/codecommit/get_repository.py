@@ -124,12 +124,12 @@ def get_repository(repository_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:codecommit/getRepository:getRepository', __args__, opts=opts, typ=GetRepositoryResult).value
 
     return AwaitableGetRepositoryResult(
-        arn=__ret__.arn,
-        clone_url_http=__ret__.clone_url_http,
-        clone_url_ssh=__ret__.clone_url_ssh,
-        id=__ret__.id,
-        repository_id=__ret__.repository_id,
-        repository_name=__ret__.repository_name)
+        arn=pulumi.get(__ret__, 'arn'),
+        clone_url_http=pulumi.get(__ret__, 'clone_url_http'),
+        clone_url_ssh=pulumi.get(__ret__, 'clone_url_ssh'),
+        id=pulumi.get(__ret__, 'id'),
+        repository_id=pulumi.get(__ret__, 'repository_id'),
+        repository_name=pulumi.get(__ret__, 'repository_name'))
 
 
 @_utilities.lift_output_func(get_repository)

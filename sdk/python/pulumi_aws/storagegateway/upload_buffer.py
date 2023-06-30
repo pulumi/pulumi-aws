@@ -143,8 +143,8 @@ class UploadBuffer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_local_disk = aws.storagegateway.get_local_disk(disk_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-            gateway_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        test_local_disk = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
+            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
         test_upload_buffer = aws.storagegateway.UploadBuffer("testUploadBuffer",
             disk_path=test_local_disk.disk_path,
             gateway_arn=aws_storagegateway_gateway["test"]["arn"])
@@ -155,8 +155,8 @@ class UploadBuffer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.storagegateway.get_local_disk(disk_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-            gateway_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        test = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
+            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
         example = aws.storagegateway.UploadBuffer("example",
             disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
             gateway_arn=aws_storagegateway_gateway["example"]["arn"])
@@ -194,8 +194,8 @@ class UploadBuffer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test_local_disk = aws.storagegateway.get_local_disk(disk_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-            gateway_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        test_local_disk = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
+            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
         test_upload_buffer = aws.storagegateway.UploadBuffer("testUploadBuffer",
             disk_path=test_local_disk.disk_path,
             gateway_arn=aws_storagegateway_gateway["test"]["arn"])
@@ -206,8 +206,8 @@ class UploadBuffer(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.storagegateway.get_local_disk(disk_node=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-            gateway_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        test = aws.storagegateway.get_local_disk(disk_node=aws_volume_attachment["test"]["device_name"],
+            gateway_arn=aws_storagegateway_gateway["test"]["arn"])
         example = aws.storagegateway.UploadBuffer("example",
             disk_id=data["aws_storagegateway_local_disk"]["example"]["id"],
             gateway_arn=aws_storagegateway_gateway["example"]["arn"])

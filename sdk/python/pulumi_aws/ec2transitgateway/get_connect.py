@@ -153,13 +153,13 @@ def get_connect(filters: Optional[Sequence[pulumi.InputType['GetConnectFilterArg
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getConnect:getConnect', __args__, opts=opts, typ=GetConnectResult).value
 
     return AwaitableGetConnectResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        protocol=__ret__.protocol,
-        tags=__ret__.tags,
-        transit_gateway_connect_id=__ret__.transit_gateway_connect_id,
-        transit_gateway_id=__ret__.transit_gateway_id,
-        transport_attachment_id=__ret__.transport_attachment_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_connect_id=pulumi.get(__ret__, 'transit_gateway_connect_id'),
+        transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
+        transport_attachment_id=pulumi.get(__ret__, 'transport_attachment_id'))
 
 
 @_utilities.lift_output_func(get_connect)

@@ -593,21 +593,21 @@ class TopicSubscription(pulumi.CustomResource):
             )])
         # provider to manage SNS topics
         aws_sns = aws.Provider("awsSns",
-            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            region=sns["region"],
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
                 session_name=f"sns-{sns['region']}",
             ))
         # provider to manage SQS queues
         aws_sqs = aws.Provider("awsSqs",
-            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            region=sqs["region"],
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sqs-{sqs['region']}",
             ))
         # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
         sns2sqs = aws.Provider("sns2sqs",
-            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            region=sns["region"],
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sns2sqs-{sns['region']}",
@@ -783,21 +783,21 @@ class TopicSubscription(pulumi.CustomResource):
             )])
         # provider to manage SNS topics
         aws_sns = aws.Provider("awsSns",
-            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            region=sns["region"],
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
                 session_name=f"sns-{sns['region']}",
             ))
         # provider to manage SQS queues
         aws_sqs = aws.Provider("awsSqs",
-            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            region=sqs["region"],
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sqs-{sqs['region']}",
             ))
         # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
         sns2sqs = aws.Provider("sns2sqs",
-            region=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            region=sns["region"],
             assume_role=aws.ProviderAssumeRoleArgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sns2sqs-{sns['region']}",

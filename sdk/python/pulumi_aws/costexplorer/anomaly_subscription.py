@@ -130,6 +130,9 @@ class AnomalySubscriptionArgs:
         """
         The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
         """
+        warnings.warn("""use threshold_expression instead""", DeprecationWarning)
+        pulumi.log.warn("""threshold is deprecated: use threshold_expression instead""")
+
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -301,6 +304,9 @@ class _AnomalySubscriptionState:
         """
         The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
         """
+        warnings.warn("""use threshold_expression instead""", DeprecationWarning)
+        pulumi.log.warn("""threshold is deprecated: use threshold_expression instead""")
+
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -752,6 +758,9 @@ class AnomalySubscription(pulumi.CustomResource):
         """
         The dollar value that triggers a notification if the threshold is exceeded. Depracated, use `threshold_expression` instead.
         """
+        warnings.warn("""use threshold_expression instead""", DeprecationWarning)
+        pulumi.log.warn("""threshold is deprecated: use threshold_expression instead""")
+
         return pulumi.get(self, "threshold")
 
     @property

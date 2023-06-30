@@ -100,10 +100,10 @@ def get_access_points(file_system_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:efs/getAccessPoints:getAccessPoints', __args__, opts=opts, typ=GetAccessPointsResult).value
 
     return AwaitableGetAccessPointsResult(
-        arns=__ret__.arns,
-        file_system_id=__ret__.file_system_id,
-        id=__ret__.id,
-        ids=__ret__.ids)
+        arns=pulumi.get(__ret__, 'arns'),
+        file_system_id=pulumi.get(__ret__, 'file_system_id'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'))
 
 
 @_utilities.lift_output_func(get_access_points)

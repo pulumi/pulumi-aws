@@ -20,34 +20,49 @@ import (
 //
 // import (
 //
-// "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/eks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
-// ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
-// NodeRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:eks-nodeGroup:NodeGroup.pp:3,20-44),
-// ScalingConfig: &eks.NodeGroupScalingConfigArgs{
-// DesiredSize: pulumi.Int(1),
-// MaxSize: pulumi.Int(2),
-// MinSize: pulumi.Int(1),
-// },
-// UpdateConfig: &eks.NodeGroupUpdateConfigArgs{
-// MaxUnavailable: pulumi.Int(1),
-// },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// aws_iam_role_policy_attachment.ExampleAmazonEKSWorkerNodePolicy,
-// aws_iam_role_policy_attachment.ExampleAmazonEKS_CNI_Policy,
-// aws_iam_role_policy_attachment.ExampleAmazonEC2ContainerRegistryReadOnly,
-// }))
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			var splat0 []interface{}
+//			for _, val0 := range aws_subnet.Example {
+//				splat0 = append(splat0, val0.Id)
+//			}
+//			_, err := eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
+//				ClusterName: pulumi.Any(aws_eks_cluster.Example.Name),
+//				NodeRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+//				SubnetIds:   toPulumiAnyArray(splat0),
+//				ScalingConfig: &eks.NodeGroupScalingConfigArgs{
+//					DesiredSize: pulumi.Int(1),
+//					MaxSize:     pulumi.Int(2),
+//					MinSize:     pulumi.Int(1),
+//				},
+//				UpdateConfig: &eks.NodeGroupUpdateConfigArgs{
+//					MaxUnavailable: pulumi.Int(1),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				aws_iam_role_policy_attachment.ExampleAmazonEKSWorkerNodePolicy,
+//				aws_iam_role_policy_attachment.ExampleAmazonEKS_CNI_Policy,
+//				aws_iam_role_policy_attachment.ExampleAmazonEC2ContainerRegistryReadOnly,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+//	func toPulumiAnyArray(arr []Any) pulumi.AnyArray {
+//		var pulumiArr pulumi.AnyArray
+//		for _, v := range arr {
+//			pulumiArr = append(pulumiArr, pulumi.Any(v))
+//		}
+//		return pulumiArr
+//	}
+//
 // ```
 // ### Ignoring Changes to Desired Size
 //

@@ -141,13 +141,13 @@ def get_quicksight_group(aws_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:quicksight/getQuicksightGroup:getQuicksightGroup', __args__, opts=opts, typ=GetQuicksightGroupResult).value
 
     return AwaitableGetQuicksightGroupResult(
-        arn=__ret__.arn,
-        aws_account_id=__ret__.aws_account_id,
-        description=__ret__.description,
-        group_name=__ret__.group_name,
-        id=__ret__.id,
-        namespace=__ret__.namespace,
-        principal_id=__ret__.principal_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        aws_account_id=pulumi.get(__ret__, 'aws_account_id'),
+        description=pulumi.get(__ret__, 'description'),
+        group_name=pulumi.get(__ret__, 'group_name'),
+        id=pulumi.get(__ret__, 'id'),
+        namespace=pulumi.get(__ret__, 'namespace'),
+        principal_id=pulumi.get(__ret__, 'principal_id'))
 
 
 @_utilities.lift_output_func(get_quicksight_group)

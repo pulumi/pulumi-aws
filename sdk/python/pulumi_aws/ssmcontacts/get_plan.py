@@ -90,9 +90,9 @@ def get_plan(contact_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ssmcontacts/getPlan:getPlan', __args__, opts=opts, typ=GetPlanResult).value
 
     return AwaitableGetPlanResult(
-        contact_id=__ret__.contact_id,
-        id=__ret__.id,
-        stages=__ret__.stages)
+        contact_id=pulumi.get(__ret__, 'contact_id'),
+        id=pulumi.get(__ret__, 'id'),
+        stages=pulumi.get(__ret__, 'stages'))
 
 
 @_utilities.lift_output_func(get_plan)

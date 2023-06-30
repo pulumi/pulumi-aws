@@ -73,6 +73,9 @@ class DefaultVpcArgs:
     @property
     @pulumi.getter(name="enableClassiclink")
     def enable_classiclink(self) -> Optional[pulumi.Input[bool]]:
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink")
 
     @enable_classiclink.setter
@@ -82,6 +85,9 @@ class DefaultVpcArgs:
     @property
     @pulumi.getter(name="enableClassiclinkDnsSupport")
     def enable_classiclink_dns_support(self) -> Optional[pulumi.Input[bool]]:
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink_dns_support")
 
     @enable_classiclink_dns_support.setter
@@ -330,6 +336,9 @@ class _DefaultVpcState:
     @property
     @pulumi.getter(name="enableClassiclink")
     def enable_classiclink(self) -> Optional[pulumi.Input[bool]]:
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink")
 
     @enable_classiclink.setter
@@ -339,6 +348,9 @@ class _DefaultVpcState:
     @property
     @pulumi.getter(name="enableClassiclinkDnsSupport")
     def enable_classiclink_dns_support(self) -> Optional[pulumi.Input[bool]]:
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink_dns_support")
 
     @enable_classiclink_dns_support.setter
@@ -765,11 +777,17 @@ class DefaultVpc(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableClassiclink")
     def enable_classiclink(self) -> pulumi.Output[bool]:
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink is deprecated: With the retirement of EC2-Classic the enable_classiclink attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink")
 
     @property
     @pulumi.getter(name="enableClassiclinkDnsSupport")
     def enable_classiclink_dns_support(self) -> pulumi.Output[bool]:
+        warnings.warn("""With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""enable_classiclink_dns_support is deprecated: With the retirement of EC2-Classic the enable_classiclink_dns_support attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "enable_classiclink_dns_support")
 
     @property

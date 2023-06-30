@@ -176,16 +176,16 @@ def get_random_password(exclude_characters: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getRandomPassword:getRandomPassword', __args__, opts=opts, typ=GetRandomPasswordResult).value
 
     return AwaitableGetRandomPasswordResult(
-        exclude_characters=__ret__.exclude_characters,
-        exclude_lowercase=__ret__.exclude_lowercase,
-        exclude_numbers=__ret__.exclude_numbers,
-        exclude_punctuation=__ret__.exclude_punctuation,
-        exclude_uppercase=__ret__.exclude_uppercase,
-        id=__ret__.id,
-        include_space=__ret__.include_space,
-        password_length=__ret__.password_length,
-        random_password=__ret__.random_password,
-        require_each_included_type=__ret__.require_each_included_type)
+        exclude_characters=pulumi.get(__ret__, 'exclude_characters'),
+        exclude_lowercase=pulumi.get(__ret__, 'exclude_lowercase'),
+        exclude_numbers=pulumi.get(__ret__, 'exclude_numbers'),
+        exclude_punctuation=pulumi.get(__ret__, 'exclude_punctuation'),
+        exclude_uppercase=pulumi.get(__ret__, 'exclude_uppercase'),
+        id=pulumi.get(__ret__, 'id'),
+        include_space=pulumi.get(__ret__, 'include_space'),
+        password_length=pulumi.get(__ret__, 'password_length'),
+        random_password=pulumi.get(__ret__, 'random_password'),
+        require_each_included_type=pulumi.get(__ret__, 'require_each_included_type'))
 
 
 @_utilities.lift_output_func(get_random_password)

@@ -326,7 +326,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 protocol="-1",
                 rule_no=100,
                 action="allow",
-                cidr_block=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                cidr_block=aws_default_vpc["mainvpc"]["cidr_block"],
                 from_port=0,
                 to_port=0,
             )])
@@ -443,7 +443,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 protocol="-1",
                 rule_no=100,
                 action="allow",
-                cidr_block=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                cidr_block=aws_default_vpc["mainvpc"]["cidr_block"],
                 from_port=0,
                 to_port=0,
             )])

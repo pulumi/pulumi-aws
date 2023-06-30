@@ -473,8 +473,8 @@ class Schedule(pulumi.CustomResource):
             ),
             schedule_expression="rate(1 hour)",
             target=aws.scheduler.ScheduleTargetArgs(
-                arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                arn=aws_sqs_queue["example"]["arn"],
+                role_arn=aws_iam_role["example"]["arn"],
             ))
         ```
         ### Universal Target
@@ -492,7 +492,7 @@ class Schedule(pulumi.CustomResource):
             schedule_expression="rate(1 hour)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["example"]["arn"],
                 input=example_queue.url.apply(lambda url: json.dumps({
                     "MessageBody": "Greetings, programs!",
                     "QueueUrl": url,
@@ -552,8 +552,8 @@ class Schedule(pulumi.CustomResource):
             ),
             schedule_expression="rate(1 hour)",
             target=aws.scheduler.ScheduleTargetArgs(
-                arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                arn=aws_sqs_queue["example"]["arn"],
+                role_arn=aws_iam_role["example"]["arn"],
             ))
         ```
         ### Universal Target
@@ -571,7 +571,7 @@ class Schedule(pulumi.CustomResource):
             schedule_expression="rate(1 hour)",
             target=aws.scheduler.ScheduleTargetArgs(
                 arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                role_arn=aws_iam_role["example"]["arn"],
                 input=example_queue.url.apply(lambda url: json.dumps({
                     "MessageBody": "Greetings, programs!",
                     "QueueUrl": url,

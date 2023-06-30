@@ -177,17 +177,17 @@ def get_objects(bucket: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:s3/getObjects:getObjects', __args__, opts=opts, typ=GetObjectsResult).value
 
     return AwaitableGetObjectsResult(
-        bucket=__ret__.bucket,
-        common_prefixes=__ret__.common_prefixes,
-        delimiter=__ret__.delimiter,
-        encoding_type=__ret__.encoding_type,
-        fetch_owner=__ret__.fetch_owner,
-        id=__ret__.id,
-        keys=__ret__.keys,
-        max_keys=__ret__.max_keys,
-        owners=__ret__.owners,
-        prefix=__ret__.prefix,
-        start_after=__ret__.start_after)
+        bucket=pulumi.get(__ret__, 'bucket'),
+        common_prefixes=pulumi.get(__ret__, 'common_prefixes'),
+        delimiter=pulumi.get(__ret__, 'delimiter'),
+        encoding_type=pulumi.get(__ret__, 'encoding_type'),
+        fetch_owner=pulumi.get(__ret__, 'fetch_owner'),
+        id=pulumi.get(__ret__, 'id'),
+        keys=pulumi.get(__ret__, 'keys'),
+        max_keys=pulumi.get(__ret__, 'max_keys'),
+        owners=pulumi.get(__ret__, 'owners'),
+        prefix=pulumi.get(__ret__, 'prefix'),
+        start_after=pulumi.get(__ret__, 'start_after'))
 
 
 @_utilities.lift_output_func(get_objects)

@@ -151,14 +151,14 @@ def get_public_ipv4_pool(pool_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool', __args__, opts=opts, typ=GetPublicIpv4PoolResult).value
 
     return AwaitableGetPublicIpv4PoolResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        network_border_group=__ret__.network_border_group,
-        pool_address_ranges=__ret__.pool_address_ranges,
-        pool_id=__ret__.pool_id,
-        tags=__ret__.tags,
-        total_address_count=__ret__.total_address_count,
-        total_available_address_count=__ret__.total_available_address_count)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        network_border_group=pulumi.get(__ret__, 'network_border_group'),
+        pool_address_ranges=pulumi.get(__ret__, 'pool_address_ranges'),
+        pool_id=pulumi.get(__ret__, 'pool_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        total_address_count=pulumi.get(__ret__, 'total_address_count'),
+        total_available_address_count=pulumi.get(__ret__, 'total_available_address_count'))
 
 
 @_utilities.lift_output_func(get_public_ipv4_pool)

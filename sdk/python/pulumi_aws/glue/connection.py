@@ -362,9 +362,9 @@ class Connection(pulumi.CustomResource):
                 "USERNAME": "exampleusername",
             },
             physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
-                availability_zone=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                availability_zone=aws_subnet["example"]["availability_zone"],
                 security_group_id_lists=[aws_security_group["example"]["id"]],
-                subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                subnet_id=aws_subnet["example"]["id"],
             ))
         ```
 
@@ -424,9 +424,9 @@ class Connection(pulumi.CustomResource):
                 "USERNAME": "exampleusername",
             },
             physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
-                availability_zone=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                availability_zone=aws_subnet["example"]["availability_zone"],
                 security_group_id_lists=[aws_security_group["example"]["id"]],
-                subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                subnet_id=aws_subnet["example"]["id"],
             ))
         ```
 

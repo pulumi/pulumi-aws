@@ -155,14 +155,14 @@ def get_user(access_string: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:elasticache/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        access_string=__ret__.access_string,
-        authentication_modes=__ret__.authentication_modes,
-        engine=__ret__.engine,
-        id=__ret__.id,
-        no_password_required=__ret__.no_password_required,
-        passwords=__ret__.passwords,
-        user_id=__ret__.user_id,
-        user_name=__ret__.user_name)
+        access_string=pulumi.get(__ret__, 'access_string'),
+        authentication_modes=pulumi.get(__ret__, 'authentication_modes'),
+        engine=pulumi.get(__ret__, 'engine'),
+        id=pulumi.get(__ret__, 'id'),
+        no_password_required=pulumi.get(__ret__, 'no_password_required'),
+        passwords=pulumi.get(__ret__, 'passwords'),
+        user_id=pulumi.get(__ret__, 'user_id'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(get_user)

@@ -127,12 +127,12 @@ def get_vault(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:backup/getVault:getVault', __args__, opts=opts, typ=GetVaultResult).value
 
     return AwaitableGetVaultResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        kms_key_arn=__ret__.kms_key_arn,
-        name=__ret__.name,
-        recovery_points=__ret__.recovery_points,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
+        name=pulumi.get(__ret__, 'name'),
+        recovery_points=pulumi.get(__ret__, 'recovery_points'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_vault)

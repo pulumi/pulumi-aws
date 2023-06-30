@@ -76,8 +76,8 @@ def get_rate_based_mod(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:wafregional/getRateBasedMod:getRateBasedMod', __args__, opts=opts, typ=GetRateBasedModResult).value
 
     return AwaitableGetRateBasedModResult(
-        id=__ret__.id,
-        name=__ret__.name)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_rate_based_mod)

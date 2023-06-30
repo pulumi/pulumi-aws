@@ -112,11 +112,11 @@ def get_application(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        appversion_lifecycle=__ret__.appversion_lifecycle,
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name)
+        appversion_lifecycle=pulumi.get(__ret__, 'appversion_lifecycle'),
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_application)

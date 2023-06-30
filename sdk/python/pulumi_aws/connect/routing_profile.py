@@ -272,6 +272,9 @@ class _RoutingProfileState:
     @property
     @pulumi.getter(name="queueConfigsAssociateds")
     def queue_configs_associateds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigsAssociatedArgs']]]]:
+        warnings.warn("""Use the queue_configs instead""", DeprecationWarning)
+        pulumi.log.warn("""queue_configs_associateds is deprecated: Use the queue_configs instead""")
+
         return pulumi.get(self, "queue_configs_associateds")
 
     @queue_configs_associateds.setter
@@ -586,6 +589,9 @@ class RoutingProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="queueConfigsAssociateds")
     def queue_configs_associateds(self) -> pulumi.Output[Sequence['outputs.RoutingProfileQueueConfigsAssociated']]:
+        warnings.warn("""Use the queue_configs instead""", DeprecationWarning)
+        pulumi.log.warn("""queue_configs_associateds is deprecated: Use the queue_configs instead""")
+
         return pulumi.get(self, "queue_configs_associateds")
 
     @property

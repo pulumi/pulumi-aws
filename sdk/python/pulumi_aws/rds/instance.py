@@ -1047,6 +1047,9 @@ class InstanceArgs:
         associate. Only used for [DB Instances on the _EC2-Classic_
         Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
         """
+        warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "security_group_names")
 
     @security_group_names.setter
@@ -2378,6 +2381,9 @@ class _InstanceState:
         associate. Only used for [DB Instances on the _EC2-Classic_
         Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
         """
+        warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "security_group_names")
 
     @security_group_names.setter
@@ -4049,6 +4055,9 @@ class Instance(pulumi.CustomResource):
         associate. Only used for [DB Instances on the _EC2-Classic_
         Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
         """
+        warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "security_group_names")
 
     @property

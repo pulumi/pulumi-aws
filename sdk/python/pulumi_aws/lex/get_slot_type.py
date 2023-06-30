@@ -174,15 +174,15 @@ def get_slot_type(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lex/getSlotType:getSlotType', __args__, opts=opts, typ=GetSlotTypeResult).value
 
     return AwaitableGetSlotTypeResult(
-        checksum=__ret__.checksum,
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        enumeration_values=__ret__.enumeration_values,
-        id=__ret__.id,
-        last_updated_date=__ret__.last_updated_date,
-        name=__ret__.name,
-        value_selection_strategy=__ret__.value_selection_strategy,
-        version=__ret__.version)
+        checksum=pulumi.get(__ret__, 'checksum'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        description=pulumi.get(__ret__, 'description'),
+        enumeration_values=pulumi.get(__ret__, 'enumeration_values'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        name=pulumi.get(__ret__, 'name'),
+        value_selection_strategy=pulumi.get(__ret__, 'value_selection_strategy'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_slot_type)

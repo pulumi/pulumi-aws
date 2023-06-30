@@ -299,7 +299,7 @@ class VirtualGateway(pulumi.CustomResource):
                     tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
                         certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
                             acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                certificate_arn=aws_acm_certificate["example"]["arn"],
                             ),
                         ),
                         mode="STRICT",
@@ -358,7 +358,7 @@ class VirtualGateway(pulumi.CustomResource):
                     tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
                         certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
                             acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                certificate_arn=aws_acm_certificate["example"]["arn"],
                             ),
                         ),
                         mode="STRICT",

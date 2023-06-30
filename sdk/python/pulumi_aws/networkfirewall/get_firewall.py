@@ -215,7 +215,7 @@ def get_firewall(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
     ```
     ### Find firewall policy by Name
 
@@ -231,7 +231,7 @@ def get_firewall(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
         name="Test")
     ```
 
@@ -248,20 +248,20 @@ def get_firewall(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:networkfirewall/getFirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult).value
 
     return AwaitableGetFirewallResult(
-        arn=__ret__.arn,
-        delete_protection=__ret__.delete_protection,
-        description=__ret__.description,
-        encryption_configurations=__ret__.encryption_configurations,
-        firewall_policy_arn=__ret__.firewall_policy_arn,
-        firewall_policy_change_protection=__ret__.firewall_policy_change_protection,
-        firewall_statuses=__ret__.firewall_statuses,
-        id=__ret__.id,
-        name=__ret__.name,
-        subnet_change_protection=__ret__.subnet_change_protection,
-        subnet_mappings=__ret__.subnet_mappings,
-        tags=__ret__.tags,
-        update_token=__ret__.update_token,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        delete_protection=pulumi.get(__ret__, 'delete_protection'),
+        description=pulumi.get(__ret__, 'description'),
+        encryption_configurations=pulumi.get(__ret__, 'encryption_configurations'),
+        firewall_policy_arn=pulumi.get(__ret__, 'firewall_policy_arn'),
+        firewall_policy_change_protection=pulumi.get(__ret__, 'firewall_policy_change_protection'),
+        firewall_statuses=pulumi.get(__ret__, 'firewall_statuses'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        subnet_change_protection=pulumi.get(__ret__, 'subnet_change_protection'),
+        subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
+        tags=pulumi.get(__ret__, 'tags'),
+        update_token=pulumi.get(__ret__, 'update_token'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_firewall)
@@ -279,7 +279,7 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
     ```
     ### Find firewall policy by Name
 
@@ -295,7 +295,7 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkfirewall.get_firewall(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
         name="Test")
     ```
 

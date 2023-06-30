@@ -133,13 +133,13 @@ def get_image(image_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getImage:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        image_id=__ret__.image_id,
-        name=__ret__.name,
-        operating_system_type=__ret__.operating_system_type,
-        required_tenancy=__ret__.required_tenancy,
-        state=__ret__.state)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        image_id=pulumi.get(__ret__, 'image_id'),
+        name=pulumi.get(__ret__, 'name'),
+        operating_system_type=pulumi.get(__ret__, 'operating_system_type'),
+        required_tenancy=pulumi.get(__ret__, 'required_tenancy'),
+        state=pulumi.get(__ret__, 'state'))
 
 
 @_utilities.lift_output_func(get_image)

@@ -182,8 +182,8 @@ def get_authorizer(authorizer_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_authorizer(rest_api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        authorizer_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.apigateway.get_authorizer(rest_api_id=aws_api_gateway_rest_api["example"]["id"],
+        authorizer_id=data["aws_api_gateway_authorizers"]["example"]["ids"])
     ```
 
 
@@ -197,18 +197,18 @@ def get_authorizer(authorizer_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getAuthorizer:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult).value
 
     return AwaitableGetAuthorizerResult(
-        arn=__ret__.arn,
-        authorizer_credentials=__ret__.authorizer_credentials,
-        authorizer_id=__ret__.authorizer_id,
-        authorizer_result_ttl_in_seconds=__ret__.authorizer_result_ttl_in_seconds,
-        authorizer_uri=__ret__.authorizer_uri,
-        id=__ret__.id,
-        identity_source=__ret__.identity_source,
-        identity_validation_expression=__ret__.identity_validation_expression,
-        name=__ret__.name,
-        provider_arns=__ret__.provider_arns,
-        rest_api_id=__ret__.rest_api_id,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        authorizer_credentials=pulumi.get(__ret__, 'authorizer_credentials'),
+        authorizer_id=pulumi.get(__ret__, 'authorizer_id'),
+        authorizer_result_ttl_in_seconds=pulumi.get(__ret__, 'authorizer_result_ttl_in_seconds'),
+        authorizer_uri=pulumi.get(__ret__, 'authorizer_uri'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_source=pulumi.get(__ret__, 'identity_source'),
+        identity_validation_expression=pulumi.get(__ret__, 'identity_validation_expression'),
+        name=pulumi.get(__ret__, 'name'),
+        provider_arns=pulumi.get(__ret__, 'provider_arns'),
+        rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_authorizer)
@@ -224,8 +224,8 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_authorizer(rest_api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        authorizer_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.apigateway.get_authorizer(rest_api_id=aws_api_gateway_rest_api["example"]["id"],
+        authorizer_id=data["aws_api_gateway_authorizers"]["example"]["ids"])
     ```
 
 

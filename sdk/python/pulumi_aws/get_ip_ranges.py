@@ -174,14 +174,14 @@ def get_ip_ranges(regions: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:index/getIpRanges:getIpRanges', __args__, opts=opts, typ=GetIpRangesResult).value
 
     return AwaitableGetIpRangesResult(
-        cidr_blocks=__ret__.cidr_blocks,
-        create_date=__ret__.create_date,
-        id=__ret__.id,
-        ipv6_cidr_blocks=__ret__.ipv6_cidr_blocks,
-        regions=__ret__.regions,
-        services=__ret__.services,
-        sync_token=__ret__.sync_token,
-        url=__ret__.url)
+        cidr_blocks=pulumi.get(__ret__, 'cidr_blocks'),
+        create_date=pulumi.get(__ret__, 'create_date'),
+        id=pulumi.get(__ret__, 'id'),
+        ipv6_cidr_blocks=pulumi.get(__ret__, 'ipv6_cidr_blocks'),
+        regions=pulumi.get(__ret__, 'regions'),
+        services=pulumi.get(__ret__, 'services'),
+        sync_token=pulumi.get(__ret__, 'sync_token'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_ip_ranges)

@@ -90,9 +90,9 @@ def get_node_groups(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:eks/getNodeGroups:getNodeGroups', __args__, opts=opts, typ=GetNodeGroupsResult).value
 
     return AwaitableGetNodeGroupsResult(
-        cluster_name=__ret__.cluster_name,
-        id=__ret__.id,
-        names=__ret__.names)
+        cluster_name=pulumi.get(__ret__, 'cluster_name'),
+        id=pulumi.get(__ret__, 'id'),
+        names=pulumi.get(__ret__, 'names'))
 
 
 @_utilities.lift_output_func(get_node_groups)

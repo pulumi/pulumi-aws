@@ -104,10 +104,10 @@ def get_launch_paths(accept_language: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getLaunchPaths:getLaunchPaths', __args__, opts=opts, typ=GetLaunchPathsResult).value
 
     return AwaitableGetLaunchPathsResult(
-        accept_language=__ret__.accept_language,
-        id=__ret__.id,
-        product_id=__ret__.product_id,
-        summaries=__ret__.summaries)
+        accept_language=pulumi.get(__ret__, 'accept_language'),
+        id=pulumi.get(__ret__, 'id'),
+        product_id=pulumi.get(__ret__, 'product_id'),
+        summaries=pulumi.get(__ret__, 'summaries'))
 
 
 @_utilities.lift_output_func(get_launch_paths)

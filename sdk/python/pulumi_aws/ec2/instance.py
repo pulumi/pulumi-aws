@@ -272,6 +272,9 @@ class InstanceArgs:
         """
         Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_core_count is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_core_count")
 
     @cpu_core_count.setter
@@ -296,6 +299,9 @@ class InstanceArgs:
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_threads_per_core is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_threads_per_core")
 
     @cpu_threads_per_core.setter
@@ -646,6 +652,9 @@ class InstanceArgs:
 
         > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
+        warnings.warn("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""", DeprecationWarning)
+        pulumi.log.warn("""security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
+
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -1069,6 +1078,9 @@ class _InstanceState:
         """
         Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_core_count is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_core_count")
 
     @cpu_core_count.setter
@@ -1093,6 +1105,9 @@ class _InstanceState:
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_threads_per_core is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_threads_per_core")
 
     @cpu_threads_per_core.setter
@@ -1527,6 +1542,9 @@ class _InstanceState:
 
         > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
+        warnings.warn("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""", DeprecationWarning)
+        pulumi.log.warn("""security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
+
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -2389,6 +2407,9 @@ class Instance(pulumi.CustomResource):
         """
         Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_core_count is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_core_count")
 
     @property
@@ -2405,6 +2426,9 @@ class Instance(pulumi.CustomResource):
         """
         If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
         """
+        warnings.warn("""use 'cpu_options' argument instead""", DeprecationWarning)
+        pulumi.log.warn("""cpu_threads_per_core is deprecated: use 'cpu_options' argument instead""")
+
         return pulumi.get(self, "cpu_threads_per_core")
 
     @property
@@ -2695,6 +2719,9 @@ class Instance(pulumi.CustomResource):
 
         > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         """
+        warnings.warn("""Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""", DeprecationWarning)
+        pulumi.log.warn("""security_groups is deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.""")
+
         return pulumi.get(self, "security_groups")
 
     @property
