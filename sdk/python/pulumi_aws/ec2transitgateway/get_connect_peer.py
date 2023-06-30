@@ -189,16 +189,16 @@ def get_connect_peer(filters: Optional[Sequence[pulumi.InputType['GetConnectPeer
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getConnectPeer:getConnectPeer', __args__, opts=opts, typ=GetConnectPeerResult).value
 
     return AwaitableGetConnectPeerResult(
-        arn=__ret__.arn,
-        bgp_asn=__ret__.bgp_asn,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        inside_cidr_blocks=__ret__.inside_cidr_blocks,
-        peer_address=__ret__.peer_address,
-        tags=__ret__.tags,
-        transit_gateway_address=__ret__.transit_gateway_address,
-        transit_gateway_attachment_id=__ret__.transit_gateway_attachment_id,
-        transit_gateway_connect_peer_id=__ret__.transit_gateway_connect_peer_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        bgp_asn=pulumi.get(__ret__, 'bgp_asn'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        inside_cidr_blocks=pulumi.get(__ret__, 'inside_cidr_blocks'),
+        peer_address=pulumi.get(__ret__, 'peer_address'),
+        tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_address=pulumi.get(__ret__, 'transit_gateway_address'),
+        transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
+        transit_gateway_connect_peer_id=pulumi.get(__ret__, 'transit_gateway_connect_peer_id'))
 
 
 @_utilities.lift_output_func(get_connect_peer)

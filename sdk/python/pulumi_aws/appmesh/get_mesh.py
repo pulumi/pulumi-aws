@@ -173,15 +173,15 @@ def get_mesh(mesh_owner: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:appmesh/getMesh:getMesh', __args__, opts=opts, typ=GetMeshResult).value
 
     return AwaitableGetMeshResult(
-        arn=__ret__.arn,
-        created_date=__ret__.created_date,
-        id=__ret__.id,
-        last_updated_date=__ret__.last_updated_date,
-        mesh_owner=__ret__.mesh_owner,
-        name=__ret__.name,
-        resource_owner=__ret__.resource_owner,
-        specs=__ret__.specs,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        mesh_owner=pulumi.get(__ret__, 'mesh_owner'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_owner=pulumi.get(__ret__, 'resource_owner'),
+        specs=pulumi.get(__ret__, 'specs'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_mesh)

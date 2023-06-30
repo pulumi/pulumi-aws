@@ -94,9 +94,9 @@ def get_bot_association(instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getBotAssociation:getBotAssociation', __args__, opts=opts, typ=GetBotAssociationResult).value
 
     return AwaitableGetBotAssociationResult(
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        lex_bot=__ret__.lex_bot)
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        lex_bot=pulumi.get(__ret__, 'lex_bot'))
 
 
 @_utilities.lift_output_func(get_bot_association)

@@ -128,8 +128,8 @@ def get_sdk(parameters: Optional[Mapping[str, str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_sdk(rest_api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        stage_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.apigateway.get_sdk(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
+        stage_name=aws_api_gateway_stage["example"]["stage_name"],
         sdk_type="android",
         parameters={
             "groupId": "example",
@@ -154,14 +154,14 @@ def get_sdk(parameters: Optional[Mapping[str, str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getSdk:getSdk', __args__, opts=opts, typ=GetSdkResult).value
 
     return AwaitableGetSdkResult(
-        body=__ret__.body,
-        content_disposition=__ret__.content_disposition,
-        content_type=__ret__.content_type,
-        id=__ret__.id,
-        parameters=__ret__.parameters,
-        rest_api_id=__ret__.rest_api_id,
-        sdk_type=__ret__.sdk_type,
-        stage_name=__ret__.stage_name)
+        body=pulumi.get(__ret__, 'body'),
+        content_disposition=pulumi.get(__ret__, 'content_disposition'),
+        content_type=pulumi.get(__ret__, 'content_type'),
+        id=pulumi.get(__ret__, 'id'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
+        sdk_type=pulumi.get(__ret__, 'sdk_type'),
+        stage_name=pulumi.get(__ret__, 'stage_name'))
 
 
 @_utilities.lift_output_func(get_sdk)
@@ -177,8 +177,8 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.apigateway.get_sdk(rest_api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        stage_name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.apigateway.get_sdk(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
+        stage_name=aws_api_gateway_stage["example"]["stage_name"],
         sdk_type="android",
         parameters={
             "groupId": "example",

@@ -77,7 +77,17 @@ import (
 //				ErrorDocument: &s3.BucketWebsiteConfigurationV2ErrorDocumentArgs{
 //					Key: pulumi.String("error.html"),
 //				},
-//				RoutingRuleDetails: pulumi.String("[{\n    \"Condition\": {\n        \"KeyPrefixEquals\": \"docs/\"\n    },\n    \"Redirect\": {\n        \"ReplaceKeyPrefixWith\": \"\"\n    }\n}]\n"),
+//				RoutingRuleDetails: pulumi.String(`[{
+//	    "Condition": {
+//	        "KeyPrefixEquals": "docs/"
+//	    },
+//	    "Redirect": {
+//	        "ReplaceKeyPrefixWith": ""
+//	    }
+//	}]
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

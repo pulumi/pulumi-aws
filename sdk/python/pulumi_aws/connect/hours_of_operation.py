@@ -206,6 +206,9 @@ class _HoursOfOperationState:
         """
         (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         """
+        warnings.warn("""use 'arn' attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""hours_of_operation_arn is deprecated: use 'arn' attribute instead""")
+
         return pulumi.get(self, "hours_of_operation_arn")
 
     @hours_of_operation_arn.setter
@@ -544,6 +547,9 @@ class HoursOfOperation(pulumi.CustomResource):
         """
         (**Deprecated**) The Amazon Resource Name (ARN) of the Hours of Operation.
         """
+        warnings.warn("""use 'arn' attribute instead""", DeprecationWarning)
+        pulumi.log.warn("""hours_of_operation_arn is deprecated: use 'arn' attribute instead""")
+
         return pulumi.get(self, "hours_of_operation_arn")
 
     @property

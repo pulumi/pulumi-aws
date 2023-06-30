@@ -135,6 +135,9 @@ class BudgetArgs:
         """
         Map of CostFilters key/value pairs to apply to the budget.
         """
+        warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
+        pulumi.log.warn("""cost_filter_legacy is deprecated: Use the attribute \"cost_filter\" instead.""")
+
         return pulumi.get(self, "cost_filter_legacy")
 
     @cost_filter_legacy.setter
@@ -390,6 +393,9 @@ class _BudgetState:
         """
         Map of CostFilters key/value pairs to apply to the budget.
         """
+        warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
+        pulumi.log.warn("""cost_filter_legacy is deprecated: Use the attribute \"cost_filter\" instead.""")
+
         return pulumi.get(self, "cost_filter_legacy")
 
     @cost_filter_legacy.setter
@@ -1060,6 +1066,9 @@ class Budget(pulumi.CustomResource):
         """
         Map of CostFilters key/value pairs to apply to the budget.
         """
+        warnings.warn("""Use the attribute \"cost_filter\" instead.""", DeprecationWarning)
+        pulumi.log.warn("""cost_filter_legacy is deprecated: Use the attribute \"cost_filter\" instead.""")
+
         return pulumi.get(self, "cost_filter_legacy")
 
     @property

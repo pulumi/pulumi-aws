@@ -61,6 +61,9 @@ class NetworkAssociationArgs:
         """
         A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
         """
+        warnings.warn("""Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""security_groups is deprecated: Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""")
+
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -135,6 +138,9 @@ class _NetworkAssociationState:
         """
         A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
         """
+        warnings.warn("""Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""security_groups is deprecated: Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""")
+
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -147,6 +153,9 @@ class _NetworkAssociationState:
         """
         **Deprecated** The current state of the target network association.
         """
+        warnings.warn("""This attribute has been deprecated.""", DeprecationWarning)
+        pulumi.log.warn("""status is deprecated: This attribute has been deprecated.""")
+
         return pulumi.get(self, "status")
 
     @status.setter
@@ -383,6 +392,9 @@ class NetworkAssociation(pulumi.CustomResource):
         """
         A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
         """
+        warnings.warn("""Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""", DeprecationWarning)
+        pulumi.log.warn("""security_groups is deprecated: Use the `security_group_ids` attribute of the `aws_ec2_client_vpn_endpoint` resource instead.""")
+
         return pulumi.get(self, "security_groups")
 
     @property
@@ -391,6 +403,9 @@ class NetworkAssociation(pulumi.CustomResource):
         """
         **Deprecated** The current state of the target network association.
         """
+        warnings.warn("""This attribute has been deprecated.""", DeprecationWarning)
+        pulumi.log.warn("""status is deprecated: This attribute has been deprecated.""")
+
         return pulumi.get(self, "status")
 
     @property

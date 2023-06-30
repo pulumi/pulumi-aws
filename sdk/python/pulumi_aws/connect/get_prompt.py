@@ -115,11 +115,11 @@ def get_prompt(instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getPrompt:getPrompt', __args__, opts=opts, typ=GetPromptResult).value
 
     return AwaitableGetPromptResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        name=__ret__.name,
-        prompt_id=__ret__.prompt_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        name=pulumi.get(__ret__, 'name'),
+        prompt_id=pulumi.get(__ret__, 'prompt_id'))
 
 
 @_utilities.lift_output_func(get_prompt)

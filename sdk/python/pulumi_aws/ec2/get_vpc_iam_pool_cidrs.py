@@ -95,10 +95,10 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIa
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs', __args__, opts=opts, typ=GetVpcIamPoolCidrsResult).value
 
     return AwaitableGetVpcIamPoolCidrsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ipam_pool_cidrs=__ret__.ipam_pool_cidrs,
-        ipam_pool_id=__ret__.ipam_pool_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ipam_pool_cidrs=pulumi.get(__ret__, 'ipam_pool_cidrs'),
+        ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'))
 
 
 @_utilities.lift_output_func(get_vpc_iam_pool_cidrs)

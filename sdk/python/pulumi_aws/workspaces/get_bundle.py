@@ -168,14 +168,14 @@ def get_bundle(bundle_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getBundle:getBundle', __args__, opts=opts, typ=GetBundleResult).value
 
     return AwaitableGetBundleResult(
-        bundle_id=__ret__.bundle_id,
-        compute_types=__ret__.compute_types,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        root_storages=__ret__.root_storages,
-        user_storages=__ret__.user_storages)
+        bundle_id=pulumi.get(__ret__, 'bundle_id'),
+        compute_types=pulumi.get(__ret__, 'compute_types'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        root_storages=pulumi.get(__ret__, 'root_storages'),
+        user_storages=pulumi.get(__ret__, 'user_storages'))
 
 
 @_utilities.lift_output_func(get_bundle)

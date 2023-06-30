@@ -105,10 +105,10 @@ def get_secrets(filters: Optional[Sequence[pulumi.InputType['GetSecretsFilterArg
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult).value
 
     return AwaitableGetSecretsResult(
-        arns=__ret__.arns,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        names=__ret__.names)
+        arns=pulumi.get(__ret__, 'arns'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        names=pulumi.get(__ret__, 'names'))
 
 
 @_utilities.lift_output_func(get_secrets)

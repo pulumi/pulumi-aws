@@ -140,13 +140,13 @@ def get_dns_namespace(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:servicediscovery/getDnsNamespace:getDnsNamespace', __args__, opts=opts, typ=GetDnsNamespaceResult).value
 
     return AwaitableGetDnsNamespaceResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        hosted_zone=__ret__.hosted_zone,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        hosted_zone=pulumi.get(__ret__, 'hosted_zone'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_dns_namespace)

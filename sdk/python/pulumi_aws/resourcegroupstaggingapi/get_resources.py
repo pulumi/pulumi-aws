@@ -161,13 +161,13 @@ def get_resources(exclude_compliant_resources: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('aws:resourcegroupstaggingapi/getResources:getResources', __args__, opts=opts, typ=GetResourcesResult).value
 
     return AwaitableGetResourcesResult(
-        exclude_compliant_resources=__ret__.exclude_compliant_resources,
-        id=__ret__.id,
-        include_compliance_details=__ret__.include_compliance_details,
-        resource_arn_lists=__ret__.resource_arn_lists,
-        resource_tag_mapping_lists=__ret__.resource_tag_mapping_lists,
-        resource_type_filters=__ret__.resource_type_filters,
-        tag_filters=__ret__.tag_filters)
+        exclude_compliant_resources=pulumi.get(__ret__, 'exclude_compliant_resources'),
+        id=pulumi.get(__ret__, 'id'),
+        include_compliance_details=pulumi.get(__ret__, 'include_compliance_details'),
+        resource_arn_lists=pulumi.get(__ret__, 'resource_arn_lists'),
+        resource_tag_mapping_lists=pulumi.get(__ret__, 'resource_tag_mapping_lists'),
+        resource_type_filters=pulumi.get(__ret__, 'resource_type_filters'),
+        tag_filters=pulumi.get(__ret__, 'tag_filters'))
 
 
 @_utilities.lift_output_func(get_resources)

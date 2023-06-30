@@ -118,11 +118,11 @@ def get_components(filters: Optional[Sequence[pulumi.InputType['GetComponentsFil
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getComponents:getComponents', __args__, opts=opts, typ=GetComponentsResult).value
 
     return AwaitableGetComponentsResult(
-        arns=__ret__.arns,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        names=__ret__.names,
-        owner=__ret__.owner)
+        arns=pulumi.get(__ret__, 'arns'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        names=pulumi.get(__ret__, 'names'),
+        owner=pulumi.get(__ret__, 'owner'))
 
 
 @_utilities.lift_output_func(get_components)

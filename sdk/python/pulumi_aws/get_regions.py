@@ -126,10 +126,10 @@ def get_regions(all_regions: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('aws:index/getRegions:getRegions', __args__, opts=opts, typ=GetRegionsResult).value
 
     return AwaitableGetRegionsResult(
-        all_regions=__ret__.all_regions,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        names=__ret__.names)
+        all_regions=pulumi.get(__ret__, 'all_regions'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        names=pulumi.get(__ret__, 'names'))
 
 
 @_utilities.lift_output_func(get_regions)

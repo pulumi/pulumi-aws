@@ -272,6 +272,9 @@ class ReplicationGroupArgs:
         """
         Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         """
+        warnings.warn("""Use num_node_groups and replicas_per_node_group instead""", DeprecationWarning)
+        pulumi.log.warn("""cluster_mode is deprecated: Use num_node_groups and replicas_per_node_group instead""")
+
         return pulumi.get(self, "cluster_mode")
 
     @cluster_mode.setter
@@ -457,6 +460,9 @@ class ReplicationGroupArgs:
         """
         Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
         """
+        warnings.warn("""Use num_cache_clusters instead""", DeprecationWarning)
+        pulumi.log.warn("""number_cache_clusters is deprecated: Use num_cache_clusters instead""")
+
         return pulumi.get(self, "number_cache_clusters")
 
     @number_cache_clusters.setter
@@ -521,6 +527,9 @@ class ReplicationGroupArgs:
 
         The following arguments are optional:
         """
+        warnings.warn("""Use description instead""", DeprecationWarning)
+        pulumi.log.warn("""replication_group_description is deprecated: Use description instead""")
+
         return pulumi.get(self, "replication_group_description")
 
     @replication_group_description.setter
@@ -975,6 +984,9 @@ class _ReplicationGroupState:
         """
         Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         """
+        warnings.warn("""Use num_node_groups and replicas_per_node_group instead""", DeprecationWarning)
+        pulumi.log.warn("""cluster_mode is deprecated: Use num_node_groups and replicas_per_node_group instead""")
+
         return pulumi.get(self, "cluster_mode")
 
     @cluster_mode.setter
@@ -1196,6 +1208,9 @@ class _ReplicationGroupState:
         """
         Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
         """
+        warnings.warn("""Use num_cache_clusters instead""", DeprecationWarning)
+        pulumi.log.warn("""number_cache_clusters is deprecated: Use num_cache_clusters instead""")
+
         return pulumi.get(self, "number_cache_clusters")
 
     @number_cache_clusters.setter
@@ -1284,6 +1299,9 @@ class _ReplicationGroupState:
 
         The following arguments are optional:
         """
+        warnings.warn("""Use description instead""", DeprecationWarning)
+        pulumi.log.warn("""replication_group_description is deprecated: Use description instead""")
+
         return pulumi.get(self, "replication_group_description")
 
     @replication_group_description.setter
@@ -1580,13 +1598,13 @@ class ReplicationGroup(pulumi.CustomResource):
             snapshot_window="01:00-02:00",
             log_delivery_configurations=[
                 aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_cloudwatch_log_group["example"]["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",
@@ -1791,13 +1809,13 @@ class ReplicationGroup(pulumi.CustomResource):
             snapshot_window="01:00-02:00",
             log_delivery_configurations=[
                 aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_cloudwatch_log_group["example"]["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",
@@ -2207,6 +2225,9 @@ class ReplicationGroup(pulumi.CustomResource):
         """
         Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         """
+        warnings.warn("""Use num_node_groups and replicas_per_node_group instead""", DeprecationWarning)
+        pulumi.log.warn("""cluster_mode is deprecated: Use num_node_groups and replicas_per_node_group instead""")
+
         return pulumi.get(self, "cluster_mode")
 
     @property
@@ -2356,6 +2377,9 @@ class ReplicationGroup(pulumi.CustomResource):
         """
         Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
         """
+        warnings.warn("""Use num_cache_clusters instead""", DeprecationWarning)
+        pulumi.log.warn("""number_cache_clusters is deprecated: Use num_cache_clusters instead""")
+
         return pulumi.get(self, "number_cache_clusters")
 
     @property
@@ -2416,6 +2440,9 @@ class ReplicationGroup(pulumi.CustomResource):
 
         The following arguments are optional:
         """
+        warnings.warn("""Use description instead""", DeprecationWarning)
+        pulumi.log.warn("""replication_group_description is deprecated: Use description instead""")
+
         return pulumi.get(self, "replication_group_description")
 
     @property

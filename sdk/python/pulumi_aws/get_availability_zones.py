@@ -206,15 +206,15 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts, typ=GetAvailabilityZonesResult).value
 
     return AwaitableGetAvailabilityZonesResult(
-        all_availability_zones=__ret__.all_availability_zones,
-        exclude_names=__ret__.exclude_names,
-        exclude_zone_ids=__ret__.exclude_zone_ids,
-        filters=__ret__.filters,
-        group_names=__ret__.group_names,
-        id=__ret__.id,
-        names=__ret__.names,
-        state=__ret__.state,
-        zone_ids=__ret__.zone_ids)
+        all_availability_zones=pulumi.get(__ret__, 'all_availability_zones'),
+        exclude_names=pulumi.get(__ret__, 'exclude_names'),
+        exclude_zone_ids=pulumi.get(__ret__, 'exclude_zone_ids'),
+        filters=pulumi.get(__ret__, 'filters'),
+        group_names=pulumi.get(__ret__, 'group_names'),
+        id=pulumi.get(__ret__, 'id'),
+        names=pulumi.get(__ret__, 'names'),
+        state=pulumi.get(__ret__, 'state'),
+        zone_ids=pulumi.get(__ret__, 'zone_ids'))
 
 
 @_utilities.lift_output_func(get_availability_zones)

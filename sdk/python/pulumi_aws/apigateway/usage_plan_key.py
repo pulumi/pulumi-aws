@@ -174,7 +174,7 @@ class UsagePlanKey(pulumi.CustomResource):
         # ...
         myusageplan = aws.apigateway.UsagePlan("myusageplan", api_stages=[aws.apigateway.UsagePlanApiStageArgs(
             api_id=test.id,
-            stage=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            stage=aws_api_gateway_stage["foo"]["stage_name"],
         )])
         mykey = aws.apigateway.ApiKey("mykey")
         main = aws.apigateway.UsagePlanKey("main",
@@ -216,7 +216,7 @@ class UsagePlanKey(pulumi.CustomResource):
         # ...
         myusageplan = aws.apigateway.UsagePlan("myusageplan", api_stages=[aws.apigateway.UsagePlanApiStageArgs(
             api_id=test.id,
-            stage=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            stage=aws_api_gateway_stage["foo"]["stage_name"],
         )])
         mykey = aws.apigateway.ApiKey("mykey")
         main = aws.apigateway.UsagePlanKey("main",

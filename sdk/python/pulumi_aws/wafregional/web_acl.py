@@ -311,7 +311,7 @@ class WebAcl(pulumi.CustomResource):
             ),
             rules=[aws.wafregional.WebAclRuleArgs(
                 priority=1,
-                rule_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                rule_id=aws_wafregional_rule_group["example"]["id"],
                 type="GROUP",
                 override_action=aws.wafregional.WebAclRuleOverrideActionArgs(
                     type="NONE",
@@ -328,7 +328,7 @@ class WebAcl(pulumi.CustomResource):
 
         # ... other configuration ...
         example = aws.wafregional.WebAcl("example", logging_configuration=aws.wafregional.WebAclLoggingConfigurationArgs(
-            log_destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
             redacted_fields=aws.wafregional.WebAclLoggingConfigurationRedactedFieldsArgs(
                 field_to_matches=[
                     aws.wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
@@ -414,7 +414,7 @@ class WebAcl(pulumi.CustomResource):
             ),
             rules=[aws.wafregional.WebAclRuleArgs(
                 priority=1,
-                rule_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                rule_id=aws_wafregional_rule_group["example"]["id"],
                 type="GROUP",
                 override_action=aws.wafregional.WebAclRuleOverrideActionArgs(
                     type="NONE",
@@ -431,7 +431,7 @@ class WebAcl(pulumi.CustomResource):
 
         # ... other configuration ...
         example = aws.wafregional.WebAcl("example", logging_configuration=aws.wafregional.WebAclLoggingConfigurationArgs(
-            log_destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
             redacted_fields=aws.wafregional.WebAclLoggingConfigurationRedactedFieldsArgs(
                 field_to_matches=[
                     aws.wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(

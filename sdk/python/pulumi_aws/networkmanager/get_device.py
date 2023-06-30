@@ -203,19 +203,19 @@ def get_device(device_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:networkmanager/getDevice:getDevice', __args__, opts=opts, typ=GetDeviceResult).value
 
     return AwaitableGetDeviceResult(
-        arn=__ret__.arn,
-        aws_locations=__ret__.aws_locations,
-        description=__ret__.description,
-        device_id=__ret__.device_id,
-        global_network_id=__ret__.global_network_id,
-        id=__ret__.id,
-        locations=__ret__.locations,
-        model=__ret__.model,
-        serial_number=__ret__.serial_number,
-        site_id=__ret__.site_id,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vendor=__ret__.vendor)
+        arn=pulumi.get(__ret__, 'arn'),
+        aws_locations=pulumi.get(__ret__, 'aws_locations'),
+        description=pulumi.get(__ret__, 'description'),
+        device_id=pulumi.get(__ret__, 'device_id'),
+        global_network_id=pulumi.get(__ret__, 'global_network_id'),
+        id=pulumi.get(__ret__, 'id'),
+        locations=pulumi.get(__ret__, 'locations'),
+        model=pulumi.get(__ret__, 'model'),
+        serial_number=pulumi.get(__ret__, 'serial_number'),
+        site_id=pulumi.get(__ret__, 'site_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vendor=pulumi.get(__ret__, 'vendor'))
 
 
 @_utilities.lift_output_func(get_device)

@@ -225,20 +225,20 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZone:getAvailabilityZone', __args__, opts=opts, typ=GetAvailabilityZoneResult).value
 
     return AwaitableGetAvailabilityZoneResult(
-        all_availability_zones=__ret__.all_availability_zones,
-        filters=__ret__.filters,
-        group_name=__ret__.group_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        name_suffix=__ret__.name_suffix,
-        network_border_group=__ret__.network_border_group,
-        opt_in_status=__ret__.opt_in_status,
-        parent_zone_id=__ret__.parent_zone_id,
-        parent_zone_name=__ret__.parent_zone_name,
-        region=__ret__.region,
-        state=__ret__.state,
-        zone_id=__ret__.zone_id,
-        zone_type=__ret__.zone_type)
+        all_availability_zones=pulumi.get(__ret__, 'all_availability_zones'),
+        filters=pulumi.get(__ret__, 'filters'),
+        group_name=pulumi.get(__ret__, 'group_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        name_suffix=pulumi.get(__ret__, 'name_suffix'),
+        network_border_group=pulumi.get(__ret__, 'network_border_group'),
+        opt_in_status=pulumi.get(__ret__, 'opt_in_status'),
+        parent_zone_id=pulumi.get(__ret__, 'parent_zone_id'),
+        parent_zone_name=pulumi.get(__ret__, 'parent_zone_name'),
+        region=pulumi.get(__ret__, 'region'),
+        state=pulumi.get(__ret__, 'state'),
+        zone_id=pulumi.get(__ret__, 'zone_id'),
+        zone_type=pulumi.get(__ret__, 'zone_type'))
 
 
 @_utilities.lift_output_func(get_availability_zone)

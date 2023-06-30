@@ -86,6 +86,19 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
     Note: To use this data source in a count, the resources should exist before trying to access
     the data source.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    pcs = aws.ec2.get_vpc_peering_connections(filters=[aws.ec2.GetVpcPeeringConnectionsFilterArgs(
+        name="requester-vpc-info.vpc-id",
+        values=[aws_vpc["foo"]["id"]],
+    )])
+    pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in range(len(pcs.ids))]
+    ```
+
 
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
@@ -101,10 +114,10 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections', __args__, opts=opts, typ=GetVpcPeeringConnectionsResult).value
 
     return AwaitableGetVpcPeeringConnectionsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_vpc_peering_connections)
@@ -117,6 +130,19 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
 
     Note: To use this data source in a count, the resources should exist before trying to access
     the data source.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    pcs = aws.ec2.get_vpc_peering_connections(filters=[aws.ec2.GetVpcPeeringConnectionsFilterArgs(
+        name="requester-vpc-info.vpc-id",
+        values=[aws_vpc["foo"]["id"]],
+    )])
+    pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in range(len(pcs.ids))]
+    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.

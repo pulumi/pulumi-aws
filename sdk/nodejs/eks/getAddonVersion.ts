@@ -28,11 +28,9 @@ import * as utilities from "../utilities";
  *         addonName: "vpc-cni",
  *         addonVersion: latestAddonVersion.version,
  *     });
- *     const _default = defaultAddonVersion.version;
- *     const latest = latestAddonVersion.version;
  *     return {
- *         "default": _default,
- *         latest: latest,
+ *         "default": defaultAddonVersion.version,
+ *         latest: latestAddonVersion.version,
  *     };
  * }
  * ```
@@ -106,11 +104,9 @@ export interface GetAddonVersionResult {
  *         addonName: "vpc-cni",
  *         addonVersion: latestAddonVersion.version,
  *     });
- *     const _default = defaultAddonVersion.version;
- *     const latest = latestAddonVersion.version;
  *     return {
- *         "default": _default,
- *         latest: latest,
+ *         "default": defaultAddonVersion.version,
+ *         latest: latestAddonVersion.version,
  *     };
  * }
  * ```

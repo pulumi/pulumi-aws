@@ -207,13 +207,13 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[pulu
     __ret__ = pulumi.runtime.invoke('aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument', __args__, opts=opts, typ=GetCoreNetworkPolicyDocumentResult).value
 
     return AwaitableGetCoreNetworkPolicyDocumentResult(
-        attachment_policies=__ret__.attachment_policies,
-        core_network_configurations=__ret__.core_network_configurations,
-        id=__ret__.id,
-        json=__ret__.json,
-        segment_actions=__ret__.segment_actions,
-        segments=__ret__.segments,
-        version=__ret__.version)
+        attachment_policies=pulumi.get(__ret__, 'attachment_policies'),
+        core_network_configurations=pulumi.get(__ret__, 'core_network_configurations'),
+        id=pulumi.get(__ret__, 'id'),
+        json=pulumi.get(__ret__, 'json'),
+        segment_actions=pulumi.get(__ret__, 'segment_actions'),
+        segments=pulumi.get(__ret__, 'segments'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_core_network_policy_document)

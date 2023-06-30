@@ -138,13 +138,13 @@ def get_arn(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:index/getArn:getArn', __args__, opts=opts, typ=GetArnResult).value
 
     return AwaitableGetArnResult(
-        account=__ret__.account,
-        arn=__ret__.arn,
-        id=__ret__.id,
-        partition=__ret__.partition,
-        region=__ret__.region,
-        resource=__ret__.resource,
-        service=__ret__.service)
+        account=pulumi.get(__ret__, 'account'),
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        partition=pulumi.get(__ret__, 'partition'),
+        region=pulumi.get(__ret__, 'region'),
+        resource=pulumi.get(__ret__, 'resource'),
+        service=pulumi.get(__ret__, 'service'))
 
 
 @_utilities.lift_output_func(get_arn)

@@ -135,13 +135,13 @@ def get_custom_key_store(custom_key_store_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:kms/getCustomKeyStore:getCustomKeyStore', __args__, opts=opts, typ=GetCustomKeyStoreResult).value
 
     return AwaitableGetCustomKeyStoreResult(
-        cloud_hsm_cluster_id=__ret__.cloud_hsm_cluster_id,
-        connection_state=__ret__.connection_state,
-        creation_date=__ret__.creation_date,
-        custom_key_store_id=__ret__.custom_key_store_id,
-        custom_key_store_name=__ret__.custom_key_store_name,
-        id=__ret__.id,
-        trust_anchor_certificate=__ret__.trust_anchor_certificate)
+        cloud_hsm_cluster_id=pulumi.get(__ret__, 'cloud_hsm_cluster_id'),
+        connection_state=pulumi.get(__ret__, 'connection_state'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        custom_key_store_id=pulumi.get(__ret__, 'custom_key_store_id'),
+        custom_key_store_name=pulumi.get(__ret__, 'custom_key_store_name'),
+        id=pulumi.get(__ret__, 'id'),
+        trust_anchor_certificate=pulumi.get(__ret__, 'trust_anchor_certificate'))
 
 
 @_utilities.lift_output_func(get_custom_key_store)

@@ -143,13 +143,13 @@ def get_vpc_link(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getVpcLink:getVpcLink', __args__, opts=opts, typ=GetVpcLinkResult).value
 
     return AwaitableGetVpcLinkResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        status=__ret__.status,
-        status_message=__ret__.status_message,
-        tags=__ret__.tags,
-        target_arns=__ret__.target_arns)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_arns=pulumi.get(__ret__, 'target_arns'))
 
 
 @_utilities.lift_output_func(get_vpc_link)

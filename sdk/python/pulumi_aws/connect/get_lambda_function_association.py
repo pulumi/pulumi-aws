@@ -89,9 +89,9 @@ def get_lambda_function_association(function_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation', __args__, opts=opts, typ=GetLambdaFunctionAssociationResult).value
 
     return AwaitableGetLambdaFunctionAssociationResult(
-        function_arn=__ret__.function_arn,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id)
+        function_arn=pulumi.get(__ret__, 'function_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'))
 
 
 @_utilities.lift_output_func(get_lambda_function_association)

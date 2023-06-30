@@ -167,15 +167,15 @@ def get_bot_alias(bot_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lex/getBotAlias:getBotAlias', __args__, opts=opts, typ=GetBotAliasResult).value
 
     return AwaitableGetBotAliasResult(
-        arn=__ret__.arn,
-        bot_name=__ret__.bot_name,
-        bot_version=__ret__.bot_version,
-        checksum=__ret__.checksum,
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        id=__ret__.id,
-        last_updated_date=__ret__.last_updated_date,
-        name=__ret__.name)
+        arn=pulumi.get(__ret__, 'arn'),
+        bot_name=pulumi.get(__ret__, 'bot_name'),
+        bot_version=pulumi.get(__ret__, 'bot_version'),
+        checksum=pulumi.get(__ret__, 'checksum'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_bot_alias)

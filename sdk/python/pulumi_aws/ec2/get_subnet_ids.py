@@ -104,7 +104,7 @@ def get_subnet_ids(filters: Optional[Sequence[pulumi.InputType['GetSubnetIdsFilt
     import pulumi
     import pulumi_aws as aws
 
-    example_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
     example_subnet = [aws.ec2.get_subnet(id=__value) for __key, __value in example_subnet_ids.ids]
     pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_subnet])
     ```
@@ -117,7 +117,7 @@ def get_subnet_ids(filters: Optional[Sequence[pulumi.InputType['GetSubnetIdsFilt
     import pulumi
     import pulumi_aws as aws
 
-    private = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    private = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"],
         tags={
             "Tier": "Private",
         })
@@ -146,11 +146,11 @@ def get_subnet_ids(filters: Optional[Sequence[pulumi.InputType['GetSubnetIdsFilt
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSubnetIds:getSubnetIds', __args__, opts=opts, typ=GetSubnetIdsResult).value
 
     return AwaitableGetSubnetIdsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_subnet_ids)
@@ -173,7 +173,7 @@ def get_subnet_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     import pulumi
     import pulumi_aws as aws
 
-    example_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example_subnet_ids = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"])
     example_subnet = [aws.ec2.get_subnet(id=__value) for __key, __value in example_subnet_ids.ids]
     pulumi.export("subnetCidrBlocks", [s.cidr_block for s in example_subnet])
     ```
@@ -186,7 +186,7 @@ def get_subnet_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     import pulumi
     import pulumi_aws as aws
 
-    private = aws.ec2.get_subnet_ids(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    private = aws.ec2.get_subnet_ids(vpc_id=var["vpc_id"],
         tags={
             "Tier": "Private",
         })

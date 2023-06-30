@@ -141,13 +141,13 @@ def get_saml_provider(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getSamlProvider:getSamlProvider', __args__, opts=opts, typ=GetSamlProviderResult).value
 
     return AwaitableGetSamlProviderResult(
-        arn=__ret__.arn,
-        create_date=__ret__.create_date,
-        id=__ret__.id,
-        name=__ret__.name,
-        saml_metadata_document=__ret__.saml_metadata_document,
-        tags=__ret__.tags,
-        valid_until=__ret__.valid_until)
+        arn=pulumi.get(__ret__, 'arn'),
+        create_date=pulumi.get(__ret__, 'create_date'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        saml_metadata_document=pulumi.get(__ret__, 'saml_metadata_document'),
+        tags=pulumi.get(__ret__, 'tags'),
+        valid_until=pulumi.get(__ret__, 'valid_until'))
 
 
 @_utilities.lift_output_func(get_saml_provider)

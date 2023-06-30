@@ -34,30 +34,74 @@ import (
 //				Applications: pulumi.StringArray{
 //					pulumi.String("Spark"),
 //				},
-//				AdditionalInfo:              pulumi.String("{\n  \"instanceAwsClientConfiguration\": {\n    \"proxyPort\": 8099,\n    \"proxyHost\": \"myproxy.example.com\"\n  }\n}\n"),
-//				TerminationProtection:       pulumi.Bool(false),
-//				KeepJobFlowAliveWhenNoSteps: pulumi.Bool(true),
-//				Ec2Attributes: &emr.ClusterEc2AttributesArgs{
-//					SubnetId:                      pulumi.Any(aws_subnet.Main.Id),
-//					EmrManagedMasterSecurityGroup: pulumi.Any(aws_security_group.Sg.Id),
-//					EmrManagedSlaveSecurityGroup:  pulumi.Any(aws_security_group.Sg.Id),
-//					InstanceProfile:               pulumi.Any(aws_iam_instance_profile.Emr_profile.Arn),
-//				},
-//				MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
-//					InstanceType: pulumi.String("m4.large"),
-//				},
-//				CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
-//					InstanceType:  pulumi.String("c4.large"),
-//					InstanceCount: pulumi.Int(1),
-//					EbsConfigs: emr.ClusterCoreInstanceGroupEbsConfigArray{
-//						&emr.ClusterCoreInstanceGroupEbsConfigArgs{
-//							Size:               pulumi.Int(40),
-//							Type:               pulumi.String("gp2"),
-//							VolumesPerInstance: pulumi.Int(1),
-//						},
-//					},
-//					BidPrice:          pulumi.String("0.30"),
-//					AutoscalingPolicy: pulumi.String("{\n\"Constraints\": {\n  \"MinCapacity\": 1,\n  \"MaxCapacity\": 2\n},\n\"Rules\": [\n  {\n    \"Name\": \"ScaleOutMemoryPercentage\",\n    \"Description\": \"Scale out if YARNMemoryAvailablePercentage is less than 15\",\n    \"Action\": {\n      \"SimpleScalingPolicyConfiguration\": {\n        \"AdjustmentType\": \"CHANGE_IN_CAPACITY\",\n        \"ScalingAdjustment\": 1,\n        \"CoolDown\": 300\n      }\n    },\n    \"Trigger\": {\n      \"CloudWatchAlarmDefinition\": {\n        \"ComparisonOperator\": \"LESS_THAN\",\n        \"EvaluationPeriods\": 1,\n        \"MetricName\": \"YARNMemoryAvailablePercentage\",\n        \"Namespace\": \"AWS/ElasticMapReduce\",\n        \"Period\": 300,\n        \"Statistic\": \"AVERAGE\",\n        \"Threshold\": 15.0,\n        \"Unit\": \"PERCENT\"\n      }\n    }\n  }\n]\n}\n"),
+//				AdditionalInfo: pulumi.String(`{
+//	  "instanceAwsClientConfiguration": {
+//	    "proxyPort": 8099,
+//	    "proxyHost": "myproxy.example.com"
+//	  }
+//	}
+//
+// `),
+//
+//	TerminationProtection:       pulumi.Bool(false),
+//	KeepJobFlowAliveWhenNoSteps: pulumi.Bool(true),
+//	Ec2Attributes: &emr.ClusterEc2AttributesArgs{
+//		SubnetId:                      pulumi.Any(aws_subnet.Main.Id),
+//		EmrManagedMasterSecurityGroup: pulumi.Any(aws_security_group.Sg.Id),
+//		EmrManagedSlaveSecurityGroup:  pulumi.Any(aws_security_group.Sg.Id),
+//		InstanceProfile:               pulumi.Any(aws_iam_instance_profile.Emr_profile.Arn),
+//	},
+//	MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
+//		InstanceType: pulumi.String("m4.large"),
+//	},
+//	CoreInstanceGroup: &emr.ClusterCoreInstanceGroupArgs{
+//		InstanceType:  pulumi.String("c4.large"),
+//		InstanceCount: pulumi.Int(1),
+//		EbsConfigs: emr.ClusterCoreInstanceGroupEbsConfigArray{
+//			&emr.ClusterCoreInstanceGroupEbsConfigArgs{
+//				Size:               pulumi.Int(40),
+//				Type:               pulumi.String("gp2"),
+//				VolumesPerInstance: pulumi.Int(1),
+//			},
+//		},
+//		BidPrice: pulumi.String("0.30"),
+//		AutoscalingPolicy: pulumi.String(`{
+//
+//	"Constraints": {
+//	  "MinCapacity": 1,
+//	  "MaxCapacity": 2
+//	},
+//
+// "Rules": [
+//
+//	{
+//	  "Name": "ScaleOutMemoryPercentage",
+//	  "Description": "Scale out if YARNMemoryAvailablePercentage is less than 15",
+//	  "Action": {
+//	    "SimpleScalingPolicyConfiguration": {
+//	      "AdjustmentType": "CHANGE_IN_CAPACITY",
+//	      "ScalingAdjustment": 1,
+//	      "CoolDown": 300
+//	    }
+//	  },
+//	  "Trigger": {
+//	    "CloudWatchAlarmDefinition": {
+//	      "ComparisonOperator": "LESS_THAN",
+//	      "EvaluationPeriods": 1,
+//	      "MetricName": "YARNMemoryAvailablePercentage",
+//	      "Namespace": "AWS/ElasticMapReduce",
+//	      "Period": 300,
+//	      "Statistic": "AVERAGE",
+//	      "Threshold": 15.0,
+//	      "Unit": "PERCENT"
+//	    }
+//	  }
+//	}
+//
+// ]
+// }
+// `),
+//
 //				},
 //				EbsRootVolumeSize: pulumi.Int(100),
 //				Tags: pulumi.StringMap{
@@ -74,8 +118,36 @@ import (
 //						},
 //					},
 //				},
-//				ConfigurationsJson: pulumi.String("  [\n    {\n      \"Classification\": \"hadoop-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    },\n    {\n      \"Classification\": \"spark-env\",\n      \"Configurations\": [\n        {\n          \"Classification\": \"export\",\n          \"Properties\": {\n            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n          }\n        }\n      ],\n      \"Properties\": {}\n    }\n  ]\n"),
-//				ServiceRole:        pulumi.Any(aws_iam_role.Iam_emr_service_role.Arn),
+//				ConfigurationsJson: pulumi.String(`  [
+//	    {
+//	      "Classification": "hadoop-env",
+//	      "Configurations": [
+//	        {
+//	          "Classification": "export",
+//	          "Properties": {
+//	            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//	          }
+//	        }
+//	      ],
+//	      "Properties": {}
+//	    },
+//	    {
+//	      "Classification": "spark-env",
+//	      "Configurations": [
+//	        {
+//	          "Classification": "export",
+//	          "Properties": {
+//	            "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+//	          }
+//	        }
+//	      ],
+//	      "Properties": {}
+//	    }
+//	  ]
+//
+// `),
+//
+//				ServiceRole: pulumi.Any(aws_iam_role.Iam_emr_service_role.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -353,7 +425,22 @@ type Cluster struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-	// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -482,7 +569,22 @@ type clusterState struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-	// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -577,7 +679,22 @@ type ClusterState struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-	// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -673,7 +790,22 @@ type clusterArgs struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-	// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -762,7 +894,22 @@ type ClusterArgs struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-	// 			ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+	// 			ConfigurationsJson: pulumi.String(`[
+	// {
+	// "Classification": "hadoop-env",
+	// "Configurations": [
+	// {
+	// "Classification": "export",
+	// "Properties": {
+	// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+	// }
+	// }
+	// ],
+	// "Properties": {}
+	// }
+	// ]
+	//
+	// `),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -965,7 +1112,24 @@ func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emr.NewCluster(ctx, "cluster", &emr.ClusterArgs{
-//				ConfigurationsJson: pulumi.String("[\n{\n\"Classification\": \"hadoop-env\",\n\"Configurations\": [\n{\n\"Classification\": \"export\",\n\"Properties\": {\n\"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n}\n}\n],\n\"Properties\": {}\n}\n]\n\n"),
+//				ConfigurationsJson: pulumi.String(`[
+//
+// {
+// "Classification": "hadoop-env",
+// "Configurations": [
+// {
+// "Classification": "export",
+// "Properties": {
+// "JAVA_HOME": "/usr/lib/jvm/java-1.8.0"
+// }
+// }
+// ],
+// "Properties": {}
+// }
+// ]
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

@@ -188,16 +188,16 @@ def get_contact_flow_module(contact_flow_module_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getContactFlowModule:getContactFlowModule', __args__, opts=opts, typ=GetContactFlowModuleResult).value
 
     return AwaitableGetContactFlowModuleResult(
-        arn=__ret__.arn,
-        contact_flow_module_id=__ret__.contact_flow_module_id,
-        content=__ret__.content,
-        description=__ret__.description,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        name=__ret__.name,
-        state=__ret__.state,
-        status=__ret__.status,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        contact_flow_module_id=pulumi.get(__ret__, 'contact_flow_module_id'),
+        content=pulumi.get(__ret__, 'content'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_contact_flow_module)

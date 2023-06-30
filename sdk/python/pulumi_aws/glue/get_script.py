@@ -301,12 +301,12 @@ def get_script(dag_edges: Optional[Sequence[pulumi.InputType['GetScriptDagEdgeAr
     __ret__ = pulumi.runtime.invoke('aws:glue/getScript:getScript', __args__, opts=opts, typ=GetScriptResult).value
 
     return AwaitableGetScriptResult(
-        dag_edges=__ret__.dag_edges,
-        dag_nodes=__ret__.dag_nodes,
-        id=__ret__.id,
-        language=__ret__.language,
-        python_script=__ret__.python_script,
-        scala_code=__ret__.scala_code)
+        dag_edges=pulumi.get(__ret__, 'dag_edges'),
+        dag_nodes=pulumi.get(__ret__, 'dag_nodes'),
+        id=pulumi.get(__ret__, 'id'),
+        language=pulumi.get(__ret__, 'language'),
+        python_script=pulumi.get(__ret__, 'python_script'),
+        scala_code=pulumi.get(__ret__, 'scala_code'))
 
 
 @_utilities.lift_output_func(get_script)

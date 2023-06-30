@@ -248,22 +248,22 @@ def get_received_license(license_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:licensemanager/getReceivedLicense:getReceivedLicense', __args__, opts=opts, typ=GetReceivedLicenseResult).value
 
     return AwaitableGetReceivedLicenseResult(
-        beneficiary=__ret__.beneficiary,
-        consumption_configurations=__ret__.consumption_configurations,
-        create_time=__ret__.create_time,
-        entitlements=__ret__.entitlements,
-        home_region=__ret__.home_region,
-        id=__ret__.id,
-        issuers=__ret__.issuers,
-        license_arn=__ret__.license_arn,
-        license_metadatas=__ret__.license_metadatas,
-        license_name=__ret__.license_name,
-        product_name=__ret__.product_name,
-        product_sku=__ret__.product_sku,
-        received_metadatas=__ret__.received_metadatas,
-        status=__ret__.status,
-        validities=__ret__.validities,
-        version=__ret__.version)
+        beneficiary=pulumi.get(__ret__, 'beneficiary'),
+        consumption_configurations=pulumi.get(__ret__, 'consumption_configurations'),
+        create_time=pulumi.get(__ret__, 'create_time'),
+        entitlements=pulumi.get(__ret__, 'entitlements'),
+        home_region=pulumi.get(__ret__, 'home_region'),
+        id=pulumi.get(__ret__, 'id'),
+        issuers=pulumi.get(__ret__, 'issuers'),
+        license_arn=pulumi.get(__ret__, 'license_arn'),
+        license_metadatas=pulumi.get(__ret__, 'license_metadatas'),
+        license_name=pulumi.get(__ret__, 'license_name'),
+        product_name=pulumi.get(__ret__, 'product_name'),
+        product_sku=pulumi.get(__ret__, 'product_sku'),
+        received_metadatas=pulumi.get(__ret__, 'received_metadatas'),
+        status=pulumi.get(__ret__, 'status'),
+        validities=pulumi.get(__ret__, 'validities'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_received_license)

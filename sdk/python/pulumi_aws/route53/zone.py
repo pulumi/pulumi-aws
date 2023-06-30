@@ -363,7 +363,7 @@ class Zone(pulumi.CustomResource):
         import pulumi_aws as aws
 
         private = aws.route53.Zone("private", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            vpc_id=aws_vpc["example"]["id"],
         )])
         ```
 
@@ -434,7 +434,7 @@ class Zone(pulumi.CustomResource):
         import pulumi_aws as aws
 
         private = aws.route53.Zone("private", vpcs=[aws.route53.ZoneVpcArgs(
-            vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            vpc_id=aws_vpc["example"]["id"],
         )])
         ```
 

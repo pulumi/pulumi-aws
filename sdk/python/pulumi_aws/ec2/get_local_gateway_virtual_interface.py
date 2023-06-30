@@ -171,16 +171,16 @@ def get_local_gateway_virtual_interface(filters: Optional[Sequence[pulumi.InputT
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface', __args__, opts=opts, typ=GetLocalGatewayVirtualInterfaceResult).value
 
     return AwaitableGetLocalGatewayVirtualInterfaceResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        local_address=__ret__.local_address,
-        local_bgp_asn=__ret__.local_bgp_asn,
-        local_gateway_id=__ret__.local_gateway_id,
-        local_gateway_virtual_interface_ids=__ret__.local_gateway_virtual_interface_ids,
-        peer_address=__ret__.peer_address,
-        peer_bgp_asn=__ret__.peer_bgp_asn,
-        tags=__ret__.tags,
-        vlan=__ret__.vlan)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        local_address=pulumi.get(__ret__, 'local_address'),
+        local_bgp_asn=pulumi.get(__ret__, 'local_bgp_asn'),
+        local_gateway_id=pulumi.get(__ret__, 'local_gateway_id'),
+        local_gateway_virtual_interface_ids=pulumi.get(__ret__, 'local_gateway_virtual_interface_ids'),
+        peer_address=pulumi.get(__ret__, 'peer_address'),
+        peer_bgp_asn=pulumi.get(__ret__, 'peer_bgp_asn'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vlan=pulumi.get(__ret__, 'vlan'))
 
 
 @_utilities.lift_output_func(get_local_gateway_virtual_interface)

@@ -99,9 +99,9 @@ def get_event_categories(source_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts, typ=GetEventCategoriesResult).value
 
     return AwaitableGetEventCategoriesResult(
-        event_categories=__ret__.event_categories,
-        id=__ret__.id,
-        source_type=__ret__.source_type)
+        event_categories=pulumi.get(__ret__, 'event_categories'),
+        id=pulumi.get(__ret__, 'id'),
+        source_type=pulumi.get(__ret__, 'source_type'))
 
 
 @_utilities.lift_output_func(get_event_categories)

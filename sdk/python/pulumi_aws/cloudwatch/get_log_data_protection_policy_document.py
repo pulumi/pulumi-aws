@@ -122,13 +122,13 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
                     audit=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs(
                         findings_destination=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs(
                             cloudwatch_logs=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs(
-                                log_group=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                log_group=aws_cloudwatch_log_group["audit"]["name"],
                             ),
                             firehose=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs(
-                                delivery_stream=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                delivery_stream=aws_kinesis_firehose_delivery_stream["audit"]["name"],
                             ),
                             s3=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args(
-                                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                bucket=aws_s3_bucket["audit"]["bucket"],
                             ),
                         ),
                     ),
@@ -169,12 +169,12 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument', __args__, opts=opts, typ=GetLogDataProtectionPolicyDocumentResult).value
 
     return AwaitableGetLogDataProtectionPolicyDocumentResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        json=__ret__.json,
-        name=__ret__.name,
-        statements=__ret__.statements,
-        version=__ret__.version)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        json=pulumi.get(__ret__, 'json'),
+        name=pulumi.get(__ret__, 'name'),
+        statements=pulumi.get(__ret__, 'statements'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_log_data_protection_policy_document)
@@ -206,13 +206,13 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
                     audit=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs(
                         findings_destination=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs(
                             cloudwatch_logs=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs(
-                                log_group=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                log_group=aws_cloudwatch_log_group["audit"]["name"],
                             ),
                             firehose=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs(
-                                delivery_stream=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                delivery_stream=aws_kinesis_firehose_delivery_stream["audit"]["name"],
                             ),
                             s3=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args(
-                                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                                bucket=aws_s3_bucket["audit"]["bucket"],
                             ),
                         ),
                     ),

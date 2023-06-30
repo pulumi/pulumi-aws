@@ -763,7 +763,7 @@ class Server(pulumi.CustomResource):
             endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
                 address_allocation_ids=[aws_eip["example"]["id"]],
                 subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_id=aws_vpc["example"]["id"],
             ))
         ```
         ### AWS Directory authentication
@@ -796,7 +796,7 @@ class Server(pulumi.CustomResource):
             endpoint_type="VPC",
             endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
                 subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_id=aws_vpc["example"]["id"],
             ),
             protocols=[
                 "FTP",
@@ -882,7 +882,7 @@ class Server(pulumi.CustomResource):
             endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
                 address_allocation_ids=[aws_eip["example"]["id"]],
                 subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_id=aws_vpc["example"]["id"],
             ))
         ```
         ### AWS Directory authentication
@@ -915,7 +915,7 @@ class Server(pulumi.CustomResource):
             endpoint_type="VPC",
             endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
                 subnet_ids=[aws_subnet["example"]["id"]],
-                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_id=aws_vpc["example"]["id"],
             ),
             protocols=[
                 "FTP",

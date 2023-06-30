@@ -126,12 +126,12 @@ def get_event_source(name_prefix: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getEventSource:getEventSource', __args__, opts=opts, typ=GetEventSourceResult).value
 
     return AwaitableGetEventSourceResult(
-        arn=__ret__.arn,
-        created_by=__ret__.created_by,
-        id=__ret__.id,
-        name=__ret__.name,
-        name_prefix=__ret__.name_prefix,
-        state=__ret__.state)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        name_prefix=pulumi.get(__ret__, 'name_prefix'),
+        state=pulumi.get(__ret__, 'state'))
 
 
 @_utilities.lift_output_func(get_event_source)

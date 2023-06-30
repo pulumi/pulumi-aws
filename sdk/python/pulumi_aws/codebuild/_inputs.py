@@ -1084,6 +1084,9 @@ class ProjectSecondarySourceArgs:
         """
         Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         """
+        warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+        pulumi.log.warn("""auth is deprecated: Use the aws_codebuild_source_credential resource instead""")
+
         return pulumi.get(self, "auth")
 
     @auth.setter
@@ -1200,6 +1203,9 @@ class ProjectSecondarySourceAuthArgs:
         """
         Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         """
+        warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+        pulumi.log.warn("""type is deprecated: Use the aws_codebuild_source_credential resource instead""")
+
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1212,6 +1218,9 @@ class ProjectSecondarySourceAuthArgs:
         """
         Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
         """
+        warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+        pulumi.log.warn("""resource is deprecated: Use the aws_codebuild_source_credential resource instead""")
+
         return pulumi.get(self, "resource")
 
     @resource.setter
@@ -1379,6 +1388,9 @@ class ProjectSourceArgs:
         """
         Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         """
+        warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+        pulumi.log.warn("""auth is deprecated: Use the aws_codebuild_source_credential resource instead""")
+
         return pulumi.get(self, "auth")
 
     @auth.setter
@@ -1495,6 +1507,9 @@ class ProjectSourceAuthArgs:
         """
         Build output artifact's type. Valid values: `CODEPIPELINE`, `NO_ARTIFACTS`, `S3`.
         """
+        warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+        pulumi.log.warn("""type is deprecated: Use the aws_codebuild_source_credential resource instead""")
+
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1507,6 +1522,9 @@ class ProjectSourceAuthArgs:
         """
         Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
         """
+        warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
+        pulumi.log.warn("""resource is deprecated: Use the aws_codebuild_source_credential resource instead""")
+
         return pulumi.get(self, "resource")
 
     @resource.setter

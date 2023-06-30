@@ -97,7 +97,7 @@ def get_assets(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"])
     ```
     ### With Host ID Filter
 
@@ -105,7 +105,7 @@ def get_assets(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
         host_id_filters=["h-x38g5n0yd2a0ueb61"])
     ```
     ### With Status ID Filter
@@ -114,7 +114,7 @@ def get_assets(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
         status_id_filters=["ACTIVE"])
     ```
 
@@ -131,11 +131,11 @@ def get_assets(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:outposts/getAssets:getAssets', __args__, opts=opts, typ=GetAssetsResult).value
 
     return AwaitableGetAssetsResult(
-        arn=__ret__.arn,
-        asset_ids=__ret__.asset_ids,
-        host_id_filters=__ret__.host_id_filters,
-        id=__ret__.id,
-        status_id_filters=__ret__.status_id_filters)
+        arn=pulumi.get(__ret__, 'arn'),
+        asset_ids=pulumi.get(__ret__, 'asset_ids'),
+        host_id_filters=pulumi.get(__ret__, 'host_id_filters'),
+        id=pulumi.get(__ret__, 'id'),
+        status_id_filters=pulumi.get(__ret__, 'status_id_filters'))
 
 
 @_utilities.lift_output_func(get_assets)
@@ -153,7 +153,7 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"])
     ```
     ### With Host ID Filter
 
@@ -161,7 +161,7 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
         host_id_filters=["h-x38g5n0yd2a0ueb61"])
     ```
     ### With Status ID Filter
@@ -170,7 +170,7 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.outposts.get_assets(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
         status_id_filters=["ACTIVE"])
     ```
 

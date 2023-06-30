@@ -176,15 +176,15 @@ def get_security_profile(instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getSecurityProfile:getSecurityProfile', __args__, opts=opts, typ=GetSecurityProfileResult).value
 
     return AwaitableGetSecurityProfileResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id,
-        name=__ret__.name,
-        organization_resource_id=__ret__.organization_resource_id,
-        permissions=__ret__.permissions,
-        security_profile_id=__ret__.security_profile_id,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        name=pulumi.get(__ret__, 'name'),
+        organization_resource_id=pulumi.get(__ret__, 'organization_resource_id'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        security_profile_id=pulumi.get(__ret__, 'security_profile_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_security_profile)

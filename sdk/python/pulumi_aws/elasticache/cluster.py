@@ -433,6 +433,9 @@ class ClusterArgs:
         """
         List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         """
+        warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "security_group_names")
 
     @security_group_names.setter
@@ -1016,6 +1019,9 @@ class _ClusterState:
         """
         List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         """
+        warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "security_group_names")
 
     @security_group_names.setter
@@ -1215,13 +1221,13 @@ class Cluster(pulumi.CustomResource):
             apply_immediately=True,
             log_delivery_configurations=[
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_cloudwatch_log_group["example"]["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",
@@ -1360,13 +1366,13 @@ class Cluster(pulumi.CustomResource):
             apply_immediately=True,
             log_delivery_configurations=[
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_cloudwatch_log_group["example"]["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",
@@ -1848,6 +1854,9 @@ class Cluster(pulumi.CustomResource):
         """
         List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
         """
+        warnings.warn("""With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""", DeprecationWarning)
+        pulumi.log.warn("""security_group_names is deprecated: With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.""")
+
         return pulumi.get(self, "security_group_names")
 
     @property

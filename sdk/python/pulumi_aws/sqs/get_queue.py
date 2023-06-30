@@ -117,11 +117,11 @@ def get_queue(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:sqs/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult).value
 
     return AwaitableGetQueueResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        url=__ret__.url)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_queue)

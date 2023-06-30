@@ -98,7 +98,7 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
     import pulumi
     import pulumi_aws as aws
 
-    example_network_acls = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example_network_acls = aws.ec2.get_network_acls(vpc_id=var["vpc_id"])
     pulumi.export("example", example_network_acls.ids)
     ```
 
@@ -109,7 +109,7 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
         tags={
             "Tier": "Private",
         })
@@ -122,7 +122,7 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
         filters=[aws.ec2.GetNetworkAclsFilterArgs(
             name="association.subnet-id",
             values=[aws_subnet["test"]["id"]],
@@ -146,11 +146,11 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkAcls:getNetworkAcls', __args__, opts=opts, typ=GetNetworkAclsResult).value
 
     return AwaitableGetNetworkAclsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_network_acls)
@@ -167,7 +167,7 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi
     import pulumi_aws as aws
 
-    example_network_acls = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example_network_acls = aws.ec2.get_network_acls(vpc_id=var["vpc_id"])
     pulumi.export("example", example_network_acls.ids)
     ```
 
@@ -178,7 +178,7 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
         tags={
             "Tier": "Private",
         })
@@ -191,7 +191,7 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
         filters=[aws.ec2.GetNetworkAclsFilterArgs(
             name="association.subnet-id",
             values=[aws_subnet["test"]["id"]],

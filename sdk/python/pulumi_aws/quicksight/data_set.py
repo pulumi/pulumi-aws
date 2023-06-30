@@ -595,7 +595,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -618,7 +618,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -645,7 +645,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -673,7 +673,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -691,7 +691,7 @@ class DataSet(pulumi.CustomResource):
                     "quicksight:DescribeIngestion",
                     "quicksight:ListIngestions",
                 ],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_quicksight_user["example"]["arn"],
             )])
         ```
         ### With Row Level Permission Tag Configuration
@@ -706,7 +706,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -777,7 +777,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -800,7 +800,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -827,7 +827,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -855,7 +855,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",
@@ -873,7 +873,7 @@ class DataSet(pulumi.CustomResource):
                     "quicksight:DescribeIngestion",
                     "quicksight:ListIngestions",
                 ],
-                principal=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                principal=aws_quicksight_user["example"]["arn"],
             )])
         ```
         ### With Row Level Permission Tag Configuration
@@ -888,7 +888,7 @@ class DataSet(pulumi.CustomResource):
             physical_table_maps=[aws.quicksight.DataSetPhysicalTableMapArgs(
                 physical_table_map_id="example-id",
                 s3_source=aws.quicksight.DataSetPhysicalTableMapS3SourceArgs(
-                    data_source_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    data_source_arn=aws_quicksight_data_source["example"]["arn"],
                     input_columns=[aws.quicksight.DataSetPhysicalTableMapS3SourceInputColumnArgs(
                         name="Column1",
                         type="STRING",

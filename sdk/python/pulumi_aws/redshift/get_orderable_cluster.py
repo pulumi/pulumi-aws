@@ -128,12 +128,12 @@ def get_orderable_cluster(cluster_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:redshift/getOrderableCluster:getOrderableCluster', __args__, opts=opts, typ=GetOrderableClusterResult).value
 
     return AwaitableGetOrderableClusterResult(
-        availability_zones=__ret__.availability_zones,
-        cluster_type=__ret__.cluster_type,
-        cluster_version=__ret__.cluster_version,
-        id=__ret__.id,
-        node_type=__ret__.node_type,
-        preferred_node_types=__ret__.preferred_node_types)
+        availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        cluster_type=pulumi.get(__ret__, 'cluster_type'),
+        cluster_version=pulumi.get(__ret__, 'cluster_version'),
+        id=pulumi.get(__ret__, 'id'),
+        node_type=pulumi.get(__ret__, 'node_type'),
+        preferred_node_types=pulumi.get(__ret__, 'preferred_node_types'))
 
 
 @_utilities.lift_output_func(get_orderable_cluster)

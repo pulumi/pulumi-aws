@@ -335,6 +335,9 @@ class _QueueState:
     @property
     @pulumi.getter(name="quickConnectIdsAssociateds")
     def quick_connect_ids_associateds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        warnings.warn("""Use the quick_connect_ids instead""", DeprecationWarning)
+        pulumi.log.warn("""quick_connect_ids_associateds is deprecated: Use the quick_connect_ids instead""")
+
         return pulumi.get(self, "quick_connect_ids_associateds")
 
     @quick_connect_ids_associateds.setter
@@ -726,6 +729,9 @@ class Queue(pulumi.CustomResource):
     @property
     @pulumi.getter(name="quickConnectIdsAssociateds")
     def quick_connect_ids_associateds(self) -> pulumi.Output[Sequence[str]]:
+        warnings.warn("""Use the quick_connect_ids instead""", DeprecationWarning)
+        pulumi.log.warn("""quick_connect_ids_associateds is deprecated: Use the quick_connect_ids instead""")
+
         return pulumi.get(self, "quick_connect_ids_associateds")
 
     @property

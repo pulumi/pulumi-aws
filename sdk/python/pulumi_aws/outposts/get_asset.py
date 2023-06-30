@@ -127,13 +127,13 @@ def get_asset(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:outposts/getAsset:getAsset', __args__, opts=opts, typ=GetAssetResult).value
 
     return AwaitableGetAssetResult(
-        arn=__ret__.arn,
-        asset_id=__ret__.asset_id,
-        asset_type=__ret__.asset_type,
-        host_id=__ret__.host_id,
-        id=__ret__.id,
-        rack_elevation=__ret__.rack_elevation,
-        rack_id=__ret__.rack_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        asset_id=pulumi.get(__ret__, 'asset_id'),
+        asset_type=pulumi.get(__ret__, 'asset_type'),
+        host_id=pulumi.get(__ret__, 'host_id'),
+        id=pulumi.get(__ret__, 'id'),
+        rack_elevation=pulumi.get(__ret__, 'rack_elevation'),
+        rack_id=pulumi.get(__ret__, 'rack_id'))
 
 
 @_utilities.lift_output_func(get_asset)

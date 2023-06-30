@@ -90,9 +90,9 @@ def get_environments(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:appconfig/getEnvironments:getEnvironments', __args__, opts=opts, typ=GetEnvironmentsResult).value
 
     return AwaitableGetEnvironmentsResult(
-        application_id=__ret__.application_id,
-        environment_ids=__ret__.environment_ids,
-        id=__ret__.id)
+        application_id=pulumi.get(__ret__, 'application_id'),
+        environment_ids=pulumi.get(__ret__, 'environment_ids'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_environments)

@@ -136,13 +136,13 @@ def get_configuration(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:msk/getConfiguration:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult).value
 
     return AwaitableGetConfigurationResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        kafka_versions=__ret__.kafka_versions,
-        latest_revision=__ret__.latest_revision,
-        name=__ret__.name,
-        server_properties=__ret__.server_properties)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        kafka_versions=pulumi.get(__ret__, 'kafka_versions'),
+        latest_revision=pulumi.get(__ret__, 'latest_revision'),
+        name=pulumi.get(__ret__, 'name'),
+        server_properties=pulumi.get(__ret__, 'server_properties'))
 
 
 @_utilities.lift_output_func(get_configuration)

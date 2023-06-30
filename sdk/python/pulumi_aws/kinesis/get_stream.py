@@ -194,17 +194,17 @@ def get_stream(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:kinesis/getStream:getStream', __args__, opts=opts, typ=GetStreamResult).value
 
     return AwaitableGetStreamResult(
-        arn=__ret__.arn,
-        closed_shards=__ret__.closed_shards,
-        creation_timestamp=__ret__.creation_timestamp,
-        id=__ret__.id,
-        name=__ret__.name,
-        open_shards=__ret__.open_shards,
-        retention_period=__ret__.retention_period,
-        shard_level_metrics=__ret__.shard_level_metrics,
-        status=__ret__.status,
-        stream_mode_details=__ret__.stream_mode_details,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        closed_shards=pulumi.get(__ret__, 'closed_shards'),
+        creation_timestamp=pulumi.get(__ret__, 'creation_timestamp'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        open_shards=pulumi.get(__ret__, 'open_shards'),
+        retention_period=pulumi.get(__ret__, 'retention_period'),
+        shard_level_metrics=pulumi.get(__ret__, 'shard_level_metrics'),
+        status=pulumi.get(__ret__, 'status'),
+        stream_mode_details=pulumi.get(__ret__, 'stream_mode_details'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_stream)

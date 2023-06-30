@@ -376,6 +376,9 @@ class _CertificateAuthorityState:
         """
         (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
         """
+        warnings.warn("""The reported value of the \"status\" attribute is often inaccurate. Use the resource's \"enabled\" attribute to explicitly set status.""", DeprecationWarning)
+        pulumi.log.warn("""status is deprecated: The reported value of the \"status\" attribute is often inaccurate. Use the resource's \"enabled\" attribute to explicitly set status.""")
+
         return pulumi.get(self, "status")
 
     @status.setter
@@ -872,6 +875,9 @@ class CertificateAuthority(pulumi.CustomResource):
         """
         (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
         """
+        warnings.warn("""The reported value of the \"status\" attribute is often inaccurate. Use the resource's \"enabled\" attribute to explicitly set status.""", DeprecationWarning)
+        pulumi.log.warn("""status is deprecated: The reported value of the \"status\" attribute is often inaccurate. Use the resource's \"enabled\" attribute to explicitly set status.""")
+
         return pulumi.get(self, "status")
 
     @property

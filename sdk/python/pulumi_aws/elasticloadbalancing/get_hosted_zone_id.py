@@ -73,7 +73,7 @@ def get_hosted_zone_id(region: Optional[str] = None,
         name="example.com",
         type="A",
         aliases=[aws.route53.RecordAliasArgs(
-            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            name=aws_elb["main"]["dns_name"],
             zone_id=main.id,
             evaluate_target_health=True,
         )])
@@ -90,8 +90,8 @@ def get_hosted_zone_id(region: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:elasticloadbalancing/getHostedZoneId:getHostedZoneId', __args__, opts=opts, typ=GetHostedZoneIdResult).value
 
     return AwaitableGetHostedZoneIdResult(
-        id=__ret__.id,
-        region=__ret__.region)
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 
 
 @_utilities.lift_output_func(get_hosted_zone_id)
@@ -113,7 +113,7 @@ def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[str]]] = No
         name="example.com",
         type="A",
         aliases=[aws.route53.RecordAliasArgs(
-            name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+            name=aws_elb["main"]["dns_name"],
             zone_id=main.id,
             evaluate_target_health=True,
         )])

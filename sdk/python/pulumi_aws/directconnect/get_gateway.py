@@ -100,10 +100,10 @@ def get_gateway(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:directconnect/getGateway:getGateway', __args__, opts=opts, typ=GetGatewayResult).value
 
     return AwaitableGetGatewayResult(
-        amazon_side_asn=__ret__.amazon_side_asn,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner_account_id=__ret__.owner_account_id)
+        amazon_side_asn=pulumi.get(__ret__, 'amazon_side_asn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_account_id=pulumi.get(__ret__, 'owner_account_id'))
 
 
 @_utilities.lift_output_func(get_gateway)

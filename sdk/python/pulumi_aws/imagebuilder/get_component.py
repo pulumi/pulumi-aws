@@ -235,21 +235,21 @@ def get_component(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getComponent:getComponent', __args__, opts=opts, typ=GetComponentResult).value
 
     return AwaitableGetComponentResult(
-        arn=__ret__.arn,
-        change_description=__ret__.change_description,
-        data=__ret__.data,
-        date_created=__ret__.date_created,
-        description=__ret__.description,
-        encrypted=__ret__.encrypted,
-        id=__ret__.id,
-        kms_key_id=__ret__.kms_key_id,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        platform=__ret__.platform,
-        supported_os_versions=__ret__.supported_os_versions,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        arn=pulumi.get(__ret__, 'arn'),
+        change_description=pulumi.get(__ret__, 'change_description'),
+        data=pulumi.get(__ret__, 'data'),
+        date_created=pulumi.get(__ret__, 'date_created'),
+        description=pulumi.get(__ret__, 'description'),
+        encrypted=pulumi.get(__ret__, 'encrypted'),
+        id=pulumi.get(__ret__, 'id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        platform=pulumi.get(__ret__, 'platform'),
+        supported_os_versions=pulumi.get(__ret__, 'supported_os_versions'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_component)

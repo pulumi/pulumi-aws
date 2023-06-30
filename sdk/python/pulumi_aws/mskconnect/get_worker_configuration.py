@@ -124,12 +124,12 @@ def get_worker_configuration(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration', __args__, opts=opts, typ=GetWorkerConfigurationResult).value
 
     return AwaitableGetWorkerConfigurationResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        latest_revision=__ret__.latest_revision,
-        name=__ret__.name,
-        properties_file_content=__ret__.properties_file_content)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        latest_revision=pulumi.get(__ret__, 'latest_revision'),
+        name=pulumi.get(__ret__, 'name'),
+        properties_file_content=pulumi.get(__ret__, 'properties_file_content'))
 
 
 @_utilities.lift_output_func(get_worker_configuration)

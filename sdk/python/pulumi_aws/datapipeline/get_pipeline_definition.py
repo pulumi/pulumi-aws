@@ -117,11 +117,11 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[pulumi.InputType
     __ret__ = pulumi.runtime.invoke('aws:datapipeline/getPipelineDefinition:getPipelineDefinition', __args__, opts=opts, typ=GetPipelineDefinitionResult).value
 
     return AwaitableGetPipelineDefinitionResult(
-        id=__ret__.id,
-        parameter_objects=__ret__.parameter_objects,
-        parameter_values=__ret__.parameter_values,
-        pipeline_id=__ret__.pipeline_id,
-        pipeline_objects=__ret__.pipeline_objects)
+        id=pulumi.get(__ret__, 'id'),
+        parameter_objects=pulumi.get(__ret__, 'parameter_objects'),
+        parameter_values=pulumi.get(__ret__, 'parameter_values'),
+        pipeline_id=pulumi.get(__ret__, 'pipeline_id'),
+        pipeline_objects=pulumi.get(__ret__, 'pipeline_objects'))
 
 
 @_utilities.lift_output_func(get_pipeline_definition)

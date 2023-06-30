@@ -89,8 +89,8 @@ def get_log_delivery_canonical_user_id(region: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId', __args__, opts=opts, typ=GetLogDeliveryCanonicalUserIdResult).value
 
     return AwaitableGetLogDeliveryCanonicalUserIdResult(
-        id=__ret__.id,
-        region=__ret__.region)
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 
 
 @_utilities.lift_output_func(get_log_delivery_canonical_user_id)

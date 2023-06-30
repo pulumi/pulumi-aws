@@ -356,7 +356,7 @@ class Listener(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_identifier=aws_vpc["test"]["id"],
             ))
         example_listener = aws.vpclattice.Listener("exampleListener",
             protocol="HTTP",
@@ -381,14 +381,14 @@ class Listener(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_identifier=aws_vpc["test"]["id"],
             ))
         example2 = aws.vpclattice.TargetGroup("example2",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=8080,
                 protocol="HTTP",
-                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_identifier=aws_vpc["test"]["id"],
             ))
         example = aws.vpclattice.Listener("example",
             protocol="HTTP",
@@ -450,7 +450,7 @@ class Listener(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_identifier=aws_vpc["test"]["id"],
             ))
         example_listener = aws.vpclattice.Listener("exampleListener",
             protocol="HTTP",
@@ -475,14 +475,14 @@ class Listener(pulumi.CustomResource):
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=80,
                 protocol="HTTP",
-                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_identifier=aws_vpc["test"]["id"],
             ))
         example2 = aws.vpclattice.TargetGroup("example2",
             type="INSTANCE",
             config=aws.vpclattice.TargetGroupConfigArgs(
                 port=8080,
                 protocol="HTTP",
-                vpc_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_identifier=aws_vpc["test"]["id"],
             ))
         example = aws.vpclattice.Listener("example",
             protocol="HTTP",

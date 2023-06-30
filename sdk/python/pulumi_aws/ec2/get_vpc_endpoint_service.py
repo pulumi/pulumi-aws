@@ -279,22 +279,22 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcEndpointService:getVpcEndpointService', __args__, opts=opts, typ=GetVpcEndpointServiceResult).value
 
     return AwaitableGetVpcEndpointServiceResult(
-        acceptance_required=__ret__.acceptance_required,
-        arn=__ret__.arn,
-        availability_zones=__ret__.availability_zones,
-        base_endpoint_dns_names=__ret__.base_endpoint_dns_names,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        manages_vpc_endpoints=__ret__.manages_vpc_endpoints,
-        owner=__ret__.owner,
-        private_dns_name=__ret__.private_dns_name,
-        service=__ret__.service,
-        service_id=__ret__.service_id,
-        service_name=__ret__.service_name,
-        service_type=__ret__.service_type,
-        supported_ip_address_types=__ret__.supported_ip_address_types,
-        tags=__ret__.tags,
-        vpc_endpoint_policy_supported=__ret__.vpc_endpoint_policy_supported)
+        acceptance_required=pulumi.get(__ret__, 'acceptance_required'),
+        arn=pulumi.get(__ret__, 'arn'),
+        availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        base_endpoint_dns_names=pulumi.get(__ret__, 'base_endpoint_dns_names'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        manages_vpc_endpoints=pulumi.get(__ret__, 'manages_vpc_endpoints'),
+        owner=pulumi.get(__ret__, 'owner'),
+        private_dns_name=pulumi.get(__ret__, 'private_dns_name'),
+        service=pulumi.get(__ret__, 'service'),
+        service_id=pulumi.get(__ret__, 'service_id'),
+        service_name=pulumi.get(__ret__, 'service_name'),
+        service_type=pulumi.get(__ret__, 'service_type'),
+        supported_ip_address_types=pulumi.get(__ret__, 'supported_ip_address_types'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_endpoint_policy_supported=pulumi.get(__ret__, 'vpc_endpoint_policy_supported'))
 
 
 @_utilities.lift_output_func(get_vpc_endpoint_service)

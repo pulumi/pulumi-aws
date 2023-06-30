@@ -41,10 +41,6 @@ class GetUserResult:
         pulumi.set(__self__, "external_ids", external_ids)
         if filter and not isinstance(filter, dict):
             raise TypeError("Expected argument 'filter' to be a dict")
-        if filter is not None:
-            warnings.warn("""Use the alternate_identifier attribute instead.""", DeprecationWarning)
-            pulumi.log.warn("""filter is deprecated: Use the alternate_identifier attribute instead.""")
-
         pulumi.set(__self__, "filter", filter)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -126,6 +122,9 @@ class GetUserResult:
     @property
     @pulumi.getter
     def filter(self) -> Optional['outputs.GetUserFilterResult']:
+        warnings.warn("""Use the alternate_identifier attribute instead.""", DeprecationWarning)
+        pulumi.log.warn("""filter is deprecated: Use the alternate_identifier attribute instead.""")
+
         return pulumi.get(self, "filter")
 
     @property
@@ -281,25 +280,25 @@ def get_user(alternate_identifier: Optional[pulumi.InputType['GetUserAlternateId
     __ret__ = pulumi.runtime.invoke('aws:identitystore/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        addresses=__ret__.addresses,
-        alternate_identifier=__ret__.alternate_identifier,
-        display_name=__ret__.display_name,
-        emails=__ret__.emails,
-        external_ids=__ret__.external_ids,
-        filter=__ret__.filter,
-        id=__ret__.id,
-        identity_store_id=__ret__.identity_store_id,
-        locale=__ret__.locale,
-        names=__ret__.names,
-        nickname=__ret__.nickname,
-        phone_numbers=__ret__.phone_numbers,
-        preferred_language=__ret__.preferred_language,
-        profile_url=__ret__.profile_url,
-        timezone=__ret__.timezone,
-        title=__ret__.title,
-        user_id=__ret__.user_id,
-        user_name=__ret__.user_name,
-        user_type=__ret__.user_type)
+        addresses=pulumi.get(__ret__, 'addresses'),
+        alternate_identifier=pulumi.get(__ret__, 'alternate_identifier'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        emails=pulumi.get(__ret__, 'emails'),
+        external_ids=pulumi.get(__ret__, 'external_ids'),
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_store_id=pulumi.get(__ret__, 'identity_store_id'),
+        locale=pulumi.get(__ret__, 'locale'),
+        names=pulumi.get(__ret__, 'names'),
+        nickname=pulumi.get(__ret__, 'nickname'),
+        phone_numbers=pulumi.get(__ret__, 'phone_numbers'),
+        preferred_language=pulumi.get(__ret__, 'preferred_language'),
+        profile_url=pulumi.get(__ret__, 'profile_url'),
+        timezone=pulumi.get(__ret__, 'timezone'),
+        title=pulumi.get(__ret__, 'title'),
+        user_id=pulumi.get(__ret__, 'user_id'),
+        user_name=pulumi.get(__ret__, 'user_name'),
+        user_type=pulumi.get(__ret__, 'user_type'))
 
 
 @_utilities.lift_output_func(get_user)

@@ -84,9 +84,9 @@ def get_cluster_auth(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:eks/getClusterAuth:getClusterAuth', __args__, opts=opts, typ=GetClusterAuthResult).value
 
     return AwaitableGetClusterAuthResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        token=__ret__.token)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(get_cluster_auth)
