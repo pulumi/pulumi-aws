@@ -449,6 +449,19 @@ func TestAccKmsAliasTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestRegress1423Ts(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "regress-1423"),
+			RunUpdateTest: false,
+		})
+	test.ExpectRefreshChanges = false
+	test.Quick = false
+	test.SkipRefresh = false
+
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	base := getBaseOptions()
