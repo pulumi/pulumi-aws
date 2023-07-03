@@ -26,7 +26,7 @@ func replaceWafV2TypesWithRecursive(pulumiPackageSpec *schema.PackageSpec) {
 	var elidedRefs []string
 	for tok, ts := range pulumiPackageSpec.Types {
 		// Skip everything except WafV2 types.
-		if !strings.Contains(tok, "wafv2") {
+		if !strings.Contains(tok, ":wafv2/") {
 			continue
 		}
 		// The recursive structures look like these currently:
@@ -44,6 +44,8 @@ func replaceWafV2TypesWithRecursive(pulumiPackageSpec *schema.PackageSpec) {
 			continue
 		}
 		// Add the currently referenced type to the list to be elided.
+		// Example of a reference:
+		// #/types/aws:wafv2/RuleGroupRuleStatement:RuleGroupRuleStatement
 		refType := strings.Split(oldRef, ":")[2]
 		elidedRefs = append(elidedRefs, refType)
 		// Get the current type name.

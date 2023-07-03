@@ -7117,8 +7117,8 @@ func Provider() *tfbridge.ProviderInfo {
 	}
 
 	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
-		// These examples hang on Go generation.
-		// Will open an issue and link it from this comment before merging the PR.
+		// These examples hang on Go generation. Issue tracking to unblock:
+		// https://github.com/pulumi/pulumi-aws/issues/2598
 		return args.ExamplePath == "#/resources/aws:wafv2/ruleGroup:RuleGroup" ||
 			args.ExamplePath == "#/resources/aws:wafv2/webAcl:WebAcl" ||
 			args.ExamplePath == "#/resources/aws:appsync/graphQLApi:GraphQLApi"
