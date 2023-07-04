@@ -169,8 +169,8 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 kinesis_firehose_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs(
-                    delivery_stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    iam_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    delivery_stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+                    iam_role_arn=aws_iam_role["example"]["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
@@ -188,7 +188,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 pinpoint_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs(
-                    application_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    application_arn=aws_pinpoint_app["example"]["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
@@ -206,7 +206,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 sns_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs(
-                    topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    topic_arn=aws_sns_topic["example"]["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
@@ -271,8 +271,8 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 kinesis_firehose_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs(
-                    delivery_stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    iam_role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    delivery_stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+                    iam_role_arn=aws_iam_role["example"]["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
@@ -290,7 +290,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 pinpoint_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs(
-                    application_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    application_arn=aws_pinpoint_app["example"]["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],
@@ -308,7 +308,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             event_destination_name="example",
             event_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationArgs(
                 sns_destination=aws.sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs(
-                    topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    topic_arn=aws_sns_topic["example"]["arn"],
                 ),
                 enabled=True,
                 matching_event_types=["SEND"],

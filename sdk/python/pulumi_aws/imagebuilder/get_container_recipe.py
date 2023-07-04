@@ -272,24 +272,24 @@ def get_container_recipe(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getContainerRecipe:getContainerRecipe', __args__, opts=opts, typ=GetContainerRecipeResult).value
 
     return AwaitableGetContainerRecipeResult(
-        arn=__ret__.arn,
-        components=__ret__.components,
-        container_type=__ret__.container_type,
-        date_created=__ret__.date_created,
-        description=__ret__.description,
-        dockerfile_template_data=__ret__.dockerfile_template_data,
-        encrypted=__ret__.encrypted,
-        id=__ret__.id,
-        instance_configurations=__ret__.instance_configurations,
-        kms_key_id=__ret__.kms_key_id,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        parent_image=__ret__.parent_image,
-        platform=__ret__.platform,
-        tags=__ret__.tags,
-        target_repositories=__ret__.target_repositories,
-        version=__ret__.version,
-        working_directory=__ret__.working_directory)
+        arn=pulumi.get(__ret__, 'arn'),
+        components=pulumi.get(__ret__, 'components'),
+        container_type=pulumi.get(__ret__, 'container_type'),
+        date_created=pulumi.get(__ret__, 'date_created'),
+        description=pulumi.get(__ret__, 'description'),
+        dockerfile_template_data=pulumi.get(__ret__, 'dockerfile_template_data'),
+        encrypted=pulumi.get(__ret__, 'encrypted'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_configurations=pulumi.get(__ret__, 'instance_configurations'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        parent_image=pulumi.get(__ret__, 'parent_image'),
+        platform=pulumi.get(__ret__, 'platform'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_repositories=pulumi.get(__ret__, 'target_repositories'),
+        version=pulumi.get(__ret__, 'version'),
+        working_directory=pulumi.get(__ret__, 'working_directory'))
 
 
 @_utilities.lift_output_func(get_container_recipe)

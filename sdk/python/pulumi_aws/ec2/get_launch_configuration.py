@@ -272,24 +272,24 @@ def get_launch_configuration(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLaunchConfiguration:getLaunchConfiguration', __args__, opts=opts, typ=GetLaunchConfigurationResult).value
 
     return AwaitableGetLaunchConfigurationResult(
-        arn=__ret__.arn,
-        associate_public_ip_address=__ret__.associate_public_ip_address,
-        ebs_block_devices=__ret__.ebs_block_devices,
-        ebs_optimized=__ret__.ebs_optimized,
-        enable_monitoring=__ret__.enable_monitoring,
-        ephemeral_block_devices=__ret__.ephemeral_block_devices,
-        iam_instance_profile=__ret__.iam_instance_profile,
-        id=__ret__.id,
-        image_id=__ret__.image_id,
-        instance_type=__ret__.instance_type,
-        key_name=__ret__.key_name,
-        metadata_options=__ret__.metadata_options,
-        name=__ret__.name,
-        placement_tenancy=__ret__.placement_tenancy,
-        root_block_devices=__ret__.root_block_devices,
-        security_groups=__ret__.security_groups,
-        spot_price=__ret__.spot_price,
-        user_data=__ret__.user_data)
+        arn=pulumi.get(__ret__, 'arn'),
+        associate_public_ip_address=pulumi.get(__ret__, 'associate_public_ip_address'),
+        ebs_block_devices=pulumi.get(__ret__, 'ebs_block_devices'),
+        ebs_optimized=pulumi.get(__ret__, 'ebs_optimized'),
+        enable_monitoring=pulumi.get(__ret__, 'enable_monitoring'),
+        ephemeral_block_devices=pulumi.get(__ret__, 'ephemeral_block_devices'),
+        iam_instance_profile=pulumi.get(__ret__, 'iam_instance_profile'),
+        id=pulumi.get(__ret__, 'id'),
+        image_id=pulumi.get(__ret__, 'image_id'),
+        instance_type=pulumi.get(__ret__, 'instance_type'),
+        key_name=pulumi.get(__ret__, 'key_name'),
+        metadata_options=pulumi.get(__ret__, 'metadata_options'),
+        name=pulumi.get(__ret__, 'name'),
+        placement_tenancy=pulumi.get(__ret__, 'placement_tenancy'),
+        root_block_devices=pulumi.get(__ret__, 'root_block_devices'),
+        security_groups=pulumi.get(__ret__, 'security_groups'),
+        spot_price=pulumi.get(__ret__, 'spot_price'),
+        user_data=pulumi.get(__ret__, 'user_data'))
 
 
 @_utilities.lift_output_func(get_launch_configuration)

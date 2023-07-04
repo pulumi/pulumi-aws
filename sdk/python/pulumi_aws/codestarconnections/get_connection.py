@@ -127,7 +127,7 @@ def get_connection(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
     ```
     ### By Name
 
@@ -135,7 +135,7 @@ def get_connection(arn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
     ```
 
 
@@ -153,13 +153,13 @@ def get_connection(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:codestarconnections/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
 
     return AwaitableGetConnectionResult(
-        arn=__ret__.arn,
-        connection_status=__ret__.connection_status,
-        host_arn=__ret__.host_arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        provider_type=__ret__.provider_type,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        connection_status=pulumi.get(__ret__, 'connection_status'),
+        host_arn=pulumi.get(__ret__, 'host_arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provider_type=pulumi.get(__ret__, 'provider_type'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_connection)
@@ -177,7 +177,7 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
     ```
     ### By Name
 
@@ -185,7 +185,7 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.codestarconnections.get_connection(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
     ```
 
 

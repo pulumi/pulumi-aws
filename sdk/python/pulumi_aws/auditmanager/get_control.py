@@ -181,16 +181,16 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
     __ret__ = pulumi.runtime.invoke('aws:auditmanager/getControl:getControl', __args__, opts=opts, typ=GetControlResult).value
 
     return AwaitableGetControlResult(
-        action_plan_instructions=__ret__.action_plan_instructions,
-        action_plan_title=__ret__.action_plan_title,
-        arn=__ret__.arn,
-        control_mapping_sources=__ret__.control_mapping_sources,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        testing_information=__ret__.testing_information,
-        type=__ret__.type)
+        action_plan_instructions=pulumi.get(__ret__, 'action_plan_instructions'),
+        action_plan_title=pulumi.get(__ret__, 'action_plan_title'),
+        arn=pulumi.get(__ret__, 'arn'),
+        control_mapping_sources=pulumi.get(__ret__, 'control_mapping_sources'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        testing_information=pulumi.get(__ret__, 'testing_information'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_control)

@@ -185,15 +185,15 @@ def get_bucket(bucket: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucket:getBucket', __args__, opts=opts, typ=GetBucketResult).value
 
     return AwaitableGetBucketResult(
-        arn=__ret__.arn,
-        bucket=__ret__.bucket,
-        bucket_domain_name=__ret__.bucket_domain_name,
-        bucket_regional_domain_name=__ret__.bucket_regional_domain_name,
-        hosted_zone_id=__ret__.hosted_zone_id,
-        id=__ret__.id,
-        region=__ret__.region,
-        website_domain=__ret__.website_domain,
-        website_endpoint=__ret__.website_endpoint)
+        arn=pulumi.get(__ret__, 'arn'),
+        bucket=pulumi.get(__ret__, 'bucket'),
+        bucket_domain_name=pulumi.get(__ret__, 'bucket_domain_name'),
+        bucket_regional_domain_name=pulumi.get(__ret__, 'bucket_regional_domain_name'),
+        hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
+        website_domain=pulumi.get(__ret__, 'website_domain'),
+        website_endpoint=pulumi.get(__ret__, 'website_endpoint'))
 
 
 @_utilities.lift_output_func(get_bucket)

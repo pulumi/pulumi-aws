@@ -96,7 +96,7 @@ def get_local_gateway_virtual_interface_group(filters: Optional[Sequence[pulumi.
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_local_gateway_virtual_interface_group(local_gateway_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.ec2.get_local_gateway_virtual_interface_group(local_gateway_id=data["aws_ec2_local_gateway"]["example"]["id"])
     ```
 
 
@@ -114,11 +114,11 @@ def get_local_gateway_virtual_interface_group(filters: Optional[Sequence[pulumi.
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLocalGatewayVirtualInterfaceGroup:getLocalGatewayVirtualInterfaceGroup', __args__, opts=opts, typ=GetLocalGatewayVirtualInterfaceGroupResult).value
 
     return AwaitableGetLocalGatewayVirtualInterfaceGroupResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        local_gateway_id=__ret__.local_gateway_id,
-        local_gateway_virtual_interface_ids=__ret__.local_gateway_virtual_interface_ids,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        local_gateway_id=pulumi.get(__ret__, 'local_gateway_id'),
+        local_gateway_virtual_interface_ids=pulumi.get(__ret__, 'local_gateway_virtual_interface_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_local_gateway_virtual_interface_group)
@@ -136,7 +136,7 @@ def get_local_gateway_virtual_interface_group_output(filters: Optional[pulumi.In
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_local_gateway_virtual_interface_group(local_gateway_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.ec2.get_local_gateway_virtual_interface_group(local_gateway_id=data["aws_ec2_local_gateway"]["example"]["id"])
     ```
 
 

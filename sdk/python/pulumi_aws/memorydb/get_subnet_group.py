@@ -139,13 +139,13 @@ def get_subnet_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:memorydb/getSubnetGroup:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult).value
 
     return AwaitableGetSubnetGroupResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_subnet_group)

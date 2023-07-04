@@ -77,7 +77,7 @@ def get_user_hierarchy_structure(instance_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.connect.get_user_hierarchy_structure(instance_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    test = aws.connect.get_user_hierarchy_structure(instance_id=aws_connect_instance["test"]["id"])
     ```
 
 
@@ -89,9 +89,9 @@ def get_user_hierarchy_structure(instance_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:connect/getUserHierarchyStructure:getUserHierarchyStructure', __args__, opts=opts, typ=GetUserHierarchyStructureResult).value
 
     return AwaitableGetUserHierarchyStructureResult(
-        hierarchy_structures=__ret__.hierarchy_structures,
-        id=__ret__.id,
-        instance_id=__ret__.instance_id)
+        hierarchy_structures=pulumi.get(__ret__, 'hierarchy_structures'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_id=pulumi.get(__ret__, 'instance_id'))
 
 
 @_utilities.lift_output_func(get_user_hierarchy_structure)
@@ -106,7 +106,7 @@ def get_user_hierarchy_structure_output(instance_id: Optional[pulumi.Input[str]]
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.connect.get_user_hierarchy_structure(instance_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    test = aws.connect.get_user_hierarchy_structure(instance_id=aws_connect_instance["test"]["id"])
     ```
 
 

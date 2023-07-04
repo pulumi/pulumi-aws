@@ -223,10 +223,10 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=aws_lambda_alias["example"]["function_name"],
             destination_config=aws.lambda_.FunctionEventInvokeConfigDestinationConfigArgs(
                 on_failure=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnFailureArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_sqs_queue["example"]["arn"],
                 ),
                 on_success=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_sns_topic["example"]["arn"],
                 ),
             ))
         ```
@@ -333,10 +333,10 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=aws_lambda_alias["example"]["function_name"],
             destination_config=aws.lambda_.FunctionEventInvokeConfigDestinationConfigArgs(
                 on_failure=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnFailureArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_sqs_queue["example"]["arn"],
                 ),
                 on_success=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_sns_topic["example"]["arn"],
                 ),
             ))
         ```

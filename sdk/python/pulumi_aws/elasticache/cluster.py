@@ -1176,13 +1176,13 @@ class Cluster(pulumi.CustomResource):
             apply_immediately=True,
             log_delivery_configurations=[
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_cloudwatch_log_group["example"]["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",
@@ -1320,13 +1320,13 @@ class Cluster(pulumi.CustomResource):
             apply_immediately=True,
             log_delivery_configurations=[
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_cloudwatch_log_group["example"]["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
                 aws.elasticache.ClusterLogDeliveryConfigurationArgs(
-                    destination=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
                     log_type="engine-log",

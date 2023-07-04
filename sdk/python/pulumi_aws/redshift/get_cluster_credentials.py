@@ -138,8 +138,8 @@ def get_cluster_credentials(auto_create: Optional[bool] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshift.get_cluster_credentials(cluster_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        db_user=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.redshift.get_cluster_credentials(cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
+        db_user=aws_redshift_cluster["example"]["master_username"])
     ```
 
 
@@ -161,15 +161,15 @@ def get_cluster_credentials(auto_create: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('aws:redshift/getClusterCredentials:getClusterCredentials', __args__, opts=opts, typ=GetClusterCredentialsResult).value
 
     return AwaitableGetClusterCredentialsResult(
-        auto_create=__ret__.auto_create,
-        cluster_identifier=__ret__.cluster_identifier,
-        db_groups=__ret__.db_groups,
-        db_name=__ret__.db_name,
-        db_password=__ret__.db_password,
-        db_user=__ret__.db_user,
-        duration_seconds=__ret__.duration_seconds,
-        expiration=__ret__.expiration,
-        id=__ret__.id)
+        auto_create=pulumi.get(__ret__, 'auto_create'),
+        cluster_identifier=pulumi.get(__ret__, 'cluster_identifier'),
+        db_groups=pulumi.get(__ret__, 'db_groups'),
+        db_name=pulumi.get(__ret__, 'db_name'),
+        db_password=pulumi.get(__ret__, 'db_password'),
+        db_user=pulumi.get(__ret__, 'db_user'),
+        duration_seconds=pulumi.get(__ret__, 'duration_seconds'),
+        expiration=pulumi.get(__ret__, 'expiration'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_cluster_credentials)
@@ -189,8 +189,8 @@ def get_cluster_credentials_output(auto_create: Optional[pulumi.Input[Optional[b
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshift.get_cluster_credentials(cluster_identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-        db_user=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.redshift.get_cluster_credentials(cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
+        db_user=aws_redshift_cluster["example"]["master_username"])
     ```
 
 

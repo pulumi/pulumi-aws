@@ -268,7 +268,7 @@ class Framework(pulumi.CustomResource):
             control_sets=[aws.auditmanager.FrameworkControlSetArgs(
                 name="example",
                 controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=aws_auditmanager_control["test"]["id"],
                 )],
             )])
         ```
@@ -312,7 +312,7 @@ class Framework(pulumi.CustomResource):
             control_sets=[aws.auditmanager.FrameworkControlSetArgs(
                 name="example",
                 controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    id=aws_auditmanager_control["test"]["id"],
                 )],
             )])
         ```

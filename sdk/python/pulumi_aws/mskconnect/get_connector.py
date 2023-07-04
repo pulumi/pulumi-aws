@@ -112,11 +112,11 @@ def get_connector(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:mskconnect/getConnector:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
     return AwaitableGetConnectorResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        version=__ret__.version)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_connector)

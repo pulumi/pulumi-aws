@@ -32,11 +32,9 @@ import * as utilities from "../utilities";
  *             aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
  *         ],
  *     });
- *     const endpoint = example.endpoint;
- *     const kubeconfig_certificate_authority_data = example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data);
  *     return {
- *         endpoint: endpoint,
- *         "kubeconfig-certificate-authority-data": kubeconfig_certificate_authority_data,
+ *         endpoint: example.endpoint,
+ *         "kubeconfig-certificate-authority-data": example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data),
  *     };
  * }
  * ```

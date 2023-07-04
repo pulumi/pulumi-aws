@@ -108,11 +108,11 @@ def get_invocation(function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lambda/getInvocation:getInvocation', __args__, opts=opts, typ=GetInvocationResult).value
 
     return AwaitableGetInvocationResult(
-        function_name=__ret__.function_name,
-        id=__ret__.id,
-        input=__ret__.input,
-        qualifier=__ret__.qualifier,
-        result=__ret__.result)
+        function_name=pulumi.get(__ret__, 'function_name'),
+        id=pulumi.get(__ret__, 'id'),
+        input=pulumi.get(__ret__, 'input'),
+        qualifier=pulumi.get(__ret__, 'qualifier'),
+        result=pulumi.get(__ret__, 'result'))
 
 
 @_utilities.lift_output_func(get_invocation)

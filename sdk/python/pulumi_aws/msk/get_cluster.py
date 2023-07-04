@@ -237,21 +237,21 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:msk/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        arn=__ret__.arn,
-        bootstrap_brokers=__ret__.bootstrap_brokers,
-        bootstrap_brokers_public_sasl_iam=__ret__.bootstrap_brokers_public_sasl_iam,
-        bootstrap_brokers_public_sasl_scram=__ret__.bootstrap_brokers_public_sasl_scram,
-        bootstrap_brokers_public_tls=__ret__.bootstrap_brokers_public_tls,
-        bootstrap_brokers_sasl_iam=__ret__.bootstrap_brokers_sasl_iam,
-        bootstrap_brokers_sasl_scram=__ret__.bootstrap_brokers_sasl_scram,
-        bootstrap_brokers_tls=__ret__.bootstrap_brokers_tls,
-        cluster_name=__ret__.cluster_name,
-        id=__ret__.id,
-        kafka_version=__ret__.kafka_version,
-        number_of_broker_nodes=__ret__.number_of_broker_nodes,
-        tags=__ret__.tags,
-        zookeeper_connect_string=__ret__.zookeeper_connect_string,
-        zookeeper_connect_string_tls=__ret__.zookeeper_connect_string_tls)
+        arn=pulumi.get(__ret__, 'arn'),
+        bootstrap_brokers=pulumi.get(__ret__, 'bootstrap_brokers'),
+        bootstrap_brokers_public_sasl_iam=pulumi.get(__ret__, 'bootstrap_brokers_public_sasl_iam'),
+        bootstrap_brokers_public_sasl_scram=pulumi.get(__ret__, 'bootstrap_brokers_public_sasl_scram'),
+        bootstrap_brokers_public_tls=pulumi.get(__ret__, 'bootstrap_brokers_public_tls'),
+        bootstrap_brokers_sasl_iam=pulumi.get(__ret__, 'bootstrap_brokers_sasl_iam'),
+        bootstrap_brokers_sasl_scram=pulumi.get(__ret__, 'bootstrap_brokers_sasl_scram'),
+        bootstrap_brokers_tls=pulumi.get(__ret__, 'bootstrap_brokers_tls'),
+        cluster_name=pulumi.get(__ret__, 'cluster_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kafka_version=pulumi.get(__ret__, 'kafka_version'),
+        number_of_broker_nodes=pulumi.get(__ret__, 'number_of_broker_nodes'),
+        tags=pulumi.get(__ret__, 'tags'),
+        zookeeper_connect_string=pulumi.get(__ret__, 'zookeeper_connect_string'),
+        zookeeper_connect_string_tls=pulumi.get(__ret__, 'zookeeper_connect_string_tls'))
 
 
 @_utilities.lift_output_func(get_cluster)

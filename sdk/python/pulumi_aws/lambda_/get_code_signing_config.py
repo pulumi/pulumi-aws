@@ -139,13 +139,13 @@ def get_code_signing_config(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lambda/getCodeSigningConfig:getCodeSigningConfig', __args__, opts=opts, typ=GetCodeSigningConfigResult).value
 
     return AwaitableGetCodeSigningConfigResult(
-        allowed_publishers=__ret__.allowed_publishers,
-        arn=__ret__.arn,
-        config_id=__ret__.config_id,
-        description=__ret__.description,
-        id=__ret__.id,
-        last_modified=__ret__.last_modified,
-        policies=__ret__.policies)
+        allowed_publishers=pulumi.get(__ret__, 'allowed_publishers'),
+        arn=pulumi.get(__ret__, 'arn'),
+        config_id=pulumi.get(__ret__, 'config_id'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        policies=pulumi.get(__ret__, 'policies'))
 
 
 @_utilities.lift_output_func(get_code_signing_config)

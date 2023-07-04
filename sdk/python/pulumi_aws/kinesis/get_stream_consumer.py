@@ -111,7 +111,7 @@ def get_stream_consumer(arn: Optional[str] = None,
     import pulumi_aws as aws
 
     example = aws.kinesis.get_stream_consumer(name="example-consumer",
-        stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        stream_arn=aws_kinesis_stream["example"]["arn"])
     ```
 
 
@@ -127,12 +127,12 @@ def get_stream_consumer(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:kinesis/getStreamConsumer:getStreamConsumer', __args__, opts=opts, typ=GetStreamConsumerResult).value
 
     return AwaitableGetStreamConsumerResult(
-        arn=__ret__.arn,
-        creation_timestamp=__ret__.creation_timestamp,
-        id=__ret__.id,
-        name=__ret__.name,
-        status=__ret__.status,
-        stream_arn=__ret__.stream_arn)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_timestamp=pulumi.get(__ret__, 'creation_timestamp'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        stream_arn=pulumi.get(__ret__, 'stream_arn'))
 
 
 @_utilities.lift_output_func(get_stream_consumer)
@@ -152,7 +152,7 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[str]]] = None
     import pulumi_aws as aws
 
     example = aws.kinesis.get_stream_consumer(name="example-consumer",
-        stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        stream_arn=aws_kinesis_stream["example"]["arn"])
     ```
 
 

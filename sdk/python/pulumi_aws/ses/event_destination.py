@@ -325,8 +325,8 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             kinesis_destination=aws.ses.EventDestinationKinesisDestinationArgs(
-                stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+                role_arn=aws_iam_role["example"]["arn"],
             ))
         ```
         ### SNS Destination
@@ -343,7 +343,7 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             sns_destination=aws.ses.EventDestinationSnsDestinationArgs(
-                topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                topic_arn=aws_sns_topic["example"]["arn"],
             ))
         ```
 
@@ -410,8 +410,8 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             kinesis_destination=aws.ses.EventDestinationKinesisDestinationArgs(
-                stream_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                role_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
+                role_arn=aws_iam_role["example"]["arn"],
             ))
         ```
         ### SNS Destination
@@ -428,7 +428,7 @@ class EventDestination(pulumi.CustomResource):
                 "send",
             ],
             sns_destination=aws.ses.EventDestinationSnsDestinationArgs(
-                topic_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                topic_arn=aws_sns_topic["example"]["arn"],
             ))
         ```
 

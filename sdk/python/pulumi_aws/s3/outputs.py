@@ -1116,6 +1116,9 @@ class BucketLifecycleConfigurationV2Rule(dict):
         """
         **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
         """
+        warnings.warn("""Use filter instead""", DeprecationWarning)
+        pulumi.log.warn("""prefix is deprecated: Use filter instead""")
+
         return pulumi.get(self, "prefix")
 
     @property
@@ -2723,6 +2726,9 @@ class BucketReplicationConfigRule(dict):
         """
         Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
         """
+        warnings.warn("""Use filter instead""", DeprecationWarning)
+        pulumi.log.warn("""prefix is deprecated: Use filter instead""")
+
         return pulumi.get(self, "prefix")
 
     @property
@@ -4465,6 +4471,9 @@ class BucketV2ObjectLockConfiguration(dict):
         """
         Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         """
+        warnings.warn("""Use the top-level parameter object_lock_enabled instead""", DeprecationWarning)
+        pulumi.log.warn("""object_lock_enabled is deprecated: Use the top-level parameter object_lock_enabled instead""")
+
         return pulumi.get(self, "object_lock_enabled")
 
     @property
@@ -4473,6 +4482,9 @@ class BucketV2ObjectLockConfiguration(dict):
         """
         Object Lock rule in place for this bucket (documented below).
         """
+        warnings.warn("""Use the aws_s3_bucket_object_lock_configuration resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rules is deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead""")
+
         return pulumi.get(self, "rules")
 
 

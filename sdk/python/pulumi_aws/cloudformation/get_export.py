@@ -107,10 +107,10 @@ def get_export(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudformation/getExport:getExport', __args__, opts=opts, typ=GetExportResult).value
 
     return AwaitableGetExportResult(
-        exporting_stack_id=__ret__.exporting_stack_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        value=__ret__.value)
+        exporting_stack_id=pulumi.get(__ret__, 'exporting_stack_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_export)

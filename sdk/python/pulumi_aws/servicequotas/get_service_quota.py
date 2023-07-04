@@ -190,17 +190,17 @@ def get_service_quota(quota_code: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:servicequotas/getServiceQuota:getServiceQuota', __args__, opts=opts, typ=GetServiceQuotaResult).value
 
     return AwaitableGetServiceQuotaResult(
-        adjustable=__ret__.adjustable,
-        arn=__ret__.arn,
-        default_value=__ret__.default_value,
-        global_quota=__ret__.global_quota,
-        id=__ret__.id,
-        quota_code=__ret__.quota_code,
-        quota_name=__ret__.quota_name,
-        service_code=__ret__.service_code,
-        service_name=__ret__.service_name,
-        usage_metrics=__ret__.usage_metrics,
-        value=__ret__.value)
+        adjustable=pulumi.get(__ret__, 'adjustable'),
+        arn=pulumi.get(__ret__, 'arn'),
+        default_value=pulumi.get(__ret__, 'default_value'),
+        global_quota=pulumi.get(__ret__, 'global_quota'),
+        id=pulumi.get(__ret__, 'id'),
+        quota_code=pulumi.get(__ret__, 'quota_code'),
+        quota_name=pulumi.get(__ret__, 'quota_name'),
+        service_code=pulumi.get(__ret__, 'service_code'),
+        service_name=pulumi.get(__ret__, 'service_name'),
+        usage_metrics=pulumi.get(__ret__, 'usage_metrics'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_service_quota)

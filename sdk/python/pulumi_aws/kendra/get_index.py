@@ -275,24 +275,24 @@ def get_index(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:kendra/getIndex:getIndex', __args__, opts=opts, typ=GetIndexResult).value
 
     return AwaitableGetIndexResult(
-        arn=__ret__.arn,
-        capacity_units=__ret__.capacity_units,
-        created_at=__ret__.created_at,
-        description=__ret__.description,
-        document_metadata_configuration_updates=__ret__.document_metadata_configuration_updates,
-        edition=__ret__.edition,
-        error_message=__ret__.error_message,
-        id=__ret__.id,
-        index_statistics=__ret__.index_statistics,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        server_side_encryption_configurations=__ret__.server_side_encryption_configurations,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        updated_at=__ret__.updated_at,
-        user_context_policy=__ret__.user_context_policy,
-        user_group_resolution_configurations=__ret__.user_group_resolution_configurations,
-        user_token_configurations=__ret__.user_token_configurations)
+        arn=pulumi.get(__ret__, 'arn'),
+        capacity_units=pulumi.get(__ret__, 'capacity_units'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        description=pulumi.get(__ret__, 'description'),
+        document_metadata_configuration_updates=pulumi.get(__ret__, 'document_metadata_configuration_updates'),
+        edition=pulumi.get(__ret__, 'edition'),
+        error_message=pulumi.get(__ret__, 'error_message'),
+        id=pulumi.get(__ret__, 'id'),
+        index_statistics=pulumi.get(__ret__, 'index_statistics'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        server_side_encryption_configurations=pulumi.get(__ret__, 'server_side_encryption_configurations'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        updated_at=pulumi.get(__ret__, 'updated_at'),
+        user_context_policy=pulumi.get(__ret__, 'user_context_policy'),
+        user_group_resolution_configurations=pulumi.get(__ret__, 'user_group_resolution_configurations'),
+        user_token_configurations=pulumi.get(__ret__, 'user_token_configurations'))
 
 
 @_utilities.lift_output_func(get_index)

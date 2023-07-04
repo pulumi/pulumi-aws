@@ -127,12 +127,12 @@ def get_resource(identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudcontrol/getResource:getResource', __args__, opts=opts, typ=GetResourceResult).value
 
     return AwaitableGetResourceResult(
-        id=__ret__.id,
-        identifier=__ret__.identifier,
-        properties=__ret__.properties,
-        role_arn=__ret__.role_arn,
-        type_name=__ret__.type_name,
-        type_version_id=__ret__.type_version_id)
+        id=pulumi.get(__ret__, 'id'),
+        identifier=pulumi.get(__ret__, 'identifier'),
+        properties=pulumi.get(__ret__, 'properties'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        type_name=pulumi.get(__ret__, 'type_name'),
+        type_version_id=pulumi.get(__ret__, 'type_version_id'))
 
 
 @_utilities.lift_output_func(get_resource)

@@ -160,15 +160,15 @@ def get_link(link_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:oam/getLink:getLink', __args__, opts=opts, typ=GetLinkResult).value
 
     return AwaitableGetLinkResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        label=__ret__.label,
-        label_template=__ret__.label_template,
-        link_id=__ret__.link_id,
-        link_identifier=__ret__.link_identifier,
-        resource_types=__ret__.resource_types,
-        sink_arn=__ret__.sink_arn,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        label=pulumi.get(__ret__, 'label'),
+        label_template=pulumi.get(__ret__, 'label_template'),
+        link_id=pulumi.get(__ret__, 'link_id'),
+        link_identifier=pulumi.get(__ret__, 'link_identifier'),
+        resource_types=pulumi.get(__ret__, 'resource_types'),
+        sink_arn=pulumi.get(__ret__, 'sink_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_link)

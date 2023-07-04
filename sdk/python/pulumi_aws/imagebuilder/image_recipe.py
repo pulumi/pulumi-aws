@@ -469,7 +469,7 @@ class ImageRecipe(pulumi.CustomResource):
                 ),
             )],
             components=[aws.imagebuilder.ImageRecipeComponentArgs(
-                component_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                component_arn=aws_imagebuilder_component["example"]["arn"],
                 parameters=[
                     aws.imagebuilder.ImageRecipeComponentParameterArgs(
                         name="Parameter1",
@@ -533,7 +533,7 @@ class ImageRecipe(pulumi.CustomResource):
                 ),
             )],
             components=[aws.imagebuilder.ImageRecipeComponentArgs(
-                component_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                component_arn=aws_imagebuilder_component["example"]["arn"],
                 parameters=[
                     aws.imagebuilder.ImageRecipeComponentParameterArgs(
                         name="Parameter1",

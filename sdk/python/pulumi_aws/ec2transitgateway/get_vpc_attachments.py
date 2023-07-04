@@ -73,6 +73,18 @@ def get_vpc_attachments(filters: Optional[Sequence[pulumi.InputType['GetVpcAttac
     Get information on EC2 Transit Gateway VPC Attachments.
 
     ## Example Usage
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    filtered = aws.ec2transitgateway.get_vpc_attachments(filters=[aws.ec2transitgateway.GetVpcAttachmentsFilterArgs(
+        name="state",
+        values=["pendingAcceptance"],
+    )])
+    unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
+    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
@@ -83,9 +95,9 @@ def get_vpc_attachments(filters: Optional[Sequence[pulumi.InputType['GetVpcAttac
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpcAttachments:getVpcAttachments', __args__, opts=opts, typ=GetVpcAttachmentsResult).value
 
     return AwaitableGetVpcAttachmentsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'))
 
 
 @_utilities.lift_output_func(get_vpc_attachments)
@@ -95,6 +107,18 @@ def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[
     Get information on EC2 Transit Gateway VPC Attachments.
 
     ## Example Usage
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    filtered = aws.ec2transitgateway.get_vpc_attachments(filters=[aws.ec2transitgateway.GetVpcAttachmentsFilterArgs(
+        name="state",
+        values=["pendingAcceptance"],
+    )])
+    unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
+    ```
 
 
     :param Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.

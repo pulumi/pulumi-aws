@@ -103,5 +103,5 @@ def get_billing_service_account(opts: Optional[pulumi.InvokeOptions] = None) -> 
     __ret__ = pulumi.runtime.invoke('aws:index/getBillingServiceAccount:getBillingServiceAccount', __args__, opts=opts, typ=GetBillingServiceAccountResult).value
 
     return AwaitableGetBillingServiceAccountResult(
-        arn=__ret__.arn,
-        id=__ret__.id)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'))

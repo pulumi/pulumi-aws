@@ -243,6 +243,9 @@ class ClusterArgs:
         No longer supported by the AWS API.
         Always returns `auto`.
         """
+        warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "aqua_configuration_status")
 
     @aqua_configuration_status.setter
@@ -890,6 +893,9 @@ class _ClusterState:
         No longer supported by the AWS API.
         Always returns `auto`.
         """
+        warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "aqua_configuration_status")
 
     @aqua_configuration_status.setter
@@ -1846,6 +1852,9 @@ class Cluster(pulumi.CustomResource):
         No longer supported by the AWS API.
         Always returns `auto`.
         """
+        warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
+        pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
+
         return pulumi.get(self, "aqua_configuration_status")
 
     @property

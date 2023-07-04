@@ -14,12 +14,12 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement
     {
         /// <summary>
-        /// Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
+        /// The statements to combine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatement> Statements;
+        public readonly ImmutableArray<Outputs.WebAclRuleStatement> Statements;
 
         [OutputConstructor]
-        private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement(ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatement> statements)
+        private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement(ImmutableArray<Outputs.WebAclRuleStatement> statements)
         {
             Statements = statements;
         }

@@ -74,5 +74,5 @@ def get_sinks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSinksR
     __ret__ = pulumi.runtime.invoke('aws:oam/getSinks:getSinks', __args__, opts=opts, typ=GetSinksResult).value
 
     return AwaitableGetSinksResult(
-        arns=__ret__.arns,
-        id=__ret__.id)
+        arns=pulumi.get(__ret__, 'arns'),
+        id=pulumi.get(__ret__, 'id'))

@@ -202,18 +202,18 @@ def get_role(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getRole:getRole', __args__, opts=opts, typ=GetRoleResult).value
 
     return AwaitableGetRoleResult(
-        arn=__ret__.arn,
-        assume_role_policy=__ret__.assume_role_policy,
-        create_date=__ret__.create_date,
-        description=__ret__.description,
-        id=__ret__.id,
-        max_session_duration=__ret__.max_session_duration,
-        name=__ret__.name,
-        path=__ret__.path,
-        permissions_boundary=__ret__.permissions_boundary,
-        role_last_useds=__ret__.role_last_useds,
-        tags=__ret__.tags,
-        unique_id=__ret__.unique_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        assume_role_policy=pulumi.get(__ret__, 'assume_role_policy'),
+        create_date=pulumi.get(__ret__, 'create_date'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        max_session_duration=pulumi.get(__ret__, 'max_session_duration'),
+        name=pulumi.get(__ret__, 'name'),
+        path=pulumi.get(__ret__, 'path'),
+        permissions_boundary=pulumi.get(__ret__, 'permissions_boundary'),
+        role_last_useds=pulumi.get(__ret__, 'role_last_useds'),
+        tags=pulumi.get(__ret__, 'tags'),
+        unique_id=pulumi.get(__ret__, 'unique_id'))
 
 
 @_utilities.lift_output_func(get_role)

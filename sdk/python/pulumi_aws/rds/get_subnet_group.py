@@ -148,14 +148,14 @@ def get_subnet_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:rds/getSubnetGroup:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult).value
 
     return AwaitableGetSubnetGroupResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        status=__ret__.status,
-        subnet_ids=__ret__.subnet_ids,
-        supported_network_types=__ret__.supported_network_types,
-        vpc_id=__ret__.vpc_id)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        supported_network_types=pulumi.get(__ret__, 'supported_network_types'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_subnet_group)

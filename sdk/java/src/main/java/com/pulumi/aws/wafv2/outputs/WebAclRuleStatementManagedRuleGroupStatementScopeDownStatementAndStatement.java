@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement {
     /**
-     * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
+     * @return The statements to combine.
      * 
      */
-    private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatement> statements;
+    private List<WebAclRuleStatement> statements;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement() {}
     /**
-     * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
+     * @return The statements to combine.
      * 
      */
-    public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatement> statements() {
+    public List<WebAclRuleStatement> statements() {
         return this.statements;
     }
 
@@ -34,7 +34,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatement> statements;
+        private List<WebAclRuleStatement> statements;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,11 +42,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         @CustomType.Setter
-        public Builder statements(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatement> statements) {
+        public Builder statements(List<WebAclRuleStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
-        public Builder statements(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatement... statements) {
+        public Builder statements(WebAclRuleStatement... statements) {
             return statements(List.of(statements));
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement build() {

@@ -172,15 +172,15 @@ def get_response_headers_policy(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy', __args__, opts=opts, typ=GetResponseHeadersPolicyResult).value
 
     return AwaitableGetResponseHeadersPolicyResult(
-        comment=__ret__.comment,
-        cors_configs=__ret__.cors_configs,
-        custom_headers_configs=__ret__.custom_headers_configs,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        remove_headers_configs=__ret__.remove_headers_configs,
-        security_headers_configs=__ret__.security_headers_configs,
-        server_timing_headers_configs=__ret__.server_timing_headers_configs)
+        comment=pulumi.get(__ret__, 'comment'),
+        cors_configs=pulumi.get(__ret__, 'cors_configs'),
+        custom_headers_configs=pulumi.get(__ret__, 'custom_headers_configs'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        remove_headers_configs=pulumi.get(__ret__, 'remove_headers_configs'),
+        security_headers_configs=pulumi.get(__ret__, 'security_headers_configs'),
+        server_timing_headers_configs=pulumi.get(__ret__, 'server_timing_headers_configs'))
 
 
 @_utilities.lift_output_func(get_response_headers_policy)

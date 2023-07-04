@@ -987,7 +987,7 @@ class Project(pulumi.CustomResource):
             ),
             source_version="master",
             vpc_config=aws.codebuild.ProjectVpcConfigArgs(
-                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_id=aws_vpc["example"]["id"],
                 subnets=[
                     aws_subnet["example1"]["id"],
                     aws_subnet["example2"]["id"],
@@ -1202,7 +1202,7 @@ class Project(pulumi.CustomResource):
             ),
             source_version="master",
             vpc_config=aws.codebuild.ProjectVpcConfigArgs(
-                vpc_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                vpc_id=aws_vpc["example"]["id"],
                 subnets=[
                     aws_subnet["example1"]["id"],
                     aws_subnet["example2"]["id"],

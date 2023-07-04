@@ -140,12 +140,12 @@ def get_session_context(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getSessionContext:getSessionContext', __args__, opts=opts, typ=GetSessionContextResult).value
 
     return AwaitableGetSessionContextResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        issuer_arn=__ret__.issuer_arn,
-        issuer_id=__ret__.issuer_id,
-        issuer_name=__ret__.issuer_name,
-        session_name=__ret__.session_name)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        issuer_arn=pulumi.get(__ret__, 'issuer_arn'),
+        issuer_id=pulumi.get(__ret__, 'issuer_id'),
+        issuer_name=pulumi.get(__ret__, 'issuer_name'),
+        session_name=pulumi.get(__ret__, 'session_name'))
 
 
 @_utilities.lift_output_func(get_session_context)

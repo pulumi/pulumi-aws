@@ -101,7 +101,7 @@ def get_caller_identity(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
     __ret__ = pulumi.runtime.invoke('aws:index/getCallerIdentity:getCallerIdentity', __args__, opts=opts, typ=GetCallerIdentityResult).value
 
     return AwaitableGetCallerIdentityResult(
-        account_id=__ret__.account_id,
-        arn=__ret__.arn,
-        id=__ret__.id,
-        user_id=__ret__.user_id)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        user_id=pulumi.get(__ret__, 'user_id'))

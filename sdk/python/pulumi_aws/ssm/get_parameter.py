@@ -128,13 +128,13 @@ def get_parameter(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ssm/getParameter:getParameter', __args__, opts=opts, typ=GetParameterResult).value
 
     return AwaitableGetParameterResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type,
-        value=__ret__.value,
-        version=__ret__.version,
-        with_decryption=__ret__.with_decryption)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        value=pulumi.get(__ret__, 'value'),
+        version=pulumi.get(__ret__, 'version'),
+        with_decryption=pulumi.get(__ret__, 'with_decryption'))
 
 
 @_utilities.lift_output_func(get_parameter)

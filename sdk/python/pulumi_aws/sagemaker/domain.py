@@ -576,7 +576,7 @@ class Domain(pulumi.CustomResource):
             vpc_id=aws_vpc["example"]["id"],
             subnet_ids=[aws_subnet["example"]["id"]],
             default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
-                execution_role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                execution_role=aws_iam_role["example"]["arn"],
                 kernel_gateway_app_settings=aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs(
                     custom_images=[aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs(
                         app_image_config_name=example_app_image_config.app_image_config_name,
@@ -670,7 +670,7 @@ class Domain(pulumi.CustomResource):
             vpc_id=aws_vpc["example"]["id"],
             subnet_ids=[aws_subnet["example"]["id"]],
             default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
-                execution_role=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                execution_role=aws_iam_role["example"]["arn"],
                 kernel_gateway_app_settings=aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs(
                     custom_images=[aws.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs(
                         app_image_config_name=example_app_image_config.app_image_config_name,

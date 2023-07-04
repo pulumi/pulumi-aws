@@ -187,17 +187,17 @@ def get_function_url(function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lambda/getFunctionUrl:getFunctionUrl', __args__, opts=opts, typ=GetFunctionUrlResult).value
 
     return AwaitableGetFunctionUrlResult(
-        authorization_type=__ret__.authorization_type,
-        cors=__ret__.cors,
-        creation_time=__ret__.creation_time,
-        function_arn=__ret__.function_arn,
-        function_name=__ret__.function_name,
-        function_url=__ret__.function_url,
-        id=__ret__.id,
-        invoke_mode=__ret__.invoke_mode,
-        last_modified_time=__ret__.last_modified_time,
-        qualifier=__ret__.qualifier,
-        url_id=__ret__.url_id)
+        authorization_type=pulumi.get(__ret__, 'authorization_type'),
+        cors=pulumi.get(__ret__, 'cors'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        function_arn=pulumi.get(__ret__, 'function_arn'),
+        function_name=pulumi.get(__ret__, 'function_name'),
+        function_url=pulumi.get(__ret__, 'function_url'),
+        id=pulumi.get(__ret__, 'id'),
+        invoke_mode=pulumi.get(__ret__, 'invoke_mode'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        qualifier=pulumi.get(__ret__, 'qualifier'),
+        url_id=pulumi.get(__ret__, 'url_id'))
 
 
 @_utilities.lift_output_func(get_function_url)

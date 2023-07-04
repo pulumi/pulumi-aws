@@ -103,9 +103,9 @@ def get_vpc_iam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPool
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcIamPools:getVpcIamPools', __args__, opts=opts, typ=GetVpcIamPoolsResult).value
 
     return AwaitableGetVpcIamPoolsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ipam_pools=__ret__.ipam_pools)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ipam_pools=pulumi.get(__ret__, 'ipam_pools'))
 
 
 @_utilities.lift_output_func(get_vpc_iam_pools)

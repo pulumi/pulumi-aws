@@ -145,12 +145,12 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSecurityGroups:getSecurityGroups', __args__, opts=opts, typ=GetSecurityGroupsResult).value
 
     return AwaitableGetSecurityGroupsResult(
-        arns=__ret__.arns,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags,
-        vpc_ids=__ret__.vpc_ids)
+        arns=pulumi.get(__ret__, 'arns'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_ids=pulumi.get(__ret__, 'vpc_ids'))
 
 
 @_utilities.lift_output_func(get_security_groups)

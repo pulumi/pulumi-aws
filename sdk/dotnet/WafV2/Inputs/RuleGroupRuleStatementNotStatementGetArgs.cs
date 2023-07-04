@@ -13,14 +13,14 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleStatementNotStatementGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("statements", required: true)]
-        private InputList<Inputs.RuleGroupRuleStatementNotStatementStatementGetArgs>? _statements;
+        private InputList<Inputs.RuleGroupRuleStatementGetArgs>? _statements;
 
         /// <summary>
-        /// The statement to negate. You can use any statement that can be nested. See Statement above for details.
+        /// The statements to combine.
         /// </summary>
-        public InputList<Inputs.RuleGroupRuleStatementNotStatementStatementGetArgs> Statements
+        public InputList<Inputs.RuleGroupRuleStatementGetArgs> Statements
         {
-            get => _statements ?? (_statements = new InputList<Inputs.RuleGroupRuleStatementNotStatementStatementGetArgs>());
+            get => _statements ?? (_statements = new InputList<Inputs.RuleGroupRuleStatementGetArgs>());
             set => _statements = value;
         }
 

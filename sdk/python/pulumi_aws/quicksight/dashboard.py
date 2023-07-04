@@ -510,9 +510,9 @@ class Dashboard(pulumi.CustomResource):
             version_description="version",
             source_entity=aws.quicksight.DashboardSourceEntityArgs(
                 source_template=aws.quicksight.DashboardSourceEntitySourceTemplateArgs(
-                    arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    arn=aws_quicksight_template["source"]["arn"],
                     data_set_references=[aws.quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
                         data_set_placeholder="1",
                     )],
                 ),
@@ -563,9 +563,9 @@ class Dashboard(pulumi.CustomResource):
             version_description="version",
             source_entity=aws.quicksight.DashboardSourceEntityArgs(
                 source_template=aws.quicksight.DashboardSourceEntitySourceTemplateArgs(
-                    arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    arn=aws_quicksight_template["source"]["arn"],
                     data_set_references=[aws.quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                        data_set_arn=aws_quicksight_data_set["dataset"]["arn"],
                         data_set_placeholder="1",
                     )],
                 ),

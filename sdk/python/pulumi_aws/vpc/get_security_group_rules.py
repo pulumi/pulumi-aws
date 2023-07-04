@@ -106,10 +106,10 @@ def get_security_group_rules(filters: Optional[Sequence[pulumi.InputType['GetSec
     __ret__ = pulumi.runtime.invoke('aws:vpc/getSecurityGroupRules:getSecurityGroupRules', __args__, opts=opts, typ=GetSecurityGroupRulesResult).value
 
     return AwaitableGetSecurityGroupRulesResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_security_group_rules)

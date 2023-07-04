@@ -115,7 +115,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         example = aws.autoscaling.TrafficSourceAttachment("example",
             autoscaling_group_name=aws_autoscaling_group["example"]["id"],
             traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
-                identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                identifier=aws_lb_target_group["example"]["arn"],
                 type="elbv2",
             ))
         ```
@@ -146,7 +146,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         example = aws.autoscaling.TrafficSourceAttachment("example",
             autoscaling_group_name=aws_autoscaling_group["example"]["id"],
             traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
-                identifier=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                identifier=aws_lb_target_group["example"]["arn"],
                 type="elbv2",
             ))
         ```

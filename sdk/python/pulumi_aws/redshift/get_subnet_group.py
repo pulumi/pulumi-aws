@@ -113,7 +113,7 @@ def get_subnet_group(name: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshift.get_subnet_group(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.redshift.get_subnet_group(name=aws_redshift_subnet_group["example"]["name"])
     ```
 
 
@@ -127,12 +127,12 @@ def get_subnet_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:redshift/getSubnetGroup:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult).value
 
     return AwaitableGetSubnetGroupResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_subnet_group)
@@ -148,7 +148,7 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.redshift.get_subnet_group(name=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.redshift.get_subnet_group(name=aws_redshift_subnet_group["example"]["name"])
     ```
 
 

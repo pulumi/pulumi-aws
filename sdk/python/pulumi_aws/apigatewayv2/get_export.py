@@ -126,7 +126,7 @@ def get_export(api_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.apigatewayv2.get_export(api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test = aws.apigatewayv2.get_export(api_id=aws_apigatewayv2_route["test"]["api_id"],
         specification="OAS30",
         output_type="JSON")
     ```
@@ -150,14 +150,14 @@ def get_export(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:apigatewayv2/getExport:getExport', __args__, opts=opts, typ=GetExportResult).value
 
     return AwaitableGetExportResult(
-        api_id=__ret__.api_id,
-        body=__ret__.body,
-        export_version=__ret__.export_version,
-        id=__ret__.id,
-        include_extensions=__ret__.include_extensions,
-        output_type=__ret__.output_type,
-        specification=__ret__.specification,
-        stage_name=__ret__.stage_name)
+        api_id=pulumi.get(__ret__, 'api_id'),
+        body=pulumi.get(__ret__, 'body'),
+        export_version=pulumi.get(__ret__, 'export_version'),
+        id=pulumi.get(__ret__, 'id'),
+        include_extensions=pulumi.get(__ret__, 'include_extensions'),
+        output_type=pulumi.get(__ret__, 'output_type'),
+        specification=pulumi.get(__ret__, 'specification'),
+        stage_name=pulumi.get(__ret__, 'stage_name'))
 
 
 @_utilities.lift_output_func(get_export)
@@ -177,7 +177,7 @@ def get_export_output(api_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.apigatewayv2.get_export(api_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    test = aws.apigatewayv2.get_export(api_id=aws_apigatewayv2_route["test"]["api_id"],
         specification="OAS30",
         output_type="JSON")
     ```

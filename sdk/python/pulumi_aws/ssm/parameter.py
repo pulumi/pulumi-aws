@@ -177,6 +177,9 @@ class ParameterArgs:
         """
         Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         """
+        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+        pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
+
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
@@ -382,6 +385,9 @@ class _ParameterState:
         """
         Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         """
+        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+        pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
+
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
@@ -797,6 +803,9 @@ class Parameter(pulumi.CustomResource):
         """
         Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         """
+        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
+        pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
+
         return pulumi.get(self, "overwrite")
 
     @property

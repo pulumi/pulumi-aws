@@ -106,10 +106,10 @@ def get_clusters(filters: Optional[Sequence[pulumi.InputType['GetClustersFilterA
     __ret__ = pulumi.runtime.invoke('aws:rds/getClusters:getClusters', __args__, opts=opts, typ=GetClustersResult).value
 
     return AwaitableGetClustersResult(
-        cluster_arns=__ret__.cluster_arns,
-        cluster_identifiers=__ret__.cluster_identifiers,
-        filters=__ret__.filters,
-        id=__ret__.id)
+        cluster_arns=pulumi.get(__ret__, 'cluster_arns'),
+        cluster_identifiers=pulumi.get(__ret__, 'cluster_identifiers'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_clusters)

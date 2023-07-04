@@ -113,11 +113,11 @@ def get_web_acl(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:wafv2/getWebAcl:getWebAcl', __args__, opts=opts, typ=GetWebAclResult).value
 
     return AwaitableGetWebAclResult(
-        arn=__ret__.arn,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        scope=__ret__.scope)
+        arn=pulumi.get(__ret__, 'arn'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        scope=pulumi.get(__ret__, 'scope'))
 
 
 @_utilities.lift_output_func(get_web_acl)

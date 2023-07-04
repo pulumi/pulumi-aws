@@ -138,13 +138,13 @@ def get_contact_channel(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:ssmcontacts/getContactChannel:getContactChannel', __args__, opts=opts, typ=GetContactChannelResult).value
 
     return AwaitableGetContactChannelResult(
-        activation_status=__ret__.activation_status,
-        arn=__ret__.arn,
-        contact_id=__ret__.contact_id,
-        delivery_addresses=__ret__.delivery_addresses,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        activation_status=pulumi.get(__ret__, 'activation_status'),
+        arn=pulumi.get(__ret__, 'arn'),
+        contact_id=pulumi.get(__ret__, 'contact_id'),
+        delivery_addresses=pulumi.get(__ret__, 'delivery_addresses'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_contact_channel)

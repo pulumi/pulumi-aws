@@ -176,7 +176,7 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
     ```
 
     Usage with tags:
@@ -185,7 +185,7 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"],
         tags={
             "Name": "gw NAT",
         })
@@ -214,18 +214,18 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNatGateway:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult).value
 
     return AwaitableGetNatGatewayResult(
-        allocation_id=__ret__.allocation_id,
-        association_id=__ret__.association_id,
-        connectivity_type=__ret__.connectivity_type,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        network_interface_id=__ret__.network_interface_id,
-        private_ip=__ret__.private_ip,
-        public_ip=__ret__.public_ip,
-        state=__ret__.state,
-        subnet_id=__ret__.subnet_id,
-        tags=__ret__.tags,
-        vpc_id=__ret__.vpc_id)
+        allocation_id=pulumi.get(__ret__, 'allocation_id'),
+        association_id=pulumi.get(__ret__, 'association_id'),
+        connectivity_type=pulumi.get(__ret__, 'connectivity_type'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
+        private_ip=pulumi.get(__ret__, 'private_ip'),
+        public_ip=pulumi.get(__ret__, 'public_ip'),
+        state=pulumi.get(__ret__, 'state'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 
 
 @_utilities.lift_output_func(get_nat_gateway)
@@ -245,7 +245,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
     ```
 
     Usage with tags:
@@ -254,7 +254,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     import pulumi
     import pulumi_aws as aws
 
-    default = aws.ec2.get_nat_gateway(subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"],
         tags={
             "Name": "gw NAT",
         })

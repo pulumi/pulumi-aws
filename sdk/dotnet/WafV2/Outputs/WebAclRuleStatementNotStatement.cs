@@ -14,12 +14,12 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementNotStatement
     {
         /// <summary>
-        /// Statement to negate. You can use any statement that can be nested. See `statement` above for details.
+        /// The statements to combine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebAclRuleStatementNotStatementStatement> Statements;
+        public readonly ImmutableArray<Outputs.WebAclRuleStatement> Statements;
 
         [OutputConstructor]
-        private WebAclRuleStatementNotStatement(ImmutableArray<Outputs.WebAclRuleStatementNotStatementStatement> statements)
+        private WebAclRuleStatementNotStatement(ImmutableArray<Outputs.WebAclRuleStatement> statements)
         {
             Statements = statements;
         }

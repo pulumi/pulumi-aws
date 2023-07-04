@@ -163,17 +163,17 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList', __args__, opts=opts, typ=GetResolverFirewallDomainListResult).value
 
     return AwaitableGetResolverFirewallDomainListResult(
-        arn=__ret__.arn,
-        creation_time=__ret__.creation_time,
-        creator_request_id=__ret__.creator_request_id,
-        domain_count=__ret__.domain_count,
-        firewall_domain_list_id=__ret__.firewall_domain_list_id,
-        id=__ret__.id,
-        managed_owner_name=__ret__.managed_owner_name,
-        modification_time=__ret__.modification_time,
-        name=__ret__.name,
-        status=__ret__.status,
-        status_message=__ret__.status_message)
+        arn=pulumi.get(__ret__, 'arn'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        creator_request_id=pulumi.get(__ret__, 'creator_request_id'),
+        domain_count=pulumi.get(__ret__, 'domain_count'),
+        firewall_domain_list_id=pulumi.get(__ret__, 'firewall_domain_list_id'),
+        id=pulumi.get(__ret__, 'id'),
+        managed_owner_name=pulumi.get(__ret__, 'managed_owner_name'),
+        modification_time=pulumi.get(__ret__, 'modification_time'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        status_message=pulumi.get(__ret__, 'status_message'))
 
 
 @_utilities.lift_output_func(get_resolver_firewall_domain_list)

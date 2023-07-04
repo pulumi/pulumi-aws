@@ -217,7 +217,7 @@ def get_security_group_rule(filters: Optional[Sequence[pulumi.InputType['GetSecu
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpc.get_security_group_rule(security_group_rule_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.vpc.get_security_group_rule(security_group_rule_id=var["security_group_rule_id"])
     ```
 
 
@@ -231,21 +231,21 @@ def get_security_group_rule(filters: Optional[Sequence[pulumi.InputType['GetSecu
     __ret__ = pulumi.runtime.invoke('aws:vpc/getSecurityGroupRule:getSecurityGroupRule', __args__, opts=opts, typ=GetSecurityGroupRuleResult).value
 
     return AwaitableGetSecurityGroupRuleResult(
-        arn=__ret__.arn,
-        cidr_ipv4=__ret__.cidr_ipv4,
-        cidr_ipv6=__ret__.cidr_ipv6,
-        description=__ret__.description,
-        filters=__ret__.filters,
-        from_port=__ret__.from_port,
-        id=__ret__.id,
-        ip_protocol=__ret__.ip_protocol,
-        is_egress=__ret__.is_egress,
-        prefix_list_id=__ret__.prefix_list_id,
-        referenced_security_group_id=__ret__.referenced_security_group_id,
-        security_group_id=__ret__.security_group_id,
-        security_group_rule_id=__ret__.security_group_rule_id,
-        tags=__ret__.tags,
-        to_port=__ret__.to_port)
+        arn=pulumi.get(__ret__, 'arn'),
+        cidr_ipv4=pulumi.get(__ret__, 'cidr_ipv4'),
+        cidr_ipv6=pulumi.get(__ret__, 'cidr_ipv6'),
+        description=pulumi.get(__ret__, 'description'),
+        filters=pulumi.get(__ret__, 'filters'),
+        from_port=pulumi.get(__ret__, 'from_port'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_protocol=pulumi.get(__ret__, 'ip_protocol'),
+        is_egress=pulumi.get(__ret__, 'is_egress'),
+        prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'),
+        referenced_security_group_id=pulumi.get(__ret__, 'referenced_security_group_id'),
+        security_group_id=pulumi.get(__ret__, 'security_group_id'),
+        security_group_rule_id=pulumi.get(__ret__, 'security_group_rule_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        to_port=pulumi.get(__ret__, 'to_port'))
 
 
 @_utilities.lift_output_func(get_security_group_rule)
@@ -261,7 +261,7 @@ def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Seque
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpc.get_security_group_rule(security_group_rule_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+    example = aws.vpc.get_security_group_rule(security_group_rule_id=var["security_group_rule_id"])
     ```
 
 

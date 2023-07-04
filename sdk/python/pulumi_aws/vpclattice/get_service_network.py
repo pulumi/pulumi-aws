@@ -172,16 +172,16 @@ def get_service_network(service_network_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:vpclattice/getServiceNetwork:getServiceNetwork', __args__, opts=opts, typ=GetServiceNetworkResult).value
 
     return AwaitableGetServiceNetworkResult(
-        arn=__ret__.arn,
-        auth_type=__ret__.auth_type,
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        last_updated_at=__ret__.last_updated_at,
-        name=__ret__.name,
-        number_of_associated_services=__ret__.number_of_associated_services,
-        number_of_associated_vpcs=__ret__.number_of_associated_vpcs,
-        service_network_identifier=__ret__.service_network_identifier,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        auth_type=pulumi.get(__ret__, 'auth_type'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        name=pulumi.get(__ret__, 'name'),
+        number_of_associated_services=pulumi.get(__ret__, 'number_of_associated_services'),
+        number_of_associated_vpcs=pulumi.get(__ret__, 'number_of_associated_vpcs'),
+        service_network_identifier=pulumi.get(__ret__, 'service_network_identifier'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_service_network)

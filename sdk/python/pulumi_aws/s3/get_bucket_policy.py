@@ -91,9 +91,9 @@ def get_bucket_policy(bucket: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucketPolicy:getBucketPolicy', __args__, opts=opts, typ=GetBucketPolicyResult).value
 
     return AwaitableGetBucketPolicyResult(
-        bucket=__ret__.bucket,
-        id=__ret__.id,
-        policy=__ret__.policy)
+        bucket=pulumi.get(__ret__, 'bucket'),
+        id=pulumi.get(__ret__, 'id'),
+        policy=pulumi.get(__ret__, 'policy'))
 
 
 @_utilities.lift_output_func(get_bucket_policy)

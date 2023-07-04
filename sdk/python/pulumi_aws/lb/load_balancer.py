@@ -888,7 +888,7 @@ class LoadBalancer(pulumi.CustomResource):
             subnets=[subnet["id"] for subnet in aws_subnet["public"]],
             enable_deletion_protection=True,
             access_logs=aws.lb.LoadBalancerAccessLogsArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["lb_logs"]["id"],
                 prefix="test-lb",
                 enabled=True,
             ),
@@ -921,12 +921,12 @@ class LoadBalancer(pulumi.CustomResource):
             load_balancer_type="network",
             subnet_mappings=[
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    allocation_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["example1"]["id"],
+                    allocation_id=aws_eip["example1"]["id"],
                 ),
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    allocation_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["example2"]["id"],
+                    allocation_id=aws_eip["example2"]["id"],
                 ),
             ])
         ```
@@ -940,11 +940,11 @@ class LoadBalancer(pulumi.CustomResource):
             load_balancer_type="network",
             subnet_mappings=[
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["example1"]["id"],
                     private_ipv4_address="10.0.1.15",
                 ),
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["example2"]["id"],
                     private_ipv4_address="10.0.2.15",
                 ),
             ])
@@ -1012,7 +1012,7 @@ class LoadBalancer(pulumi.CustomResource):
             subnets=[subnet["id"] for subnet in aws_subnet["public"]],
             enable_deletion_protection=True,
             access_logs=aws.lb.LoadBalancerAccessLogsArgs(
-                bucket=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                bucket=aws_s3_bucket["lb_logs"]["id"],
                 prefix="test-lb",
                 enabled=True,
             ),
@@ -1045,12 +1045,12 @@ class LoadBalancer(pulumi.CustomResource):
             load_balancer_type="network",
             subnet_mappings=[
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    allocation_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["example1"]["id"],
+                    allocation_id=aws_eip["example1"]["id"],
                 ),
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-                    allocation_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["example2"]["id"],
+                    allocation_id=aws_eip["example2"]["id"],
                 ),
             ])
         ```
@@ -1064,11 +1064,11 @@ class LoadBalancer(pulumi.CustomResource):
             load_balancer_type="network",
             subnet_mappings=[
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["example1"]["id"],
                     private_ipv4_address="10.0.1.15",
                 ),
                 aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+                    subnet_id=aws_subnet["example2"]["id"],
                     private_ipv4_address="10.0.2.15",
                 ),
             ])

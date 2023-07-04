@@ -90,9 +90,9 @@ def get_event_bus(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getEventBus:getEventBus', __args__, opts=opts, typ=GetEventBusResult).value
 
     return AwaitableGetEventBusResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        name=__ret__.name)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_event_bus)

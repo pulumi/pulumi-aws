@@ -225,20 +225,20 @@ def get_listener(listener_identifier: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:vpclattice/getListener:getListener', __args__, opts=opts, typ=GetListenerResult).value
 
     return AwaitableGetListenerResult(
-        arn=__ret__.arn,
-        created_at=__ret__.created_at,
-        default_actions=__ret__.default_actions,
-        id=__ret__.id,
-        last_updated_at=__ret__.last_updated_at,
-        listener_id=__ret__.listener_id,
-        listener_identifier=__ret__.listener_identifier,
-        name=__ret__.name,
-        port=__ret__.port,
-        protocol=__ret__.protocol,
-        service_arn=__ret__.service_arn,
-        service_id=__ret__.service_id,
-        service_identifier=__ret__.service_identifier,
-        tags=__ret__.tags)
+        arn=pulumi.get(__ret__, 'arn'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        default_actions=pulumi.get(__ret__, 'default_actions'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        listener_id=pulumi.get(__ret__, 'listener_id'),
+        listener_identifier=pulumi.get(__ret__, 'listener_identifier'),
+        name=pulumi.get(__ret__, 'name'),
+        port=pulumi.get(__ret__, 'port'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        service_arn=pulumi.get(__ret__, 'service_arn'),
+        service_id=pulumi.get(__ret__, 'service_id'),
+        service_identifier=pulumi.get(__ret__, 'service_identifier'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_listener)

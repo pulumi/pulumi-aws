@@ -601,7 +601,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
         example_cluster = aws.eks.Cluster("exampleCluster",
             role_arn=example_role.arn,
             vpc_config=aws.eks.ClusterVpcConfigArgs(
@@ -724,7 +724,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+        example_role = aws.iam.Role("exampleRole", assume_role_policy=data["aws_iam_policy_document"]["example_assume_role_policy"]["json"])
         example_cluster = aws.eks.Cluster("exampleCluster",
             role_arn=example_role.arn,
             vpc_config=aws.eks.ClusterVpcConfigArgs(

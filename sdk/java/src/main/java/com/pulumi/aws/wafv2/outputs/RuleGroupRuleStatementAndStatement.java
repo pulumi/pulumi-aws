@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementAndStatementStatement;
+import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementAndStatement {
     /**
-     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+     * @return The statements to combine.
      * 
      */
-    private List<RuleGroupRuleStatementAndStatementStatement> statements;
+    private List<RuleGroupRuleStatement> statements;
 
     private RuleGroupRuleStatementAndStatement() {}
     /**
-     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+     * @return The statements to combine.
      * 
      */
-    public List<RuleGroupRuleStatementAndStatementStatement> statements() {
+    public List<RuleGroupRuleStatement> statements() {
         return this.statements;
     }
 
@@ -34,7 +34,7 @@ public final class RuleGroupRuleStatementAndStatement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<RuleGroupRuleStatementAndStatementStatement> statements;
+        private List<RuleGroupRuleStatement> statements;
         public Builder() {}
         public Builder(RuleGroupRuleStatementAndStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,11 +42,11 @@ public final class RuleGroupRuleStatementAndStatement {
         }
 
         @CustomType.Setter
-        public Builder statements(List<RuleGroupRuleStatementAndStatementStatement> statements) {
+        public Builder statements(List<RuleGroupRuleStatement> statements) {
             this.statements = Objects.requireNonNull(statements);
             return this;
         }
-        public Builder statements(RuleGroupRuleStatementAndStatementStatement... statements) {
+        public Builder statements(RuleGroupRuleStatement... statements) {
             return statements(List.of(statements));
         }
         public RuleGroupRuleStatementAndStatement build() {

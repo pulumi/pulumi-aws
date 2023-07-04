@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -15,17 +15,17 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs();
 
     /**
-     * Statement to negate. You can use any statement that can be nested. See `statement` above for details.
+     * The statements to combine.
      * 
      */
     @Import(name="statements", required=true)
-    private Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs>> statements;
+    private Output<List<WebAclRuleStatementArgs>> statements;
 
     /**
-     * @return Statement to negate. You can use any statement that can be nested. See `statement` above for details.
+     * @return The statements to combine.
      * 
      */
-    public Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs>> statements() {
+    public Output<List<WebAclRuleStatementArgs>> statements() {
         return this.statements;
     }
 
@@ -54,33 +54,33 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         }
 
         /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See `statement` above for details.
+         * @param statements The statements to combine.
          * 
          * @return builder
          * 
          */
-        public Builder statements(Output<List<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs>> statements) {
+        public Builder statements(Output<List<WebAclRuleStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
         /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See `statement` above for details.
+         * @param statements The statements to combine.
          * 
          * @return builder
          * 
          */
-        public Builder statements(List<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs> statements) {
+        public Builder statements(List<WebAclRuleStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
         /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See `statement` above for details.
+         * @param statements The statements to combine.
          * 
          * @return builder
          * 
          */
-        public Builder statements(WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs... statements) {
+        public Builder statements(WebAclRuleStatementArgs... statements) {
             return statements(List.of(statements));
         }
 

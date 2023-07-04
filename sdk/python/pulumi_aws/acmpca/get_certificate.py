@@ -113,11 +113,11 @@ def get_certificate(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:acmpca/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        arn=__ret__.arn,
-        certificate=__ret__.certificate,
-        certificate_authority_arn=__ret__.certificate_authority_arn,
-        certificate_chain=__ret__.certificate_chain,
-        id=__ret__.id)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate=pulumi.get(__ret__, 'certificate'),
+        certificate_authority_arn=pulumi.get(__ret__, 'certificate_authority_arn'),
+        certificate_chain=pulumi.get(__ret__, 'certificate_chain'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_certificate)

@@ -197,17 +197,17 @@ def get_certificate(domain: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:acm/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        arn=__ret__.arn,
-        certificate=__ret__.certificate,
-        certificate_chain=__ret__.certificate_chain,
-        domain=__ret__.domain,
-        id=__ret__.id,
-        key_types=__ret__.key_types,
-        most_recent=__ret__.most_recent,
-        status=__ret__.status,
-        statuses=__ret__.statuses,
-        tags=__ret__.tags,
-        types=__ret__.types)
+        arn=pulumi.get(__ret__, 'arn'),
+        certificate=pulumi.get(__ret__, 'certificate'),
+        certificate_chain=pulumi.get(__ret__, 'certificate_chain'),
+        domain=pulumi.get(__ret__, 'domain'),
+        id=pulumi.get(__ret__, 'id'),
+        key_types=pulumi.get(__ret__, 'key_types'),
+        most_recent=pulumi.get(__ret__, 'most_recent'),
+        status=pulumi.get(__ret__, 'status'),
+        statuses=pulumi.get(__ret__, 'statuses'),
+        tags=pulumi.get(__ret__, 'tags'),
+        types=pulumi.get(__ret__, 'types'))
 
 
 @_utilities.lift_output_func(get_certificate)

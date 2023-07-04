@@ -96,7 +96,7 @@ def get_connections(device_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_connections(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.networkmanager.get_connections(global_network_id=var["global_network_id"],
         tags={
             "Env": "test",
         })
@@ -115,11 +115,11 @@ def get_connections(device_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:networkmanager/getConnections:getConnections', __args__, opts=opts, typ=GetConnectionsResult).value
 
     return AwaitableGetConnectionsResult(
-        device_id=__ret__.device_id,
-        global_network_id=__ret__.global_network_id,
-        id=__ret__.id,
-        ids=__ret__.ids,
-        tags=__ret__.tags)
+        device_id=pulumi.get(__ret__, 'device_id'),
+        global_network_id=pulumi.get(__ret__, 'global_network_id'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_connections)
@@ -136,7 +136,7 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[str]]] = No
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.networkmanager.get_connections(global_network_id=%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
+    example = aws.networkmanager.get_connections(global_network_id=var["global_network_id"],
         tags={
             "Env": "test",
         })

@@ -93,9 +93,9 @@ def get_maintenance_windows(filters: Optional[Sequence[pulumi.InputType['GetMain
     __ret__ = pulumi.runtime.invoke('aws:ssm/getMaintenanceWindows:getMaintenanceWindows', __args__, opts=opts, typ=GetMaintenanceWindowsResult).value
 
     return AwaitableGetMaintenanceWindowsResult(
-        filters=__ret__.filters,
-        id=__ret__.id,
-        ids=__ret__.ids)
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'))
 
 
 @_utilities.lift_output_func(get_maintenance_windows)

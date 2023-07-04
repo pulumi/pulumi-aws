@@ -75,5 +75,5 @@ def get_account_alias(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     __ret__ = pulumi.runtime.invoke('aws:iam/getAccountAlias:getAccountAlias', __args__, opts=opts, typ=GetAccountAliasResult).value
 
     return AwaitableGetAccountAliasResult(
-        account_alias=__ret__.account_alias,
-        id=__ret__.id)
+        account_alias=pulumi.get(__ret__, 'account_alias'),
+        id=pulumi.get(__ret__, 'id'))

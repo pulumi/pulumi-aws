@@ -15,11 +15,18 @@
 package main
 
 import (
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	aws "github.com/pulumi/pulumi-aws/provider/v6"
 	pftfgen "github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
 )
 
 func main() {
 	info := aws.Provider()
+
+	info.SchemaPostProcessor = func(spec *schema.PackageSpec) {
+		replaceWafV2TypesWithRecursive(spec)
+		removeUnusedQuicksightTypes(spec)
+	}
+
 	pftfgen.MainWithMuxer("aws", *info)
 }

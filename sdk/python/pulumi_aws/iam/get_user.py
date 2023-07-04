@@ -144,13 +144,13 @@ def get_user(tags: Optional[Mapping[str, str]] = None,
     __ret__ = pulumi.runtime.invoke('aws:iam/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        path=__ret__.path,
-        permissions_boundary=__ret__.permissions_boundary,
-        tags=__ret__.tags,
-        user_id=__ret__.user_id,
-        user_name=__ret__.user_name)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        path=pulumi.get(__ret__, 'path'),
+        permissions_boundary=pulumi.get(__ret__, 'permissions_boundary'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_id=pulumi.get(__ret__, 'user_id'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(get_user)

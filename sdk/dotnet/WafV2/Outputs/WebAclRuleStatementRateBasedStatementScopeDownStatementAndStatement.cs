@@ -14,12 +14,12 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement
     {
         /// <summary>
-        /// Statements to combine with `AND` logic. You can use any statements that can be nested. See `statement` above for details.
+        /// The statements to combine.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> Statements;
+        public readonly ImmutableArray<Outputs.WebAclRuleStatement> Statements;
 
         [OutputConstructor]
-        private WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement(ImmutableArray<Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> statements)
+        private WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement(ImmutableArray<Outputs.WebAclRuleStatement> statements)
         {
             Statements = statements;
         }

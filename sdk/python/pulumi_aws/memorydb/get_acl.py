@@ -127,12 +127,12 @@ def get_acl(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:memorydb/getAcl:getAcl', __args__, opts=opts, typ=GetAclResult).value
 
     return AwaitableGetAclResult(
-        arn=__ret__.arn,
-        id=__ret__.id,
-        minimum_engine_version=__ret__.minimum_engine_version,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        user_names=__ret__.user_names)
+        arn=pulumi.get(__ret__, 'arn'),
+        id=pulumi.get(__ret__, 'id'),
+        minimum_engine_version=pulumi.get(__ret__, 'minimum_engine_version'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        user_names=pulumi.get(__ret__, 'user_names'))
 
 
 @_utilities.lift_output_func(get_acl)
