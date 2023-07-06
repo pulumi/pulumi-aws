@@ -367,7 +367,9 @@ func TestAccWebserver(t *testing.T) {
 				createEditDir(filepath.Join(getCwd(t), "webserver")),
 				// Next patch the security group description, necessitating a full replacement of resources.
 				createEditDir(filepath.Join(getCwd(t), "webserver", "variants", "ssh_description")),
-			}})
+			},
+			RequireService: true,
+		})
 
 	integration.ProgramTest(t, &test)
 }

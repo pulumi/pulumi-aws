@@ -7007,5 +7007,31 @@ func Provider() tfbridge.ProviderInfo {
 	// Fixes a spurious diff on repeat pulumi up for the aws_wafv2_web_acl resource (pulumi/pulumi#1423).
 	shimv2.SetInstanceStateStrategy(prov.P.ResourcesMap().Get("aws_wafv2_web_acl"), shimv2.CtyInstanceState)
 
+	prov.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
+		tagsF, ok := value.Schema().GetOk("tags")
+		if !ok {
+			return true
+		}
+		tagsAllF, ok := value.Schema().GetOk("tags_all")
+		if !ok {
+			return true
+		}
+
+		// tags_all must be present and computed, tags must be present and non-computed.
+		if tagsF.Computed() || !tagsAllF.Computed() {
+			return true
+		}
+
+		if prov.Resources[key].Fields == nil {
+			prov.Resources[key].Fields = make(map[string]*tfbridge.SchemaInfo)
+		}
+		if f := prov.Resources[key].Fields["tags_all"]; f == nil {
+			prov.Resources[key].Fields["tags_all"] = &tfbridge.SchemaInfo{}
+		}
+		prov.Resources[key].Fields["tags_all"].XComputedInput = true
+
+		return true
+	})
+
 	return prov
 }
