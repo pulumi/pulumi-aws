@@ -5246,6 +5246,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "gamelift/matchmakingConfiguration",
+  "fqn": "pulumi_aws.gamelift",
+  "classes": {
+   "aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration": "MatchmakingConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "gamelift/matchmakingRuleSet",
+  "fqn": "pulumi_aws.gamelift",
+  "classes": {
+   "aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet": "MatchmakingRuleSet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "gamelift/script",
   "fqn": "pulumi_aws.gamelift",
   "classes": {

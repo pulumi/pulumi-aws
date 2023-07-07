@@ -31110,6 +31110,17 @@ export namespace gamelift {
         policyDurationSeconds?: number;
     }
 
+    export interface MatchmakingConfigurationGameProperty {
+        /**
+         * A game property key
+         */
+        key: string;
+        /**
+         * A game property value.
+         */
+        value: string;
+    }
+
     export interface ScriptStorageLocation {
         /**
          * Name of your S3 bucket.

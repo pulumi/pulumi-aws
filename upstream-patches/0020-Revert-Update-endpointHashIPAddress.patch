@@ -1,4 +1,4 @@
-From 8e929ce994335bd1b8edbe1f0339a971c50c75bb Mon Sep 17 00:00:00 2001
+From 73d4f458016fb0670b14cb9614cdf7f6eccf5709 Mon Sep 17 00:00:00 2001
 From: Thomas Kappler <tkappler@pulumi.com>
 Date: Fri, 3 Feb 2023 17:31:18 -0800
 Subject: [PATCH 20/27] Revert "Update endpointHashIPAddress"

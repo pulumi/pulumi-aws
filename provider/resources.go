@@ -2157,12 +2157,16 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_fsx_windows_file_system":           {Tok: awsResource(fsxMod, "WindowsFileSystem")},
 
 			// GameLift
-			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
-			"aws_gamelift_build":              {Tok: awsResource(gameliftMod, "Build")},
-			"aws_gamelift_fleet":              {Tok: awsResource(gameliftMod, "Fleet")},
-			"aws_gamelift_game_session_queue": {Tok: awsResource(gameliftMod, "GameSessionQueue")},
-			"aws_gamelift_game_server_group":  {Tok: awsResource(gameliftMod, "GameServerGroup")},
-			"aws_gamelift_script":             {Tok: awsResource(gameliftMod, "Script")},
+
+			"aws_gamelift_alias":                     {Tok: awsResource(gameliftMod, "Alias")},
+			"aws_gamelift_build":                     {Tok: awsResource(gameliftMod, "Build")},
+			"aws_gamelift_fleet":                     {Tok: awsResource(gameliftMod, "Fleet")},
+			"aws_gamelift_game_session_queue":        {Tok: awsResource(gameliftMod, "GameSessionQueue")},
+			"aws_gamelift_game_server_group":         {Tok: awsResource(gameliftMod, "GameServerGroup")},
+			"aws_gamelift_script":                    {Tok: awsResource(gameliftMod, "Script")},
+			"aws_gamelift_matchmaking_configuration": {Tok: awsResource(gameliftMod, "MatchmakingConfiguration")},
+			"aws_gamelift_matchmaking_rule_set":      {Tok: awsResource(gameliftMod, "MatchmakingRuleSet")},
+
 			// Glacier
 			"aws_glacier_vault":      {Tok: awsResource(glacierMod, "Vault")},
 			"aws_glacier_vault_lock": {Tok: awsResource(glacierMod, "VaultLock")},

@@ -26924,6 +26924,17 @@ export namespace gamelift {
         policyDurationSeconds?: pulumi.Input<number>;
     }
 
+    export interface MatchmakingConfigurationGameProperty {
+        /**
+         * A game property key
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A game property value.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface ScriptStorageLocation {
         /**
          * Name of your S3 bucket.

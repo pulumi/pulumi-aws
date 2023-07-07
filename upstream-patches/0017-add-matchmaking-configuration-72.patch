@@ -1,4 +1,4 @@
-From e86814c1707a86acd4f97e9c03d68241d4e44a44 Mon Sep 17 00:00:00 2001
+From 6cfddb834a4e6a557ecc3061233abd79bf67a32d Mon Sep 17 00:00:00 2001
 From: Lee Briggs <jaxxstorm@users.noreply.github.com>
 Date: Wed, 21 Dec 2022 12:23:59 -0800
 Subject: [PATCH 17/27] add matchmaking configuration (#72)
@@ -9,13 +9,14 @@ Subject: [PATCH 17/27] add matchmaking configuration (#72)
   * Also fixes error codes for read operations
 * add resource docs
 ---
+ internal/provider/provider.go                 |   4 +
  .../gamelift/matchmaking_configuration.go     | 386 ++++++++++++++++++
  .../matchmaking_configuration_test.go         | 267 ++++++++++++
  .../service/gamelift/matchmaking_rule_set.go  | 163 ++++++++
  .../gamelift/matchmaking_rule_set_test.go     | 138 +++++++
  ...ft_matchmaking_configuration.html.markdown | 106 +++++
  ...amelift_matchmaking_rule_set.html.markdown |  52 +++
- 6 files changed, 1112 insertions(+)
+ 7 files changed, 1116 insertions(+)
  create mode 100644 internal/service/gamelift/matchmaking_configuration.go
  create mode 100644 internal/service/gamelift/matchmaking_configuration_test.go
  create mode 100644 internal/service/gamelift/matchmaking_rule_set.go
@@ -23,6 +24,28 @@ Subject: [PATCH 17/27] add matchmaking configuration (#72)
  create mode 100644 website/docs/r/gamelift_matchmaking_configuration.html.markdown
  create mode 100644 website/docs/r/gamelift_matchmaking_rule_set.html.markdown
 
+diff --git a/internal/provider/provider.go b/internal/provider/provider.go
+index 92e08099d8..6408c21a67 100644
+--- a/internal/provider/provider.go
++++ b/internal/provider/provider.go
+@@ -9,6 +9,7 @@ import (
+ 	"time"
+ 
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/ecr"
++	"github.com/hashicorp/terraform-provider-aws/internal/service/gamelift"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/service/s3legacy"
+ 
+ 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
+@@ -230,6 +231,9 @@ func New(ctx context.Context) (*schema.Provider, error) {
+ 
+ 		ResourcesMap: map[string]*schema.Resource{
+ 			"aws_s3_bucket_legacy": s3legacy.ResourceBucketLegacy(),
++
++			"aws_gamelift_matchmaking_configuration": gamelift.ResourceMatchMakingConfiguration(),
++			"aws_gamelift_matchmaking_rule_set":      gamelift.ResourceMatchmakingRuleSet(),
+ 		},
+ 	}
+ 
 diff --git a/internal/service/gamelift/matchmaking_configuration.go b/internal/service/gamelift/matchmaking_configuration.go
 new file mode 100644
 index 0000000000..0a7c8ea635

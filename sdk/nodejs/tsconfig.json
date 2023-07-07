@@ -939,6 +939,8 @@
         "gamelift/gameServerGroup.ts",
         "gamelift/gameSessionQueue.ts",
         "gamelift/index.ts",
+        "gamelift/matchmakingConfiguration.ts",
+        "gamelift/matchmakingRuleSet.ts",
         "gamelift/script.ts",
         "getAmi.ts",
         "getAmiIds.ts",
