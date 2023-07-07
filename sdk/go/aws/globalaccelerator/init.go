@@ -23,6 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:globalaccelerator/accelerator:Accelerator":
 		r = &Accelerator{}
+	case "aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator":
+		r = &CustomRoutingAccelerator{}
+	case "aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup":
+		r = &CustomRoutingEndpointGroup{}
+	case "aws:globalaccelerator/customRoutingListener:CustomRoutingListener":
+		r = &CustomRoutingListener{}
 	case "aws:globalaccelerator/endpointGroup:EndpointGroup":
 		r = &EndpointGroup{}
 	case "aws:globalaccelerator/listener:Listener":
@@ -43,6 +49,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"globalaccelerator/accelerator",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"globalaccelerator/customRoutingAccelerator",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"globalaccelerator/customRoutingEndpointGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"globalaccelerator/customRoutingListener",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

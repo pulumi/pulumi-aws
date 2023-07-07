@@ -13319,6 +13319,44 @@ export namespace cognito {
         value: pulumi.Input<string>;
     }
 
+    export interface ManagedUserPoolClientAnalyticsConfiguration {
+        /**
+         * Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+         */
+        applicationArn?: pulumi.Input<string>;
+        /**
+         * Application ID for an Amazon Pinpoint application.
+         */
+        applicationId?: pulumi.Input<string>;
+        /**
+         * ID for the Analytics Configuration. Conflicts with `applicationArn`.
+         */
+        externalId?: pulumi.Input<string>;
+        /**
+         * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+         */
+        roleArn?: pulumi.Input<string>;
+        /**
+         * If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+         */
+        userDataShared?: pulumi.Input<boolean>;
+    }
+
+    export interface ManagedUserPoolClientTokenValidityUnits {
+        /**
+         * Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+         */
+        accessToken?: pulumi.Input<string>;
+        /**
+         * Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+         */
+        idToken?: pulumi.Input<string>;
+        /**
+         * Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+         */
+        refreshToken?: pulumi.Input<string>;
+    }
+
     export interface ResourceServerScope {
         /**
          * The scope description.
@@ -26955,6 +26993,67 @@ export namespace globalaccelerator {
          * The type of IP addresses included in this IP set.
          */
         ipFamily?: pulumi.Input<string>;
+    }
+
+    export interface CustomRoutingAcceleratorAttributes {
+        /**
+         * Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+         */
+        flowLogsEnabled?: pulumi.Input<boolean>;
+        /**
+         * The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+         */
+        flowLogsS3Bucket?: pulumi.Input<string>;
+        /**
+         * The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+         */
+        flowLogsS3Prefix?: pulumi.Input<string>;
+    }
+
+    export interface CustomRoutingAcceleratorIpSet {
+        /**
+         * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of IP addresses included in this IP set.
+         */
+        ipFamily?: pulumi.Input<string>;
+    }
+
+    export interface CustomRoutingEndpointGroupDestinationConfiguration {
+        /**
+         * The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+         */
+        fromPort: pulumi.Input<number>;
+        /**
+         * The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
+         */
+        protocols: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+         *
+         * **endpoint_configuration** supports the following attributes:
+         */
+        toPort: pulumi.Input<number>;
+    }
+
+    export interface CustomRoutingEndpointGroupEndpointConfiguration {
+        /**
+         * An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+         */
+        endpointId?: pulumi.Input<string>;
+    }
+
+    export interface CustomRoutingListenerPortRange {
+        /**
+         * The first port in the range of ports, inclusive.
+         */
+        fromPort?: pulumi.Input<number>;
+        /**
+         * The last port in the range of ports, inclusive.
+         */
+        toPort?: pulumi.Input<number>;
     }
 
     export interface EndpointGroupEndpointConfiguration {

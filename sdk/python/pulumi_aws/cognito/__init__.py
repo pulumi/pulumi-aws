@@ -13,6 +13,7 @@ from .identity_pool import *
 from .identity_pool_provider_principal_tag import *
 from .identity_pool_role_attachment import *
 from .identity_provider import *
+from .managed_user_pool_client import *
 from .resource_server import *
 from .risk_configuration import *
 from .user import *

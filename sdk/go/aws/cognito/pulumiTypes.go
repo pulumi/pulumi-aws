@@ -375,6 +375,394 @@ func (o IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayOutput) Index(i pul
 	}).(IdentityPoolRoleAttachmentRoleMappingMappingRuleOutput)
 }
 
+type ManagedUserPoolClientAnalyticsConfiguration struct {
+	// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+	ApplicationArn *string `pulumi:"applicationArn"`
+	// Application ID for an Amazon Pinpoint application.
+	ApplicationId *string `pulumi:"applicationId"`
+	// ID for the Analytics Configuration. Conflicts with `applicationArn`.
+	ExternalId *string `pulumi:"externalId"`
+	// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+	RoleArn *string `pulumi:"roleArn"`
+	// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+	UserDataShared *bool `pulumi:"userDataShared"`
+}
+
+// ManagedUserPoolClientAnalyticsConfigurationInput is an input type that accepts ManagedUserPoolClientAnalyticsConfigurationArgs and ManagedUserPoolClientAnalyticsConfigurationOutput values.
+// You can construct a concrete instance of `ManagedUserPoolClientAnalyticsConfigurationInput` via:
+//
+//	ManagedUserPoolClientAnalyticsConfigurationArgs{...}
+type ManagedUserPoolClientAnalyticsConfigurationInput interface {
+	pulumi.Input
+
+	ToManagedUserPoolClientAnalyticsConfigurationOutput() ManagedUserPoolClientAnalyticsConfigurationOutput
+	ToManagedUserPoolClientAnalyticsConfigurationOutputWithContext(context.Context) ManagedUserPoolClientAnalyticsConfigurationOutput
+}
+
+type ManagedUserPoolClientAnalyticsConfigurationArgs struct {
+	// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
+	// Application ID for an Amazon Pinpoint application.
+	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
+	// ID for the Analytics Configuration. Conflicts with `applicationArn`.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+	UserDataShared pulumi.BoolPtrInput `pulumi:"userDataShared"`
+}
+
+func (ManagedUserPoolClientAnalyticsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedUserPoolClientAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i ManagedUserPoolClientAnalyticsConfigurationArgs) ToManagedUserPoolClientAnalyticsConfigurationOutput() ManagedUserPoolClientAnalyticsConfigurationOutput {
+	return i.ToManagedUserPoolClientAnalyticsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ManagedUserPoolClientAnalyticsConfigurationArgs) ToManagedUserPoolClientAnalyticsConfigurationOutputWithContext(ctx context.Context) ManagedUserPoolClientAnalyticsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPoolClientAnalyticsConfigurationOutput)
+}
+
+func (i ManagedUserPoolClientAnalyticsConfigurationArgs) ToManagedUserPoolClientAnalyticsConfigurationPtrOutput() ManagedUserPoolClientAnalyticsConfigurationPtrOutput {
+	return i.ToManagedUserPoolClientAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedUserPoolClientAnalyticsConfigurationArgs) ToManagedUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientAnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPoolClientAnalyticsConfigurationOutput).ToManagedUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ManagedUserPoolClientAnalyticsConfigurationPtrInput is an input type that accepts ManagedUserPoolClientAnalyticsConfigurationArgs, ManagedUserPoolClientAnalyticsConfigurationPtr and ManagedUserPoolClientAnalyticsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ManagedUserPoolClientAnalyticsConfigurationPtrInput` via:
+//
+//	        ManagedUserPoolClientAnalyticsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedUserPoolClientAnalyticsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToManagedUserPoolClientAnalyticsConfigurationPtrOutput() ManagedUserPoolClientAnalyticsConfigurationPtrOutput
+	ToManagedUserPoolClientAnalyticsConfigurationPtrOutputWithContext(context.Context) ManagedUserPoolClientAnalyticsConfigurationPtrOutput
+}
+
+type managedUserPoolClientAnalyticsConfigurationPtrType ManagedUserPoolClientAnalyticsConfigurationArgs
+
+func ManagedUserPoolClientAnalyticsConfigurationPtr(v *ManagedUserPoolClientAnalyticsConfigurationArgs) ManagedUserPoolClientAnalyticsConfigurationPtrInput {
+	return (*managedUserPoolClientAnalyticsConfigurationPtrType)(v)
+}
+
+func (*managedUserPoolClientAnalyticsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedUserPoolClientAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (i *managedUserPoolClientAnalyticsConfigurationPtrType) ToManagedUserPoolClientAnalyticsConfigurationPtrOutput() ManagedUserPoolClientAnalyticsConfigurationPtrOutput {
+	return i.ToManagedUserPoolClientAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *managedUserPoolClientAnalyticsConfigurationPtrType) ToManagedUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientAnalyticsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPoolClientAnalyticsConfigurationPtrOutput)
+}
+
+type ManagedUserPoolClientAnalyticsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ManagedUserPoolClientAnalyticsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedUserPoolClientAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o ManagedUserPoolClientAnalyticsConfigurationOutput) ToManagedUserPoolClientAnalyticsConfigurationOutput() ManagedUserPoolClientAnalyticsConfigurationOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientAnalyticsConfigurationOutput) ToManagedUserPoolClientAnalyticsConfigurationOutputWithContext(ctx context.Context) ManagedUserPoolClientAnalyticsConfigurationOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientAnalyticsConfigurationOutput) ToManagedUserPoolClientAnalyticsConfigurationPtrOutput() ManagedUserPoolClientAnalyticsConfigurationPtrOutput {
+	return o.ToManagedUserPoolClientAnalyticsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedUserPoolClientAnalyticsConfigurationOutput) ToManagedUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientAnalyticsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedUserPoolClientAnalyticsConfiguration) *ManagedUserPoolClientAnalyticsConfiguration {
+		return &v
+	}).(ManagedUserPoolClientAnalyticsConfigurationPtrOutput)
+}
+
+// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+func (o ManagedUserPoolClientAnalyticsConfigurationOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedUserPoolClientAnalyticsConfiguration) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// Application ID for an Amazon Pinpoint application.
+func (o ManagedUserPoolClientAnalyticsConfigurationOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedUserPoolClientAnalyticsConfiguration) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// ID for the Analytics Configuration. Conflicts with `applicationArn`.
+func (o ManagedUserPoolClientAnalyticsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedUserPoolClientAnalyticsConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+func (o ManagedUserPoolClientAnalyticsConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedUserPoolClientAnalyticsConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+func (o ManagedUserPoolClientAnalyticsConfigurationOutput) UserDataShared() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedUserPoolClientAnalyticsConfiguration) *bool { return v.UserDataShared }).(pulumi.BoolPtrOutput)
+}
+
+type ManagedUserPoolClientAnalyticsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedUserPoolClientAnalyticsConfiguration)(nil)).Elem()
+}
+
+func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ToManagedUserPoolClientAnalyticsConfigurationPtrOutput() ManagedUserPoolClientAnalyticsConfigurationPtrOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ToManagedUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientAnalyticsConfigurationPtrOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) Elem() ManagedUserPoolClientAnalyticsConfigurationOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientAnalyticsConfiguration) ManagedUserPoolClientAnalyticsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedUserPoolClientAnalyticsConfiguration
+		return ret
+	}).(ManagedUserPoolClientAnalyticsConfigurationOutput)
+}
+
+// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientAnalyticsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application ID for an Amazon Pinpoint application.
+func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientAnalyticsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID for the Analytics Configuration. Conflicts with `applicationArn`.
+func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientAnalyticsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientAnalyticsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) UserDataShared() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientAnalyticsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UserDataShared
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ManagedUserPoolClientTokenValidityUnits struct {
+	// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+	AccessToken *string `pulumi:"accessToken"`
+	// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+	IdToken *string `pulumi:"idToken"`
+	// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+	RefreshToken *string `pulumi:"refreshToken"`
+}
+
+// ManagedUserPoolClientTokenValidityUnitsInput is an input type that accepts ManagedUserPoolClientTokenValidityUnitsArgs and ManagedUserPoolClientTokenValidityUnitsOutput values.
+// You can construct a concrete instance of `ManagedUserPoolClientTokenValidityUnitsInput` via:
+//
+//	ManagedUserPoolClientTokenValidityUnitsArgs{...}
+type ManagedUserPoolClientTokenValidityUnitsInput interface {
+	pulumi.Input
+
+	ToManagedUserPoolClientTokenValidityUnitsOutput() ManagedUserPoolClientTokenValidityUnitsOutput
+	ToManagedUserPoolClientTokenValidityUnitsOutputWithContext(context.Context) ManagedUserPoolClientTokenValidityUnitsOutput
+}
+
+type ManagedUserPoolClientTokenValidityUnitsArgs struct {
+	// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+	IdToken pulumi.StringPtrInput `pulumi:"idToken"`
+	// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+}
+
+func (ManagedUserPoolClientTokenValidityUnitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedUserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (i ManagedUserPoolClientTokenValidityUnitsArgs) ToManagedUserPoolClientTokenValidityUnitsOutput() ManagedUserPoolClientTokenValidityUnitsOutput {
+	return i.ToManagedUserPoolClientTokenValidityUnitsOutputWithContext(context.Background())
+}
+
+func (i ManagedUserPoolClientTokenValidityUnitsArgs) ToManagedUserPoolClientTokenValidityUnitsOutputWithContext(ctx context.Context) ManagedUserPoolClientTokenValidityUnitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPoolClientTokenValidityUnitsOutput)
+}
+
+func (i ManagedUserPoolClientTokenValidityUnitsArgs) ToManagedUserPoolClientTokenValidityUnitsPtrOutput() ManagedUserPoolClientTokenValidityUnitsPtrOutput {
+	return i.ToManagedUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedUserPoolClientTokenValidityUnitsArgs) ToManagedUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientTokenValidityUnitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPoolClientTokenValidityUnitsOutput).ToManagedUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx)
+}
+
+// ManagedUserPoolClientTokenValidityUnitsPtrInput is an input type that accepts ManagedUserPoolClientTokenValidityUnitsArgs, ManagedUserPoolClientTokenValidityUnitsPtr and ManagedUserPoolClientTokenValidityUnitsPtrOutput values.
+// You can construct a concrete instance of `ManagedUserPoolClientTokenValidityUnitsPtrInput` via:
+//
+//	        ManagedUserPoolClientTokenValidityUnitsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ManagedUserPoolClientTokenValidityUnitsPtrInput interface {
+	pulumi.Input
+
+	ToManagedUserPoolClientTokenValidityUnitsPtrOutput() ManagedUserPoolClientTokenValidityUnitsPtrOutput
+	ToManagedUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Context) ManagedUserPoolClientTokenValidityUnitsPtrOutput
+}
+
+type managedUserPoolClientTokenValidityUnitsPtrType ManagedUserPoolClientTokenValidityUnitsArgs
+
+func ManagedUserPoolClientTokenValidityUnitsPtr(v *ManagedUserPoolClientTokenValidityUnitsArgs) ManagedUserPoolClientTokenValidityUnitsPtrInput {
+	return (*managedUserPoolClientTokenValidityUnitsPtrType)(v)
+}
+
+func (*managedUserPoolClientTokenValidityUnitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedUserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (i *managedUserPoolClientTokenValidityUnitsPtrType) ToManagedUserPoolClientTokenValidityUnitsPtrOutput() ManagedUserPoolClientTokenValidityUnitsPtrOutput {
+	return i.ToManagedUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Background())
+}
+
+func (i *managedUserPoolClientTokenValidityUnitsPtrType) ToManagedUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientTokenValidityUnitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedUserPoolClientTokenValidityUnitsPtrOutput)
+}
+
+type ManagedUserPoolClientTokenValidityUnitsOutput struct{ *pulumi.OutputState }
+
+func (ManagedUserPoolClientTokenValidityUnitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedUserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (o ManagedUserPoolClientTokenValidityUnitsOutput) ToManagedUserPoolClientTokenValidityUnitsOutput() ManagedUserPoolClientTokenValidityUnitsOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientTokenValidityUnitsOutput) ToManagedUserPoolClientTokenValidityUnitsOutputWithContext(ctx context.Context) ManagedUserPoolClientTokenValidityUnitsOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientTokenValidityUnitsOutput) ToManagedUserPoolClientTokenValidityUnitsPtrOutput() ManagedUserPoolClientTokenValidityUnitsPtrOutput {
+	return o.ToManagedUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedUserPoolClientTokenValidityUnitsOutput) ToManagedUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientTokenValidityUnitsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedUserPoolClientTokenValidityUnits) *ManagedUserPoolClientTokenValidityUnits {
+		return &v
+	}).(ManagedUserPoolClientTokenValidityUnitsPtrOutput)
+}
+
+// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+func (o ManagedUserPoolClientTokenValidityUnitsOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedUserPoolClientTokenValidityUnits) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+func (o ManagedUserPoolClientTokenValidityUnitsOutput) IdToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedUserPoolClientTokenValidityUnits) *string { return v.IdToken }).(pulumi.StringPtrOutput)
+}
+
+// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+func (o ManagedUserPoolClientTokenValidityUnitsOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedUserPoolClientTokenValidityUnits) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+type ManagedUserPoolClientTokenValidityUnitsPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedUserPoolClientTokenValidityUnitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedUserPoolClientTokenValidityUnits)(nil)).Elem()
+}
+
+func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) ToManagedUserPoolClientTokenValidityUnitsPtrOutput() ManagedUserPoolClientTokenValidityUnitsPtrOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) ToManagedUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) ManagedUserPoolClientTokenValidityUnitsPtrOutput {
+	return o
+}
+
+func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) Elem() ManagedUserPoolClientTokenValidityUnitsOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientTokenValidityUnits) ManagedUserPoolClientTokenValidityUnits {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedUserPoolClientTokenValidityUnits
+		return ret
+	}).(ManagedUserPoolClientTokenValidityUnitsOutput)
+}
+
+// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientTokenValidityUnits) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) IdToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientTokenValidityUnits) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedUserPoolClientTokenValidityUnits) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResourceServerScope struct {
 	// The scope description.
 	ScopeDescription string `pulumi:"scopeDescription"`
@@ -6457,6 +6845,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMappingArrayInput)(nil)).Elem(), IdentityPoolRoleAttachmentRoleMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMappingMappingRuleInput)(nil)).Elem(), IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayInput)(nil)).Elem(), IdentityPoolRoleAttachmentRoleMappingMappingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientAnalyticsConfigurationInput)(nil)).Elem(), ManagedUserPoolClientAnalyticsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientAnalyticsConfigurationPtrInput)(nil)).Elem(), ManagedUserPoolClientAnalyticsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientTokenValidityUnitsInput)(nil)).Elem(), ManagedUserPoolClientTokenValidityUnitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedUserPoolClientTokenValidityUnitsPtrInput)(nil)).Elem(), ManagedUserPoolClientTokenValidityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerScopeInput)(nil)).Elem(), ResourceServerScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerScopeArrayInput)(nil)).Elem(), ResourceServerScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationArgs{})
@@ -6535,6 +6927,10 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingArrayOutput{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingMappingRuleOutput{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayOutput{})
+	pulumi.RegisterOutputType(ManagedUserPoolClientAnalyticsConfigurationOutput{})
+	pulumi.RegisterOutputType(ManagedUserPoolClientAnalyticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ManagedUserPoolClientTokenValidityUnitsOutput{})
+	pulumi.RegisterOutputType(ManagedUserPoolClientTokenValidityUnitsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceServerScopeOutput{})
 	pulumi.RegisterOutputType(ResourceServerScopeArrayOutput{})
 	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationOutput{})

@@ -2582,6 +2582,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cognito/managedUserPoolClient",
+  "fqn": "pulumi_aws.cognito",
+  "classes": {
+   "aws:cognito/managedUserPoolClient:ManagedUserPoolClient": "ManagedUserPoolClient"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cognito/resourceServer",
   "fqn": "pulumi_aws.cognito",
   "classes": {
@@ -5282,6 +5290,30 @@ _utilities.register(
   "fqn": "pulumi_aws.globalaccelerator",
   "classes": {
    "aws:globalaccelerator/accelerator:Accelerator": "Accelerator"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "globalaccelerator/customRoutingAccelerator",
+  "fqn": "pulumi_aws.globalaccelerator",
+  "classes": {
+   "aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator": "CustomRoutingAccelerator"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "globalaccelerator/customRoutingEndpointGroup",
+  "fqn": "pulumi_aws.globalaccelerator",
+  "classes": {
+   "aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup": "CustomRoutingEndpointGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "globalaccelerator/customRoutingListener",
+  "fqn": "pulumi_aws.globalaccelerator",
+  "classes": {
+   "aws:globalaccelerator/customRoutingListener:CustomRoutingListener": "CustomRoutingListener"
   }
  },
  {

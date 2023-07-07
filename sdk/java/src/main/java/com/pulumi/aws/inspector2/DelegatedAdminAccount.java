@@ -25,6 +25,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inspector2.DelegatedAdminAccount;
  * import com.pulumi.aws.inspector2.DelegatedAdminAccountArgs;
  * import java.util.List;

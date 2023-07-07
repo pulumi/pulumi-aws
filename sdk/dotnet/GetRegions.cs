@@ -181,6 +181,12 @@ namespace Pulumi.Aws
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+        /// </summary>
+        [Input("id")]
+        public string? Id { get; set; }
+
         public GetRegionsArgs()
         {
         }
@@ -207,6 +213,12 @@ namespace Pulumi.Aws
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         public GetRegionsInvokeArgs()
         {
         }
@@ -220,7 +232,7 @@ namespace Pulumi.Aws
         public readonly bool? AllRegions;
         public readonly ImmutableArray<Outputs.GetRegionsFilterResult> Filters;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
+        /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
         /// </summary>
         public readonly string Id;
         /// <summary>

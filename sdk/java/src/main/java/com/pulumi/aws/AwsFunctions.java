@@ -16,12 +16,18 @@ import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
 import com.pulumi.aws.inputs.GetAvailabilityZonePlainArgs;
 import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
 import com.pulumi.aws.inputs.GetAvailabilityZonesPlainArgs;
+import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
+import com.pulumi.aws.inputs.GetBillingServiceAccountPlainArgs;
+import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+import com.pulumi.aws.inputs.GetCallerIdentityPlainArgs;
 import com.pulumi.aws.inputs.GetDefaultTagsArgs;
 import com.pulumi.aws.inputs.GetDefaultTagsPlainArgs;
 import com.pulumi.aws.inputs.GetElasticIpArgs;
 import com.pulumi.aws.inputs.GetElasticIpPlainArgs;
 import com.pulumi.aws.inputs.GetIpRangesArgs;
 import com.pulumi.aws.inputs.GetIpRangesPlainArgs;
+import com.pulumi.aws.inputs.GetPartitionArgs;
+import com.pulumi.aws.inputs.GetPartitionPlainArgs;
 import com.pulumi.aws.inputs.GetPrefixListArgs;
 import com.pulumi.aws.inputs.GetPrefixListPlainArgs;
 import com.pulumi.aws.inputs.GetRegionArgs;
@@ -1966,6 +1972,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
@@ -2030,7 +2037,7 @@ public final class AwsFunctions {
      * 
      */
     public static Output<GetBillingServiceAccountResult> getBillingServiceAccount() {
-        return getBillingServiceAccount(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getBillingServiceAccount(GetBillingServiceAccountArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
@@ -2043,6 +2050,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
@@ -2107,7 +2115,7 @@ public final class AwsFunctions {
      * 
      */
     public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain() {
-        return getBillingServiceAccountPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getBillingServiceAccountPlain(GetBillingServiceAccountPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the Account ID of the [AWS Billing and Cost Management Service Account](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html#step-2) for the purpose of permitting in S3 bucket policy.
@@ -2120,6 +2128,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
@@ -2183,7 +2192,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(InvokeArgs args) {
+    public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(GetBillingServiceAccountArgs args) {
         return getBillingServiceAccount(args, InvokeOptions.Empty);
     }
     /**
@@ -2197,6 +2206,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
@@ -2260,7 +2270,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(InvokeArgs args) {
+    public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(GetBillingServiceAccountPlainArgs args) {
         return getBillingServiceAccountPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -2274,6 +2284,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
@@ -2337,7 +2348,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetBillingServiceAccountResult> getBillingServiceAccount(GetBillingServiceAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getBillingServiceAccount:getBillingServiceAccount", TypeShape.of(GetBillingServiceAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2351,6 +2362,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
      * import com.pulumi.aws.s3.BucketV2;
      * import com.pulumi.aws.s3.BucketAclV2;
      * import com.pulumi.aws.s3.BucketAclV2Args;
@@ -2414,7 +2426,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetBillingServiceAccountResult> getBillingServiceAccountPlain(GetBillingServiceAccountPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getBillingServiceAccount:getBillingServiceAccount", TypeShape.of(GetBillingServiceAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2429,6 +2441,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2453,7 +2466,7 @@ public final class AwsFunctions {
      * 
      */
     public static Output<GetCallerIdentityResult> getCallerIdentity() {
-        return getCallerIdentity(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getCallerIdentity(GetCallerIdentityArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the access to the effective Account ID, User ID, and ARN in
@@ -2467,6 +2480,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2491,7 +2505,7 @@ public final class AwsFunctions {
      * 
      */
     public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain() {
-        return getCallerIdentityPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getCallerIdentityPlain(GetCallerIdentityPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get the access to the effective Account ID, User ID, and ARN in
@@ -2505,6 +2519,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2528,7 +2543,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static Output<GetCallerIdentityResult> getCallerIdentity(InvokeArgs args) {
+    public static Output<GetCallerIdentityResult> getCallerIdentity(GetCallerIdentityArgs args) {
         return getCallerIdentity(args, InvokeOptions.Empty);
     }
     /**
@@ -2543,6 +2558,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2566,7 +2582,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(InvokeArgs args) {
+    public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(GetCallerIdentityPlainArgs args) {
         return getCallerIdentityPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -2581,6 +2597,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2604,7 +2621,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static Output<GetCallerIdentityResult> getCallerIdentity(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetCallerIdentityResult> getCallerIdentity(GetCallerIdentityArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getCallerIdentity:getCallerIdentity", TypeShape.of(GetCallerIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2619,6 +2636,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2642,7 +2660,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetCallerIdentityResult> getCallerIdentityPlain(GetCallerIdentityPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getCallerIdentity:getCallerIdentity", TypeShape.of(GetCallerIdentityResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4361,6 +4379,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import java.util.List;
@@ -4392,7 +4411,7 @@ public final class AwsFunctions {
      * 
      */
     public static Output<GetPartitionResult> getPartition() {
-        return getPartition(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getPartition(GetPartitionArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to lookup information about the current AWS partition in
@@ -4406,6 +4425,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import java.util.List;
@@ -4437,7 +4457,7 @@ public final class AwsFunctions {
      * 
      */
     public static CompletableFuture<GetPartitionResult> getPartitionPlain() {
-        return getPartitionPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getPartitionPlain(GetPartitionPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to lookup information about the current AWS partition in
@@ -4451,6 +4471,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import java.util.List;
@@ -4481,7 +4502,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static Output<GetPartitionResult> getPartition(InvokeArgs args) {
+    public static Output<GetPartitionResult> getPartition(GetPartitionArgs args) {
         return getPartition(args, InvokeOptions.Empty);
     }
     /**
@@ -4496,6 +4517,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import java.util.List;
@@ -4526,7 +4548,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetPartitionResult> getPartitionPlain(InvokeArgs args) {
+    public static CompletableFuture<GetPartitionResult> getPartitionPlain(GetPartitionPlainArgs args) {
         return getPartitionPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -4541,6 +4563,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import java.util.List;
@@ -4571,7 +4594,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static Output<GetPartitionResult> getPartition(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetPartitionResult> getPartition(GetPartitionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:index/getPartition:getPartition", TypeShape.of(GetPartitionResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4586,6 +4609,7 @@ public final class AwsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import java.util.List;
@@ -4616,7 +4640,7 @@ public final class AwsFunctions {
      * ```
      * 
      */
-    public static CompletableFuture<GetPartitionResult> getPartitionPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetPartitionResult> getPartitionPlain(GetPartitionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getPartition:getPartition", TypeShape.of(GetPartitionResult.class), args, Utilities.withVersion(options));
     }
     /**

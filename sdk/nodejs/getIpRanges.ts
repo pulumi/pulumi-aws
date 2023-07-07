@@ -39,6 +39,7 @@ export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getIpRanges:getIpRanges", {
+        "id": args.id,
         "regions": args.regions,
         "services": args.services,
         "url": args.url,
@@ -49,6 +50,7 @@ export function getIpRanges(args: GetIpRangesArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getIpRanges.
  */
 export interface GetIpRangesArgs {
+    id?: string;
     /**
      * Filter IP ranges by regions (or include all regions, if
      * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
@@ -84,9 +86,6 @@ export interface GetIpRangesResult {
      * Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
      */
     readonly createDate: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     readonly id: string;
     /**
      * Lexically ordered list of IPv6 CIDR blocks.
@@ -140,6 +139,7 @@ export function getIpRangesOutput(args: GetIpRangesOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getIpRanges.
  */
 export interface GetIpRangesOutputArgs {
+    id?: pulumi.Input<string>;
     /**
      * Filter IP ranges by regions (or include all regions, if
      * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions

@@ -66,9 +66,6 @@ class GetIpRangesResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The provider-assigned unique ID for this managed resource.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -120,7 +117,8 @@ class AwaitableGetIpRangesResult(GetIpRangesResult):
             url=self.url)
 
 
-def get_ip_ranges(regions: Optional[Sequence[str]] = None,
+def get_ip_ranges(id: Optional[str] = None,
+                  regions: Optional[Sequence[str]] = None,
                   services: Optional[Sequence[str]] = None,
                   url: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpRangesResult:
@@ -167,6 +165,7 @@ def get_ip_ranges(regions: Optional[Sequence[str]] = None,
     :param str url: Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
     """
     __args__ = dict()
+    __args__['id'] = id
     __args__['regions'] = regions
     __args__['services'] = services
     __args__['url'] = url
@@ -185,7 +184,8 @@ def get_ip_ranges(regions: Optional[Sequence[str]] = None,
 
 
 @_utilities.lift_output_func(get_ip_ranges)
-def get_ip_ranges_output(regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                         regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          services: Optional[pulumi.Input[Sequence[str]]] = None,
                          url: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpRangesResult]:

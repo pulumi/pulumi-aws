@@ -5,7 +5,6 @@ package com.pulumi.aws.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,25 +14,17 @@ public final class GetDefaultTagsPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetDefaultTagsPlainArgs Empty = new GetDefaultTagsPlainArgs();
 
-    /**
-     * Blocks of default tags set on the provider. See details below.
-     * 
-     */
-    @Import(name="tags")
-    private @Nullable Map<String,String> tags;
+    @Import(name="id")
+    private @Nullable String id;
 
-    /**
-     * @return Blocks of default tags set on the provider. See details below.
-     * 
-     */
-    public Optional<Map<String,String>> tags() {
-        return Optional.ofNullable(this.tags);
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
     }
 
     private GetDefaultTagsPlainArgs() {}
 
     private GetDefaultTagsPlainArgs(GetDefaultTagsPlainArgs $) {
-        this.tags = $.tags;
+        this.id = $.id;
     }
 
     public static Builder builder() {
@@ -54,14 +45,8 @@ public final class GetDefaultTagsPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetDefaultTagsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tags Blocks of default tags set on the provider. See details below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tags(@Nullable Map<String,String> tags) {
-            $.tags = tags;
+        public Builder id(@Nullable String id) {
+            $.id = id;
             return this;
         }
 

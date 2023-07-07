@@ -29,6 +29,13 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.dnsName);
     }
 
+    @Import(name="id")
+    private @Nullable String id;
+
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
     /**
      * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
      * 
@@ -93,6 +100,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetServicePlainArgs(GetServicePlainArgs $) {
         this.dnsName = $.dnsName;
+        this.id = $.id;
         this.region = $.region;
         this.reverseDnsName = $.reverseDnsName;
         this.reverseDnsPrefix = $.reverseDnsPrefix;
@@ -125,6 +133,11 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder dnsName(@Nullable String dnsName) {
             $.dnsName = dnsName;
+            return this;
+        }
+
+        public Builder id(@Nullable String id) {
+            $.id = id;
             return this;
         }
 

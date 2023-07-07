@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.ec2.Eip;
  * import com.pulumi.aws.ec2.EipArgs;
  * import com.pulumi.aws.shield.Protection;

@@ -11,10 +11,6 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceResult {
     private String dnsName;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     private String id;
     private String partition;
     private String region;
@@ -31,10 +27,6 @@ public final class GetServiceResult {
     public String dnsName() {
         return this.dnsName;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     public String id() {
         return this.id;
     }

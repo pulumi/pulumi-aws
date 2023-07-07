@@ -19,10 +19,6 @@ public final class GetRegionResult {
      * 
      */
     private String endpoint;
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     private String id;
     /**
      * @return Name of the selected region.
@@ -45,10 +41,6 @@ public final class GetRegionResult {
     public String endpoint() {
         return this.endpoint;
     }
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     public String id() {
         return this.id;
     }

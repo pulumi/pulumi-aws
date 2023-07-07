@@ -6,7 +6,6 @@ package com.pulumi.aws.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,25 +15,17 @@ public final class GetDefaultTagsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDefaultTagsArgs Empty = new GetDefaultTagsArgs();
 
-    /**
-     * Blocks of default tags set on the provider. See details below.
-     * 
-     */
-    @Import(name="tags")
-    private @Nullable Output<Map<String,String>> tags;
+    @Import(name="id")
+    private @Nullable Output<String> id;
 
-    /**
-     * @return Blocks of default tags set on the provider. See details below.
-     * 
-     */
-    public Optional<Output<Map<String,String>>> tags() {
-        return Optional.ofNullable(this.tags);
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
     }
 
     private GetDefaultTagsArgs() {}
 
     private GetDefaultTagsArgs(GetDefaultTagsArgs $) {
-        this.tags = $.tags;
+        this.id = $.id;
     }
 
     public static Builder builder() {
@@ -55,25 +46,13 @@ public final class GetDefaultTagsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDefaultTagsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tags Blocks of default tags set on the provider. See details below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tags(@Nullable Output<Map<String,String>> tags) {
-            $.tags = tags;
+        public Builder id(@Nullable Output<String> id) {
+            $.id = id;
             return this;
         }
 
-        /**
-         * @param tags Blocks of default tags set on the provider. See details below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tags(Map<String,String> tags) {
-            return tags(Output.of(tags));
+        public Builder id(String id) {
+            return id(Output.of(id));
         }
 
         public GetDefaultTagsArgs build() {
