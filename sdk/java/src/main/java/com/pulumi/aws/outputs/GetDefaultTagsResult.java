@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDefaultTagsResult {
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     private String id;
     /**
      * @return Blocks of default tags set on the provider. See details below.
@@ -22,10 +18,6 @@ public final class GetDefaultTagsResult {
     private Map<String,String> tags;
 
     private GetDefaultTagsResult() {}
-    /**
-     * @return The provider-assigned unique ID for this managed resource.
-     * 
-     */
     public String id() {
         return this.id;
     }

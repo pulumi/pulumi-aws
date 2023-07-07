@@ -127,6 +127,9 @@ namespace Pulumi.Aws
 
     public sealed class GetIpRangesArgs : global::Pulumi.InvokeArgs
     {
+        [Input("id")]
+        public string? Id { get; set; }
+
         [Input("regions")]
         private List<string>? _regions;
 
@@ -174,6 +177,9 @@ namespace Pulumi.Aws
 
     public sealed class GetIpRangesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         [Input("regions")]
         private InputList<string>? _regions;
 
@@ -231,9 +237,6 @@ namespace Pulumi.Aws
         /// Publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
         /// </summary>
         public readonly string CreateDate;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string Id;
         /// <summary>
         /// Lexically ordered list of IPv6 CIDR blocks.

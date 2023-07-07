@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetArnArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +30,18 @@ public final class GetArnArgs extends com.pulumi.resources.InvokeArgs {
         return this.arn;
     }
 
+    @Import(name="id")
+    private @Nullable Output<String> id;
+
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
+    }
+
     private GetArnArgs() {}
 
     private GetArnArgs(GetArnArgs $) {
         this.arn = $.arn;
+        this.id = $.id;
     }
 
     public static Builder builder() {
@@ -71,6 +81,15 @@ public final class GetArnArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        public Builder id(@Nullable Output<String> id) {
+            $.id = id;
+            return this;
+        }
+
+        public Builder id(String id) {
+            return id(Output.of(id));
         }
 
         public GetArnArgs build() {

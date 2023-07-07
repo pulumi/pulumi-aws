@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.Vpc;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.ec2.VpcPeeringConnection;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionArgs;
  * import com.pulumi.aws.ec2.VpcPeeringConnectionAccepter;

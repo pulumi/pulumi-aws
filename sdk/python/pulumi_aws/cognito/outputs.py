@@ -14,6 +14,8 @@ __all__ = [
     'IdentityPoolCognitoIdentityProvider',
     'IdentityPoolRoleAttachmentRoleMapping',
     'IdentityPoolRoleAttachmentRoleMappingMappingRule',
+    'ManagedUserPoolClientAnalyticsConfiguration',
+    'ManagedUserPoolClientTokenValidityUnits',
     'ResourceServerScope',
     'RiskConfigurationAccountTakeoverRiskConfiguration',
     'RiskConfigurationAccountTakeoverRiskConfigurationActions',
@@ -258,6 +260,162 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
         A brief string that the claim must match, for example, "paid" or "yes".
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ManagedUserPoolClientAnalyticsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationArn":
+            suggest = "application_arn"
+        elif key == "applicationId":
+            suggest = "application_id"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "userDataShared":
+            suggest = "user_data_shared"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedUserPoolClientAnalyticsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedUserPoolClientAnalyticsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedUserPoolClientAnalyticsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_arn: Optional[str] = None,
+                 application_id: Optional[str] = None,
+                 external_id: Optional[str] = None,
+                 role_arn: Optional[str] = None,
+                 user_data_shared: Optional[bool] = None):
+        """
+        :param str application_arn: Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        :param str application_id: Application ID for an Amazon Pinpoint application.
+        :param str external_id: ID for the Analytics Configuration. Conflicts with `application_arn`.
+        :param str role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+        :param bool user_data_shared: If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        """
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if user_data_shared is not None:
+            pulumi.set(__self__, "user_data_shared", user_data_shared)
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[str]:
+        """
+        Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        """
+        return pulumi.get(self, "application_arn")
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[str]:
+        """
+        Application ID for an Amazon Pinpoint application.
+        """
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[str]:
+        """
+        ID for the Analytics Configuration. Conflicts with `application_arn`.
+        """
+        return pulumi.get(self, "external_id")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        """
+        ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="userDataShared")
+    def user_data_shared(self) -> Optional[bool]:
+        """
+        If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        """
+        return pulumi.get(self, "user_data_shared")
+
+
+@pulumi.output_type
+class ManagedUserPoolClientTokenValidityUnits(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessToken":
+            suggest = "access_token"
+        elif key == "idToken":
+            suggest = "id_token"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedUserPoolClientTokenValidityUnits. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedUserPoolClientTokenValidityUnits.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedUserPoolClientTokenValidityUnits.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_token: Optional[str] = None,
+                 id_token: Optional[str] = None,
+                 refresh_token: Optional[str] = None):
+        """
+        :param str access_token: Time unit in for the value in `access_token_validity`, defaults to `hours`.
+        :param str id_token: Time unit in for the value in `id_token_validity`, defaults to `hours`.
+        :param str refresh_token: Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        """
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if id_token is not None:
+            pulumi.set(__self__, "id_token", id_token)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[str]:
+        """
+        Time unit in for the value in `access_token_validity`, defaults to `hours`.
+        """
+        return pulumi.get(self, "access_token")
+
+    @property
+    @pulumi.getter(name="idToken")
+    def id_token(self) -> Optional[str]:
+        """
+        Time unit in for the value in `id_token_validity`, defaults to `hours`.
+        """
+        return pulumi.get(self, "id_token")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[str]:
+        """
+        Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        """
+        return pulumi.get(self, "refresh_token")
 
 
 @pulumi.output_type

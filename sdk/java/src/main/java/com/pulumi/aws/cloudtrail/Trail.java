@@ -43,6 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudtrail.Trail;
  * import com.pulumi.aws.cloudtrail.TrailArgs;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;

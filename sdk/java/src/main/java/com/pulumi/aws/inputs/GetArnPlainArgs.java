@@ -6,6 +6,8 @@ package com.pulumi.aws.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetArnPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -27,10 +29,18 @@ public final class GetArnPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.arn;
     }
 
+    @Import(name="id")
+    private @Nullable String id;
+
+    public Optional<String> id() {
+        return Optional.ofNullable(this.id);
+    }
+
     private GetArnPlainArgs() {}
 
     private GetArnPlainArgs(GetArnPlainArgs $) {
         this.arn = $.arn;
+        this.id = $.id;
     }
 
     public static Builder builder() {
@@ -59,6 +69,11 @@ public final class GetArnPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder arn(String arn) {
             $.arn = arn;
+            return this;
+        }
+
+        public Builder id(@Nullable String id) {
+            $.id = id;
             return this;
         }
 

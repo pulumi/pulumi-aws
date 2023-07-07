@@ -30,6 +30,13 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.endpoint);
     }
 
+    @Import(name="id")
+    private @Nullable Output<String> id;
+
+    public Optional<Output<String>> id() {
+        return Optional.ofNullable(this.id);
+    }
+
     /**
      * Full name of the region to select.
      * 
@@ -49,6 +56,7 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetRegionArgs(GetRegionArgs $) {
         this.endpoint = $.endpoint;
+        this.id = $.id;
         this.name = $.name;
     }
 
@@ -89,6 +97,15 @@ public final class GetRegionArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        public Builder id(@Nullable Output<String> id) {
+            $.id = id;
+            return this;
+        }
+
+        public Builder id(String id) {
+            return id(Output.of(id));
         }
 
         /**

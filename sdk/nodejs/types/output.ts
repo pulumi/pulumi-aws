@@ -14970,6 +14970,44 @@ export namespace cognito {
         value: string;
     }
 
+    export interface ManagedUserPoolClientAnalyticsConfiguration {
+        /**
+         * Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+         */
+        applicationArn?: string;
+        /**
+         * Application ID for an Amazon Pinpoint application.
+         */
+        applicationId?: string;
+        /**
+         * ID for the Analytics Configuration. Conflicts with `applicationArn`.
+         */
+        externalId?: string;
+        /**
+         * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+         */
+        roleArn: string;
+        /**
+         * If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+         */
+        userDataShared: boolean;
+    }
+
+    export interface ManagedUserPoolClientTokenValidityUnits {
+        /**
+         * Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+         */
+        accessToken: string;
+        /**
+         * Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+         */
+        idToken: string;
+        /**
+         * Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+         */
+        refreshToken: string;
+    }
+
     export interface ResourceServerScope {
         /**
          * The scope description.
@@ -15202,22 +15240,22 @@ export namespace cognito {
         /**
          * If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
          */
-        userDataShared?: boolean;
+        userDataShared: boolean;
     }
 
     export interface UserPoolClientTokenValidityUnits {
         /**
          * Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
          */
-        accessToken?: string;
+        accessToken: string;
         /**
          * Time unit in for the value in `idTokenValidity`, defaults to `hours`.
          */
-        idToken?: string;
+        idToken: string;
         /**
          * Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
          */
-        refreshToken?: string;
+        refreshToken: string;
     }
 
     export interface UserPoolDeviceConfiguration {
@@ -31072,17 +31110,6 @@ export namespace gamelift {
         policyDurationSeconds?: number;
     }
 
-    export interface MatchmakingConfigurationGameProperty {
-        /**
-         * A game property key
-         */
-        key: string;
-        /**
-         * A game property value.
-         */
-        value: string;
-    }
-
     export interface ScriptStorageLocation {
         /**
          * Name of your S3 bucket.
@@ -31145,6 +31172,67 @@ export namespace globalaccelerator {
         ipFamily: string;
     }
 
+    export interface CustomRoutingAcceleratorAttributes {
+        /**
+         * Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+         */
+        flowLogsEnabled?: boolean;
+        /**
+         * The name of the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+         */
+        flowLogsS3Bucket?: string;
+        /**
+         * The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flowLogsEnabled` is `true`.
+         */
+        flowLogsS3Prefix?: string;
+    }
+
+    export interface CustomRoutingAcceleratorIpSet {
+        /**
+         * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+         */
+        ipAddresses: string[];
+        /**
+         * The type of IP addresses included in this IP set.
+         */
+        ipFamily: string;
+    }
+
+    export interface CustomRoutingEndpointGroupDestinationConfiguration {
+        /**
+         * The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+         */
+        fromPort: number;
+        /**
+         * The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
+         */
+        protocols: string[];
+        /**
+         * The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+         *
+         * **endpoint_configuration** supports the following attributes:
+         */
+        toPort: number;
+    }
+
+    export interface CustomRoutingEndpointGroupEndpointConfiguration {
+        /**
+         * An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+         */
+        endpointId?: string;
+    }
+
+    export interface CustomRoutingListenerPortRange {
+        /**
+         * The first port in the range of ports, inclusive.
+         */
+        fromPort?: number;
+        /**
+         * The last port in the range of ports, inclusive.
+         */
+        toPort?: number;
+    }
+
     export interface EndpointGroupEndpointConfiguration {
         /**
          * Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
@@ -31181,6 +31269,17 @@ export namespace globalaccelerator {
     }
 
     export interface GetAcceleratorIpSet {
+        ipAddresses: string[];
+        ipFamily: string;
+    }
+
+    export interface GetCustomRoutingAcceleratorAttribute {
+        flowLogsEnabled: boolean;
+        flowLogsS3Bucket: string;
+        flowLogsS3Prefix: string;
+    }
+
+    export interface GetCustomRoutingAcceleratorIpSet {
         ipAddresses: string[];
         ipFamily: string;
     }

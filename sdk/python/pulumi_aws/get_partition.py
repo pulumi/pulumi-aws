@@ -13,6 +13,7 @@ __all__ = [
     'GetPartitionResult',
     'AwaitableGetPartitionResult',
     'get_partition',
+    'get_partition_output',
 ]
 
 @pulumi.output_type
@@ -46,7 +47,7 @@ class GetPartitionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The provider-assigned unique ID for this managed resource.
+        Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
         """
         return pulumi.get(self, "id")
 
@@ -79,7 +80,8 @@ class AwaitableGetPartitionResult(GetPartitionResult):
             reverse_dns_prefix=self.reverse_dns_prefix)
 
 
-def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartitionResult:
+def get_partition(id: Optional[str] = None,
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartitionResult:
     """
     Use this data source to lookup information about the current AWS partition in
     which the provider is working.
@@ -97,8 +99,12 @@ def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPa
         sid="1",
     )])
     ```
+
+
+    :param str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
     """
     __args__ = dict()
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:index/getPartition:getPartition', __args__, opts=opts, typ=GetPartitionResult).value
 
@@ -107,3 +113,30 @@ def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPa
         id=pulumi.get(__ret__, 'id'),
         partition=pulumi.get(__ret__, 'partition'),
         reverse_dns_prefix=pulumi.get(__ret__, 'reverse_dns_prefix'))
+
+
+@_utilities.lift_output_func(get_partition)
+def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartitionResult]:
+    """
+    Use this data source to lookup information about the current AWS partition in
+    which the provider is working.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    current = aws.get_partition()
+    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        actions=["s3:ListBucket"],
+        resources=[f"arn:{current.partition}:s3:::my-bucket"],
+        sid="1",
+    )])
+    ```
+
+
+    :param str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+    """
+    ...

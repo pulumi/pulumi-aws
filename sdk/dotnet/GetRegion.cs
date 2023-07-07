@@ -87,6 +87,9 @@ namespace Pulumi.Aws
         [Input("endpoint")]
         public string? Endpoint { get; set; }
 
+        [Input("id")]
+        public string? Id { get; set; }
+
         /// <summary>
         /// Full name of the region to select.
         /// </summary>
@@ -106,6 +109,9 @@ namespace Pulumi.Aws
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// Full name of the region to select.
@@ -131,9 +137,6 @@ namespace Pulumi.Aws
         /// EC2 endpoint for the selected region.
         /// </summary>
         public readonly string Endpoint;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string Id;
         /// <summary>
         /// Name of the selected region.

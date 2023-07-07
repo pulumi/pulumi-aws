@@ -12,6 +12,11 @@ from .. import _utilities
 __all__ = [
     'AcceleratorAttributesArgs',
     'AcceleratorIpSetArgs',
+    'CustomRoutingAcceleratorAttributesArgs',
+    'CustomRoutingAcceleratorIpSetArgs',
+    'CustomRoutingEndpointGroupDestinationConfigurationArgs',
+    'CustomRoutingEndpointGroupEndpointConfigurationArgs',
+    'CustomRoutingListenerPortRangeArgs',
     'EndpointGroupEndpointConfigurationArgs',
     'EndpointGroupPortOverrideArgs',
     'ListenerPortRangeArgs',
@@ -109,6 +114,218 @@ class AcceleratorIpSetArgs:
     @ip_family.setter
     def ip_family(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_family", value)
+
+
+@pulumi.input_type
+class CustomRoutingAcceleratorAttributesArgs:
+    def __init__(__self__, *,
+                 flow_logs_enabled: Optional[pulumi.Input[bool]] = None,
+                 flow_logs_s3_bucket: Optional[pulumi.Input[str]] = None,
+                 flow_logs_s3_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] flow_logs_enabled: Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+        :param pulumi.Input[str] flow_logs_s3_bucket: The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+        :param pulumi.Input[str] flow_logs_s3_prefix: The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+        """
+        if flow_logs_enabled is not None:
+            pulumi.set(__self__, "flow_logs_enabled", flow_logs_enabled)
+        if flow_logs_s3_bucket is not None:
+            pulumi.set(__self__, "flow_logs_s3_bucket", flow_logs_s3_bucket)
+        if flow_logs_s3_prefix is not None:
+            pulumi.set(__self__, "flow_logs_s3_prefix", flow_logs_s3_prefix)
+
+    @property
+    @pulumi.getter(name="flowLogsEnabled")
+    def flow_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+        """
+        return pulumi.get(self, "flow_logs_enabled")
+
+    @flow_logs_enabled.setter
+    def flow_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "flow_logs_enabled", value)
+
+    @property
+    @pulumi.getter(name="flowLogsS3Bucket")
+    def flow_logs_s3_bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+        """
+        return pulumi.get(self, "flow_logs_s3_bucket")
+
+    @flow_logs_s3_bucket.setter
+    def flow_logs_s3_bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flow_logs_s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="flowLogsS3Prefix")
+    def flow_logs_s3_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+        """
+        return pulumi.get(self, "flow_logs_s3_prefix")
+
+    @flow_logs_s3_prefix.setter
+    def flow_logs_s3_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flow_logs_s3_prefix", value)
+
+
+@pulumi.input_type
+class CustomRoutingAcceleratorIpSetArgs:
+    def __init__(__self__, *,
+                 ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_family: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        :param pulumi.Input[str] ip_family: The type of IP addresses included in this IP set.
+        """
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if ip_family is not None:
+            pulumi.set(__self__, "ip_family", ip_family)
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @ip_addresses.setter
+    def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="ipFamily")
+    def ip_family(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of IP addresses included in this IP set.
+        """
+        return pulumi.get(self, "ip_family")
+
+    @ip_family.setter
+    def ip_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_family", value)
+
+
+@pulumi.input_type
+class CustomRoutingEndpointGroupDestinationConfigurationArgs:
+    def __init__(__self__, *,
+                 from_port: pulumi.Input[int],
+                 protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 to_port: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] from_port: The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
+        :param pulumi.Input[int] to_port: The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+               
+               **endpoint_configuration** supports the following attributes:
+        """
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "protocols", protocols)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> pulumi.Input[int]:
+        """
+        The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+        """
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> pulumi.Input[int]:
+        """
+        The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+
+        **endpoint_configuration** supports the following attributes:
+        """
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "to_port", value)
+
+
+@pulumi.input_type
+class CustomRoutingEndpointGroupEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 endpoint_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] endpoint_id: An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+        """
+        if endpoint_id is not None:
+            pulumi.set(__self__, "endpoint_id", endpoint_id)
+
+    @property
+    @pulumi.getter(name="endpointId")
+    def endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+        """
+        return pulumi.get(self, "endpoint_id")
+
+    @endpoint_id.setter
+    def endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_id", value)
+
+
+@pulumi.input_type
+class CustomRoutingListenerPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: Optional[pulumi.Input[int]] = None,
+                 to_port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] from_port: The first port in the range of ports, inclusive.
+        :param pulumi.Input[int] to_port: The last port in the range of ports, inclusive.
+        """
+        if from_port is not None:
+            pulumi.set(__self__, "from_port", from_port)
+        if to_port is not None:
+            pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The first port in the range of ports, inclusive.
+        """
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The last port in the range of ports, inclusive.
+        """
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "to_port", value)
 
 
 @pulumi.input_type

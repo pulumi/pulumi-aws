@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.acmpca.Certificate;
  * import com.pulumi.aws.acmpca.CertificateArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateValidityArgs;

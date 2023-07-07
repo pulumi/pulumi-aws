@@ -77,6 +77,9 @@ namespace Pulumi.Aws
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        [Input("id")]
+        public string? Id { get; set; }
+
         public GetArnArgs()
         {
         }
@@ -90,6 +93,9 @@ namespace Pulumi.Aws
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         public GetArnInvokeArgs()
         {
@@ -106,9 +112,6 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Account;
         public readonly string Arn;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string Id;
         /// <summary>
         /// Partition that the resource is in.

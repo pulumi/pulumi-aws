@@ -61,26 +61,26 @@ func LookupAccelerator(ctx *pulumi.Context, args *LookupAcceleratorArgs, opts ..
 type LookupAcceleratorArgs struct {
 	// Full ARN of the Global Accelerator.
 	Arn *string `pulumi:"arn"`
+	Id  *string `pulumi:"id"`
 	// Unique name of the Global Accelerator.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
-	Name *string           `pulumi:"name"`
-	Tags map[string]string `pulumi:"tags"`
+	Name *string `pulumi:"name"`
 }
 
 // A collection of values returned by getAccelerator.
 type LookupAcceleratorResult struct {
-	Arn          string                    `pulumi:"arn"`
-	Attributes   []GetAcceleratorAttribute `pulumi:"attributes"`
-	DnsName      string                    `pulumi:"dnsName"`
-	Enabled      bool                      `pulumi:"enabled"`
-	HostedZoneId string                    `pulumi:"hostedZoneId"`
-	// The provider-assigned unique ID for this managed resource.
-	Id            string                `pulumi:"id"`
-	IpAddressType string                `pulumi:"ipAddressType"`
-	IpSets        []GetAcceleratorIpSet `pulumi:"ipSets"`
-	Name          string                `pulumi:"name"`
-	Tags          map[string]string     `pulumi:"tags"`
+	Arn              string                    `pulumi:"arn"`
+	Attributes       []GetAcceleratorAttribute `pulumi:"attributes"`
+	DnsName          string                    `pulumi:"dnsName"`
+	DualStackDnsName string                    `pulumi:"dualStackDnsName"`
+	Enabled          bool                      `pulumi:"enabled"`
+	HostedZoneId     string                    `pulumi:"hostedZoneId"`
+	Id               string                    `pulumi:"id"`
+	IpAddressType    string                    `pulumi:"ipAddressType"`
+	IpSets           []GetAcceleratorIpSet     `pulumi:"ipSets"`
+	Name             string                    `pulumi:"name"`
+	Tags             map[string]string         `pulumi:"tags"`
 }
 
 func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputArgs, opts ...pulumi.InvokeOption) LookupAcceleratorResultOutput {
@@ -100,11 +100,11 @@ func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputAr
 type LookupAcceleratorOutputArgs struct {
 	// Full ARN of the Global Accelerator.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	Id  pulumi.StringPtrInput `pulumi:"id"`
 	// Unique name of the Global Accelerator.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupAcceleratorOutputArgs) ElementType() reflect.Type {
@@ -138,6 +138,10 @@ func (o LookupAcceleratorResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
+func (o LookupAcceleratorResultOutput) DualStackDnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.DualStackDnsName }).(pulumi.StringOutput)
+}
+
 func (o LookupAcceleratorResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -146,7 +150,6 @@ func (o LookupAcceleratorResultOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o LookupAcceleratorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.Id }).(pulumi.StringOutput)
 }

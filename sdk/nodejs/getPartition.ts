@@ -24,11 +24,23 @@ import * as utilities from "./utilities";
  * }));
  * ```
  */
-export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
+export function getPartition(args?: GetPartitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
+    args = args || {};
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:index/getPartition:getPartition", {
+        "id": args.id,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getPartition.
+ */
+export interface GetPartitionArgs {
+    /**
+     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     */
+    id?: string;
 }
 
 /**
@@ -40,7 +52,7 @@ export interface GetPartitionResult {
      */
     readonly dnsSuffix: string;
     /**
-     * The provider-assigned unique ID for this managed resource.
+     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      */
     readonly id: string;
     /**
@@ -51,4 +63,37 @@ export interface GetPartitionResult {
      * Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
      */
     readonly reverseDnsPrefix: string;
+}
+/**
+ * Use this data source to lookup information about the current AWS partition in
+ * which the provider is working.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getPartition({});
+ * const s3Policy = current.then(current => aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["s3:ListBucket"],
+ *         resources: [`arn:${current.partition}:s3:::my-bucket`],
+ *         sid: "1",
+ *     }],
+ * }));
+ * ```
+ */
+export function getPartitionOutput(args?: GetPartitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartitionResult> {
+    return pulumi.output(args).apply((a: any) => getPartition(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPartition.
+ */
+export interface GetPartitionOutputArgs {
+    /**
+     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     */
+    id?: pulumi.Input<string>;
 }

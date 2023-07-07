@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Cognito
     /// Provides a Cognito User Pool Client resource.
     /// 
     /// To manage a User Pool Client created by another service, such as when [configuring an OpenSearch Domain to use Cognito authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html),
-    /// use the `aws_cognito_managed_user_pool_client` resource instead.
+    /// use the `aws.cognito.ManagedUserPoolClient` resource instead.
     /// 
     /// ## Example Usage
     /// ### Create a basic user pool client
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Cognito
         /// The unit can be overridden by a value in `token_validity_units.access_token`.
         /// </summary>
         [Output("accessTokenValidity")]
-        public Output<int?> AccessTokenValidity { get; private set; } = null!;
+        public Output<int> AccessTokenValidity { get; private set; } = null!;
 
         /// <summary>
         /// List of allowed OAuth flows (code, implicit, client_credentials).
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Cognito
         /// Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
         /// </summary>
         [Output("allowedOauthFlowsUserPoolClient")]
-        public Output<bool?> AllowedOauthFlowsUserPoolClient { get; private set; } = null!;
+        public Output<bool> AllowedOauthFlowsUserPoolClient { get; private set; } = null!;
 
         /// <summary>
         /// List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Cognito
         /// Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
         /// </summary>
         [Output("authSessionValidity")]
-        public Output<int?> AuthSessionValidity { get; private set; } = null!;
+        public Output<int> AuthSessionValidity { get; private set; } = null!;
 
         /// <summary>
         /// List of allowed callback URLs for the identity providers.
@@ -250,13 +250,13 @@ namespace Pulumi.Aws.Cognito
         /// Default redirect URI. Must be in the list of callback URLs.
         /// </summary>
         [Output("defaultRedirectUri")]
-        public Output<string?> DefaultRedirectUri { get; private set; } = null!;
+        public Output<string> DefaultRedirectUri { get; private set; } = null!;
 
         /// <summary>
         /// Activates the propagation of additional user context data.
         /// </summary>
         [Output("enablePropagateAdditionalUserContextData")]
-        public Output<bool?> EnablePropagateAdditionalUserContextData { get; private set; } = null!;
+        public Output<bool> EnablePropagateAdditionalUserContextData { get; private set; } = null!;
 
         /// <summary>
         /// Enables or disables token revocation.
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Cognito
         /// The unit can be overridden by a value in `token_validity_units.id_token`.
         /// </summary>
         [Output("idTokenValidity")]
-        public Output<int?> IdTokenValidity { get; private set; } = null!;
+        public Output<int> IdTokenValidity { get; private set; } = null!;
 
         /// <summary>
         /// List of allowed logout URLs for the identity providers.
@@ -314,7 +314,7 @@ namespace Pulumi.Aws.Cognito
         /// The unit can be overridden by a value in `token_validity_units.refresh_token`.
         /// </summary>
         [Output("refreshTokenValidity")]
-        public Output<int?> RefreshTokenValidity { get; private set; } = null!;
+        public Output<int> RefreshTokenValidity { get; private set; } = null!;
 
         /// <summary>
         /// List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).

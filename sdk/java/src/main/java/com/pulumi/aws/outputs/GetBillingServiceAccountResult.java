@@ -15,7 +15,7 @@ public final class GetBillingServiceAccountResult {
      */
     private String arn;
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return ID of the AWS billing service account.
      * 
      */
     private String id;
@@ -29,7 +29,7 @@ public final class GetBillingServiceAccountResult {
         return this.arn;
     }
     /**
-     * @return The provider-assigned unique ID for this managed resource.
+     * @return ID of the AWS billing service account.
      * 
      */
     public String id() {

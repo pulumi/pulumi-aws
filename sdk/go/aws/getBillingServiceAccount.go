@@ -4,6 +4,9 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -95,19 +98,77 @@ import (
 // })
 // }
 // ```
-func GetBillingServiceAccount(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetBillingServiceAccountResult, error) {
+func GetBillingServiceAccount(ctx *pulumi.Context, args *GetBillingServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetBillingServiceAccountResult, error) {
 	var rv GetBillingServiceAccountResult
-	err := ctx.Invoke("aws:index/getBillingServiceAccount:getBillingServiceAccount", nil, &rv, opts...)
+	err := ctx.Invoke("aws:index/getBillingServiceAccount:getBillingServiceAccount", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
+// A collection of arguments for invoking getBillingServiceAccount.
+type GetBillingServiceAccountArgs struct {
+	// ID of the AWS billing service account.
+	Id *string `pulumi:"id"`
+}
+
 // A collection of values returned by getBillingServiceAccount.
 type GetBillingServiceAccountResult struct {
 	// ARN of the AWS billing service account.
 	Arn string `pulumi:"arn"`
-	// The provider-assigned unique ID for this managed resource.
+	// ID of the AWS billing service account.
 	Id string `pulumi:"id"`
+}
+
+func GetBillingServiceAccountOutput(ctx *pulumi.Context, args GetBillingServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetBillingServiceAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetBillingServiceAccountResult, error) {
+			args := v.(GetBillingServiceAccountArgs)
+			r, err := GetBillingServiceAccount(ctx, &args, opts...)
+			var s GetBillingServiceAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(GetBillingServiceAccountResultOutput)
+}
+
+// A collection of arguments for invoking getBillingServiceAccount.
+type GetBillingServiceAccountOutputArgs struct {
+	// ID of the AWS billing service account.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (GetBillingServiceAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBillingServiceAccountArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getBillingServiceAccount.
+type GetBillingServiceAccountResultOutput struct{ *pulumi.OutputState }
+
+func (GetBillingServiceAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBillingServiceAccountResult)(nil)).Elem()
+}
+
+func (o GetBillingServiceAccountResultOutput) ToGetBillingServiceAccountResultOutput() GetBillingServiceAccountResultOutput {
+	return o
+}
+
+func (o GetBillingServiceAccountResultOutput) ToGetBillingServiceAccountResultOutputWithContext(ctx context.Context) GetBillingServiceAccountResultOutput {
+	return o
+}
+
+// ARN of the AWS billing service account.
+func (o GetBillingServiceAccountResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBillingServiceAccountResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// ID of the AWS billing service account.
+func (o GetBillingServiceAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBillingServiceAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetBillingServiceAccountResultOutput{})
 }

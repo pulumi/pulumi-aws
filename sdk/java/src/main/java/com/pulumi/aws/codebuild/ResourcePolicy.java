@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codebuild.ReportGroupArgs;
  * import com.pulumi.aws.codebuild.inputs.ReportGroupExportConfigArgs;
  * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.codebuild.ResourcePolicy;
  * import com.pulumi.aws.codebuild.ResourcePolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;

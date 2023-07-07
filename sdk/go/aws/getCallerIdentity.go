@@ -4,6 +4,9 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,13 +39,19 @@ import (
 //	}
 //
 // ```
-func GetCallerIdentity(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCallerIdentityResult, error) {
+func GetCallerIdentity(ctx *pulumi.Context, args *GetCallerIdentityArgs, opts ...pulumi.InvokeOption) (*GetCallerIdentityResult, error) {
 	var rv GetCallerIdentityResult
-	err := ctx.Invoke("aws:index/getCallerIdentity:getCallerIdentity", nil, &rv, opts...)
+	err := ctx.Invoke("aws:index/getCallerIdentity:getCallerIdentity", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getCallerIdentity.
+type GetCallerIdentityArgs struct {
+	// Account ID number of the account that owns or contains the calling entity.
+	Id *string `pulumi:"id"`
 }
 
 // A collection of values returned by getCallerIdentity.
@@ -51,8 +60,70 @@ type GetCallerIdentityResult struct {
 	AccountId string `pulumi:"accountId"`
 	// ARN associated with the calling entity.
 	Arn string `pulumi:"arn"`
-	// The provider-assigned unique ID for this managed resource.
+	// Account ID number of the account that owns or contains the calling entity.
 	Id string `pulumi:"id"`
 	// Unique identifier of the calling entity.
 	UserId string `pulumi:"userId"`
+}
+
+func GetCallerIdentityOutput(ctx *pulumi.Context, args GetCallerIdentityOutputArgs, opts ...pulumi.InvokeOption) GetCallerIdentityResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetCallerIdentityResult, error) {
+			args := v.(GetCallerIdentityArgs)
+			r, err := GetCallerIdentity(ctx, &args, opts...)
+			var s GetCallerIdentityResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(GetCallerIdentityResultOutput)
+}
+
+// A collection of arguments for invoking getCallerIdentity.
+type GetCallerIdentityOutputArgs struct {
+	// Account ID number of the account that owns or contains the calling entity.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (GetCallerIdentityOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCallerIdentityArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCallerIdentity.
+type GetCallerIdentityResultOutput struct{ *pulumi.OutputState }
+
+func (GetCallerIdentityResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCallerIdentityResult)(nil)).Elem()
+}
+
+func (o GetCallerIdentityResultOutput) ToGetCallerIdentityResultOutput() GetCallerIdentityResultOutput {
+	return o
+}
+
+func (o GetCallerIdentityResultOutput) ToGetCallerIdentityResultOutputWithContext(ctx context.Context) GetCallerIdentityResultOutput {
+	return o
+}
+
+// AWS Account ID number of the account that owns or contains the calling entity.
+func (o GetCallerIdentityResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCallerIdentityResult) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// ARN associated with the calling entity.
+func (o GetCallerIdentityResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCallerIdentityResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Account ID number of the account that owns or contains the calling entity.
+func (o GetCallerIdentityResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCallerIdentityResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Unique identifier of the calling entity.
+func (o GetCallerIdentityResultOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCallerIdentityResult) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCallerIdentityResultOutput{})
 }
