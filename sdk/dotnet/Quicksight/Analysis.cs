@@ -13,38 +13,6 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing a QuickSight Analysis.
     /// 
     /// ## Example Usage
-    /// ### From Source Template
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.Analysis("example", new()
-    ///     {
-    ///         AnalysisId = "example-id",
-    ///         SourceEntity = new Aws.Quicksight.Inputs.AnalysisSourceEntityArgs
-    ///         {
-    ///             SourceTemplate = new Aws.Quicksight.Inputs.AnalysisSourceEntitySourceTemplateArgs
-    ///             {
-    ///                 Arn = aws_quicksight_template.Source.Arn,
-    ///                 DataSetReferences = new[]
-    ///                 {
-    ///                     new Aws.Quicksight.Inputs.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs
-    ///                     {
-    ///                         DataSetArn = aws_quicksight_data_set.Dataset.Arn,
-    ///                         DataSetPlaceholder = "1",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
@@ -58,103 +26,13 @@ namespace Pulumi.Aws.Quicksight
     public partial class Analysis : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Identifier for the analysis.
-        /// </summary>
-        [Output("analysisId")]
-        public Output<string> AnalysisId { get; private set; } = null!;
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
-        /// </summary>
-        [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
-
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
-        [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
-
-        /// <summary>
-        /// The time that the analysis was created.
-        /// </summary>
-        [Output("createdTime")]
-        public Output<string> CreatedTime { get; private set; } = null!;
-
-        [Output("lastPublishedTime")]
-        public Output<string> LastPublishedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// The time that the analysis was last updated.
-        /// </summary>
-        [Output("lastUpdatedTime")]
-        public Output<string> LastUpdatedTime { get; private set; } = null!;
-
-        /// <summary>
-        /// Display name for the analysis.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        /// </summary>
-        [Output("parameters")]
-        public Output<Outputs.AnalysisParameters> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        /// </summary>
-        [Output("permissions")]
-        public Output<ImmutableArray<Outputs.AnalysisPermission>> Permissions { get; private set; } = null!;
-
-        /// <summary>
-        /// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        /// </summary>
-        [Output("recoveryWindowInDays")]
-        public Output<int?> RecoveryWindowInDays { get; private set; } = null!;
-
-        /// <summary>
-        /// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        /// </summary>
-        [Output("sourceEntity")]
-        public Output<Outputs.AnalysisSourceEntity?> SourceEntity { get; private set; } = null!;
-
-        /// <summary>
-        /// The analysis creation status.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        [Output("tagsAll")]
-        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-        /// </summary>
-        [Output("themeArn")]
-        public Output<string?> ThemeArn { get; private set; } = null!;
-
-
-        /// <summary>
         /// Create a Analysis resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Analysis(string name, AnalysisArgs args, CustomResourceOptions? options = null)
+        public Analysis(string name, AnalysisArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:quicksight/analysis:Analysis", name, args ?? new AnalysisArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -192,74 +70,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class AnalysisArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier for the analysis.
-        /// </summary>
-        [Input("analysisId", required: true)]
-        public Input<string> AnalysisId { get; set; } = null!;
-
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
-
-        /// <summary>
-        /// Display name for the analysis.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        /// </summary>
-        [Input("parameters")]
-        public Input<Inputs.AnalysisParametersArgs>? Parameters { get; set; }
-
-        [Input("permissions")]
-        private InputList<Inputs.AnalysisPermissionArgs>? _permissions;
-
-        /// <summary>
-        /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        /// </summary>
-        public InputList<Inputs.AnalysisPermissionArgs> Permissions
-        {
-            get => _permissions ?? (_permissions = new InputList<Inputs.AnalysisPermissionArgs>());
-            set => _permissions = value;
-        }
-
-        /// <summary>
-        /// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        /// </summary>
-        [Input("recoveryWindowInDays")]
-        public Input<int>? RecoveryWindowInDays { get; set; }
-
-        /// <summary>
-        /// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        /// </summary>
-        [Input("sourceEntity")]
-        public Input<Inputs.AnalysisSourceEntityArgs>? SourceEntity { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-        /// </summary>
-        [Input("themeArn")]
-        public Input<string>? ThemeArn { get; set; }
-
         public AnalysisArgs()
         {
         }
@@ -268,113 +78,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class AnalysisState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Identifier for the analysis.
-        /// </summary>
-        [Input("analysisId")]
-        public Input<string>? AnalysisId { get; set; }
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the resource.
-        /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
-
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
-
-        /// <summary>
-        /// The time that the analysis was created.
-        /// </summary>
-        [Input("createdTime")]
-        public Input<string>? CreatedTime { get; set; }
-
-        [Input("lastPublishedTime")]
-        public Input<string>? LastPublishedTime { get; set; }
-
-        /// <summary>
-        /// The time that the analysis was last updated.
-        /// </summary>
-        [Input("lastUpdatedTime")]
-        public Input<string>? LastUpdatedTime { get; set; }
-
-        /// <summary>
-        /// Display name for the analysis.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        /// </summary>
-        [Input("parameters")]
-        public Input<Inputs.AnalysisParametersGetArgs>? Parameters { get; set; }
-
-        [Input("permissions")]
-        private InputList<Inputs.AnalysisPermissionGetArgs>? _permissions;
-
-        /// <summary>
-        /// A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-        /// </summary>
-        public InputList<Inputs.AnalysisPermissionGetArgs> Permissions
-        {
-            get => _permissions ?? (_permissions = new InputList<Inputs.AnalysisPermissionGetArgs>());
-            set => _permissions = value;
-        }
-
-        /// <summary>
-        /// A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        /// </summary>
-        [Input("recoveryWindowInDays")]
-        public Input<int>? RecoveryWindowInDays { get; set; }
-
-        /// <summary>
-        /// The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        /// </summary>
-        [Input("sourceEntity")]
-        public Input<Inputs.AnalysisSourceEntityGetArgs>? SourceEntity { get; set; }
-
-        /// <summary>
-        /// The analysis creation status.
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-        /// </summary>
-        [Input("themeArn")]
-        public Input<string>? ThemeArn { get; set; }
-
         public AnalysisState()
         {
         }

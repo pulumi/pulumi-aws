@@ -56,7 +56,7 @@ class UserPoolArgs:
         :param pulumi.Input[str] name: Name of the user pool.
                
                The following arguments are optional:
-        :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration blocked for information about the user pool password policy. Detailed below.
+        :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration block for information about the user pool password policy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
         :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
@@ -268,7 +268,7 @@ class UserPoolArgs:
     @pulumi.getter(name="passwordPolicy")
     def password_policy(self) -> Optional[pulumi.Input['UserPoolPasswordPolicyArgs']]:
         """
-        Configuration blocked for information about the user pool password policy. Detailed below.
+        Configuration block for information about the user pool password policy. Detailed below.
         """
         return pulumi.get(self, "password_policy")
 
@@ -467,7 +467,7 @@ class _UserPoolState:
         :param pulumi.Input[str] name: Name of the user pool.
                
                The following arguments are optional:
-        :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration blocked for information about the user pool password policy. Detailed below.
+        :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: Configuration block for information about the user pool password policy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaArgs']]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
         :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
@@ -780,7 +780,7 @@ class _UserPoolState:
     @pulumi.getter(name="passwordPolicy")
     def password_policy(self) -> Optional[pulumi.Input['UserPoolPasswordPolicyArgs']]:
         """
-        Configuration blocked for information about the user pool password policy. Detailed below.
+        Configuration block for information about the user pool password policy. Detailed below.
         """
         return pulumi.get(self, "password_policy")
 
@@ -1038,7 +1038,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the user pool.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['UserPoolPasswordPolicyArgs']] password_policy: Configuration blocked for information about the user pool password policy. Detailed below.
+        :param pulumi.Input[pulumi.InputType['UserPoolPasswordPolicyArgs']] password_policy: Configuration block for information about the user pool password policy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolSchemaArgs']]]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
         :param pulumi.Input[pulumi.InputType['UserPoolSmsConfigurationArgs']] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
@@ -1266,7 +1266,7 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the user pool.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['UserPoolPasswordPolicyArgs']] password_policy: Configuration blocked for information about the user pool password policy. Detailed below.
+        :param pulumi.Input[pulumi.InputType['UserPoolPasswordPolicyArgs']] password_policy: Configuration block for information about the user pool password policy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolSchemaArgs']]]] schemas: Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         :param pulumi.Input[str] sms_authentication_message: String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
         :param pulumi.Input[pulumi.InputType['UserPoolSmsConfigurationArgs']] sms_configuration: Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
@@ -1476,7 +1476,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="passwordPolicy")
     def password_policy(self) -> pulumi.Output['outputs.UserPoolPasswordPolicy']:
         """
-        Configuration blocked for information about the user pool password policy. Detailed below.
+        Configuration block for information about the user pool password policy. Detailed below.
         """
         return pulumi.get(self, "password_policy")
 

@@ -541,6 +541,7 @@ class Endpoints(dict):
                  transcribestreamingservice: Optional[str] = None,
                  transfer: Optional[str] = None,
                  translate: Optional[str] = None,
+                 verifiedpermissions: Optional[str] = None,
                  voiceid: Optional[str] = None,
                  vpclattice: Optional[str] = None,
                  waf: Optional[str] = None,
@@ -1295,6 +1296,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "transfer", transfer)
         if translate is not None:
             pulumi.set(__self__, "translate", translate)
+        if verifiedpermissions is not None:
+            pulumi.set(__self__, "verifiedpermissions", verifiedpermissions)
         if voiceid is not None:
             pulumi.set(__self__, "voiceid", voiceid)
         if vpclattice is not None:
@@ -3173,6 +3176,11 @@ class Endpoints(dict):
     @pulumi.getter
     def translate(self) -> Optional[str]:
         return pulumi.get(self, "translate")
+
+    @property
+    @pulumi.getter
+    def verifiedpermissions(self) -> Optional[str]:
+        return pulumi.get(self, "verifiedpermissions")
 
     @property
     @pulumi.getter

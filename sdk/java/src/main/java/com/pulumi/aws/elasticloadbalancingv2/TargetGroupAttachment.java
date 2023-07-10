@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
  * &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
  * 
  * ## Example Usage
+ * ### Basic Usage
  * ```java
  * package generated_program;
  * 
@@ -57,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ## Usage with lambda
+ * ### Lambda Target
  * ```java
  * package generated_program;
  * 
@@ -121,14 +122,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment")
 public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to &#39;all&#39;.
+     * The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> availabilityZone;
 
     /**
-     * @return The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to &#39;all&#39;.
+     * @return The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
      * 
      */
     public Output<Optional<String>> availabilityZone() {
@@ -149,28 +150,32 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.port);
     }
     /**
-     * The ARN of the target group with which to register targets
+     * The ARN of the target group with which to register targets.
      * 
      */
     @Export(name="targetGroupArn", refs={String.class}, tree="[0]")
     private Output<String> targetGroupArn;
 
     /**
-     * @return The ARN of the target group with which to register targets
+     * @return The ARN of the target group with which to register targets.
      * 
      */
     public Output<String> targetGroupArn() {
         return this.targetGroupArn;
     }
     /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="targetId", refs={String.class}, tree="[0]")
     private Output<String> targetId;
 
     /**
-     * @return The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+     * @return The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> targetId() {

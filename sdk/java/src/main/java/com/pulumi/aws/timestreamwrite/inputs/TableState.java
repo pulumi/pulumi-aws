@@ -5,6 +5,7 @@ package com.pulumi.aws.timestreamwrite.inputs;
 
 import com.pulumi.aws.timestreamwrite.inputs.TableMagneticStoreWritePropertiesArgs;
 import com.pulumi.aws.timestreamwrite.inputs.TableRetentionPropertiesArgs;
+import com.pulumi.aws.timestreamwrite.inputs.TableSchemaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -79,6 +80,21 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The schema of the table. See Schema below for more details.
+     * 
+     */
+    @Import(name="schema")
+    private @Nullable Output<TableSchemaArgs> schema;
+
+    /**
+     * @return The schema of the table. See Schema below for more details.
+     * 
+     */
+    public Optional<Output<TableSchemaArgs>> schema() {
+        return Optional.ofNullable(this.schema);
+    }
+
+    /**
      * The name of the Timestream table.
      * 
      */
@@ -130,6 +146,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.databaseName = $.databaseName;
         this.magneticStoreWriteProperties = $.magneticStoreWriteProperties;
         this.retentionProperties = $.retentionProperties;
+        this.schema = $.schema;
         this.tableName = $.tableName;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -235,6 +252,27 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder retentionProperties(TableRetentionPropertiesArgs retentionProperties) {
             return retentionProperties(Output.of(retentionProperties));
+        }
+
+        /**
+         * @param schema The schema of the table. See Schema below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schema(@Nullable Output<TableSchemaArgs> schema) {
+            $.schema = schema;
+            return this;
+        }
+
+        /**
+         * @param schema The schema of the table. See Schema below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schema(TableSchemaArgs schema) {
+            return schema(Output.of(schema));
         }
 
         /**

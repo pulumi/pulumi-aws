@@ -53,15 +53,15 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
      * The registry path where the inference code image is stored in Amazon ECR.
      * 
      */
-    @Import(name="image", required=true)
-    private Output<String> image;
+    @Import(name="image")
+    private @Nullable Output<String> image;
 
     /**
      * @return The registry path where the inference code image is stored in Amazon ECR.
      * 
      */
-    public Output<String> image() {
-        return this.image;
+    public Optional<Output<String>> image() {
+        return Optional.ofNullable(this.image);
     }
 
     /**
@@ -109,6 +109,21 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.modelDataUrl);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the model package to use to create the model.
+     * 
+     */
+    @Import(name="modelPackageName")
+    private @Nullable Output<String> modelPackageName;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the model package to use to create the model.
+     * 
+     */
+    public Optional<Output<String>> modelPackageName() {
+        return Optional.ofNullable(this.modelPackageName);
+    }
+
     private ModelContainerArgs() {}
 
     private ModelContainerArgs(ModelContainerArgs $) {
@@ -118,6 +133,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         this.imageConfig = $.imageConfig;
         this.mode = $.mode;
         this.modelDataUrl = $.modelDataUrl;
+        this.modelPackageName = $.modelPackageName;
     }
 
     public static Builder builder() {
@@ -188,7 +204,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder image(Output<String> image) {
+        public Builder image(@Nullable Output<String> image) {
             $.image = image;
             return this;
         }
@@ -266,8 +282,28 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
             return modelDataUrl(Output.of(modelDataUrl));
         }
 
+        /**
+         * @param modelPackageName The Amazon Resource Name (ARN) of the model package to use to create the model.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelPackageName(@Nullable Output<String> modelPackageName) {
+            $.modelPackageName = modelPackageName;
+            return this;
+        }
+
+        /**
+         * @param modelPackageName The Amazon Resource Name (ARN) of the model package to use to create the model.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelPackageName(String modelPackageName) {
+            return modelPackageName(Output.of(modelPackageName));
+        }
+
         public ModelContainerArgs build() {
-            $.image = Objects.requireNonNull($.image, "expected parameter 'image' to be non-null");
             return $;
         }
     }

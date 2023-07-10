@@ -65,6 +65,7 @@ import * as utilities from "../utilities";
  *     vpcId: sampleVpc.id,
  *     cidrBlock: "10.1.1.0/24",
  * });
+ * const samplePlacementGroup = new aws.ec2.PlacementGroup("samplePlacementGroup", {strategy: "cluster"});
  * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sampleComputeEnvironment", {
  *     computeEnvironmentName: "sample",
  *     computeResources: {
@@ -72,6 +73,7 @@ import * as utilities from "../utilities";
  *         instanceTypes: ["c4.large"],
  *         maxVcpus: 16,
  *         minVcpus: 0,
+ *         placementGroup: samplePlacementGroup.name,
  *         securityGroupIds: [sampleSecurityGroup.id],
  *         subnets: [sampleSubnet.id],
  *         type: "EC2",

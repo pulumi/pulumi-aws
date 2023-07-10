@@ -242,6 +242,8 @@ namespace Pulumi.Aws.Ec2
         /// or `egress` (outbound).
         /// 
         /// The following arguments are optional:
+        /// 
+        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -375,6 +377,8 @@ namespace Pulumi.Aws.Ec2
         /// or `egress` (outbound).
         /// 
         /// The following arguments are optional:
+        /// 
+        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -476,6 +480,8 @@ namespace Pulumi.Aws.Ec2
         /// or `egress` (outbound).
         /// 
         /// The following arguments are optional:
+        /// 
+        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

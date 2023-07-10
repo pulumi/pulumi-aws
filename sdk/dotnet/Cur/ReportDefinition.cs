@@ -34,6 +34,7 @@ namespace Pulumi.Aws.Cur
     ///         AdditionalSchemaElements = new[]
     ///         {
     ///             "RESOURCES",
+    ///             "SPLIT_COST_ALLOCATION_DATA",
     ///         },
     ///         Compression = "GZIP",
     ///         Format = "textORcsv",
@@ -64,7 +65,7 @@ namespace Pulumi.Aws.Cur
         public Output<ImmutableArray<string>> AdditionalArtifacts { get; private set; } = null!;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: `RESOURCES`.
+        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         /// </summary>
         [Output("additionalSchemaElements")]
         public Output<ImmutableArray<string>> AdditionalSchemaElements { get; private set; } = null!;
@@ -191,7 +192,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalSchemaElements;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: `RESOURCES`.
+        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         /// </summary>
         public InputList<string> AdditionalSchemaElements
         {
@@ -277,7 +278,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalSchemaElements;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: `RESOURCES`.
+        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         /// </summary>
         public InputList<string> AdditionalSchemaElements
         {

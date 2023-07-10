@@ -36,6 +36,8 @@ class SecurityGroupRuleArgs:
                or `egress` (outbound).
                
                The following arguments are optional:
+               
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
@@ -117,6 +119,8 @@ class SecurityGroupRuleArgs:
         or `egress` (outbound).
 
         The following arguments are optional:
+
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         return pulumi.get(self, "type")
 
@@ -229,6 +233,8 @@ class _SecurityGroupRuleState:
                or `egress` (outbound).
                
                The following arguments are optional:
+               
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         if cidr_blocks is not None:
             pulumi.set(__self__, "cidr_blocks", cidr_blocks)
@@ -395,6 +401,8 @@ class _SecurityGroupRuleState:
         or `egress` (outbound).
 
         The following arguments are optional:
+
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         return pulumi.get(self, "type")
 
@@ -553,6 +561,8 @@ class SecurityGroupRule(pulumi.CustomResource):
                or `egress` (outbound).
                
                The following arguments are optional:
+               
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         ...
     @overload
@@ -778,6 +788,8 @@ class SecurityGroupRule(pulumi.CustomResource):
                or `egress` (outbound).
                
                The following arguments are optional:
+               
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -893,6 +905,8 @@ class SecurityGroupRule(pulumi.CustomResource):
         or `egress` (outbound).
 
         The following arguments are optional:
+
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         return pulumi.get(self, "type")
 

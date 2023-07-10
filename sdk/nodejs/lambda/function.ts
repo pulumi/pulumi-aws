@@ -48,7 +48,7 @@ import {ARN} from "..";
  *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
  *     role: iamForLambda.arn,
  *     handler: "index.test",
- *     runtime: "nodejs16.x",
+ *     runtime: "nodejs18.x",
  *     environment: {
  *         variables: {
  *             foo: "bar",
@@ -89,7 +89,7 @@ import {ARN} from "..";
  *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
  *     role: iamForLambda.arn,
  *     handler: "index.test",
- *     runtime: "nodejs14.x",
+ *     runtime: "nodejs18.x",
  *     ephemeralStorage: {
  *         size: 10240,
  *     },
@@ -321,11 +321,15 @@ export class Function extends pulumi.CustomResource {
      */
     public /*out*/ readonly qualifiedInvokeArn!: pulumi.Output<string>;
     /**
-     * Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+     * **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+     *
+     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
      */
     public readonly replaceSecurityGroupsOnDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+     *
+     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
      */
     public readonly replacementSecurityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -606,11 +610,15 @@ export interface FunctionState {
      */
     qualifiedInvokeArn?: pulumi.Input<string>;
     /**
-     * Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+     * **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+     *
+     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
      */
     replaceSecurityGroupsOnDestroy?: pulumi.Input<boolean>;
     /**
      * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+     *
+     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
      */
     replacementSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -764,11 +772,15 @@ export interface FunctionArgs {
      */
     publish?: pulumi.Input<boolean>;
     /**
-     * Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+     * **AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.** Whether to replace the security groups on associated lambda network interfaces upon destruction. Removing these security groups from orphaned network interfaces can speed up security group deletion times by avoiding a dependency on AWS's internal cleanup operations. By default, the ENI security groups will be replaced with the `default` security group in the function's VPC. Set the `replacementSecurityGroupIds` attribute to use a custom list of security groups for replacement.
+     *
+     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
      */
     replaceSecurityGroupsOnDestroy?: pulumi.Input<boolean>;
     /**
      * List of security group IDs to assign to orphaned Lambda function network interfaces upon destruction. `replaceSecurityGroupsOnDestroy` must be set to `true` to use this attribute.
+     *
+     * @deprecated AWS no longer supports this operation. This attribute now has no effect and will be removed in a future major version.
      */
     replacementSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

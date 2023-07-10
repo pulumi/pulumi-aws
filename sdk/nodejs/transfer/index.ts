@@ -10,10 +10,30 @@ export type Access = import("./access").Access;
 export const Access: typeof import("./access").Access = null as any;
 utilities.lazyLoad(exports, ["Access"], () => require("./access"));
 
+export { AgreementArgs, AgreementState } from "./agreement";
+export type Agreement = import("./agreement").Agreement;
+export const Agreement: typeof import("./agreement").Agreement = null as any;
+utilities.lazyLoad(exports, ["Agreement"], () => require("./agreement"));
+
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { ConnectorArgs, ConnectorState } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+
 export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
 export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
 utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+
+export { ProfileArgs, ProfileState } from "./profile";
+export type Profile = import("./profile").Profile;
+export const Profile: typeof import("./profile").Profile = null as any;
+utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
 
 export { ServerArgs, ServerState } from "./server";
 export type Server = import("./server").Server;
@@ -47,6 +67,14 @@ const _module = {
         switch (type) {
             case "aws:transfer/access:Access":
                 return new Access(name, <any>undefined, { urn })
+            case "aws:transfer/agreement:Agreement":
+                return new Agreement(name, <any>undefined, { urn })
+            case "aws:transfer/certificate:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
+            case "aws:transfer/connector:Connector":
+                return new Connector(name, <any>undefined, { urn })
+            case "aws:transfer/profile:Profile":
+                return new Profile(name, <any>undefined, { urn })
             case "aws:transfer/server:Server":
                 return new Server(name, <any>undefined, { urn })
             case "aws:transfer/sshKey:SshKey":
@@ -63,6 +91,10 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "transfer/access", _module)
+pulumi.runtime.registerResourceModule("aws", "transfer/agreement", _module)
+pulumi.runtime.registerResourceModule("aws", "transfer/certificate", _module)
+pulumi.runtime.registerResourceModule("aws", "transfer/connector", _module)
+pulumi.runtime.registerResourceModule("aws", "transfer/profile", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/server", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/sshKey", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/tag", _module)

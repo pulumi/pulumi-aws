@@ -70,6 +70,10 @@ export interface GetClusterResult {
      */
     readonly clusterIdentifier: string;
     /**
+     * The namespace Amazon Resource Name (ARN) of the cluster
+     */
+    readonly clusterNamespaceArn: string;
+    /**
      * Nodes in the cluster. Cluster node blocks are documented below
      */
     readonly clusterNodes: outputs.redshift.GetClusterClusterNode[];
@@ -99,7 +103,7 @@ export interface GetClusterResult {
      */
     readonly databaseName: string;
     /**
-     * ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+     * The ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
     readonly defaultIamRoleArn: string;
     /**

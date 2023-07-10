@@ -136,6 +136,11 @@ namespace Pulumi.Aws.Batch
     ///         CidrBlock = "10.1.1.0/24",
     ///     });
     /// 
+    ///     var samplePlacementGroup = new Aws.Ec2.PlacementGroup("samplePlacementGroup", new()
+    ///     {
+    ///         Strategy = "cluster",
+    ///     });
+    /// 
     ///     var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sampleComputeEnvironment", new()
     ///     {
     ///         ComputeEnvironmentName = "sample",
@@ -148,6 +153,7 @@ namespace Pulumi.Aws.Batch
     ///             },
     ///             MaxVcpus = 16,
     ///             MinVcpus = 0,
+    ///             PlacementGroup = samplePlacementGroup.Name,
     ///             SecurityGroupIds = new[]
     ///             {
     ///                 sampleSecurityGroup.Id,

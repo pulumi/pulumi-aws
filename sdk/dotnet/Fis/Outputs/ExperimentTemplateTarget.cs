@@ -22,13 +22,17 @@ namespace Pulumi.Aws.Fis.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The resource type parameters.
+        /// 
+        /// &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Parameters;
+        /// <summary>
         /// Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
         /// </summary>
         public readonly ImmutableArray<string> ResourceArns;
         /// <summary>
         /// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-        /// 
-        /// &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTemplateTargetResourceTag> ResourceTags;
         /// <summary>
@@ -46,6 +50,8 @@ namespace Pulumi.Aws.Fis.Outputs
 
             string name,
 
+            ImmutableDictionary<string, string>? parameters,
+
             ImmutableArray<string> resourceArns,
 
             ImmutableArray<Outputs.ExperimentTemplateTargetResourceTag> resourceTags,
@@ -56,6 +62,7 @@ namespace Pulumi.Aws.Fis.Outputs
         {
             Filters = filters;
             Name = name;
+            Parameters = parameters;
             ResourceArns = resourceArns;
             ResourceTags = resourceTags;
             ResourceType = resourceType;

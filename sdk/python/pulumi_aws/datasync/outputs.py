@@ -439,6 +439,8 @@ class TaskOptions(dict):
             suggest = "bytes_per_second"
         elif key == "logLevel":
             suggest = "log_level"
+        elif key == "objectTags":
+            suggest = "object_tags"
         elif key == "overwriteMode":
             suggest = "overwrite_mode"
         elif key == "posixPermissions":
@@ -473,6 +475,7 @@ class TaskOptions(dict):
                  gid: Optional[str] = None,
                  log_level: Optional[str] = None,
                  mtime: Optional[str] = None,
+                 object_tags: Optional[str] = None,
                  overwrite_mode: Optional[str] = None,
                  posix_permissions: Optional[str] = None,
                  preserve_deleted_files: Optional[str] = None,
@@ -488,11 +491,12 @@ class TaskOptions(dict):
         :param str gid: Group identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
         :param str log_level: Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
         :param str mtime: A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
+        :param str object_tags: Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
         :param str overwrite_mode: Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
         :param str posix_permissions: Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
         :param str preserve_deleted_files: Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
         :param str preserve_devices: Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
-        :param str security_descriptor_copy_flags: Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+        :param str security_descriptor_copy_flags: Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
         :param str task_queueing: Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
         :param str transfer_mode: Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
         :param str uid: User identifier of the file's owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
@@ -508,6 +512,8 @@ class TaskOptions(dict):
             pulumi.set(__self__, "log_level", log_level)
         if mtime is not None:
             pulumi.set(__self__, "mtime", mtime)
+        if object_tags is not None:
+            pulumi.set(__self__, "object_tags", object_tags)
         if overwrite_mode is not None:
             pulumi.set(__self__, "overwrite_mode", overwrite_mode)
         if posix_permissions is not None:
@@ -568,6 +574,14 @@ class TaskOptions(dict):
         return pulumi.get(self, "mtime")
 
     @property
+    @pulumi.getter(name="objectTags")
+    def object_tags(self) -> Optional[str]:
+        """
+        Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+        """
+        return pulumi.get(self, "object_tags")
+
+    @property
     @pulumi.getter(name="overwriteMode")
     def overwrite_mode(self) -> Optional[str]:
         """
@@ -603,7 +617,7 @@ class TaskOptions(dict):
     @pulumi.getter(name="securityDescriptorCopyFlags")
     def security_descriptor_copy_flags(self) -> Optional[str]:
         """
-        Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+        Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
         """
         return pulumi.get(self, "security_descriptor_copy_flags")
 

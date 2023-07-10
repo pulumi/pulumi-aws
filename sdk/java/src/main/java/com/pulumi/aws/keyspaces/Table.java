@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.keyspaces.TableArgs;
 import com.pulumi.aws.keyspaces.inputs.TableState;
 import com.pulumi.aws.keyspaces.outputs.TableCapacitySpecification;
+import com.pulumi.aws.keyspaces.outputs.TableClientSideTimestamps;
 import com.pulumi.aws.keyspaces.outputs.TableComment;
 import com.pulumi.aws.keyspaces.outputs.TableEncryptionSpecification;
 import com.pulumi.aws.keyspaces.outputs.TablePointInTimeRecovery;
@@ -106,6 +107,20 @@ public class Table extends com.pulumi.resources.CustomResource {
      */
     public Output<TableCapacitySpecification> capacitySpecification() {
         return this.capacitySpecification;
+    }
+    /**
+     * Enables client-side timestamps for the table. By default, the setting is disabled.
+     * 
+     */
+    @Export(name="clientSideTimestamps", refs={TableClientSideTimestamps.class}, tree="[0]")
+    private Output</* @Nullable */ TableClientSideTimestamps> clientSideTimestamps;
+
+    /**
+     * @return Enables client-side timestamps for the table. By default, the setting is disabled.
+     * 
+     */
+    public Output<Optional<TableClientSideTimestamps>> clientSideTimestamps() {
+        return Codegen.optional(this.clientSideTimestamps);
     }
     /**
      * A description of the table.

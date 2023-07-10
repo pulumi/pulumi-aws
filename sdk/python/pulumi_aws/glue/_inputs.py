@@ -31,6 +31,7 @@ __all__ = [
     'CrawlerCatalogTargetArgs',
     'CrawlerDeltaTargetArgs',
     'CrawlerDynamodbTargetArgs',
+    'CrawlerIcebergTargetArgs',
     'CrawlerJdbcTargetArgs',
     'CrawlerLakeFormationConfigurationArgs',
     'CrawlerLineageConfigurationArgs',
@@ -136,13 +137,17 @@ class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs:
 class CatalogDatabaseTargetDatabaseArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
-                 database_name: pulumi.Input[str]):
+                 database_name: pulumi.Input[str],
+                 region: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
         :param pulumi.Input[str] database_name: Name of the catalog database.
+        :param pulumi.Input[str] region: Region of the target database.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -167,6 +172,18 @@ class CatalogDatabaseTargetDatabaseArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Region of the target database.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
@@ -1384,6 +1401,75 @@ class CrawlerDynamodbTargetArgs:
 
 
 @pulumi.input_type
+class CrawlerIcebergTargetArgs:
+    def __init__(__self__, *,
+                 maximum_traversal_depth: pulumi.Input[int],
+                 paths: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 connection_name: Optional[pulumi.Input[str]] = None,
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[int] maximum_traversal_depth: The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+        :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Iceberg target.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
+        """
+        pulumi.set(__self__, "maximum_traversal_depth", maximum_traversal_depth)
+        pulumi.set(__self__, "paths", paths)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter(name="maximumTraversalDepth")
+    def maximum_traversal_depth(self) -> pulumi.Input[int]:
+        """
+        The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        """
+        return pulumi.get(self, "maximum_traversal_depth")
+
+    @maximum_traversal_depth.setter
+    def maximum_traversal_depth(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_traversal_depth", value)
+
+    @property
+    @pulumi.getter
+    def paths(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+        """
+        return pulumi.get(self, "paths")
+
+    @paths.setter
+    def paths(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "paths", value)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the connection to use to connect to the Iceberg target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of glob patterns used to exclude from the crawl.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclusions", value)
+
+
+@pulumi.input_type
 class CrawlerJdbcTargetArgs:
     def __init__(__self__, *,
                  connection_name: pulumi.Input[str],
@@ -1496,7 +1582,7 @@ class CrawlerLineageConfigurationArgs:
     def __init__(__self__, *,
                  crawler_lineage_settings: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] crawler_lineage_settings: Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+        :param pulumi.Input[str] crawler_lineage_settings: Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
         """
         if crawler_lineage_settings is not None:
             pulumi.set(__self__, "crawler_lineage_settings", crawler_lineage_settings)
@@ -1505,7 +1591,7 @@ class CrawlerLineageConfigurationArgs:
     @pulumi.getter(name="crawlerLineageSettings")
     def crawler_lineage_settings(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+        Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
         """
         return pulumi.get(self, "crawler_lineage_settings")
 
@@ -1856,13 +1942,17 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
 class DataQualityRulesetTargetTableArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
-                 table_name: pulumi.Input[str]):
+                 table_name: pulumi.Input[str],
+                 catalog_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] database_name: Name of the database where the AWS Glue table exists.
         :param pulumi.Input[str] table_name: Name of the AWS Glue table.
+        :param pulumi.Input[str] catalog_id: The catalog id where the AWS Glue table exists.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -1887,6 +1977,18 @@ class DataQualityRulesetTargetTableArgs:
     @table_name.setter
     def table_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The catalog id where the AWS Glue table exists.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @catalog_id.setter
+    def catalog_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_id", value)
 
 
 @pulumi.input_type

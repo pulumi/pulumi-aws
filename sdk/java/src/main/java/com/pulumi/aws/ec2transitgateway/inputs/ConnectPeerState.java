@@ -48,6 +48,36 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The IP address assigned to customer device, which is used as BGP IP address.
+     * 
+     */
+    @Import(name="bgpPeerAddress")
+    private @Nullable Output<String> bgpPeerAddress;
+
+    /**
+     * @return The IP address assigned to customer device, which is used as BGP IP address.
+     * 
+     */
+    public Optional<Output<String>> bgpPeerAddress() {
+        return Optional.ofNullable(this.bgpPeerAddress);
+    }
+
+    /**
+     * The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+     * 
+     */
+    @Import(name="bgpTransitGatewayAddresses")
+    private @Nullable Output<List<String>> bgpTransitGatewayAddresses;
+
+    /**
+     * @return The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+     * 
+     */
+    public Optional<Output<List<String>>> bgpTransitGatewayAddresses() {
+        return Optional.ofNullable(this.bgpTransitGatewayAddresses);
+    }
+
+    /**
      * The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
      * 
      */
@@ -142,6 +172,8 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     private ConnectPeerState(ConnectPeerState $) {
         this.arn = $.arn;
         this.bgpAsn = $.bgpAsn;
+        this.bgpPeerAddress = $.bgpPeerAddress;
+        this.bgpTransitGatewayAddresses = $.bgpTransitGatewayAddresses;
         this.insideCidrBlocks = $.insideCidrBlocks;
         this.peerAddress = $.peerAddress;
         this.tags = $.tags;
@@ -208,6 +240,58 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder bgpAsn(String bgpAsn) {
             return bgpAsn(Output.of(bgpAsn));
+        }
+
+        /**
+         * @param bgpPeerAddress The IP address assigned to customer device, which is used as BGP IP address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpPeerAddress(@Nullable Output<String> bgpPeerAddress) {
+            $.bgpPeerAddress = bgpPeerAddress;
+            return this;
+        }
+
+        /**
+         * @param bgpPeerAddress The IP address assigned to customer device, which is used as BGP IP address.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpPeerAddress(String bgpPeerAddress) {
+            return bgpPeerAddress(Output.of(bgpPeerAddress));
+        }
+
+        /**
+         * @param bgpTransitGatewayAddresses The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpTransitGatewayAddresses(@Nullable Output<List<String>> bgpTransitGatewayAddresses) {
+            $.bgpTransitGatewayAddresses = bgpTransitGatewayAddresses;
+            return this;
+        }
+
+        /**
+         * @param bgpTransitGatewayAddresses The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpTransitGatewayAddresses(List<String> bgpTransitGatewayAddresses) {
+            return bgpTransitGatewayAddresses(Output.of(bgpTransitGatewayAddresses));
+        }
+
+        /**
+         * @param bgpTransitGatewayAddresses The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpTransitGatewayAddresses(String... bgpTransitGatewayAddresses) {
+            return bgpTransitGatewayAddresses(List.of(bgpTransitGatewayAddresses));
         }
 
         /**

@@ -262,6 +262,8 @@ type CatalogDatabaseTargetDatabase struct {
 	CatalogId string `pulumi:"catalogId"`
 	// Name of the catalog database.
 	DatabaseName string `pulumi:"databaseName"`
+	// Region of the target database.
+	Region *string `pulumi:"region"`
 }
 
 // CatalogDatabaseTargetDatabaseInput is an input type that accepts CatalogDatabaseTargetDatabaseArgs and CatalogDatabaseTargetDatabaseOutput values.
@@ -280,6 +282,8 @@ type CatalogDatabaseTargetDatabaseArgs struct {
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
 	// Name of the catalog database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Region of the target database.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (CatalogDatabaseTargetDatabaseArgs) ElementType() reflect.Type {
@@ -369,6 +373,11 @@ func (o CatalogDatabaseTargetDatabaseOutput) DatabaseName() pulumi.StringOutput 
 	return o.ApplyT(func(v CatalogDatabaseTargetDatabase) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// Region of the target database.
+func (o CatalogDatabaseTargetDatabaseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogDatabaseTargetDatabase) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
 type CatalogDatabaseTargetDatabasePtrOutput struct{ *pulumi.OutputState }
 
 func (CatalogDatabaseTargetDatabasePtrOutput) ElementType() reflect.Type {
@@ -410,6 +419,16 @@ func (o CatalogDatabaseTargetDatabasePtrOutput) DatabaseName() pulumi.StringPtrO
 			return nil
 		}
 		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Region of the target database.
+func (o CatalogDatabaseTargetDatabasePtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogDatabaseTargetDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3413,6 +3432,130 @@ func (o CrawlerDynamodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerDynamo
 	}).(CrawlerDynamodbTargetOutput)
 }
 
+type CrawlerIcebergTarget struct {
+	// The name of the connection to use to connect to the Iceberg target.
+	ConnectionName *string `pulumi:"connectionName"`
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions []string `pulumi:"exclusions"`
+	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+	MaximumTraversalDepth int `pulumi:"maximumTraversalDepth"`
+	// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+	Paths []string `pulumi:"paths"`
+}
+
+// CrawlerIcebergTargetInput is an input type that accepts CrawlerIcebergTargetArgs and CrawlerIcebergTargetOutput values.
+// You can construct a concrete instance of `CrawlerIcebergTargetInput` via:
+//
+//	CrawlerIcebergTargetArgs{...}
+type CrawlerIcebergTargetInput interface {
+	pulumi.Input
+
+	ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput
+	ToCrawlerIcebergTargetOutputWithContext(context.Context) CrawlerIcebergTargetOutput
+}
+
+type CrawlerIcebergTargetArgs struct {
+	// The name of the connection to use to connect to the Iceberg target.
+	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// A list of glob patterns used to exclude from the crawl.
+	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
+	// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+	MaximumTraversalDepth pulumi.IntInput `pulumi:"maximumTraversalDepth"`
+	// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+}
+
+func (CrawlerIcebergTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (i CrawlerIcebergTargetArgs) ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput {
+	return i.ToCrawlerIcebergTargetOutputWithContext(context.Background())
+}
+
+func (i CrawlerIcebergTargetArgs) ToCrawlerIcebergTargetOutputWithContext(ctx context.Context) CrawlerIcebergTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerIcebergTargetOutput)
+}
+
+// CrawlerIcebergTargetArrayInput is an input type that accepts CrawlerIcebergTargetArray and CrawlerIcebergTargetArrayOutput values.
+// You can construct a concrete instance of `CrawlerIcebergTargetArrayInput` via:
+//
+//	CrawlerIcebergTargetArray{ CrawlerIcebergTargetArgs{...} }
+type CrawlerIcebergTargetArrayInput interface {
+	pulumi.Input
+
+	ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput
+	ToCrawlerIcebergTargetArrayOutputWithContext(context.Context) CrawlerIcebergTargetArrayOutput
+}
+
+type CrawlerIcebergTargetArray []CrawlerIcebergTargetInput
+
+func (CrawlerIcebergTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (i CrawlerIcebergTargetArray) ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput {
+	return i.ToCrawlerIcebergTargetArrayOutputWithContext(context.Background())
+}
+
+func (i CrawlerIcebergTargetArray) ToCrawlerIcebergTargetArrayOutputWithContext(ctx context.Context) CrawlerIcebergTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CrawlerIcebergTargetArrayOutput)
+}
+
+type CrawlerIcebergTargetOutput struct{ *pulumi.OutputState }
+
+func (CrawlerIcebergTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (o CrawlerIcebergTargetOutput) ToCrawlerIcebergTargetOutput() CrawlerIcebergTargetOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetOutput) ToCrawlerIcebergTargetOutputWithContext(ctx context.Context) CrawlerIcebergTargetOutput {
+	return o
+}
+
+// The name of the connection to use to connect to the Iceberg target.
+func (o CrawlerIcebergTargetOutput) ConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// A list of glob patterns used to exclude from the crawl.
+func (o CrawlerIcebergTargetOutput) Exclusions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) []string { return v.Exclusions }).(pulumi.StringArrayOutput)
+}
+
+// The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+func (o CrawlerIcebergTargetOutput) MaximumTraversalDepth() pulumi.IntOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) int { return v.MaximumTraversalDepth }).(pulumi.IntOutput)
+}
+
+// One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+func (o CrawlerIcebergTargetOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CrawlerIcebergTarget) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+type CrawlerIcebergTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (CrawlerIcebergTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CrawlerIcebergTarget)(nil)).Elem()
+}
+
+func (o CrawlerIcebergTargetArrayOutput) ToCrawlerIcebergTargetArrayOutput() CrawlerIcebergTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetArrayOutput) ToCrawlerIcebergTargetArrayOutputWithContext(ctx context.Context) CrawlerIcebergTargetArrayOutput {
+	return o
+}
+
+func (o CrawlerIcebergTargetArrayOutput) Index(i pulumi.IntInput) CrawlerIcebergTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CrawlerIcebergTarget {
+		return vs[0].([]CrawlerIcebergTarget)[vs[1].(int)]
+	}).(CrawlerIcebergTargetOutput)
+}
+
 type CrawlerJdbcTarget struct {
 	// The name of the connection to use to connect to the JDBC target.
 	ConnectionName string `pulumi:"connectionName"`
@@ -3694,7 +3837,7 @@ func (o CrawlerLakeFormationConfigurationPtrOutput) UseLakeFormationCredentials(
 }
 
 type CrawlerLineageConfiguration struct {
-	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 	CrawlerLineageSettings *string `pulumi:"crawlerLineageSettings"`
 }
 
@@ -3710,7 +3853,7 @@ type CrawlerLineageConfigurationInput interface {
 }
 
 type CrawlerLineageConfigurationArgs struct {
-	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+	// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 	CrawlerLineageSettings pulumi.StringPtrInput `pulumi:"crawlerLineageSettings"`
 }
 
@@ -3791,7 +3934,7 @@ func (o CrawlerLineageConfigurationOutput) ToCrawlerLineageConfigurationPtrOutpu
 	}).(CrawlerLineageConfigurationPtrOutput)
 }
 
-// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 func (o CrawlerLineageConfigurationOutput) CrawlerLineageSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerLineageConfiguration) *string { return v.CrawlerLineageSettings }).(pulumi.StringPtrOutput)
 }
@@ -3820,7 +3963,7 @@ func (o CrawlerLineageConfigurationPtrOutput) Elem() CrawlerLineageConfiguration
 	}).(CrawlerLineageConfigurationOutput)
 }
 
-// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+// Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
 func (o CrawlerLineageConfigurationPtrOutput) CrawlerLineageSettings() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerLineageConfiguration) *string {
 		if v == nil {
@@ -4873,6 +5016,8 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 }
 
 type DataQualityRulesetTargetTable struct {
+	// The catalog id where the AWS Glue table exists.
+	CatalogId *string `pulumi:"catalogId"`
 	// Name of the database where the AWS Glue table exists.
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the AWS Glue table.
@@ -4891,6 +5036,8 @@ type DataQualityRulesetTargetTableInput interface {
 }
 
 type DataQualityRulesetTargetTableArgs struct {
+	// The catalog id where the AWS Glue table exists.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// Name of the database where the AWS Glue table exists.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the AWS Glue table.
@@ -4974,6 +5121,11 @@ func (o DataQualityRulesetTargetTableOutput) ToDataQualityRulesetTargetTablePtrO
 	}).(DataQualityRulesetTargetTablePtrOutput)
 }
 
+// The catalog id where the AWS Glue table exists.
+func (o DataQualityRulesetTargetTableOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataQualityRulesetTargetTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
 // Name of the database where the AWS Glue table exists.
 func (o DataQualityRulesetTargetTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataQualityRulesetTargetTable) string { return v.DatabaseName }).(pulumi.StringOutput)
@@ -5006,6 +5158,16 @@ func (o DataQualityRulesetTargetTablePtrOutput) Elem() DataQualityRulesetTargetT
 		var ret DataQualityRulesetTargetTable
 		return ret
 	}).(DataQualityRulesetTargetTableOutput)
+}
+
+// The catalog id where the AWS Glue table exists.
+func (o DataQualityRulesetTargetTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityRulesetTargetTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the database where the AWS Glue table exists.
@@ -10654,6 +10816,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetArrayInput)(nil)).Elem(), CrawlerDeltaTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamodbTargetInput)(nil)).Elem(), CrawlerDynamodbTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDynamodbTargetArrayInput)(nil)).Elem(), CrawlerDynamodbTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerIcebergTargetInput)(nil)).Elem(), CrawlerIcebergTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerIcebergTargetArrayInput)(nil)).Elem(), CrawlerIcebergTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetInput)(nil)).Elem(), CrawlerJdbcTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerJdbcTargetArrayInput)(nil)).Elem(), CrawlerJdbcTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerLakeFormationConfigurationInput)(nil)).Elem(), CrawlerLakeFormationConfigurationArgs{})
@@ -10798,6 +10962,8 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerDeltaTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamodbTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerDynamodbTargetArrayOutput{})
+	pulumi.RegisterOutputType(CrawlerIcebergTargetOutput{})
+	pulumi.RegisterOutputType(CrawlerIcebergTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerJdbcTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerLakeFormationConfigurationOutput{})

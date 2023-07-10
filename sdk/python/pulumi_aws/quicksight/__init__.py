@@ -15,6 +15,7 @@ from .folder_membership import *
 from .get_data_set import *
 from .get_quicksight_group import *
 from .get_quicksight_user import *
+from .get_theme import *
 from .group import *
 from .group_membership import *
 from .iam_policy_assignment import *
@@ -23,6 +24,7 @@ from .namespace import *
 from .refresh_schedule import *
 from .template import *
 from .template_alias import *
+from .theme import *
 from .user import *
 from .vpc_connection import *
 from ._inputs import *

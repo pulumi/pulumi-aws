@@ -20,6 +20,11 @@ export const getImage: typeof import("./getImage").getImage = null as any;
 export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
 utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
 
+export { GetPullThroughCacheRuleArgs, GetPullThroughCacheRuleResult, GetPullThroughCacheRuleOutputArgs } from "./getPullThroughCacheRule";
+export const getPullThroughCacheRule: typeof import("./getPullThroughCacheRule").getPullThroughCacheRule = null as any;
+export const getPullThroughCacheRuleOutput: typeof import("./getPullThroughCacheRule").getPullThroughCacheRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getPullThroughCacheRule","getPullThroughCacheRuleOutput"], () => require("./getPullThroughCacheRule"));
+
 export { GetRepositoryArgs, GetRepositoryResult, GetRepositoryOutputArgs } from "./getRepository";
 export const getRepository: typeof import("./getRepository").getRepository = null as any;
 export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;

@@ -22,6 +22,10 @@ public final class RefreshScheduleScheduleScheduleFrequency {
      * 
      */
     private @Nullable RefreshScheduleScheduleScheduleFrequencyRefreshOnDay refreshOnDay;
+    /**
+     * @return The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+     * 
+     */
     private @Nullable String timeOfTheDay;
     /**
      * @return The timezone that you want the refresh schedule to use.
@@ -44,6 +48,10 @@ public final class RefreshScheduleScheduleScheduleFrequency {
     public Optional<RefreshScheduleScheduleScheduleFrequencyRefreshOnDay> refreshOnDay() {
         return Optional.ofNullable(this.refreshOnDay);
     }
+    /**
+     * @return The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+     * 
+     */
     public Optional<String> timeOfTheDay() {
         return Optional.ofNullable(this.timeOfTheDay);
     }

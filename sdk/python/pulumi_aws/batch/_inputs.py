@@ -37,6 +37,7 @@ class ComputeEnvironmentComputeResourcesArgs:
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesLaunchTemplateArgs']] = None,
                  min_vcpus: Optional[pulumi.Input[int]] = None,
+                 placement_group: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  spot_iam_fleet_role: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -54,6 +55,7 @@ class ComputeEnvironmentComputeResourcesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesLaunchTemplateArgs'] launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[int] min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param pulumi.Input[str] placement_group: The Amazon EC2 placement group to associate with your compute resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
         :param pulumi.Input[str] spot_iam_fleet_role: The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -81,6 +83,8 @@ class ComputeEnvironmentComputeResourcesArgs:
             pulumi.set(__self__, "launch_template", launch_template)
         if min_vcpus is not None:
             pulumi.set(__self__, "min_vcpus", min_vcpus)
+        if placement_group is not None:
+            pulumi.set(__self__, "placement_group", placement_group)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if spot_iam_fleet_role is not None:
@@ -243,6 +247,18 @@ class ComputeEnvironmentComputeResourcesArgs:
     @min_vcpus.setter
     def min_vcpus(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_vcpus", value)
+
+    @property
+    @pulumi.getter(name="placementGroup")
+    def placement_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon EC2 placement group to associate with your compute resources.
+        """
+        return pulumi.get(self, "placement_group")
+
+    @placement_group.setter
+    def placement_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement_group", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")

@@ -11,6 +11,7 @@ import com.pulumi.aws.ec2.inputs.InstanceCreditSpecificationArgs;
 import com.pulumi.aws.ec2.inputs.InstanceEbsBlockDeviceArgs;
 import com.pulumi.aws.ec2.inputs.InstanceEnclaveOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceEphemeralBlockDeviceArgs;
+import com.pulumi.aws.ec2.inputs.InstanceInstanceMarketOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceLaunchTemplateArgs;
 import com.pulumi.aws.ec2.inputs.InstanceMaintenanceOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceMetadataOptionsArgs;
@@ -352,6 +353,21 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> instanceInitiatedShutdownBehavior() {
         return Optional.ofNullable(this.instanceInitiatedShutdownBehavior);
+    }
+
+    /**
+     * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+     * 
+     */
+    @Import(name="instanceMarketOptions")
+    private @Nullable Output<InstanceInstanceMarketOptionsArgs> instanceMarketOptions;
+
+    /**
+     * @return Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+     * 
+     */
+    public Optional<Output<InstanceInstanceMarketOptionsArgs>> instanceMarketOptions() {
+        return Optional.ofNullable(this.instanceMarketOptions);
     }
 
     /**
@@ -768,6 +784,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.hostResourceGroupArn = $.hostResourceGroupArn;
         this.iamInstanceProfile = $.iamInstanceProfile;
         this.instanceInitiatedShutdownBehavior = $.instanceInitiatedShutdownBehavior;
+        this.instanceMarketOptions = $.instanceMarketOptions;
         this.instanceType = $.instanceType;
         this.ipv6AddressCount = $.ipv6AddressCount;
         this.ipv6Addresses = $.ipv6Addresses;
@@ -1271,6 +1288,27 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instanceInitiatedShutdownBehavior(String instanceInitiatedShutdownBehavior) {
             return instanceInitiatedShutdownBehavior(Output.of(instanceInitiatedShutdownBehavior));
+        }
+
+        /**
+         * @param instanceMarketOptions Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceMarketOptions(@Nullable Output<InstanceInstanceMarketOptionsArgs> instanceMarketOptions) {
+            $.instanceMarketOptions = instanceMarketOptions;
+            return this;
+        }
+
+        /**
+         * @param instanceMarketOptions Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceMarketOptions(InstanceInstanceMarketOptionsArgs instanceMarketOptions) {
+            return instanceMarketOptions(Output.of(instanceMarketOptions));
         }
 
         /**

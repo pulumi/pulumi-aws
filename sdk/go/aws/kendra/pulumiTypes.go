@@ -6660,9 +6660,9 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) UserName
 }
 
 type QuerySuggestionsBlockListSourceS3Path struct {
-	// The name of the S3 bucket that contains the file.
+	// Name of the S3 bucket that contains the file.
 	Bucket string `pulumi:"bucket"`
-	// The name of the file.
+	// Name of the file.
 	//
 	// The following arguments are optional:
 	Key string `pulumi:"key"`
@@ -6680,9 +6680,9 @@ type QuerySuggestionsBlockListSourceS3PathInput interface {
 }
 
 type QuerySuggestionsBlockListSourceS3PathArgs struct {
-	// The name of the S3 bucket that contains the file.
+	// Name of the S3 bucket that contains the file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The name of the file.
+	// Name of the file.
 	//
 	// The following arguments are optional:
 	Key pulumi.StringInput `pulumi:"key"`
@@ -6765,12 +6765,12 @@ func (o QuerySuggestionsBlockListSourceS3PathOutput) ToQuerySuggestionsBlockList
 	}).(QuerySuggestionsBlockListSourceS3PathPtrOutput)
 }
 
-// The name of the S3 bucket that contains the file.
+// Name of the S3 bucket that contains the file.
 func (o QuerySuggestionsBlockListSourceS3PathOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v QuerySuggestionsBlockListSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The name of the file.
+// Name of the file.
 //
 // The following arguments are optional:
 func (o QuerySuggestionsBlockListSourceS3PathOutput) Key() pulumi.StringOutput {
@@ -6801,7 +6801,7 @@ func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Elem() QuerySuggestionsB
 	}).(QuerySuggestionsBlockListSourceS3PathOutput)
 }
 
-// The name of the S3 bucket that contains the file.
+// Name of the S3 bucket that contains the file.
 func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockListSourceS3Path) *string {
 		if v == nil {
@@ -6811,7 +6811,7 @@ func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Bucket() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the file.
+// Name of the file.
 //
 // The following arguments are optional:
 func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {

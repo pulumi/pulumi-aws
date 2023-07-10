@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Cognito
     /// Cognito Identity Pool can be imported using its ID, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2_abc123
+    ///  $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/identityPool:IdentityPool")]

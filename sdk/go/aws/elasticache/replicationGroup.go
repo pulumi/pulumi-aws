@@ -286,7 +286,8 @@ type ReplicationGroup struct {
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
-	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// If the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
 	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
@@ -419,7 +420,8 @@ type replicationGroupState struct {
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
-	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// If the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
 	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
@@ -517,7 +519,8 @@ type ReplicationGroupState struct {
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
-	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// If the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
 	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
@@ -613,7 +616,8 @@ type replicationGroupArgs struct {
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
-	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// If the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
 	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
@@ -696,7 +700,8 @@ type ReplicationGroupArgs struct {
 	// Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used for the cache clusters in this replication group.
-	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+	// If the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
 	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
@@ -903,7 +908,8 @@ func (o ReplicationGroupOutput) Engine() pulumi.StringPtrOutput {
 }
 
 // Version number of the cache engine to be used for the cache clusters in this replication group.
-// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+// If the version is 6, the major and minor version can be set, e.g., `6.2`,
 // or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 // Otherwise, specify the full version desired, e.g., `5.0.6`.
 // The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.

@@ -76,14 +76,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:backup/regionSettings:RegionSettings")
 public class RegionSettings extends com.pulumi.resources.CustomResource {
     /**
-     * A map of services along with the management preferences for the Region.
+     * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      * 
      */
     @Export(name="resourceTypeManagementPreference", refs={Map.class,String.class,Boolean.class}, tree="[0,1,2]")
     private Output<Map<String,Boolean>> resourceTypeManagementPreference;
 
     /**
-     * @return A map of services along with the management preferences for the Region.
+     * @return A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      * 
      */
     public Output<Map<String,Boolean>> resourceTypeManagementPreference() {

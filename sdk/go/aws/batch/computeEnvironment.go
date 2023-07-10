@@ -138,6 +138,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			samplePlacementGroup, err := ec2.NewPlacementGroup(ctx, "samplePlacementGroup", &ec2.PlacementGroupArgs{
+//				Strategy: pulumi.String("cluster"),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = batch.NewComputeEnvironment(ctx, "sampleComputeEnvironment", &batch.ComputeEnvironmentArgs{
 //				ComputeEnvironmentName: pulumi.String("sample"),
 //				ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
@@ -145,8 +151,9 @@ import (
 //					InstanceTypes: pulumi.StringArray{
 //						pulumi.String("c4.large"),
 //					},
-//					MaxVcpus: pulumi.Int(16),
-//					MinVcpus: pulumi.Int(0),
+//					MaxVcpus:       pulumi.Int(16),
+//					MinVcpus:       pulumi.Int(0),
+//					PlacementGroup: samplePlacementGroup.Name,
 //					SecurityGroupIds: pulumi.StringArray{
 //						sampleSecurityGroup.ID(),
 //					},

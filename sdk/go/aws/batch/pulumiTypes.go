@@ -33,6 +33,8 @@ type ComputeEnvironmentComputeResources struct {
 	MaxVcpus int `pulumi:"maxVcpus"`
 	// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	MinVcpus *int `pulumi:"minVcpus"`
+	// The Amazon EC2 placement group to associate with your compute resources.
+	PlacementGroup *string `pulumi:"placementGroup"`
 	// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -79,6 +81,8 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	MaxVcpus pulumi.IntInput `pulumi:"maxVcpus"`
 	// The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	MinVcpus pulumi.IntPtrInput `pulumi:"minVcpus"`
+	// The Amazon EC2 placement group to associate with your compute resources.
+	PlacementGroup pulumi.StringPtrInput `pulumi:"placementGroup"`
 	// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -225,6 +229,11 @@ func (o ComputeEnvironmentComputeResourcesOutput) MaxVcpus() pulumi.IntOutput {
 // The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) MinVcpus() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.MinVcpus }).(pulumi.IntPtrOutput)
+}
+
+// The Amazon EC2 placement group to associate with your compute resources.
+func (o ComputeEnvironmentComputeResourcesOutput) PlacementGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.PlacementGroup }).(pulumi.StringPtrOutput)
 }
 
 // A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
@@ -384,6 +393,16 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) MinVcpus() pulumi.IntPtrOut
 		}
 		return v.MinVcpus
 	}).(pulumi.IntPtrOutput)
+}
+
+// The Amazon EC2 placement group to associate with your compute resources.
+func (o ComputeEnvironmentComputeResourcesPtrOutput) PlacementGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlacementGroup
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.

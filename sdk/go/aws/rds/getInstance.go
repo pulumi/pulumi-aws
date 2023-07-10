@@ -114,7 +114,7 @@ type LookupInstanceResult struct {
 	NetworkType string `pulumi:"networkType"`
 	// Provides the list of option group memberships for this DB instance.
 	OptionGroupMemberships []string `pulumi:"optionGroupMemberships"`
-	// Database port.
+	// Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `dbInstancePort` is typically the preferred choice.
 	Port int `pulumi:"port"`
 	// Specifies the daily time range during which automated backups are created.
 	PreferredBackupWindow string `pulumi:"preferredBackupWindow"`
@@ -327,7 +327,7 @@ func (o LookupInstanceResultOutput) OptionGroupMemberships() pulumi.StringArrayO
 	return o.ApplyT(func(v LookupInstanceResult) []string { return v.OptionGroupMemberships }).(pulumi.StringArrayOutput)
 }
 
-// Database port.
+// Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `dbInstancePort` is typically the preferred choice.
 func (o LookupInstanceResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupInstanceResult) int { return v.Port }).(pulumi.IntOutput)
 }

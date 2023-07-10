@@ -522,7 +522,9 @@ import javax.annotation.Nullable;
  *                     .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;events.amazonaws.com&#34;)
+ *                         .identifiers(                        
+ *                             &#34;events.amazonaws.com&#34;,
+ *                             &#34;delivery.logs.amazonaws.com&#34;)
  *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
@@ -531,7 +533,9 @@ import javax.annotation.Nullable;
  *                     .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*:*&#34;, arn)))
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type(&#34;Service&#34;)
- *                         .identifiers(&#34;events.amazonaws.com&#34;)
+ *                         .identifiers(                        
+ *                             &#34;events.amazonaws.com&#34;,
+ *                             &#34;delivery.logs.amazonaws.com&#34;)
  *                         .build())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test(&#34;ArnEquals&#34;)

@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'TableCapacitySpecificationArgs',
+    'TableClientSideTimestampsArgs',
     'TableCommentArgs',
     'TableEncryptionSpecificationArgs',
     'TablePointInTimeRecoveryArgs',
@@ -75,6 +76,28 @@ class TableCapacitySpecificationArgs:
     @write_capacity_units.setter
     def write_capacity_units(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "write_capacity_units", value)
+
+
+@pulumi.input_type
+class TableClientSideTimestampsArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] status: Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        """
+        Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

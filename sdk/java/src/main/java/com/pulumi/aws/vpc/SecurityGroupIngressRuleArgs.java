@@ -126,15 +126,15 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Res
      * The ID of the security group.
      * 
      */
-    @Import(name="securityGroupId")
-    private @Nullable Output<String> securityGroupId;
+    @Import(name="securityGroupId", required=true)
+    private Output<String> securityGroupId;
 
     /**
      * @return The ID of the security group.
      * 
      */
-    public Optional<Output<String>> securityGroupId() {
-        return Optional.ofNullable(this.securityGroupId);
+    public Output<String> securityGroupId() {
+        return this.securityGroupId;
     }
 
     /**
@@ -353,7 +353,7 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder securityGroupId(@Nullable Output<String> securityGroupId) {
+        public Builder securityGroupId(Output<String> securityGroupId) {
             $.securityGroupId = securityGroupId;
             return this;
         }
@@ -412,6 +412,7 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Res
 
         public SecurityGroupIngressRuleArgs build() {
             $.ipProtocol = Objects.requireNonNull($.ipProtocol, "expected parameter 'ipProtocol' to be non-null");
+            $.securityGroupId = Objects.requireNonNull($.securityGroupId, "expected parameter 'securityGroupId' to be non-null");
             return $;
         }
     }

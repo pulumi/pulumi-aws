@@ -56,6 +56,10 @@ export class RouteTableAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+     */
+    public readonly replaceExistingAssociation!: pulumi.Output<boolean | undefined>;
+    /**
      * Identifier of the resource
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
@@ -85,6 +89,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteTableAssociationState | undefined;
+            resourceInputs["replaceExistingAssociation"] = state ? state.replaceExistingAssociation : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
@@ -97,6 +102,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
             if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
+            resourceInputs["replaceExistingAssociation"] = args ? args.replaceExistingAssociation : undefined;
             resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
             resourceInputs["resourceId"] = undefined /*out*/;
@@ -111,6 +117,10 @@ export class RouteTableAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteTableAssociation resources.
  */
 export interface RouteTableAssociationState {
+    /**
+     * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+     */
+    replaceExistingAssociation?: pulumi.Input<boolean>;
     /**
      * Identifier of the resource
      */
@@ -133,6 +143,10 @@ export interface RouteTableAssociationState {
  * The set of arguments for constructing a RouteTableAssociation resource.
  */
 export interface RouteTableAssociationArgs {
+    /**
+     * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transitGatewayDefaultRouteTableAssociation` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+     */
+    replaceExistingAssociation?: pulumi.Input<boolean>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */

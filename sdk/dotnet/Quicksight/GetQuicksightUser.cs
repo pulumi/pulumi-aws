@@ -18,117 +18,10 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetQuicksightUser.Invoke(new()
-        ///     {
-        ///         UserName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetQuicksightUserResult> InvokeAsync(GetQuicksightUserArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuicksightUserResult>("aws:quicksight/getQuicksightUser:getQuicksightUser", args ?? new GetQuicksightUserArgs(), options.WithDefaults());
-
-        /// <summary>
-        /// This data source can be used to fetch information about a specific
-        /// QuickSight user. By using this data source, you can reference QuickSight user
-        /// properties without having to hard code ARNs or unique IDs as input.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Basic Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = Aws.Quicksight.GetQuicksightUser.Invoke(new()
-        ///     {
-        ///         UserName = "example",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
-        public static Output<GetQuicksightUserResult> Invoke(GetQuicksightUserInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightUserResult>("aws:quicksight/getQuicksightUser:getQuicksightUser", args ?? new GetQuicksightUserInvokeArgs(), options.WithDefaults());
-    }
-
-
-    public sealed class GetQuicksightUserArgs : global::Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
-        [Input("awsAccountId")]
-        public string? AwsAccountId { get; set; }
-
-        /// <summary>
-        /// QuickSight namespace. Defaults to `default`.
-        /// </summary>
-        [Input("namespace")]
-        public string? Namespace { get; set; }
-
-        /// <summary>
-        /// The name of the user that you want to match.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
-        [Input("userName", required: true)]
-        public string UserName { get; set; } = null!;
-
-        public GetQuicksightUserArgs()
-        {
-        }
-        public static new GetQuicksightUserArgs Empty => new GetQuicksightUserArgs();
-    }
-
-    public sealed class GetQuicksightUserInvokeArgs : global::Pulumi.InvokeArgs
-    {
-        /// <summary>
-        /// AWS account ID.
-        /// </summary>
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
-
-        /// <summary>
-        /// QuickSight namespace. Defaults to `default`.
-        /// </summary>
-        [Input("namespace")]
-        public Input<string>? Namespace { get; set; }
-
-        /// <summary>
-        /// The name of the user that you want to match.
-        /// 
-        /// The following arguments are optional:
-        /// </summary>
-        [Input("userName", required: true)]
-        public Input<string> UserName { get; set; } = null!;
-
-        public GetQuicksightUserInvokeArgs()
-        {
-        }
-        public static new GetQuicksightUserInvokeArgs Empty => new GetQuicksightUserInvokeArgs();
+        public static Task<GetQuicksightUserResult> InvokeAsync(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuicksightUserResult>("aws:quicksight/getQuicksightUser:getQuicksightUser", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
@@ -136,69 +29,14 @@ namespace Pulumi.Aws.Quicksight
     public sealed class GetQuicksightUserResult
     {
         /// <summary>
-        /// The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
-        /// </summary>
-        public readonly bool Active;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the user.
-        /// </summary>
-        public readonly string Arn;
-        public readonly string AwsAccountId;
-        /// <summary>
-        /// The user's email address.
-        /// </summary>
-        public readonly string Email;
-        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The type of identity authentication used by the user.
-        /// </summary>
-        public readonly string IdentityType;
-        public readonly string? Namespace;
-        /// <summary>
-        /// The principal ID of the user.
-        /// </summary>
-        public readonly string PrincipalId;
-        public readonly string UserName;
-        /// <summary>
-        /// The Amazon QuickSight role for the user. The user role can be one of the following:.
-        /// </summary>
-        public readonly string UserRole;
 
         [OutputConstructor]
-        private GetQuicksightUserResult(
-            bool active,
-
-            string arn,
-
-            string awsAccountId,
-
-            string email,
-
-            string id,
-
-            string identityType,
-
-            string? @namespace,
-
-            string principalId,
-
-            string userName,
-
-            string userRole)
+        private GetQuicksightUserResult(string id)
         {
-            Active = active;
-            Arn = arn;
-            AwsAccountId = awsAccountId;
-            Email = email;
             Id = id;
-            IdentityType = identityType;
-            Namespace = @namespace;
-            PrincipalId = principalId;
-            UserName = userName;
-            UserRole = userRole;
         }
     }
 }

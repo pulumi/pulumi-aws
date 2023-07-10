@@ -902,7 +902,9 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessRuleGroupReferences() Fi
 
 type FirewallPolicyFirewallPolicyStatefulEngineOptions struct {
 	// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-	RuleOrder string `pulumi:"ruleOrder"`
+	RuleOrder *string `pulumi:"ruleOrder"`
+	// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+	StreamExceptionPolicy *string `pulumi:"streamExceptionPolicy"`
 }
 
 // FirewallPolicyFirewallPolicyStatefulEngineOptionsInput is an input type that accepts FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs and FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput values.
@@ -918,7 +920,9 @@ type FirewallPolicyFirewallPolicyStatefulEngineOptionsInput interface {
 
 type FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs struct {
 	// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-	RuleOrder pulumi.StringInput `pulumi:"ruleOrder"`
+	RuleOrder pulumi.StringPtrInput `pulumi:"ruleOrder"`
+	// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+	StreamExceptionPolicy pulumi.StringPtrInput `pulumi:"streamExceptionPolicy"`
 }
 
 func (FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs) ElementType() reflect.Type {
@@ -999,8 +1003,13 @@ func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) ToFirewallPolic
 }
 
 // Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) RuleOrder() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulEngineOptions) string { return v.RuleOrder }).(pulumi.StringOutput)
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) RuleOrder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulEngineOptions) *string { return v.RuleOrder }).(pulumi.StringPtrOutput)
+}
+
+// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput) StreamExceptionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulEngineOptions) *string { return v.StreamExceptionPolicy }).(pulumi.StringPtrOutput)
 }
 
 type FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -1033,7 +1042,17 @@ func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) RuleOrder() 
 		if v == nil {
 			return nil
 		}
-		return &v.RuleOrder
+		return v.RuleOrder
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput) StreamExceptionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyStatefulEngineOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StreamExceptionPolicy
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6284,7 +6303,8 @@ func (o GetFirewallPolicyFirewallPolicyArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOption struct {
-	RuleOrder string `pulumi:"ruleOrder"`
+	RuleOrder             string `pulumi:"ruleOrder"`
+	StreamExceptionPolicy string `pulumi:"streamExceptionPolicy"`
 }
 
 // GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs and GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput values.
@@ -6299,7 +6319,8 @@ type GetFirewallPolicyFirewallPolicyStatefulEngineOptionInput interface {
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs struct {
-	RuleOrder pulumi.StringInput `pulumi:"ruleOrder"`
+	RuleOrder             pulumi.StringInput `pulumi:"ruleOrder"`
+	StreamExceptionPolicy pulumi.StringInput `pulumi:"streamExceptionPolicy"`
 }
 
 func (GetFirewallPolicyFirewallPolicyStatefulEngineOptionArgs) ElementType() reflect.Type {
@@ -6355,6 +6376,10 @@ func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) ToGetFirewall
 
 func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) RuleOrder() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOption) string { return v.RuleOrder }).(pulumi.StringOutput)
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionOutput) StreamExceptionPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulEngineOption) string { return v.StreamExceptionPolicy }).(pulumi.StringOutput)
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput struct{ *pulumi.OutputState }

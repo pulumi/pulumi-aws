@@ -17,7 +17,7 @@ public final class UserPoolEmailConfiguration {
      */
     private @Nullable String configurationSet;
     /**
-     * @return Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+     * @return Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
      * 
      */
     private @Nullable String emailSendingAccount;
@@ -46,7 +46,7 @@ public final class UserPoolEmailConfiguration {
         return Optional.ofNullable(this.configurationSet);
     }
     /**
-     * @return Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+     * @return Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
      * 
      */
     public Optional<String> emailSendingAccount() {

@@ -2605,6 +2605,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.translate);
     }
 
+    @Import(name="verifiedpermissions")
+    private @Nullable Output<String> verifiedpermissions;
+
+    public Optional<Output<String>> verifiedpermissions() {
+        return Optional.ofNullable(this.verifiedpermissions);
+    }
+
     @Import(name="voiceid")
     private @Nullable Output<String> voiceid;
 
@@ -3076,6 +3083,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.transcribestreamingservice = $.transcribestreamingservice;
         this.transfer = $.transfer;
         this.translate = $.translate;
+        this.verifiedpermissions = $.verifiedpermissions;
         this.voiceid = $.voiceid;
         this.vpclattice = $.vpclattice;
         this.waf = $.waf;
@@ -6438,6 +6446,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder translate(String translate) {
             return translate(Output.of(translate));
+        }
+
+        public Builder verifiedpermissions(@Nullable Output<String> verifiedpermissions) {
+            $.verifiedpermissions = verifiedpermissions;
+            return this;
+        }
+
+        public Builder verifiedpermissions(String verifiedpermissions) {
+            return verifiedpermissions(Output.of(verifiedpermissions));
         }
 
         public Builder voiceid(@Nullable Output<String> voiceid) {

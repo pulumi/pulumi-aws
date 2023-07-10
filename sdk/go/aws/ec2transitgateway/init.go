@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connect{}
 	case "aws:ec2transitgateway/connectPeer:ConnectPeer":
 		r = &ConnectPeer{}
+	case "aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint":
+		r = &InstanceConnectEndpoint{}
 	case "aws:ec2transitgateway/instanceState:InstanceState":
 		r = &InstanceState{}
 	case "aws:ec2transitgateway/multicastDomain:MulticastDomain":
@@ -80,6 +82,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2transitgateway/connectPeer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2transitgateway/instanceConnectEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

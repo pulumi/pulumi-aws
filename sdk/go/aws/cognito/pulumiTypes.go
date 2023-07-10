@@ -376,15 +376,15 @@ func (o IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayOutput) Index(i pul
 }
 
 type ManagedUserPoolClientAnalyticsConfiguration struct {
-	// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+	// Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
 	ApplicationArn *string `pulumi:"applicationArn"`
-	// Application ID for an Amazon Pinpoint application.
+	// Unique identifier for an Amazon Pinpoint application.
 	ApplicationId *string `pulumi:"applicationId"`
-	// ID for the Analytics Configuration. Conflicts with `applicationArn`.
+	// ID for the Analytics Configuration and conflicts with `applicationArn`.
 	ExternalId *string `pulumi:"externalId"`
-	// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+	// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
 	RoleArn *string `pulumi:"roleArn"`
-	// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+	// If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 	UserDataShared *bool `pulumi:"userDataShared"`
 }
 
@@ -400,15 +400,15 @@ type ManagedUserPoolClientAnalyticsConfigurationInput interface {
 }
 
 type ManagedUserPoolClientAnalyticsConfigurationArgs struct {
-	// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+	// Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
 	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
-	// Application ID for an Amazon Pinpoint application.
+	// Unique identifier for an Amazon Pinpoint application.
 	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// ID for the Analytics Configuration. Conflicts with `applicationArn`.
+	// ID for the Analytics Configuration and conflicts with `applicationArn`.
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
-	// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+	// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+	// If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 	UserDataShared pulumi.BoolPtrInput `pulumi:"userDataShared"`
 }
 
@@ -489,27 +489,27 @@ func (o ManagedUserPoolClientAnalyticsConfigurationOutput) ToManagedUserPoolClie
 	}).(ManagedUserPoolClientAnalyticsConfigurationPtrOutput)
 }
 
-// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+// Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
 func (o ManagedUserPoolClientAnalyticsConfigurationOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedUserPoolClientAnalyticsConfiguration) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
 }
 
-// Application ID for an Amazon Pinpoint application.
+// Unique identifier for an Amazon Pinpoint application.
 func (o ManagedUserPoolClientAnalyticsConfigurationOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedUserPoolClientAnalyticsConfiguration) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
-// ID for the Analytics Configuration. Conflicts with `applicationArn`.
+// ID for the Analytics Configuration and conflicts with `applicationArn`.
 func (o ManagedUserPoolClientAnalyticsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedUserPoolClientAnalyticsConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
-// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
 func (o ManagedUserPoolClientAnalyticsConfigurationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedUserPoolClientAnalyticsConfiguration) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+// If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 func (o ManagedUserPoolClientAnalyticsConfigurationOutput) UserDataShared() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedUserPoolClientAnalyticsConfiguration) *bool { return v.UserDataShared }).(pulumi.BoolPtrOutput)
 }
@@ -538,7 +538,7 @@ func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) Elem() ManagedUser
 	}).(ManagedUserPoolClientAnalyticsConfigurationOutput)
 }
 
-// Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+// Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
 func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -548,7 +548,7 @@ func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ApplicationArn() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Application ID for an Amazon Pinpoint application.
+// Unique identifier for an Amazon Pinpoint application.
 func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -558,7 +558,7 @@ func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ApplicationId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID for the Analytics Configuration. Conflicts with `applicationArn`.
+// ID for the Analytics Configuration and conflicts with `applicationArn`.
 func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -568,7 +568,7 @@ func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) ExternalId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
 func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClientAnalyticsConfiguration) *string {
 		if v == nil {
@@ -578,7 +578,7 @@ func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) RoleArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+// If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
 func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) UserDataShared() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClientAnalyticsConfiguration) *bool {
 		if v == nil {
@@ -589,11 +589,11 @@ func (o ManagedUserPoolClientAnalyticsConfigurationPtrOutput) UserDataShared() p
 }
 
 type ManagedUserPoolClientTokenValidityUnits struct {
-	// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+	// Time unit for the value in `accessTokenValidity` and defaults to `hours`.
 	AccessToken *string `pulumi:"accessToken"`
-	// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+	// Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
 	IdToken *string `pulumi:"idToken"`
-	// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+	// Time unit for the value in `refreshTokenValidity` and defaults to `days`.
 	RefreshToken *string `pulumi:"refreshToken"`
 }
 
@@ -609,11 +609,11 @@ type ManagedUserPoolClientTokenValidityUnitsInput interface {
 }
 
 type ManagedUserPoolClientTokenValidityUnitsArgs struct {
-	// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+	// Time unit for the value in `accessTokenValidity` and defaults to `hours`.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+	// Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
 	IdToken pulumi.StringPtrInput `pulumi:"idToken"`
-	// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+	// Time unit for the value in `refreshTokenValidity` and defaults to `days`.
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
 }
 
@@ -694,17 +694,17 @@ func (o ManagedUserPoolClientTokenValidityUnitsOutput) ToManagedUserPoolClientTo
 	}).(ManagedUserPoolClientTokenValidityUnitsPtrOutput)
 }
 
-// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+// Time unit for the value in `accessTokenValidity` and defaults to `hours`.
 func (o ManagedUserPoolClientTokenValidityUnitsOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedUserPoolClientTokenValidityUnits) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+// Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
 func (o ManagedUserPoolClientTokenValidityUnitsOutput) IdToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedUserPoolClientTokenValidityUnits) *string { return v.IdToken }).(pulumi.StringPtrOutput)
 }
 
-// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+// Time unit for the value in `refreshTokenValidity` and defaults to `days`.
 func (o ManagedUserPoolClientTokenValidityUnitsOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedUserPoolClientTokenValidityUnits) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
 }
@@ -733,7 +733,7 @@ func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) Elem() ManagedUserPool
 	}).(ManagedUserPoolClientTokenValidityUnitsOutput)
 }
 
-// Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+// Time unit for the value in `accessTokenValidity` and defaults to `hours`.
 func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClientTokenValidityUnits) *string {
 		if v == nil {
@@ -743,7 +743,7 @@ func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) AccessToken() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+// Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
 func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) IdToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClientTokenValidityUnits) *string {
 		if v == nil {
@@ -753,7 +753,7 @@ func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) IdToken() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+// Time unit for the value in `refreshTokenValidity` and defaults to `days`.
 func (o ManagedUserPoolClientTokenValidityUnitsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedUserPoolClientTokenValidityUnits) *string {
 		if v == nil {
@@ -4051,7 +4051,7 @@ func (o UserPoolDeviceConfigurationPtrOutput) DeviceOnlyRememberedOnUserPrompt()
 type UserPoolEmailConfiguration struct {
 	// Email configuration set name from SES.
 	ConfigurationSet *string `pulumi:"configurationSet"`
-	// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+	// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `fromEmailAddress` is set.
 	EmailSendingAccount *string `pulumi:"emailSendingAccount"`
 	// Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
 	FromEmailAddress *string `pulumi:"fromEmailAddress"`
@@ -4075,7 +4075,7 @@ type UserPoolEmailConfigurationInput interface {
 type UserPoolEmailConfigurationArgs struct {
 	// Email configuration set name from SES.
 	ConfigurationSet pulumi.StringPtrInput `pulumi:"configurationSet"`
-	// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+	// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `fromEmailAddress` is set.
 	EmailSendingAccount pulumi.StringPtrInput `pulumi:"emailSendingAccount"`
 	// Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
 	FromEmailAddress pulumi.StringPtrInput `pulumi:"fromEmailAddress"`
@@ -4167,7 +4167,7 @@ func (o UserPoolEmailConfigurationOutput) ConfigurationSet() pulumi.StringPtrOut
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.ConfigurationSet }).(pulumi.StringPtrOutput)
 }
 
-// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `fromEmailAddress` is set.
 func (o UserPoolEmailConfigurationOutput) EmailSendingAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolEmailConfiguration) *string { return v.EmailSendingAccount }).(pulumi.StringPtrOutput)
 }
@@ -4221,7 +4221,7 @@ func (o UserPoolEmailConfigurationPtrOutput) ConfigurationSet() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+// Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `fromEmailAddress` is set.
 func (o UserPoolEmailConfigurationPtrOutput) EmailSendingAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolEmailConfiguration) *string {
 		if v == nil {

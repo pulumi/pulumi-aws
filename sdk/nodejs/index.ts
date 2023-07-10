@@ -133,6 +133,7 @@ import * as budgets from "./budgets";
 import * as cfg from "./cfg";
 import * as chime from "./chime";
 import * as chimesdkmediapipelines from "./chimesdkmediapipelines";
+import * as cleanrooms from "./cleanrooms";
 import * as cloud9 from "./cloud9";
 import * as cloudcontrol from "./cloudcontrol";
 import * as cloudformation from "./cloudformation";
@@ -188,6 +189,7 @@ import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
 import * as emrserverless from "./emrserverless";
 import * as evidently from "./evidently";
+import * as finspace from "./finspace";
 import * as fis from "./fis";
 import * as fms from "./fms";
 import * as fsx from "./fsx";
@@ -327,6 +329,7 @@ export {
     cfg,
     chime,
     chimesdkmediapipelines,
+    cleanrooms,
     cloud9,
     cloudcontrol,
     cloudformation,
@@ -382,6 +385,7 @@ export {
     emrcontainers,
     emrserverless,
     evidently,
+    finspace,
     fis,
     fms,
     fsx,

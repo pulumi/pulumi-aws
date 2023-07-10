@@ -4,111 +4,24 @@
 package com.pulumi.aws.quicksight.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQuicksightUserResult {
-    /**
-     * @return The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
-     * 
-     */
-    private Boolean active;
-    /**
-     * @return The Amazon Resource Name (ARN) for the user.
-     * 
-     */
-    private String arn;
-    private String awsAccountId;
-    /**
-     * @return The user&#39;s email address.
-     * 
-     */
-    private String email;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The type of identity authentication used by the user.
-     * 
-     */
-    private String identityType;
-    private @Nullable String namespace;
-    /**
-     * @return The principal ID of the user.
-     * 
-     */
-    private String principalId;
-    private String userName;
-    /**
-     * @return The Amazon QuickSight role for the user. The user role can be one of the following:.
-     * 
-     */
-    private String userRole;
 
     private GetQuicksightUserResult() {}
-    /**
-     * @return The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
-     * 
-     */
-    public Boolean active() {
-        return this.active;
-    }
-    /**
-     * @return The Amazon Resource Name (ARN) for the user.
-     * 
-     */
-    public String arn() {
-        return this.arn;
-    }
-    public String awsAccountId() {
-        return this.awsAccountId;
-    }
-    /**
-     * @return The user&#39;s email address.
-     * 
-     */
-    public String email() {
-        return this.email;
-    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     public String id() {
         return this.id;
-    }
-    /**
-     * @return The type of identity authentication used by the user.
-     * 
-     */
-    public String identityType() {
-        return this.identityType;
-    }
-    public Optional<String> namespace() {
-        return Optional.ofNullable(this.namespace);
-    }
-    /**
-     * @return The principal ID of the user.
-     * 
-     */
-    public String principalId() {
-        return this.principalId;
-    }
-    public String userName() {
-        return this.userName;
-    }
-    /**
-     * @return The Amazon QuickSight role for the user. The user role can be one of the following:.
-     * 
-     */
-    public String userRole() {
-        return this.userRole;
     }
 
     public static Builder builder() {
@@ -120,93 +33,21 @@ public final class GetQuicksightUserResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean active;
-        private String arn;
-        private String awsAccountId;
-        private String email;
         private String id;
-        private String identityType;
-        private @Nullable String namespace;
-        private String principalId;
-        private String userName;
-        private String userRole;
         public Builder() {}
         public Builder(GetQuicksightUserResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.active = defaults.active;
-    	      this.arn = defaults.arn;
-    	      this.awsAccountId = defaults.awsAccountId;
-    	      this.email = defaults.email;
     	      this.id = defaults.id;
-    	      this.identityType = defaults.identityType;
-    	      this.namespace = defaults.namespace;
-    	      this.principalId = defaults.principalId;
-    	      this.userName = defaults.userName;
-    	      this.userRole = defaults.userRole;
         }
 
-        @CustomType.Setter
-        public Builder active(Boolean active) {
-            this.active = Objects.requireNonNull(active);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder awsAccountId(String awsAccountId) {
-            this.awsAccountId = Objects.requireNonNull(awsAccountId);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder email(String email) {
-            this.email = Objects.requireNonNull(email);
-            return this;
-        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
-        @CustomType.Setter
-        public Builder identityType(String identityType) {
-            this.identityType = Objects.requireNonNull(identityType);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder namespace(@Nullable String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder userRole(String userRole) {
-            this.userRole = Objects.requireNonNull(userRole);
-            return this;
-        }
         public GetQuicksightUserResult build() {
             final var o = new GetQuicksightUserResult();
-            o.active = active;
-            o.arn = arn;
-            o.awsAccountId = awsAccountId;
-            o.email = email;
             o.id = id;
-            o.identityType = identityType;
-            o.namespace = namespace;
-            o.principalId = principalId;
-            o.userName = userName;
-            o.userRole = userRole;
             return o;
         }
     }

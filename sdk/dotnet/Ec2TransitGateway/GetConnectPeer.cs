@@ -217,6 +217,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// BGP ASN number assigned customer device
         /// </summary>
         public readonly string BgpAsn;
+        /// <summary>
+        /// The IP address assigned to customer device, which is used as BGP IP address.
+        /// </summary>
+        public readonly string BgpPeerAddress;
+        /// <summary>
+        /// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+        /// </summary>
+        public readonly ImmutableArray<string> BgpTransitGatewayAddresses;
         public readonly ImmutableArray<Outputs.GetConnectPeerFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -250,6 +258,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string bgpAsn,
 
+            string bgpPeerAddress,
+
+            ImmutableArray<string> bgpTransitGatewayAddresses,
+
             ImmutableArray<Outputs.GetConnectPeerFilterResult> filters,
 
             string id,
@@ -268,6 +280,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
         {
             Arn = arn;
             BgpAsn = bgpAsn;
+            BgpPeerAddress = bgpPeerAddress;
+            BgpTransitGatewayAddresses = bgpTransitGatewayAddresses;
             Filters = filters;
             Id = id;
             InsideCidrBlocks = insideCidrBlocks;

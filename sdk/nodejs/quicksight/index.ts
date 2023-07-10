@@ -40,20 +40,21 @@ export type FolderMembership = import("./folderMembership").FolderMembership;
 export const FolderMembership: typeof import("./folderMembership").FolderMembership = null as any;
 utilities.lazyLoad(exports, ["FolderMembership"], () => require("./folderMembership"));
 
-export { GetDataSetArgs, GetDataSetResult, GetDataSetOutputArgs } from "./getDataSet";
+export { GetDataSetResult } from "./getDataSet";
 export const getDataSet: typeof import("./getDataSet").getDataSet = null as any;
-export const getDataSetOutput: typeof import("./getDataSet").getDataSetOutput = null as any;
-utilities.lazyLoad(exports, ["getDataSet","getDataSetOutput"], () => require("./getDataSet"));
+utilities.lazyLoad(exports, ["getDataSet"], () => require("./getDataSet"));
 
-export { GetQuicksightGroupArgs, GetQuicksightGroupResult, GetQuicksightGroupOutputArgs } from "./getQuicksightGroup";
+export { GetQuicksightGroupResult } from "./getQuicksightGroup";
 export const getQuicksightGroup: typeof import("./getQuicksightGroup").getQuicksightGroup = null as any;
-export const getQuicksightGroupOutput: typeof import("./getQuicksightGroup").getQuicksightGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getQuicksightGroup","getQuicksightGroupOutput"], () => require("./getQuicksightGroup"));
+utilities.lazyLoad(exports, ["getQuicksightGroup"], () => require("./getQuicksightGroup"));
 
-export { GetQuicksightUserArgs, GetQuicksightUserResult, GetQuicksightUserOutputArgs } from "./getQuicksightUser";
+export { GetQuicksightUserResult } from "./getQuicksightUser";
 export const getQuicksightUser: typeof import("./getQuicksightUser").getQuicksightUser = null as any;
-export const getQuicksightUserOutput: typeof import("./getQuicksightUser").getQuicksightUserOutput = null as any;
-utilities.lazyLoad(exports, ["getQuicksightUser","getQuicksightUserOutput"], () => require("./getQuicksightUser"));
+utilities.lazyLoad(exports, ["getQuicksightUser"], () => require("./getQuicksightUser"));
+
+export { GetThemeResult } from "./getTheme";
+export const getTheme: typeof import("./getTheme").getTheme = null as any;
+utilities.lazyLoad(exports, ["getTheme"], () => require("./getTheme"));
 
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
@@ -94,6 +95,11 @@ export { TemplateAliasArgs, TemplateAliasState } from "./templateAlias";
 export type TemplateAlias = import("./templateAlias").TemplateAlias;
 export const TemplateAlias: typeof import("./templateAlias").TemplateAlias = null as any;
 utilities.lazyLoad(exports, ["TemplateAlias"], () => require("./templateAlias"));
+
+export { ThemeArgs, ThemeState } from "./theme";
+export type Theme = import("./theme").Theme;
+export const Theme: typeof import("./theme").Theme = null as any;
+utilities.lazyLoad(exports, ["Theme"], () => require("./theme"));
 
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
@@ -140,6 +146,8 @@ const _module = {
                 return new Template(name, <any>undefined, { urn })
             case "aws:quicksight/templateAlias:TemplateAlias":
                 return new TemplateAlias(name, <any>undefined, { urn })
+            case "aws:quicksight/theme:Theme":
+                return new Theme(name, <any>undefined, { urn })
             case "aws:quicksight/user:User":
                 return new User(name, <any>undefined, { urn })
             case "aws:quicksight/vpcConnection:VpcConnection":
@@ -164,5 +172,6 @@ pulumi.runtime.registerResourceModule("aws", "quicksight/namespace", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/refreshSchedule", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/template", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/templateAlias", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/theme", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/user", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/vpcConnection", _module)

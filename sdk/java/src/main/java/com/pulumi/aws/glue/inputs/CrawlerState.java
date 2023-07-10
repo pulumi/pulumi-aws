@@ -6,6 +6,7 @@ package com.pulumi.aws.glue.inputs;
 import com.pulumi.aws.glue.inputs.CrawlerCatalogTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerDeltaTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerDynamodbTargetArgs;
+import com.pulumi.aws.glue.inputs.CrawlerIcebergTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerJdbcTargetArgs;
 import com.pulumi.aws.glue.inputs.CrawlerLakeFormationConfigurationArgs;
 import com.pulumi.aws.glue.inputs.CrawlerLineageConfigurationArgs;
@@ -94,9 +95,17 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.databaseName);
     }
 
+    /**
+     * List of nested Delta Lake target arguments. See Delta Target below.
+     * 
+     */
     @Import(name="deltaTargets")
     private @Nullable Output<List<CrawlerDeltaTargetArgs>> deltaTargets;
 
+    /**
+     * @return List of nested Delta Lake target arguments. See Delta Target below.
+     * 
+     */
     public Optional<Output<List<CrawlerDeltaTargetArgs>>> deltaTargets() {
         return Optional.ofNullable(this.deltaTargets);
     }
@@ -129,6 +138,21 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<CrawlerDynamodbTargetArgs>>> dynamodbTargets() {
         return Optional.ofNullable(this.dynamodbTargets);
+    }
+
+    /**
+     * List nested Iceberg target arguments. See Iceberg Target below.
+     * 
+     */
+    @Import(name="icebergTargets")
+    private @Nullable Output<List<CrawlerIcebergTargetArgs>> icebergTargets;
+
+    /**
+     * @return List nested Iceberg target arguments. See Iceberg Target below.
+     * 
+     */
+    public Optional<Output<List<CrawlerIcebergTargetArgs>>> icebergTargets() {
+        return Optional.ofNullable(this.icebergTargets);
     }
 
     /**
@@ -352,6 +376,7 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
         this.deltaTargets = $.deltaTargets;
         this.description = $.description;
         this.dynamodbTargets = $.dynamodbTargets;
+        this.icebergTargets = $.icebergTargets;
         this.jdbcTargets = $.jdbcTargets;
         this.lakeFormationConfiguration = $.lakeFormationConfiguration;
         this.lineageConfiguration = $.lineageConfiguration;
@@ -493,15 +518,33 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
             return databaseName(Output.of(databaseName));
         }
 
+        /**
+         * @param deltaTargets List of nested Delta Lake target arguments. See Delta Target below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deltaTargets(@Nullable Output<List<CrawlerDeltaTargetArgs>> deltaTargets) {
             $.deltaTargets = deltaTargets;
             return this;
         }
 
+        /**
+         * @param deltaTargets List of nested Delta Lake target arguments. See Delta Target below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deltaTargets(List<CrawlerDeltaTargetArgs> deltaTargets) {
             return deltaTargets(Output.of(deltaTargets));
         }
 
+        /**
+         * @param deltaTargets List of nested Delta Lake target arguments. See Delta Target below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deltaTargets(CrawlerDeltaTargetArgs... deltaTargets) {
             return deltaTargets(List.of(deltaTargets));
         }
@@ -556,6 +599,37 @@ public final class CrawlerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dynamodbTargets(CrawlerDynamodbTargetArgs... dynamodbTargets) {
             return dynamodbTargets(List.of(dynamodbTargets));
+        }
+
+        /**
+         * @param icebergTargets List nested Iceberg target arguments. See Iceberg Target below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder icebergTargets(@Nullable Output<List<CrawlerIcebergTargetArgs>> icebergTargets) {
+            $.icebergTargets = icebergTargets;
+            return this;
+        }
+
+        /**
+         * @param icebergTargets List nested Iceberg target arguments. See Iceberg Target below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder icebergTargets(List<CrawlerIcebergTargetArgs> icebergTargets) {
+            return icebergTargets(Output.of(icebergTargets));
+        }
+
+        /**
+         * @param icebergTargets List nested Iceberg target arguments. See Iceberg Target below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder icebergTargets(CrawlerIcebergTargetArgs... icebergTargets) {
+            return icebergTargets(List.of(icebergTargets));
         }
 
         /**

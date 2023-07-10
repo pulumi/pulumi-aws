@@ -37,6 +37,7 @@ class InstanceArgs:
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+                 instance_market_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -86,6 +87,7 @@ class InstanceArgs:
         :param pulumi.Input[str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        :param pulumi.Input['InstanceInstanceMarketOptionsArgs'] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -162,6 +164,8 @@ class InstanceArgs:
             pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
         if instance_initiated_shutdown_behavior is not None:
             pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+        if instance_market_options is not None:
+            pulumi.set(__self__, "instance_market_options", instance_market_options)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if ipv6_address_count is not None:
@@ -463,6 +467,18 @@ class InstanceArgs:
     @instance_initiated_shutdown_behavior.setter
     def instance_initiated_shutdown_behavior(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_initiated_shutdown_behavior", value)
+
+    @property
+    @pulumi.getter(name="instanceMarketOptions")
+    def instance_market_options(self) -> Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']]:
+        """
+        Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        """
+        return pulumi.get(self, "instance_market_options")
+
+    @instance_market_options.setter
+    def instance_market_options(self, value: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']]):
+        pulumi.set(self, "instance_market_options", value)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -796,6 +812,8 @@ class _InstanceState:
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+                 instance_lifecycle: Optional[pulumi.Input[str]] = None,
+                 instance_market_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']] = None,
                  instance_state: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
@@ -820,6 +838,7 @@ class _InstanceState:
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[bool]] = None,
+                 spot_instance_request_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -854,6 +873,8 @@ class _InstanceState:
         :param pulumi.Input[str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        :param pulumi.Input[str] instance_lifecycle: Indicates whether this is a Spot Instance or a Scheduled Instance.
+        :param pulumi.Input['InstanceInstanceMarketOptionsArgs'] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
         :param pulumi.Input[str] instance_state: State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -880,6 +901,7 @@ class _InstanceState:
                
                > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        :param pulumi.Input[str] spot_instance_request_id: If the request is a Spot Instance request, the ID of the request.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -940,6 +962,10 @@ class _InstanceState:
             pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
         if instance_initiated_shutdown_behavior is not None:
             pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+        if instance_lifecycle is not None:
+            pulumi.set(__self__, "instance_lifecycle", instance_lifecycle)
+        if instance_market_options is not None:
+            pulumi.set(__self__, "instance_market_options", instance_market_options)
         if instance_state is not None:
             pulumi.set(__self__, "instance_state", instance_state)
         if instance_type is not None:
@@ -991,6 +1017,8 @@ class _InstanceState:
             pulumi.set(__self__, "security_groups", security_groups)
         if source_dest_check is not None:
             pulumi.set(__self__, "source_dest_check", source_dest_check)
+        if spot_instance_request_id is not None:
+            pulumi.set(__self__, "spot_instance_request_id", spot_instance_request_id)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
@@ -1269,6 +1297,30 @@ class _InstanceState:
     @instance_initiated_shutdown_behavior.setter
     def instance_initiated_shutdown_behavior(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_initiated_shutdown_behavior", value)
+
+    @property
+    @pulumi.getter(name="instanceLifecycle")
+    def instance_lifecycle(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether this is a Spot Instance or a Scheduled Instance.
+        """
+        return pulumi.get(self, "instance_lifecycle")
+
+    @instance_lifecycle.setter
+    def instance_lifecycle(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_lifecycle", value)
+
+    @property
+    @pulumi.getter(name="instanceMarketOptions")
+    def instance_market_options(self) -> Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']]:
+        """
+        Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        """
+        return pulumi.get(self, "instance_market_options")
+
+    @instance_market_options.setter
+    def instance_market_options(self, value: Optional[pulumi.Input['InstanceInstanceMarketOptionsArgs']]):
+        pulumi.set(self, "instance_market_options", value)
 
     @property
     @pulumi.getter(name="instanceState")
@@ -1564,6 +1616,18 @@ class _InstanceState:
         pulumi.set(self, "source_dest_check", value)
 
     @property
+    @pulumi.getter(name="spotInstanceRequestId")
+    def spot_instance_request_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the request is a Spot Instance request, the ID of the request.
+        """
+        return pulumi.get(self, "spot_instance_request_id")
+
+    @spot_instance_request_id.setter
+    def spot_instance_request_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spot_instance_request_id", value)
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1699,6 +1763,7 @@ class Instance(pulumi.CustomResource):
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+                 instance_market_options: Optional[pulumi.Input[pulumi.InputType['InstanceInstanceMarketOptionsArgs']]] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1752,6 +1817,36 @@ class Instance(pulumi.CustomResource):
             instance_type="t3.micro",
             tags={
                 "Name": "HelloWorld",
+            })
+        ```
+        ### Spot instance example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        this_ami = aws.ec2.get_ami(most_recent=True,
+            owners=["amazon"],
+            filters=[
+                aws.ec2.GetAmiFilterArgs(
+                    name="architecture",
+                    values=["arm64"],
+                ),
+                aws.ec2.GetAmiFilterArgs(
+                    name="name",
+                    values=["al2023-ami-2023*"],
+                ),
+            ])
+        this_instance = aws.ec2.Instance("thisInstance",
+            ami=this_ami.id,
+            instance_market_options=aws.ec2.InstanceInstanceMarketOptionsArgs(
+                spot_options=aws.ec2.InstanceInstanceMarketOptionsSpotOptionsArgs(
+                    max_price="0.0031",
+                ),
+            ),
+            instance_type="t4g.nano",
+            tags={
+                "Name": "test-spot",
             })
         ```
         ### Network and credit specification example
@@ -1874,6 +1969,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        :param pulumi.Input[pulumi.InputType['InstanceInstanceMarketOptionsArgs']] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -1937,6 +2033,36 @@ class Instance(pulumi.CustomResource):
             instance_type="t3.micro",
             tags={
                 "Name": "HelloWorld",
+            })
+        ```
+        ### Spot instance example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        this_ami = aws.ec2.get_ami(most_recent=True,
+            owners=["amazon"],
+            filters=[
+                aws.ec2.GetAmiFilterArgs(
+                    name="architecture",
+                    values=["arm64"],
+                ),
+                aws.ec2.GetAmiFilterArgs(
+                    name="name",
+                    values=["al2023-ami-2023*"],
+                ),
+            ])
+        this_instance = aws.ec2.Instance("thisInstance",
+            ami=this_ami.id,
+            instance_market_options=aws.ec2.InstanceInstanceMarketOptionsArgs(
+                spot_options=aws.ec2.InstanceInstanceMarketOptionsSpotOptionsArgs(
+                    max_price="0.0031",
+                ),
+            ),
+            instance_type="t4g.nano",
+            tags={
+                "Name": "test-spot",
             })
         ```
         ### Network and credit specification example
@@ -2070,6 +2196,7 @@ class Instance(pulumi.CustomResource):
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+                 instance_market_options: Optional[pulumi.Input[pulumi.InputType['InstanceInstanceMarketOptionsArgs']]] = None,
                  instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2130,6 +2257,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["host_resource_group_arn"] = host_resource_group_arn
             __props__.__dict__["iam_instance_profile"] = iam_instance_profile
             __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
+            __props__.__dict__["instance_market_options"] = instance_market_options
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["ipv6_address_count"] = ipv6_address_count
             __props__.__dict__["ipv6_addresses"] = ipv6_addresses
@@ -2159,6 +2287,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["volume_tags"] = volume_tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
+            __props__.__dict__["instance_lifecycle"] = None
             __props__.__dict__["instance_state"] = None
             __props__.__dict__["outpost_arn"] = None
             __props__.__dict__["password_data"] = None
@@ -2166,6 +2295,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["private_dns"] = None
             __props__.__dict__["public_dns"] = None
             __props__.__dict__["public_ip"] = None
+            __props__.__dict__["spot_instance_request_id"] = None
             __props__.__dict__["tags_all"] = None
         super(Instance, __self__).__init__(
             'aws:ec2/instance:Instance',
@@ -2198,6 +2328,8 @@ class Instance(pulumi.CustomResource):
             host_resource_group_arn: Optional[pulumi.Input[str]] = None,
             iam_instance_profile: Optional[pulumi.Input[str]] = None,
             instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+            instance_lifecycle: Optional[pulumi.Input[str]] = None,
+            instance_market_options: Optional[pulumi.Input[pulumi.InputType['InstanceInstanceMarketOptionsArgs']]] = None,
             instance_state: Optional[pulumi.Input[str]] = None,
             instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
             ipv6_address_count: Optional[pulumi.Input[int]] = None,
@@ -2222,6 +2354,7 @@ class Instance(pulumi.CustomResource):
             secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             source_dest_check: Optional[pulumi.Input[bool]] = None,
+            spot_instance_request_id: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -2261,6 +2394,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] host_resource_group_arn: ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        :param pulumi.Input[str] instance_lifecycle: Indicates whether this is a Spot Instance or a Scheduled Instance.
+        :param pulumi.Input[pulumi.InputType['InstanceInstanceMarketOptionsArgs']] instance_market_options: Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
         :param pulumi.Input[str] instance_state: State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -2287,6 +2422,7 @@ class Instance(pulumi.CustomResource):
                
                > **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        :param pulumi.Input[str] spot_instance_request_id: If the request is a Spot Instance request, the ID of the request.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -2324,6 +2460,8 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["host_resource_group_arn"] = host_resource_group_arn
         __props__.__dict__["iam_instance_profile"] = iam_instance_profile
         __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
+        __props__.__dict__["instance_lifecycle"] = instance_lifecycle
+        __props__.__dict__["instance_market_options"] = instance_market_options
         __props__.__dict__["instance_state"] = instance_state
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["ipv6_address_count"] = ipv6_address_count
@@ -2348,6 +2486,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["secondary_private_ips"] = secondary_private_ips
         __props__.__dict__["security_groups"] = security_groups
         __props__.__dict__["source_dest_check"] = source_dest_check
+        __props__.__dict__["spot_instance_request_id"] = spot_instance_request_id
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -2534,6 +2673,22 @@ class Instance(pulumi.CustomResource):
         Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         """
         return pulumi.get(self, "instance_initiated_shutdown_behavior")
+
+    @property
+    @pulumi.getter(name="instanceLifecycle")
+    def instance_lifecycle(self) -> pulumi.Output[str]:
+        """
+        Indicates whether this is a Spot Instance or a Scheduled Instance.
+        """
+        return pulumi.get(self, "instance_lifecycle")
+
+    @property
+    @pulumi.getter(name="instanceMarketOptions")
+    def instance_market_options(self) -> pulumi.Output['outputs.InstanceInstanceMarketOptions']:
+        """
+        Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        """
+        return pulumi.get(self, "instance_market_options")
 
     @property
     @pulumi.getter(name="instanceState")
@@ -2731,6 +2886,14 @@ class Instance(pulumi.CustomResource):
         Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         """
         return pulumi.get(self, "source_dest_check")
+
+    @property
+    @pulumi.getter(name="spotInstanceRequestId")
+    def spot_instance_request_id(self) -> pulumi.Output[str]:
+        """
+        If the request is a Spot Instance request, the ID of the request.
+        """
+        return pulumi.get(self, "spot_instance_request_id")
 
     @property
     @pulumi.getter(name="subnetId")

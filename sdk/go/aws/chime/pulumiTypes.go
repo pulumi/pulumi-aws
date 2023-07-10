@@ -10,6 +10,395 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type SdkvoiceGlobalSettingsVoiceConnector struct {
+	// The S3 bucket that stores the Voice Connector's call detail records.
+	CdrBucket *string `pulumi:"cdrBucket"`
+}
+
+// SdkvoiceGlobalSettingsVoiceConnectorInput is an input type that accepts SdkvoiceGlobalSettingsVoiceConnectorArgs and SdkvoiceGlobalSettingsVoiceConnectorOutput values.
+// You can construct a concrete instance of `SdkvoiceGlobalSettingsVoiceConnectorInput` via:
+//
+//	SdkvoiceGlobalSettingsVoiceConnectorArgs{...}
+type SdkvoiceGlobalSettingsVoiceConnectorInput interface {
+	pulumi.Input
+
+	ToSdkvoiceGlobalSettingsVoiceConnectorOutput() SdkvoiceGlobalSettingsVoiceConnectorOutput
+	ToSdkvoiceGlobalSettingsVoiceConnectorOutputWithContext(context.Context) SdkvoiceGlobalSettingsVoiceConnectorOutput
+}
+
+type SdkvoiceGlobalSettingsVoiceConnectorArgs struct {
+	// The S3 bucket that stores the Voice Connector's call detail records.
+	CdrBucket pulumi.StringPtrInput `pulumi:"cdrBucket"`
+}
+
+func (SdkvoiceGlobalSettingsVoiceConnectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceGlobalSettingsVoiceConnector)(nil)).Elem()
+}
+
+func (i SdkvoiceGlobalSettingsVoiceConnectorArgs) ToSdkvoiceGlobalSettingsVoiceConnectorOutput() SdkvoiceGlobalSettingsVoiceConnectorOutput {
+	return i.ToSdkvoiceGlobalSettingsVoiceConnectorOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceGlobalSettingsVoiceConnectorArgs) ToSdkvoiceGlobalSettingsVoiceConnectorOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceGlobalSettingsVoiceConnectorOutput)
+}
+
+func (i SdkvoiceGlobalSettingsVoiceConnectorArgs) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutput() SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return i.ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceGlobalSettingsVoiceConnectorArgs) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceGlobalSettingsVoiceConnectorOutput).ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(ctx)
+}
+
+// SdkvoiceGlobalSettingsVoiceConnectorPtrInput is an input type that accepts SdkvoiceGlobalSettingsVoiceConnectorArgs, SdkvoiceGlobalSettingsVoiceConnectorPtr and SdkvoiceGlobalSettingsVoiceConnectorPtrOutput values.
+// You can construct a concrete instance of `SdkvoiceGlobalSettingsVoiceConnectorPtrInput` via:
+//
+//	        SdkvoiceGlobalSettingsVoiceConnectorArgs{...}
+//
+//	or:
+//
+//	        nil
+type SdkvoiceGlobalSettingsVoiceConnectorPtrInput interface {
+	pulumi.Input
+
+	ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutput() SdkvoiceGlobalSettingsVoiceConnectorPtrOutput
+	ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(context.Context) SdkvoiceGlobalSettingsVoiceConnectorPtrOutput
+}
+
+type sdkvoiceGlobalSettingsVoiceConnectorPtrType SdkvoiceGlobalSettingsVoiceConnectorArgs
+
+func SdkvoiceGlobalSettingsVoiceConnectorPtr(v *SdkvoiceGlobalSettingsVoiceConnectorArgs) SdkvoiceGlobalSettingsVoiceConnectorPtrInput {
+	return (*sdkvoiceGlobalSettingsVoiceConnectorPtrType)(v)
+}
+
+func (*sdkvoiceGlobalSettingsVoiceConnectorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SdkvoiceGlobalSettingsVoiceConnector)(nil)).Elem()
+}
+
+func (i *sdkvoiceGlobalSettingsVoiceConnectorPtrType) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutput() SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return i.ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(context.Background())
+}
+
+func (i *sdkvoiceGlobalSettingsVoiceConnectorPtrType) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceGlobalSettingsVoiceConnectorPtrOutput)
+}
+
+type SdkvoiceGlobalSettingsVoiceConnectorOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceGlobalSettingsVoiceConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceGlobalSettingsVoiceConnector)(nil)).Elem()
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) ToSdkvoiceGlobalSettingsVoiceConnectorOutput() SdkvoiceGlobalSettingsVoiceConnectorOutput {
+	return o
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) ToSdkvoiceGlobalSettingsVoiceConnectorOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorOutput {
+	return o
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutput() SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return o.ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(context.Background())
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SdkvoiceGlobalSettingsVoiceConnector) *SdkvoiceGlobalSettingsVoiceConnector {
+		return &v
+	}).(SdkvoiceGlobalSettingsVoiceConnectorPtrOutput)
+}
+
+// The S3 bucket that stores the Voice Connector's call detail records.
+func (o SdkvoiceGlobalSettingsVoiceConnectorOutput) CdrBucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SdkvoiceGlobalSettingsVoiceConnector) *string { return v.CdrBucket }).(pulumi.StringPtrOutput)
+}
+
+type SdkvoiceGlobalSettingsVoiceConnectorPtrOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SdkvoiceGlobalSettingsVoiceConnector)(nil)).Elem()
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutput() SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return o
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) ToSdkvoiceGlobalSettingsVoiceConnectorPtrOutputWithContext(ctx context.Context) SdkvoiceGlobalSettingsVoiceConnectorPtrOutput {
+	return o
+}
+
+func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) Elem() SdkvoiceGlobalSettingsVoiceConnectorOutput {
+	return o.ApplyT(func(v *SdkvoiceGlobalSettingsVoiceConnector) SdkvoiceGlobalSettingsVoiceConnector {
+		if v != nil {
+			return *v
+		}
+		var ret SdkvoiceGlobalSettingsVoiceConnector
+		return ret
+	}).(SdkvoiceGlobalSettingsVoiceConnectorOutput)
+}
+
+// The S3 bucket that stores the Voice Connector's call detail records.
+func (o SdkvoiceGlobalSettingsVoiceConnectorPtrOutput) CdrBucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SdkvoiceGlobalSettingsVoiceConnector) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CdrBucket
+	}).(pulumi.StringPtrOutput)
+}
+
+type SdkvoiceSipMediaApplicationEndpoints struct {
+	// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+	LambdaArn string `pulumi:"lambdaArn"`
+}
+
+// SdkvoiceSipMediaApplicationEndpointsInput is an input type that accepts SdkvoiceSipMediaApplicationEndpointsArgs and SdkvoiceSipMediaApplicationEndpointsOutput values.
+// You can construct a concrete instance of `SdkvoiceSipMediaApplicationEndpointsInput` via:
+//
+//	SdkvoiceSipMediaApplicationEndpointsArgs{...}
+type SdkvoiceSipMediaApplicationEndpointsInput interface {
+	pulumi.Input
+
+	ToSdkvoiceSipMediaApplicationEndpointsOutput() SdkvoiceSipMediaApplicationEndpointsOutput
+	ToSdkvoiceSipMediaApplicationEndpointsOutputWithContext(context.Context) SdkvoiceSipMediaApplicationEndpointsOutput
+}
+
+type SdkvoiceSipMediaApplicationEndpointsArgs struct {
+	// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+}
+
+func (SdkvoiceSipMediaApplicationEndpointsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceSipMediaApplicationEndpoints)(nil)).Elem()
+}
+
+func (i SdkvoiceSipMediaApplicationEndpointsArgs) ToSdkvoiceSipMediaApplicationEndpointsOutput() SdkvoiceSipMediaApplicationEndpointsOutput {
+	return i.ToSdkvoiceSipMediaApplicationEndpointsOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceSipMediaApplicationEndpointsArgs) ToSdkvoiceSipMediaApplicationEndpointsOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipMediaApplicationEndpointsOutput)
+}
+
+func (i SdkvoiceSipMediaApplicationEndpointsArgs) ToSdkvoiceSipMediaApplicationEndpointsPtrOutput() SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return i.ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceSipMediaApplicationEndpointsArgs) ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipMediaApplicationEndpointsOutput).ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(ctx)
+}
+
+// SdkvoiceSipMediaApplicationEndpointsPtrInput is an input type that accepts SdkvoiceSipMediaApplicationEndpointsArgs, SdkvoiceSipMediaApplicationEndpointsPtr and SdkvoiceSipMediaApplicationEndpointsPtrOutput values.
+// You can construct a concrete instance of `SdkvoiceSipMediaApplicationEndpointsPtrInput` via:
+//
+//	        SdkvoiceSipMediaApplicationEndpointsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SdkvoiceSipMediaApplicationEndpointsPtrInput interface {
+	pulumi.Input
+
+	ToSdkvoiceSipMediaApplicationEndpointsPtrOutput() SdkvoiceSipMediaApplicationEndpointsPtrOutput
+	ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(context.Context) SdkvoiceSipMediaApplicationEndpointsPtrOutput
+}
+
+type sdkvoiceSipMediaApplicationEndpointsPtrType SdkvoiceSipMediaApplicationEndpointsArgs
+
+func SdkvoiceSipMediaApplicationEndpointsPtr(v *SdkvoiceSipMediaApplicationEndpointsArgs) SdkvoiceSipMediaApplicationEndpointsPtrInput {
+	return (*sdkvoiceSipMediaApplicationEndpointsPtrType)(v)
+}
+
+func (*sdkvoiceSipMediaApplicationEndpointsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SdkvoiceSipMediaApplicationEndpoints)(nil)).Elem()
+}
+
+func (i *sdkvoiceSipMediaApplicationEndpointsPtrType) ToSdkvoiceSipMediaApplicationEndpointsPtrOutput() SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return i.ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(context.Background())
+}
+
+func (i *sdkvoiceSipMediaApplicationEndpointsPtrType) ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipMediaApplicationEndpointsPtrOutput)
+}
+
+type SdkvoiceSipMediaApplicationEndpointsOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceSipMediaApplicationEndpointsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceSipMediaApplicationEndpoints)(nil)).Elem()
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsOutput) ToSdkvoiceSipMediaApplicationEndpointsOutput() SdkvoiceSipMediaApplicationEndpointsOutput {
+	return o
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsOutput) ToSdkvoiceSipMediaApplicationEndpointsOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsOutput {
+	return o
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsOutput) ToSdkvoiceSipMediaApplicationEndpointsPtrOutput() SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return o.ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(context.Background())
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsOutput) ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SdkvoiceSipMediaApplicationEndpoints) *SdkvoiceSipMediaApplicationEndpoints {
+		return &v
+	}).(SdkvoiceSipMediaApplicationEndpointsPtrOutput)
+}
+
+// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+func (o SdkvoiceSipMediaApplicationEndpointsOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SdkvoiceSipMediaApplicationEndpoints) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+type SdkvoiceSipMediaApplicationEndpointsPtrOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceSipMediaApplicationEndpointsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SdkvoiceSipMediaApplicationEndpoints)(nil)).Elem()
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) ToSdkvoiceSipMediaApplicationEndpointsPtrOutput() SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return o
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) ToSdkvoiceSipMediaApplicationEndpointsPtrOutputWithContext(ctx context.Context) SdkvoiceSipMediaApplicationEndpointsPtrOutput {
+	return o
+}
+
+func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) Elem() SdkvoiceSipMediaApplicationEndpointsOutput {
+	return o.ApplyT(func(v *SdkvoiceSipMediaApplicationEndpoints) SdkvoiceSipMediaApplicationEndpoints {
+		if v != nil {
+			return *v
+		}
+		var ret SdkvoiceSipMediaApplicationEndpoints
+		return ret
+	}).(SdkvoiceSipMediaApplicationEndpointsOutput)
+}
+
+// Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+func (o SdkvoiceSipMediaApplicationEndpointsPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SdkvoiceSipMediaApplicationEndpoints) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type SdkvoiceSipRuleTargetApplication struct {
+	// The AWS Region of the target application.
+	AwsRegion string `pulumi:"awsRegion"`
+	// Priority of the SIP media application in the target list.
+	Priority int `pulumi:"priority"`
+	// The SIP media application ID.
+	SipMediaApplicationId string `pulumi:"sipMediaApplicationId"`
+}
+
+// SdkvoiceSipRuleTargetApplicationInput is an input type that accepts SdkvoiceSipRuleTargetApplicationArgs and SdkvoiceSipRuleTargetApplicationOutput values.
+// You can construct a concrete instance of `SdkvoiceSipRuleTargetApplicationInput` via:
+//
+//	SdkvoiceSipRuleTargetApplicationArgs{...}
+type SdkvoiceSipRuleTargetApplicationInput interface {
+	pulumi.Input
+
+	ToSdkvoiceSipRuleTargetApplicationOutput() SdkvoiceSipRuleTargetApplicationOutput
+	ToSdkvoiceSipRuleTargetApplicationOutputWithContext(context.Context) SdkvoiceSipRuleTargetApplicationOutput
+}
+
+type SdkvoiceSipRuleTargetApplicationArgs struct {
+	// The AWS Region of the target application.
+	AwsRegion pulumi.StringInput `pulumi:"awsRegion"`
+	// Priority of the SIP media application in the target list.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The SIP media application ID.
+	SipMediaApplicationId pulumi.StringInput `pulumi:"sipMediaApplicationId"`
+}
+
+func (SdkvoiceSipRuleTargetApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceSipRuleTargetApplication)(nil)).Elem()
+}
+
+func (i SdkvoiceSipRuleTargetApplicationArgs) ToSdkvoiceSipRuleTargetApplicationOutput() SdkvoiceSipRuleTargetApplicationOutput {
+	return i.ToSdkvoiceSipRuleTargetApplicationOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceSipRuleTargetApplicationArgs) ToSdkvoiceSipRuleTargetApplicationOutputWithContext(ctx context.Context) SdkvoiceSipRuleTargetApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipRuleTargetApplicationOutput)
+}
+
+// SdkvoiceSipRuleTargetApplicationArrayInput is an input type that accepts SdkvoiceSipRuleTargetApplicationArray and SdkvoiceSipRuleTargetApplicationArrayOutput values.
+// You can construct a concrete instance of `SdkvoiceSipRuleTargetApplicationArrayInput` via:
+//
+//	SdkvoiceSipRuleTargetApplicationArray{ SdkvoiceSipRuleTargetApplicationArgs{...} }
+type SdkvoiceSipRuleTargetApplicationArrayInput interface {
+	pulumi.Input
+
+	ToSdkvoiceSipRuleTargetApplicationArrayOutput() SdkvoiceSipRuleTargetApplicationArrayOutput
+	ToSdkvoiceSipRuleTargetApplicationArrayOutputWithContext(context.Context) SdkvoiceSipRuleTargetApplicationArrayOutput
+}
+
+type SdkvoiceSipRuleTargetApplicationArray []SdkvoiceSipRuleTargetApplicationInput
+
+func (SdkvoiceSipRuleTargetApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SdkvoiceSipRuleTargetApplication)(nil)).Elem()
+}
+
+func (i SdkvoiceSipRuleTargetApplicationArray) ToSdkvoiceSipRuleTargetApplicationArrayOutput() SdkvoiceSipRuleTargetApplicationArrayOutput {
+	return i.ToSdkvoiceSipRuleTargetApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i SdkvoiceSipRuleTargetApplicationArray) ToSdkvoiceSipRuleTargetApplicationArrayOutputWithContext(ctx context.Context) SdkvoiceSipRuleTargetApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceSipRuleTargetApplicationArrayOutput)
+}
+
+type SdkvoiceSipRuleTargetApplicationOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceSipRuleTargetApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SdkvoiceSipRuleTargetApplication)(nil)).Elem()
+}
+
+func (o SdkvoiceSipRuleTargetApplicationOutput) ToSdkvoiceSipRuleTargetApplicationOutput() SdkvoiceSipRuleTargetApplicationOutput {
+	return o
+}
+
+func (o SdkvoiceSipRuleTargetApplicationOutput) ToSdkvoiceSipRuleTargetApplicationOutputWithContext(ctx context.Context) SdkvoiceSipRuleTargetApplicationOutput {
+	return o
+}
+
+// The AWS Region of the target application.
+func (o SdkvoiceSipRuleTargetApplicationOutput) AwsRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v SdkvoiceSipRuleTargetApplication) string { return v.AwsRegion }).(pulumi.StringOutput)
+}
+
+// Priority of the SIP media application in the target list.
+func (o SdkvoiceSipRuleTargetApplicationOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v SdkvoiceSipRuleTargetApplication) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The SIP media application ID.
+func (o SdkvoiceSipRuleTargetApplicationOutput) SipMediaApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v SdkvoiceSipRuleTargetApplication) string { return v.SipMediaApplicationId }).(pulumi.StringOutput)
+}
+
+type SdkvoiceSipRuleTargetApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (SdkvoiceSipRuleTargetApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SdkvoiceSipRuleTargetApplication)(nil)).Elem()
+}
+
+func (o SdkvoiceSipRuleTargetApplicationArrayOutput) ToSdkvoiceSipRuleTargetApplicationArrayOutput() SdkvoiceSipRuleTargetApplicationArrayOutput {
+	return o
+}
+
+func (o SdkvoiceSipRuleTargetApplicationArrayOutput) ToSdkvoiceSipRuleTargetApplicationArrayOutputWithContext(ctx context.Context) SdkvoiceSipRuleTargetApplicationArrayOutput {
+	return o
+}
+
+func (o SdkvoiceSipRuleTargetApplicationArrayOutput) Index(i pulumi.IntInput) SdkvoiceSipRuleTargetApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SdkvoiceSipRuleTargetApplication {
+		return vs[0].([]SdkvoiceSipRuleTargetApplication)[vs[1].(int)]
+	}).(SdkvoiceSipRuleTargetApplicationOutput)
+}
+
 type SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration struct {
 	// ARN for KMS Key.
 	//
@@ -657,6 +1046,12 @@ func (o VoiceConnectorTerminationCredentialsCredentialArrayOutput) Index(i pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceGlobalSettingsVoiceConnectorInput)(nil)).Elem(), SdkvoiceGlobalSettingsVoiceConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceGlobalSettingsVoiceConnectorPtrInput)(nil)).Elem(), SdkvoiceGlobalSettingsVoiceConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceSipMediaApplicationEndpointsInput)(nil)).Elem(), SdkvoiceSipMediaApplicationEndpointsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceSipMediaApplicationEndpointsPtrInput)(nil)).Elem(), SdkvoiceSipMediaApplicationEndpointsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceSipRuleTargetApplicationInput)(nil)).Elem(), SdkvoiceSipRuleTargetApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceSipRuleTargetApplicationArrayInput)(nil)).Elem(), SdkvoiceSipRuleTargetApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput)(nil)).Elem(), SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupConnectorInput)(nil)).Elem(), VoiceConnectorGroupConnectorArgs{})
@@ -667,6 +1062,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingMediaInsightsConfigurationPtrInput)(nil)).Elem(), VoiceConnectorStreamingMediaInsightsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredentialInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsCredentialArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredentialArrayInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsCredentialArray{})
+	pulumi.RegisterOutputType(SdkvoiceGlobalSettingsVoiceConnectorOutput{})
+	pulumi.RegisterOutputType(SdkvoiceGlobalSettingsVoiceConnectorPtrOutput{})
+	pulumi.RegisterOutputType(SdkvoiceSipMediaApplicationEndpointsOutput{})
+	pulumi.RegisterOutputType(SdkvoiceSipMediaApplicationEndpointsPtrOutput{})
+	pulumi.RegisterOutputType(SdkvoiceSipRuleTargetApplicationOutput{})
+	pulumi.RegisterOutputType(SdkvoiceSipRuleTargetApplicationArrayOutput{})
 	pulumi.RegisterOutputType(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupConnectorOutput{})

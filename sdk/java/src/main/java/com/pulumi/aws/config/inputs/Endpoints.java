@@ -381,6 +381,7 @@ public final class Endpoints {
     private @Nullable String transcribestreamingservice;
     private @Nullable String transfer;
     private @Nullable String translate;
+    private @Nullable String verifiedpermissions;
     private @Nullable String voiceid;
     private @Nullable String vpclattice;
     private @Nullable String waf;
@@ -1507,6 +1508,9 @@ public final class Endpoints {
     public Optional<String> translate() {
         return Optional.ofNullable(this.translate);
     }
+    public Optional<String> verifiedpermissions() {
+        return Optional.ofNullable(this.verifiedpermissions);
+    }
     public Optional<String> voiceid() {
         return Optional.ofNullable(this.voiceid);
     }
@@ -1929,6 +1933,7 @@ public final class Endpoints {
         private @Nullable String transcribestreamingservice;
         private @Nullable String transfer;
         private @Nullable String translate;
+        private @Nullable String verifiedpermissions;
         private @Nullable String voiceid;
         private @Nullable String vpclattice;
         private @Nullable String waf;
@@ -2316,6 +2321,7 @@ public final class Endpoints {
     	      this.transcribestreamingservice = defaults.transcribestreamingservice;
     	      this.transfer = defaults.transfer;
     	      this.translate = defaults.translate;
+    	      this.verifiedpermissions = defaults.verifiedpermissions;
     	      this.voiceid = defaults.voiceid;
     	      this.vpclattice = defaults.vpclattice;
     	      this.waf = defaults.waf;
@@ -4183,6 +4189,11 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder verifiedpermissions(@Nullable String verifiedpermissions) {
+            this.verifiedpermissions = verifiedpermissions;
+            return this;
+        }
+        @CustomType.Setter
         public Builder voiceid(@Nullable String voiceid) {
             this.voiceid = voiceid;
             return this;
@@ -4624,6 +4635,7 @@ public final class Endpoints {
             o.transcribestreamingservice = transcribestreamingservice;
             o.transfer = transfer;
             o.translate = translate;
+            o.verifiedpermissions = verifiedpermissions;
             o.voiceid = voiceid;
             o.vpclattice = vpclattice;
             o.waf = waf;

@@ -79,7 +79,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string?> SecretKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         /// </summary>
         [Output("serverCertificate")]
         public Output<string?> ServerCertificate { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         /// </summary>
         [Input("serverCertificate")]
         public Input<string>? ServerCertificate { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem file (for example, file:///home/user/.ssh/storage_sys_certificate.pem). The certificate can be up to 32768 bytes (before Base64 encoding).
+        /// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         /// </summary>
         [Input("serverCertificate")]
         public Input<string>? ServerCertificate { get; set; }

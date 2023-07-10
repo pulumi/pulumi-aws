@@ -7,6 +7,7 @@ import com.pulumi.aws.sfn.inputs.StateMachineLoggingConfigurationArgs;
 import com.pulumi.aws.sfn.inputs.StateMachineTracingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -63,6 +64,13 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.definition);
     }
 
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
     /**
      * Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      * 
@@ -109,6 +117,28 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set to true to publish a version of the state machine during creation. Default: false.
+     * 
+     */
+    @Import(name="publish")
+    private @Nullable Output<Boolean> publish;
+
+    /**
+     * @return Set to true to publish a version of the state machine during creation. Default: false.
+     * 
+     */
+    public Optional<Output<Boolean>> publish() {
+        return Optional.ofNullable(this.publish);
+    }
+
+    @Import(name="revisionId")
+    private @Nullable Output<String> revisionId;
+
+    public Optional<Output<String>> revisionId() {
+        return Optional.ofNullable(this.revisionId);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      * 
      */
@@ -121,6 +151,13 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
+    }
+
+    @Import(name="stateMachineVersionArn")
+    private @Nullable Output<String> stateMachineVersionArn;
+
+    public Optional<Output<String>> stateMachineVersionArn() {
+        return Optional.ofNullable(this.stateMachineVersionArn);
     }
 
     /**
@@ -198,21 +235,33 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.type);
     }
 
+    @Import(name="versionDescription")
+    private @Nullable Output<String> versionDescription;
+
+    public Optional<Output<String>> versionDescription() {
+        return Optional.ofNullable(this.versionDescription);
+    }
+
     private StateMachineState() {}
 
     private StateMachineState(StateMachineState $) {
         this.arn = $.arn;
         this.creationDate = $.creationDate;
         this.definition = $.definition;
+        this.description = $.description;
         this.loggingConfiguration = $.loggingConfiguration;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.publish = $.publish;
+        this.revisionId = $.revisionId;
         this.roleArn = $.roleArn;
+        this.stateMachineVersionArn = $.stateMachineVersionArn;
         this.status = $.status;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.tracingConfiguration = $.tracingConfiguration;
         this.type = $.type;
+        this.versionDescription = $.versionDescription;
     }
 
     public static Builder builder() {
@@ -296,6 +345,15 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
             return definition(Output.of(definition));
         }
 
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        public Builder description(String description) {
+            return description(Output.of(description));
+        }
+
         /**
          * @param loggingConfiguration Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
          * 
@@ -360,6 +418,36 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param publish Set to true to publish a version of the state machine during creation. Default: false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publish(@Nullable Output<Boolean> publish) {
+            $.publish = publish;
+            return this;
+        }
+
+        /**
+         * @param publish Set to true to publish a version of the state machine during creation. Default: false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publish(Boolean publish) {
+            return publish(Output.of(publish));
+        }
+
+        public Builder revisionId(@Nullable Output<String> revisionId) {
+            $.revisionId = revisionId;
+            return this;
+        }
+
+        public Builder revisionId(String revisionId) {
+            return revisionId(Output.of(revisionId));
+        }
+
+        /**
          * @param roleArn The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
          * 
          * @return builder
@@ -378,6 +466,15 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
+        }
+
+        public Builder stateMachineVersionArn(@Nullable Output<String> stateMachineVersionArn) {
+            $.stateMachineVersionArn = stateMachineVersionArn;
+            return this;
+        }
+
+        public Builder stateMachineVersionArn(String stateMachineVersionArn) {
+            return stateMachineVersionArn(Output.of(stateMachineVersionArn));
         }
 
         /**
@@ -483,6 +580,15 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        public Builder versionDescription(@Nullable Output<String> versionDescription) {
+            $.versionDescription = versionDescription;
+            return this;
+        }
+
+        public Builder versionDescription(String versionDescription) {
+            return versionDescription(Output.of(versionDescription));
         }
 
         public StateMachineState build() {

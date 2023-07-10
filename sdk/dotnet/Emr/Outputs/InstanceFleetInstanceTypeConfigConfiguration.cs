@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Emr.Outputs
         /// <summary>
         /// A map of properties specified within a configuration classification
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Properties;
+        public readonly ImmutableDictionary<string, string>? Properties;
 
         [OutputConstructor]
         private InstanceFleetInstanceTypeConfigConfiguration(
             string? classification,
 
-            ImmutableDictionary<string, object>? properties)
+            ImmutableDictionary<string, string>? properties)
         {
             Classification = classification;
             Properties = properties;

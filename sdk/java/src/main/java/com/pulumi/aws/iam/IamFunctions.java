@@ -18,6 +18,8 @@ import com.pulumi.aws.iam.inputs.GetPolicyArgs;
 import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
 import com.pulumi.aws.iam.inputs.GetPolicyDocumentPlainArgs;
 import com.pulumi.aws.iam.inputs.GetPolicyPlainArgs;
+import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationArgs;
+import com.pulumi.aws.iam.inputs.GetPrincipalPolicySimulationPlainArgs;
 import com.pulumi.aws.iam.inputs.GetRoleArgs;
 import com.pulumi.aws.iam.inputs.GetRolePlainArgs;
 import com.pulumi.aws.iam.inputs.GetRolesArgs;
@@ -42,6 +44,7 @@ import com.pulumi.aws.iam.outputs.GetInstanceProfilesResult;
 import com.pulumi.aws.iam.outputs.GetOpenidConnectProviderResult;
 import com.pulumi.aws.iam.outputs.GetPolicyDocumentResult;
 import com.pulumi.aws.iam.outputs.GetPolicyResult;
+import com.pulumi.aws.iam.outputs.GetPrincipalPolicySimulationInvokeResult;
 import com.pulumi.aws.iam.outputs.GetRoleResult;
 import com.pulumi.aws.iam.outputs.GetRolesResult;
 import com.pulumi.aws.iam.outputs.GetSamlProviderResult;
@@ -5267,6 +5270,62 @@ public final class IamFunctions {
      */
     public static CompletableFuture<GetPolicyDocumentResult> getPolicyDocumentPlain(GetPolicyDocumentPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:iam/getPolicyDocument:getPolicyDocument", TypeShape.of(GetPolicyDocumentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
+     * 
+     * You can use this data source in conjunction with
+     * Preconditions and Postconditions so that your configuration can test either whether it should have sufficient access to do its own work, or whether policies your configuration declares itself are sufficient for their intended use elsewhere.
+     * 
+     * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs args) {
+        return getPrincipalPolicySimulation(args, InvokeOptions.Empty);
+    }
+    /**
+     * Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
+     * 
+     * You can use this data source in conjunction with
+     * Preconditions and Postconditions so that your configuration can test either whether it should have sufficient access to do its own work, or whether policies your configuration declares itself are sufficient for their intended use elsewhere.
+     * 
+     * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulationPlain(GetPrincipalPolicySimulationPlainArgs args) {
+        return getPrincipalPolicySimulationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
+     * 
+     * You can use this data source in conjunction with
+     * Preconditions and Postconditions so that your configuration can test either whether it should have sufficient access to do its own work, or whether policies your configuration declares itself are sufficient for their intended use elsewhere.
+     * 
+     * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static Output<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulation(GetPrincipalPolicySimulationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", TypeShape.of(GetPrincipalPolicySimulationInvokeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
+     * 
+     * You can use this data source in conjunction with
+     * Preconditions and Postconditions so that your configuration can test either whether it should have sufficient access to do its own work, or whether policies your configuration declares itself are sufficient for their intended use elsewhere.
+     * 
+     * &gt; **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
+     * 
+     * ## Example Usage
+     * 
+     */
+    public static CompletableFuture<GetPrincipalPolicySimulationInvokeResult> getPrincipalPolicySimulationPlain(GetPrincipalPolicySimulationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", TypeShape.of(GetPrincipalPolicySimulationInvokeResult.class), args, Utilities.withVersion(options));
     }
     /**
      * This data source can be used to fetch information about a specific

@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 export class WebAcl extends pulumi.CustomResource {
@@ -35,59 +32,6 @@ export class WebAcl extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAcl.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
-     */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Web ACL capacity units (WCUs) currently being used by this web ACL.
-     */
-    public /*out*/ readonly capacity!: pulumi.Output<number>;
-    /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
-     */
-    public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
-    /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
-     */
-    public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebAclCustomResponseBody[] | undefined>;
-    /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
-     */
-    public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
-    /**
-     * Friendly description of the WebACL.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lockToken!: pulumi.Output<string>;
-    /**
-     * Friendly name of the WebACL.
-     */
-    public readonly name!: pulumi.Output<string>;
-    /**
-     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
-     */
-    public readonly rules!: pulumi.Output<outputs.wafv2.WebAclRule[] | undefined>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     */
-    public readonly scope!: pulumi.Output<string>;
-    /**
-     * Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
-     */
-    public readonly tokenDomains!: pulumi.Output<string[] | undefined>;
-    /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
-     */
-    public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.WebAclVisibilityConfig>;
 
     /**
      * Create a WebAcl resource with the given unique name, arguments, and options.
@@ -96,51 +40,14 @@ export class WebAcl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebAclArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: WebAclArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebAclArgs | WebAclState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["captchaConfig"] = state ? state.captchaConfig : undefined;
-            resourceInputs["customResponseBodies"] = state ? state.customResponseBodies : undefined;
-            resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["lockToken"] = state ? state.lockToken : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
-            resourceInputs["tokenDomains"] = state ? state.tokenDomains : undefined;
-            resourceInputs["visibilityConfig"] = state ? state.visibilityConfig : undefined;
         } else {
             const args = argsOrState as WebAclArgs | undefined;
-            if ((!args || args.defaultAction === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'defaultAction'");
-            }
-            if ((!args || args.scope === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'scope'");
-            }
-            if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'visibilityConfig'");
-            }
-            resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
-            resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
-            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tokenDomains"] = args ? args.tokenDomains : undefined;
-            resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
-            resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["capacity"] = undefined /*out*/;
-            resourceInputs["lockToken"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WebAcl.__pulumiType, name, resourceInputs, opts);
@@ -151,103 +58,10 @@ export class WebAcl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAcl resources.
  */
 export interface WebAclState {
-    /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
-     */
-    arn?: pulumi.Input<string>;
-    /**
-     * Web ACL capacity units (WCUs) currently being used by this web ACL.
-     */
-    capacity?: pulumi.Input<number>;
-    /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
-     */
-    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
-    /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
-     */
-    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
-    /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
-     */
-    defaultAction?: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
-    /**
-     * Friendly description of the WebACL.
-     */
-    description?: pulumi.Input<string>;
-    lockToken?: pulumi.Input<string>;
-    /**
-     * Friendly name of the WebACL.
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
-     */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRule>[]>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     */
-    scope?: pulumi.Input<string>;
-    /**
-     * Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
-     */
-    tokenDomains?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
-     */
-    visibilityConfig?: pulumi.Input<inputs.wafv2.WebAclVisibilityConfig>;
 }
 
 /**
  * The set of arguments for constructing a WebAcl resource.
  */
 export interface WebAclArgs {
-    /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
-     */
-    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
-    /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
-     */
-    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
-    /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
-     */
-    defaultAction: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
-    /**
-     * Friendly description of the WebACL.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Friendly name of the WebACL.
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
-     */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRule>[]>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     */
-    scope: pulumi.Input<string>;
-    /**
-     * Map of key-value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
-     */
-    tokenDomains?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
-     */
-    visibilityConfig: pulumi.Input<inputs.wafv2.WebAclVisibilityConfig>;
 }

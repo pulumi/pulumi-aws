@@ -46,6 +46,80 @@ import (
 //	}
 //
 // ```
+// ### With Weekly Refresh
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewRefreshSchedule(ctx, "example", &quicksight.RefreshScheduleArgs{
+//				DataSetId: pulumi.String("dataset-id"),
+//				Schedule: &quicksight.RefreshScheduleScheduleArgs{
+//					RefreshType: pulumi.String("INCREMENTAL_REFRESH"),
+//					ScheduleFrequency: &quicksight.RefreshScheduleScheduleScheduleFrequencyArgs{
+//						Interval: pulumi.String("WEEKLY"),
+//						RefreshOnDay: &quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{
+//							DayOfWeek: pulumi.String("MONDAY"),
+//						},
+//						TimeOfTheDay: pulumi.String("01:00"),
+//						Timezone:     pulumi.String("Europe/London"),
+//					},
+//				},
+//				ScheduleId: pulumi.String("schedule-id"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Monthly Refresh
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.NewRefreshSchedule(ctx, "example", &quicksight.RefreshScheduleArgs{
+//				DataSetId: pulumi.String("dataset-id"),
+//				Schedule: &quicksight.RefreshScheduleScheduleArgs{
+//					RefreshType: pulumi.String("INCREMENTAL_REFRESH"),
+//					ScheduleFrequency: &quicksight.RefreshScheduleScheduleScheduleFrequencyArgs{
+//						Interval: pulumi.String("MONTHLY"),
+//						RefreshOnDay: &quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{
+//							DayOfMonth: pulumi.String("1"),
+//						},
+//						TimeOfTheDay: pulumi.String("01:00"),
+//						Timezone:     pulumi.String("Europe/London"),
+//					},
+//				},
+//				ScheduleId: pulumi.String("schedule-id"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

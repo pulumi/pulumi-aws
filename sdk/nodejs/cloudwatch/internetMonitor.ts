@@ -60,6 +60,10 @@ export class InternetMonitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+     */
+    public readonly healthEventsConfig!: pulumi.Output<outputs.cloudwatch.InternetMonitorHealthEventsConfig | undefined>;
+    /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
      */
     public readonly internetMeasurementsLogDelivery!: pulumi.Output<outputs.cloudwatch.InternetMonitorInternetMeasurementsLogDelivery | undefined>;
@@ -108,6 +112,7 @@ export class InternetMonitor extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as InternetMonitorState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["healthEventsConfig"] = state ? state.healthEventsConfig : undefined;
             resourceInputs["internetMeasurementsLogDelivery"] = state ? state.internetMeasurementsLogDelivery : undefined;
             resourceInputs["maxCityNetworksToMonitor"] = state ? state.maxCityNetworksToMonitor : undefined;
             resourceInputs["monitorName"] = state ? state.monitorName : undefined;
@@ -121,6 +126,7 @@ export class InternetMonitor extends pulumi.CustomResource {
             if ((!args || args.monitorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
+            resourceInputs["healthEventsConfig"] = args ? args.healthEventsConfig : undefined;
             resourceInputs["internetMeasurementsLogDelivery"] = args ? args.internetMeasurementsLogDelivery : undefined;
             resourceInputs["maxCityNetworksToMonitor"] = args ? args.maxCityNetworksToMonitor : undefined;
             resourceInputs["monitorName"] = args ? args.monitorName : undefined;
@@ -144,6 +150,10 @@ export interface InternetMonitorState {
      * ARN of the Monitor.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+     */
+    healthEventsConfig?: pulumi.Input<inputs.cloudwatch.InternetMonitorHealthEventsConfig>;
     /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
      */
@@ -184,6 +194,10 @@ export interface InternetMonitorState {
  * The set of arguments for constructing a InternetMonitor resource.
  */
 export interface InternetMonitorArgs {
+    /**
+     * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+     */
+    healthEventsConfig?: pulumi.Input<inputs.cloudwatch.InternetMonitorHealthEventsConfig>;
     /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
      */

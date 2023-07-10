@@ -46,6 +46,14 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
+ * ## Import
+ * 
+ * Active SES receipt rule sets can be imported using the rule set name.
+ * 
+ * ```sh
+ *  $ pulumi import aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet my_rule_set my_rule_set_name
+ * ```
+ * 
  */
 @ResourceType(type="aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet")
 public class ActiveReceiptRuleSet extends com.pulumi.resources.CustomResource {

@@ -7,52 +7,20 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 type RuleGroup struct {
 	pulumi.CustomResourceState
-
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-	Capacity pulumi.IntOutput `pulumi:"capacity"`
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
-	CustomResponseBodies RuleGroupCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
-	// A friendly description of the rule group.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// A friendly name of the rule group.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules RuleGroupRuleArrayOutput `pulumi:"rules"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-	VisibilityConfig RuleGroupVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
 func NewRuleGroup(ctx *pulumi.Context,
 	name string, args *RuleGroupArgs, opts ...pulumi.ResourceOption) (*RuleGroup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &RuleGroupArgs{}
 	}
 
-	if args.Capacity == nil {
-		return nil, errors.New("invalid value for required argument 'Capacity'")
-	}
-	if args.Scope == nil {
-		return nil, errors.New("invalid value for required argument 'Scope'")
-	}
-	if args.VisibilityConfig == nil {
-		return nil, errors.New("invalid value for required argument 'VisibilityConfig'")
-	}
 	var resource RuleGroup
 	err := ctx.RegisterResource("aws:wafv2/ruleGroup:RuleGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -75,51 +43,9 @@ func GetRuleGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleGroup resources.
 type ruleGroupState struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
-	Arn *string `pulumi:"arn"`
-	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-	Capacity *int `pulumi:"capacity"`
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
-	CustomResponseBodies []RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
-	// A friendly description of the rule group.
-	Description *string `pulumi:"description"`
-	LockToken   *string `pulumi:"lockToken"`
-	// A friendly name of the rule group.
-	Name *string `pulumi:"name"`
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules []RuleGroupRule `pulumi:"rules"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope *string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-	VisibilityConfig *RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
 type RuleGroupState struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
-	Arn pulumi.StringPtrInput
-	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-	Capacity pulumi.IntPtrInput
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
-	CustomResponseBodies RuleGroupCustomResponseBodyArrayInput
-	// A friendly description of the rule group.
-	Description pulumi.StringPtrInput
-	LockToken   pulumi.StringPtrInput
-	// A friendly name of the rule group.
-	Name pulumi.StringPtrInput
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules RuleGroupRuleArrayInput
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope pulumi.StringPtrInput
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-	VisibilityConfig RuleGroupVisibilityConfigPtrInput
 }
 
 func (RuleGroupState) ElementType() reflect.Type {
@@ -127,42 +53,10 @@ func (RuleGroupState) ElementType() reflect.Type {
 }
 
 type ruleGroupArgs struct {
-	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-	Capacity int `pulumi:"capacity"`
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
-	CustomResponseBodies []RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
-	// A friendly description of the rule group.
-	Description *string `pulumi:"description"`
-	// A friendly name of the rule group.
-	Name *string `pulumi:"name"`
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules []RuleGroupRule `pulumi:"rules"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-	VisibilityConfig RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
 type RuleGroupArgs struct {
-	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-	Capacity pulumi.IntInput
-	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
-	CustomResponseBodies RuleGroupCustomResponseBodyArrayInput
-	// A friendly description of the rule group.
-	Description pulumi.StringPtrInput
-	// A friendly name of the rule group.
-	Name pulumi.StringPtrInput
-	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-	Rules RuleGroupRuleArrayInput
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope pulumi.StringInput
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-	VisibilityConfig RuleGroupVisibilityConfigInput
 }
 
 func (RuleGroupArgs) ElementType() reflect.Type {
@@ -250,60 +144,6 @@ func (o RuleGroupOutput) ToRuleGroupOutput() RuleGroupOutput {
 
 func (o RuleGroupOutput) ToRuleGroupOutputWithContext(ctx context.Context) RuleGroupOutput {
 	return o
-}
-
-// The Amazon Resource Name (ARN) of the IP Set that this statement references.
-func (o RuleGroupOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
-}
-
-// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-func (o RuleGroupOutput) Capacity() pulumi.IntOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
-}
-
-// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
-func (o RuleGroupOutput) CustomResponseBodies() RuleGroupCustomResponseBodyArrayOutput {
-	return o.ApplyT(func(v *RuleGroup) RuleGroupCustomResponseBodyArrayOutput { return v.CustomResponseBodies }).(RuleGroupCustomResponseBodyArrayOutput)
-}
-
-// A friendly description of the rule group.
-func (o RuleGroupOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o RuleGroupOutput) LockToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
-}
-
-// A friendly name of the rule group.
-func (o RuleGroupOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-func (o RuleGroupOutput) Rules() RuleGroupRuleArrayOutput {
-	return o.ApplyT(func(v *RuleGroup) RuleGroupRuleArrayOutput { return v.Rules }).(RuleGroupRuleArrayOutput)
-}
-
-// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-func (o RuleGroupOutput) Scope() pulumi.StringOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
-}
-
-// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-func (o RuleGroupOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-func (o RuleGroupOutput) TagsAll() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *RuleGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
-}
-
-// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-func (o RuleGroupOutput) VisibilityConfig() RuleGroupVisibilityConfigOutput {
-	return o.ApplyT(func(v *RuleGroup) RuleGroupVisibilityConfigOutput { return v.VisibilityConfig }).(RuleGroupVisibilityConfigOutput)
 }
 
 type RuleGroupArrayOutput struct{ *pulumi.OutputState }

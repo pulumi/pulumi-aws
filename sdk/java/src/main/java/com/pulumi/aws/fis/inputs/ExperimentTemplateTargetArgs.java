@@ -9,6 +9,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -49,6 +50,25 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * The resource type parameters.
+     * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+     * 
+     */
+    @Import(name="parameters")
+    private @Nullable Output<Map<String,String>> parameters;
+
+    /**
+     * @return The resource type parameters.
+     * 
+     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> parameters() {
+        return Optional.ofNullable(this.parameters);
+    }
+
+    /**
      * Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
      * 
      */
@@ -66,16 +86,12 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
     /**
      * Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
      * 
-     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
-     * 
      */
     @Import(name="resourceTags")
     private @Nullable Output<List<ExperimentTemplateTargetResourceTagArgs>> resourceTags;
 
     /**
      * @return Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-     * 
-     * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
      * 
      */
     public Optional<Output<List<ExperimentTemplateTargetResourceTagArgs>>> resourceTags() {
@@ -117,6 +133,7 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
     private ExperimentTemplateTargetArgs(ExperimentTemplateTargetArgs $) {
         this.filters = $.filters;
         this.name = $.name;
+        this.parameters = $.parameters;
         this.resourceArns = $.resourceArns;
         this.resourceTags = $.resourceTags;
         this.resourceType = $.resourceType;
@@ -194,6 +211,31 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         }
 
         /**
+         * @param parameters The resource type parameters.
+         * 
+         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
+            $.parameters = parameters;
+            return this;
+        }
+
+        /**
+         * @param parameters The resource type parameters.
+         * 
+         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(Map<String,String> parameters) {
+            return parameters(Output.of(parameters));
+        }
+
+        /**
          * @param resourceArns Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
          * 
          * @return builder
@@ -227,8 +269,6 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         /**
          * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
          * 
-         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
-         * 
          * @return builder
          * 
          */
@@ -240,8 +280,6 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
         /**
          * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
          * 
-         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
-         * 
          * @return builder
          * 
          */
@@ -251,8 +289,6 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
 
         /**
          * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-         * 
-         * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
          * 
          * @return builder
          * 

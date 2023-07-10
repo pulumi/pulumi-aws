@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a WAFv2 IP Set Resource
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.IpSet("example", {
- *     addresses: [
- *         "1.2.3.4/32",
- *         "5.6.7.8/32",
- *     ],
- *     description: "Example IP set",
- *     ipAddressVersion: "IPV4",
- *     scope: "REGIONAL",
- *     tags: {
- *         Tag1: "Value1",
- *         Tag2: "Value2",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * WAFv2 IP Sets can be imported using `ID/name/scope`
@@ -64,39 +43,6 @@ export class IpSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpSet.__pulumiType;
     }
 
-    /**
-     * Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
-     */
-    public readonly addresses!: pulumi.Output<string[] | undefined>;
-    /**
-     * The Amazon Resource Name (ARN) of the IP set.
-     */
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * A friendly description of the IP set.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
-     */
-    public readonly ipAddressVersion!: pulumi.Output<string>;
-    public /*out*/ readonly lockToken!: pulumi.Output<string>;
-    /**
-     * A friendly name of the IP set.
-     */
-    public readonly name!: pulumi.Output<string>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
-     */
-    public readonly scope!: pulumi.Output<string>;
-    /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a IpSet resource with the given unique name, arguments, and options.
@@ -105,38 +51,14 @@ export class IpSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: IpSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: IpSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IpSetArgs | IpSetState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpSetState | undefined;
-            resourceInputs["addresses"] = state ? state.addresses : undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["ipAddressVersion"] = state ? state.ipAddressVersion : undefined;
-            resourceInputs["lockToken"] = state ? state.lockToken : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as IpSetArgs | undefined;
-            if ((!args || args.ipAddressVersion === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ipAddressVersion'");
-            }
-            if ((!args || args.scope === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'scope'");
-            }
-            resourceInputs["addresses"] = args ? args.addresses : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["ipAddressVersion"] = args ? args.ipAddressVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["lockToken"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IpSet.__pulumiType, name, resourceInputs, opts);
@@ -147,67 +69,10 @@ export class IpSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IpSet resources.
  */
 export interface IpSetState {
-    /**
-     * Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
-     */
-    addresses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The Amazon Resource Name (ARN) of the IP set.
-     */
-    arn?: pulumi.Input<string>;
-    /**
-     * A friendly description of the IP set.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
-     */
-    ipAddressVersion?: pulumi.Input<string>;
-    lockToken?: pulumi.Input<string>;
-    /**
-     * A friendly name of the IP set.
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
-     */
-    scope?: pulumi.Input<string>;
-    /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
  * The set of arguments for constructing a IpSet resource.
  */
 export interface IpSetArgs {
-    /**
-     * Contains an array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation. AWS WAF supports all address ranges for IP versions IPv4 and IPv6.
-     */
-    addresses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A friendly description of the IP set.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
-     */
-    ipAddressVersion: pulumi.Input<string>;
-    /**
-     * A friendly name of the IP set.
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
-     */
-    scope: pulumi.Input<string>;
-    /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

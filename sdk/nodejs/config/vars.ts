@@ -178,6 +178,18 @@ Object.defineProperty(exports, "region", {
 });
 
 /**
+ * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+ * `AWS_RETRY_MODE` environment variable.
+ */
+export declare const retryMode: string | undefined;
+Object.defineProperty(exports, "retryMode", {
+    get() {
+        return __config.get("retryMode");
+    },
+    enumerable: true,
+});
+
+/**
  * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
  * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
  * Specific to the Amazon S3 service.

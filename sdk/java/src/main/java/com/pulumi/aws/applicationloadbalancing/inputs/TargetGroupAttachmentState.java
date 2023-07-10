@@ -17,14 +17,14 @@ public final class TargetGroupAttachmentState extends com.pulumi.resources.Resou
     public static final TargetGroupAttachmentState Empty = new TargetGroupAttachmentState();
 
     /**
-     * The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to &#39;all&#39;.
+     * The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to &#39;all&#39;.
+     * @return The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -47,14 +47,14 @@ public final class TargetGroupAttachmentState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ARN of the target group with which to register targets
+     * The ARN of the target group with which to register targets.
      * 
      */
     @Import(name="targetGroupArn")
     private @Nullable Output<String> targetGroupArn;
 
     /**
-     * @return The ARN of the target group with which to register targets
+     * @return The ARN of the target group with which to register targets.
      * 
      */
     public Optional<Output<String>> targetGroupArn() {
@@ -62,14 +62,18 @@ public final class TargetGroupAttachmentState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="targetId")
     private @Nullable Output<String> targetId;
 
     /**
-     * @return The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+     * @return The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> targetId() {
@@ -104,7 +108,7 @@ public final class TargetGroupAttachmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param availabilityZone The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to &#39;all&#39;.
+         * @param availabilityZone The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
          * 
          * @return builder
          * 
@@ -115,7 +119,7 @@ public final class TargetGroupAttachmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param availabilityZone The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to &#39;all&#39;.
+         * @param availabilityZone The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
          * 
          * @return builder
          * 
@@ -146,7 +150,7 @@ public final class TargetGroupAttachmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetGroupArn The ARN of the target group with which to register targets
+         * @param targetGroupArn The ARN of the target group with which to register targets.
          * 
          * @return builder
          * 
@@ -157,7 +161,7 @@ public final class TargetGroupAttachmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetGroupArn The ARN of the target group with which to register targets
+         * @param targetGroupArn The ARN of the target group with which to register targets.
          * 
          * @return builder
          * 
@@ -167,7 +171,9 @@ public final class TargetGroupAttachmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetId The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+         * @param targetId The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -178,7 +184,9 @@ public final class TargetGroupAttachmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param targetId The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+         * @param targetId The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

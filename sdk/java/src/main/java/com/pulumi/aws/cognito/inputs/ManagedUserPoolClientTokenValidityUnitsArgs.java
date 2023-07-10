@@ -16,14 +16,14 @@ public final class ManagedUserPoolClientTokenValidityUnitsArgs extends com.pulum
     public static final ManagedUserPoolClientTokenValidityUnitsArgs Empty = new ManagedUserPoolClientTokenValidityUnitsArgs();
 
     /**
-     * Time unit in for the value in `access_token_validity`, defaults to `hours`.
+     * Time unit for the value in `access_token_validity` and defaults to `hours`.
      * 
      */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
     /**
-     * @return Time unit in for the value in `access_token_validity`, defaults to `hours`.
+     * @return Time unit for the value in `access_token_validity` and defaults to `hours`.
      * 
      */
     public Optional<Output<String>> accessToken() {
@@ -31,14 +31,14 @@ public final class ManagedUserPoolClientTokenValidityUnitsArgs extends com.pulum
     }
 
     /**
-     * Time unit in for the value in `id_token_validity`, defaults to `hours`.
+     * Time unit for the value in `id_token_validity`, and it defaults to `hours`.
      * 
      */
     @Import(name="idToken")
     private @Nullable Output<String> idToken;
 
     /**
-     * @return Time unit in for the value in `id_token_validity`, defaults to `hours`.
+     * @return Time unit for the value in `id_token_validity`, and it defaults to `hours`.
      * 
      */
     public Optional<Output<String>> idToken() {
@@ -46,14 +46,14 @@ public final class ManagedUserPoolClientTokenValidityUnitsArgs extends com.pulum
     }
 
     /**
-     * Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+     * Time unit for the value in `refresh_token_validity` and defaults to `days`.
      * 
      */
     @Import(name="refreshToken")
     private @Nullable Output<String> refreshToken;
 
     /**
-     * @return Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+     * @return Time unit for the value in `refresh_token_validity` and defaults to `days`.
      * 
      */
     public Optional<Output<String>> refreshToken() {
@@ -87,7 +87,7 @@ public final class ManagedUserPoolClientTokenValidityUnitsArgs extends com.pulum
         }
 
         /**
-         * @param accessToken Time unit in for the value in `access_token_validity`, defaults to `hours`.
+         * @param accessToken Time unit for the value in `access_token_validity` and defaults to `hours`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ManagedUserPoolClientTokenValidityUnitsArgs extends com.pulum
         }
 
         /**
-         * @param accessToken Time unit in for the value in `access_token_validity`, defaults to `hours`.
+         * @param accessToken Time unit for the value in `access_token_validity` and defaults to `hours`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ManagedUserPoolClientTokenValidityUnitsArgs extends com.pulum
         }
 
         /**
-         * @param idToken Time unit in for the value in `id_token_validity`, defaults to `hours`.
+         * @param idToken Time unit for the value in `id_token_validity`, and it defaults to `hours`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ManagedUserPoolClientTokenValidityUnitsArgs extends com.pulum
         }
 
         /**
-         * @param idToken Time unit in for the value in `id_token_validity`, defaults to `hours`.
+         * @param idToken Time unit for the value in `id_token_validity`, and it defaults to `hours`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ManagedUserPoolClientTokenValidityUnitsArgs extends com.pulum
         }
 
         /**
-         * @param refreshToken Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+         * @param refreshToken Time unit for the value in `refresh_token_validity` and defaults to `days`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ManagedUserPoolClientTokenValidityUnitsArgs extends com.pulum
         }
 
         /**
-         * @param refreshToken Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+         * @param refreshToken Time unit for the value in `refresh_token_validity` and defaults to `days`.
          * 
          * @return builder
          * 

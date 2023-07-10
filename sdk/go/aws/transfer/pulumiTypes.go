@@ -291,6 +291,276 @@ func (o AccessPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type ConnectorAs2Config struct {
+	// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+	Compression string `pulumi:"compression"`
+	// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
+	// The unique identifier for the AS2 local profile.
+	LocalProfileId string `pulumi:"localProfileId"`
+	// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+	MdnResponse string `pulumi:"mdnResponse"`
+	// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+	MdnSigningAlgorithm *string `pulumi:"mdnSigningAlgorithm"`
+	// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+	MessageSubject *string `pulumi:"messageSubject"`
+	// The unique identifier for the AS2 partner profile.
+	PartnerProfileId string `pulumi:"partnerProfileId"`
+	// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+	SigningAlgorithm string `pulumi:"signingAlgorithm"`
+}
+
+// ConnectorAs2ConfigInput is an input type that accepts ConnectorAs2ConfigArgs and ConnectorAs2ConfigOutput values.
+// You can construct a concrete instance of `ConnectorAs2ConfigInput` via:
+//
+//	ConnectorAs2ConfigArgs{...}
+type ConnectorAs2ConfigInput interface {
+	pulumi.Input
+
+	ToConnectorAs2ConfigOutput() ConnectorAs2ConfigOutput
+	ToConnectorAs2ConfigOutputWithContext(context.Context) ConnectorAs2ConfigOutput
+}
+
+type ConnectorAs2ConfigArgs struct {
+	// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+	Compression pulumi.StringInput `pulumi:"compression"`
+	// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	// The unique identifier for the AS2 local profile.
+	LocalProfileId pulumi.StringInput `pulumi:"localProfileId"`
+	// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+	MdnResponse pulumi.StringInput `pulumi:"mdnResponse"`
+	// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+	MdnSigningAlgorithm pulumi.StringPtrInput `pulumi:"mdnSigningAlgorithm"`
+	// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+	MessageSubject pulumi.StringPtrInput `pulumi:"messageSubject"`
+	// The unique identifier for the AS2 partner profile.
+	PartnerProfileId pulumi.StringInput `pulumi:"partnerProfileId"`
+	// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+	SigningAlgorithm pulumi.StringInput `pulumi:"signingAlgorithm"`
+}
+
+func (ConnectorAs2ConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAs2Config)(nil)).Elem()
+}
+
+func (i ConnectorAs2ConfigArgs) ToConnectorAs2ConfigOutput() ConnectorAs2ConfigOutput {
+	return i.ToConnectorAs2ConfigOutputWithContext(context.Background())
+}
+
+func (i ConnectorAs2ConfigArgs) ToConnectorAs2ConfigOutputWithContext(ctx context.Context) ConnectorAs2ConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAs2ConfigOutput)
+}
+
+func (i ConnectorAs2ConfigArgs) ToConnectorAs2ConfigPtrOutput() ConnectorAs2ConfigPtrOutput {
+	return i.ToConnectorAs2ConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorAs2ConfigArgs) ToConnectorAs2ConfigPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAs2ConfigOutput).ToConnectorAs2ConfigPtrOutputWithContext(ctx)
+}
+
+// ConnectorAs2ConfigPtrInput is an input type that accepts ConnectorAs2ConfigArgs, ConnectorAs2ConfigPtr and ConnectorAs2ConfigPtrOutput values.
+// You can construct a concrete instance of `ConnectorAs2ConfigPtrInput` via:
+//
+//	        ConnectorAs2ConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorAs2ConfigPtrInput interface {
+	pulumi.Input
+
+	ToConnectorAs2ConfigPtrOutput() ConnectorAs2ConfigPtrOutput
+	ToConnectorAs2ConfigPtrOutputWithContext(context.Context) ConnectorAs2ConfigPtrOutput
+}
+
+type connectorAs2ConfigPtrType ConnectorAs2ConfigArgs
+
+func ConnectorAs2ConfigPtr(v *ConnectorAs2ConfigArgs) ConnectorAs2ConfigPtrInput {
+	return (*connectorAs2ConfigPtrType)(v)
+}
+
+func (*connectorAs2ConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAs2Config)(nil)).Elem()
+}
+
+func (i *connectorAs2ConfigPtrType) ToConnectorAs2ConfigPtrOutput() ConnectorAs2ConfigPtrOutput {
+	return i.ToConnectorAs2ConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorAs2ConfigPtrType) ToConnectorAs2ConfigPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAs2ConfigPtrOutput)
+}
+
+type ConnectorAs2ConfigOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAs2ConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAs2Config)(nil)).Elem()
+}
+
+func (o ConnectorAs2ConfigOutput) ToConnectorAs2ConfigOutput() ConnectorAs2ConfigOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigOutput) ToConnectorAs2ConfigOutputWithContext(ctx context.Context) ConnectorAs2ConfigOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigOutput) ToConnectorAs2ConfigPtrOutput() ConnectorAs2ConfigPtrOutput {
+	return o.ToConnectorAs2ConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorAs2ConfigOutput) ToConnectorAs2ConfigPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorAs2Config) *ConnectorAs2Config {
+		return &v
+	}).(ConnectorAs2ConfigPtrOutput)
+}
+
+// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+func (o ConnectorAs2ConfigOutput) Compression() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.Compression }).(pulumi.StringOutput)
+}
+
+// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+func (o ConnectorAs2ConfigOutput) EncryptionAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
+}
+
+// The unique identifier for the AS2 local profile.
+func (o ConnectorAs2ConfigOutput) LocalProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.LocalProfileId }).(pulumi.StringOutput)
+}
+
+// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+func (o ConnectorAs2ConfigOutput) MdnResponse() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.MdnResponse }).(pulumi.StringOutput)
+}
+
+// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+func (o ConnectorAs2ConfigOutput) MdnSigningAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) *string { return v.MdnSigningAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+func (o ConnectorAs2ConfigOutput) MessageSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) *string { return v.MessageSubject }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the AS2 partner profile.
+func (o ConnectorAs2ConfigOutput) PartnerProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.PartnerProfileId }).(pulumi.StringOutput)
+}
+
+// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+func (o ConnectorAs2ConfigOutput) SigningAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAs2Config) string { return v.SigningAlgorithm }).(pulumi.StringOutput)
+}
+
+type ConnectorAs2ConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAs2ConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAs2Config)(nil)).Elem()
+}
+
+func (o ConnectorAs2ConfigPtrOutput) ToConnectorAs2ConfigPtrOutput() ConnectorAs2ConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigPtrOutput) ToConnectorAs2ConfigPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorAs2ConfigPtrOutput) Elem() ConnectorAs2ConfigOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) ConnectorAs2Config {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorAs2Config
+		return ret
+	}).(ConnectorAs2ConfigOutput)
+}
+
+// Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+func (o ConnectorAs2ConfigPtrOutput) Compression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Compression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+func (o ConnectorAs2ConfigPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the AS2 local profile.
+func (o ConnectorAs2ConfigPtrOutput) LocalProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+func (o ConnectorAs2ConfigPtrOutput) MdnResponse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MdnResponse
+	}).(pulumi.StringPtrOutput)
+}
+
+// The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+func (o ConnectorAs2ConfigPtrOutput) MdnSigningAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MdnSigningAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+func (o ConnectorAs2ConfigPtrOutput) MessageSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageSubject
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the AS2 partner profile.
+func (o ConnectorAs2ConfigPtrOutput) PartnerProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PartnerProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+func (o ConnectorAs2ConfigPtrOutput) SigningAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAs2Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SigningAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerEndpointDetails struct {
 	// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
 	AddressAllocationIds []string `pulumi:"addressAllocationIds"`
@@ -5783,6 +6053,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessHomeDirectoryMappingArrayInput)(nil)).Elem(), AccessHomeDirectoryMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPosixProfileInput)(nil)).Elem(), AccessPosixProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPosixProfilePtrInput)(nil)).Elem(), AccessPosixProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigInput)(nil)).Elem(), ConnectorAs2ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPtrInput)(nil)).Elem(), ConnectorAs2ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsPtrInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
@@ -5853,6 +6125,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessHomeDirectoryMappingArrayOutput{})
 	pulumi.RegisterOutputType(AccessPosixProfileOutput{})
 	pulumi.RegisterOutputType(AccessPosixProfilePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorAs2ConfigOutput{})
+	pulumi.RegisterOutputType(ConnectorAs2ConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ServerProtocolDetailsOutput{})

@@ -39,7 +39,7 @@ import (
 //				CidrIpv4:        pulumi.String("10.0.0.0/8"),
 //				FromPort:        pulumi.Int(80),
 //				IpProtocol:      pulumi.String("tcp"),
-//				ToPort:          pulumi.Int(8080),
+//				ToPort:          pulumi.Int(80),
 //			})
 //			if err != nil {
 //				return err
@@ -79,7 +79,7 @@ type SecurityGroupIngressRule struct {
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId pulumi.StringPtrOutput `pulumi:"referencedSecurityGroupId"`
 	// The ID of the security group.
-	SecurityGroupId pulumi.StringPtrOutput `pulumi:"securityGroupId"`
+	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 	// The ID of the security group rule.
 	SecurityGroupRuleId pulumi.StringOutput `pulumi:"securityGroupRuleId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -99,6 +99,9 @@ func NewSecurityGroupIngressRule(ctx *pulumi.Context,
 
 	if args.IpProtocol == nil {
 		return nil, errors.New("invalid value for required argument 'IpProtocol'")
+	}
+	if args.SecurityGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'SecurityGroupId'")
 	}
 	var resource SecurityGroupIngressRule
 	err := ctx.RegisterResource("aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule", name, args, &resource, opts...)
@@ -199,7 +202,7 @@ type securityGroupIngressRuleArgs struct {
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId *string `pulumi:"referencedSecurityGroupId"`
 	// The ID of the security group.
-	SecurityGroupId *string `pulumi:"securityGroupId"`
+	SecurityGroupId string `pulumi:"securityGroupId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
@@ -223,7 +226,7 @@ type SecurityGroupIngressRuleArgs struct {
 	// The source security group that is referenced in the rule.
 	ReferencedSecurityGroupId pulumi.StringPtrInput
 	// The ID of the security group.
-	SecurityGroupId pulumi.StringPtrInput
+	SecurityGroupId pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
@@ -358,8 +361,8 @@ func (o SecurityGroupIngressRuleOutput) ReferencedSecurityGroupId() pulumi.Strin
 }
 
 // The ID of the security group.
-func (o SecurityGroupIngressRuleOutput) SecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityGroupIngressRule) pulumi.StringPtrOutput { return v.SecurityGroupId }).(pulumi.StringPtrOutput)
+func (o SecurityGroupIngressRuleOutput) SecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityGroupIngressRule) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
 }
 
 // The ID of the security group rule.

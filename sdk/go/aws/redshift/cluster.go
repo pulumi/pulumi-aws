@@ -78,6 +78,8 @@ type Cluster struct {
 	AvailabilityZoneRelocationEnabled pulumi.BoolPtrOutput `pulumi:"availabilityZoneRelocationEnabled"`
 	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
+	// The namespace Amazon Resource Name (ARN) of the cluster
+	ClusterNamespaceArn pulumi.StringOutput `pulumi:"clusterNamespaceArn"`
 	// The nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes ClusterClusterNodeArrayOutput `pulumi:"clusterNodes"`
 	// The name of the parameter group to be associated with this cluster.
@@ -220,6 +222,8 @@ type clusterState struct {
 	AvailabilityZoneRelocationEnabled *bool `pulumi:"availabilityZoneRelocationEnabled"`
 	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
+	// The namespace Amazon Resource Name (ARN) of the cluster
+	ClusterNamespaceArn *string `pulumi:"clusterNamespaceArn"`
 	// The nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes []ClusterClusterNode `pulumi:"clusterNodes"`
 	// The name of the parameter group to be associated with this cluster.
@@ -321,6 +325,8 @@ type ClusterState struct {
 	AvailabilityZoneRelocationEnabled pulumi.BoolPtrInput
 	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier pulumi.StringPtrInput
+	// The namespace Amazon Resource Name (ARN) of the cluster
+	ClusterNamespaceArn pulumi.StringPtrInput
 	// The nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes ClusterClusterNodeArrayInput
 	// The name of the parameter group to be associated with this cluster.
@@ -721,6 +727,11 @@ func (o ClusterOutput) AvailabilityZoneRelocationEnabled() pulumi.BoolPtrOutput 
 // The Cluster Identifier. Must be a lower case string.
 func (o ClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// The namespace Amazon Resource Name (ARN) of the cluster
+func (o ClusterOutput) ClusterNamespaceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterNamespaceArn }).(pulumi.StringOutput)
 }
 
 // The nodes in the cluster. Cluster node blocks are documented below

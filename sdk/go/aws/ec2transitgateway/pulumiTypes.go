@@ -10,6 +10,154 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type InstanceConnectEndpointTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+}
+
+// InstanceConnectEndpointTimeoutsInput is an input type that accepts InstanceConnectEndpointTimeoutsArgs and InstanceConnectEndpointTimeoutsOutput values.
+// You can construct a concrete instance of `InstanceConnectEndpointTimeoutsInput` via:
+//
+//	InstanceConnectEndpointTimeoutsArgs{...}
+type InstanceConnectEndpointTimeoutsInput interface {
+	pulumi.Input
+
+	ToInstanceConnectEndpointTimeoutsOutput() InstanceConnectEndpointTimeoutsOutput
+	ToInstanceConnectEndpointTimeoutsOutputWithContext(context.Context) InstanceConnectEndpointTimeoutsOutput
+}
+
+type InstanceConnectEndpointTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (InstanceConnectEndpointTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceConnectEndpointTimeouts)(nil)).Elem()
+}
+
+func (i InstanceConnectEndpointTimeoutsArgs) ToInstanceConnectEndpointTimeoutsOutput() InstanceConnectEndpointTimeoutsOutput {
+	return i.ToInstanceConnectEndpointTimeoutsOutputWithContext(context.Background())
+}
+
+func (i InstanceConnectEndpointTimeoutsArgs) ToInstanceConnectEndpointTimeoutsOutputWithContext(ctx context.Context) InstanceConnectEndpointTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceConnectEndpointTimeoutsOutput)
+}
+
+func (i InstanceConnectEndpointTimeoutsArgs) ToInstanceConnectEndpointTimeoutsPtrOutput() InstanceConnectEndpointTimeoutsPtrOutput {
+	return i.ToInstanceConnectEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceConnectEndpointTimeoutsArgs) ToInstanceConnectEndpointTimeoutsPtrOutputWithContext(ctx context.Context) InstanceConnectEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceConnectEndpointTimeoutsOutput).ToInstanceConnectEndpointTimeoutsPtrOutputWithContext(ctx)
+}
+
+// InstanceConnectEndpointTimeoutsPtrInput is an input type that accepts InstanceConnectEndpointTimeoutsArgs, InstanceConnectEndpointTimeoutsPtr and InstanceConnectEndpointTimeoutsPtrOutput values.
+// You can construct a concrete instance of `InstanceConnectEndpointTimeoutsPtrInput` via:
+//
+//	        InstanceConnectEndpointTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceConnectEndpointTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceConnectEndpointTimeoutsPtrOutput() InstanceConnectEndpointTimeoutsPtrOutput
+	ToInstanceConnectEndpointTimeoutsPtrOutputWithContext(context.Context) InstanceConnectEndpointTimeoutsPtrOutput
+}
+
+type instanceConnectEndpointTimeoutsPtrType InstanceConnectEndpointTimeoutsArgs
+
+func InstanceConnectEndpointTimeoutsPtr(v *InstanceConnectEndpointTimeoutsArgs) InstanceConnectEndpointTimeoutsPtrInput {
+	return (*instanceConnectEndpointTimeoutsPtrType)(v)
+}
+
+func (*instanceConnectEndpointTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceConnectEndpointTimeouts)(nil)).Elem()
+}
+
+func (i *instanceConnectEndpointTimeoutsPtrType) ToInstanceConnectEndpointTimeoutsPtrOutput() InstanceConnectEndpointTimeoutsPtrOutput {
+	return i.ToInstanceConnectEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceConnectEndpointTimeoutsPtrType) ToInstanceConnectEndpointTimeoutsPtrOutputWithContext(ctx context.Context) InstanceConnectEndpointTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceConnectEndpointTimeoutsPtrOutput)
+}
+
+type InstanceConnectEndpointTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (InstanceConnectEndpointTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceConnectEndpointTimeouts)(nil)).Elem()
+}
+
+func (o InstanceConnectEndpointTimeoutsOutput) ToInstanceConnectEndpointTimeoutsOutput() InstanceConnectEndpointTimeoutsOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointTimeoutsOutput) ToInstanceConnectEndpointTimeoutsOutputWithContext(ctx context.Context) InstanceConnectEndpointTimeoutsOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointTimeoutsOutput) ToInstanceConnectEndpointTimeoutsPtrOutput() InstanceConnectEndpointTimeoutsPtrOutput {
+	return o.ToInstanceConnectEndpointTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceConnectEndpointTimeoutsOutput) ToInstanceConnectEndpointTimeoutsPtrOutputWithContext(ctx context.Context) InstanceConnectEndpointTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceConnectEndpointTimeouts) *InstanceConnectEndpointTimeouts {
+		return &v
+	}).(InstanceConnectEndpointTimeoutsPtrOutput)
+}
+
+func (o InstanceConnectEndpointTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceConnectEndpointTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceConnectEndpointTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceConnectEndpointTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type InstanceConnectEndpointTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceConnectEndpointTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceConnectEndpointTimeouts)(nil)).Elem()
+}
+
+func (o InstanceConnectEndpointTimeoutsPtrOutput) ToInstanceConnectEndpointTimeoutsPtrOutput() InstanceConnectEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointTimeoutsPtrOutput) ToInstanceConnectEndpointTimeoutsPtrOutputWithContext(ctx context.Context) InstanceConnectEndpointTimeoutsPtrOutput {
+	return o
+}
+
+func (o InstanceConnectEndpointTimeoutsPtrOutput) Elem() InstanceConnectEndpointTimeoutsOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpointTimeouts) InstanceConnectEndpointTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceConnectEndpointTimeouts
+		return ret
+	}).(InstanceConnectEndpointTimeoutsOutput)
+}
+
+func (o InstanceConnectEndpointTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InstanceConnectEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceConnectEndpointTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetAttachmentFilter struct {
 	// Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
 	Name string `pulumi:"name"`
@@ -1831,6 +1979,8 @@ func (o GetVpnAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpnAttach
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceConnectEndpointTimeoutsInput)(nil)).Elem(), InstanceConnectEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceConnectEndpointTimeoutsPtrInput)(nil)).Elem(), InstanceConnectEndpointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentFilterInput)(nil)).Elem(), GetAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentFilterArrayInput)(nil)).Elem(), GetAttachmentFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentsFilterInput)(nil)).Elem(), GetAttachmentsFilterArgs{})
@@ -1865,6 +2015,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAttachmentsFilterArrayInput)(nil)).Elem(), GetVpcAttachmentsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterInput)(nil)).Elem(), GetVpnAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterArrayInput)(nil)).Elem(), GetVpnAttachmentFilterArray{})
+	pulumi.RegisterOutputType(InstanceConnectEndpointTimeoutsOutput{})
+	pulumi.RegisterOutputType(InstanceConnectEndpointTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetAttachmentFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetAttachmentsFilterOutput{})

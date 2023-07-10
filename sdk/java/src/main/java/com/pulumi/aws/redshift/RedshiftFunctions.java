@@ -42,6 +42,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -61,7 +62,6 @@ public final class RedshiftFunctions {
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
-     *             .s3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
      *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
@@ -70,6 +70,13 @@ public final class RedshiftFunctions {
      *                 .dataTableName(&#34;example-table&#34;)
      *                 .copyOptions(&#34;delimiter &#39;|&#39;&#34;)
      *                 .dataTableColumns(&#34;example-col&#34;)
+     *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
+     *                     .roleArn(aws_iam_role.firehose_role().arn())
+     *                     .bucketArn(aws_s3_bucket.bucket().arn())
+     *                     .bufferSize(10)
+     *                     .bufferInterval(400)
+     *                     .compressionFormat(&#34;GZIP&#34;)
+     *                     .build())
      *                 .build())
      *             .build());
      * 
@@ -97,6 +104,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -116,7 +124,6 @@ public final class RedshiftFunctions {
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
-     *             .s3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
      *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
@@ -125,6 +132,13 @@ public final class RedshiftFunctions {
      *                 .dataTableName(&#34;example-table&#34;)
      *                 .copyOptions(&#34;delimiter &#39;|&#39;&#34;)
      *                 .dataTableColumns(&#34;example-col&#34;)
+     *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
+     *                     .roleArn(aws_iam_role.firehose_role().arn())
+     *                     .bucketArn(aws_s3_bucket.bucket().arn())
+     *                     .bufferSize(10)
+     *                     .bufferInterval(400)
+     *                     .compressionFormat(&#34;GZIP&#34;)
+     *                     .build())
      *                 .build())
      *             .build());
      * 
@@ -152,6 +166,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -171,7 +186,6 @@ public final class RedshiftFunctions {
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
-     *             .s3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
      *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
@@ -180,6 +194,13 @@ public final class RedshiftFunctions {
      *                 .dataTableName(&#34;example-table&#34;)
      *                 .copyOptions(&#34;delimiter &#39;|&#39;&#34;)
      *                 .dataTableColumns(&#34;example-col&#34;)
+     *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
+     *                     .roleArn(aws_iam_role.firehose_role().arn())
+     *                     .bucketArn(aws_s3_bucket.bucket().arn())
+     *                     .bufferSize(10)
+     *                     .bufferInterval(400)
+     *                     .compressionFormat(&#34;GZIP&#34;)
+     *                     .build())
      *                 .build())
      *             .build());
      * 
@@ -207,6 +228,7 @@ public final class RedshiftFunctions {
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
      * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
      * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+     * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -226,7 +248,6 @@ public final class RedshiftFunctions {
      * 
      *         var exampleStream = new FirehoseDeliveryStream(&#34;exampleStream&#34;, FirehoseDeliveryStreamArgs.builder()        
      *             .destination(&#34;redshift&#34;)
-     *             .s3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
      *                 .roleArn(aws_iam_role.firehose_role().arn())
      *                 .clusterJdbcurl(String.format(&#34;jdbc:redshift://%s/%s&#34;, example.applyValue(getClusterResult -&gt; getClusterResult.endpoint()),example.applyValue(getClusterResult -&gt; getClusterResult.databaseName())))
@@ -235,6 +256,13 @@ public final class RedshiftFunctions {
      *                 .dataTableName(&#34;example-table&#34;)
      *                 .copyOptions(&#34;delimiter &#39;|&#39;&#34;)
      *                 .dataTableColumns(&#34;example-col&#34;)
+     *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
+     *                     .roleArn(aws_iam_role.firehose_role().arn())
+     *                     .bucketArn(aws_s3_bucket.bucket().arn())
+     *                     .bufferSize(10)
+     *                     .bufferInterval(400)
+     *                     .compressionFormat(&#34;GZIP&#34;)
+     *                     .build())
      *                 .build())
      *             .build());
      * 

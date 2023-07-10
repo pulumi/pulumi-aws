@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     cidrIpv4: "10.0.0.0/8",
  *     fromPort: 80,
  *     ipProtocol: "tcp",
- *     toPort: 8080,
+ *     toPort: 80,
  * });
  * ```
  *
@@ -100,7 +100,7 @@ export class SecurityGroupEgressRule extends pulumi.CustomResource {
     /**
      * The ID of the security group.
      */
-    public readonly securityGroupId!: pulumi.Output<string | undefined>;
+    public readonly securityGroupId!: pulumi.Output<string>;
     /**
      * The ID of the security group rule.
      */
@@ -148,6 +148,9 @@ export class SecurityGroupEgressRule extends pulumi.CustomResource {
             const args = argsOrState as SecurityGroupEgressRuleArgs | undefined;
             if ((!args || args.ipProtocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipProtocol'");
+            }
+            if ((!args || args.securityGroupId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'securityGroupId'");
             }
             resourceInputs["cidrIpv4"] = args ? args.cidrIpv4 : undefined;
             resourceInputs["cidrIpv6"] = args ? args.cidrIpv6 : undefined;
@@ -261,7 +264,7 @@ export interface SecurityGroupEgressRuleArgs {
     /**
      * The ID of the security group.
      */
-    securityGroupId?: pulumi.Input<string>;
+    securityGroupId: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

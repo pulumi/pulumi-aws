@@ -576,55 +576,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             bucket=bucket.id,
             acl="private")
         ```
-        ### Extended S3 Destination with dynamic partitioning
-
-        These examples use built-in Firehose functionality, rather than requiring a lambda.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extendedS3Stream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                buffering_size=64,
-                dynamic_partitioning_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs(
-                    enabled=True,
-                ),
-                prefix="data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                error_output_prefix="errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="RecordDeAggregation",
-                            parameters=[aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                parameter_name="SubRecordType",
-                                parameter_value="JSON",
-                            )],
-                        ),
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="AppendDelimiterToRecord",
-                        ),
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="MetadataExtraction",
-                            parameters=[
-                                aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                    parameter_name="JsonParsingEngine",
-                                    parameter_value="JQ-1.6",
-                                ),
-                                aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                    parameter_name="MetadataExtractionQuery",
-                                    parameter_value="{customer_id:.customer_id}",
-                                ),
-                            ],
-                        ),
-                    ],
-                ),
-            ))
-        ```
         ### Redshift Destination
 
         ```python
@@ -1033,55 +984,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         bucket_acl = aws.s3.BucketAclV2("bucketAcl",
             bucket=bucket.id,
             acl="private")
-        ```
-        ### Extended S3 Destination with dynamic partitioning
-
-        These examples use built-in Firehose functionality, rather than requiring a lambda.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        extended_s3_stream = aws.kinesis.FirehoseDeliveryStream("extendedS3Stream",
-            destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=aws_iam_role["firehose_role"]["arn"],
-                bucket_arn=aws_s3_bucket["bucket"]["arn"],
-                buffering_size=64,
-                dynamic_partitioning_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs(
-                    enabled=True,
-                ),
-                prefix="data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
-                error_output_prefix="errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
-                processing_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs(
-                    enabled=True,
-                    processors=[
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="RecordDeAggregation",
-                            parameters=[aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                parameter_name="SubRecordType",
-                                parameter_value="JSON",
-                            )],
-                        ),
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="AppendDelimiterToRecord",
-                        ),
-                        aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs(
-                            type="MetadataExtraction",
-                            parameters=[
-                                aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                    parameter_name="JsonParsingEngine",
-                                    parameter_value="JQ-1.6",
-                                ),
-                                aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(
-                                    parameter_name="MetadataExtractionQuery",
-                                    parameter_value="{customer_id:.customer_id}",
-                                ),
-                            ],
-                        ),
-                    ],
-                ),
-            ))
         ```
         ### Redshift Destination
 

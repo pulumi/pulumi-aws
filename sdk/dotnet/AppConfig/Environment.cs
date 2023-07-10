@@ -79,7 +79,7 @@ namespace Pulumi.Aws.AppConfig
         /// Description of the environment. Can be at most 1024 characters.
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// AppConfig environment ID.

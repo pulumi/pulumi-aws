@@ -15,8 +15,14 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
         /// </summary>
-        [Input("ruleOrder", required: true)]
-        public Input<string> RuleOrder { get; set; } = null!;
+        [Input("ruleOrder")]
+        public Input<string>? RuleOrder { get; set; }
+
+        /// <summary>
+        /// Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+        /// </summary>
+        [Input("streamExceptionPolicy")]
+        public Input<string>? StreamExceptionPolicy { get; set; }
 
         public FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs()
         {

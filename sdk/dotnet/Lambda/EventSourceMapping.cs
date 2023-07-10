@@ -193,75 +193,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
-    /// ### Amazon MQ (ActiveMQ)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
-    ///     {
-    ///         BatchSize = 10,
-    ///         EventSourceArn = aws_mq_broker.Example.Arn,
-    ///         Enabled = true,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
-    ///         Queues = new[]
-    ///         {
-    ///             "example",
-    ///         },
-    ///         SourceAccessConfigurations = new[]
-    ///         {
-    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
-    ///             {
-    ///                 Type = "BASIC_AUTH",
-    ///                 Uri = aws_secretsmanager_secret_version.Example.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### Amazon MQ (RabbitMQ)
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Lambda.EventSourceMapping("example", new()
-    ///     {
-    ///         BatchSize = 1,
-    ///         EventSourceArn = aws_mq_broker.Example.Arn,
-    ///         Enabled = true,
-    ///         FunctionName = aws_lambda_function.Example.Arn,
-    ///         Queues = new[]
-    ///         {
-    ///             "example",
-    ///         },
-    ///         SourceAccessConfigurations = new[]
-    ///         {
-    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
-    ///             {
-    ///                 Type = "VIRTUAL_HOST",
-    ///                 Uri = "/example",
-    ///             },
-    ///             new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
-    ///             {
-    ///                 Type = "BASIC_AUTH",
-    ///                 Uri = aws_secretsmanager_secret_version.Example.Arn,
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
@@ -377,10 +308,10 @@ namespace Pulumi.Aws.Lambda
         public Output<int> ParallelizationFactor { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+        /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         /// </summary>
         [Output("queues")]
-        public Output<ImmutableArray<string>> Queues { get; private set; } = null!;
+        public Output<string?> Queues { get; private set; } = null!;
 
         /// <summary>
         /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
@@ -584,17 +515,11 @@ namespace Pulumi.Aws.Lambda
         [Input("parallelizationFactor")]
         public Input<int>? ParallelizationFactor { get; set; }
 
-        [Input("queues")]
-        private InputList<string>? _queues;
-
         /// <summary>
-        /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+        /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         /// </summary>
-        public InputList<string> Queues
-        {
-            get => _queues ?? (_queues = new InputList<string>());
-            set => _queues = value;
-        }
+        [Input("queues")]
+        public Input<string>? Queues { get; set; }
 
         /// <summary>
         /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.
@@ -772,17 +697,11 @@ namespace Pulumi.Aws.Lambda
         [Input("parallelizationFactor")]
         public Input<int>? ParallelizationFactor { get; set; }
 
-        [Input("queues")]
-        private InputList<string>? _queues;
-
         /// <summary>
-        /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+        /// The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
         /// </summary>
-        public InputList<string> Queues
-        {
-            get => _queues ?? (_queues = new InputList<string>());
-            set => _queues = value;
-        }
+        [Input("queues")]
+        public Input<string>? Queues { get; set; }
 
         /// <summary>
         /// Scaling configuration of the event source. Only available for SQS queues. Detailed below.

@@ -4,19 +4,15 @@
 package com.pulumi.aws.quicksight;
 
 import com.pulumi.aws.Utilities;
-import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
-import com.pulumi.aws.quicksight.inputs.GetDataSetPlainArgs;
-import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
-import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupPlainArgs;
-import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
-import com.pulumi.aws.quicksight.inputs.GetQuicksightUserPlainArgs;
 import com.pulumi.aws.quicksight.outputs.GetDataSetResult;
 import com.pulumi.aws.quicksight.outputs.GetQuicksightGroupResult;
 import com.pulumi.aws.quicksight.outputs.GetQuicksightUserResult;
+import com.pulumi.aws.quicksight.outputs.GetThemeResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
+import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class QuicksightFunctions {
@@ -25,6 +21,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -32,7 +29,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -46,16 +42,86 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getDataSet(GetDataSetArgs.builder()
-     *             .dataSetId(&#34;example-id&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getDataSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static Output<GetDataSetResult> getDataSet(GetDataSetArgs args) {
+    public static Output<GetDataSetResult> getDataSet() {
+        return getDataSet(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing a QuickSight Data Set.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getDataSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDataSetResult> getDataSetPlain() {
+        return getDataSetPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing a QuickSight Data Set.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getDataSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDataSetResult> getDataSet(InvokeArgs args) {
         return getDataSet(args, InvokeOptions.Empty);
     }
     /**
@@ -63,6 +129,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -70,7 +137,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -84,16 +150,14 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getDataSet(GetDataSetArgs.builder()
-     *             .dataSetId(&#34;example-id&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getDataSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static CompletableFuture<GetDataSetResult> getDataSetPlain(GetDataSetPlainArgs args) {
+    public static CompletableFuture<GetDataSetResult> getDataSetPlain(InvokeArgs args) {
         return getDataSetPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -101,6 +165,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -108,7 +173,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -122,16 +186,14 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getDataSet(GetDataSetArgs.builder()
-     *             .dataSetId(&#34;example-id&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getDataSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static Output<GetDataSetResult> getDataSet(GetDataSetArgs args, InvokeOptions options) {
+    public static Output<GetDataSetResult> getDataSet(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:quicksight/getDataSet:getDataSet", TypeShape.of(GetDataSetResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -139,6 +201,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -146,7 +209,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetDataSetArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -160,16 +222,14 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getDataSet(GetDataSetArgs.builder()
-     *             .dataSetId(&#34;example-id&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getDataSet(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static CompletableFuture<GetDataSetResult> getDataSetPlain(GetDataSetPlainArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetDataSetResult> getDataSetPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:quicksight/getDataSet:getDataSet", TypeShape.of(GetDataSetResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -179,6 +239,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -186,7 +247,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -200,16 +260,90 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
-     *             .groupName(&#34;example&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getQuicksightGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static Output<GetQuicksightGroupResult> getQuicksightGroup(GetQuicksightGroupArgs args) {
+    public static Output<GetQuicksightGroupResult> getQuicksightGroup() {
+        return getQuicksightGroup(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight group. By using this data source, you can reference QuickSight group
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQuicksightGroupResult> getQuicksightGroupPlain() {
+        return getQuicksightGroupPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight group. By using this data source, you can reference QuickSight group
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQuicksightGroupResult> getQuicksightGroup(InvokeArgs args) {
         return getQuicksightGroup(args, InvokeOptions.Empty);
     }
     /**
@@ -219,6 +353,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -226,7 +361,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -240,16 +374,14 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
-     *             .groupName(&#34;example&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getQuicksightGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static CompletableFuture<GetQuicksightGroupResult> getQuicksightGroupPlain(GetQuicksightGroupPlainArgs args) {
+    public static CompletableFuture<GetQuicksightGroupResult> getQuicksightGroupPlain(InvokeArgs args) {
         return getQuicksightGroupPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -259,6 +391,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -266,7 +399,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -280,16 +412,14 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
-     *             .groupName(&#34;example&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getQuicksightGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static Output<GetQuicksightGroupResult> getQuicksightGroup(GetQuicksightGroupArgs args, InvokeOptions options) {
+    public static Output<GetQuicksightGroupResult> getQuicksightGroup(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:quicksight/getQuicksightGroup:getQuicksightGroup", TypeShape.of(GetQuicksightGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -299,6 +429,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -306,7 +437,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetQuicksightGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -320,16 +450,14 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getQuicksightGroup(GetQuicksightGroupArgs.builder()
-     *             .groupName(&#34;example&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getQuicksightGroup(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static CompletableFuture<GetQuicksightGroupResult> getQuicksightGroupPlain(GetQuicksightGroupPlainArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetQuicksightGroupResult> getQuicksightGroupPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:quicksight/getQuicksightGroup:getQuicksightGroup", TypeShape.of(GetQuicksightGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -339,6 +467,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -346,7 +475,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -360,16 +488,90 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
-     *             .userName(&#34;example&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getQuicksightUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static Output<GetQuicksightUserResult> getQuicksightUser(GetQuicksightUserArgs args) {
+    public static Output<GetQuicksightUserResult> getQuicksightUser() {
+        return getQuicksightUser(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight user. By using this data source, you can reference QuickSight user
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetQuicksightUserResult> getQuicksightUserPlain() {
+        return getQuicksightUserPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * This data source can be used to fetch information about a specific
+     * QuickSight user. By using this data source, you can reference QuickSight user
+     * properties without having to hard code ARNs or unique IDs as input.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getQuicksightUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetQuicksightUserResult> getQuicksightUser(InvokeArgs args) {
         return getQuicksightUser(args, InvokeOptions.Empty);
     }
     /**
@@ -379,6 +581,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -386,7 +589,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -400,16 +602,14 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
-     *             .userName(&#34;example&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getQuicksightUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static CompletableFuture<GetQuicksightUserResult> getQuicksightUserPlain(GetQuicksightUserPlainArgs args) {
+    public static CompletableFuture<GetQuicksightUserResult> getQuicksightUserPlain(InvokeArgs args) {
         return getQuicksightUserPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -419,6 +619,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -426,7 +627,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -440,16 +640,14 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
-     *             .userName(&#34;example&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getQuicksightUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static Output<GetQuicksightUserResult> getQuicksightUser(GetQuicksightUserArgs args, InvokeOptions options) {
+    public static Output<GetQuicksightUserResult> getQuicksightUser(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:quicksight/getQuicksightUser:getQuicksightUser", TypeShape.of(GetQuicksightUserResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -459,6 +657,7 @@ public final class QuicksightFunctions {
      * 
      * ## Example Usage
      * ### Basic Usage
+     * 
      * ```java
      * package generated_program;
      * 
@@ -466,7 +665,6 @@ public final class QuicksightFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.quicksight.QuicksightFunctions;
-     * import com.pulumi.aws.quicksight.inputs.GetQuicksightUserArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -480,16 +678,230 @@ public final class QuicksightFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = QuicksightFunctions.getQuicksightUser(GetQuicksightUserArgs.builder()
-     *             .userName(&#34;example&#34;)
-     *             .build());
+     *         final var example = QuicksightFunctions.getQuicksightUser(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
      * ```
      * 
      */
-    public static CompletableFuture<GetQuicksightUserResult> getQuicksightUserPlain(GetQuicksightUserPlainArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetQuicksightUserResult> getQuicksightUserPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:quicksight/getQuicksightUser:getQuicksightUser", TypeShape.of(GetQuicksightUserResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS QuickSight Theme.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getTheme(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetThemeResult> getTheme() {
+        return getTheme(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS QuickSight Theme.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getTheme(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetThemeResult> getThemePlain() {
+        return getThemePlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS QuickSight Theme.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getTheme(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetThemeResult> getTheme(InvokeArgs args) {
+        return getTheme(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS QuickSight Theme.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getTheme(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetThemeResult> getThemePlain(InvokeArgs args) {
+        return getThemePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS QuickSight Theme.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getTheme(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetThemeResult> getTheme(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:quicksight/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS QuickSight Theme.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * 
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.quicksight.QuicksightFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = QuicksightFunctions.getTheme(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetThemeResult> getThemePlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:quicksight/getTheme:getTheme", TypeShape.of(GetThemeResult.class), args, Utilities.withVersion(options));
     }
 }

@@ -10,9 +10,51 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AliasRoutingConfigurationArgs',
     'StateMachineLoggingConfigurationArgs',
     'StateMachineTracingConfigurationArgs',
 ]
+
+@pulumi.input_type
+class AliasRoutingConfigurationArgs:
+    def __init__(__self__, *,
+                 state_machine_version_arn: pulumi.Input[str],
+                 weight: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] state_machine_version_arn: A version of the state machine.
+        :param pulumi.Input[int] weight: Percentage of traffic routed to the state machine version.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="stateMachineVersionArn")
+    def state_machine_version_arn(self) -> pulumi.Input[str]:
+        """
+        A version of the state machine.
+        """
+        return pulumi.get(self, "state_machine_version_arn")
+
+    @state_machine_version_arn.setter
+    def state_machine_version_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "state_machine_version_arn", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[int]:
+        """
+        Percentage of traffic routed to the state machine version.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[int]):
+        pulumi.set(self, "weight", value)
+
 
 @pulumi.input_type
 class StateMachineLoggingConfigurationArgs:

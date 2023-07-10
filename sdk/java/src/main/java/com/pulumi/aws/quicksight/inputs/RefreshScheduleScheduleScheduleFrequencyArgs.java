@@ -46,9 +46,17 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
         return Optional.ofNullable(this.refreshOnDay);
     }
 
+    /**
+     * The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+     * 
+     */
     @Import(name="timeOfTheDay")
     private @Nullable Output<String> timeOfTheDay;
 
+    /**
+     * @return The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+     * 
+     */
     public Optional<Output<String>> timeOfTheDay() {
         return Optional.ofNullable(this.timeOfTheDay);
     }
@@ -137,11 +145,23 @@ public final class RefreshScheduleScheduleScheduleFrequencyArgs extends com.pulu
             return refreshOnDay(Output.of(refreshOnDay));
         }
 
+        /**
+         * @param timeOfTheDay The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeOfTheDay(@Nullable Output<String> timeOfTheDay) {
             $.timeOfTheDay = timeOfTheDay;
             return this;
         }
 
+        /**
+         * @param timeOfTheDay The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeOfTheDay(String timeOfTheDay) {
             return timeOfTheDay(Output.of(timeOfTheDay));
         }

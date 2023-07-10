@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> OptionGroupMemberships;
         /// <summary>
-        /// Database port.
+        /// Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
         /// </summary>
         public readonly int Port;
         /// <summary>

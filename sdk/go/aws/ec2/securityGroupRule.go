@@ -237,6 +237,8 @@ type SecurityGroupRule struct {
 	// or `egress` (outbound).
 	//
 	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -310,6 +312,8 @@ type securityGroupRuleState struct {
 	// or `egress` (outbound).
 	//
 	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type *string `pulumi:"type"`
 }
 
@@ -340,6 +344,8 @@ type SecurityGroupRuleState struct {
 	// or `egress` (outbound).
 	//
 	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type pulumi.StringPtrInput
 }
 
@@ -372,6 +378,8 @@ type securityGroupRuleArgs struct {
 	// or `egress` (outbound).
 	//
 	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type string `pulumi:"type"`
 }
 
@@ -401,6 +409,8 @@ type SecurityGroupRuleArgs struct {
 	// or `egress` (outbound).
 	//
 	// The following arguments are optional:
+	//
+	// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 	Type pulumi.StringInput
 }
 
@@ -550,6 +560,8 @@ func (o SecurityGroupRuleOutput) ToPort() pulumi.IntOutput {
 // or `egress` (outbound).
 //
 // The following arguments are optional:
+//
+// > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
 func (o SecurityGroupRuleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

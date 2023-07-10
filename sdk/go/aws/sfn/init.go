@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:sfn/activity:Activity":
 		r = &Activity{}
+	case "aws:sfn/alias:Alias":
+		r = &Alias{}
 	case "aws:sfn/stateMachine:StateMachine":
 		r = &StateMachine{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sfn/activity",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sfn/alias",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

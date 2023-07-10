@@ -15,29 +15,30 @@ __all__ = ['SecurityGroupIngressRuleArgs', 'SecurityGroupIngressRule']
 class SecurityGroupIngressRuleArgs:
     def __init__(__self__, *,
                  ip_protocol: pulumi.Input[str],
+                 security_group_id: pulumi.Input[str],
                  cidr_ipv4: Optional[pulumi.Input[str]] = None,
                  cidr_ipv6: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  from_port: Optional[pulumi.Input[int]] = None,
                  prefix_list_id: Optional[pulumi.Input[str]] = None,
                  referenced_security_group_id: Optional[pulumi.Input[str]] = None,
-                 security_group_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  to_port: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a SecurityGroupIngressRule resource.
         :param pulumi.Input[str] ip_protocol: The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
+        :param pulumi.Input[str] security_group_id: The ID of the security group.
         :param pulumi.Input[str] cidr_ipv4: The source IPv4 CIDR range.
         :param pulumi.Input[str] cidr_ipv6: The source IPv6 CIDR range.
         :param pulumi.Input[str] description: The security group rule description.
         :param pulumi.Input[int] from_port: The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
         :param pulumi.Input[str] prefix_list_id: The ID of the source prefix list.
         :param pulumi.Input[str] referenced_security_group_id: The source security group that is referenced in the rule.
-        :param pulumi.Input[str] security_group_id: The ID of the security group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] to_port: The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         """
         pulumi.set(__self__, "ip_protocol", ip_protocol)
+        pulumi.set(__self__, "security_group_id", security_group_id)
         if cidr_ipv4 is not None:
             pulumi.set(__self__, "cidr_ipv4", cidr_ipv4)
         if cidr_ipv6 is not None:
@@ -50,8 +51,6 @@ class SecurityGroupIngressRuleArgs:
             pulumi.set(__self__, "prefix_list_id", prefix_list_id)
         if referenced_security_group_id is not None:
             pulumi.set(__self__, "referenced_security_group_id", referenced_security_group_id)
-        if security_group_id is not None:
-            pulumi.set(__self__, "security_group_id", security_group_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if to_port is not None:
@@ -68,6 +67,18 @@ class SecurityGroupIngressRuleArgs:
     @ip_protocol.setter
     def ip_protocol(self, value: pulumi.Input[str]):
         pulumi.set(self, "ip_protocol", value)
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the security group.
+        """
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "security_group_id", value)
 
     @property
     @pulumi.getter(name="cidrIpv4")
@@ -140,18 +151,6 @@ class SecurityGroupIngressRuleArgs:
     @referenced_security_group_id.setter
     def referenced_security_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "referenced_security_group_id", value)
-
-    @property
-    @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the security group.
-        """
-        return pulumi.get(self, "security_group_id")
-
-    @security_group_id.setter
-    def security_group_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "security_group_id", value)
 
     @property
     @pulumi.getter
@@ -431,7 +430,7 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
             cidr_ipv4="10.0.0.0/8",
             from_port=80,
             ip_protocol="tcp",
-            to_port=8080)
+            to_port=80)
         ```
 
         ## Import
@@ -482,7 +481,7 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
             cidr_ipv4="10.0.0.0/8",
             from_port=80,
             ip_protocol="tcp",
-            to_port=8080)
+            to_port=80)
         ```
 
         ## Import
@@ -536,6 +535,8 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
             __props__.__dict__["ip_protocol"] = ip_protocol
             __props__.__dict__["prefix_list_id"] = prefix_list_id
             __props__.__dict__["referenced_security_group_id"] = referenced_security_group_id
+            if security_group_id is None and not opts.urn:
+                raise TypeError("Missing required property 'security_group_id'")
             __props__.__dict__["security_group_id"] = security_group_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["to_port"] = to_port
@@ -671,7 +672,7 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityGroupId")
-    def security_group_id(self) -> pulumi.Output[Optional[str]]:
+    def security_group_id(self) -> pulumi.Output[str]:
         """
         The ID of the security group.
         """

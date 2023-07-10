@@ -246,7 +246,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
      * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
      * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
@@ -537,7 +538,8 @@ export interface ReplicationGroupState {
     engine?: pulumi.Input<string>;
     /**
      * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
      * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
@@ -710,7 +712,8 @@ export interface ReplicationGroupArgs {
     engine?: pulumi.Input<string>;
     /**
      * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
      * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.

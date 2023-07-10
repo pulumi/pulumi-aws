@@ -5,25 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetIpSetArgs, GetIpSetResult, GetIpSetOutputArgs } from "./getIpSet";
+export { GetIpSetResult } from "./getIpSet";
 export const getIpSet: typeof import("./getIpSet").getIpSet = null as any;
-export const getIpSetOutput: typeof import("./getIpSet").getIpSetOutput = null as any;
-utilities.lazyLoad(exports, ["getIpSet","getIpSetOutput"], () => require("./getIpSet"));
+utilities.lazyLoad(exports, ["getIpSet"], () => require("./getIpSet"));
 
-export { GetRegexPatternSetArgs, GetRegexPatternSetResult, GetRegexPatternSetOutputArgs } from "./getRegexPatternSet";
+export { GetRegexPatternSetResult } from "./getRegexPatternSet";
 export const getRegexPatternSet: typeof import("./getRegexPatternSet").getRegexPatternSet = null as any;
-export const getRegexPatternSetOutput: typeof import("./getRegexPatternSet").getRegexPatternSetOutput = null as any;
-utilities.lazyLoad(exports, ["getRegexPatternSet","getRegexPatternSetOutput"], () => require("./getRegexPatternSet"));
+utilities.lazyLoad(exports, ["getRegexPatternSet"], () => require("./getRegexPatternSet"));
 
-export { GetRuleGroupArgs, GetRuleGroupResult, GetRuleGroupOutputArgs } from "./getRuleGroup";
+export { GetRuleGroupResult } from "./getRuleGroup";
 export const getRuleGroup: typeof import("./getRuleGroup").getRuleGroup = null as any;
-export const getRuleGroupOutput: typeof import("./getRuleGroup").getRuleGroupOutput = null as any;
-utilities.lazyLoad(exports, ["getRuleGroup","getRuleGroupOutput"], () => require("./getRuleGroup"));
+utilities.lazyLoad(exports, ["getRuleGroup"], () => require("./getRuleGroup"));
 
-export { GetWebAclArgs, GetWebAclResult, GetWebAclOutputArgs } from "./getWebAcl";
+export { GetWebAclResult } from "./getWebAcl";
 export const getWebAcl: typeof import("./getWebAcl").getWebAcl = null as any;
-export const getWebAclOutput: typeof import("./getWebAcl").getWebAclOutput = null as any;
-utilities.lazyLoad(exports, ["getWebAcl","getWebAclOutput"], () => require("./getWebAcl"));
+utilities.lazyLoad(exports, ["getWebAcl"], () => require("./getWebAcl"));
 
 export { IpSetArgs, IpSetState } from "./ipSet";
 export type IpSet = import("./ipSet").IpSet;

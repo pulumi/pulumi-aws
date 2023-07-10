@@ -56,10 +56,10 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
-    /// Lambda Provisioned Concurrency Configs can be imported using the `function_name` and `qualifier` separated by a colon (`:`), e.g.,
+    /// A Lambda Provisioned Concurrency Configuration can be imported using the `function_name` and `qualifier` separated by a comma (`,`), e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function:production
+    ///  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")]

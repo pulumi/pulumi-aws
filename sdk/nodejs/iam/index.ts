@@ -60,6 +60,11 @@ export const getPolicyDocument: typeof import("./getPolicyDocument").getPolicyDo
 export const getPolicyDocumentOutput: typeof import("./getPolicyDocument").getPolicyDocumentOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicyDocument","getPolicyDocumentOutput"], () => require("./getPolicyDocument"));
 
+export { GetPrincipalPolicySimulationArgs, GetPrincipalPolicySimulationResult, GetPrincipalPolicySimulationOutputArgs } from "./getPrincipalPolicySimulation";
+export const getPrincipalPolicySimulation: typeof import("./getPrincipalPolicySimulation").getPrincipalPolicySimulation = null as any;
+export const getPrincipalPolicySimulationOutput: typeof import("./getPrincipalPolicySimulation").getPrincipalPolicySimulationOutput = null as any;
+utilities.lazyLoad(exports, ["getPrincipalPolicySimulation","getPrincipalPolicySimulationOutput"], () => require("./getPrincipalPolicySimulation"));
+
 export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
 export const getRole: typeof import("./getRole").getRole = null as any;
 export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;

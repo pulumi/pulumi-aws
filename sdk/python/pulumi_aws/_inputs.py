@@ -618,6 +618,7 @@ class ProviderEndpointArgs:
                  transcribestreamingservice: Optional[pulumi.Input[str]] = None,
                  transfer: Optional[pulumi.Input[str]] = None,
                  translate: Optional[pulumi.Input[str]] = None,
+                 verifiedpermissions: Optional[pulumi.Input[str]] = None,
                  voiceid: Optional[pulumi.Input[str]] = None,
                  vpclattice: Optional[pulumi.Input[str]] = None,
                  waf: Optional[pulumi.Input[str]] = None,
@@ -1372,6 +1373,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "transfer", transfer)
         if translate is not None:
             pulumi.set(__self__, "translate", translate)
+        if verifiedpermissions is not None:
+            pulumi.set(__self__, "verifiedpermissions", verifiedpermissions)
         if voiceid is not None:
             pulumi.set(__self__, "voiceid", voiceid)
         if vpclattice is not None:
@@ -4730,6 +4733,15 @@ class ProviderEndpointArgs:
     @translate.setter
     def translate(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "translate", value)
+
+    @property
+    @pulumi.getter
+    def verifiedpermissions(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "verifiedpermissions")
+
+    @verifiedpermissions.setter
+    def verifiedpermissions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "verifiedpermissions", value)
 
     @property
     @pulumi.getter

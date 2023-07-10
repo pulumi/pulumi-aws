@@ -66,12 +66,16 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     /**
      * The email address or domain to verify.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="emailIdentity")
     private @Nullable Output<String> emailIdentity;
 
     /**
      * @return The email address or domain to verify.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> emailIdentity() {
@@ -94,23 +98,31 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -227,6 +239,8 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param emailIdentity The email address or domain to verify.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -237,6 +251,8 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param emailIdentity The email address or domain to verify.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -267,7 +283,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -278,7 +294,7 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -287,11 +303,23 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

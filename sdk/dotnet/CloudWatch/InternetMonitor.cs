@@ -48,6 +48,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+        /// </summary>
+        [Output("healthEventsConfig")]
+        public Output<Outputs.InternetMonitorHealthEventsConfig?> HealthEventsConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         /// </summary>
         [Output("internetMeasurementsLogDelivery")]
@@ -144,6 +150,12 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class InternetMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+        /// </summary>
+        [Input("healthEventsConfig")]
+        public Input<Inputs.InternetMonitorHealthEventsConfigArgs>? HealthEventsConfig { get; set; }
+
+        /// <summary>
         /// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         /// </summary>
         [Input("internetMeasurementsLogDelivery")]
@@ -212,6 +224,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+        /// </summary>
+        [Input("healthEventsConfig")]
+        public Input<Inputs.InternetMonitorHealthEventsConfigGetArgs>? HealthEventsConfig { get; set; }
 
         /// <summary>
         /// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.

@@ -6,18 +6,9 @@ package com.pulumi.aws.quicksight;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.quicksight.AnalysisArgs;
 import com.pulumi.aws.quicksight.inputs.AnalysisState;
-import com.pulumi.aws.quicksight.outputs.AnalysisParameters;
-import com.pulumi.aws.quicksight.outputs.AnalysisPermission;
-import com.pulumi.aws.quicksight.outputs.AnalysisSourceEntity;
 import com.pulumi.core.Output;
-import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Integer;
-import java.lang.String;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -25,6 +16,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### From Source Template
+ * 
  * ```java
  * package generated_program;
  * 
@@ -33,8 +25,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.quicksight.Analysis;
  * import com.pulumi.aws.quicksight.AnalysisArgs;
- * import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntityArgs;
- * import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntitySourceTemplateArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -50,15 +40,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Analysis(&#34;example&#34;, AnalysisArgs.builder()        
  *             .analysisId(&#34;example-id&#34;)
- *             .sourceEntity(AnalysisSourceEntityArgs.builder()
- *                 .sourceTemplate(AnalysisSourceEntitySourceTemplateArgs.builder()
- *                     .arn(aws_quicksight_template.source().arn())
- *                     .dataSetReferences(AnalysisSourceEntitySourceTemplateDataSetReferenceArgs.builder()
- *                         .dataSetArn(aws_quicksight_data_set.dataset().arn())
- *                         .dataSetPlaceholder(&#34;1&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
+ *             .name(&#34;example-name&#34;)
+ *             .sourceEntity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *     }
@@ -89,6 +72,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Analysis(&#34;example&#34;, AnalysisArgs.builder()        
  *             .analysisId(&#34;example-id&#34;)
+ *             .name(&#34;example-name&#34;)
  *             .definition(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
@@ -108,213 +92,6 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:quicksight/analysis:Analysis")
 public class Analysis extends com.pulumi.resources.CustomResource {
     /**
-     * Identifier for the analysis.
-     * 
-     */
-    @Export(name="analysisId", refs={String.class}, tree="[0]")
-    private Output<String> analysisId;
-
-    /**
-     * @return Identifier for the analysis.
-     * 
-     */
-    public Output<String> analysisId() {
-        return this.analysisId;
-    }
-    /**
-     * The Amazon Resource Name (ARN) of the resource.
-     * 
-     */
-    @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
-
-    /**
-     * @return The Amazon Resource Name (ARN) of the resource.
-     * 
-     */
-    public Output<String> arn() {
-        return this.arn;
-    }
-    /**
-     * AWS account ID.
-     * 
-     */
-    @Export(name="awsAccountId", refs={String.class}, tree="[0]")
-    private Output<String> awsAccountId;
-
-    /**
-     * @return AWS account ID.
-     * 
-     */
-    public Output<String> awsAccountId() {
-        return this.awsAccountId;
-    }
-    /**
-     * The time that the analysis was created.
-     * 
-     */
-    @Export(name="createdTime", refs={String.class}, tree="[0]")
-    private Output<String> createdTime;
-
-    /**
-     * @return The time that the analysis was created.
-     * 
-     */
-    public Output<String> createdTime() {
-        return this.createdTime;
-    }
-    @Export(name="lastPublishedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastPublishedTime;
-
-    public Output<String> lastPublishedTime() {
-        return this.lastPublishedTime;
-    }
-    /**
-     * The time that the analysis was last updated.
-     * 
-     */
-    @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
-    private Output<String> lastUpdatedTime;
-
-    /**
-     * @return The time that the analysis was last updated.
-     * 
-     */
-    public Output<String> lastUpdatedTime() {
-        return this.lastUpdatedTime;
-    }
-    /**
-     * Display name for the analysis.
-     * 
-     * The following arguments are optional:
-     * 
-     */
-    @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
-
-    /**
-     * @return Display name for the analysis.
-     * 
-     * The following arguments are optional:
-     * 
-     */
-    public Output<String> name() {
-        return this.name;
-    }
-    /**
-     * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-     * 
-     */
-    @Export(name="parameters", refs={AnalysisParameters.class}, tree="[0]")
-    private Output<AnalysisParameters> parameters;
-
-    /**
-     * @return The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-     * 
-     */
-    public Output<AnalysisParameters> parameters() {
-        return this.parameters;
-    }
-    /**
-     * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-     * 
-     */
-    @Export(name="permissions", refs={List.class,AnalysisPermission.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<AnalysisPermission>> permissions;
-
-    /**
-     * @return A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
-     * 
-     */
-    public Output<Optional<List<AnalysisPermission>>> permissions() {
-        return Codegen.optional(this.permissions);
-    }
-    /**
-     * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-     * 
-     */
-    @Export(name="recoveryWindowInDays", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> recoveryWindowInDays;
-
-    /**
-     * @return A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-     * 
-     */
-    public Output<Optional<Integer>> recoveryWindowInDays() {
-        return Codegen.optional(this.recoveryWindowInDays);
-    }
-    /**
-     * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-     * 
-     */
-    @Export(name="sourceEntity", refs={AnalysisSourceEntity.class}, tree="[0]")
-    private Output</* @Nullable */ AnalysisSourceEntity> sourceEntity;
-
-    /**
-     * @return The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-     * 
-     */
-    public Output<Optional<AnalysisSourceEntity>> sourceEntity() {
-        return Codegen.optional(this.sourceEntity);
-    }
-    /**
-     * The analysis creation status.
-     * 
-     */
-    @Export(name="status", refs={String.class}, tree="[0]")
-    private Output<String> status;
-
-    /**
-     * @return The analysis creation status.
-     * 
-     */
-    public Output<String> status() {
-        return this.status;
-    }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output</* @Nullable */ Map<String,String>> tags;
-
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
-    public Output<Optional<Map<String,String>>> tags() {
-        return Codegen.optional(this.tags);
-    }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Output<Map<String,String>> tagsAll() {
-        return this.tagsAll;
-    }
-    /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-     * 
-     */
-    @Export(name="themeArn", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> themeArn;
-
-    /**
-     * @return The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
-     * 
-     */
-    public Output<Optional<String>> themeArn() {
-        return Codegen.optional(this.themeArn);
-    }
-
-    /**
      *
      * @param name The _unique_ name of the resulting resource.
      */
@@ -326,7 +103,7 @@ public class Analysis extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Analysis(String name, AnalysisArgs args) {
+    public Analysis(String name, @Nullable AnalysisArgs args) {
         this(name, args, null);
     }
     /**
@@ -335,7 +112,7 @@ public class Analysis extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Analysis(String name, AnalysisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Analysis(String name, @Nullable AnalysisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:quicksight/analysis:Analysis", name, args == null ? AnalysisArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

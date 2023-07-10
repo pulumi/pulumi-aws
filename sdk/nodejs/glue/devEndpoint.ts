@@ -71,7 +71,7 @@ export class DevEndpoint extends pulumi.CustomResource {
     /**
      * A map of arguments used to configure the endpoint.
      */
-    public readonly arguments!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly arguments!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ARN of the endpoint.
      */
@@ -250,7 +250,7 @@ export interface DevEndpointState {
     /**
      * A map of arguments used to configure the endpoint.
      */
-    arguments?: pulumi.Input<{[key: string]: any}>;
+    arguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the endpoint.
      */
@@ -356,7 +356,7 @@ export interface DevEndpointArgs {
     /**
      * A map of arguments used to configure the endpoint.
      */
-    arguments?: pulumi.Input<{[key: string]: any}>;
+    arguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
      */

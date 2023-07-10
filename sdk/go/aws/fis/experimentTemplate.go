@@ -88,6 +88,8 @@ type ExperimentTemplate struct {
 	Actions ExperimentTemplateActionArrayOutput `pulumi:"actions"`
 	// Description for the experiment template.
 	Description pulumi.StringOutput `pulumi:"description"`
+	// The configuration for experiment logging. See below.
+	LogConfiguration ExperimentTemplateLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
@@ -146,6 +148,8 @@ type experimentTemplateState struct {
 	Actions []ExperimentTemplateAction `pulumi:"actions"`
 	// Description for the experiment template.
 	Description *string `pulumi:"description"`
+	// The configuration for experiment logging. See below.
+	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
@@ -164,6 +168,8 @@ type ExperimentTemplateState struct {
 	Actions ExperimentTemplateActionArrayInput
 	// Description for the experiment template.
 	Description pulumi.StringPtrInput
+	// The configuration for experiment logging. See below.
+	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// When an ongoing experiment should be stopped. See below.
@@ -186,6 +192,8 @@ type experimentTemplateArgs struct {
 	Actions []ExperimentTemplateAction `pulumi:"actions"`
 	// Description for the experiment template.
 	Description string `pulumi:"description"`
+	// The configuration for experiment logging. See below.
+	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// When an ongoing experiment should be stopped. See below.
@@ -204,6 +212,8 @@ type ExperimentTemplateArgs struct {
 	Actions ExperimentTemplateActionArrayInput
 	// Description for the experiment template.
 	Description pulumi.StringInput
+	// The configuration for experiment logging. See below.
+	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
 	// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
 	RoleArn pulumi.StringInput
 	// When an ongoing experiment should be stopped. See below.
@@ -311,6 +321,11 @@ func (o ExperimentTemplateOutput) Actions() ExperimentTemplateActionArrayOutput 
 // Description for the experiment template.
 func (o ExperimentTemplateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The configuration for experiment logging. See below.
+func (o ExperimentTemplateOutput) LogConfiguration() ExperimentTemplateLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateLogConfigurationPtrOutput { return v.LogConfiguration }).(ExperimentTemplateLogConfigurationPtrOutput)
 }
 
 // ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.

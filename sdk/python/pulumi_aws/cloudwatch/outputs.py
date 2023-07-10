@@ -45,6 +45,7 @@ __all__ = [
     'EventTargetRetryPolicy',
     'EventTargetRunCommandTarget',
     'EventTargetSqsTarget',
+    'InternetMonitorHealthEventsConfig',
     'InternetMonitorInternetMeasurementsLogDelivery',
     'InternetMonitorInternetMeasurementsLogDeliveryS3Config',
     'LogMetricFilterMetricTransformation',
@@ -1860,6 +1861,56 @@ class EventTargetSqsTarget(dict):
         The FIFO message group ID to use as the target.
         """
         return pulumi.get(self, "message_group_id")
+
+
+@pulumi.output_type
+class InternetMonitorHealthEventsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityScoreThreshold":
+            suggest = "availability_score_threshold"
+        elif key == "performanceScoreThreshold":
+            suggest = "performance_score_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InternetMonitorHealthEventsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InternetMonitorHealthEventsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InternetMonitorHealthEventsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_score_threshold: Optional[float] = None,
+                 performance_score_threshold: Optional[float] = None):
+        """
+        :param float availability_score_threshold: The health event threshold percentage set for availability scores.
+        :param float performance_score_threshold: The health event threshold percentage set for performance scores.
+        """
+        if availability_score_threshold is not None:
+            pulumi.set(__self__, "availability_score_threshold", availability_score_threshold)
+        if performance_score_threshold is not None:
+            pulumi.set(__self__, "performance_score_threshold", performance_score_threshold)
+
+    @property
+    @pulumi.getter(name="availabilityScoreThreshold")
+    def availability_score_threshold(self) -> Optional[float]:
+        """
+        The health event threshold percentage set for availability scores.
+        """
+        return pulumi.get(self, "availability_score_threshold")
+
+    @property
+    @pulumi.getter(name="performanceScoreThreshold")
+    def performance_score_threshold(self) -> Optional[float]:
+        """
+        The health event threshold percentage set for performance scores.
+        """
+        return pulumi.get(self, "performance_score_threshold")
 
 
 @pulumi.output_type

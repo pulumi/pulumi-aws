@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -87,6 +88,50 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
  *             .roleArn(aws_iam_role.iam_for_sfn().arn())
+ *             .type(&#34;EXPRESS&#34;)
+ *             .definition(&#34;&#34;&#34;
+ * {
+ *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
+ *   &#34;StartAt&#34;: &#34;HelloWorld&#34;,
+ *   &#34;States&#34;: {
+ *     &#34;HelloWorld&#34;: {
+ *       &#34;Type&#34;: &#34;Task&#34;,
+ *       &#34;Resource&#34;: &#34;%s&#34;,
+ *       &#34;End&#34;: true
+ *     }
+ *   }
+ * }
+ * &#34;, aws_lambda_function.lambda().arn()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Publish (Publish SFN version)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sfn.StateMachine;
+ * import com.pulumi.aws.sfn.StateMachineArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
+ *             .roleArn(aws_iam_role.iam_for_sfn().arn())
+ *             .publish(true)
  *             .type(&#34;EXPRESS&#34;)
  *             .definition(&#34;&#34;&#34;
  * {
@@ -210,6 +255,12 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
     public Output<String> definition() {
         return this.definition;
     }
+    @Export(name="description", refs={String.class}, tree="[0]")
+    private Output<String> description;
+
+    public Output<String> description() {
+        return this.description;
+    }
     /**
      * Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      * 
@@ -253,6 +304,26 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
+     * Set to true to publish a version of the state machine during creation. Default: false.
+     * 
+     */
+    @Export(name="publish", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> publish;
+
+    /**
+     * @return Set to true to publish a version of the state machine during creation. Default: false.
+     * 
+     */
+    public Output<Optional<Boolean>> publish() {
+        return Codegen.optional(this.publish);
+    }
+    @Export(name="revisionId", refs={String.class}, tree="[0]")
+    private Output<String> revisionId;
+
+    public Output<String> revisionId() {
+        return this.revisionId;
+    }
+    /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      * 
      */
@@ -265,6 +336,12 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
      */
     public Output<String> roleArn() {
         return this.roleArn;
+    }
+    @Export(name="stateMachineVersionArn", refs={String.class}, tree="[0]")
+    private Output<String> stateMachineVersionArn;
+
+    public Output<String> stateMachineVersionArn() {
+        return this.stateMachineVersionArn;
     }
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.
@@ -335,6 +412,12 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
+    }
+    @Export(name="versionDescription", refs={String.class}, tree="[0]")
+    private Output<String> versionDescription;
+
+    public Output<String> versionDescription() {
+        return this.versionDescription;
     }
 
     /**

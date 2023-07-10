@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing QuickSight Group Membership
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.GroupMembership("example", {
- *     groupName: "all-access-users",
- *     memberName: "john_smith",
- * });
- * ```
- *
  * ## Import
  *
  * QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
@@ -55,23 +43,6 @@ export class GroupMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === GroupMembership.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
-    public readonly awsAccountId!: pulumi.Output<string>;
-    /**
-     * The name of the group in which the member will be added.
-     */
-    public readonly groupName!: pulumi.Output<string>;
-    /**
-     * The name of the member to add to the group.
-     */
-    public readonly memberName!: pulumi.Output<string>;
-    /**
-     * The namespace. Defaults to `default`. Currently only `default` is supported.
-     */
-    public readonly namespace!: pulumi.Output<string | undefined>;
 
     /**
      * Create a GroupMembership resource with the given unique name, arguments, and options.
@@ -80,30 +51,14 @@ export class GroupMembership extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GroupMembershipArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: GroupMembershipArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupMembershipArgs | GroupMembershipState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupMembershipState | undefined;
-            resourceInputs["arn"] = state ? state.arn : undefined;
-            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            resourceInputs["groupName"] = state ? state.groupName : undefined;
-            resourceInputs["memberName"] = state ? state.memberName : undefined;
-            resourceInputs["namespace"] = state ? state.namespace : undefined;
         } else {
             const args = argsOrState as GroupMembershipArgs | undefined;
-            if ((!args || args.groupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'groupName'");
-            }
-            if ((!args || args.memberName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'memberName'");
-            }
-            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["memberName"] = args ? args.memberName : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupMembership.__pulumiType, name, resourceInputs, opts);
@@ -114,43 +69,10 @@ export class GroupMembership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GroupMembership resources.
  */
 export interface GroupMembershipState {
-    arn?: pulumi.Input<string>;
-    /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
-    awsAccountId?: pulumi.Input<string>;
-    /**
-     * The name of the group in which the member will be added.
-     */
-    groupName?: pulumi.Input<string>;
-    /**
-     * The name of the member to add to the group.
-     */
-    memberName?: pulumi.Input<string>;
-    /**
-     * The namespace. Defaults to `default`. Currently only `default` is supported.
-     */
-    namespace?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a GroupMembership resource.
  */
 export interface GroupMembershipArgs {
-    /**
-     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
-    awsAccountId?: pulumi.Input<string>;
-    /**
-     * The name of the group in which the member will be added.
-     */
-    groupName: pulumi.Input<string>;
-    /**
-     * The name of the member to add to the group.
-     */
-    memberName: pulumi.Input<string>;
-    /**
-     * The namespace. Defaults to `default`. Currently only `default` is supported.
-     */
-    namespace?: pulumi.Input<string>;
 }

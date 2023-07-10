@@ -6,169 +6,13 @@ package com.pulumi.aws.wafv2;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.wafv2.RuleGroupArgs;
 import com.pulumi.aws.wafv2.inputs.RuleGroupState;
-import com.pulumi.aws.wafv2.outputs.RuleGroupCustomResponseBody;
-import com.pulumi.aws.wafv2.outputs.RuleGroupRule;
-import com.pulumi.aws.wafv2.outputs.RuleGroupVisibilityConfig;
 import com.pulumi.core.Output;
-import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Integer;
-import java.lang.String;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @ResourceType(type="aws:wafv2/ruleGroup:RuleGroup")
 public class RuleGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
-     * 
-     */
-    @Export(name="arn", refs={String.class}, tree="[0]")
-    private Output<String> arn;
-
-    /**
-     * @return The Amazon Resource Name (ARN) of the IP Set that this statement references.
-     * 
-     */
-    public Output<String> arn() {
-        return this.arn;
-    }
-    /**
-     * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-     * 
-     */
-    @Export(name="capacity", refs={Integer.class}, tree="[0]")
-    private Output<Integer> capacity;
-
-    /**
-     * @return The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-     * 
-     */
-    public Output<Integer> capacity() {
-        return this.capacity;
-    }
-    /**
-     * Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
-     * 
-     */
-    @Export(name="customResponseBodies", refs={List.class,RuleGroupCustomResponseBody.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<RuleGroupCustomResponseBody>> customResponseBodies;
-
-    /**
-     * @return Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
-     * 
-     */
-    public Output<Optional<List<RuleGroupCustomResponseBody>>> customResponseBodies() {
-        return Codegen.optional(this.customResponseBodies);
-    }
-    /**
-     * A friendly description of the rule group.
-     * 
-     */
-    @Export(name="description", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> description;
-
-    /**
-     * @return A friendly description of the rule group.
-     * 
-     */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
-    }
-    @Export(name="lockToken", refs={String.class}, tree="[0]")
-    private Output<String> lockToken;
-
-    public Output<String> lockToken() {
-        return this.lockToken;
-    }
-    /**
-     * A friendly name of the rule group.
-     * 
-     */
-    @Export(name="name", refs={String.class}, tree="[0]")
-    private Output<String> name;
-
-    /**
-     * @return A friendly name of the rule group.
-     * 
-     */
-    public Output<String> name() {
-        return this.name;
-    }
-    /**
-     * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-     * 
-     */
-    @Export(name="rules", refs={List.class,RuleGroupRule.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<RuleGroupRule>> rules;
-
-    /**
-     * @return The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-     * 
-     */
-    public Output<Optional<List<RuleGroupRule>>> rules() {
-        return Codegen.optional(this.rules);
-    }
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     * 
-     */
-    @Export(name="scope", refs={String.class}, tree="[0]")
-    private Output<String> scope;
-
-    /**
-     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     * 
-     */
-    public Output<String> scope() {
-        return this.scope;
-    }
-    /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
-    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output</* @Nullable */ Map<String,String>> tags;
-
-    /**
-     * @return An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
-    public Output<Optional<Map<String,String>>> tags() {
-        return Codegen.optional(this.tags);
-    }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output<Map<String,String>> tagsAll;
-
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
-    public Output<Map<String,String>> tagsAll() {
-        return this.tagsAll;
-    }
-    /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-     * 
-     */
-    @Export(name="visibilityConfig", refs={RuleGroupVisibilityConfig.class}, tree="[0]")
-    private Output<RuleGroupVisibilityConfig> visibilityConfig;
-
-    /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-     * 
-     */
-    public Output<RuleGroupVisibilityConfig> visibilityConfig() {
-        return this.visibilityConfig;
-    }
-
     /**
      *
      * @param name The _unique_ name of the resulting resource.
@@ -181,7 +25,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RuleGroup(String name, RuleGroupArgs args) {
+    public RuleGroup(String name, @Nullable RuleGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,7 +34,7 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RuleGroup(String name, RuleGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public RuleGroup(String name, @Nullable RuleGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:wafv2/ruleGroup:RuleGroup", name, args == null ? RuleGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

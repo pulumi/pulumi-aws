@@ -39,6 +39,70 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
+    /// ### With Weekly Refresh
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
+    ///     {
+    ///         DataSetId = "dataset-id",
+    ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
+    ///         {
+    ///             RefreshType = "INCREMENTAL_REFRESH",
+    ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
+    ///             {
+    ///                 Interval = "WEEKLY",
+    ///                 RefreshOnDay = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs
+    ///                 {
+    ///                     DayOfWeek = "MONDAY",
+    ///                 },
+    ///                 TimeOfTheDay = "01:00",
+    ///                 Timezone = "Europe/London",
+    ///             },
+    ///         },
+    ///         ScheduleId = "schedule-id",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Monthly Refresh
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.RefreshSchedule("example", new()
+    ///     {
+    ///         DataSetId = "dataset-id",
+    ///         Schedule = new Aws.Quicksight.Inputs.RefreshScheduleScheduleArgs
+    ///         {
+    ///             RefreshType = "INCREMENTAL_REFRESH",
+    ///             ScheduleFrequency = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyArgs
+    ///             {
+    ///                 Interval = "MONTHLY",
+    ///                 RefreshOnDay = new Aws.Quicksight.Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs
+    ///                 {
+    ///                     DayOfMonth = "1",
+    ///                 },
+    ///                 TimeOfTheDay = "01:00",
+    ///                 Timezone = "Europe/London",
+    ///             },
+    ///         },
+    ///         ScheduleId = "schedule-id",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

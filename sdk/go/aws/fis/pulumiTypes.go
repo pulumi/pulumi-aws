@@ -265,7 +265,7 @@ func (o ExperimentTemplateActionParameterArrayOutput) Index(i pulumi.IntInput) E
 }
 
 type ExperimentTemplateActionTarget struct {
-	// Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets).
+	// Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
 	Key string `pulumi:"key"`
 	// Target name, referencing a corresponding target.
 	Value string `pulumi:"value"`
@@ -283,7 +283,7 @@ type ExperimentTemplateActionTargetInput interface {
 }
 
 type ExperimentTemplateActionTargetArgs struct {
-	// Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets).
+	// Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
 	Key pulumi.StringInput `pulumi:"key"`
 	// Target name, referencing a corresponding target.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -366,7 +366,7 @@ func (o ExperimentTemplateActionTargetOutput) ToExperimentTemplateActionTargetPt
 	}).(ExperimentTemplateActionTargetPtrOutput)
 }
 
-// Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets).
+// Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
 func (o ExperimentTemplateActionTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionTarget) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -400,7 +400,7 @@ func (o ExperimentTemplateActionTargetPtrOutput) Elem() ExperimentTemplateAction
 	}).(ExperimentTemplateActionTargetOutput)
 }
 
-// Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets).
+// Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
 func (o ExperimentTemplateActionTargetPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateActionTarget) *string {
 		if v == nil {
@@ -417,6 +417,478 @@ func (o ExperimentTemplateActionTargetPtrOutput) Value() pulumi.StringPtrOutput 
 			return nil
 		}
 		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExperimentTemplateLogConfiguration struct {
+	// The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+	CloudwatchLogsConfiguration *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration `pulumi:"cloudwatchLogsConfiguration"`
+	// The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+	LogSchemaVersion int `pulumi:"logSchemaVersion"`
+	// The configuration for experiment logging to Amazon S3. See below.
+	S3Configuration *ExperimentTemplateLogConfigurationS3Configuration `pulumi:"s3Configuration"`
+}
+
+// ExperimentTemplateLogConfigurationInput is an input type that accepts ExperimentTemplateLogConfigurationArgs and ExperimentTemplateLogConfigurationOutput values.
+// You can construct a concrete instance of `ExperimentTemplateLogConfigurationInput` via:
+//
+//	ExperimentTemplateLogConfigurationArgs{...}
+type ExperimentTemplateLogConfigurationInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateLogConfigurationOutput() ExperimentTemplateLogConfigurationOutput
+	ToExperimentTemplateLogConfigurationOutputWithContext(context.Context) ExperimentTemplateLogConfigurationOutput
+}
+
+type ExperimentTemplateLogConfigurationArgs struct {
+	// The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+	CloudwatchLogsConfiguration ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrInput `pulumi:"cloudwatchLogsConfiguration"`
+	// The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+	LogSchemaVersion pulumi.IntInput `pulumi:"logSchemaVersion"`
+	// The configuration for experiment logging to Amazon S3. See below.
+	S3Configuration ExperimentTemplateLogConfigurationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
+}
+
+func (ExperimentTemplateLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateLogConfiguration)(nil)).Elem()
+}
+
+func (i ExperimentTemplateLogConfigurationArgs) ToExperimentTemplateLogConfigurationOutput() ExperimentTemplateLogConfigurationOutput {
+	return i.ToExperimentTemplateLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateLogConfigurationArgs) ToExperimentTemplateLogConfigurationOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationOutput)
+}
+
+func (i ExperimentTemplateLogConfigurationArgs) ToExperimentTemplateLogConfigurationPtrOutput() ExperimentTemplateLogConfigurationPtrOutput {
+	return i.ToExperimentTemplateLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateLogConfigurationArgs) ToExperimentTemplateLogConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationOutput).ToExperimentTemplateLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// ExperimentTemplateLogConfigurationPtrInput is an input type that accepts ExperimentTemplateLogConfigurationArgs, ExperimentTemplateLogConfigurationPtr and ExperimentTemplateLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `ExperimentTemplateLogConfigurationPtrInput` via:
+//
+//	        ExperimentTemplateLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExperimentTemplateLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateLogConfigurationPtrOutput() ExperimentTemplateLogConfigurationPtrOutput
+	ToExperimentTemplateLogConfigurationPtrOutputWithContext(context.Context) ExperimentTemplateLogConfigurationPtrOutput
+}
+
+type experimentTemplateLogConfigurationPtrType ExperimentTemplateLogConfigurationArgs
+
+func ExperimentTemplateLogConfigurationPtr(v *ExperimentTemplateLogConfigurationArgs) ExperimentTemplateLogConfigurationPtrInput {
+	return (*experimentTemplateLogConfigurationPtrType)(v)
+}
+
+func (*experimentTemplateLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateLogConfiguration)(nil)).Elem()
+}
+
+func (i *experimentTemplateLogConfigurationPtrType) ToExperimentTemplateLogConfigurationPtrOutput() ExperimentTemplateLogConfigurationPtrOutput {
+	return i.ToExperimentTemplateLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *experimentTemplateLogConfigurationPtrType) ToExperimentTemplateLogConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationPtrOutput)
+}
+
+type ExperimentTemplateLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateLogConfiguration)(nil)).Elem()
+}
+
+func (o ExperimentTemplateLogConfigurationOutput) ToExperimentTemplateLogConfigurationOutput() ExperimentTemplateLogConfigurationOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationOutput) ToExperimentTemplateLogConfigurationOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationOutput) ToExperimentTemplateLogConfigurationPtrOutput() ExperimentTemplateLogConfigurationPtrOutput {
+	return o.ToExperimentTemplateLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTemplateLogConfigurationOutput) ToExperimentTemplateLogConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfiguration {
+		return &v
+	}).(ExperimentTemplateLogConfigurationPtrOutput)
+}
+
+// The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+func (o ExperimentTemplateLogConfigurationOutput) CloudwatchLogsConfiguration() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration {
+		return v.CloudwatchLogsConfiguration
+	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput)
+}
+
+// The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+func (o ExperimentTemplateLogConfigurationOutput) LogSchemaVersion() pulumi.IntOutput {
+	return o.ApplyT(func(v ExperimentTemplateLogConfiguration) int { return v.LogSchemaVersion }).(pulumi.IntOutput)
+}
+
+// The configuration for experiment logging to Amazon S3. See below.
+func (o ExperimentTemplateLogConfigurationOutput) S3Configuration() ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationS3Configuration {
+		return v.S3Configuration
+	}).(ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput)
+}
+
+type ExperimentTemplateLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateLogConfiguration)(nil)).Elem()
+}
+
+func (o ExperimentTemplateLogConfigurationPtrOutput) ToExperimentTemplateLogConfigurationPtrOutput() ExperimentTemplateLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationPtrOutput) ToExperimentTemplateLogConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationPtrOutput) Elem() ExperimentTemplateLogConfigurationOutput {
+	return o.ApplyT(func(v *ExperimentTemplateLogConfiguration) ExperimentTemplateLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateLogConfiguration
+		return ret
+	}).(ExperimentTemplateLogConfigurationOutput)
+}
+
+// The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+func (o ExperimentTemplateLogConfigurationPtrOutput) CloudwatchLogsConfiguration() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogsConfiguration
+	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput)
+}
+
+// The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+func (o ExperimentTemplateLogConfigurationPtrOutput) LogSchemaVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateLogConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.LogSchemaVersion
+	}).(pulumi.IntPtrOutput)
+}
+
+// The configuration for experiment logging to Amazon S3. See below.
+func (o ExperimentTemplateLogConfigurationPtrOutput) S3Configuration() ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateLogConfiguration) *ExperimentTemplateLogConfigurationS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return v.S3Configuration
+	}).(ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput)
+}
+
+type ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration struct {
+	// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+	LogGroupArn string `pulumi:"logGroupArn"`
+}
+
+// ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationInput is an input type that accepts ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs and ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput values.
+// You can construct a concrete instance of `ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationInput` via:
+//
+//	ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs{...}
+type ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput
+	ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutputWithContext(context.Context) ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput
+}
+
+type ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
+}
+
+func (ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration)(nil)).Elem()
+}
+
+func (i ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput {
+	return i.ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput)
+}
+
+func (i ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
+	return i.ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput).ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrInput is an input type that accepts ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs, ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtr and ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrInput` via:
+//
+//	        ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput
+	ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutputWithContext(context.Context) ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput
+}
+
+type experimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrType ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs
+
+func ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtr(v *ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs) ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrInput {
+	return (*experimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrType)(v)
+}
+
+func (*experimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration)(nil)).Elem()
+}
+
+func (i *experimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrType) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
+	return i.ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *experimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrType) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput)
+}
+
+type ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration)(nil)).Elem()
+}
+
+func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
+	return o.ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration) *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration {
+		return &v
+	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput) LogGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration) string { return v.LogGroupArn }).(pulumi.StringOutput)
+}
+
+type ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration)(nil)).Elem()
+}
+
+func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) ToExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) Elem() ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput {
+	return o.ApplyT(func(v *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration) ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration
+		return ret
+	}).(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+func (o ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExperimentTemplateLogConfigurationS3Configuration struct {
+	// The name of the destination bucket.
+	BucketName string `pulumi:"bucketName"`
+	// The bucket prefix.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// ExperimentTemplateLogConfigurationS3ConfigurationInput is an input type that accepts ExperimentTemplateLogConfigurationS3ConfigurationArgs and ExperimentTemplateLogConfigurationS3ConfigurationOutput values.
+// You can construct a concrete instance of `ExperimentTemplateLogConfigurationS3ConfigurationInput` via:
+//
+//	ExperimentTemplateLogConfigurationS3ConfigurationArgs{...}
+type ExperimentTemplateLogConfigurationS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateLogConfigurationS3ConfigurationOutput() ExperimentTemplateLogConfigurationS3ConfigurationOutput
+	ToExperimentTemplateLogConfigurationS3ConfigurationOutputWithContext(context.Context) ExperimentTemplateLogConfigurationS3ConfigurationOutput
+}
+
+type ExperimentTemplateLogConfigurationS3ConfigurationArgs struct {
+	// The name of the destination bucket.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The bucket prefix.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (ExperimentTemplateLogConfigurationS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateLogConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i ExperimentTemplateLogConfigurationS3ConfigurationArgs) ToExperimentTemplateLogConfigurationS3ConfigurationOutput() ExperimentTemplateLogConfigurationS3ConfigurationOutput {
+	return i.ToExperimentTemplateLogConfigurationS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateLogConfigurationS3ConfigurationArgs) ToExperimentTemplateLogConfigurationS3ConfigurationOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationS3ConfigurationOutput)
+}
+
+func (i ExperimentTemplateLogConfigurationS3ConfigurationArgs) ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutput() ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
+	return i.ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateLogConfigurationS3ConfigurationArgs) ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationS3ConfigurationOutput).ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// ExperimentTemplateLogConfigurationS3ConfigurationPtrInput is an input type that accepts ExperimentTemplateLogConfigurationS3ConfigurationArgs, ExperimentTemplateLogConfigurationS3ConfigurationPtr and ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `ExperimentTemplateLogConfigurationS3ConfigurationPtrInput` via:
+//
+//	        ExperimentTemplateLogConfigurationS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExperimentTemplateLogConfigurationS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutput() ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput
+	ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutputWithContext(context.Context) ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput
+}
+
+type experimentTemplateLogConfigurationS3ConfigurationPtrType ExperimentTemplateLogConfigurationS3ConfigurationArgs
+
+func ExperimentTemplateLogConfigurationS3ConfigurationPtr(v *ExperimentTemplateLogConfigurationS3ConfigurationArgs) ExperimentTemplateLogConfigurationS3ConfigurationPtrInput {
+	return (*experimentTemplateLogConfigurationS3ConfigurationPtrType)(v)
+}
+
+func (*experimentTemplateLogConfigurationS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateLogConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (i *experimentTemplateLogConfigurationS3ConfigurationPtrType) ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutput() ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
+	return i.ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *experimentTemplateLogConfigurationS3ConfigurationPtrType) ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput)
+}
+
+type ExperimentTemplateLogConfigurationS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateLogConfigurationS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateLogConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o ExperimentTemplateLogConfigurationS3ConfigurationOutput) ToExperimentTemplateLogConfigurationS3ConfigurationOutput() ExperimentTemplateLogConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationS3ConfigurationOutput) ToExperimentTemplateLogConfigurationS3ConfigurationOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationS3ConfigurationOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationS3ConfigurationOutput) ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutput() ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
+	return o.ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTemplateLogConfigurationS3ConfigurationOutput) ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateLogConfigurationS3Configuration) *ExperimentTemplateLogConfigurationS3Configuration {
+		return &v
+	}).(ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput)
+}
+
+// The name of the destination bucket.
+func (o ExperimentTemplateLogConfigurationS3ConfigurationOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v ExperimentTemplateLogConfigurationS3Configuration) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// The bucket prefix.
+func (o ExperimentTemplateLogConfigurationS3ConfigurationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateLogConfigurationS3Configuration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateLogConfigurationS3Configuration)(nil)).Elem()
+}
+
+func (o ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput) ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutput() ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput) ToExperimentTemplateLogConfigurationS3ConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput) Elem() ExperimentTemplateLogConfigurationS3ConfigurationOutput {
+	return o.ApplyT(func(v *ExperimentTemplateLogConfigurationS3Configuration) ExperimentTemplateLogConfigurationS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateLogConfigurationS3Configuration
+		return ret
+	}).(ExperimentTemplateLogConfigurationS3ConfigurationOutput)
+}
+
+// The name of the destination bucket.
+func (o ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateLogConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The bucket prefix.
+func (o ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateLogConfigurationS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -531,11 +1003,13 @@ type ExperimentTemplateTarget struct {
 	Filters []ExperimentTemplateTargetFilter `pulumi:"filters"`
 	// Friendly name given to the target.
 	Name string `pulumi:"name"`
+	// The resource type parameters.
+	//
+	// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+	Parameters map[string]string `pulumi:"parameters"`
 	// Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
 	ResourceArns []string `pulumi:"resourceArns"`
 	// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
-	//
-	// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
 	ResourceTags []ExperimentTemplateTargetResourceTag `pulumi:"resourceTags"`
 	// AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
 	ResourceType string `pulumi:"resourceType"`
@@ -559,11 +1033,13 @@ type ExperimentTemplateTargetArgs struct {
 	Filters ExperimentTemplateTargetFilterArrayInput `pulumi:"filters"`
 	// Friendly name given to the target.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The resource type parameters.
+	//
+	// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
 	ResourceArns pulumi.StringArrayInput `pulumi:"resourceArns"`
 	// Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
-	//
-	// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
 	ResourceTags ExperimentTemplateTargetResourceTagArrayInput `pulumi:"resourceTags"`
 	// AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
@@ -632,14 +1108,19 @@ func (o ExperimentTemplateTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The resource type parameters.
+//
+// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+func (o ExperimentTemplateTargetOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ExperimentTemplateTarget) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
 // Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
 func (o ExperimentTemplateTargetOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
 }
 
 // Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
-//
-// > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
 func (o ExperimentTemplateTargetOutput) ResourceTags() ExperimentTemplateTargetResourceTagArrayOutput {
 	return o.ApplyT(func(v ExperimentTemplateTarget) []ExperimentTemplateTargetResourceTag { return v.ResourceTags }).(ExperimentTemplateTargetResourceTagArrayOutput)
 }
@@ -899,6 +1380,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionParameterArrayInput)(nil)).Elem(), ExperimentTemplateActionParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionTargetInput)(nil)).Elem(), ExperimentTemplateActionTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionTargetPtrInput)(nil)).Elem(), ExperimentTemplateActionTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationInput)(nil)).Elem(), ExperimentTemplateLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationPtrInput)(nil)).Elem(), ExperimentTemplateLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationInput)(nil)).Elem(), ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrInput)(nil)).Elem(), ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationS3ConfigurationInput)(nil)).Elem(), ExperimentTemplateLogConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationS3ConfigurationPtrInput)(nil)).Elem(), ExperimentTemplateLogConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateStopConditionInput)(nil)).Elem(), ExperimentTemplateStopConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateStopConditionArrayInput)(nil)).Elem(), ExperimentTemplateStopConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetInput)(nil)).Elem(), ExperimentTemplateTargetArgs{})
@@ -913,6 +1400,12 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentTemplateActionParameterArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionTargetOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionTargetPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationS3ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateStopConditionOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateStopConditionArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateTargetOutput{})

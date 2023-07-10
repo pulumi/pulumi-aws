@@ -17,14 +17,14 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
     public static final SmsChannelArgs Empty = new SmsChannelArgs();
 
     /**
-     * The application ID.
+     * ID of the application.
      * 
      */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return ID of the application.
      * 
      */
     public Output<String> applicationId() {
@@ -32,14 +32,14 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
+     * Whether the channel is enabled or disabled. By default, it is set to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Whether the channel is enabled or disabled. Defaults to `true`.
+     * @return Whether the channel is enabled or disabled. By default, it is set to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -47,14 +47,14 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Sender identifier of your messages.
+     * Identifier of the sender for your messages.
      * 
      */
     @Import(name="senderId")
     private @Nullable Output<String> senderId;
 
     /**
-     * @return Sender identifier of your messages.
+     * @return Identifier of the sender for your messages.
      * 
      */
     public Optional<Output<String>> senderId() {
@@ -62,14 +62,14 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Short Code registered with the phone provider.
+     * Short Code registered with the phone provider.
      * 
      */
     @Import(name="shortCode")
     private @Nullable Output<String> shortCode;
 
     /**
-     * @return The Short Code registered with the phone provider.
+     * @return Short Code registered with the phone provider.
      * 
      */
     public Optional<Output<String>> shortCode() {
@@ -104,7 +104,7 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId ID of the application.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId ID of the application.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether the channel is enabled or disabled. Defaults to `true`.
+         * @param enabled Whether the channel is enabled or disabled. By default, it is set to `true`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Whether the channel is enabled or disabled. Defaults to `true`.
+         * @param enabled Whether the channel is enabled or disabled. By default, it is set to `true`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param senderId Sender identifier of your messages.
+         * @param senderId Identifier of the sender for your messages.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param senderId Sender identifier of your messages.
+         * @param senderId Identifier of the sender for your messages.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shortCode The Short Code registered with the phone provider.
+         * @param shortCode Short Code registered with the phone provider.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class SmsChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shortCode The Short Code registered with the phone provider.
+         * @param shortCode Short Code registered with the phone provider.
          * 
          * @return builder
          * 

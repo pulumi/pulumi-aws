@@ -34,8 +34,8 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         /// <summary>
         /// The registry path where the inference code image is stored in Amazon ECR.
         /// </summary>
-        [Input("image", required: true)]
-        public Input<string> Image { get; set; } = null!;
+        [Input("image")]
+        public Input<string>? Image { get; set; }
 
         /// <summary>
         /// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
@@ -54,6 +54,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         /// </summary>
         [Input("modelDataUrl")]
         public Input<string>? ModelDataUrl { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the model package to use to create the model.
+        /// </summary>
+        [Input("modelPackageName")]
+        public Input<string>? ModelPackageName { get; set; }
 
         public ModelContainerArgs()
         {

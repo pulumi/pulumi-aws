@@ -233,6 +233,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+     * `AWS_RETRY_MODE` environment variable.
+     * 
+     */
+    @Import(name="retryMode")
+    private @Nullable Output<String> retryMode;
+
+    /**
+     * @return Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+     * `AWS_RETRY_MODE` environment variable.
+     * 
+     */
+    public Optional<Output<String>> retryMode() {
+        return Optional.ofNullable(this.retryMode);
+    }
+
+    /**
      * Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
      * default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
      * Specific to the Amazon S3 service.
@@ -439,6 +456,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.maxRetries = $.maxRetries;
         this.profile = $.profile;
         this.region = $.region;
+        this.retryMode = $.retryMode;
         this.s3UsePathStyle = $.s3UsePathStyle;
         this.secretKey = $.secretKey;
         this.sharedConfigFiles = $.sharedConfigFiles;
@@ -765,6 +783,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param retryMode Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+         * `AWS_RETRY_MODE` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retryMode(@Nullable Output<String> retryMode) {
+            $.retryMode = retryMode;
+            return this;
+        }
+
+        /**
+         * @param retryMode Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+         * `AWS_RETRY_MODE` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retryMode(String retryMode) {
+            return retryMode(Output.of(retryMode));
         }
 
         /**

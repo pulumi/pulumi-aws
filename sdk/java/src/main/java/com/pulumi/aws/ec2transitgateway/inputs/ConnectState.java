@@ -18,14 +18,14 @@ public final class ConnectState extends com.pulumi.resources.ResourceArgs {
     public static final ConnectState Empty = new ConnectState();
 
     /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * @return The tunnel protocol. Valid values: `gre`. Default is `gre`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -153,7 +153,7 @@ public final class ConnectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol The tunnel protocol. Valida values: `gre`. Default is `gre`.
+         * @param protocol The tunnel protocol. Valid values: `gre`. Default is `gre`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class ConnectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocol The tunnel protocol. Valida values: `gre`. Default is `gre`.
+         * @param protocol The tunnel protocol. Valid values: `gre`. Default is `gre`.
          * 
          * @return builder
          * 

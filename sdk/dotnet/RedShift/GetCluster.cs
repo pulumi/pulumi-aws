@@ -114,6 +114,10 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string ClusterIdentifier;
         /// <summary>
+        /// The namespace Amazon Resource Name (ARN) of the cluster
+        /// </summary>
+        public readonly string ClusterNamespaceArn;
+        /// <summary>
         /// Nodes in the cluster. Cluster node blocks are documented below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterClusterNodeResult> ClusterNodes;
@@ -143,7 +147,7 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
-        /// ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+        /// The ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         public readonly string DefaultIamRoleArn;
         /// <summary>
@@ -253,6 +257,8 @@ namespace Pulumi.Aws.RedShift
 
             string clusterIdentifier,
 
+            string clusterNamespaceArn,
+
             ImmutableArray<Outputs.GetClusterClusterNodeResult> clusterNodes,
 
             string clusterParameterGroupName,
@@ -323,6 +329,7 @@ namespace Pulumi.Aws.RedShift
             AvailabilityZoneRelocationEnabled = availabilityZoneRelocationEnabled;
             BucketName = bucketName;
             ClusterIdentifier = clusterIdentifier;
+            ClusterNamespaceArn = clusterNamespaceArn;
             ClusterNodes = clusterNodes;
             ClusterParameterGroupName = clusterParameterGroupName;
             ClusterPublicKey = clusterPublicKey;

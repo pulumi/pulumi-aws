@@ -423,14 +423,14 @@ public class UserPool extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Configuration blocked for information about the user pool password policy. Detailed below.
+     * Configuration block for information about the user pool password policy. Detailed below.
      * 
      */
     @Export(name="passwordPolicy", refs={UserPoolPasswordPolicy.class}, tree="[0]")
     private Output<UserPoolPasswordPolicy> passwordPolicy;
 
     /**
-     * @return Configuration blocked for information about the user pool password policy. Detailed below.
+     * @return Configuration block for information about the user pool password policy. Detailed below.
      * 
      */
     public Output<UserPoolPasswordPolicy> passwordPolicy() {

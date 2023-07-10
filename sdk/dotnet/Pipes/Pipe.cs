@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// You can find out more about EventBridge Pipes in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
     /// 
+    /// EventBridge Pipes are very configurable, and may require IAM permissions to work correctly. More information on the configuration options and IAM permissions can be found in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
+    /// 
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
     /// ## Example Usage
@@ -113,14 +115,51 @@ namespace Pulumi.Aws.Pipes
     ///         RoleArn = aws_iam_role.Example.Arn,
     ///         Source = sourceQueue.Arn,
     ///         Target = targetQueue.Arn,
-    ///         SourceParameters = null,
-    ///         TargetParameters = null,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn = new[]
     ///         {
     ///             sourceRolePolicy,
     ///             targetRolePolicy,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Filter Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Pipes.Pipe("example", new()
+    ///     {
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Source = aws_sqs_queue.Source.Arn,
+    ///         Target = aws_sqs_queue.Target.Arn,
+    ///         SourceParameters = new Aws.Pipes.Inputs.PipeSourceParametersArgs
+    ///         {
+    ///             FilterCriteria = new Aws.Pipes.Inputs.PipeSourceParametersFilterCriteriaArgs
+    ///             {
+    ///                 Filters = new[]
+    ///                 {
+    ///                     new Aws.Pipes.Inputs.PipeSourceParametersFilterCriteriaFilterArgs
+    ///                     {
+    ///                         Pattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["source"] = new[]
+    ///                             {
+    ///                                 "event-source",
+    ///                             },
+    ///                         }),
+    ///                     },
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -139,7 +178,7 @@ namespace Pulumi.Aws.Pipes
     public partial class Pipe : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// ARN of this pipe.
+        /// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -161,6 +200,12 @@ namespace Pulumi.Aws.Pipes
         /// </summary>
         [Output("enrichment")]
         public Output<string?> Enrichment { get; private set; } = null!;
+
+        /// <summary>
+        /// Parameters to configure enrichment for your pipe. Detailed below.
+        /// </summary>
+        [Output("enrichmentParameters")]
+        public Output<Outputs.PipeEnrichmentParameters?> EnrichmentParameters { get; private set; } = null!;
 
         /// <summary>
         /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -187,7 +232,7 @@ namespace Pulumi.Aws.Pipes
         public Output<string> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters required to set up a source for the pipe. Detailed below.
+        /// Parameters to configure a source for the pipe. Detailed below.
         /// </summary>
         [Output("sourceParameters")]
         public Output<Outputs.PipeSourceParameters> SourceParameters { get; private set; } = null!;
@@ -206,17 +251,17 @@ namespace Pulumi.Aws.Pipes
 
         /// <summary>
         /// Target resource of the pipe (typically an ARN).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("target")]
         public Output<string> Target { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters required to set up a target for your pipe. Detailed below.
-        /// 
-        /// The following arguments are optional:
+        /// Parameters to configure a target for your pipe. Detailed below.
         /// </summary>
         [Output("targetParameters")]
-        public Output<Outputs.PipeTargetParameters> TargetParameters { get; private set; } = null!;
+        public Output<Outputs.PipeTargetParameters?> TargetParameters { get; private set; } = null!;
 
 
         /// <summary>
@@ -283,6 +328,12 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? Enrichment { get; set; }
 
         /// <summary>
+        /// Parameters to configure enrichment for your pipe. Detailed below.
+        /// </summary>
+        [Input("enrichmentParameters")]
+        public Input<Inputs.PipeEnrichmentParametersArgs>? EnrichmentParameters { get; set; }
+
+        /// <summary>
         /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
@@ -307,10 +358,10 @@ namespace Pulumi.Aws.Pipes
         public Input<string> Source { get; set; } = null!;
 
         /// <summary>
-        /// Parameters required to set up a source for the pipe. Detailed below.
+        /// Parameters to configure a source for the pipe. Detailed below.
         /// </summary>
-        [Input("sourceParameters", required: true)]
-        public Input<Inputs.PipeSourceParametersArgs> SourceParameters { get; set; } = null!;
+        [Input("sourceParameters")]
+        public Input<Inputs.PipeSourceParametersArgs>? SourceParameters { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -326,17 +377,17 @@ namespace Pulumi.Aws.Pipes
 
         /// <summary>
         /// Target resource of the pipe (typically an ARN).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 
         /// <summary>
-        /// Parameters required to set up a target for your pipe. Detailed below.
-        /// 
-        /// The following arguments are optional:
+        /// Parameters to configure a target for your pipe. Detailed below.
         /// </summary>
-        [Input("targetParameters", required: true)]
-        public Input<Inputs.PipeTargetParametersArgs> TargetParameters { get; set; } = null!;
+        [Input("targetParameters")]
+        public Input<Inputs.PipeTargetParametersArgs>? TargetParameters { get; set; }
 
         public PipeArgs()
         {
@@ -347,7 +398,7 @@ namespace Pulumi.Aws.Pipes
     public sealed class PipeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARN of this pipe.
+        /// The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -369,6 +420,12 @@ namespace Pulumi.Aws.Pipes
         /// </summary>
         [Input("enrichment")]
         public Input<string>? Enrichment { get; set; }
+
+        /// <summary>
+        /// Parameters to configure enrichment for your pipe. Detailed below.
+        /// </summary>
+        [Input("enrichmentParameters")]
+        public Input<Inputs.PipeEnrichmentParametersGetArgs>? EnrichmentParameters { get; set; }
 
         /// <summary>
         /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -395,7 +452,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// Parameters required to set up a source for the pipe. Detailed below.
+        /// Parameters to configure a source for the pipe. Detailed below.
         /// </summary>
         [Input("sourceParameters")]
         public Input<Inputs.PipeSourceParametersGetArgs>? SourceParameters { get; set; }
@@ -426,14 +483,14 @@ namespace Pulumi.Aws.Pipes
 
         /// <summary>
         /// Target resource of the pipe (typically an ARN).
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// Parameters required to set up a target for your pipe. Detailed below.
-        /// 
-        /// The following arguments are optional:
+        /// Parameters to configure a target for your pipe. Detailed below.
         /// </summary>
         [Input("targetParameters")]
         public Input<Inputs.PipeTargetParametersGetArgs>? TargetParameters { get; set; }

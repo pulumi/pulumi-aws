@@ -2794,6 +2794,7 @@ func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) Index(i pulumi.IntInpu
 }
 
 type OntapVolumeTieringPolicy struct {
+	// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 	CoolingPeriod *int `pulumi:"coolingPeriod"`
 	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
 	Name *string `pulumi:"name"`
@@ -2811,6 +2812,7 @@ type OntapVolumeTieringPolicyInput interface {
 }
 
 type OntapVolumeTieringPolicyArgs struct {
+	// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 	CoolingPeriod pulumi.IntPtrInput `pulumi:"coolingPeriod"`
 	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2893,6 +2895,7 @@ func (o OntapVolumeTieringPolicyOutput) ToOntapVolumeTieringPolicyPtrOutputWithC
 	}).(OntapVolumeTieringPolicyPtrOutput)
 }
 
+// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 func (o OntapVolumeTieringPolicyOutput) CoolingPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OntapVolumeTieringPolicy) *int { return v.CoolingPeriod }).(pulumi.IntPtrOutput)
 }
@@ -2926,6 +2929,7 @@ func (o OntapVolumeTieringPolicyPtrOutput) Elem() OntapVolumeTieringPolicyOutput
 	}).(OntapVolumeTieringPolicyOutput)
 }
 
+// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
 func (o OntapVolumeTieringPolicyPtrOutput) CoolingPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeTieringPolicy) *int {
 		if v == nil {

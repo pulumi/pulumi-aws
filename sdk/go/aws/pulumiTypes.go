@@ -990,6 +990,7 @@ type ProviderEndpoint struct {
 	Transcribestreamingservice           *string `pulumi:"transcribestreamingservice"`
 	Transfer                             *string `pulumi:"transfer"`
 	Translate                            *string `pulumi:"translate"`
+	Verifiedpermissions                  *string `pulumi:"verifiedpermissions"`
 	Voiceid                              *string `pulumi:"voiceid"`
 	Vpclattice                           *string `pulumi:"vpclattice"`
 	Waf                                  *string `pulumi:"waf"`
@@ -1388,6 +1389,7 @@ type ProviderEndpointArgs struct {
 	Transcribestreamingservice           pulumi.StringPtrInput `pulumi:"transcribestreamingservice"`
 	Transfer                             pulumi.StringPtrInput `pulumi:"transfer"`
 	Translate                            pulumi.StringPtrInput `pulumi:"translate"`
+	Verifiedpermissions                  pulumi.StringPtrInput `pulumi:"verifiedpermissions"`
 	Voiceid                              pulumi.StringPtrInput `pulumi:"voiceid"`
 	Vpclattice                           pulumi.StringPtrInput `pulumi:"vpclattice"`
 	Waf                                  pulumi.StringPtrInput `pulumi:"waf"`
@@ -2933,6 +2935,10 @@ func (o ProviderEndpointOutput) Transfer() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Translate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Translate }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Verifiedpermissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Verifiedpermissions }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Voiceid() pulumi.StringPtrOutput {

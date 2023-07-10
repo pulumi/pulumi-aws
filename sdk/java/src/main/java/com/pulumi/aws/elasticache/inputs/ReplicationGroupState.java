@@ -191,7 +191,8 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
     /**
      * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
@@ -202,7 +203,8 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+     * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
@@ -974,7 +976,8 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param engineVersion Version number of the cache engine to be used for the cache clusters in this replication group.
-         * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+         * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+         * If the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * Otherwise, specify the full version desired, e.g., `5.0.6`.
          * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
@@ -989,7 +992,8 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param engineVersion Version number of the cache engine to be used for the cache clusters in this replication group.
-         * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+         * If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+         * If the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * Otherwise, specify the full version desired, e.g., `5.0.6`.
          * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.

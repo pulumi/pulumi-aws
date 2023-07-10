@@ -6,6 +6,7 @@ package com.pulumi.aws.pipes;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.pipes.PipeArgs;
 import com.pulumi.aws.pipes.inputs.PipeState;
+import com.pulumi.aws.pipes.outputs.PipeEnrichmentParameters;
 import com.pulumi.aws.pipes.outputs.PipeSourceParameters;
 import com.pulumi.aws.pipes.outputs.PipeTargetParameters;
 import com.pulumi.core.Output;
@@ -21,6 +22,8 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS EventBridge Pipes Pipe.
  * 
  * You can find out more about EventBridge Pipes in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
+ * 
+ * EventBridge Pipes are very configurable, and may require IAM permissions to work correctly. More information on the configuration options and IAM permissions can be found in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
  * 
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
@@ -41,8 +44,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import com.pulumi.aws.pipes.Pipe;
  * import com.pulumi.aws.pipes.PipeArgs;
- * import com.pulumi.aws.pipes.inputs.PipeSourceParametersArgs;
- * import com.pulumi.aws.pipes.inputs.PipeTargetParametersArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
@@ -117,13 +118,140 @@ import javax.annotation.Nullable;
  *             .roleArn(aws_iam_role.example().arn())
  *             .source(sourceQueue.arn())
  *             .target(targetQueue.arn())
- *             .sourceParameters()
- *             .targetParameters()
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     sourceRolePolicy,
  *                     targetRolePolicy)
  *                 .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Enrichment Usage
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.pipes.Pipe;
+ * import com.pulumi.aws.pipes.PipeArgs;
+ * import com.pulumi.aws.pipes.inputs.PipeEnrichmentParametersArgs;
+ * import com.pulumi.aws.pipes.inputs.PipeEnrichmentParametersHttpParametersArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Pipe(&#34;example&#34;, PipeArgs.builder()        
+ *             .roleArn(aws_iam_role.example().arn())
+ *             .source(aws_sqs_queue.source().arn())
+ *             .target(aws_sqs_queue.target().arn())
+ *             .enrichment(aws_cloudwatch_event_api_destination.example().arn())
+ *             .enrichmentParameters(PipeEnrichmentParametersArgs.builder()
+ *                 .httpParameters(PipeEnrichmentParametersHttpParametersArgs.builder()
+ * %!v(PANIC=Format method: interface conversion: model.Expression is *model.TemplateExpression, not *model.LiteralValueExpression))
+ *                     .pathParameterValues(&#34;example-path-param&#34;)
+ *                     .queryStringParameters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                     .build())
+ *                 .build());
+ * 
+ *         }
+ * }
+ * ```
+ * ### Filter Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.pipes.Pipe;
+ * import com.pulumi.aws.pipes.PipeArgs;
+ * import com.pulumi.aws.pipes.inputs.PipeSourceParametersArgs;
+ * import com.pulumi.aws.pipes.inputs.PipeSourceParametersFilterCriteriaArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Pipe(&#34;example&#34;, PipeArgs.builder()        
+ *             .roleArn(aws_iam_role.example().arn())
+ *             .source(aws_sqs_queue.source().arn())
+ *             .target(aws_sqs_queue.target().arn())
+ *             .sourceParameters(PipeSourceParametersArgs.builder()
+ *                 .filterCriteria(PipeSourceParametersFilterCriteriaArgs.builder()
+ *                     .filters(PipeSourceParametersFilterCriteriaFilterArgs.builder()
+ *                         .pattern(serializeJson(
+ *                             jsonObject(
+ *                                 jsonProperty(&#34;source&#34;, jsonArray(&#34;event-source&#34;))
+ *                             )))
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### SQS Source and Target Configuration Usage
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.pipes.Pipe;
+ * import com.pulumi.aws.pipes.PipeArgs;
+ * import com.pulumi.aws.pipes.inputs.PipeSourceParametersArgs;
+ * import com.pulumi.aws.pipes.inputs.PipeSourceParametersSqsQueueParametersArgs;
+ * import com.pulumi.aws.pipes.inputs.PipeTargetParametersArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Pipe(&#34;example&#34;, PipeArgs.builder()        
+ *             .roleArn(aws_iam_role.example().arn())
+ *             .source(aws_sqs_queue.source().arn())
+ *             .target(aws_sqs_queue.target().arn())
+ *             .sourceParameters(PipeSourceParametersArgs.builder()
+ *                 .sqsQueueParameters(PipeSourceParametersSqsQueueParametersArgs.builder()
+ *                     .batchSize(1)
+ *                     .maximumBatchingWindowInSeconds(2)
+ *                     .build())
+ *                 .build())
+ *             .targetParameters(PipeTargetParametersArgs.builder()
+ *                 .sqsQueue(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *                 .build())
+ *             .build());
  * 
  *     }
  * }
@@ -141,14 +269,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:pipes/pipe:Pipe")
 public class Pipe extends com.pulumi.resources.CustomResource {
     /**
-     * ARN of this pipe.
+     * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of this pipe.
+     * @return The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
      * 
      */
     public Output<String> arn() {
@@ -195,6 +323,20 @@ public class Pipe extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> enrichment() {
         return Codegen.optional(this.enrichment);
+    }
+    /**
+     * Parameters to configure enrichment for your pipe. Detailed below.
+     * 
+     */
+    @Export(name="enrichmentParameters", refs={PipeEnrichmentParameters.class}, tree="[0]")
+    private Output</* @Nullable */ PipeEnrichmentParameters> enrichmentParameters;
+
+    /**
+     * @return Parameters to configure enrichment for your pipe. Detailed below.
+     * 
+     */
+    public Output<Optional<PipeEnrichmentParameters>> enrichmentParameters() {
+        return Codegen.optional(this.enrichmentParameters);
     }
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -253,14 +395,14 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return this.source;
     }
     /**
-     * Parameters required to set up a source for the pipe. Detailed below.
+     * Parameters to configure a source for the pipe. Detailed below.
      * 
      */
     @Export(name="sourceParameters", refs={PipeSourceParameters.class}, tree="[0]")
     private Output<PipeSourceParameters> sourceParameters;
 
     /**
-     * @return Parameters required to set up a source for the pipe. Detailed below.
+     * @return Parameters to configure a source for the pipe. Detailed below.
      * 
      */
     public Output<PipeSourceParameters> sourceParameters() {
@@ -297,6 +439,8 @@ public class Pipe extends com.pulumi.resources.CustomResource {
     /**
      * Target resource of the pipe (typically an ARN).
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="target", refs={String.class}, tree="[0]")
     private Output<String> target;
@@ -304,27 +448,25 @@ public class Pipe extends com.pulumi.resources.CustomResource {
     /**
      * @return Target resource of the pipe (typically an ARN).
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> target() {
         return this.target;
     }
     /**
-     * Parameters required to set up a target for your pipe. Detailed below.
-     * 
-     * The following arguments are optional:
+     * Parameters to configure a target for your pipe. Detailed below.
      * 
      */
     @Export(name="targetParameters", refs={PipeTargetParameters.class}, tree="[0]")
-    private Output<PipeTargetParameters> targetParameters;
+    private Output</* @Nullable */ PipeTargetParameters> targetParameters;
 
     /**
-     * @return Parameters required to set up a target for your pipe. Detailed below.
-     * 
-     * The following arguments are optional:
+     * @return Parameters to configure a target for your pipe. Detailed below.
      * 
      */
-    public Output<PipeTargetParameters> targetParameters() {
-        return this.targetParameters;
+    public Output<Optional<PipeTargetParameters>> targetParameters() {
+        return Codegen.optional(this.targetParameters);
     }
 
     /**

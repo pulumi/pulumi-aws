@@ -34,6 +34,9 @@ __all__ = [
     'DomainVpcOptions',
     'OutboundConnectionLocalDomainInfo',
     'OutboundConnectionRemoteDomainInfo',
+    'ServerlessCollectionTimeouts',
+    'ServerlessSecurityConfigSamlOptions',
+    'ServerlessVpcEndpointTimeouts',
     'GetDomainAdvancedSecurityOptionResult',
     'GetDomainAutoTuneOptionResult',
     'GetDomainAutoTuneOptionMaintenanceScheduleResult',
@@ -51,6 +54,7 @@ __all__ = [
     'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult',
     'GetDomainSnapshotOptionResult',
     'GetDomainVpcOptionResult',
+    'GetServerlessSecurityConfigSamlOptionsResult',
 ]
 
 @pulumi.output_type
@@ -1450,6 +1454,131 @@ class OutboundConnectionRemoteDomainInfo(dict):
 
 
 @pulumi.output_type
+class ServerlessCollectionTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class ServerlessSecurityConfigSamlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupAttribute":
+            suggest = "group_attribute"
+        elif key == "sessionTimeout":
+            suggest = "session_timeout"
+        elif key == "userAttribute":
+            suggest = "user_attribute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessSecurityConfigSamlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessSecurityConfigSamlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessSecurityConfigSamlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metadata: str,
+                 group_attribute: Optional[str] = None,
+                 session_timeout: Optional[int] = None,
+                 user_attribute: Optional[str] = None):
+        """
+        :param str metadata: The XML IdP metadata file generated from your identity provider.
+        :param str group_attribute: Group attribute for this SAML integration.
+        :param int session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        :param str user_attribute: User attribute for this SAML integration.
+        """
+        pulumi.set(__self__, "metadata", metadata)
+        if group_attribute is not None:
+            pulumi.set(__self__, "group_attribute", group_attribute)
+        if session_timeout is not None:
+            pulumi.set(__self__, "session_timeout", session_timeout)
+        if user_attribute is not None:
+            pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> str:
+        """
+        The XML IdP metadata file generated from your identity provider.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> Optional[str]:
+        """
+        Group attribute for this SAML integration.
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @property
+    @pulumi.getter(name="sessionTimeout")
+    def session_timeout(self) -> Optional[int]:
+        """
+        Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        """
+        return pulumi.get(self, "session_timeout")
+
+    @property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> Optional[str]:
+        """
+        User attribute for this SAML integration.
+        """
+        return pulumi.get(self, "user_attribute")
+
+
+@pulumi.output_type
+class ServerlessVpcEndpointTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
 class GetDomainAdvancedSecurityOptionResult(dict):
     def __init__(__self__, *,
                  anonymous_auth_enabled: bool,
@@ -2098,5 +2227,56 @@ class GetDomainVpcOptionResult(dict):
         VPC used by the domain.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class GetServerlessSecurityConfigSamlOptionsResult(dict):
+    def __init__(__self__, *,
+                 group_attribute: str,
+                 metadata: str,
+                 session_timeout: int,
+                 user_attribute: str):
+        """
+        :param str group_attribute: Group attribute for this SAML integration.
+        :param str metadata: The XML IdP metadata file generated from your identity provider.
+        :param int session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        :param str user_attribute: User attribute for this SAML integration.
+        """
+        pulumi.set(__self__, "group_attribute", group_attribute)
+        pulumi.set(__self__, "metadata", metadata)
+        pulumi.set(__self__, "session_timeout", session_timeout)
+        pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> str:
+        """
+        Group attribute for this SAML integration.
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> str:
+        """
+        The XML IdP metadata file generated from your identity provider.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sessionTimeout")
+    def session_timeout(self) -> int:
+        """
+        Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        """
+        return pulumi.get(self, "session_timeout")
+
+    @property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> str:
+        """
+        User attribute for this SAML integration.
+        """
+        return pulumi.get(self, "user_attribute")
 
 

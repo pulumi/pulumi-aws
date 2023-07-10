@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, arn=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation_enabled=None, bucket_name=None, cluster_identifier=None, cluster_nodes=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, default_iam_role_arn=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, log_destination_type=None, log_exports=None, maintenance_track_name=None, manual_snapshot_retention_period=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
+    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, arn=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation_enabled=None, bucket_name=None, cluster_identifier=None, cluster_namespace_arn=None, cluster_nodes=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, default_iam_role_arn=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, log_destination_type=None, log_exports=None, maintenance_track_name=None, manual_snapshot_retention_period=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_version_upgrade' to be a bool")
         pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
@@ -47,6 +47,9 @@ class GetClusterResult:
         if cluster_identifier and not isinstance(cluster_identifier, str):
             raise TypeError("Expected argument 'cluster_identifier' to be a str")
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if cluster_namespace_arn and not isinstance(cluster_namespace_arn, str):
+            raise TypeError("Expected argument 'cluster_namespace_arn' to be a str")
+        pulumi.set(__self__, "cluster_namespace_arn", cluster_namespace_arn)
         if cluster_nodes and not isinstance(cluster_nodes, list):
             raise TypeError("Expected argument 'cluster_nodes' to be a list")
         pulumi.set(__self__, "cluster_nodes", cluster_nodes)
@@ -206,6 +209,14 @@ class GetClusterResult:
         return pulumi.get(self, "cluster_identifier")
 
     @property
+    @pulumi.getter(name="clusterNamespaceArn")
+    def cluster_namespace_arn(self) -> str:
+        """
+        The namespace Amazon Resource Name (ARN) of the cluster
+        """
+        return pulumi.get(self, "cluster_namespace_arn")
+
+    @property
     @pulumi.getter(name="clusterNodes")
     def cluster_nodes(self) -> Sequence['outputs.GetClusterClusterNodeResult']:
         """
@@ -270,7 +281,7 @@ class GetClusterResult:
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> str:
         """
-        ∂The ARN for the IAM role that was set as default for the cluster when the cluster was created.
+        The ARN for the IAM role that was set as default for the cluster when the cluster was created.
         """
         return pulumi.get(self, "default_iam_role_arn")
 
@@ -465,6 +476,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             availability_zone_relocation_enabled=self.availability_zone_relocation_enabled,
             bucket_name=self.bucket_name,
             cluster_identifier=self.cluster_identifier,
+            cluster_namespace_arn=self.cluster_namespace_arn,
             cluster_nodes=self.cluster_nodes,
             cluster_parameter_group_name=self.cluster_parameter_group_name,
             cluster_public_key=self.cluster_public_key,
@@ -523,6 +535,7 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         availability_zone_relocation_enabled=pulumi.get(__ret__, 'availability_zone_relocation_enabled'),
         bucket_name=pulumi.get(__ret__, 'bucket_name'),
         cluster_identifier=pulumi.get(__ret__, 'cluster_identifier'),
+        cluster_namespace_arn=pulumi.get(__ret__, 'cluster_namespace_arn'),
         cluster_nodes=pulumi.get(__ret__, 'cluster_nodes'),
         cluster_parameter_group_name=pulumi.get(__ret__, 'cluster_parameter_group_name'),
         cluster_public_key=pulumi.get(__ret__, 'cluster_public_key'),

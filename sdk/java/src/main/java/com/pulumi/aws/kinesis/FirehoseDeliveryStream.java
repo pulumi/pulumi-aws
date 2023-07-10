@@ -198,6 +198,67 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * 
+ * Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameter_value`.
+ * 
+ * The following example adds the Dynamic Partitioning Keys: `store_id` and `customer_id` to the S3 prefix.
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var extendedS3Stream = new FirehoseDeliveryStream(&#34;extendedS3Stream&#34;, FirehoseDeliveryStreamArgs.builder()        
+ *             .destination(&#34;extended_s3&#34;)
+ *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
+ *                 .roleArn(aws_iam_role.firehose_role().arn())
+ *                 .bucketArn(aws_s3_bucket.bucket().arn())
+ *                 .bufferSize(64)
+ *                 .dynamicPartitioningConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs.builder()
+ *                     .enabled(&#34;true&#34;)
+ *                     .build())
+ *                 .prefix(&#34;data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/&#34;)
+ *                 .errorOutputPrefix(&#34;errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/&#34;)
+ *                 .processingConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.builder()
+ *                     .enabled(&#34;true&#34;)
+ *                     .processors(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs.builder()
+ *                         .type(&#34;MetadataExtraction&#34;)
+ *                         .parameters(                        
+ *                             FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.builder()
+ *                                 .parameterName(&#34;JsonParsingEngine&#34;)
+ *                                 .parameterValue(&#34;JQ-1.6&#34;)
+ *                                 .build(),
+ *                             FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.builder()
+ *                                 .parameterName(&#34;MetadataExtractionQuery&#34;)
+ *                                 .parameterValue(&#34;{store_id:.store_id,customer_id:.customer_id}&#34;)
+ *                                 .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Redshift Destination
  * ```java
  * package generated_program;

@@ -24,12 +24,18 @@ public final class GetStateMachineResult {
      * 
      */
     private String definition;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     private String name;
+    /**
+     * @return The revision identifier for the state machine.
+     * 
+     */
+    private String revisionId;
     /**
      * @return Set to the role_arn used by the state function.
      * 
@@ -63,6 +69,9 @@ public final class GetStateMachineResult {
     public String definition() {
         return this.definition;
     }
+    public String description() {
+        return this.description;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -72,6 +81,13 @@ public final class GetStateMachineResult {
     }
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The revision identifier for the state machine.
+     * 
+     */
+    public String revisionId() {
+        return this.revisionId;
     }
     /**
      * @return Set to the role_arn used by the state function.
@@ -100,8 +116,10 @@ public final class GetStateMachineResult {
         private String arn;
         private String creationDate;
         private String definition;
+        private String description;
         private String id;
         private String name;
+        private String revisionId;
         private String roleArn;
         private String status;
         public Builder() {}
@@ -110,8 +128,10 @@ public final class GetStateMachineResult {
     	      this.arn = defaults.arn;
     	      this.creationDate = defaults.creationDate;
     	      this.definition = defaults.definition;
+    	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.revisionId = defaults.revisionId;
     	      this.roleArn = defaults.roleArn;
     	      this.status = defaults.status;
         }
@@ -132,6 +152,11 @@ public final class GetStateMachineResult {
             return this;
         }
         @CustomType.Setter
+        public Builder description(String description) {
+            this.description = Objects.requireNonNull(description);
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
@@ -139,6 +164,11 @@ public final class GetStateMachineResult {
         @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder revisionId(String revisionId) {
+            this.revisionId = Objects.requireNonNull(revisionId);
             return this;
         }
         @CustomType.Setter
@@ -156,8 +186,10 @@ public final class GetStateMachineResult {
             o.arn = arn;
             o.creationDate = creationDate;
             o.definition = definition;
+            o.description = description;
             o.id = id;
             o.name = name;
+            o.revisionId = revisionId;
             o.roleArn = roleArn;
             o.status = status;
             return o;

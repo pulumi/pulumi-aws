@@ -53,6 +53,8 @@ type InternetMonitor struct {
 
 	// ARN of the Monitor.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+	HealthEventsConfig InternetMonitorHealthEventsConfigPtrOutput `pulumi:"healthEventsConfig"`
 	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
 	InternetMeasurementsLogDelivery InternetMonitorInternetMeasurementsLogDeliveryPtrOutput `pulumi:"internetMeasurementsLogDelivery"`
 	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
@@ -107,6 +109,8 @@ func GetInternetMonitor(ctx *pulumi.Context,
 type internetMonitorState struct {
 	// ARN of the Monitor.
 	Arn *string `pulumi:"arn"`
+	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+	HealthEventsConfig *InternetMonitorHealthEventsConfig `pulumi:"healthEventsConfig"`
 	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
 	InternetMeasurementsLogDelivery *InternetMonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
 	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
@@ -130,6 +134,8 @@ type internetMonitorState struct {
 type InternetMonitorState struct {
 	// ARN of the Monitor.
 	Arn pulumi.StringPtrInput
+	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+	HealthEventsConfig InternetMonitorHealthEventsConfigPtrInput
 	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
 	InternetMeasurementsLogDelivery InternetMonitorInternetMeasurementsLogDeliveryPtrInput
 	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
@@ -155,6 +161,8 @@ func (InternetMonitorState) ElementType() reflect.Type {
 }
 
 type internetMonitorArgs struct {
+	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+	HealthEventsConfig *InternetMonitorHealthEventsConfig `pulumi:"healthEventsConfig"`
 	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
 	InternetMeasurementsLogDelivery *InternetMonitorInternetMeasurementsLogDelivery `pulumi:"internetMeasurementsLogDelivery"`
 	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
@@ -175,6 +183,8 @@ type internetMonitorArgs struct {
 
 // The set of arguments for constructing a InternetMonitor resource.
 type InternetMonitorArgs struct {
+	// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+	HealthEventsConfig InternetMonitorHealthEventsConfigPtrInput
 	// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
 	InternetMeasurementsLogDelivery InternetMonitorInternetMeasurementsLogDeliveryPtrInput
 	// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
@@ -283,6 +293,11 @@ func (o InternetMonitorOutput) ToInternetMonitorOutputWithContext(ctx context.Co
 // ARN of the Monitor.
 func (o InternetMonitorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+func (o InternetMonitorOutput) HealthEventsConfig() InternetMonitorHealthEventsConfigPtrOutput {
+	return o.ApplyT(func(v *InternetMonitor) InternetMonitorHealthEventsConfigPtrOutput { return v.HealthEventsConfig }).(InternetMonitorHealthEventsConfigPtrOutput)
 }
 
 // Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.

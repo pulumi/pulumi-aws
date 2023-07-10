@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Vpc
     ///         CidrIpv4 = "10.0.0.0/8",
     ///         FromPort = 80,
     ///         IpProtocol = "tcp",
-    ///         ToPort = 8080,
+    ///         ToPort = 80,
     ///     });
     /// 
     /// });
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Vpc
         /// The ID of the security group.
         /// </summary>
         [Output("securityGroupId")]
-        public Output<string?> SecurityGroupId { get; private set; } = null!;
+        public Output<string> SecurityGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the security group rule.
@@ -221,8 +221,8 @@ namespace Pulumi.Aws.Vpc
         /// <summary>
         /// The ID of the security group.
         /// </summary>
-        [Input("securityGroupId")]
-        public Input<string>? SecurityGroupId { get; set; }
+        [Input("securityGroupId", required: true)]
+        public Input<string> SecurityGroupId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

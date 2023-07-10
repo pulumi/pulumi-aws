@@ -16,6 +16,7 @@ __all__ = [
     'GetPolicyDocumentStatementConditionArgs',
     'GetPolicyDocumentStatementNotPrincipalArgs',
     'GetPolicyDocumentStatementPrincipalArgs',
+    'GetPrincipalPolicySimulationContextArgs',
 ]
 
 @pulumi.input_type
@@ -332,5 +333,65 @@ class GetPolicyDocumentStatementPrincipalArgs:
     @type.setter
     def type(self, value: str):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class GetPrincipalPolicySimulationContextArgs:
+    def __init__(__self__, *,
+                 key: str,
+                 type: str,
+                 values: Sequence[str]):
+        """
+        :param str key: The context _condition key_ to set.
+               
+               If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+        :param str type: An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
+               
+               For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+        :param Sequence[str] values: A set of one or more values for this context entry.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The context _condition key_ to set.
+
+        If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
+
+        For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: str):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A set of one or more values for this context entry.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
 
 

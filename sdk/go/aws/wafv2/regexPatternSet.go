@@ -7,50 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides an AWS WAFv2 Regex Pattern Set Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewRegexPatternSet(ctx, "example", &wafv2.RegexPatternSetArgs{
-//				Description: pulumi.String("Example regex pattern set"),
-//				RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
-//					&wafv2.RegexPatternSetRegularExpressionArgs{
-//						RegexString: pulumi.String("one"),
-//					},
-//					&wafv2.RegexPatternSetRegularExpressionArgs{
-//						RegexString: pulumi.String("two"),
-//					},
-//				},
-//				Scope: pulumi.String("REGIONAL"),
-//				Tags: pulumi.StringMap{
-//					"Tag1": pulumi.String("Value1"),
-//					"Tag2": pulumi.String("Value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -63,34 +23,15 @@ import (
 // ```
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
-
-	// The Amazon Resource Name (ARN) that identifies the cluster.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A friendly description of the regular expression pattern set.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// A friendly name of the regular expression pattern set.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
-	RegularExpressions RegexPatternSetRegularExpressionArrayOutput `pulumi:"regularExpressions"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRegexPatternSet registers a new resource with the given unique name, arguments, and options.
 func NewRegexPatternSet(ctx *pulumi.Context,
 	name string, args *RegexPatternSetArgs, opts ...pulumi.ResourceOption) (*RegexPatternSet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &RegexPatternSetArgs{}
 	}
 
-	if args.Scope == nil {
-		return nil, errors.New("invalid value for required argument 'Scope'")
-	}
 	var resource RegexPatternSet
 	err := ctx.RegisterResource("aws:wafv2/regexPatternSet:RegexPatternSet", name, args, &resource, opts...)
 	if err != nil {
@@ -113,39 +54,9 @@ func GetRegexPatternSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegexPatternSet resources.
 type regexPatternSetState struct {
-	// The Amazon Resource Name (ARN) that identifies the cluster.
-	Arn *string `pulumi:"arn"`
-	// A friendly description of the regular expression pattern set.
-	Description *string `pulumi:"description"`
-	LockToken   *string `pulumi:"lockToken"`
-	// A friendly name of the regular expression pattern set.
-	Name *string `pulumi:"name"`
-	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
-	RegularExpressions []RegexPatternSetRegularExpression `pulumi:"regularExpressions"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope *string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type RegexPatternSetState struct {
-	// The Amazon Resource Name (ARN) that identifies the cluster.
-	Arn pulumi.StringPtrInput
-	// A friendly description of the regular expression pattern set.
-	Description pulumi.StringPtrInput
-	LockToken   pulumi.StringPtrInput
-	// A friendly name of the regular expression pattern set.
-	Name pulumi.StringPtrInput
-	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
-	RegularExpressions RegexPatternSetRegularExpressionArrayInput
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope pulumi.StringPtrInput
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (RegexPatternSetState) ElementType() reflect.Type {
@@ -153,30 +64,10 @@ func (RegexPatternSetState) ElementType() reflect.Type {
 }
 
 type regexPatternSetArgs struct {
-	// A friendly description of the regular expression pattern set.
-	Description *string `pulumi:"description"`
-	// A friendly name of the regular expression pattern set.
-	Name *string `pulumi:"name"`
-	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
-	RegularExpressions []RegexPatternSetRegularExpression `pulumi:"regularExpressions"`
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope string `pulumi:"scope"`
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RegexPatternSet resource.
 type RegexPatternSetArgs struct {
-	// A friendly description of the regular expression pattern set.
-	Description pulumi.StringPtrInput
-	// A friendly name of the regular expression pattern set.
-	Name pulumi.StringPtrInput
-	// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
-	RegularExpressions RegexPatternSetRegularExpressionArrayInput
-	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-	Scope pulumi.StringInput
-	// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
 }
 
 func (RegexPatternSetArgs) ElementType() reflect.Type {
@@ -264,45 +155,6 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutput() RegexPatternSetOutput {
 
 func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput {
 	return o
-}
-
-// The Amazon Resource Name (ARN) that identifies the cluster.
-func (o RegexPatternSetOutput) Arn() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
-}
-
-// A friendly description of the regular expression pattern set.
-func (o RegexPatternSetOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o RegexPatternSetOutput) LockToken() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.LockToken }).(pulumi.StringOutput)
-}
-
-// A friendly name of the regular expression pattern set.
-func (o RegexPatternSetOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
-func (o RegexPatternSetOutput) RegularExpressions() RegexPatternSetRegularExpressionArrayOutput {
-	return o.ApplyT(func(v *RegexPatternSet) RegexPatternSetRegularExpressionArrayOutput { return v.RegularExpressions }).(RegexPatternSetRegularExpressionArrayOutput)
-}
-
-// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-func (o RegexPatternSetOutput) Scope() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
-}
-
-// An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-func (o RegexPatternSetOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-func (o RegexPatternSetOutput) TagsAll() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type RegexPatternSetArrayOutput struct{ *pulumi.OutputState }

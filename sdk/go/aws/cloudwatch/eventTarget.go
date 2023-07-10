@@ -559,6 +559,7 @@ import (
 //								Type: pulumi.String("Service"),
 //								Identifiers: pulumi.StringArray{
 //									pulumi.String("events.amazonaws.com"),
+//									pulumi.String("delivery.logs.amazonaws.com"),
 //								},
 //							},
 //						},
@@ -578,6 +579,7 @@ import (
 //								Type: pulumi.String("Service"),
 //								Identifiers: pulumi.StringArray{
 //									pulumi.String("events.amazonaws.com"),
+//									pulumi.String("delivery.logs.amazonaws.com"),
 //								},
 //							},
 //						},

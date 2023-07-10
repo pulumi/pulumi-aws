@@ -27,7 +27,7 @@ class ReportDefinitionArgs:
                  s3_prefix: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ReportDefinition resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         :param pulumi.Input[str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         :param pulumi.Input[str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
@@ -59,7 +59,7 @@ class ReportDefinitionArgs:
     @pulumi.getter(name="additionalSchemaElements")
     def additional_schema_elements(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of schema elements. Valid values are: `RESOURCES`.
+        A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         """
         return pulumi.get(self, "additional_schema_elements")
 
@@ -206,7 +206,7 @@ class _ReportDefinitionState:
         """
         Input properties used for looking up and filtering ReportDefinition resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the cur report.
         :param pulumi.Input[str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
@@ -259,7 +259,7 @@ class _ReportDefinitionState:
     @pulumi.getter(name="additionalSchemaElements")
     def additional_schema_elements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of schema elements. Valid values are: `RESOURCES`.
+        A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         """
         return pulumi.get(self, "additional_schema_elements")
 
@@ -421,7 +421,10 @@ class ReportDefinition(pulumi.CustomResource):
                 "REDSHIFT",
                 "QUICKSIGHT",
             ],
-            additional_schema_elements=["RESOURCES"],
+            additional_schema_elements=[
+                "RESOURCES",
+                "SPLIT_COST_ALLOCATION_DATA",
+            ],
             compression="GZIP",
             format="textORcsv",
             report_name="example-cur-report-definition",
@@ -441,7 +444,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         :param pulumi.Input[str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         :param pulumi.Input[bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
@@ -474,7 +477,10 @@ class ReportDefinition(pulumi.CustomResource):
                 "REDSHIFT",
                 "QUICKSIGHT",
             ],
-            additional_schema_elements=["RESOURCES"],
+            additional_schema_elements=[
+                "RESOURCES",
+                "SPLIT_COST_ALLOCATION_DATA",
+            ],
             compression="GZIP",
             format="textORcsv",
             report_name="example-cur-report-definition",
@@ -582,7 +588,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the cur report.
         :param pulumi.Input[str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
@@ -624,7 +630,7 @@ class ReportDefinition(pulumi.CustomResource):
     @pulumi.getter(name="additionalSchemaElements")
     def additional_schema_elements(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of schema elements. Valid values are: `RESOURCES`.
+        A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
         """
         return pulumi.get(self, "additional_schema_elements")
 

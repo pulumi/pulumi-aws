@@ -1122,6 +1122,9 @@ namespace Pulumi.Aws.Inputs
         [Input("translate")]
         public Input<string>? Translate { get; set; }
 
+        [Input("verifiedpermissions")]
+        public Input<string>? Verifiedpermissions { get; set; }
+
         [Input("voiceid")]
         public Input<string>? Voiceid { get; set; }
 

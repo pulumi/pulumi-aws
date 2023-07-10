@@ -56,6 +56,10 @@ export class VoiceConnector extends pulumi.CustomResource {
     }
 
     /**
+     * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
      */
     public readonly awsRegion!: pulumi.Output<string | undefined>;
@@ -69,8 +73,18 @@ export class VoiceConnector extends pulumi.CustomResource {
     public /*out*/ readonly outboundHostName!: pulumi.Output<string>;
     /**
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
+     *
+     * The following arguments are optional:
      */
     public readonly requireEncryption!: pulumi.Output<boolean>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VoiceConnector resource with the given unique name, arguments, and options.
@@ -85,10 +99,13 @@ export class VoiceConnector extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["awsRegion"] = state ? state.awsRegion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outboundHostName"] = state ? state.outboundHostName : undefined;
             resourceInputs["requireEncryption"] = state ? state.requireEncryption : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VoiceConnectorArgs | undefined;
             if ((!args || args.requireEncryption === undefined) && !opts.urn) {
@@ -97,7 +114,10 @@ export class VoiceConnector extends pulumi.CustomResource {
             resourceInputs["awsRegion"] = args ? args.awsRegion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["requireEncryption"] = args ? args.requireEncryption : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["outboundHostName"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VoiceConnector.__pulumiType, name, resourceInputs, opts);
@@ -108,6 +128,10 @@ export class VoiceConnector extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VoiceConnector resources.
  */
 export interface VoiceConnectorState {
+    /**
+     * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
      */
@@ -122,8 +146,18 @@ export interface VoiceConnectorState {
     outboundHostName?: pulumi.Input<string>;
     /**
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
+     *
+     * The following arguments are optional:
      */
     requireEncryption?: pulumi.Input<boolean>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -140,6 +174,12 @@ export interface VoiceConnectorArgs {
     name?: pulumi.Input<string>;
     /**
      * When enabled, requires encryption for the Amazon Chime Voice Connector.
+     *
+     * The following arguments are optional:
      */
     requireEncryption: pulumi.Input<boolean>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

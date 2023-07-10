@@ -63,6 +63,63 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// ### Spot instance example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var thisAmi = Aws.Ec2.GetAmi.Invoke(new()
+    ///     {
+    ///         MostRecent = true,
+    ///         Owners = new[]
+    ///         {
+    ///             "amazon",
+    ///         },
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+    ///             {
+    ///                 Name = "architecture",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "arm64",
+    ///                 },
+    ///             },
+    ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
+    ///             {
+    ///                 Name = "name",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "al2023-ami-2023*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var thisInstance = new Aws.Ec2.Instance("thisInstance", new()
+    ///     {
+    ///         Ami = thisAmi.Apply(getAmiResult =&gt; getAmiResult.Id),
+    ///         InstanceMarketOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsArgs
+    ///         {
+    ///             SpotOptions = new Aws.Ec2.Inputs.InstanceInstanceMarketOptionsSpotOptionsArgs
+    ///             {
+    ///                 MaxPrice = "0.0031",
+    ///             },
+    ///         },
+    ///         InstanceType = "t4g.nano",
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "test-spot" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Network and credit specification example
     /// 
     /// ```csharp
@@ -359,6 +416,18 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceInitiatedShutdownBehavior { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether this is a Spot Instance or a Scheduled Instance.
+        /// </summary>
+        [Output("instanceLifecycle")]
+        public Output<string> InstanceLifecycle { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        /// </summary>
+        [Output("instanceMarketOptions")]
+        public Output<Outputs.InstanceInstanceMarketOptions> InstanceMarketOptions { get; private set; } = null!;
+
+        /// <summary>
         /// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         /// </summary>
         [Output("instanceState")]
@@ -503,6 +572,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("sourceDestCheck")]
         public Output<bool?> SourceDestCheck { get; private set; } = null!;
+
+        /// <summary>
+        /// If the request is a Spot Instance request, the ID of the request.
+        /// </summary>
+        [Output("spotInstanceRequestId")]
+        public Output<string> SpotInstanceRequestId { get; private set; } = null!;
 
         /// <summary>
         /// VPC Subnet ID to launch in.
@@ -739,6 +814,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("instanceInitiatedShutdownBehavior")]
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
+
+        /// <summary>
+        /// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        /// </summary>
+        [Input("instanceMarketOptions")]
+        public Input<Inputs.InstanceInstanceMarketOptionsArgs>? InstanceMarketOptions { get; set; }
 
         /// <summary>
         /// Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -1086,6 +1167,18 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
 
         /// <summary>
+        /// Indicates whether this is a Spot Instance or a Scheduled Instance.
+        /// </summary>
+        [Input("instanceLifecycle")]
+        public Input<string>? InstanceLifecycle { get; set; }
+
+        /// <summary>
+        /// Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+        /// </summary>
+        [Input("instanceMarketOptions")]
+        public Input<Inputs.InstanceInstanceMarketOptionsGetArgs>? InstanceMarketOptions { get; set; }
+
+        /// <summary>
         /// State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
         /// </summary>
         [Input("instanceState")]
@@ -1255,6 +1348,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("sourceDestCheck")]
         public Input<bool>? SourceDestCheck { get; set; }
+
+        /// <summary>
+        /// If the request is a Spot Instance request, the ID of the request.
+        /// </summary>
+        [Input("spotInstanceRequestId")]
+        public Input<string>? SpotInstanceRequestId { get; set; }
 
         /// <summary>
         /// VPC Subnet ID to launch in.

@@ -91,6 +91,10 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
+     * The configuration for experiment logging. See below.
+     */
+    public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
+    /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -125,6 +129,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             const state = argsOrState as ExperimentTemplateState | undefined;
             resourceInputs["actions"] = state ? state.actions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stopConditions"] = state ? state.stopConditions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -146,6 +151,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             }
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -169,6 +175,10 @@ export interface ExperimentTemplateState {
      * Description for the experiment template.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The configuration for experiment logging. See below.
+     */
+    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
@@ -202,6 +212,10 @@ export interface ExperimentTemplateArgs {
      * Description for the experiment template.
      */
     description: pulumi.Input<string>;
+    /**
+     * The configuration for experiment logging. See below.
+     */
+    logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */

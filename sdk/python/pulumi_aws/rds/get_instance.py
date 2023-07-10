@@ -391,7 +391,7 @@ class GetInstanceResult:
     @pulumi.getter
     def port(self) -> int:
         """
-        Database port.
+        Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
         """
         return pulumi.get(self, "port")
 

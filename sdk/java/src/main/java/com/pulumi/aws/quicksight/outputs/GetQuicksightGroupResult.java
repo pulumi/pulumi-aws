@@ -6,72 +6,22 @@ package com.pulumi.aws.quicksight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQuicksightGroupResult {
-    /**
-     * @return The Amazon Resource Name (ARN) for the group.
-     * 
-     */
-    private String arn;
-    private String awsAccountId;
-    /**
-     * @return The group description.
-     * 
-     */
-    private String description;
-    private String groupName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    private @Nullable String namespace;
-    /**
-     * @return The principal ID of the group.
-     * 
-     */
-    private String principalId;
 
     private GetQuicksightGroupResult() {}
-    /**
-     * @return The Amazon Resource Name (ARN) for the group.
-     * 
-     */
-    public String arn() {
-        return this.arn;
-    }
-    public String awsAccountId() {
-        return this.awsAccountId;
-    }
-    /**
-     * @return The group description.
-     * 
-     */
-    public String description() {
-        return this.description;
-    }
-    public String groupName() {
-        return this.groupName;
-    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     public String id() {
         return this.id;
-    }
-    public Optional<String> namespace() {
-        return Optional.ofNullable(this.namespace);
-    }
-    /**
-     * @return The principal ID of the group.
-     * 
-     */
-    public String principalId() {
-        return this.principalId;
     }
 
     public static Builder builder() {
@@ -83,69 +33,21 @@ public final class GetQuicksightGroupResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String arn;
-        private String awsAccountId;
-        private String description;
-        private String groupName;
         private String id;
-        private @Nullable String namespace;
-        private String principalId;
         public Builder() {}
         public Builder(GetQuicksightGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.arn = defaults.arn;
-    	      this.awsAccountId = defaults.awsAccountId;
-    	      this.description = defaults.description;
-    	      this.groupName = defaults.groupName;
     	      this.id = defaults.id;
-    	      this.namespace = defaults.namespace;
-    	      this.principalId = defaults.principalId;
         }
 
-        @CustomType.Setter
-        public Builder arn(String arn) {
-            this.arn = Objects.requireNonNull(arn);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder awsAccountId(String awsAccountId) {
-            this.awsAccountId = Objects.requireNonNull(awsAccountId);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder groupName(String groupName) {
-            this.groupName = Objects.requireNonNull(groupName);
-            return this;
-        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
-        @CustomType.Setter
-        public Builder namespace(@Nullable String namespace) {
-            this.namespace = namespace;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder principalId(String principalId) {
-            this.principalId = Objects.requireNonNull(principalId);
-            return this;
-        }
         public GetQuicksightGroupResult build() {
             final var o = new GetQuicksightGroupResult();
-            o.arn = arn;
-            o.awsAccountId = awsAccountId;
-            o.description = description;
-            o.groupName = groupName;
             o.id = id;
-            o.namespace = namespace;
-            o.principalId = principalId;
             return o;
         }
     }

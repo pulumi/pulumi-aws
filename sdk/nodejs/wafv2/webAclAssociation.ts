@@ -11,60 +11,6 @@ import * as utilities from "../utilities";
  *
  * [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
- *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
- *     openapi: "3.0.1",
- *     info: {
- *         title: "example",
- *         version: "1.0",
- *     },
- *     paths: {
- *         "/path1": {
- *             get: {
- *                 "x-amazon-apigateway-integration": {
- *                     httpMethod: "GET",
- *                     payloadFormatVersion: "1.0",
- *                     type: "HTTP_PROXY",
- *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
- *                 },
- *             },
- *         },
- *     },
- * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
- *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
- *     },
- * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
- *     deployment: exampleDeployment.id,
- *     restApi: exampleRestApi.id,
- *     stageName: "example",
- * });
- * const exampleWebAcl = new aws.wafv2.WebAcl("exampleWebAcl", {
- *     scope: "REGIONAL",
- *     defaultAction: {
- *         allow: {},
- *     },
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- * });
- * const exampleWebAclAssociation = new aws.wafv2.WebAclAssociation("exampleWebAclAssociation", {
- *     resourceArn: exampleStage.arn,
- *     webAclArn: exampleWebAcl.arn,
- * });
- * ```
- *
  * ## Import
  *
  * WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.,
@@ -101,14 +47,6 @@ export class WebAclAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAclAssociation.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
-     */
-    public readonly resourceArn!: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
-     */
-    public readonly webAclArn!: pulumi.Output<string>;
 
     /**
      * Create a WebAclAssociation resource with the given unique name, arguments, and options.
@@ -117,24 +55,14 @@ export class WebAclAssociation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WebAclAssociationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: WebAclAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebAclAssociationArgs | WebAclAssociationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclAssociationState | undefined;
-            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
-            resourceInputs["webAclArn"] = state ? state.webAclArn : undefined;
         } else {
             const args = argsOrState as WebAclAssociationArgs | undefined;
-            if ((!args || args.resourceArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceArn'");
-            }
-            if ((!args || args.webAclArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'webAclArn'");
-            }
-            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
-            resourceInputs["webAclArn"] = args ? args.webAclArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WebAclAssociation.__pulumiType, name, resourceInputs, opts);
@@ -145,26 +73,10 @@ export class WebAclAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAclAssociation resources.
  */
 export interface WebAclAssociationState {
-    /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
-     */
-    resourceArn?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
-     */
-    webAclArn?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a WebAclAssociation resource.
  */
 export interface WebAclAssociationArgs {
-    /**
-     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
-     */
-    resourceArn: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
-     */
-    webAclArn: pulumi.Input<string>;
 }

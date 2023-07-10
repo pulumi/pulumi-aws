@@ -12,24 +12,6 @@ namespace Pulumi.Aws.Quicksight
     /// <summary>
     /// Resource for managing QuickSight Group
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Quicksight.Group("example", new()
-    ///     {
-    ///         GroupName = "tf-example",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// QuickSight Group can be imported using the aws account id, namespace and group name separated by `/`.
@@ -42,44 +24,13 @@ namespace Pulumi.Aws.Quicksight
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of group
-        /// </summary>
-        [Output("arn")]
-        public Output<string> Arn { get; private set; } = null!;
-
-        /// <summary>
-        /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        /// </summary>
-        [Output("awsAccountId")]
-        public Output<string> AwsAccountId { get; private set; } = null!;
-
-        /// <summary>
-        /// A description for the group.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// A name for the group.
-        /// </summary>
-        [Output("groupName")]
-        public Output<string> GroupName { get; private set; } = null!;
-
-        /// <summary>
-        /// The namespace. Currently, you should set this to `default`.
-        /// </summary>
-        [Output("namespace")]
-        public Output<string?> Namespace { get; private set; } = null!;
-
-
-        /// <summary>
         /// Create a Group resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Group(string name, GroupArgs args, CustomResourceOptions? options = null)
+        public Group(string name, GroupArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:quicksight/group:Group", name, args ?? new GroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -117,30 +68,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        /// </summary>
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
-
-        /// <summary>
-        /// A description for the group.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// A name for the group.
-        /// </summary>
-        [Input("groupName", required: true)]
-        public Input<string> GroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The namespace. Currently, you should set this to `default`.
-        /// </summary>
-        [Input("namespace")]
-        public Input<string>? Namespace { get; set; }
-
         public GroupArgs()
         {
         }
@@ -149,36 +76,6 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of group
-        /// </summary>
-        [Input("arn")]
-        public Input<string>? Arn { get; set; }
-
-        /// <summary>
-        /// The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        /// </summary>
-        [Input("awsAccountId")]
-        public Input<string>? AwsAccountId { get; set; }
-
-        /// <summary>
-        /// A description for the group.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// A name for the group.
-        /// </summary>
-        [Input("groupName")]
-        public Input<string>? GroupName { get; set; }
-
-        /// <summary>
-        /// The namespace. Currently, you should set this to `default`.
-        /// </summary>
-        [Input("namespace")]
-        public Input<string>? Namespace { get; set; }
-
         public GroupState()
         {
         }
