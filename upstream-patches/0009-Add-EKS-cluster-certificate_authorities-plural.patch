@@ -1,17 +1,17 @@
-From 5ba507b4aa033dfadded9ea7f6baab8e3a374c02 Mon Sep 17 00:00:00 2001
+From be97561a609e3b212ff72a65724761d57951382b Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:32:49 +0000
-Subject: [PATCH 09/27] Add EKS cluster certificate_authorities (plural)
+Subject: [PATCH 09/28] Add EKS cluster certificate_authorities (plural)
 
 ---
  internal/service/eks/cluster.go | 22 ++++++++++++++++++++++
  1 file changed, 22 insertions(+)
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index eb8a035219..06d996e1ef 100644
+index 1ea8ea1e99..bdb7dc949a 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
-@@ -54,9 +54,24 @@ func ResourceCluster() *schema.Resource {
+@@ -57,9 +57,24 @@ func ResourceCluster() *schema.Resource {
  				Type:     schema.TypeString,
  				Computed: true,
  			},
@@ -36,7 +36,7 @@ index eb8a035219..06d996e1ef 100644
  				Elem: &schema.Resource{
  					Schema: map[string]*schema.Schema{
  						"data": {
-@@ -382,6 +397,13 @@ func resourceClusterRead(ctx context.Context, d *schema.ResourceData, meta inter
+@@ -385,6 +400,13 @@ func resourceClusterRead(ctx context.Context, d *schema.ResourceData, meta inter
  	}
  
  	d.Set("arn", cluster.Arn)

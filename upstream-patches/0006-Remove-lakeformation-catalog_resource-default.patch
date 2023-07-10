@@ -1,17 +1,17 @@
-From b1e8ae57c48fff01fbf6292cb62e0f586b0364de Mon Sep 17 00:00:00 2001
+From 4f2faf87448172270c53032f4967fbc86bb6be8e Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:08:23 +0000
-Subject: [PATCH 06/27] Remove lakeformation catalog_resource default
+Subject: [PATCH 06/28] Remove lakeformation catalog_resource default
 
 ---
  internal/service/lakeformation/permissions.go | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/internal/service/lakeformation/permissions.go b/internal/service/lakeformation/permissions.go
-index 464f3ee60b..e8b1f69e74 100644
+index 21e0b428aa..3c7cdad879 100644
 --- a/internal/service/lakeformation/permissions.go
 +++ b/internal/service/lakeformation/permissions.go
-@@ -37,8 +37,8 @@ func ResourcePermissions() *schema.Resource {
+@@ -40,8 +40,8 @@ func ResourcePermissions() *schema.Resource {
  				ValidateFunc: verify.ValidAccountID,
  			},
  			"catalog_resource": {

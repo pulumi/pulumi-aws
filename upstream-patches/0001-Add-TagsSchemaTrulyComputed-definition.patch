@@ -1,17 +1,17 @@
-From a517139566823fdc0d7e8afb94bd859d3d04d5e7 Mon Sep 17 00:00:00 2001
+From dedf491f5c284c5ea0abb1ebb1f38d9a177cd8e2 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 16:49:08 +0000
-Subject: [PATCH 01/27] Add TagsSchemaTrulyComputed definition
+Subject: [PATCH 01/28] Add TagsSchemaTrulyComputed definition
 
 ---
  internal/tags/tags.go | 8 ++++++++
  1 file changed, 8 insertions(+)
 
 diff --git a/internal/tags/tags.go b/internal/tags/tags.go
-index fbe5fe2385..d0d269ff89 100644
+index 12d3b9013e..bc9e14fc19 100644
 --- a/internal/tags/tags.go
 +++ b/internal/tags/tags.go
-@@ -30,3 +30,11 @@ func TagsSchemaForceNew() *schema.Schema {
+@@ -33,3 +33,11 @@ func TagsSchemaForceNew() *schema.Schema {
  		Elem:     &schema.Schema{Type: schema.TypeString},
  	}
  }
