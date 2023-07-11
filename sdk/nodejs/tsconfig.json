@@ -1022,7 +1022,7 @@
         "iam/getGroup.ts",
         "iam/getInstanceProfile.ts",
         "iam/getInstanceProfiles.ts",
-        "iam/getOpenidConnectProvider.ts",
+        "iam/getOpenIdConnectProvider.ts",
         "iam/getPolicy.ts",
         "iam/getPolicyDocument.ts",
         "iam/getRole.ts",
