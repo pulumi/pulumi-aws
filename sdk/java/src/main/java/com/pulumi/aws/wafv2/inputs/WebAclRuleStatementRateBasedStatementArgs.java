@@ -19,14 +19,14 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
     public static final WebAclRuleStatementRateBasedStatementArgs Empty = new WebAclRuleStatementRateBasedStatementArgs();
 
     /**
-     * Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+     * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
     @Import(name="aggregateKeyType")
     private @Nullable Output<String> aggregateKeyType;
 
     /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
     public Optional<Output<String>> aggregateKeyType() {
@@ -64,14 +64,14 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
     }
 
     /**
-     * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+     * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
      * 
      */
     @Import(name="scopeDownStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs> scopeDownStatement;
 
     /**
-     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs>> scopeDownStatement() {
@@ -106,7 +106,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
          * 
          * @return builder
          * 

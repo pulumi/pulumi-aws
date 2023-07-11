@@ -99,6 +99,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The namespace Amazon Resource Name (ARN) of the cluster
+        /// </summary>
+        [Output("clusterNamespaceArn")]
+        public Output<string> ClusterNamespaceArn { get; private set; } = null!;
+
+        /// <summary>
         /// The nodes in the cluster. Cluster node blocks are documented below
         /// </summary>
         [Output("clusterNodes")]
@@ -695,6 +701,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
+
+        /// <summary>
+        /// The namespace Amazon Resource Name (ARN) of the cluster
+        /// </summary>
+        [Input("clusterNamespaceArn")]
+        public Input<string>? ClusterNamespaceArn { get; set; }
 
         [Input("clusterNodes")]
         private InputList<Inputs.ClusterClusterNodeGetArgs>? _clusterNodes;

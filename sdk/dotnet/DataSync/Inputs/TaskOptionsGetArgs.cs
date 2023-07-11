@@ -43,6 +43,12 @@ namespace Pulumi.Aws.DataSync.Inputs
         public Input<string>? Mtime { get; set; }
 
         /// <summary>
+        /// Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+        /// </summary>
+        [Input("objectTags")]
+        public Input<string>? ObjectTags { get; set; }
+
+        /// <summary>
         /// Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
         /// </summary>
         [Input("overwriteMode")]
@@ -67,7 +73,7 @@ namespace Pulumi.Aws.DataSync.Inputs
         public Input<string>? PreserveDevices { get; set; }
 
         /// <summary>
-        /// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+        /// Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
         /// </summary>
         [Input("securityDescriptorCopyFlags")]
         public Input<string>? SecurityDescriptorCopyFlags { get; set; }

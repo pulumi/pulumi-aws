@@ -2401,8 +2401,8 @@ class QuerySuggestionsBlockListSourceS3Path(dict):
                  bucket: str,
                  key: str):
         """
-        :param str bucket: The name of the S3 bucket that contains the file.
-        :param str key: The name of the file.
+        :param str bucket: Name of the S3 bucket that contains the file.
+        :param str key: Name of the file.
                
                The following arguments are optional:
         """
@@ -2413,7 +2413,7 @@ class QuerySuggestionsBlockListSourceS3Path(dict):
     @pulumi.getter
     def bucket(self) -> str:
         """
-        The name of the S3 bucket that contains the file.
+        Name of the S3 bucket that contains the file.
         """
         return pulumi.get(self, "bucket")
 
@@ -2421,7 +2421,7 @@ class QuerySuggestionsBlockListSourceS3Path(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The name of the file.
+        Name of the file.
 
         The following arguments are optional:
         """

@@ -217,7 +217,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration blocked for information about the user pool password policy. Detailed below.
+        /// Configuration block for information about the user pool password policy. Detailed below.
         /// </summary>
         [Output("passwordPolicy")]
         public Output<Outputs.UserPoolPasswordPolicy> PasswordPolicy { get; private set; } = null!;
@@ -427,7 +427,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration blocked for information about the user pool password policy. Detailed below.
+        /// Configuration block for information about the user pool password policy. Detailed below.
         /// </summary>
         [Input("passwordPolicy")]
         public Input<Inputs.UserPoolPasswordPolicyArgs>? PasswordPolicy { get; set; }
@@ -653,7 +653,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Configuration blocked for information about the user pool password policy. Detailed below.
+        /// Configuration block for information about the user pool password policy. Detailed below.
         /// </summary>
         [Input("passwordPolicy")]
         public Input<Inputs.UserPoolPasswordPolicyGetArgs>? PasswordPolicy { get; set; }

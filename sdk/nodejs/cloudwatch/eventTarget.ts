@@ -273,7 +273,10 @@ import * as utilities from "../utilities";
  *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
  *             principals: [{
  *                 type: "Service",
- *                 identifiers: ["events.amazonaws.com"],
+ *                 identifiers: [
+ *                     "events.amazonaws.com",
+ *                     "delivery.logs.amazonaws.com",
+ *                 ],
  *             }],
  *         },
  *         {
@@ -282,7 +285,10 @@ import * as utilities from "../utilities";
  *             resources: [pulumi.interpolate`${exampleLogGroup.arn}:*:*`],
  *             principals: [{
  *                 type: "Service",
- *                 identifiers: ["events.amazonaws.com"],
+ *                 identifiers: [
+ *                     "events.amazonaws.com",
+ *                     "delivery.logs.amazonaws.com",
+ *                 ],
  *             }],
  *             conditions: [{
  *                 test: "ArnEquals",

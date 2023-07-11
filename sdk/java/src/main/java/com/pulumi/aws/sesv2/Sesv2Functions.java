@@ -8,8 +8,14 @@ import com.pulumi.aws.sesv2.inputs.GetConfigurationSetArgs;
 import com.pulumi.aws.sesv2.inputs.GetConfigurationSetPlainArgs;
 import com.pulumi.aws.sesv2.inputs.GetDedicatedIpPoolArgs;
 import com.pulumi.aws.sesv2.inputs.GetDedicatedIpPoolPlainArgs;
+import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
+import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesArgs;
+import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesPlainArgs;
+import com.pulumi.aws.sesv2.inputs.GetEmailIdentityPlainArgs;
 import com.pulumi.aws.sesv2.outputs.GetConfigurationSetResult;
 import com.pulumi.aws.sesv2.outputs.GetDedicatedIpPoolResult;
+import com.pulumi.aws.sesv2.outputs.GetEmailIdentityMailFromAttributesResult;
+import com.pulumi.aws.sesv2.outputs.GetEmailIdentityResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -320,5 +326,329 @@ public final class Sesv2Functions {
      */
     public static CompletableFuture<GetDedicatedIpPoolResult> getDedicatedIpPoolPlain(GetDedicatedIpPoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:sesv2/getDedicatedIpPool:getDedicatedIpPool", TypeShape.of(GetDedicatedIpPoolResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
+     *             .emailIdentity(&#34;example.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args) {
+        return getEmailIdentity(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
+     *             .emailIdentity(&#34;example.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetEmailIdentityResult> getEmailIdentityPlain(GetEmailIdentityPlainArgs args) {
+        return getEmailIdentityPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
+     *             .emailIdentity(&#34;example.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:sesv2/getEmailIdentity:getEmailIdentity", TypeShape.of(GetEmailIdentityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
+     *             .emailIdentity(&#34;example.com&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetEmailIdentityResult> getEmailIdentityPlain(GetEmailIdentityPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:sesv2/getEmailIdentity:getEmailIdentity", TypeShape.of(GetEmailIdentityResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleEmailIdentity = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
+     *             .emailIdentity(&#34;example.com&#34;)
+     *             .build());
+     * 
+     *         final var exampleEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
+     *             .emailIdentity(exampleEmailIdentity.applyValue(getEmailIdentityResult -&gt; getEmailIdentityResult.emailIdentity()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetEmailIdentityMailFromAttributesResult> getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs args) {
+        return getEmailIdentityMailFromAttributes(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleEmailIdentity = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
+     *             .emailIdentity(&#34;example.com&#34;)
+     *             .build());
+     * 
+     *         final var exampleEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
+     *             .emailIdentity(exampleEmailIdentity.applyValue(getEmailIdentityResult -&gt; getEmailIdentityResult.emailIdentity()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetEmailIdentityMailFromAttributesResult> getEmailIdentityMailFromAttributesPlain(GetEmailIdentityMailFromAttributesPlainArgs args) {
+        return getEmailIdentityMailFromAttributesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleEmailIdentity = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
+     *             .emailIdentity(&#34;example.com&#34;)
+     *             .build());
+     * 
+     *         final var exampleEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
+     *             .emailIdentity(exampleEmailIdentity.applyValue(getEmailIdentityResult -&gt; getEmailIdentityResult.emailIdentity()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetEmailIdentityMailFromAttributesResult> getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", TypeShape.of(GetEmailIdentityMailFromAttributesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.sesv2.Sesv2Functions;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityArgs;
+     * import com.pulumi.aws.sesv2.inputs.GetEmailIdentityMailFromAttributesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleEmailIdentity = Sesv2Functions.getEmailIdentity(GetEmailIdentityArgs.builder()
+     *             .emailIdentity(&#34;example.com&#34;)
+     *             .build());
+     * 
+     *         final var exampleEmailIdentityMailFromAttributes = Sesv2Functions.getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs.builder()
+     *             .emailIdentity(exampleEmailIdentity.applyValue(getEmailIdentityResult -&gt; getEmailIdentityResult.emailIdentity()))
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetEmailIdentityMailFromAttributesResult> getEmailIdentityMailFromAttributesPlain(GetEmailIdentityMailFromAttributesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", TypeShape.of(GetEmailIdentityMailFromAttributesResult.class), args, Utilities.withVersion(options));
     }
 }

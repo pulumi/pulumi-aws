@@ -18,11 +18,11 @@ type WebAcl struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig WebAclCaptchaConfigPtrOutput `pulumi:"captchaConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
-	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -85,11 +85,11 @@ type webAclState struct {
 	Arn *string `pulumi:"arn"`
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity *int `pulumi:"capacity"`
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig *WebAclCaptchaConfig `pulumi:"captchaConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
-	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction *WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
@@ -115,11 +115,11 @@ type WebAclState struct {
 	Arn pulumi.StringPtrInput
 	// Web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntPtrInput
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig WebAclCaptchaConfigPtrInput
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
-	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionPtrInput
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
@@ -145,11 +145,11 @@ func (WebAclState) ElementType() reflect.Type {
 }
 
 type webAclArgs struct {
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig *WebAclCaptchaConfig `pulumi:"captchaConfig"`
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
-	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// Friendly description of the WebACL.
 	Description *string `pulumi:"description"`
@@ -169,11 +169,11 @@ type webAclArgs struct {
 
 // The set of arguments for constructing a WebAcl resource.
 type WebAclArgs struct {
-	// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+	// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 	CaptchaConfig WebAclCaptchaConfigPtrInput
 	// Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
 	CustomResponseBodies WebAclCustomResponseBodyArrayInput
-	// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+	// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 	DefaultAction WebAclDefaultActionInput
 	// Friendly description of the WebACL.
 	Description pulumi.StringPtrInput
@@ -288,7 +288,7 @@ func (o WebAclOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *WebAcl) pulumi.IntOutput { return v.Capacity }).(pulumi.IntOutput)
 }
 
-// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
 func (o WebAclOutput) CaptchaConfig() WebAclCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclCaptchaConfigPtrOutput { return v.CaptchaConfig }).(WebAclCaptchaConfigPtrOutput)
 }
@@ -298,7 +298,7 @@ func (o WebAclOutput) CustomResponseBodies() WebAclCustomResponseBodyArrayOutput
 	return o.ApplyT(func(v *WebAcl) WebAclCustomResponseBodyArrayOutput { return v.CustomResponseBodies }).(WebAclCustomResponseBodyArrayOutput)
 }
 
-// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+// Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
 func (o WebAclOutput) DefaultAction() WebAclDefaultActionOutput {
 	return o.ApplyT(func(v *WebAcl) WebAclDefaultActionOutput { return v.DefaultAction }).(WebAclDefaultActionOutput)
 }

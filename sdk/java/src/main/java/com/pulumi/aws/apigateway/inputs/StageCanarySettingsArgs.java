@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Double;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -39,13 +38,13 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
      * 
      */
     @Import(name="stageVariableOverrides")
-    private @Nullable Output<Map<String,Object>> stageVariableOverrides;
+    private @Nullable Output<Map<String,String>> stageVariableOverrides;
 
     /**
      * @return Map of overridden stage `variables` (including new variables) for the canary deployment.
      * 
      */
-    public Optional<Output<Map<String,Object>>> stageVariableOverrides() {
+    public Optional<Output<Map<String,String>>> stageVariableOverrides() {
         return Optional.ofNullable(this.stageVariableOverrides);
     }
 
@@ -117,7 +116,7 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder stageVariableOverrides(@Nullable Output<Map<String,Object>> stageVariableOverrides) {
+        public Builder stageVariableOverrides(@Nullable Output<Map<String,String>> stageVariableOverrides) {
             $.stageVariableOverrides = stageVariableOverrides;
             return this;
         }
@@ -128,7 +127,7 @@ public final class StageCanarySettingsArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder stageVariableOverrides(Map<String,Object> stageVariableOverrides) {
+        public Builder stageVariableOverrides(Map<String,String> stageVariableOverrides) {
             return stageVariableOverrides(Output.of(stageVariableOverrides));
         }
 

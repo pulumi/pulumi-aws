@@ -117,11 +117,16 @@ namespace Pulumi.Aws.Sfn
         /// Set to the state machine definition.
         /// </summary>
         public readonly string Definition;
+        public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// The revision identifier for the state machine.
+        /// </summary>
+        public readonly string RevisionId;
         /// <summary>
         /// Set to the role_arn used by the state function.
         /// </summary>
@@ -139,9 +144,13 @@ namespace Pulumi.Aws.Sfn
 
             string definition,
 
+            string description,
+
             string id,
 
             string name,
+
+            string revisionId,
 
             string roleArn,
 
@@ -150,8 +159,10 @@ namespace Pulumi.Aws.Sfn
             Arn = arn;
             CreationDate = creationDate;
             Definition = definition;
+            Description = description;
             Id = id;
             Name = name;
+            RevisionId = revisionId;
             RoleArn = roleArn;
             Status = status;
         }

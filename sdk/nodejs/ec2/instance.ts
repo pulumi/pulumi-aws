@@ -41,6 +41,39 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
+ * ### Spot instance example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const thisAmi = aws.ec2.getAmi({
+ *     mostRecent: true,
+ *     owners: ["amazon"],
+ *     filters: [
+ *         {
+ *             name: "architecture",
+ *             values: ["arm64"],
+ *         },
+ *         {
+ *             name: "name",
+ *             values: ["al2023-ami-2023*"],
+ *         },
+ *     ],
+ * });
+ * const thisInstance = new aws.ec2.Instance("thisInstance", {
+ *     ami: thisAmi.then(thisAmi => thisAmi.id),
+ *     instanceMarketOptions: {
+ *         spotOptions: {
+ *             maxPrice: "0.0031",
+ *         },
+ *     },
+ *     instanceType: "t4g.nano",
+ *     tags: {
+ *         Name: "test-spot",
+ *     },
+ * });
+ * ```
  * ### Network and credit specification example
  *
  * ```typescript
@@ -266,6 +299,14 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string>;
     /**
+     * Indicates whether this is a Spot Instance or a Scheduled Instance.
+     */
+    public /*out*/ readonly instanceLifecycle!: pulumi.Output<string>;
+    /**
+     * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+     */
+    public readonly instanceMarketOptions!: pulumi.Output<outputs.ec2.InstanceInstanceMarketOptions>;
+    /**
      * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      */
     public /*out*/ readonly instanceState!: pulumi.Output<string>;
@@ -366,6 +407,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly sourceDestCheck!: pulumi.Output<boolean | undefined>;
     /**
+     * If the request is a Spot Instance request, the ID of the request.
+     */
+    public /*out*/ readonly spotInstanceRequestId!: pulumi.Output<string>;
+    /**
      * VPC Subnet ID to launch in.
      */
     public readonly subnetId!: pulumi.Output<string>;
@@ -438,6 +483,8 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["hostResourceGroupArn"] = state ? state.hostResourceGroupArn : undefined;
             resourceInputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
             resourceInputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
+            resourceInputs["instanceLifecycle"] = state ? state.instanceLifecycle : undefined;
+            resourceInputs["instanceMarketOptions"] = state ? state.instanceMarketOptions : undefined;
             resourceInputs["instanceState"] = state ? state.instanceState : undefined;
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["ipv6AddressCount"] = state ? state.ipv6AddressCount : undefined;
@@ -462,6 +509,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["secondaryPrivateIps"] = state ? state.secondaryPrivateIps : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["sourceDestCheck"] = state ? state.sourceDestCheck : undefined;
+            resourceInputs["spotInstanceRequestId"] = state ? state.spotInstanceRequestId : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -493,6 +541,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["hostResourceGroupArn"] = args ? args.hostResourceGroupArn : undefined;
             resourceInputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
             resourceInputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
+            resourceInputs["instanceMarketOptions"] = args ? args.instanceMarketOptions : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
             resourceInputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
@@ -519,6 +568,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["volumeTags"] = args ? args.volumeTags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["instanceLifecycle"] = undefined /*out*/;
             resourceInputs["instanceState"] = undefined /*out*/;
             resourceInputs["outpostArn"] = undefined /*out*/;
             resourceInputs["passwordData"] = undefined /*out*/;
@@ -526,6 +576,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["privateDns"] = undefined /*out*/;
             resourceInputs["publicDns"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
+            resourceInputs["spotInstanceRequestId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -628,6 +679,14 @@ export interface InstanceState {
      */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
+     * Indicates whether this is a Spot Instance or a Scheduled Instance.
+     */
+    instanceLifecycle?: pulumi.Input<string>;
+    /**
+     * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+     */
+    instanceMarketOptions?: pulumi.Input<inputs.ec2.InstanceInstanceMarketOptions>;
+    /**
      * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      */
     instanceState?: pulumi.Input<string>;
@@ -727,6 +786,10 @@ export interface InstanceState {
      * Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      */
     sourceDestCheck?: pulumi.Input<boolean>;
+    /**
+     * If the request is a Spot Instance request, the ID of the request.
+     */
+    spotInstanceRequestId?: pulumi.Input<string>;
     /**
      * VPC Subnet ID to launch in.
      */
@@ -857,6 +920,10 @@ export interface InstanceArgs {
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
+    /**
+     * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+     */
+    instanceMarketOptions?: pulumi.Input<inputs.ec2.InstanceInstanceMarketOptions>;
     /**
      * Instance type to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instanceType` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      */

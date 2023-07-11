@@ -13,19 +13,19 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` below for details.
+        /// Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
         /// </summary>
         [Input("action")]
         public Input<Inputs.WebAclRuleActionArgs>? Action { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.WebAclRuleCaptchaConfigArgs>? CaptchaConfig { get; set; }
 
         /// <summary>
-        /// Friendly name of the rule. **NOTE:** The provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
+        /// Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_&lt;account-id&gt;_&lt;web-acl-guid&gt;_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

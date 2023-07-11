@@ -1149,6 +1149,7 @@ class OntapVolumeTieringPolicy(dict):
                  cooling_period: Optional[int] = None,
                  name: Optional[str] = None):
         """
+        :param int cooling_period: Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
         :param str name: Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
         """
         if cooling_period is not None:
@@ -1159,6 +1160,9 @@ class OntapVolumeTieringPolicy(dict):
     @property
     @pulumi.getter(name="coolingPeriod")
     def cooling_period(self) -> Optional[int]:
+        """
+        Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+        """
         return pulumi.get(self, "cooling_period")
 
     @property

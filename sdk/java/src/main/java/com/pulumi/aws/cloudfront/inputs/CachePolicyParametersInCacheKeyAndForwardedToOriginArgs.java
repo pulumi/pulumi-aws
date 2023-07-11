@@ -19,14 +19,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
     public static final CachePolicyParametersInCacheKeyAndForwardedToOriginArgs Empty = new CachePolicyParametersInCacheKeyAndForwardedToOriginArgs();
 
     /**
-     * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+     * Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      * 
      */
     @Import(name="cookiesConfig", required=true)
     private Output<CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs> cookiesConfig;
 
     /**
-     * @return Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+     * @return Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      * 
      */
     public Output<CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs> cookiesConfig() {
@@ -34,14 +34,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
     }
 
     /**
-     * A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+     * Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
      * 
      */
     @Import(name="enableAcceptEncodingBrotli")
     private @Nullable Output<Boolean> enableAcceptEncodingBrotli;
 
     /**
-     * @return A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+     * @return Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
      * 
      */
     public Optional<Output<Boolean>> enableAcceptEncodingBrotli() {
@@ -49,14 +49,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
     }
 
     /**
-     * A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+     * Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
      * 
      */
     @Import(name="enableAcceptEncodingGzip")
     private @Nullable Output<Boolean> enableAcceptEncodingGzip;
 
     /**
-     * @return A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+     * @return Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
      * 
      */
     public Optional<Output<Boolean>> enableAcceptEncodingGzip() {
@@ -64,14 +64,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
     }
 
     /**
-     * Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+     * Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      * 
      */
     @Import(name="headersConfig", required=true)
     private Output<CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs> headersConfig;
 
     /**
-     * @return Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+     * @return Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      * 
      */
     public Output<CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs> headersConfig() {
@@ -79,14 +79,14 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
     }
 
     /**
-     * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+     * Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
      * 
      */
     @Import(name="queryStringsConfig", required=true)
     private Output<CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs> queryStringsConfig;
 
     /**
-     * @return Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+     * @return Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
      * 
      */
     public Output<CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs> queryStringsConfig() {
@@ -122,7 +122,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
         }
 
         /**
-         * @param cookiesConfig Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+         * @param cookiesConfig Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
         }
 
         /**
-         * @param cookiesConfig Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+         * @param cookiesConfig Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
         }
 
         /**
-         * @param enableAcceptEncodingBrotli A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+         * @param enableAcceptEncodingBrotli Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
         }
 
         /**
-         * @param enableAcceptEncodingBrotli A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+         * @param enableAcceptEncodingBrotli Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
         }
 
         /**
-         * @param enableAcceptEncodingGzip A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+         * @param enableAcceptEncodingGzip Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
         }
 
         /**
-         * @param enableAcceptEncodingGzip A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+         * @param enableAcceptEncodingGzip Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
         }
 
         /**
-         * @param headersConfig Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+         * @param headersConfig Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
         }
 
         /**
-         * @param headersConfig Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+         * @param headersConfig Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
         }
 
         /**
-         * @param queryStringsConfig Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+         * @param queryStringsConfig Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs exten
         }
 
         /**
-         * @param queryStringsConfig Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+         * @param queryStringsConfig Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
          * 
          * @return builder
          * 

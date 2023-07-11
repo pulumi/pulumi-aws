@@ -457,7 +457,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         Description of the environment. Can be at most 1024 characters.
         """

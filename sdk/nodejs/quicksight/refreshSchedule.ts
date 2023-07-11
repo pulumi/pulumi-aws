@@ -28,6 +28,50 @@ import * as utilities from "../utilities";
  *     scheduleId: "schedule-id",
  * });
  * ```
+ * ### With Weekly Refresh
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight.RefreshSchedule("example", {
+ *     dataSetId: "dataset-id",
+ *     schedule: {
+ *         refreshType: "INCREMENTAL_REFRESH",
+ *         scheduleFrequency: {
+ *             interval: "WEEKLY",
+ *             refreshOnDay: {
+ *                 dayOfWeek: "MONDAY",
+ *             },
+ *             timeOfTheDay: "01:00",
+ *             timezone: "Europe/London",
+ *         },
+ *     },
+ *     scheduleId: "schedule-id",
+ * });
+ * ```
+ * ### With Monthly Refresh
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight.RefreshSchedule("example", {
+ *     dataSetId: "dataset-id",
+ *     schedule: {
+ *         refreshType: "INCREMENTAL_REFRESH",
+ *         scheduleFrequency: {
+ *             interval: "MONTHLY",
+ *             refreshOnDay: {
+ *                 dayOfMonth: "1",
+ *             },
+ *             timeOfTheDay: "01:00",
+ *             timezone: "Europe/London",
+ *         },
+ *     },
+ *     scheduleId: "schedule-id",
+ * });
+ * ```
  *
  * ## Import
  *

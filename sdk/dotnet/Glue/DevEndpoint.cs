@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Glue
         /// A map of arguments used to configure the endpoint.
         /// </summary>
         [Output("arguments")]
-        public Output<ImmutableDictionary<string, object>?> Arguments { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Arguments { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the endpoint.
@@ -276,14 +276,14 @@ namespace Pulumi.Aws.Glue
     public sealed class DevEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
-        private InputMap<object>? _arguments;
+        private InputMap<string>? _arguments;
 
         /// <summary>
         /// A map of arguments used to configure the endpoint.
         /// </summary>
-        public InputMap<object> Arguments
+        public InputMap<string> Arguments
         {
-            get => _arguments ?? (_arguments = new InputMap<object>());
+            get => _arguments ?? (_arguments = new InputMap<string>());
             set => _arguments = value;
         }
 
@@ -398,14 +398,14 @@ namespace Pulumi.Aws.Glue
     public sealed class DevEndpointState : global::Pulumi.ResourceArgs
     {
         [Input("arguments")]
-        private InputMap<object>? _arguments;
+        private InputMap<string>? _arguments;
 
         /// <summary>
         /// A map of arguments used to configure the endpoint.
         /// </summary>
-        public InputMap<object> Arguments
+        public InputMap<string> Arguments
         {
-            get => _arguments ?? (_arguments = new InputMap<object>());
+            get => _arguments ?? (_arguments = new InputMap<string>());
             set => _arguments = value;
         }
 

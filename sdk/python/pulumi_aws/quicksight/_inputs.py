@@ -115,6 +115,18 @@ __all__ = [
     'TemplateSourceEntitySourceAnalysisArgs',
     'TemplateSourceEntitySourceAnalysisDataSetReferenceArgs',
     'TemplateSourceEntitySourceTemplateArgs',
+    'ThemeConfigurationArgs',
+    'ThemeConfigurationDataColorPaletteArgs',
+    'ThemeConfigurationSheetArgs',
+    'ThemeConfigurationSheetTileArgs',
+    'ThemeConfigurationSheetTileBorderArgs',
+    'ThemeConfigurationSheetTileLayoutArgs',
+    'ThemeConfigurationSheetTileLayoutGutterArgs',
+    'ThemeConfigurationSheetTileLayoutMarginArgs',
+    'ThemeConfigurationTypographyArgs',
+    'ThemeConfigurationTypographyFontFamilyArgs',
+    'ThemeConfigurationUiColorPaletteArgs',
+    'ThemePermissionArgs',
     'VpcConnectionTimeoutsArgs',
     'GetDataSetColumnLevelPermissionRuleArgs',
 ]
@@ -4540,6 +4552,7 @@ class RefreshScheduleScheduleScheduleFrequencyArgs:
         """
         :param pulumi.Input[str] interval: The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
         :param pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs'] refresh_on_day: The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+        :param pulumi.Input[str] time_of_the_day: The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
         :param pulumi.Input[str] timezone: The timezone that you want the refresh schedule to use.
         """
         pulumi.set(__self__, "interval", interval)
@@ -4577,6 +4590,9 @@ class RefreshScheduleScheduleScheduleFrequencyArgs:
     @property
     @pulumi.getter(name="timeOfTheDay")
     def time_of_the_day(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+        """
         return pulumi.get(self, "time_of_the_day")
 
     @time_of_the_day.setter
@@ -4805,6 +4821,648 @@ class TemplateSourceEntitySourceTemplateArgs:
     @arn.setter
     def arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "arn", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationArgs:
+    def __init__(__self__, *,
+                 data_color_palette: Optional[pulumi.Input['ThemeConfigurationDataColorPaletteArgs']] = None,
+                 sheet: Optional[pulumi.Input['ThemeConfigurationSheetArgs']] = None,
+                 typography: Optional[pulumi.Input['ThemeConfigurationTypographyArgs']] = None,
+                 ui_color_palette: Optional[pulumi.Input['ThemeConfigurationUiColorPaletteArgs']] = None):
+        """
+        :param pulumi.Input['ThemeConfigurationDataColorPaletteArgs'] data_color_palette: Color properties that apply to chart data colors. See data_color_palette.
+        :param pulumi.Input['ThemeConfigurationSheetArgs'] sheet: Display options related to sheets. See sheet.
+        :param pulumi.Input['ThemeConfigurationTypographyArgs'] typography: Determines the typography options. See typography.
+        :param pulumi.Input['ThemeConfigurationUiColorPaletteArgs'] ui_color_palette: Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+        """
+        if data_color_palette is not None:
+            pulumi.set(__self__, "data_color_palette", data_color_palette)
+        if sheet is not None:
+            pulumi.set(__self__, "sheet", sheet)
+        if typography is not None:
+            pulumi.set(__self__, "typography", typography)
+        if ui_color_palette is not None:
+            pulumi.set(__self__, "ui_color_palette", ui_color_palette)
+
+    @property
+    @pulumi.getter(name="dataColorPalette")
+    def data_color_palette(self) -> Optional[pulumi.Input['ThemeConfigurationDataColorPaletteArgs']]:
+        """
+        Color properties that apply to chart data colors. See data_color_palette.
+        """
+        return pulumi.get(self, "data_color_palette")
+
+    @data_color_palette.setter
+    def data_color_palette(self, value: Optional[pulumi.Input['ThemeConfigurationDataColorPaletteArgs']]):
+        pulumi.set(self, "data_color_palette", value)
+
+    @property
+    @pulumi.getter
+    def sheet(self) -> Optional[pulumi.Input['ThemeConfigurationSheetArgs']]:
+        """
+        Display options related to sheets. See sheet.
+        """
+        return pulumi.get(self, "sheet")
+
+    @sheet.setter
+    def sheet(self, value: Optional[pulumi.Input['ThemeConfigurationSheetArgs']]):
+        pulumi.set(self, "sheet", value)
+
+    @property
+    @pulumi.getter
+    def typography(self) -> Optional[pulumi.Input['ThemeConfigurationTypographyArgs']]:
+        """
+        Determines the typography options. See typography.
+        """
+        return pulumi.get(self, "typography")
+
+    @typography.setter
+    def typography(self, value: Optional[pulumi.Input['ThemeConfigurationTypographyArgs']]):
+        pulumi.set(self, "typography", value)
+
+    @property
+    @pulumi.getter(name="uiColorPalette")
+    def ui_color_palette(self) -> Optional[pulumi.Input['ThemeConfigurationUiColorPaletteArgs']]:
+        """
+        Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+        """
+        return pulumi.get(self, "ui_color_palette")
+
+    @ui_color_palette.setter
+    def ui_color_palette(self, value: Optional[pulumi.Input['ThemeConfigurationUiColorPaletteArgs']]):
+        pulumi.set(self, "ui_color_palette", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationDataColorPaletteArgs:
+    def __init__(__self__, *,
+                 colors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 empty_fill_color: Optional[pulumi.Input[str]] = None,
+                 min_max_gradients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] colors: List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+        :param pulumi.Input[str] empty_fill_color: The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] min_max_gradients: The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+        """
+        if colors is not None:
+            pulumi.set(__self__, "colors", colors)
+        if empty_fill_color is not None:
+            pulumi.set(__self__, "empty_fill_color", empty_fill_color)
+        if min_max_gradients is not None:
+            pulumi.set(__self__, "min_max_gradients", min_max_gradients)
+
+    @property
+    @pulumi.getter
+    def colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+        """
+        return pulumi.get(self, "colors")
+
+    @colors.setter
+    def colors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "colors", value)
+
+    @property
+    @pulumi.getter(name="emptyFillColor")
+    def empty_fill_color(self) -> Optional[pulumi.Input[str]]:
+        """
+        The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+        """
+        return pulumi.get(self, "empty_fill_color")
+
+    @empty_fill_color.setter
+    def empty_fill_color(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "empty_fill_color", value)
+
+    @property
+    @pulumi.getter(name="minMaxGradients")
+    def min_max_gradients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+        """
+        return pulumi.get(self, "min_max_gradients")
+
+    @min_max_gradients.setter
+    def min_max_gradients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "min_max_gradients", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetArgs:
+    def __init__(__self__, *,
+                 tile: Optional[pulumi.Input['ThemeConfigurationSheetTileArgs']] = None,
+                 tile_layout: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutArgs']] = None):
+        """
+        :param pulumi.Input['ThemeConfigurationSheetTileArgs'] tile: The display options for tiles. See tile.
+        :param pulumi.Input['ThemeConfigurationSheetTileLayoutArgs'] tile_layout: The layout options for tiles. See tile_layout.
+        """
+        if tile is not None:
+            pulumi.set(__self__, "tile", tile)
+        if tile_layout is not None:
+            pulumi.set(__self__, "tile_layout", tile_layout)
+
+    @property
+    @pulumi.getter
+    def tile(self) -> Optional[pulumi.Input['ThemeConfigurationSheetTileArgs']]:
+        """
+        The display options for tiles. See tile.
+        """
+        return pulumi.get(self, "tile")
+
+    @tile.setter
+    def tile(self, value: Optional[pulumi.Input['ThemeConfigurationSheetTileArgs']]):
+        pulumi.set(self, "tile", value)
+
+    @property
+    @pulumi.getter(name="tileLayout")
+    def tile_layout(self) -> Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutArgs']]:
+        """
+        The layout options for tiles. See tile_layout.
+        """
+        return pulumi.get(self, "tile_layout")
+
+    @tile_layout.setter
+    def tile_layout(self, value: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutArgs']]):
+        pulumi.set(self, "tile_layout", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetTileArgs:
+    def __init__(__self__, *,
+                 border: Optional[pulumi.Input['ThemeConfigurationSheetTileBorderArgs']] = None):
+        """
+        :param pulumi.Input['ThemeConfigurationSheetTileBorderArgs'] border: The border around a tile. See border.
+        """
+        if border is not None:
+            pulumi.set(__self__, "border", border)
+
+    @property
+    @pulumi.getter
+    def border(self) -> Optional[pulumi.Input['ThemeConfigurationSheetTileBorderArgs']]:
+        """
+        The border around a tile. See border.
+        """
+        return pulumi.get(self, "border")
+
+    @border.setter
+    def border(self, value: Optional[pulumi.Input['ThemeConfigurationSheetTileBorderArgs']]):
+        pulumi.set(self, "border", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetTileBorderArgs:
+    def __init__(__self__, *,
+                 show: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] show: The option to enable display of borders for visuals.
+        """
+        if show is not None:
+            pulumi.set(__self__, "show", show)
+
+    @property
+    @pulumi.getter
+    def show(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The option to enable display of borders for visuals.
+        """
+        return pulumi.get(self, "show")
+
+    @show.setter
+    def show(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetTileLayoutArgs:
+    def __init__(__self__, *,
+                 gutter: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutGutterArgs']] = None,
+                 margin: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutMarginArgs']] = None):
+        """
+        :param pulumi.Input['ThemeConfigurationSheetTileLayoutGutterArgs'] gutter: The gutter settings that apply between tiles. See gutter.
+        :param pulumi.Input['ThemeConfigurationSheetTileLayoutMarginArgs'] margin: The margin settings that apply around the outside edge of sheets. See margin.
+        """
+        if gutter is not None:
+            pulumi.set(__self__, "gutter", gutter)
+        if margin is not None:
+            pulumi.set(__self__, "margin", margin)
+
+    @property
+    @pulumi.getter
+    def gutter(self) -> Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutGutterArgs']]:
+        """
+        The gutter settings that apply between tiles. See gutter.
+        """
+        return pulumi.get(self, "gutter")
+
+    @gutter.setter
+    def gutter(self, value: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutGutterArgs']]):
+        pulumi.set(self, "gutter", value)
+
+    @property
+    @pulumi.getter
+    def margin(self) -> Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutMarginArgs']]:
+        """
+        The margin settings that apply around the outside edge of sheets. See margin.
+        """
+        return pulumi.get(self, "margin")
+
+    @margin.setter
+    def margin(self, value: Optional[pulumi.Input['ThemeConfigurationSheetTileLayoutMarginArgs']]):
+        pulumi.set(self, "margin", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetTileLayoutGutterArgs:
+    def __init__(__self__, *,
+                 show: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] show: This Boolean value controls whether to display a gutter space between sheet tiles.
+        """
+        if show is not None:
+            pulumi.set(__self__, "show", show)
+
+    @property
+    @pulumi.getter
+    def show(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This Boolean value controls whether to display a gutter space between sheet tiles.
+        """
+        return pulumi.get(self, "show")
+
+    @show.setter
+    def show(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationSheetTileLayoutMarginArgs:
+    def __init__(__self__, *,
+                 show: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] show: This Boolean value controls whether to display sheet margins.
+        """
+        if show is not None:
+            pulumi.set(__self__, "show", show)
+
+    @property
+    @pulumi.getter
+    def show(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This Boolean value controls whether to display sheet margins.
+        """
+        return pulumi.get(self, "show")
+
+    @show.setter
+    def show(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationTypographyArgs:
+    def __init__(__self__, *,
+                 font_families: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]] font_families: Determines the list of font families. Maximum number of 5 items. See font_families.
+        """
+        if font_families is not None:
+            pulumi.set(__self__, "font_families", font_families)
+
+    @property
+    @pulumi.getter(name="fontFamilies")
+    def font_families(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]]]:
+        """
+        Determines the list of font families. Maximum number of 5 items. See font_families.
+        """
+        return pulumi.get(self, "font_families")
+
+    @font_families.setter
+    def font_families(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]]]):
+        pulumi.set(self, "font_families", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationTypographyFontFamilyArgs:
+    def __init__(__self__, *,
+                 font_family: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] font_family: Font family name.
+        """
+        if font_family is not None:
+            pulumi.set(__self__, "font_family", font_family)
+
+    @property
+    @pulumi.getter(name="fontFamily")
+    def font_family(self) -> Optional[pulumi.Input[str]]:
+        """
+        Font family name.
+        """
+        return pulumi.get(self, "font_family")
+
+    @font_family.setter
+    def font_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "font_family", value)
+
+
+@pulumi.input_type
+class ThemeConfigurationUiColorPaletteArgs:
+    def __init__(__self__, *,
+                 accent: Optional[pulumi.Input[str]] = None,
+                 accent_foreground: Optional[pulumi.Input[str]] = None,
+                 danger: Optional[pulumi.Input[str]] = None,
+                 danger_foreground: Optional[pulumi.Input[str]] = None,
+                 dimension: Optional[pulumi.Input[str]] = None,
+                 dimension_foreground: Optional[pulumi.Input[str]] = None,
+                 measure: Optional[pulumi.Input[str]] = None,
+                 measure_foreground: Optional[pulumi.Input[str]] = None,
+                 primary_background: Optional[pulumi.Input[str]] = None,
+                 primary_foreground: Optional[pulumi.Input[str]] = None,
+                 secondary_background: Optional[pulumi.Input[str]] = None,
+                 secondary_foreground: Optional[pulumi.Input[str]] = None,
+                 success: Optional[pulumi.Input[str]] = None,
+                 success_foreground: Optional[pulumi.Input[str]] = None,
+                 warning: Optional[pulumi.Input[str]] = None,
+                 warning_foreground: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] accent: Color (hexadecimal) that applies to selected states and buttons.
+        :param pulumi.Input[str] accent_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+        :param pulumi.Input[str] danger: Color (hexadecimal) that applies to error messages.
+        :param pulumi.Input[str] danger_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+        :param pulumi.Input[str] dimension: Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+        :param pulumi.Input[str] dimension_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+        :param pulumi.Input[str] measure: Color (hexadecimal) that applies to the names of fields that are identified as measures.
+        :param pulumi.Input[str] measure_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+        :param pulumi.Input[str] primary_background: Color (hexadecimal) that applies to visuals and other high emphasis UI.
+        :param pulumi.Input[str] primary_foreground: Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+        :param pulumi.Input[str] secondary_background: Color (hexadecimal) that applies to the sheet background and sheet controls.
+        :param pulumi.Input[str] secondary_foreground: Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+        :param pulumi.Input[str] success: Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+        :param pulumi.Input[str] success_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+        :param pulumi.Input[str] warning: Color (hexadecimal) that applies to warning and informational messages.
+        :param pulumi.Input[str] warning_foreground: Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+        """
+        if accent is not None:
+            pulumi.set(__self__, "accent", accent)
+        if accent_foreground is not None:
+            pulumi.set(__self__, "accent_foreground", accent_foreground)
+        if danger is not None:
+            pulumi.set(__self__, "danger", danger)
+        if danger_foreground is not None:
+            pulumi.set(__self__, "danger_foreground", danger_foreground)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if dimension_foreground is not None:
+            pulumi.set(__self__, "dimension_foreground", dimension_foreground)
+        if measure is not None:
+            pulumi.set(__self__, "measure", measure)
+        if measure_foreground is not None:
+            pulumi.set(__self__, "measure_foreground", measure_foreground)
+        if primary_background is not None:
+            pulumi.set(__self__, "primary_background", primary_background)
+        if primary_foreground is not None:
+            pulumi.set(__self__, "primary_foreground", primary_foreground)
+        if secondary_background is not None:
+            pulumi.set(__self__, "secondary_background", secondary_background)
+        if secondary_foreground is not None:
+            pulumi.set(__self__, "secondary_foreground", secondary_foreground)
+        if success is not None:
+            pulumi.set(__self__, "success", success)
+        if success_foreground is not None:
+            pulumi.set(__self__, "success_foreground", success_foreground)
+        if warning is not None:
+            pulumi.set(__self__, "warning", warning)
+        if warning_foreground is not None:
+            pulumi.set(__self__, "warning_foreground", warning_foreground)
+
+    @property
+    @pulumi.getter
+    def accent(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to selected states and buttons.
+        """
+        return pulumi.get(self, "accent")
+
+    @accent.setter
+    def accent(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accent", value)
+
+    @property
+    @pulumi.getter(name="accentForeground")
+    def accent_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+        """
+        return pulumi.get(self, "accent_foreground")
+
+    @accent_foreground.setter
+    def accent_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "accent_foreground", value)
+
+    @property
+    @pulumi.getter
+    def danger(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to error messages.
+        """
+        return pulumi.get(self, "danger")
+
+    @danger.setter
+    def danger(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "danger", value)
+
+    @property
+    @pulumi.getter(name="dangerForeground")
+    def danger_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+        """
+        return pulumi.get(self, "danger_foreground")
+
+    @danger_foreground.setter
+    def danger_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "danger_foreground", value)
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+        """
+        return pulumi.get(self, "dimension")
+
+    @dimension.setter
+    def dimension(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dimension", value)
+
+    @property
+    @pulumi.getter(name="dimensionForeground")
+    def dimension_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+        """
+        return pulumi.get(self, "dimension_foreground")
+
+    @dimension_foreground.setter
+    def dimension_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dimension_foreground", value)
+
+    @property
+    @pulumi.getter
+    def measure(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to the names of fields that are identified as measures.
+        """
+        return pulumi.get(self, "measure")
+
+    @measure.setter
+    def measure(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "measure", value)
+
+    @property
+    @pulumi.getter(name="measureForeground")
+    def measure_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+        """
+        return pulumi.get(self, "measure_foreground")
+
+    @measure_foreground.setter
+    def measure_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "measure_foreground", value)
+
+    @property
+    @pulumi.getter(name="primaryBackground")
+    def primary_background(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to visuals and other high emphasis UI.
+        """
+        return pulumi.get(self, "primary_background")
+
+    @primary_background.setter
+    def primary_background(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_background", value)
+
+    @property
+    @pulumi.getter(name="primaryForeground")
+    def primary_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+        """
+        return pulumi.get(self, "primary_foreground")
+
+    @primary_foreground.setter
+    def primary_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_foreground", value)
+
+    @property
+    @pulumi.getter(name="secondaryBackground")
+    def secondary_background(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to the sheet background and sheet controls.
+        """
+        return pulumi.get(self, "secondary_background")
+
+    @secondary_background.setter
+    def secondary_background(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_background", value)
+
+    @property
+    @pulumi.getter(name="secondaryForeground")
+    def secondary_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+        """
+        return pulumi.get(self, "secondary_foreground")
+
+    @secondary_foreground.setter
+    def secondary_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_foreground", value)
+
+    @property
+    @pulumi.getter
+    def success(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+        """
+        return pulumi.get(self, "success")
+
+    @success.setter
+    def success(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "success", value)
+
+    @property
+    @pulumi.getter(name="successForeground")
+    def success_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+        """
+        return pulumi.get(self, "success_foreground")
+
+    @success_foreground.setter
+    def success_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "success_foreground", value)
+
+    @property
+    @pulumi.getter
+    def warning(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to warning and informational messages.
+        """
+        return pulumi.get(self, "warning")
+
+    @warning.setter
+    def warning(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "warning", value)
+
+    @property
+    @pulumi.getter(name="warningForeground")
+    def warning_foreground(self) -> Optional[pulumi.Input[str]]:
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+        """
+        return pulumi.get(self, "warning_foreground")
+
+    @warning_foreground.setter
+    def warning_foreground(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "warning_foreground", value)
+
+
+@pulumi.input_type
+class ThemePermissionArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 principal: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: List of IAM actions to grant or revoke permissions on.
+        :param pulumi.Input[str] principal: ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
 
 
 @pulumi.input_type

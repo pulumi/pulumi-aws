@@ -53,14 +53,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return this.capacity;
     }
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
      * 
      */
     @Export(name="captchaConfig", refs={WebAclCaptchaConfig.class}, tree="[0]")
     private Output</* @Nullable */ WebAclCaptchaConfig> captchaConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
      * 
      */
     public Output<Optional<WebAclCaptchaConfig>> captchaConfig() {
@@ -81,14 +81,14 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customResponseBodies);
     }
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
      * 
      */
     @Export(name="defaultAction", refs={WebAclDefaultAction.class}, tree="[0]")
     private Output<WebAclDefaultAction> defaultAction;
 
     /**
-     * @return Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * @return Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
      * 
      */
     public Output<WebAclDefaultAction> defaultAction() {

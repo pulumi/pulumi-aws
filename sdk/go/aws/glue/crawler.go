@@ -261,12 +261,15 @@ type Crawler struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration pulumi.StringPtrOutput `pulumi:"configuration"`
 	// Glue database where results are written.
-	DatabaseName pulumi.StringOutput           `pulumi:"databaseName"`
+	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets CrawlerDeltaTargetArrayOutput `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayOutput `pulumi:"dynamodbTargets"`
+	// List nested Iceberg target arguments. See Iceberg Target below.
+	IcebergTargets CrawlerIcebergTargetArrayOutput `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayOutput `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
@@ -340,12 +343,15 @@ type crawlerState struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
 	// Glue database where results are written.
-	DatabaseName *string              `pulumi:"databaseName"`
+	DatabaseName *string `pulumi:"databaseName"`
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets []CrawlerDeltaTarget `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
+	// List nested Iceberg target arguments. See Iceberg Target below.
+	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
@@ -386,11 +392,14 @@ type CrawlerState struct {
 	Configuration pulumi.StringPtrInput
 	// Glue database where results are written.
 	DatabaseName pulumi.StringPtrInput
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets CrawlerDeltaTargetArrayInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
+	// List nested Iceberg target arguments. See Iceberg Target below.
+	IcebergTargets CrawlerIcebergTargetArrayInput
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
@@ -432,12 +441,15 @@ type crawlerArgs struct {
 	// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
 	Configuration *string `pulumi:"configuration"`
 	// Glue database where results are written.
-	DatabaseName string               `pulumi:"databaseName"`
+	DatabaseName string `pulumi:"databaseName"`
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets []CrawlerDeltaTarget `pulumi:"deltaTargets"`
 	// Description of the crawler.
 	Description *string `pulumi:"description"`
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets []CrawlerDynamodbTarget `pulumi:"dynamodbTargets"`
+	// List nested Iceberg target arguments. See Iceberg Target below.
+	IcebergTargets []CrawlerIcebergTarget `pulumi:"icebergTargets"`
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets []CrawlerJdbcTarget `pulumi:"jdbcTargets"`
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
@@ -475,11 +487,14 @@ type CrawlerArgs struct {
 	Configuration pulumi.StringPtrInput
 	// Glue database where results are written.
 	DatabaseName pulumi.StringInput
+	// List of nested Delta Lake target arguments. See Delta Target below.
 	DeltaTargets CrawlerDeltaTargetArrayInput
 	// Description of the crawler.
 	Description pulumi.StringPtrInput
 	// List of nested DynamoDB target arguments. See Dynamodb Target below.
 	DynamodbTargets CrawlerDynamodbTargetArrayInput
+	// List nested Iceberg target arguments. See Iceberg Target below.
+	IcebergTargets CrawlerIcebergTargetArrayInput
 	// List of nested JBDC target arguments. See JDBC Target below.
 	JdbcTargets CrawlerJdbcTargetArrayInput
 	// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
@@ -619,6 +634,7 @@ func (o CrawlerOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// List of nested Delta Lake target arguments. See Delta Target below.
 func (o CrawlerOutput) DeltaTargets() CrawlerDeltaTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerDeltaTargetArrayOutput { return v.DeltaTargets }).(CrawlerDeltaTargetArrayOutput)
 }
@@ -631,6 +647,11 @@ func (o CrawlerOutput) Description() pulumi.StringPtrOutput {
 // List of nested DynamoDB target arguments. See Dynamodb Target below.
 func (o CrawlerOutput) DynamodbTargets() CrawlerDynamodbTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerDynamodbTargetArrayOutput { return v.DynamodbTargets }).(CrawlerDynamodbTargetArrayOutput)
+}
+
+// List nested Iceberg target arguments. See Iceberg Target below.
+func (o CrawlerOutput) IcebergTargets() CrawlerIcebergTargetArrayOutput {
+	return o.ApplyT(func(v *Crawler) CrawlerIcebergTargetArrayOutput { return v.IcebergTargets }).(CrawlerIcebergTargetArrayOutput)
 }
 
 // List of nested JBDC target arguments. See JDBC Target below.

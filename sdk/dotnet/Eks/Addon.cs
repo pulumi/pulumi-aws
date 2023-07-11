@@ -12,11 +12,6 @@ namespace Pulumi.Aws.Eks
     /// <summary>
     /// Manages an EKS add-on.
     /// 
-    /// &gt; **Note:** Amazon EKS add-on can only be used with Amazon EKS Clusters
-    /// running version 1.18 with platform version eks.3 or later
-    /// because add-ons rely on the Server-side Apply Kubernetes feature,
-    /// which is only available in Kubernetes 1.18 and later.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -51,7 +46,7 @@ namespace Pulumi.Aws.Eks
     ///     {
     ///         ClusterName = aws_eks_cluster.Example.Name,
     ///         AddonName = "coredns",
-    ///         AddonVersion = "v1.8.7-eksbuild.3",
+    ///         AddonVersion = "v1.10.1-eksbuild.1",
     ///         ResolveConflictsOnUpdate = "PRESERVE",
     ///     });
     /// 
@@ -92,7 +87,7 @@ namespace Pulumi.Aws.Eks
     ///     {
     ///         ClusterName = "mycluster",
     ///         AddonName = "coredns",
-    ///         AddonVersion = "v1.8.7-eksbuild.3",
+    ///         AddonVersion = "v1.10.1-eksbuild.1",
     ///         ResolveConflictsOnCreate = "OVERWRITE",
     ///         ConfigurationValues = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -192,7 +187,7 @@ namespace Pulumi.Aws.Eks
         public Output<string?> ResolveConflictsOnCreate { get; private set; } = null!;
 
         /// <summary>
-        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE` and `OVERWRITE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         /// </summary>
         [Output("resolveConflictsOnUpdate")]
         public Output<string?> ResolveConflictsOnUpdate { get; private set; } = null!;
@@ -318,7 +313,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ResolveConflictsOnCreate { get; set; }
 
         /// <summary>
-        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE` and `OVERWRITE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         /// </summary>
         [Input("resolveConflictsOnUpdate")]
         public Input<string>? ResolveConflictsOnUpdate { get; set; }
@@ -424,7 +419,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ResolveConflictsOnCreate { get; set; }
 
         /// <summary>
-        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE` and `OVERWRITE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
+        /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         /// </summary>
         [Input("resolveConflictsOnUpdate")]
         public Input<string>? ResolveConflictsOnUpdate { get; set; }

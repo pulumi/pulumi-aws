@@ -161,7 +161,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .environment(ProjectEnvironmentArgs.builder()
  *                 .computeType(&#34;BUILD_GENERAL1_SMALL&#34;)
- *                 .image(&#34;aws/codebuild/standard:1.0&#34;)
+ *                 .image(&#34;aws/codebuild/amazonlinux2-x86_64-standard:4.0&#34;)
  *                 .type(&#34;LINUX_CONTAINER&#34;)
  *                 .imagePullCredentialsType(&#34;CODEBUILD&#34;)
  *                 .environmentVariables(                
@@ -222,7 +222,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .environment(ProjectEnvironmentArgs.builder()
  *                 .computeType(&#34;BUILD_GENERAL1_SMALL&#34;)
- *                 .image(&#34;aws/codebuild/standard:1.0&#34;)
+ *                 .image(&#34;aws/codebuild/amazonlinux2-x86_64-standard:4.0&#34;)
  *                 .type(&#34;LINUX_CONTAINER&#34;)
  *                 .imagePullCredentialsType(&#34;CODEBUILD&#34;)
  *                 .environmentVariables(ProjectEnvironmentEnvironmentVariableArgs.builder()

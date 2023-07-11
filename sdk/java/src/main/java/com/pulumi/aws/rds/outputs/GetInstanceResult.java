@@ -161,7 +161,7 @@ public final class GetInstanceResult {
      */
     private List<String> optionGroupMemberships;
     /**
-     * @return Database port.
+     * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
      * 
      */
     private Integer port;
@@ -425,7 +425,7 @@ public final class GetInstanceResult {
         return this.optionGroupMemberships;
     }
     /**
-     * @return Database port.
+     * @return Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `db_instance_port` is typically the preferred choice.
      * 
      */
     public Integer port() {

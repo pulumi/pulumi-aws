@@ -94,8 +94,12 @@ type LookupConnectPeerResult struct {
 	// EC2 Transit Gateway Connect Peer ARN
 	Arn string `pulumi:"arn"`
 	// BGP ASN number assigned customer device
-	BgpAsn  string                 `pulumi:"bgpAsn"`
-	Filters []GetConnectPeerFilter `pulumi:"filters"`
+	BgpAsn string `pulumi:"bgpAsn"`
+	// The IP address assigned to customer device, which is used as BGP IP address.
+	BgpPeerAddress string `pulumi:"bgpPeerAddress"`
+	// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+	BgpTransitGatewayAddresses []string               `pulumi:"bgpTransitGatewayAddresses"`
+	Filters                    []GetConnectPeerFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// CIDR blocks that will be used for addressing within the tunnel.
@@ -161,6 +165,16 @@ func (o LookupConnectPeerResultOutput) Arn() pulumi.StringOutput {
 // BGP ASN number assigned customer device
 func (o LookupConnectPeerResultOutput) BgpAsn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.BgpAsn }).(pulumi.StringOutput)
+}
+
+// The IP address assigned to customer device, which is used as BGP IP address.
+func (o LookupConnectPeerResultOutput) BgpPeerAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) string { return v.BgpPeerAddress }).(pulumi.StringOutput)
+}
+
+// The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+func (o LookupConnectPeerResultOutput) BgpTransitGatewayAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupConnectPeerResult) []string { return v.BgpTransitGatewayAddresses }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupConnectPeerResultOutput) Filters() GetConnectPeerFilterArrayOutput {

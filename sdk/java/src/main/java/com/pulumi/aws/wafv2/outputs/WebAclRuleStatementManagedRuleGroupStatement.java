@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatement {
     /**
-     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
      * 
      */
     private @Nullable List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs;
@@ -48,7 +48,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatement {
 
     private WebAclRuleStatementManagedRuleGroupStatement() {}
     /**
-     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
      * 
      */
     public List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> managedRuleGroupConfigs() {

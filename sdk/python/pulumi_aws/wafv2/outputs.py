@@ -2883,9 +2883,9 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
                  scope_down_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatement'] = None):
         """
         :param int limit: The limit on requests per 5-minute period for a single originating IP address.
-        :param str aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+        :param str aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
         :param 'RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
         pulumi.set(__self__, "limit", limit)
         if aggregate_key_type is not None:
@@ -2907,7 +2907,7 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
     @pulumi.getter(name="aggregateKeyType")
     def aggregate_key_type(self) -> Optional[str]:
         """
-        Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+        Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
         """
         return pulumi.get(self, "aggregate_key_type")
 
@@ -2923,7 +2923,7 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
     @pulumi.getter(name="scopeDownStatement")
     def scope_down_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatement']:
         """
-        An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+        An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
         return pulumi.get(self, "scope_down_statement")
 
@@ -11506,7 +11506,7 @@ class WebAclCaptchaConfig(dict):
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.WebAclCaptchaConfigImmunityTimeProperty'] = None):
         """
-        :param 'WebAclCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See Immunity Time Property below for details.
+        :param 'WebAclCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
         """
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
@@ -11515,7 +11515,7 @@ class WebAclCaptchaConfig(dict):
     @pulumi.getter(name="immunityTimeProperty")
     def immunity_time_property(self) -> Optional['outputs.WebAclCaptchaConfigImmunityTimeProperty']:
         """
-        Defines custom immunity time. See Immunity Time Property below for details.
+        Defines custom immunity time. See `immunity_time_property` below for details.
         """
         return pulumi.get(self, "immunity_time_property")
 
@@ -11895,7 +11895,7 @@ class WebAclLoggingConfigurationLoggingFilter(dict):
                  default_behavior: str,
                  filters: Sequence['outputs.WebAclLoggingConfigurationLoggingFilterFilter']):
         """
-        :param str default_behavior: Default handling for logs that don't match any of the specified filtering conditions. Valid values: `KEEP` or `DROP`.
+        :param str default_behavior: Default handling for logs that don't match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
         :param Sequence['WebAclLoggingConfigurationLoggingFilterFilterArgs'] filters: Filter(s) that you want to apply to the logs. See Filter below for more details.
         """
         pulumi.set(__self__, "default_behavior", default_behavior)
@@ -11905,7 +11905,7 @@ class WebAclLoggingConfigurationLoggingFilter(dict):
     @pulumi.getter(name="defaultBehavior")
     def default_behavior(self) -> str:
         """
-        Default handling for logs that don't match any of the specified filtering conditions. Valid values: `KEEP` or `DROP`.
+        Default handling for logs that don't match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
         """
         return pulumi.get(self, "default_behavior")
 
@@ -11925,9 +11925,9 @@ class WebAclLoggingConfigurationLoggingFilterFilter(dict):
                  conditions: Sequence['outputs.WebAclLoggingConfigurationLoggingFilterFilterCondition'],
                  requirement: str):
         """
-        :param str behavior: How to handle logs that satisfy the filter's conditions and requirement. Valid values: `KEEP` or `DROP`.
+        :param str behavior: Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
         :param Sequence['WebAclLoggingConfigurationLoggingFilterFilterConditionArgs'] conditions: Match condition(s) for the filter. See Condition below for more details.
-        :param str requirement: Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition. Valid values: `MEETS_ALL` or `MEETS_ANY`.
+        :param str requirement: Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
         """
         pulumi.set(__self__, "behavior", behavior)
         pulumi.set(__self__, "conditions", conditions)
@@ -11937,7 +11937,7 @@ class WebAclLoggingConfigurationLoggingFilterFilter(dict):
     @pulumi.getter
     def behavior(self) -> str:
         """
-        How to handle logs that satisfy the filter's conditions and requirement. Valid values: `KEEP` or `DROP`.
+        Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
         """
         return pulumi.get(self, "behavior")
 
@@ -11953,7 +11953,7 @@ class WebAclLoggingConfigurationLoggingFilterFilter(dict):
     @pulumi.getter
     def requirement(self) -> str:
         """
-        Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition. Valid values: `MEETS_ALL` or `MEETS_ANY`.
+        Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
         """
         return pulumi.get(self, "requirement")
 
@@ -11983,8 +11983,8 @@ class WebAclLoggingConfigurationLoggingFilterFilterCondition(dict):
                  action_condition: Optional['outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition'] = None,
                  label_name_condition: Optional['outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition'] = None):
         """
-        :param 'WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs' action_condition: A single action condition. See Action Condition below for more details.
-        :param 'WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs' label_name_condition: A single label name condition. See Label Name Condition below for more details.
+        :param 'WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs' action_condition: Configuration for a single action condition. See Action Condition below for more details.
+        :param 'WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs' label_name_condition: Condition for a single label name. See Label Name Condition below for more details.
         """
         if action_condition is not None:
             pulumi.set(__self__, "action_condition", action_condition)
@@ -11995,7 +11995,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterCondition(dict):
     @pulumi.getter(name="actionCondition")
     def action_condition(self) -> Optional['outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition']:
         """
-        A single action condition. See Action Condition below for more details.
+        Configuration for a single action condition. See Action Condition below for more details.
         """
         return pulumi.get(self, "action_condition")
 
@@ -12003,7 +12003,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterCondition(dict):
     @pulumi.getter(name="labelNameCondition")
     def label_name_condition(self) -> Optional['outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition']:
         """
-        A single label name condition. See Label Name Condition below for more details.
+        Condition for a single label name. See Label Name Condition below for more details.
         """
         return pulumi.get(self, "label_name_condition")
 
@@ -12013,7 +12013,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition(dict
     def __init__(__self__, *,
                  action: str):
         """
-        :param str action: The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
+        :param str action: Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
         """
         pulumi.set(__self__, "action", action)
 
@@ -12021,7 +12021,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition(dict
     @pulumi.getter
     def action(self) -> str:
         """
-        The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
+        Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
         """
         return pulumi.get(self, "action")
 
@@ -12048,7 +12048,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition(d
     def __init__(__self__, *,
                  label_name: str):
         """
-        :param str label_name: The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+        :param str label_name: Name of the label that a log record must contain in order to meet the condition. It must be a fully qualified label name, which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
         """
         pulumi.set(__self__, "label_name", label_name)
 
@@ -12056,7 +12056,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition(d
     @pulumi.getter(name="labelName")
     def label_name(self) -> str:
         """
-        The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+        Name of the label that a log record must contain in order to meet the condition. It must be a fully qualified label name, which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
         """
         return pulumi.get(self, "label_name")
 
@@ -12090,10 +12090,10 @@ class WebAclLoggingConfigurationRedactedField(dict):
                  single_header: Optional['outputs.WebAclLoggingConfigurationRedactedFieldSingleHeader'] = None,
                  uri_path: Optional['outputs.WebAclLoggingConfigurationRedactedFieldUriPath'] = None):
         """
-        :param 'WebAclLoggingConfigurationRedactedFieldMethodArgs' method: Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclLoggingConfigurationRedactedFieldQueryStringArgs' query_string: Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs' single_header: Redact a single header. See Single Header below for details.
-        :param 'WebAclLoggingConfigurationRedactedFieldUriPathArgs' uri_path: Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclLoggingConfigurationRedactedFieldMethodArgs' method: HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclLoggingConfigurationRedactedFieldQueryStringArgs' query_string: Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs' single_header: "single_header" refers to the redaction of a single header. For more information, please see the details below under Single Header.
+        :param 'WebAclLoggingConfigurationRedactedFieldUriPathArgs' uri_path: Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
         """
         if method is not None:
             pulumi.set(__self__, "method", method)
@@ -12108,7 +12108,7 @@ class WebAclLoggingConfigurationRedactedField(dict):
     @pulumi.getter
     def method(self) -> Optional['outputs.WebAclLoggingConfigurationRedactedFieldMethod']:
         """
-        Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+        HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
         """
         return pulumi.get(self, "method")
 
@@ -12116,7 +12116,7 @@ class WebAclLoggingConfigurationRedactedField(dict):
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional['outputs.WebAclLoggingConfigurationRedactedFieldQueryString']:
         """
-        Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
+        Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
         """
         return pulumi.get(self, "query_string")
 
@@ -12124,7 +12124,7 @@ class WebAclLoggingConfigurationRedactedField(dict):
     @pulumi.getter(name="singleHeader")
     def single_header(self) -> Optional['outputs.WebAclLoggingConfigurationRedactedFieldSingleHeader']:
         """
-        Redact a single header. See Single Header below for details.
+        "single_header" refers to the redaction of a single header. For more information, please see the details below under Single Header.
         """
         return pulumi.get(self, "single_header")
 
@@ -12132,7 +12132,7 @@ class WebAclLoggingConfigurationRedactedField(dict):
     @pulumi.getter(name="uriPath")
     def uri_path(self) -> Optional['outputs.WebAclLoggingConfigurationRedactedFieldUriPath']:
         """
-        Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
         """
         return pulumi.get(self, "uri_path")
 
@@ -12154,7 +12154,7 @@ class WebAclLoggingConfigurationRedactedFieldSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
-        :param str name: The name of the query header to redact. This setting must be provided as lower case characters.
+        :param str name: Name of the query header to redact. This setting must be provided in lowercase characters.
         """
         pulumi.set(__self__, "name", name)
 
@@ -12162,7 +12162,7 @@ class WebAclLoggingConfigurationRedactedFieldSingleHeader(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the query header to redact. This setting must be provided as lower case characters.
+        Name of the query header to redact. This setting must be provided in lowercase characters.
         """
         return pulumi.get(self, "name")
 
@@ -12208,12 +12208,12 @@ class WebAclRule(dict):
                  override_action: Optional['outputs.WebAclRuleOverrideAction'] = None,
                  rule_labels: Optional[Sequence['outputs.WebAclRuleRuleLabel']] = None):
         """
-        :param str name: Friendly name of the rule. **NOTE:** The provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_<account-id>_<web-acl-guid>_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
+        :param str name: Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_<account-id>_<web-acl-guid>_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
         :param int priority: If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
         :param 'WebAclRuleStatementArgs' statement: The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
         :param 'WebAclRuleVisibilityConfigArgs' visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
-        :param 'WebAclRuleActionArgs' action: Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` below for details.
-        :param 'WebAclRuleCaptchaConfigArgs' captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        :param 'WebAclRuleActionArgs' action: Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
+        :param 'WebAclRuleCaptchaConfigArgs' captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         :param 'WebAclRuleOverrideActionArgs' override_action: Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
         :param Sequence['WebAclRuleRuleLabelArgs'] rule_labels: Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
         """
@@ -12234,7 +12234,7 @@ class WebAclRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Friendly name of the rule. **NOTE:** The provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_<account-id>_<web-acl-guid>_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
+        Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_<account-id>_<web-acl-guid>_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
         """
         return pulumi.get(self, "name")
 
@@ -12266,7 +12266,7 @@ class WebAclRule(dict):
     @pulumi.getter
     def action(self) -> Optional['outputs.WebAclRuleAction']:
         """
-        Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` below for details.
+        Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
         """
         return pulumi.get(self, "action")
 
@@ -12274,7 +12274,7 @@ class WebAclRule(dict):
     @pulumi.getter(name="captchaConfig")
     def captcha_config(self) -> Optional['outputs.WebAclRuleCaptchaConfig']:
         """
-        Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         """
         return pulumi.get(self, "captcha_config")
 
@@ -12912,7 +12912,7 @@ class WebAclRuleCaptchaConfig(dict):
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.WebAclRuleCaptchaConfigImmunityTimeProperty'] = None):
         """
-        :param 'WebAclRuleCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See Immunity Time Property below for details.
+        :param 'WebAclRuleCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
         """
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
@@ -12921,7 +12921,7 @@ class WebAclRuleCaptchaConfig(dict):
     @pulumi.getter(name="immunityTimeProperty")
     def immunity_time_property(self) -> Optional['outputs.WebAclRuleCaptchaConfigImmunityTimeProperty']:
         """
-        Defines custom immunity time. See Immunity Time Property below for details.
+        Defines custom immunity time. See `immunity_time_property` below for details.
         """
         return pulumi.get(self, "immunity_time_property")
 
@@ -13090,15 +13090,15 @@ class WebAclRuleStatement(dict):
         :param 'WebAclRuleStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
         :param 'WebAclRuleStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         :param 'WebAclRuleStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-        :param 'WebAclRuleStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        :param 'WebAclRuleStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
         :param 'WebAclRuleStatementLabelMatchStatementArgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementArgs' managed_rule_group_statement: Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementArgs' managed_rule_group_statement: Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
         :param 'WebAclRuleStatementNotStatementArgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
         :param 'WebAclRuleStatementOrStatementArgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementArgs' rate_based_statement: Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rate_based_statement` below for details.
         :param 'WebAclRuleStatementRegexMatchStatementArgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementArgs' rule_group_reference_statement: Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See Rule Group Reference Statement below for details.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementArgs' rule_group_reference_statement: Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
         :param 'WebAclRuleStatementSizeConstraintStatementArgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
         :param 'WebAclRuleStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
         :param 'WebAclRuleStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
@@ -13162,7 +13162,7 @@ class WebAclRuleStatement(dict):
     @pulumi.getter(name="ipSetReferenceStatement")
     def ip_set_reference_statement(self) -> Optional['outputs.WebAclRuleStatementIpSetReferenceStatement']:
         """
-        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
         """
         return pulumi.get(self, "ip_set_reference_statement")
 
@@ -13178,7 +13178,7 @@ class WebAclRuleStatement(dict):
     @pulumi.getter(name="managedRuleGroupStatement")
     def managed_rule_group_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatement']:
         """
-        Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
+        Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
         """
         return pulumi.get(self, "managed_rule_group_statement")
 
@@ -13218,7 +13218,7 @@ class WebAclRuleStatement(dict):
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatement']:
         """
-        Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
         """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
@@ -13226,7 +13226,7 @@ class WebAclRuleStatement(dict):
     @pulumi.getter(name="ruleGroupReferenceStatement")
     def rule_group_reference_statement(self) -> Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatement']:
         """
-        Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See Rule Group Reference Statement below for details.
+        Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
         """
         return pulumi.get(self, "rule_group_reference_statement")
 
@@ -13306,9 +13306,7 @@ class WebAclRuleStatementByteMatchStatement(dict):
         """
         :param str positional_constraint: Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         :param str search_string: String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
-        :param Sequence['WebAclRuleStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementByteMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
@@ -13337,9 +13335,7 @@ class WebAclRuleStatementByteMatchStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementByteMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -14274,7 +14270,7 @@ class WebAclRuleStatementManagedRuleGroupStatement(dict):
         """
         :param str name: Name of the managed rule group.
         :param str vendor_name: Name of the managed rule group vendor.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs'] managed_rule_group_configs: Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs'] managed_rule_group_configs: Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
         :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs'] rule_action_overrides: Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs' scope_down_statement: Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
         :param str version: Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
@@ -14310,7 +14306,7 @@ class WebAclRuleStatementManagedRuleGroupStatement(dict):
     @pulumi.getter(name="managedRuleGroupConfigs")
     def managed_rule_group_configs(self) -> Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig']]:
         """
-        Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+        Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
         """
         return pulumi.get(self, "managed_rule_group_configs")
 
@@ -14987,7 +14983,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride(dict):
                  action_to_use: 'outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse',
                  name: str):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs' action_to_use: Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs' action_to_use: Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
         :param str name: Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
         """
         pulumi.set(__self__, "action_to_use", action_to_use)
@@ -14997,7 +14993,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride(dict):
     @pulumi.getter(name="actionToUse")
     def action_to_use(self) -> 'outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse':
         """
-        Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+        Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
         """
         return pulumi.get(self, "action_to_use")
 
@@ -15551,12 +15547,12 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
@@ -15614,7 +15610,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
     @pulumi.getter(name="ipSetReferenceStatement")
     def ip_set_reference_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement']:
         """
-        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
         """
         return pulumi.get(self, "ip_set_reference_statement")
 
@@ -15654,7 +15650,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement']:
         """
-        Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
         """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
@@ -15734,9 +15730,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         """
         :param str positional_constraint: Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         :param str search_string: String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
@@ -15765,9 +15759,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -16732,9 +16724,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch'] = None):
         """
         :param str regex_string: String representing the regular expression. Minimum of `1` and maximum of `512` characters.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
@@ -16754,9 +16744,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -17451,9 +17439,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "arn", arn)
@@ -17473,9 +17459,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -18174,9 +18158,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         """
         :param str comparison_operator: Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         :param int size: Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
@@ -18205,9 +18187,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -18900,9 +18880,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  text_transformations: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -18913,9 +18891,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -19608,9 +19584,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  text_transformations: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -19621,9 +19595,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -20357,9 +20329,9 @@ class WebAclRuleStatementRateBasedStatement(dict):
                  scope_down_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatement'] = None):
         """
         :param int limit: Limit on requests per 5-minute period for a single originating IP address.
-        :param str aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+        :param str aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
         :param 'WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
         pulumi.set(__self__, "limit", limit)
         if aggregate_key_type is not None:
@@ -20381,7 +20353,7 @@ class WebAclRuleStatementRateBasedStatement(dict):
     @pulumi.getter(name="aggregateKeyType")
     def aggregate_key_type(self) -> Optional[str]:
         """
-        Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+        Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
         """
         return pulumi.get(self, "aggregate_key_type")
 
@@ -20397,7 +20369,7 @@ class WebAclRuleStatementRateBasedStatement(dict):
     @pulumi.getter(name="scopeDownStatement")
     def scope_down_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatement']:
         """
-        Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+        Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
         return pulumi.get(self, "scope_down_statement")
 
@@ -20508,12 +20480,12 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
@@ -20571,7 +20543,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="ipSetReferenceStatement")
     def ip_set_reference_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement']:
         """
-        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
         """
         return pulumi.get(self, "ip_set_reference_statement")
 
@@ -20611,7 +20583,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement']:
         """
-        Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
         """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
@@ -20691,9 +20663,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement(
         """
         :param str positional_constraint: Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         :param str search_string: String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
@@ -20722,9 +20692,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement(
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -21689,9 +21657,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch'] = None):
         """
         :param str regex_string: String representing the regular expression. Minimum of `1` and maximum of `512` characters.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
@@ -21711,9 +21677,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -22408,9 +22372,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "arn", arn)
@@ -22430,9 +22392,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -23131,9 +23091,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         """
         :param str comparison_operator: Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         :param int size: Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
@@ -23162,9 +23120,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -23857,9 +23813,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(
                  text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -23870,9 +23824,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -24565,9 +24517,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement(d
                  text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -24578,9 +24528,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement(d
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -25277,9 +25225,7 @@ class WebAclRuleStatementRegexMatchStatement(dict):
                  field_to_match: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatch'] = None):
         """
         :param str regex_string: String representing the regular expression. Minimum of `1` and maximum of `512` characters.
-        :param Sequence['WebAclRuleStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
@@ -25299,9 +25245,7 @@ class WebAclRuleStatementRegexMatchStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementRegexMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -25996,9 +25940,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatement(dict):
                  field_to_match: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
-        :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "arn", arn)
@@ -26018,9 +25960,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -26758,7 +26698,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride(dict):
                  action_to_use: 'outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse',
                  name: str):
         """
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs' action_to_use: Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs' action_to_use: Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
         :param str name: Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
         """
         pulumi.set(__self__, "action_to_use", action_to_use)
@@ -26768,7 +26708,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride(dict):
     @pulumi.getter(name="actionToUse")
     def action_to_use(self) -> 'outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse':
         """
-        Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+        Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
         """
         return pulumi.get(self, "action_to_use")
 
@@ -27295,9 +27235,7 @@ class WebAclRuleStatementSizeConstraintStatement(dict):
         """
         :param str comparison_operator: Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         :param int size: Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-        :param Sequence['WebAclRuleStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
@@ -27326,9 +27264,7 @@ class WebAclRuleStatementSizeConstraintStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementSizeConstraintStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -28021,9 +27957,7 @@ class WebAclRuleStatementSqliMatchStatement(dict):
                  text_transformations: Sequence['outputs.WebAclRuleStatementSqliMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -28034,9 +27968,7 @@ class WebAclRuleStatementSqliMatchStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementSqliMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -28729,9 +28661,7 @@ class WebAclRuleStatementXssMatchStatement(dict):
                  text_transformations: Sequence['outputs.WebAclRuleStatementXssMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See `text_transformation` below for details.
+        :param Sequence['WebAclRuleStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param 'WebAclRuleStatementXssMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -28742,9 +28672,7 @@ class WebAclRuleStatementXssMatchStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.WebAclRuleStatementXssMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See `text_transformation` below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         """
         return pulumi.get(self, "text_transformations")
 

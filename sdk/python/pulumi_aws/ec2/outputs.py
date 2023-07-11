@@ -50,6 +50,8 @@ __all__ = [
     'InstanceEbsBlockDevice',
     'InstanceEnclaveOptions',
     'InstanceEphemeralBlockDevice',
+    'InstanceInstanceMarketOptions',
+    'InstanceInstanceMarketOptionsSpotOptions',
     'InstanceLaunchTemplate',
     'InstanceMaintenanceOptions',
     'InstanceMetadataOptions',
@@ -3640,6 +3642,134 @@ class InstanceEphemeralBlockDevice(dict):
         Each AWS Instance type has a different set of Instance Store block devices available for attachment. AWS [publishes a list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes) of which ephemeral devices are available on each type. The devices are always identified by the `virtual_name` in the format `ephemeral{0..N}`.
         """
         return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class InstanceInstanceMarketOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "marketType":
+            suggest = "market_type"
+        elif key == "spotOptions":
+            suggest = "spot_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceInstanceMarketOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceInstanceMarketOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceInstanceMarketOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 market_type: Optional[str] = None,
+                 spot_options: Optional['outputs.InstanceInstanceMarketOptionsSpotOptions'] = None):
+        """
+        :param str market_type: Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+        :param 'InstanceInstanceMarketOptionsSpotOptionsArgs' spot_options: Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+        """
+        if market_type is not None:
+            pulumi.set(__self__, "market_type", market_type)
+        if spot_options is not None:
+            pulumi.set(__self__, "spot_options", spot_options)
+
+    @property
+    @pulumi.getter(name="marketType")
+    def market_type(self) -> Optional[str]:
+        """
+        Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+        """
+        return pulumi.get(self, "market_type")
+
+    @property
+    @pulumi.getter(name="spotOptions")
+    def spot_options(self) -> Optional['outputs.InstanceInstanceMarketOptionsSpotOptions']:
+        """
+        Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+        """
+        return pulumi.get(self, "spot_options")
+
+
+@pulumi.output_type
+class InstanceInstanceMarketOptionsSpotOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceInterruptionBehavior":
+            suggest = "instance_interruption_behavior"
+        elif key == "maxPrice":
+            suggest = "max_price"
+        elif key == "spotInstanceType":
+            suggest = "spot_instance_type"
+        elif key == "validUntil":
+            suggest = "valid_until"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceInstanceMarketOptionsSpotOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceInstanceMarketOptionsSpotOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceInstanceMarketOptionsSpotOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_interruption_behavior: Optional[str] = None,
+                 max_price: Optional[str] = None,
+                 spot_instance_type: Optional[str] = None,
+                 valid_until: Optional[str] = None):
+        """
+        :param str instance_interruption_behavior: The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+        :param str max_price: The maximum hourly price that you're willing to pay for a Spot Instance.
+        :param str spot_instance_type: The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+        :param str valid_until: The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+        """
+        if instance_interruption_behavior is not None:
+            pulumi.set(__self__, "instance_interruption_behavior", instance_interruption_behavior)
+        if max_price is not None:
+            pulumi.set(__self__, "max_price", max_price)
+        if spot_instance_type is not None:
+            pulumi.set(__self__, "spot_instance_type", spot_instance_type)
+        if valid_until is not None:
+            pulumi.set(__self__, "valid_until", valid_until)
+
+    @property
+    @pulumi.getter(name="instanceInterruptionBehavior")
+    def instance_interruption_behavior(self) -> Optional[str]:
+        """
+        The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+        """
+        return pulumi.get(self, "instance_interruption_behavior")
+
+    @property
+    @pulumi.getter(name="maxPrice")
+    def max_price(self) -> Optional[str]:
+        """
+        The maximum hourly price that you're willing to pay for a Spot Instance.
+        """
+        return pulumi.get(self, "max_price")
+
+    @property
+    @pulumi.getter(name="spotInstanceType")
+    def spot_instance_type(self) -> Optional[str]:
+        """
+        The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+        """
+        return pulumi.get(self, "spot_instance_type")
+
+    @property
+    @pulumi.getter(name="validUntil")
+    def valid_until(self) -> Optional[str]:
+        """
+        The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+        """
+        return pulumi.get(self, "valid_until")
 
 
 @pulumi.output_type
@@ -11396,8 +11526,7 @@ class PeeringConnectionOptionsAccepter(dict):
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[bool] = None):
         """
-        :param bool allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC.
+        :param bool allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
@@ -11406,8 +11535,7 @@ class PeeringConnectionOptionsAccepter(dict):
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[bool]:
         """
-        Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC.
+        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
@@ -11434,8 +11562,7 @@ class PeeringConnectionOptionsRequester(dict):
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[bool] = None):
         """
-        :param bool allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC.
+        :param bool allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
@@ -11444,8 +11571,7 @@ class PeeringConnectionOptionsRequester(dict):
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> Optional[bool]:
         """
-        Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC.
+        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
@@ -11707,6 +11833,8 @@ class SecurityGroupEgress(dict):
         :param int to_port: End range port (or ICMP code if protocol is `icmp`).
                
                The following arguments are optional:
+               
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
         :param Sequence[str] cidr_blocks: List of CIDR blocks.
         :param str description: Description of this egress rule.
         :param Sequence[str] ipv6_cidr_blocks: List of IPv6 CIDR blocks.
@@ -11753,6 +11881,8 @@ class SecurityGroupEgress(dict):
         End range port (or ICMP code if protocol is `icmp`).
 
         The following arguments are optional:
+
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
         """
         return pulumi.get(self, "to_port")
 
@@ -11849,6 +11979,8 @@ class SecurityGroupIngress(dict):
         :param str protocol: Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
                
                The following arguments are optional:
+               
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         :param int to_port: End range port (or ICMP code if protocol is `icmp`).
         :param Sequence[str] cidr_blocks: List of CIDR blocks.
         :param str description: Description of this ingress rule.
@@ -11888,6 +12020,8 @@ class SecurityGroupIngress(dict):
         Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
 
         The following arguments are optional:
+
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         return pulumi.get(self, "protocol")
 
@@ -14467,6 +14601,8 @@ class VpcEndpointDnsOptions(dict):
         suggest = None
         if key == "dnsRecordIpType":
             suggest = "dns_record_ip_type"
+        elif key == "privateDnsOnlyForInboundResolverEndpoint":
+            suggest = "private_dns_only_for_inbound_resolver_endpoint"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VpcEndpointDnsOptions. Access the value via the '{suggest}' property getter instead.")
@@ -14480,12 +14616,16 @@ class VpcEndpointDnsOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 dns_record_ip_type: Optional[str] = None):
+                 dns_record_ip_type: Optional[str] = None,
+                 private_dns_only_for_inbound_resolver_endpoint: Optional[bool] = None):
         """
         :param str dns_record_ip_type: The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+        :param bool private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `private_dns_enabled` is `true`.
         """
         if dns_record_ip_type is not None:
             pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
+        if private_dns_only_for_inbound_resolver_endpoint is not None:
+            pulumi.set(__self__, "private_dns_only_for_inbound_resolver_endpoint", private_dns_only_for_inbound_resolver_endpoint)
 
     @property
     @pulumi.getter(name="dnsRecordIpType")
@@ -14494,6 +14634,14 @@ class VpcEndpointDnsOptions(dict):
         The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
         """
         return pulumi.get(self, "dns_record_ip_type")
+
+    @property
+    @pulumi.getter(name="privateDnsOnlyForInboundResolverEndpoint")
+    def private_dns_only_for_inbound_resolver_endpoint(self) -> Optional[bool]:
+        """
+        Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `private_dns_enabled` is `true`.
+        """
+        return pulumi.get(self, "private_dns_only_for_inbound_resolver_endpoint")
 
 
 @pulumi.output_type

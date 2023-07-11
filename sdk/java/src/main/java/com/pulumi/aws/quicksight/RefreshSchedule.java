@@ -58,7 +58,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### With Weekly Refresh
- * 
  * ```java
  * package generated_program;
  * 
@@ -92,7 +91,7 @@ import javax.annotation.Nullable;
  *                     .refreshOnDay(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.builder()
  *                         .dayOfWeek(&#34;MONDAY&#34;)
  *                         .build())
- *                     .timeOfDay(&#34;01:00&#34;)
+ *                     .timeOfTheDay(&#34;01:00&#34;)
  *                     .timezone(&#34;Europe/London&#34;)
  *                     .build())
  *                 .build())
@@ -103,7 +102,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### With Monthly Refresh
- * 
  * ```java
  * package generated_program;
  * 
@@ -137,7 +135,7 @@ import javax.annotation.Nullable;
  *                     .refreshOnDay(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.builder()
  *                         .dayOfMonth(&#34;1&#34;)
  *                         .build())
- *                     .timeOfDay(&#34;01:00&#34;)
+ *                     .timeOfTheDay(&#34;01:00&#34;)
  *                     .timezone(&#34;Europe/London&#34;)
  *                     .build())
  *                 .build())

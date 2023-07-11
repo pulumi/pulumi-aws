@@ -33,9 +33,13 @@ __all__ = [
     'DomainVpcOptionsArgs',
     'OutboundConnectionLocalDomainInfoArgs',
     'OutboundConnectionRemoteDomainInfoArgs',
+    'ServerlessCollectionTimeoutsArgs',
+    'ServerlessSecurityConfigSamlOptionsArgs',
+    'ServerlessVpcEndpointTimeoutsArgs',
     'GetDomainOffPeakWindowOptionsArgs',
     'GetDomainOffPeakWindowOptionsOffPeakWindowArgs',
     'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs',
+    'GetServerlessSecurityConfigSamlOptionsArgs',
 ]
 
 @pulumi.input_type
@@ -1332,6 +1336,146 @@ class OutboundConnectionRemoteDomainInfoArgs:
 
 
 @pulumi.input_type
+class ServerlessCollectionTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+
+@pulumi.input_type
+class ServerlessSecurityConfigSamlOptionsArgs:
+    def __init__(__self__, *,
+                 metadata: pulumi.Input[str],
+                 group_attribute: Optional[pulumi.Input[str]] = None,
+                 session_timeout: Optional[pulumi.Input[int]] = None,
+                 user_attribute: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] metadata: The XML IdP metadata file generated from your identity provider.
+        :param pulumi.Input[str] group_attribute: Group attribute for this SAML integration.
+        :param pulumi.Input[int] session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        :param pulumi.Input[str] user_attribute: User attribute for this SAML integration.
+        """
+        pulumi.set(__self__, "metadata", metadata)
+        if group_attribute is not None:
+            pulumi.set(__self__, "group_attribute", group_attribute)
+        if session_timeout is not None:
+            pulumi.set(__self__, "session_timeout", session_timeout)
+        if user_attribute is not None:
+            pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Input[str]:
+        """
+        The XML IdP metadata file generated from your identity provider.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        Group attribute for this SAML integration.
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @group_attribute.setter
+    def group_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_attribute", value)
+
+    @property
+    @pulumi.getter(name="sessionTimeout")
+    def session_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        """
+        return pulumi.get(self, "session_timeout")
+
+    @session_timeout.setter
+    def session_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "session_timeout", value)
+
+    @property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        User attribute for this SAML integration.
+        """
+        return pulumi.get(self, "user_attribute")
+
+    @user_attribute.setter
+    def user_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_attribute", value)
+
+
+@pulumi.input_type
+class ServerlessVpcEndpointTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
+
+
+@pulumi.input_type
 class GetDomainOffPeakWindowOptionsArgs:
     def __init__(__self__, *,
                  enabled: bool,
@@ -1421,5 +1565,72 @@ class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs:
     @minutes.setter
     def minutes(self, value: int):
         pulumi.set(self, "minutes", value)
+
+
+@pulumi.input_type
+class GetServerlessSecurityConfigSamlOptionsArgs:
+    def __init__(__self__, *,
+                 group_attribute: str,
+                 metadata: str,
+                 session_timeout: int,
+                 user_attribute: str):
+        """
+        :param str group_attribute: Group attribute for this SAML integration.
+        :param str metadata: The XML IdP metadata file generated from your identity provider.
+        :param int session_timeout: Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        :param str user_attribute: User attribute for this SAML integration.
+        """
+        pulumi.set(__self__, "group_attribute", group_attribute)
+        pulumi.set(__self__, "metadata", metadata)
+        pulumi.set(__self__, "session_timeout", session_timeout)
+        pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> str:
+        """
+        Group attribute for this SAML integration.
+        """
+        return pulumi.get(self, "group_attribute")
+
+    @group_attribute.setter
+    def group_attribute(self, value: str):
+        pulumi.set(self, "group_attribute", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> str:
+        """
+        The XML IdP metadata file generated from your identity provider.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: str):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="sessionTimeout")
+    def session_timeout(self) -> int:
+        """
+        Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+        """
+        return pulumi.get(self, "session_timeout")
+
+    @session_timeout.setter
+    def session_timeout(self, value: int):
+        pulumi.set(self, "session_timeout", value)
+
+    @property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> str:
+        """
+        User attribute for this SAML integration.
+        """
+        return pulumi.get(self, "user_attribute")
+
+    @user_attribute.setter
+    def user_attribute(self, value: str):
+        pulumi.set(self, "user_attribute", value)
 
 

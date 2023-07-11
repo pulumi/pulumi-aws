@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclLoggingConfigurationRedactedField {
     /**
-     * @return Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+     * @return HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
     private @Nullable WebAclLoggingConfigurationRedactedFieldMethod method;
     /**
-     * @return Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
+     * @return Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
      * 
      */
     private @Nullable WebAclLoggingConfigurationRedactedFieldQueryString queryString;
     /**
-     * @return Redact a single header. See Single Header below for details.
+     * @return &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
      * 
      */
     private @Nullable WebAclLoggingConfigurationRedactedFieldSingleHeader singleHeader;
     /**
-     * @return Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * @return Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
      * 
      */
     private @Nullable WebAclLoggingConfigurationRedactedFieldUriPath uriPath;
 
     private WebAclLoggingConfigurationRedactedField() {}
     /**
-     * @return Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+     * @return HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
     public Optional<WebAclLoggingConfigurationRedactedFieldMethod> method() {
         return Optional.ofNullable(this.method);
     }
     /**
-     * @return Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
+     * @return Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
      * 
      */
     public Optional<WebAclLoggingConfigurationRedactedFieldQueryString> queryString() {
         return Optional.ofNullable(this.queryString);
     }
     /**
-     * @return Redact a single header. See Single Header below for details.
+     * @return &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
      * 
      */
     public Optional<WebAclLoggingConfigurationRedactedFieldSingleHeader> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
     /**
-     * @return Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * @return Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
      * 
      */
     public Optional<WebAclLoggingConfigurationRedactedFieldUriPath> uriPath() {

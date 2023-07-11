@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Filters
- * 
  * ```java
  * package generated_program;
  * 
@@ -39,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketV2;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
  * import com.pulumi.aws.cloudwatch.MetricStream;
  * import com.pulumi.aws.cloudwatch.MetricStreamArgs;
  * import com.pulumi.aws.cloudwatch.inputs.MetricStreamIncludeFilterArgs;
@@ -92,8 +92,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var s3Stream = new FirehoseDeliveryStream(&#34;s3Stream&#34;, FirehoseDeliveryStreamArgs.builder()        
- *             .destination(&#34;s3&#34;)
- *             .s3Configuration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .destination(&#34;extended_s3&#34;)
+ *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
+ *                 .roleArn(firehoseToS3Role.arn())
+ *                 .bucketArn(bucket.arn())
+ *                 .build())
  *             .build());
  * 
  *         var main = new MetricStream(&#34;main&#34;, MetricStreamArgs.builder()        

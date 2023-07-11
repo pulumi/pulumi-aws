@@ -87,6 +87,8 @@ if typing.TYPE_CHECKING:
     chime = __chime
     import pulumi_aws.chimesdkmediapipelines as __chimesdkmediapipelines
     chimesdkmediapipelines = __chimesdkmediapipelines
+    import pulumi_aws.cleanrooms as __cleanrooms
+    cleanrooms = __cleanrooms
     import pulumi_aws.cloud9 as __cloud9
     cloud9 = __cloud9
     import pulumi_aws.cloudcontrol as __cloudcontrol
@@ -197,6 +199,8 @@ if typing.TYPE_CHECKING:
     emrserverless = __emrserverless
     import pulumi_aws.evidently as __evidently
     evidently = __evidently
+    import pulumi_aws.finspace as __finspace
+    finspace = __finspace
     import pulumi_aws.fis as __fis
     fis = __fis
     import pulumi_aws.fms as __fms
@@ -439,6 +443,7 @@ else:
     cfg = _utilities.lazy_import('pulumi_aws.cfg')
     chime = _utilities.lazy_import('pulumi_aws.chime')
     chimesdkmediapipelines = _utilities.lazy_import('pulumi_aws.chimesdkmediapipelines')
+    cleanrooms = _utilities.lazy_import('pulumi_aws.cleanrooms')
     cloud9 = _utilities.lazy_import('pulumi_aws.cloud9')
     cloudcontrol = _utilities.lazy_import('pulumi_aws.cloudcontrol')
     cloudformation = _utilities.lazy_import('pulumi_aws.cloudformation')
@@ -494,6 +499,7 @@ else:
     emrcontainers = _utilities.lazy_import('pulumi_aws.emrcontainers')
     emrserverless = _utilities.lazy_import('pulumi_aws.emrserverless')
     evidently = _utilities.lazy_import('pulumi_aws.evidently')
+    finspace = _utilities.lazy_import('pulumi_aws.finspace')
     fis = _utilities.lazy_import('pulumi_aws.fis')
     fms = _utilities.lazy_import('pulumi_aws.fms')
     fsx = _utilities.lazy_import('pulumi_aws.fsx')
@@ -1902,6 +1908,30 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "chime/sdkvoiceGlobalSettings",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings": "SdkvoiceGlobalSettings"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "chime/sdkvoiceSipMediaApplication",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication": "SdkvoiceSipMediaApplication"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "chime/sdkvoiceSipRule",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/sdkvoiceSipRule:SdkvoiceSipRule": "SdkvoiceSipRule"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "chime/sdkvoiceVoiceProfileDomain",
   "fqn": "pulumi_aws.chime",
   "classes": {
@@ -1970,6 +2000,14 @@ _utilities.register(
   "fqn": "pulumi_aws.chimesdkmediapipelines",
   "classes": {
    "aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration": "MediaInsightsPipelineConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cleanrooms/collaboration",
+  "fqn": "pulumi_aws.cleanrooms",
+  "classes": {
+   "aws:cleanrooms/collaboration:Collaboration": "Collaboration"
   }
  },
  {
@@ -4302,6 +4340,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2transitgateway/instanceConnectEndpoint",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint": "InstanceConnectEndpoint"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2transitgateway/instanceState",
   "fqn": "pulumi_aws.ec2transitgateway",
   "classes": {
@@ -5090,6 +5136,38 @@ _utilities.register(
   "fqn": "pulumi_aws.evidently",
   "classes": {
    "aws:evidently/segment:Segment": "Segment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "finspace/kxCluster",
+  "fqn": "pulumi_aws.finspace",
+  "classes": {
+   "aws:finspace/kxCluster:KxCluster": "KxCluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "finspace/kxDatabase",
+  "fqn": "pulumi_aws.finspace",
+  "classes": {
+   "aws:finspace/kxDatabase:KxDatabase": "KxDatabase"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "finspace/kxEnvironment",
+  "fqn": "pulumi_aws.finspace",
+  "classes": {
+   "aws:finspace/kxEnvironment:KxEnvironment": "KxEnvironment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "finspace/kxUser",
+  "fqn": "pulumi_aws.finspace",
+  "classes": {
+   "aws:finspace/kxUser:KxUser": "KxUser"
   }
  },
  {
@@ -7350,6 +7428,46 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "opensearch/serverlessAccessPolicy",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy": "ServerlessAccessPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/serverlessCollection",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/serverlessCollection:ServerlessCollection": "ServerlessCollection"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/serverlessSecurityConfig",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig": "ServerlessSecurityConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/serverlessSecurityPolicy",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy": "ServerlessSecurityPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/serverlessVpcEndpoint",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint": "ServerlessVpcEndpoint"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "opsworks/application",
   "fqn": "pulumi_aws.opsworks",
   "classes": {
@@ -7530,6 +7648,14 @@ _utilities.register(
   "fqn": "pulumi_aws.organizations",
   "classes": {
    "aws:organizations/policyAttachment:PolicyAttachment": "PolicyAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "organizations/resourcePolicy",
+  "fqn": "pulumi_aws.organizations",
+  "classes": {
+   "aws:organizations/resourcePolicy:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
@@ -7762,6 +7888,14 @@ _utilities.register(
   "fqn": "pulumi_aws.quicksight",
   "classes": {
    "aws:quicksight/templateAlias:TemplateAlias": "TemplateAlias"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "quicksight/theme",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/theme:Theme": "Theme"
   }
  },
  {
@@ -9558,6 +9692,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sfn/alias",
+  "fqn": "pulumi_aws.sfn",
+  "classes": {
+   "aws:sfn/alias:Alias": "Alias"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sfn/stateMachine",
   "fqn": "pulumi_aws.sfn",
   "classes": {
@@ -10058,6 +10200,38 @@ _utilities.register(
   "fqn": "pulumi_aws.transfer",
   "classes": {
    "aws:transfer/access:Access": "Access"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transfer/agreement",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/agreement:Agreement": "Agreement"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transfer/certificate",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/certificate:Certificate": "Certificate"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transfer/connector",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/connector:Connector": "Connector"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transfer/profile",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/profile:Profile": "Profile"
   }
  },
  {

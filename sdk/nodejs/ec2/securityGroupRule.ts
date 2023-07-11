@@ -206,6 +206,8 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      * or `egress` (outbound).
      *
      * The following arguments are optional:
+     *
+     * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -322,6 +324,8 @@ export interface SecurityGroupRuleState {
      * or `egress` (outbound).
      *
      * The following arguments are optional:
+     *
+     * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      */
     type?: pulumi.Input<string>;
 }
@@ -375,6 +379,8 @@ export interface SecurityGroupRuleArgs {
      * or `egress` (outbound).
      *
      * The following arguments are optional:
+     *
+     * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      */
     type: pulumi.Input<string>;
 }

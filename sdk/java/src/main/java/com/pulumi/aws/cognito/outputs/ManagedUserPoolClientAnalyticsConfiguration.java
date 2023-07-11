@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagedUserPoolClientAnalyticsConfiguration {
     /**
-     * @return Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+     * @return Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
      * 
      */
     private @Nullable String applicationArn;
     /**
-     * @return Application ID for an Amazon Pinpoint application.
+     * @return Unique identifier for an Amazon Pinpoint application.
      * 
      */
     private @Nullable String applicationId;
     /**
-     * @return ID for the Analytics Configuration. Conflicts with `application_arn`.
+     * @return ID for the Analytics Configuration and conflicts with `application_arn`.
      * 
      */
     private @Nullable String externalId;
     /**
-     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
      * 
      */
     private @Nullable String roleArn;
     /**
-     * @return If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+     * @return If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
      * 
      */
     private @Nullable Boolean userDataShared;
 
     private ManagedUserPoolClientAnalyticsConfiguration() {}
     /**
-     * @return Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+     * @return Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
      * 
      */
     public Optional<String> applicationArn() {
         return Optional.ofNullable(this.applicationArn);
     }
     /**
-     * @return Application ID for an Amazon Pinpoint application.
+     * @return Unique identifier for an Amazon Pinpoint application.
      * 
      */
     public Optional<String> applicationId() {
         return Optional.ofNullable(this.applicationId);
     }
     /**
-     * @return ID for the Analytics Configuration. Conflicts with `application_arn`.
+     * @return ID for the Analytics Configuration and conflicts with `application_arn`.
      * 
      */
     public Optional<String> externalId() {
         return Optional.ofNullable(this.externalId);
     }
     /**
-     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
      * 
      */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
     /**
-     * @return If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+     * @return If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
      * 
      */
     public Optional<Boolean> userDataShared() {

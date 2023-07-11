@@ -175,6 +175,9 @@ export class Crawler extends pulumi.CustomResource {
      * Glue database where results are written.
      */
     public readonly databaseName!: pulumi.Output<string>;
+    /**
+     * List of nested Delta Lake target arguments. See Delta Target below.
+     */
     public readonly deltaTargets!: pulumi.Output<outputs.glue.CrawlerDeltaTarget[] | undefined>;
     /**
      * Description of the crawler.
@@ -184,6 +187,10 @@ export class Crawler extends pulumi.CustomResource {
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
     public readonly dynamodbTargets!: pulumi.Output<outputs.glue.CrawlerDynamodbTarget[] | undefined>;
+    /**
+     * List nested Iceberg target arguments. See Iceberg Target below.
+     */
+    public readonly icebergTargets!: pulumi.Output<outputs.glue.CrawlerIcebergTarget[] | undefined>;
     /**
      * List of nested JBDC target arguments. See JDBC Target below.
      */
@@ -262,6 +269,7 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["deltaTargets"] = state ? state.deltaTargets : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["dynamodbTargets"] = state ? state.dynamodbTargets : undefined;
+            resourceInputs["icebergTargets"] = state ? state.icebergTargets : undefined;
             resourceInputs["jdbcTargets"] = state ? state.jdbcTargets : undefined;
             resourceInputs["lakeFormationConfiguration"] = state ? state.lakeFormationConfiguration : undefined;
             resourceInputs["lineageConfiguration"] = state ? state.lineageConfiguration : undefined;
@@ -291,6 +299,7 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["deltaTargets"] = args ? args.deltaTargets : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dynamodbTargets"] = args ? args.dynamodbTargets : undefined;
+            resourceInputs["icebergTargets"] = args ? args.icebergTargets : undefined;
             resourceInputs["jdbcTargets"] = args ? args.jdbcTargets : undefined;
             resourceInputs["lakeFormationConfiguration"] = args ? args.lakeFormationConfiguration : undefined;
             resourceInputs["lineageConfiguration"] = args ? args.lineageConfiguration : undefined;
@@ -333,6 +342,9 @@ export interface CrawlerState {
      * Glue database where results are written.
      */
     databaseName?: pulumi.Input<string>;
+    /**
+     * List of nested Delta Lake target arguments. See Delta Target below.
+     */
     deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTarget>[]>;
     /**
      * Description of the crawler.
@@ -342,6 +354,10 @@ export interface CrawlerState {
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
     dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
+    /**
+     * List nested Iceberg target arguments. See Iceberg Target below.
+     */
+    icebergTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerIcebergTarget>[]>;
     /**
      * List of nested JBDC target arguments. See JDBC Target below.
      */
@@ -417,6 +433,9 @@ export interface CrawlerArgs {
      * Glue database where results are written.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * List of nested Delta Lake target arguments. See Delta Target below.
+     */
     deltaTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDeltaTarget>[]>;
     /**
      * Description of the crawler.
@@ -426,6 +445,10 @@ export interface CrawlerArgs {
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
     dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
+    /**
+     * List nested Iceberg target arguments. See Iceberg Target below.
+     */
+    icebergTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerIcebergTarget>[]>;
     /**
      * List of nested JBDC target arguments. See JDBC Target below.
      */

@@ -15,14 +15,14 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
     public static final WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs Empty = new WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs();
 
     /**
-     * Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+     * Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
      * 
      */
     @Import(name="actionToUse", required=true)
     private Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs> actionToUse;
 
     /**
-     * @return Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+     * @return Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
      * 
      */
     public Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs> actionToUse() {
@@ -70,7 +70,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param actionToUse Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+         * @param actionToUse Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         }
 
         /**
-         * @param actionToUse Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+         * @param actionToUse Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
          * 
          * @return builder
          * 

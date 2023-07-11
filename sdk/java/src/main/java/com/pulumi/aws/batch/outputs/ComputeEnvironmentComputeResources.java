@@ -72,6 +72,11 @@ public final class ComputeEnvironmentComputeResources {
      */
     private @Nullable Integer minVcpus;
     /**
+     * @return The Amazon EC2 placement group to associate with your compute resources.
+     * 
+     */
+    private @Nullable String placementGroup;
+    /**
      * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
@@ -176,6 +181,13 @@ public final class ComputeEnvironmentComputeResources {
         return Optional.ofNullable(this.minVcpus);
     }
     /**
+     * @return The Amazon EC2 placement group to associate with your compute resources.
+     * 
+     */
+    public Optional<String> placementGroup() {
+        return Optional.ofNullable(this.placementGroup);
+    }
+    /**
      * @return A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
@@ -231,6 +243,7 @@ public final class ComputeEnvironmentComputeResources {
         private @Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate;
         private Integer maxVcpus;
         private @Nullable Integer minVcpus;
+        private @Nullable String placementGroup;
         private @Nullable List<String> securityGroupIds;
         private @Nullable String spotIamFleetRole;
         private List<String> subnets;
@@ -250,6 +263,7 @@ public final class ComputeEnvironmentComputeResources {
     	      this.launchTemplate = defaults.launchTemplate;
     	      this.maxVcpus = defaults.maxVcpus;
     	      this.minVcpus = defaults.minVcpus;
+    	      this.placementGroup = defaults.placementGroup;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.spotIamFleetRole = defaults.spotIamFleetRole;
     	      this.subnets = defaults.subnets;
@@ -316,6 +330,11 @@ public final class ComputeEnvironmentComputeResources {
             return this;
         }
         @CustomType.Setter
+        public Builder placementGroup(@Nullable String placementGroup) {
+            this.placementGroup = placementGroup;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupIds(@Nullable List<String> securityGroupIds) {
             this.securityGroupIds = securityGroupIds;
             return this;
@@ -359,6 +378,7 @@ public final class ComputeEnvironmentComputeResources {
             o.launchTemplate = launchTemplate;
             o.maxVcpus = maxVcpus;
             o.minVcpus = minVcpus;
+            o.placementGroup = placementGroup;
             o.securityGroupIds = securityGroupIds;
             o.spotIamFleetRole = spotIamFleetRole;
             o.subnets = subnets;

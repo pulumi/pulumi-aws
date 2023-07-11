@@ -273,6 +273,7 @@ var moduleMap = map[string]string{
 	"budgets":                         budgetsMod,
 	"chime":                           chimeMod,
 	"chimesdkmediapipelines":          chimeSDKMediaPipelinesMod,
+	"cleanrooms":                      "CleanRooms",
 	"cloud9":                          cloud9Mod,
 	"cloudcontrolapi":                 cloudControlMod,
 	"cloudformation":                  cloudformationMod,
@@ -327,6 +328,7 @@ var moduleMap = map[string]string{
 	"emr":                             emrMod,
 	"emrcontainers":                   emrContainersMod,
 	"emrserverless":                   emrServerlessMod,
+	"finspace":                        "FinSpace",
 	"fis":                             fisMod,
 	"fms":                             fmsMod,
 	"fsx":                             fsxMod,
@@ -1943,6 +1945,7 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_ec2_transit_gateway_policy_table":                 {Tok: awsResource(ec2TransitGatewayMod, "PolicyTable")},
 			"aws_ec2_transit_gateway_policy_table_association":     {Tok: awsResource(ec2TransitGatewayMod, "PolicyTableAssociation")},
 			"aws_ec2_instance_state":                               {Tok: awsResource(ec2TransitGatewayMod, "InstanceState")},
+			"aws_ec2_instance_connect_endpoint":                    {Tok: awsResource(ec2TransitGatewayMod, "InstanceConnectEndpoint")},
 			// Elastic Container Registry
 			"aws_ecr_repository": {Tok: awsResource(ecrMod, "Repository")},
 			"aws_ecr_repository_policy": {
@@ -3666,6 +3669,12 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_transfer_access":   {Tok: awsResource(transferMod, "Access")},
 			"aws_transfer_workflow": {Tok: awsResource(transferMod, "Workflow")},
 			"aws_transfer_tag":      {Tok: awsResource(transferMod, "Tag")},
+			"aws_transfer_certificate": {
+				Tok: awsResource(transferMod, "Certificate"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"certificate": {CSharpName: "CertificateFile"},
+				},
+			},
 			// TimestreamWrite
 			"aws_timestreamwrite_database": {Tok: awsResource(timestreamWriteMod, "Database")},
 			"aws_timestreamwrite_table":    {Tok: awsResource(timestreamWriteMod, "Table")},

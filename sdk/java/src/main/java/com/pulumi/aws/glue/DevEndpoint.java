@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -93,14 +92,14 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
      * A map of arguments used to configure the endpoint.
      * 
      */
-    @Export(name="arguments", refs={Map.class,String.class,Object.class}, tree="[0,1,2]")
-    private Output</* @Nullable */ Map<String,Object>> arguments;
+    @Export(name="arguments", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> arguments;
 
     /**
      * @return A map of arguments used to configure the endpoint.
      * 
      */
-    public Output<Optional<Map<String,Object>>> arguments() {
+    public Output<Optional<Map<String,String>>> arguments() {
         return Codegen.optional(this.arguments);
     }
     /**

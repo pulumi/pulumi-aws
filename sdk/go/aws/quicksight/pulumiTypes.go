@@ -14635,7 +14635,8 @@ type RefreshScheduleScheduleScheduleFrequency struct {
 	Interval string `pulumi:"interval"`
 	// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
 	RefreshOnDay *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay `pulumi:"refreshOnDay"`
-	TimeOfTheDay *string                                               `pulumi:"timeOfTheDay"`
+	// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+	TimeOfTheDay *string `pulumi:"timeOfTheDay"`
 	// The timezone that you want the refresh schedule to use.
 	Timezone *string `pulumi:"timezone"`
 }
@@ -14656,7 +14657,8 @@ type RefreshScheduleScheduleScheduleFrequencyArgs struct {
 	Interval pulumi.StringInput `pulumi:"interval"`
 	// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
 	RefreshOnDay RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrInput `pulumi:"refreshOnDay"`
-	TimeOfTheDay pulumi.StringPtrInput                                        `pulumi:"timeOfTheDay"`
+	// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+	TimeOfTheDay pulumi.StringPtrInput `pulumi:"timeOfTheDay"`
 	// The timezone that you want the refresh schedule to use.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
@@ -14750,6 +14752,7 @@ func (o RefreshScheduleScheduleScheduleFrequencyOutput) RefreshOnDay() RefreshSc
 	}).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput)
 }
 
+// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
 func (o RefreshScheduleScheduleScheduleFrequencyOutput) TimeOfTheDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequency) *string { return v.TimeOfTheDay }).(pulumi.StringPtrOutput)
 }
@@ -14803,6 +14806,7 @@ func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) RefreshOnDay() Refres
 	}).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput)
 }
 
+// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
 func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) TimeOfTheDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequency) *string {
 		if v == nil {
@@ -15639,6 +15643,1997 @@ func (o TemplateSourceEntitySourceTemplatePtrOutput) Arn() pulumi.StringPtrOutpu
 		}
 		return &v.Arn
 	}).(pulumi.StringPtrOutput)
+}
+
+type ThemeConfiguration struct {
+	// Color properties that apply to chart data colors. See data_color_palette.
+	DataColorPalette *ThemeConfigurationDataColorPalette `pulumi:"dataColorPalette"`
+	// Display options related to sheets. See sheet.
+	Sheet *ThemeConfigurationSheet `pulumi:"sheet"`
+	// Determines the typography options. See typography.
+	Typography *ThemeConfigurationTypography `pulumi:"typography"`
+	// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+	UiColorPalette *ThemeConfigurationUiColorPalette `pulumi:"uiColorPalette"`
+}
+
+// ThemeConfigurationInput is an input type that accepts ThemeConfigurationArgs and ThemeConfigurationOutput values.
+// You can construct a concrete instance of `ThemeConfigurationInput` via:
+//
+//	ThemeConfigurationArgs{...}
+type ThemeConfigurationInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationOutput() ThemeConfigurationOutput
+	ToThemeConfigurationOutputWithContext(context.Context) ThemeConfigurationOutput
+}
+
+type ThemeConfigurationArgs struct {
+	// Color properties that apply to chart data colors. See data_color_palette.
+	DataColorPalette ThemeConfigurationDataColorPalettePtrInput `pulumi:"dataColorPalette"`
+	// Display options related to sheets. See sheet.
+	Sheet ThemeConfigurationSheetPtrInput `pulumi:"sheet"`
+	// Determines the typography options. See typography.
+	Typography ThemeConfigurationTypographyPtrInput `pulumi:"typography"`
+	// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+	UiColorPalette ThemeConfigurationUiColorPalettePtrInput `pulumi:"uiColorPalette"`
+}
+
+func (ThemeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfiguration)(nil)).Elem()
+}
+
+func (i ThemeConfigurationArgs) ToThemeConfigurationOutput() ThemeConfigurationOutput {
+	return i.ToThemeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationArgs) ToThemeConfigurationOutputWithContext(ctx context.Context) ThemeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationOutput)
+}
+
+func (i ThemeConfigurationArgs) ToThemeConfigurationPtrOutput() ThemeConfigurationPtrOutput {
+	return i.ToThemeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationArgs) ToThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationOutput).ToThemeConfigurationPtrOutputWithContext(ctx)
+}
+
+// ThemeConfigurationPtrInput is an input type that accepts ThemeConfigurationArgs, ThemeConfigurationPtr and ThemeConfigurationPtrOutput values.
+// You can construct a concrete instance of `ThemeConfigurationPtrInput` via:
+//
+//	        ThemeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationPtrOutput() ThemeConfigurationPtrOutput
+	ToThemeConfigurationPtrOutputWithContext(context.Context) ThemeConfigurationPtrOutput
+}
+
+type themeConfigurationPtrType ThemeConfigurationArgs
+
+func ThemeConfigurationPtr(v *ThemeConfigurationArgs) ThemeConfigurationPtrInput {
+	return (*themeConfigurationPtrType)(v)
+}
+
+func (*themeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfiguration)(nil)).Elem()
+}
+
+func (i *themeConfigurationPtrType) ToThemeConfigurationPtrOutput() ThemeConfigurationPtrOutput {
+	return i.ToThemeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *themeConfigurationPtrType) ToThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationPtrOutput)
+}
+
+type ThemeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfiguration)(nil)).Elem()
+}
+
+func (o ThemeConfigurationOutput) ToThemeConfigurationOutput() ThemeConfigurationOutput {
+	return o
+}
+
+func (o ThemeConfigurationOutput) ToThemeConfigurationOutputWithContext(ctx context.Context) ThemeConfigurationOutput {
+	return o
+}
+
+func (o ThemeConfigurationOutput) ToThemeConfigurationPtrOutput() ThemeConfigurationPtrOutput {
+	return o.ToThemeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeConfigurationOutput) ToThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeConfiguration) *ThemeConfiguration {
+		return &v
+	}).(ThemeConfigurationPtrOutput)
+}
+
+// Color properties that apply to chart data colors. See data_color_palette.
+func (o ThemeConfigurationOutput) DataColorPalette() ThemeConfigurationDataColorPalettePtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeConfigurationDataColorPalette { return v.DataColorPalette }).(ThemeConfigurationDataColorPalettePtrOutput)
+}
+
+// Display options related to sheets. See sheet.
+func (o ThemeConfigurationOutput) Sheet() ThemeConfigurationSheetPtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeConfigurationSheet { return v.Sheet }).(ThemeConfigurationSheetPtrOutput)
+}
+
+// Determines the typography options. See typography.
+func (o ThemeConfigurationOutput) Typography() ThemeConfigurationTypographyPtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeConfigurationTypography { return v.Typography }).(ThemeConfigurationTypographyPtrOutput)
+}
+
+// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+func (o ThemeConfigurationOutput) UiColorPalette() ThemeConfigurationUiColorPalettePtrOutput {
+	return o.ApplyT(func(v ThemeConfiguration) *ThemeConfigurationUiColorPalette { return v.UiColorPalette }).(ThemeConfigurationUiColorPalettePtrOutput)
+}
+
+type ThemeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfiguration)(nil)).Elem()
+}
+
+func (o ThemeConfigurationPtrOutput) ToThemeConfigurationPtrOutput() ThemeConfigurationPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationPtrOutput) ToThemeConfigurationPtrOutputWithContext(ctx context.Context) ThemeConfigurationPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationPtrOutput) Elem() ThemeConfigurationOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) ThemeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfiguration
+		return ret
+	}).(ThemeConfigurationOutput)
+}
+
+// Color properties that apply to chart data colors. See data_color_palette.
+func (o ThemeConfigurationPtrOutput) DataColorPalette() ThemeConfigurationDataColorPalettePtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeConfigurationDataColorPalette {
+		if v == nil {
+			return nil
+		}
+		return v.DataColorPalette
+	}).(ThemeConfigurationDataColorPalettePtrOutput)
+}
+
+// Display options related to sheets. See sheet.
+func (o ThemeConfigurationPtrOutput) Sheet() ThemeConfigurationSheetPtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeConfigurationSheet {
+		if v == nil {
+			return nil
+		}
+		return v.Sheet
+	}).(ThemeConfigurationSheetPtrOutput)
+}
+
+// Determines the typography options. See typography.
+func (o ThemeConfigurationPtrOutput) Typography() ThemeConfigurationTypographyPtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeConfigurationTypography {
+		if v == nil {
+			return nil
+		}
+		return v.Typography
+	}).(ThemeConfigurationTypographyPtrOutput)
+}
+
+// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+func (o ThemeConfigurationPtrOutput) UiColorPalette() ThemeConfigurationUiColorPalettePtrOutput {
+	return o.ApplyT(func(v *ThemeConfiguration) *ThemeConfigurationUiColorPalette {
+		if v == nil {
+			return nil
+		}
+		return v.UiColorPalette
+	}).(ThemeConfigurationUiColorPalettePtrOutput)
+}
+
+type ThemeConfigurationDataColorPalette struct {
+	// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+	Colors []string `pulumi:"colors"`
+	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+	EmptyFillColor *string `pulumi:"emptyFillColor"`
+	// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+	MinMaxGradients []string `pulumi:"minMaxGradients"`
+}
+
+// ThemeConfigurationDataColorPaletteInput is an input type that accepts ThemeConfigurationDataColorPaletteArgs and ThemeConfigurationDataColorPaletteOutput values.
+// You can construct a concrete instance of `ThemeConfigurationDataColorPaletteInput` via:
+//
+//	ThemeConfigurationDataColorPaletteArgs{...}
+type ThemeConfigurationDataColorPaletteInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationDataColorPaletteOutput() ThemeConfigurationDataColorPaletteOutput
+	ToThemeConfigurationDataColorPaletteOutputWithContext(context.Context) ThemeConfigurationDataColorPaletteOutput
+}
+
+type ThemeConfigurationDataColorPaletteArgs struct {
+	// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+	Colors pulumi.StringArrayInput `pulumi:"colors"`
+	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+	EmptyFillColor pulumi.StringPtrInput `pulumi:"emptyFillColor"`
+	// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+	MinMaxGradients pulumi.StringArrayInput `pulumi:"minMaxGradients"`
+}
+
+func (ThemeConfigurationDataColorPaletteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationDataColorPalette)(nil)).Elem()
+}
+
+func (i ThemeConfigurationDataColorPaletteArgs) ToThemeConfigurationDataColorPaletteOutput() ThemeConfigurationDataColorPaletteOutput {
+	return i.ToThemeConfigurationDataColorPaletteOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationDataColorPaletteArgs) ToThemeConfigurationDataColorPaletteOutputWithContext(ctx context.Context) ThemeConfigurationDataColorPaletteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationDataColorPaletteOutput)
+}
+
+func (i ThemeConfigurationDataColorPaletteArgs) ToThemeConfigurationDataColorPalettePtrOutput() ThemeConfigurationDataColorPalettePtrOutput {
+	return i.ToThemeConfigurationDataColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationDataColorPaletteArgs) ToThemeConfigurationDataColorPalettePtrOutputWithContext(ctx context.Context) ThemeConfigurationDataColorPalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationDataColorPaletteOutput).ToThemeConfigurationDataColorPalettePtrOutputWithContext(ctx)
+}
+
+// ThemeConfigurationDataColorPalettePtrInput is an input type that accepts ThemeConfigurationDataColorPaletteArgs, ThemeConfigurationDataColorPalettePtr and ThemeConfigurationDataColorPalettePtrOutput values.
+// You can construct a concrete instance of `ThemeConfigurationDataColorPalettePtrInput` via:
+//
+//	        ThemeConfigurationDataColorPaletteArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeConfigurationDataColorPalettePtrInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationDataColorPalettePtrOutput() ThemeConfigurationDataColorPalettePtrOutput
+	ToThemeConfigurationDataColorPalettePtrOutputWithContext(context.Context) ThemeConfigurationDataColorPalettePtrOutput
+}
+
+type themeConfigurationDataColorPalettePtrType ThemeConfigurationDataColorPaletteArgs
+
+func ThemeConfigurationDataColorPalettePtr(v *ThemeConfigurationDataColorPaletteArgs) ThemeConfigurationDataColorPalettePtrInput {
+	return (*themeConfigurationDataColorPalettePtrType)(v)
+}
+
+func (*themeConfigurationDataColorPalettePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationDataColorPalette)(nil)).Elem()
+}
+
+func (i *themeConfigurationDataColorPalettePtrType) ToThemeConfigurationDataColorPalettePtrOutput() ThemeConfigurationDataColorPalettePtrOutput {
+	return i.ToThemeConfigurationDataColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (i *themeConfigurationDataColorPalettePtrType) ToThemeConfigurationDataColorPalettePtrOutputWithContext(ctx context.Context) ThemeConfigurationDataColorPalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationDataColorPalettePtrOutput)
+}
+
+type ThemeConfigurationDataColorPaletteOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationDataColorPaletteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationDataColorPalette)(nil)).Elem()
+}
+
+func (o ThemeConfigurationDataColorPaletteOutput) ToThemeConfigurationDataColorPaletteOutput() ThemeConfigurationDataColorPaletteOutput {
+	return o
+}
+
+func (o ThemeConfigurationDataColorPaletteOutput) ToThemeConfigurationDataColorPaletteOutputWithContext(ctx context.Context) ThemeConfigurationDataColorPaletteOutput {
+	return o
+}
+
+func (o ThemeConfigurationDataColorPaletteOutput) ToThemeConfigurationDataColorPalettePtrOutput() ThemeConfigurationDataColorPalettePtrOutput {
+	return o.ToThemeConfigurationDataColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeConfigurationDataColorPaletteOutput) ToThemeConfigurationDataColorPalettePtrOutputWithContext(ctx context.Context) ThemeConfigurationDataColorPalettePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeConfigurationDataColorPalette) *ThemeConfigurationDataColorPalette {
+		return &v
+	}).(ThemeConfigurationDataColorPalettePtrOutput)
+}
+
+// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+func (o ThemeConfigurationDataColorPaletteOutput) Colors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ThemeConfigurationDataColorPalette) []string { return v.Colors }).(pulumi.StringArrayOutput)
+}
+
+// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+func (o ThemeConfigurationDataColorPaletteOutput) EmptyFillColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationDataColorPalette) *string { return v.EmptyFillColor }).(pulumi.StringPtrOutput)
+}
+
+// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+func (o ThemeConfigurationDataColorPaletteOutput) MinMaxGradients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ThemeConfigurationDataColorPalette) []string { return v.MinMaxGradients }).(pulumi.StringArrayOutput)
+}
+
+type ThemeConfigurationDataColorPalettePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationDataColorPalettePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationDataColorPalette)(nil)).Elem()
+}
+
+func (o ThemeConfigurationDataColorPalettePtrOutput) ToThemeConfigurationDataColorPalettePtrOutput() ThemeConfigurationDataColorPalettePtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationDataColorPalettePtrOutput) ToThemeConfigurationDataColorPalettePtrOutputWithContext(ctx context.Context) ThemeConfigurationDataColorPalettePtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationDataColorPalettePtrOutput) Elem() ThemeConfigurationDataColorPaletteOutput {
+	return o.ApplyT(func(v *ThemeConfigurationDataColorPalette) ThemeConfigurationDataColorPalette {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfigurationDataColorPalette
+		return ret
+	}).(ThemeConfigurationDataColorPaletteOutput)
+}
+
+// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+func (o ThemeConfigurationDataColorPalettePtrOutput) Colors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ThemeConfigurationDataColorPalette) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Colors
+	}).(pulumi.StringArrayOutput)
+}
+
+// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+func (o ThemeConfigurationDataColorPalettePtrOutput) EmptyFillColor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationDataColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmptyFillColor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+func (o ThemeConfigurationDataColorPalettePtrOutput) MinMaxGradients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ThemeConfigurationDataColorPalette) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MinMaxGradients
+	}).(pulumi.StringArrayOutput)
+}
+
+type ThemeConfigurationSheet struct {
+	// The display options for tiles. See tile.
+	Tile *ThemeConfigurationSheetTile `pulumi:"tile"`
+	// The layout options for tiles. See tile_layout.
+	TileLayout *ThemeConfigurationSheetTileLayout `pulumi:"tileLayout"`
+}
+
+// ThemeConfigurationSheetInput is an input type that accepts ThemeConfigurationSheetArgs and ThemeConfigurationSheetOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetInput` via:
+//
+//	ThemeConfigurationSheetArgs{...}
+type ThemeConfigurationSheetInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetOutput() ThemeConfigurationSheetOutput
+	ToThemeConfigurationSheetOutputWithContext(context.Context) ThemeConfigurationSheetOutput
+}
+
+type ThemeConfigurationSheetArgs struct {
+	// The display options for tiles. See tile.
+	Tile ThemeConfigurationSheetTilePtrInput `pulumi:"tile"`
+	// The layout options for tiles. See tile_layout.
+	TileLayout ThemeConfigurationSheetTileLayoutPtrInput `pulumi:"tileLayout"`
+}
+
+func (ThemeConfigurationSheetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheet)(nil)).Elem()
+}
+
+func (i ThemeConfigurationSheetArgs) ToThemeConfigurationSheetOutput() ThemeConfigurationSheetOutput {
+	return i.ToThemeConfigurationSheetOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetArgs) ToThemeConfigurationSheetOutputWithContext(ctx context.Context) ThemeConfigurationSheetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetOutput)
+}
+
+func (i ThemeConfigurationSheetArgs) ToThemeConfigurationSheetPtrOutput() ThemeConfigurationSheetPtrOutput {
+	return i.ToThemeConfigurationSheetPtrOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetArgs) ToThemeConfigurationSheetPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetOutput).ToThemeConfigurationSheetPtrOutputWithContext(ctx)
+}
+
+// ThemeConfigurationSheetPtrInput is an input type that accepts ThemeConfigurationSheetArgs, ThemeConfigurationSheetPtr and ThemeConfigurationSheetPtrOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetPtrInput` via:
+//
+//	        ThemeConfigurationSheetArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeConfigurationSheetPtrInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetPtrOutput() ThemeConfigurationSheetPtrOutput
+	ToThemeConfigurationSheetPtrOutputWithContext(context.Context) ThemeConfigurationSheetPtrOutput
+}
+
+type themeConfigurationSheetPtrType ThemeConfigurationSheetArgs
+
+func ThemeConfigurationSheetPtr(v *ThemeConfigurationSheetArgs) ThemeConfigurationSheetPtrInput {
+	return (*themeConfigurationSheetPtrType)(v)
+}
+
+func (*themeConfigurationSheetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheet)(nil)).Elem()
+}
+
+func (i *themeConfigurationSheetPtrType) ToThemeConfigurationSheetPtrOutput() ThemeConfigurationSheetPtrOutput {
+	return i.ToThemeConfigurationSheetPtrOutputWithContext(context.Background())
+}
+
+func (i *themeConfigurationSheetPtrType) ToThemeConfigurationSheetPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetPtrOutput)
+}
+
+type ThemeConfigurationSheetOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheet)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetOutput) ToThemeConfigurationSheetOutput() ThemeConfigurationSheetOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetOutput) ToThemeConfigurationSheetOutputWithContext(ctx context.Context) ThemeConfigurationSheetOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetOutput) ToThemeConfigurationSheetPtrOutput() ThemeConfigurationSheetPtrOutput {
+	return o.ToThemeConfigurationSheetPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeConfigurationSheetOutput) ToThemeConfigurationSheetPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeConfigurationSheet) *ThemeConfigurationSheet {
+		return &v
+	}).(ThemeConfigurationSheetPtrOutput)
+}
+
+// The display options for tiles. See tile.
+func (o ThemeConfigurationSheetOutput) Tile() ThemeConfigurationSheetTilePtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationSheet) *ThemeConfigurationSheetTile { return v.Tile }).(ThemeConfigurationSheetTilePtrOutput)
+}
+
+// The layout options for tiles. See tile_layout.
+func (o ThemeConfigurationSheetOutput) TileLayout() ThemeConfigurationSheetTileLayoutPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationSheet) *ThemeConfigurationSheetTileLayout { return v.TileLayout }).(ThemeConfigurationSheetTileLayoutPtrOutput)
+}
+
+type ThemeConfigurationSheetPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheet)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetPtrOutput) ToThemeConfigurationSheetPtrOutput() ThemeConfigurationSheetPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetPtrOutput) ToThemeConfigurationSheetPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetPtrOutput) Elem() ThemeConfigurationSheetOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheet) ThemeConfigurationSheet {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfigurationSheet
+		return ret
+	}).(ThemeConfigurationSheetOutput)
+}
+
+// The display options for tiles. See tile.
+func (o ThemeConfigurationSheetPtrOutput) Tile() ThemeConfigurationSheetTilePtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheet) *ThemeConfigurationSheetTile {
+		if v == nil {
+			return nil
+		}
+		return v.Tile
+	}).(ThemeConfigurationSheetTilePtrOutput)
+}
+
+// The layout options for tiles. See tile_layout.
+func (o ThemeConfigurationSheetPtrOutput) TileLayout() ThemeConfigurationSheetTileLayoutPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheet) *ThemeConfigurationSheetTileLayout {
+		if v == nil {
+			return nil
+		}
+		return v.TileLayout
+	}).(ThemeConfigurationSheetTileLayoutPtrOutput)
+}
+
+type ThemeConfigurationSheetTile struct {
+	// The border around a tile. See border.
+	Border *ThemeConfigurationSheetTileBorder `pulumi:"border"`
+}
+
+// ThemeConfigurationSheetTileInput is an input type that accepts ThemeConfigurationSheetTileArgs and ThemeConfigurationSheetTileOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetTileInput` via:
+//
+//	ThemeConfigurationSheetTileArgs{...}
+type ThemeConfigurationSheetTileInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetTileOutput() ThemeConfigurationSheetTileOutput
+	ToThemeConfigurationSheetTileOutputWithContext(context.Context) ThemeConfigurationSheetTileOutput
+}
+
+type ThemeConfigurationSheetTileArgs struct {
+	// The border around a tile. See border.
+	Border ThemeConfigurationSheetTileBorderPtrInput `pulumi:"border"`
+}
+
+func (ThemeConfigurationSheetTileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheetTile)(nil)).Elem()
+}
+
+func (i ThemeConfigurationSheetTileArgs) ToThemeConfigurationSheetTileOutput() ThemeConfigurationSheetTileOutput {
+	return i.ToThemeConfigurationSheetTileOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetTileArgs) ToThemeConfigurationSheetTileOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileOutput)
+}
+
+func (i ThemeConfigurationSheetTileArgs) ToThemeConfigurationSheetTilePtrOutput() ThemeConfigurationSheetTilePtrOutput {
+	return i.ToThemeConfigurationSheetTilePtrOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetTileArgs) ToThemeConfigurationSheetTilePtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileOutput).ToThemeConfigurationSheetTilePtrOutputWithContext(ctx)
+}
+
+// ThemeConfigurationSheetTilePtrInput is an input type that accepts ThemeConfigurationSheetTileArgs, ThemeConfigurationSheetTilePtr and ThemeConfigurationSheetTilePtrOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetTilePtrInput` via:
+//
+//	        ThemeConfigurationSheetTileArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeConfigurationSheetTilePtrInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetTilePtrOutput() ThemeConfigurationSheetTilePtrOutput
+	ToThemeConfigurationSheetTilePtrOutputWithContext(context.Context) ThemeConfigurationSheetTilePtrOutput
+}
+
+type themeConfigurationSheetTilePtrType ThemeConfigurationSheetTileArgs
+
+func ThemeConfigurationSheetTilePtr(v *ThemeConfigurationSheetTileArgs) ThemeConfigurationSheetTilePtrInput {
+	return (*themeConfigurationSheetTilePtrType)(v)
+}
+
+func (*themeConfigurationSheetTilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheetTile)(nil)).Elem()
+}
+
+func (i *themeConfigurationSheetTilePtrType) ToThemeConfigurationSheetTilePtrOutput() ThemeConfigurationSheetTilePtrOutput {
+	return i.ToThemeConfigurationSheetTilePtrOutputWithContext(context.Background())
+}
+
+func (i *themeConfigurationSheetTilePtrType) ToThemeConfigurationSheetTilePtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTilePtrOutput)
+}
+
+type ThemeConfigurationSheetTileOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetTileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheetTile)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetTileOutput) ToThemeConfigurationSheetTileOutput() ThemeConfigurationSheetTileOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileOutput) ToThemeConfigurationSheetTileOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileOutput) ToThemeConfigurationSheetTilePtrOutput() ThemeConfigurationSheetTilePtrOutput {
+	return o.ToThemeConfigurationSheetTilePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeConfigurationSheetTileOutput) ToThemeConfigurationSheetTilePtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeConfigurationSheetTile) *ThemeConfigurationSheetTile {
+		return &v
+	}).(ThemeConfigurationSheetTilePtrOutput)
+}
+
+// The border around a tile. See border.
+func (o ThemeConfigurationSheetTileOutput) Border() ThemeConfigurationSheetTileBorderPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationSheetTile) *ThemeConfigurationSheetTileBorder { return v.Border }).(ThemeConfigurationSheetTileBorderPtrOutput)
+}
+
+type ThemeConfigurationSheetTilePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetTilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheetTile)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetTilePtrOutput) ToThemeConfigurationSheetTilePtrOutput() ThemeConfigurationSheetTilePtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTilePtrOutput) ToThemeConfigurationSheetTilePtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTilePtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTilePtrOutput) Elem() ThemeConfigurationSheetTileOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheetTile) ThemeConfigurationSheetTile {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfigurationSheetTile
+		return ret
+	}).(ThemeConfigurationSheetTileOutput)
+}
+
+// The border around a tile. See border.
+func (o ThemeConfigurationSheetTilePtrOutput) Border() ThemeConfigurationSheetTileBorderPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheetTile) *ThemeConfigurationSheetTileBorder {
+		if v == nil {
+			return nil
+		}
+		return v.Border
+	}).(ThemeConfigurationSheetTileBorderPtrOutput)
+}
+
+type ThemeConfigurationSheetTileBorder struct {
+	// The option to enable display of borders for visuals.
+	Show *bool `pulumi:"show"`
+}
+
+// ThemeConfigurationSheetTileBorderInput is an input type that accepts ThemeConfigurationSheetTileBorderArgs and ThemeConfigurationSheetTileBorderOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetTileBorderInput` via:
+//
+//	ThemeConfigurationSheetTileBorderArgs{...}
+type ThemeConfigurationSheetTileBorderInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetTileBorderOutput() ThemeConfigurationSheetTileBorderOutput
+	ToThemeConfigurationSheetTileBorderOutputWithContext(context.Context) ThemeConfigurationSheetTileBorderOutput
+}
+
+type ThemeConfigurationSheetTileBorderArgs struct {
+	// The option to enable display of borders for visuals.
+	Show pulumi.BoolPtrInput `pulumi:"show"`
+}
+
+func (ThemeConfigurationSheetTileBorderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheetTileBorder)(nil)).Elem()
+}
+
+func (i ThemeConfigurationSheetTileBorderArgs) ToThemeConfigurationSheetTileBorderOutput() ThemeConfigurationSheetTileBorderOutput {
+	return i.ToThemeConfigurationSheetTileBorderOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetTileBorderArgs) ToThemeConfigurationSheetTileBorderOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileBorderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileBorderOutput)
+}
+
+func (i ThemeConfigurationSheetTileBorderArgs) ToThemeConfigurationSheetTileBorderPtrOutput() ThemeConfigurationSheetTileBorderPtrOutput {
+	return i.ToThemeConfigurationSheetTileBorderPtrOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetTileBorderArgs) ToThemeConfigurationSheetTileBorderPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileBorderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileBorderOutput).ToThemeConfigurationSheetTileBorderPtrOutputWithContext(ctx)
+}
+
+// ThemeConfigurationSheetTileBorderPtrInput is an input type that accepts ThemeConfigurationSheetTileBorderArgs, ThemeConfigurationSheetTileBorderPtr and ThemeConfigurationSheetTileBorderPtrOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetTileBorderPtrInput` via:
+//
+//	        ThemeConfigurationSheetTileBorderArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeConfigurationSheetTileBorderPtrInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetTileBorderPtrOutput() ThemeConfigurationSheetTileBorderPtrOutput
+	ToThemeConfigurationSheetTileBorderPtrOutputWithContext(context.Context) ThemeConfigurationSheetTileBorderPtrOutput
+}
+
+type themeConfigurationSheetTileBorderPtrType ThemeConfigurationSheetTileBorderArgs
+
+func ThemeConfigurationSheetTileBorderPtr(v *ThemeConfigurationSheetTileBorderArgs) ThemeConfigurationSheetTileBorderPtrInput {
+	return (*themeConfigurationSheetTileBorderPtrType)(v)
+}
+
+func (*themeConfigurationSheetTileBorderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheetTileBorder)(nil)).Elem()
+}
+
+func (i *themeConfigurationSheetTileBorderPtrType) ToThemeConfigurationSheetTileBorderPtrOutput() ThemeConfigurationSheetTileBorderPtrOutput {
+	return i.ToThemeConfigurationSheetTileBorderPtrOutputWithContext(context.Background())
+}
+
+func (i *themeConfigurationSheetTileBorderPtrType) ToThemeConfigurationSheetTileBorderPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileBorderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileBorderPtrOutput)
+}
+
+type ThemeConfigurationSheetTileBorderOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetTileBorderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheetTileBorder)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetTileBorderOutput) ToThemeConfigurationSheetTileBorderOutput() ThemeConfigurationSheetTileBorderOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileBorderOutput) ToThemeConfigurationSheetTileBorderOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileBorderOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileBorderOutput) ToThemeConfigurationSheetTileBorderPtrOutput() ThemeConfigurationSheetTileBorderPtrOutput {
+	return o.ToThemeConfigurationSheetTileBorderPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeConfigurationSheetTileBorderOutput) ToThemeConfigurationSheetTileBorderPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileBorderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeConfigurationSheetTileBorder) *ThemeConfigurationSheetTileBorder {
+		return &v
+	}).(ThemeConfigurationSheetTileBorderPtrOutput)
+}
+
+// The option to enable display of borders for visuals.
+func (o ThemeConfigurationSheetTileBorderOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationSheetTileBorder) *bool { return v.Show }).(pulumi.BoolPtrOutput)
+}
+
+type ThemeConfigurationSheetTileBorderPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetTileBorderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheetTileBorder)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetTileBorderPtrOutput) ToThemeConfigurationSheetTileBorderPtrOutput() ThemeConfigurationSheetTileBorderPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileBorderPtrOutput) ToThemeConfigurationSheetTileBorderPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileBorderPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileBorderPtrOutput) Elem() ThemeConfigurationSheetTileBorderOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheetTileBorder) ThemeConfigurationSheetTileBorder {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfigurationSheetTileBorder
+		return ret
+	}).(ThemeConfigurationSheetTileBorderOutput)
+}
+
+// The option to enable display of borders for visuals.
+func (o ThemeConfigurationSheetTileBorderPtrOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheetTileBorder) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Show
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ThemeConfigurationSheetTileLayout struct {
+	// The gutter settings that apply between tiles. See gutter.
+	Gutter *ThemeConfigurationSheetTileLayoutGutter `pulumi:"gutter"`
+	// The margin settings that apply around the outside edge of sheets. See margin.
+	Margin *ThemeConfigurationSheetTileLayoutMargin `pulumi:"margin"`
+}
+
+// ThemeConfigurationSheetTileLayoutInput is an input type that accepts ThemeConfigurationSheetTileLayoutArgs and ThemeConfigurationSheetTileLayoutOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetTileLayoutInput` via:
+//
+//	ThemeConfigurationSheetTileLayoutArgs{...}
+type ThemeConfigurationSheetTileLayoutInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetTileLayoutOutput() ThemeConfigurationSheetTileLayoutOutput
+	ToThemeConfigurationSheetTileLayoutOutputWithContext(context.Context) ThemeConfigurationSheetTileLayoutOutput
+}
+
+type ThemeConfigurationSheetTileLayoutArgs struct {
+	// The gutter settings that apply between tiles. See gutter.
+	Gutter ThemeConfigurationSheetTileLayoutGutterPtrInput `pulumi:"gutter"`
+	// The margin settings that apply around the outside edge of sheets. See margin.
+	Margin ThemeConfigurationSheetTileLayoutMarginPtrInput `pulumi:"margin"`
+}
+
+func (ThemeConfigurationSheetTileLayoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheetTileLayout)(nil)).Elem()
+}
+
+func (i ThemeConfigurationSheetTileLayoutArgs) ToThemeConfigurationSheetTileLayoutOutput() ThemeConfigurationSheetTileLayoutOutput {
+	return i.ToThemeConfigurationSheetTileLayoutOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetTileLayoutArgs) ToThemeConfigurationSheetTileLayoutOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileLayoutOutput)
+}
+
+func (i ThemeConfigurationSheetTileLayoutArgs) ToThemeConfigurationSheetTileLayoutPtrOutput() ThemeConfigurationSheetTileLayoutPtrOutput {
+	return i.ToThemeConfigurationSheetTileLayoutPtrOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetTileLayoutArgs) ToThemeConfigurationSheetTileLayoutPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileLayoutOutput).ToThemeConfigurationSheetTileLayoutPtrOutputWithContext(ctx)
+}
+
+// ThemeConfigurationSheetTileLayoutPtrInput is an input type that accepts ThemeConfigurationSheetTileLayoutArgs, ThemeConfigurationSheetTileLayoutPtr and ThemeConfigurationSheetTileLayoutPtrOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetTileLayoutPtrInput` via:
+//
+//	        ThemeConfigurationSheetTileLayoutArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeConfigurationSheetTileLayoutPtrInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetTileLayoutPtrOutput() ThemeConfigurationSheetTileLayoutPtrOutput
+	ToThemeConfigurationSheetTileLayoutPtrOutputWithContext(context.Context) ThemeConfigurationSheetTileLayoutPtrOutput
+}
+
+type themeConfigurationSheetTileLayoutPtrType ThemeConfigurationSheetTileLayoutArgs
+
+func ThemeConfigurationSheetTileLayoutPtr(v *ThemeConfigurationSheetTileLayoutArgs) ThemeConfigurationSheetTileLayoutPtrInput {
+	return (*themeConfigurationSheetTileLayoutPtrType)(v)
+}
+
+func (*themeConfigurationSheetTileLayoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheetTileLayout)(nil)).Elem()
+}
+
+func (i *themeConfigurationSheetTileLayoutPtrType) ToThemeConfigurationSheetTileLayoutPtrOutput() ThemeConfigurationSheetTileLayoutPtrOutput {
+	return i.ToThemeConfigurationSheetTileLayoutPtrOutputWithContext(context.Background())
+}
+
+func (i *themeConfigurationSheetTileLayoutPtrType) ToThemeConfigurationSheetTileLayoutPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileLayoutPtrOutput)
+}
+
+type ThemeConfigurationSheetTileLayoutOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetTileLayoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheetTileLayout)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetTileLayoutOutput) ToThemeConfigurationSheetTileLayoutOutput() ThemeConfigurationSheetTileLayoutOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutOutput) ToThemeConfigurationSheetTileLayoutOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutOutput) ToThemeConfigurationSheetTileLayoutPtrOutput() ThemeConfigurationSheetTileLayoutPtrOutput {
+	return o.ToThemeConfigurationSheetTileLayoutPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeConfigurationSheetTileLayoutOutput) ToThemeConfigurationSheetTileLayoutPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeConfigurationSheetTileLayout) *ThemeConfigurationSheetTileLayout {
+		return &v
+	}).(ThemeConfigurationSheetTileLayoutPtrOutput)
+}
+
+// The gutter settings that apply between tiles. See gutter.
+func (o ThemeConfigurationSheetTileLayoutOutput) Gutter() ThemeConfigurationSheetTileLayoutGutterPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationSheetTileLayout) *ThemeConfigurationSheetTileLayoutGutter { return v.Gutter }).(ThemeConfigurationSheetTileLayoutGutterPtrOutput)
+}
+
+// The margin settings that apply around the outside edge of sheets. See margin.
+func (o ThemeConfigurationSheetTileLayoutOutput) Margin() ThemeConfigurationSheetTileLayoutMarginPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationSheetTileLayout) *ThemeConfigurationSheetTileLayoutMargin { return v.Margin }).(ThemeConfigurationSheetTileLayoutMarginPtrOutput)
+}
+
+type ThemeConfigurationSheetTileLayoutPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetTileLayoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheetTileLayout)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetTileLayoutPtrOutput) ToThemeConfigurationSheetTileLayoutPtrOutput() ThemeConfigurationSheetTileLayoutPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutPtrOutput) ToThemeConfigurationSheetTileLayoutPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutPtrOutput) Elem() ThemeConfigurationSheetTileLayoutOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheetTileLayout) ThemeConfigurationSheetTileLayout {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfigurationSheetTileLayout
+		return ret
+	}).(ThemeConfigurationSheetTileLayoutOutput)
+}
+
+// The gutter settings that apply between tiles. See gutter.
+func (o ThemeConfigurationSheetTileLayoutPtrOutput) Gutter() ThemeConfigurationSheetTileLayoutGutterPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheetTileLayout) *ThemeConfigurationSheetTileLayoutGutter {
+		if v == nil {
+			return nil
+		}
+		return v.Gutter
+	}).(ThemeConfigurationSheetTileLayoutGutterPtrOutput)
+}
+
+// The margin settings that apply around the outside edge of sheets. See margin.
+func (o ThemeConfigurationSheetTileLayoutPtrOutput) Margin() ThemeConfigurationSheetTileLayoutMarginPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheetTileLayout) *ThemeConfigurationSheetTileLayoutMargin {
+		if v == nil {
+			return nil
+		}
+		return v.Margin
+	}).(ThemeConfigurationSheetTileLayoutMarginPtrOutput)
+}
+
+type ThemeConfigurationSheetTileLayoutGutter struct {
+	// This Boolean value controls whether to display a gutter space between sheet tiles.
+	Show *bool `pulumi:"show"`
+}
+
+// ThemeConfigurationSheetTileLayoutGutterInput is an input type that accepts ThemeConfigurationSheetTileLayoutGutterArgs and ThemeConfigurationSheetTileLayoutGutterOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetTileLayoutGutterInput` via:
+//
+//	ThemeConfigurationSheetTileLayoutGutterArgs{...}
+type ThemeConfigurationSheetTileLayoutGutterInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetTileLayoutGutterOutput() ThemeConfigurationSheetTileLayoutGutterOutput
+	ToThemeConfigurationSheetTileLayoutGutterOutputWithContext(context.Context) ThemeConfigurationSheetTileLayoutGutterOutput
+}
+
+type ThemeConfigurationSheetTileLayoutGutterArgs struct {
+	// This Boolean value controls whether to display a gutter space between sheet tiles.
+	Show pulumi.BoolPtrInput `pulumi:"show"`
+}
+
+func (ThemeConfigurationSheetTileLayoutGutterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheetTileLayoutGutter)(nil)).Elem()
+}
+
+func (i ThemeConfigurationSheetTileLayoutGutterArgs) ToThemeConfigurationSheetTileLayoutGutterOutput() ThemeConfigurationSheetTileLayoutGutterOutput {
+	return i.ToThemeConfigurationSheetTileLayoutGutterOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetTileLayoutGutterArgs) ToThemeConfigurationSheetTileLayoutGutterOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutGutterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileLayoutGutterOutput)
+}
+
+func (i ThemeConfigurationSheetTileLayoutGutterArgs) ToThemeConfigurationSheetTileLayoutGutterPtrOutput() ThemeConfigurationSheetTileLayoutGutterPtrOutput {
+	return i.ToThemeConfigurationSheetTileLayoutGutterPtrOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetTileLayoutGutterArgs) ToThemeConfigurationSheetTileLayoutGutterPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutGutterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileLayoutGutterOutput).ToThemeConfigurationSheetTileLayoutGutterPtrOutputWithContext(ctx)
+}
+
+// ThemeConfigurationSheetTileLayoutGutterPtrInput is an input type that accepts ThemeConfigurationSheetTileLayoutGutterArgs, ThemeConfigurationSheetTileLayoutGutterPtr and ThemeConfigurationSheetTileLayoutGutterPtrOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetTileLayoutGutterPtrInput` via:
+//
+//	        ThemeConfigurationSheetTileLayoutGutterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeConfigurationSheetTileLayoutGutterPtrInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetTileLayoutGutterPtrOutput() ThemeConfigurationSheetTileLayoutGutterPtrOutput
+	ToThemeConfigurationSheetTileLayoutGutterPtrOutputWithContext(context.Context) ThemeConfigurationSheetTileLayoutGutterPtrOutput
+}
+
+type themeConfigurationSheetTileLayoutGutterPtrType ThemeConfigurationSheetTileLayoutGutterArgs
+
+func ThemeConfigurationSheetTileLayoutGutterPtr(v *ThemeConfigurationSheetTileLayoutGutterArgs) ThemeConfigurationSheetTileLayoutGutterPtrInput {
+	return (*themeConfigurationSheetTileLayoutGutterPtrType)(v)
+}
+
+func (*themeConfigurationSheetTileLayoutGutterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheetTileLayoutGutter)(nil)).Elem()
+}
+
+func (i *themeConfigurationSheetTileLayoutGutterPtrType) ToThemeConfigurationSheetTileLayoutGutterPtrOutput() ThemeConfigurationSheetTileLayoutGutterPtrOutput {
+	return i.ToThemeConfigurationSheetTileLayoutGutterPtrOutputWithContext(context.Background())
+}
+
+func (i *themeConfigurationSheetTileLayoutGutterPtrType) ToThemeConfigurationSheetTileLayoutGutterPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutGutterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileLayoutGutterPtrOutput)
+}
+
+type ThemeConfigurationSheetTileLayoutGutterOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetTileLayoutGutterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheetTileLayoutGutter)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetTileLayoutGutterOutput) ToThemeConfigurationSheetTileLayoutGutterOutput() ThemeConfigurationSheetTileLayoutGutterOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutGutterOutput) ToThemeConfigurationSheetTileLayoutGutterOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutGutterOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutGutterOutput) ToThemeConfigurationSheetTileLayoutGutterPtrOutput() ThemeConfigurationSheetTileLayoutGutterPtrOutput {
+	return o.ToThemeConfigurationSheetTileLayoutGutterPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeConfigurationSheetTileLayoutGutterOutput) ToThemeConfigurationSheetTileLayoutGutterPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutGutterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeConfigurationSheetTileLayoutGutter) *ThemeConfigurationSheetTileLayoutGutter {
+		return &v
+	}).(ThemeConfigurationSheetTileLayoutGutterPtrOutput)
+}
+
+// This Boolean value controls whether to display a gutter space between sheet tiles.
+func (o ThemeConfigurationSheetTileLayoutGutterOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationSheetTileLayoutGutter) *bool { return v.Show }).(pulumi.BoolPtrOutput)
+}
+
+type ThemeConfigurationSheetTileLayoutGutterPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetTileLayoutGutterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheetTileLayoutGutter)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetTileLayoutGutterPtrOutput) ToThemeConfigurationSheetTileLayoutGutterPtrOutput() ThemeConfigurationSheetTileLayoutGutterPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutGutterPtrOutput) ToThemeConfigurationSheetTileLayoutGutterPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutGutterPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutGutterPtrOutput) Elem() ThemeConfigurationSheetTileLayoutGutterOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheetTileLayoutGutter) ThemeConfigurationSheetTileLayoutGutter {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfigurationSheetTileLayoutGutter
+		return ret
+	}).(ThemeConfigurationSheetTileLayoutGutterOutput)
+}
+
+// This Boolean value controls whether to display a gutter space between sheet tiles.
+func (o ThemeConfigurationSheetTileLayoutGutterPtrOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheetTileLayoutGutter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Show
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ThemeConfigurationSheetTileLayoutMargin struct {
+	// This Boolean value controls whether to display sheet margins.
+	Show *bool `pulumi:"show"`
+}
+
+// ThemeConfigurationSheetTileLayoutMarginInput is an input type that accepts ThemeConfigurationSheetTileLayoutMarginArgs and ThemeConfigurationSheetTileLayoutMarginOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetTileLayoutMarginInput` via:
+//
+//	ThemeConfigurationSheetTileLayoutMarginArgs{...}
+type ThemeConfigurationSheetTileLayoutMarginInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetTileLayoutMarginOutput() ThemeConfigurationSheetTileLayoutMarginOutput
+	ToThemeConfigurationSheetTileLayoutMarginOutputWithContext(context.Context) ThemeConfigurationSheetTileLayoutMarginOutput
+}
+
+type ThemeConfigurationSheetTileLayoutMarginArgs struct {
+	// This Boolean value controls whether to display sheet margins.
+	Show pulumi.BoolPtrInput `pulumi:"show"`
+}
+
+func (ThemeConfigurationSheetTileLayoutMarginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheetTileLayoutMargin)(nil)).Elem()
+}
+
+func (i ThemeConfigurationSheetTileLayoutMarginArgs) ToThemeConfigurationSheetTileLayoutMarginOutput() ThemeConfigurationSheetTileLayoutMarginOutput {
+	return i.ToThemeConfigurationSheetTileLayoutMarginOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetTileLayoutMarginArgs) ToThemeConfigurationSheetTileLayoutMarginOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutMarginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileLayoutMarginOutput)
+}
+
+func (i ThemeConfigurationSheetTileLayoutMarginArgs) ToThemeConfigurationSheetTileLayoutMarginPtrOutput() ThemeConfigurationSheetTileLayoutMarginPtrOutput {
+	return i.ToThemeConfigurationSheetTileLayoutMarginPtrOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationSheetTileLayoutMarginArgs) ToThemeConfigurationSheetTileLayoutMarginPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutMarginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileLayoutMarginOutput).ToThemeConfigurationSheetTileLayoutMarginPtrOutputWithContext(ctx)
+}
+
+// ThemeConfigurationSheetTileLayoutMarginPtrInput is an input type that accepts ThemeConfigurationSheetTileLayoutMarginArgs, ThemeConfigurationSheetTileLayoutMarginPtr and ThemeConfigurationSheetTileLayoutMarginPtrOutput values.
+// You can construct a concrete instance of `ThemeConfigurationSheetTileLayoutMarginPtrInput` via:
+//
+//	        ThemeConfigurationSheetTileLayoutMarginArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeConfigurationSheetTileLayoutMarginPtrInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationSheetTileLayoutMarginPtrOutput() ThemeConfigurationSheetTileLayoutMarginPtrOutput
+	ToThemeConfigurationSheetTileLayoutMarginPtrOutputWithContext(context.Context) ThemeConfigurationSheetTileLayoutMarginPtrOutput
+}
+
+type themeConfigurationSheetTileLayoutMarginPtrType ThemeConfigurationSheetTileLayoutMarginArgs
+
+func ThemeConfigurationSheetTileLayoutMarginPtr(v *ThemeConfigurationSheetTileLayoutMarginArgs) ThemeConfigurationSheetTileLayoutMarginPtrInput {
+	return (*themeConfigurationSheetTileLayoutMarginPtrType)(v)
+}
+
+func (*themeConfigurationSheetTileLayoutMarginPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheetTileLayoutMargin)(nil)).Elem()
+}
+
+func (i *themeConfigurationSheetTileLayoutMarginPtrType) ToThemeConfigurationSheetTileLayoutMarginPtrOutput() ThemeConfigurationSheetTileLayoutMarginPtrOutput {
+	return i.ToThemeConfigurationSheetTileLayoutMarginPtrOutputWithContext(context.Background())
+}
+
+func (i *themeConfigurationSheetTileLayoutMarginPtrType) ToThemeConfigurationSheetTileLayoutMarginPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutMarginPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationSheetTileLayoutMarginPtrOutput)
+}
+
+type ThemeConfigurationSheetTileLayoutMarginOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetTileLayoutMarginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationSheetTileLayoutMargin)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetTileLayoutMarginOutput) ToThemeConfigurationSheetTileLayoutMarginOutput() ThemeConfigurationSheetTileLayoutMarginOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutMarginOutput) ToThemeConfigurationSheetTileLayoutMarginOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutMarginOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutMarginOutput) ToThemeConfigurationSheetTileLayoutMarginPtrOutput() ThemeConfigurationSheetTileLayoutMarginPtrOutput {
+	return o.ToThemeConfigurationSheetTileLayoutMarginPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeConfigurationSheetTileLayoutMarginOutput) ToThemeConfigurationSheetTileLayoutMarginPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutMarginPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeConfigurationSheetTileLayoutMargin) *ThemeConfigurationSheetTileLayoutMargin {
+		return &v
+	}).(ThemeConfigurationSheetTileLayoutMarginPtrOutput)
+}
+
+// This Boolean value controls whether to display sheet margins.
+func (o ThemeConfigurationSheetTileLayoutMarginOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationSheetTileLayoutMargin) *bool { return v.Show }).(pulumi.BoolPtrOutput)
+}
+
+type ThemeConfigurationSheetTileLayoutMarginPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationSheetTileLayoutMarginPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationSheetTileLayoutMargin)(nil)).Elem()
+}
+
+func (o ThemeConfigurationSheetTileLayoutMarginPtrOutput) ToThemeConfigurationSheetTileLayoutMarginPtrOutput() ThemeConfigurationSheetTileLayoutMarginPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutMarginPtrOutput) ToThemeConfigurationSheetTileLayoutMarginPtrOutputWithContext(ctx context.Context) ThemeConfigurationSheetTileLayoutMarginPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationSheetTileLayoutMarginPtrOutput) Elem() ThemeConfigurationSheetTileLayoutMarginOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheetTileLayoutMargin) ThemeConfigurationSheetTileLayoutMargin {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfigurationSheetTileLayoutMargin
+		return ret
+	}).(ThemeConfigurationSheetTileLayoutMarginOutput)
+}
+
+// This Boolean value controls whether to display sheet margins.
+func (o ThemeConfigurationSheetTileLayoutMarginPtrOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationSheetTileLayoutMargin) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Show
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ThemeConfigurationTypography struct {
+	// Determines the list of font families. Maximum number of 5 items. See font_families.
+	FontFamilies []ThemeConfigurationTypographyFontFamily `pulumi:"fontFamilies"`
+}
+
+// ThemeConfigurationTypographyInput is an input type that accepts ThemeConfigurationTypographyArgs and ThemeConfigurationTypographyOutput values.
+// You can construct a concrete instance of `ThemeConfigurationTypographyInput` via:
+//
+//	ThemeConfigurationTypographyArgs{...}
+type ThemeConfigurationTypographyInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationTypographyOutput() ThemeConfigurationTypographyOutput
+	ToThemeConfigurationTypographyOutputWithContext(context.Context) ThemeConfigurationTypographyOutput
+}
+
+type ThemeConfigurationTypographyArgs struct {
+	// Determines the list of font families. Maximum number of 5 items. See font_families.
+	FontFamilies ThemeConfigurationTypographyFontFamilyArrayInput `pulumi:"fontFamilies"`
+}
+
+func (ThemeConfigurationTypographyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationTypography)(nil)).Elem()
+}
+
+func (i ThemeConfigurationTypographyArgs) ToThemeConfigurationTypographyOutput() ThemeConfigurationTypographyOutput {
+	return i.ToThemeConfigurationTypographyOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationTypographyArgs) ToThemeConfigurationTypographyOutputWithContext(ctx context.Context) ThemeConfigurationTypographyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationTypographyOutput)
+}
+
+func (i ThemeConfigurationTypographyArgs) ToThemeConfigurationTypographyPtrOutput() ThemeConfigurationTypographyPtrOutput {
+	return i.ToThemeConfigurationTypographyPtrOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationTypographyArgs) ToThemeConfigurationTypographyPtrOutputWithContext(ctx context.Context) ThemeConfigurationTypographyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationTypographyOutput).ToThemeConfigurationTypographyPtrOutputWithContext(ctx)
+}
+
+// ThemeConfigurationTypographyPtrInput is an input type that accepts ThemeConfigurationTypographyArgs, ThemeConfigurationTypographyPtr and ThemeConfigurationTypographyPtrOutput values.
+// You can construct a concrete instance of `ThemeConfigurationTypographyPtrInput` via:
+//
+//	        ThemeConfigurationTypographyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeConfigurationTypographyPtrInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationTypographyPtrOutput() ThemeConfigurationTypographyPtrOutput
+	ToThemeConfigurationTypographyPtrOutputWithContext(context.Context) ThemeConfigurationTypographyPtrOutput
+}
+
+type themeConfigurationTypographyPtrType ThemeConfigurationTypographyArgs
+
+func ThemeConfigurationTypographyPtr(v *ThemeConfigurationTypographyArgs) ThemeConfigurationTypographyPtrInput {
+	return (*themeConfigurationTypographyPtrType)(v)
+}
+
+func (*themeConfigurationTypographyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationTypography)(nil)).Elem()
+}
+
+func (i *themeConfigurationTypographyPtrType) ToThemeConfigurationTypographyPtrOutput() ThemeConfigurationTypographyPtrOutput {
+	return i.ToThemeConfigurationTypographyPtrOutputWithContext(context.Background())
+}
+
+func (i *themeConfigurationTypographyPtrType) ToThemeConfigurationTypographyPtrOutputWithContext(ctx context.Context) ThemeConfigurationTypographyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationTypographyPtrOutput)
+}
+
+type ThemeConfigurationTypographyOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationTypographyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationTypography)(nil)).Elem()
+}
+
+func (o ThemeConfigurationTypographyOutput) ToThemeConfigurationTypographyOutput() ThemeConfigurationTypographyOutput {
+	return o
+}
+
+func (o ThemeConfigurationTypographyOutput) ToThemeConfigurationTypographyOutputWithContext(ctx context.Context) ThemeConfigurationTypographyOutput {
+	return o
+}
+
+func (o ThemeConfigurationTypographyOutput) ToThemeConfigurationTypographyPtrOutput() ThemeConfigurationTypographyPtrOutput {
+	return o.ToThemeConfigurationTypographyPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeConfigurationTypographyOutput) ToThemeConfigurationTypographyPtrOutputWithContext(ctx context.Context) ThemeConfigurationTypographyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeConfigurationTypography) *ThemeConfigurationTypography {
+		return &v
+	}).(ThemeConfigurationTypographyPtrOutput)
+}
+
+// Determines the list of font families. Maximum number of 5 items. See font_families.
+func (o ThemeConfigurationTypographyOutput) FontFamilies() ThemeConfigurationTypographyFontFamilyArrayOutput {
+	return o.ApplyT(func(v ThemeConfigurationTypography) []ThemeConfigurationTypographyFontFamily { return v.FontFamilies }).(ThemeConfigurationTypographyFontFamilyArrayOutput)
+}
+
+type ThemeConfigurationTypographyPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationTypographyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationTypography)(nil)).Elem()
+}
+
+func (o ThemeConfigurationTypographyPtrOutput) ToThemeConfigurationTypographyPtrOutput() ThemeConfigurationTypographyPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationTypographyPtrOutput) ToThemeConfigurationTypographyPtrOutputWithContext(ctx context.Context) ThemeConfigurationTypographyPtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationTypographyPtrOutput) Elem() ThemeConfigurationTypographyOutput {
+	return o.ApplyT(func(v *ThemeConfigurationTypography) ThemeConfigurationTypography {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfigurationTypography
+		return ret
+	}).(ThemeConfigurationTypographyOutput)
+}
+
+// Determines the list of font families. Maximum number of 5 items. See font_families.
+func (o ThemeConfigurationTypographyPtrOutput) FontFamilies() ThemeConfigurationTypographyFontFamilyArrayOutput {
+	return o.ApplyT(func(v *ThemeConfigurationTypography) []ThemeConfigurationTypographyFontFamily {
+		if v == nil {
+			return nil
+		}
+		return v.FontFamilies
+	}).(ThemeConfigurationTypographyFontFamilyArrayOutput)
+}
+
+type ThemeConfigurationTypographyFontFamily struct {
+	// Font family name.
+	FontFamily *string `pulumi:"fontFamily"`
+}
+
+// ThemeConfigurationTypographyFontFamilyInput is an input type that accepts ThemeConfigurationTypographyFontFamilyArgs and ThemeConfigurationTypographyFontFamilyOutput values.
+// You can construct a concrete instance of `ThemeConfigurationTypographyFontFamilyInput` via:
+//
+//	ThemeConfigurationTypographyFontFamilyArgs{...}
+type ThemeConfigurationTypographyFontFamilyInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationTypographyFontFamilyOutput() ThemeConfigurationTypographyFontFamilyOutput
+	ToThemeConfigurationTypographyFontFamilyOutputWithContext(context.Context) ThemeConfigurationTypographyFontFamilyOutput
+}
+
+type ThemeConfigurationTypographyFontFamilyArgs struct {
+	// Font family name.
+	FontFamily pulumi.StringPtrInput `pulumi:"fontFamily"`
+}
+
+func (ThemeConfigurationTypographyFontFamilyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationTypographyFontFamily)(nil)).Elem()
+}
+
+func (i ThemeConfigurationTypographyFontFamilyArgs) ToThemeConfigurationTypographyFontFamilyOutput() ThemeConfigurationTypographyFontFamilyOutput {
+	return i.ToThemeConfigurationTypographyFontFamilyOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationTypographyFontFamilyArgs) ToThemeConfigurationTypographyFontFamilyOutputWithContext(ctx context.Context) ThemeConfigurationTypographyFontFamilyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationTypographyFontFamilyOutput)
+}
+
+// ThemeConfigurationTypographyFontFamilyArrayInput is an input type that accepts ThemeConfigurationTypographyFontFamilyArray and ThemeConfigurationTypographyFontFamilyArrayOutput values.
+// You can construct a concrete instance of `ThemeConfigurationTypographyFontFamilyArrayInput` via:
+//
+//	ThemeConfigurationTypographyFontFamilyArray{ ThemeConfigurationTypographyFontFamilyArgs{...} }
+type ThemeConfigurationTypographyFontFamilyArrayInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationTypographyFontFamilyArrayOutput() ThemeConfigurationTypographyFontFamilyArrayOutput
+	ToThemeConfigurationTypographyFontFamilyArrayOutputWithContext(context.Context) ThemeConfigurationTypographyFontFamilyArrayOutput
+}
+
+type ThemeConfigurationTypographyFontFamilyArray []ThemeConfigurationTypographyFontFamilyInput
+
+func (ThemeConfigurationTypographyFontFamilyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeConfigurationTypographyFontFamily)(nil)).Elem()
+}
+
+func (i ThemeConfigurationTypographyFontFamilyArray) ToThemeConfigurationTypographyFontFamilyArrayOutput() ThemeConfigurationTypographyFontFamilyArrayOutput {
+	return i.ToThemeConfigurationTypographyFontFamilyArrayOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationTypographyFontFamilyArray) ToThemeConfigurationTypographyFontFamilyArrayOutputWithContext(ctx context.Context) ThemeConfigurationTypographyFontFamilyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationTypographyFontFamilyArrayOutput)
+}
+
+type ThemeConfigurationTypographyFontFamilyOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationTypographyFontFamilyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationTypographyFontFamily)(nil)).Elem()
+}
+
+func (o ThemeConfigurationTypographyFontFamilyOutput) ToThemeConfigurationTypographyFontFamilyOutput() ThemeConfigurationTypographyFontFamilyOutput {
+	return o
+}
+
+func (o ThemeConfigurationTypographyFontFamilyOutput) ToThemeConfigurationTypographyFontFamilyOutputWithContext(ctx context.Context) ThemeConfigurationTypographyFontFamilyOutput {
+	return o
+}
+
+// Font family name.
+func (o ThemeConfigurationTypographyFontFamilyOutput) FontFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationTypographyFontFamily) *string { return v.FontFamily }).(pulumi.StringPtrOutput)
+}
+
+type ThemeConfigurationTypographyFontFamilyArrayOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationTypographyFontFamilyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeConfigurationTypographyFontFamily)(nil)).Elem()
+}
+
+func (o ThemeConfigurationTypographyFontFamilyArrayOutput) ToThemeConfigurationTypographyFontFamilyArrayOutput() ThemeConfigurationTypographyFontFamilyArrayOutput {
+	return o
+}
+
+func (o ThemeConfigurationTypographyFontFamilyArrayOutput) ToThemeConfigurationTypographyFontFamilyArrayOutputWithContext(ctx context.Context) ThemeConfigurationTypographyFontFamilyArrayOutput {
+	return o
+}
+
+func (o ThemeConfigurationTypographyFontFamilyArrayOutput) Index(i pulumi.IntInput) ThemeConfigurationTypographyFontFamilyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemeConfigurationTypographyFontFamily {
+		return vs[0].([]ThemeConfigurationTypographyFontFamily)[vs[1].(int)]
+	}).(ThemeConfigurationTypographyFontFamilyOutput)
+}
+
+type ThemeConfigurationUiColorPalette struct {
+	// Color (hexadecimal) that applies to selected states and buttons.
+	Accent *string `pulumi:"accent"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+	AccentForeground *string `pulumi:"accentForeground"`
+	// Color (hexadecimal) that applies to error messages.
+	Danger *string `pulumi:"danger"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+	DangerForeground *string `pulumi:"dangerForeground"`
+	// Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+	Dimension *string `pulumi:"dimension"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+	DimensionForeground *string `pulumi:"dimensionForeground"`
+	// Color (hexadecimal) that applies to the names of fields that are identified as measures.
+	Measure *string `pulumi:"measure"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+	MeasureForeground *string `pulumi:"measureForeground"`
+	// Color (hexadecimal) that applies to visuals and other high emphasis UI.
+	PrimaryBackground *string `pulumi:"primaryBackground"`
+	// Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+	PrimaryForeground *string `pulumi:"primaryForeground"`
+	// Color (hexadecimal) that applies to the sheet background and sheet controls.
+	SecondaryBackground *string `pulumi:"secondaryBackground"`
+	// Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+	SecondaryForeground *string `pulumi:"secondaryForeground"`
+	// Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+	Success *string `pulumi:"success"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+	SuccessForeground *string `pulumi:"successForeground"`
+	// Color (hexadecimal) that applies to warning and informational messages.
+	Warning *string `pulumi:"warning"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+	WarningForeground *string `pulumi:"warningForeground"`
+}
+
+// ThemeConfigurationUiColorPaletteInput is an input type that accepts ThemeConfigurationUiColorPaletteArgs and ThemeConfigurationUiColorPaletteOutput values.
+// You can construct a concrete instance of `ThemeConfigurationUiColorPaletteInput` via:
+//
+//	ThemeConfigurationUiColorPaletteArgs{...}
+type ThemeConfigurationUiColorPaletteInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationUiColorPaletteOutput() ThemeConfigurationUiColorPaletteOutput
+	ToThemeConfigurationUiColorPaletteOutputWithContext(context.Context) ThemeConfigurationUiColorPaletteOutput
+}
+
+type ThemeConfigurationUiColorPaletteArgs struct {
+	// Color (hexadecimal) that applies to selected states and buttons.
+	Accent pulumi.StringPtrInput `pulumi:"accent"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+	AccentForeground pulumi.StringPtrInput `pulumi:"accentForeground"`
+	// Color (hexadecimal) that applies to error messages.
+	Danger pulumi.StringPtrInput `pulumi:"danger"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+	DangerForeground pulumi.StringPtrInput `pulumi:"dangerForeground"`
+	// Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+	Dimension pulumi.StringPtrInput `pulumi:"dimension"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+	DimensionForeground pulumi.StringPtrInput `pulumi:"dimensionForeground"`
+	// Color (hexadecimal) that applies to the names of fields that are identified as measures.
+	Measure pulumi.StringPtrInput `pulumi:"measure"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+	MeasureForeground pulumi.StringPtrInput `pulumi:"measureForeground"`
+	// Color (hexadecimal) that applies to visuals and other high emphasis UI.
+	PrimaryBackground pulumi.StringPtrInput `pulumi:"primaryBackground"`
+	// Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+	PrimaryForeground pulumi.StringPtrInput `pulumi:"primaryForeground"`
+	// Color (hexadecimal) that applies to the sheet background and sheet controls.
+	SecondaryBackground pulumi.StringPtrInput `pulumi:"secondaryBackground"`
+	// Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+	SecondaryForeground pulumi.StringPtrInput `pulumi:"secondaryForeground"`
+	// Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+	Success pulumi.StringPtrInput `pulumi:"success"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+	SuccessForeground pulumi.StringPtrInput `pulumi:"successForeground"`
+	// Color (hexadecimal) that applies to warning and informational messages.
+	Warning pulumi.StringPtrInput `pulumi:"warning"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+	WarningForeground pulumi.StringPtrInput `pulumi:"warningForeground"`
+}
+
+func (ThemeConfigurationUiColorPaletteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationUiColorPalette)(nil)).Elem()
+}
+
+func (i ThemeConfigurationUiColorPaletteArgs) ToThemeConfigurationUiColorPaletteOutput() ThemeConfigurationUiColorPaletteOutput {
+	return i.ToThemeConfigurationUiColorPaletteOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationUiColorPaletteArgs) ToThemeConfigurationUiColorPaletteOutputWithContext(ctx context.Context) ThemeConfigurationUiColorPaletteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationUiColorPaletteOutput)
+}
+
+func (i ThemeConfigurationUiColorPaletteArgs) ToThemeConfigurationUiColorPalettePtrOutput() ThemeConfigurationUiColorPalettePtrOutput {
+	return i.ToThemeConfigurationUiColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (i ThemeConfigurationUiColorPaletteArgs) ToThemeConfigurationUiColorPalettePtrOutputWithContext(ctx context.Context) ThemeConfigurationUiColorPalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationUiColorPaletteOutput).ToThemeConfigurationUiColorPalettePtrOutputWithContext(ctx)
+}
+
+// ThemeConfigurationUiColorPalettePtrInput is an input type that accepts ThemeConfigurationUiColorPaletteArgs, ThemeConfigurationUiColorPalettePtr and ThemeConfigurationUiColorPalettePtrOutput values.
+// You can construct a concrete instance of `ThemeConfigurationUiColorPalettePtrInput` via:
+//
+//	        ThemeConfigurationUiColorPaletteArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeConfigurationUiColorPalettePtrInput interface {
+	pulumi.Input
+
+	ToThemeConfigurationUiColorPalettePtrOutput() ThemeConfigurationUiColorPalettePtrOutput
+	ToThemeConfigurationUiColorPalettePtrOutputWithContext(context.Context) ThemeConfigurationUiColorPalettePtrOutput
+}
+
+type themeConfigurationUiColorPalettePtrType ThemeConfigurationUiColorPaletteArgs
+
+func ThemeConfigurationUiColorPalettePtr(v *ThemeConfigurationUiColorPaletteArgs) ThemeConfigurationUiColorPalettePtrInput {
+	return (*themeConfigurationUiColorPalettePtrType)(v)
+}
+
+func (*themeConfigurationUiColorPalettePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationUiColorPalette)(nil)).Elem()
+}
+
+func (i *themeConfigurationUiColorPalettePtrType) ToThemeConfigurationUiColorPalettePtrOutput() ThemeConfigurationUiColorPalettePtrOutput {
+	return i.ToThemeConfigurationUiColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (i *themeConfigurationUiColorPalettePtrType) ToThemeConfigurationUiColorPalettePtrOutputWithContext(ctx context.Context) ThemeConfigurationUiColorPalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeConfigurationUiColorPalettePtrOutput)
+}
+
+type ThemeConfigurationUiColorPaletteOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationUiColorPaletteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeConfigurationUiColorPalette)(nil)).Elem()
+}
+
+func (o ThemeConfigurationUiColorPaletteOutput) ToThemeConfigurationUiColorPaletteOutput() ThemeConfigurationUiColorPaletteOutput {
+	return o
+}
+
+func (o ThemeConfigurationUiColorPaletteOutput) ToThemeConfigurationUiColorPaletteOutputWithContext(ctx context.Context) ThemeConfigurationUiColorPaletteOutput {
+	return o
+}
+
+func (o ThemeConfigurationUiColorPaletteOutput) ToThemeConfigurationUiColorPalettePtrOutput() ThemeConfigurationUiColorPalettePtrOutput {
+	return o.ToThemeConfigurationUiColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeConfigurationUiColorPaletteOutput) ToThemeConfigurationUiColorPalettePtrOutputWithContext(ctx context.Context) ThemeConfigurationUiColorPalettePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeConfigurationUiColorPalette) *ThemeConfigurationUiColorPalette {
+		return &v
+	}).(ThemeConfigurationUiColorPalettePtrOutput)
+}
+
+// Color (hexadecimal) that applies to selected states and buttons.
+func (o ThemeConfigurationUiColorPaletteOutput) Accent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.Accent }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+func (o ThemeConfigurationUiColorPaletteOutput) AccentForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.AccentForeground }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to error messages.
+func (o ThemeConfigurationUiColorPaletteOutput) Danger() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.Danger }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+func (o ThemeConfigurationUiColorPaletteOutput) DangerForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.DangerForeground }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+func (o ThemeConfigurationUiColorPaletteOutput) Dimension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.Dimension }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+func (o ThemeConfigurationUiColorPaletteOutput) DimensionForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.DimensionForeground }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to the names of fields that are identified as measures.
+func (o ThemeConfigurationUiColorPaletteOutput) Measure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.Measure }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+func (o ThemeConfigurationUiColorPaletteOutput) MeasureForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.MeasureForeground }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to visuals and other high emphasis UI.
+func (o ThemeConfigurationUiColorPaletteOutput) PrimaryBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.PrimaryBackground }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+func (o ThemeConfigurationUiColorPaletteOutput) PrimaryForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.PrimaryForeground }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to the sheet background and sheet controls.
+func (o ThemeConfigurationUiColorPaletteOutput) SecondaryBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.SecondaryBackground }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+func (o ThemeConfigurationUiColorPaletteOutput) SecondaryForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.SecondaryForeground }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+func (o ThemeConfigurationUiColorPaletteOutput) Success() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.Success }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+func (o ThemeConfigurationUiColorPaletteOutput) SuccessForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.SuccessForeground }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to warning and informational messages.
+func (o ThemeConfigurationUiColorPaletteOutput) Warning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.Warning }).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+func (o ThemeConfigurationUiColorPaletteOutput) WarningForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeConfigurationUiColorPalette) *string { return v.WarningForeground }).(pulumi.StringPtrOutput)
+}
+
+type ThemeConfigurationUiColorPalettePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeConfigurationUiColorPalettePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeConfigurationUiColorPalette)(nil)).Elem()
+}
+
+func (o ThemeConfigurationUiColorPalettePtrOutput) ToThemeConfigurationUiColorPalettePtrOutput() ThemeConfigurationUiColorPalettePtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationUiColorPalettePtrOutput) ToThemeConfigurationUiColorPalettePtrOutputWithContext(ctx context.Context) ThemeConfigurationUiColorPalettePtrOutput {
+	return o
+}
+
+func (o ThemeConfigurationUiColorPalettePtrOutput) Elem() ThemeConfigurationUiColorPaletteOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) ThemeConfigurationUiColorPalette {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeConfigurationUiColorPalette
+		return ret
+	}).(ThemeConfigurationUiColorPaletteOutput)
+}
+
+// Color (hexadecimal) that applies to selected states and buttons.
+func (o ThemeConfigurationUiColorPalettePtrOutput) Accent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Accent
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+func (o ThemeConfigurationUiColorPalettePtrOutput) AccentForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccentForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to error messages.
+func (o ThemeConfigurationUiColorPalettePtrOutput) Danger() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Danger
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+func (o ThemeConfigurationUiColorPalettePtrOutput) DangerForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DangerForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+func (o ThemeConfigurationUiColorPalettePtrOutput) Dimension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Dimension
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+func (o ThemeConfigurationUiColorPalettePtrOutput) DimensionForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DimensionForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to the names of fields that are identified as measures.
+func (o ThemeConfigurationUiColorPalettePtrOutput) Measure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Measure
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+func (o ThemeConfigurationUiColorPalettePtrOutput) MeasureForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MeasureForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to visuals and other high emphasis UI.
+func (o ThemeConfigurationUiColorPalettePtrOutput) PrimaryBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryBackground
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+func (o ThemeConfigurationUiColorPalettePtrOutput) PrimaryForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to the sheet background and sheet controls.
+func (o ThemeConfigurationUiColorPalettePtrOutput) SecondaryBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryBackground
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+func (o ThemeConfigurationUiColorPalettePtrOutput) SecondaryForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+func (o ThemeConfigurationUiColorPalettePtrOutput) Success() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Success
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+func (o ThemeConfigurationUiColorPalettePtrOutput) SuccessForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to warning and informational messages.
+func (o ThemeConfigurationUiColorPalettePtrOutput) Warning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Warning
+	}).(pulumi.StringPtrOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+func (o ThemeConfigurationUiColorPalettePtrOutput) WarningForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeConfigurationUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WarningForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThemePermission struct {
+	// List of IAM actions to grant or revoke permissions on.
+	Actions []string `pulumi:"actions"`
+	// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+	Principal string `pulumi:"principal"`
+}
+
+// ThemePermissionInput is an input type that accepts ThemePermissionArgs and ThemePermissionOutput values.
+// You can construct a concrete instance of `ThemePermissionInput` via:
+//
+//	ThemePermissionArgs{...}
+type ThemePermissionInput interface {
+	pulumi.Input
+
+	ToThemePermissionOutput() ThemePermissionOutput
+	ToThemePermissionOutputWithContext(context.Context) ThemePermissionOutput
+}
+
+type ThemePermissionArgs struct {
+	// List of IAM actions to grant or revoke permissions on.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+	Principal pulumi.StringInput `pulumi:"principal"`
+}
+
+func (ThemePermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemePermission)(nil)).Elem()
+}
+
+func (i ThemePermissionArgs) ToThemePermissionOutput() ThemePermissionOutput {
+	return i.ToThemePermissionOutputWithContext(context.Background())
+}
+
+func (i ThemePermissionArgs) ToThemePermissionOutputWithContext(ctx context.Context) ThemePermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemePermissionOutput)
+}
+
+// ThemePermissionArrayInput is an input type that accepts ThemePermissionArray and ThemePermissionArrayOutput values.
+// You can construct a concrete instance of `ThemePermissionArrayInput` via:
+//
+//	ThemePermissionArray{ ThemePermissionArgs{...} }
+type ThemePermissionArrayInput interface {
+	pulumi.Input
+
+	ToThemePermissionArrayOutput() ThemePermissionArrayOutput
+	ToThemePermissionArrayOutputWithContext(context.Context) ThemePermissionArrayOutput
+}
+
+type ThemePermissionArray []ThemePermissionInput
+
+func (ThemePermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemePermission)(nil)).Elem()
+}
+
+func (i ThemePermissionArray) ToThemePermissionArrayOutput() ThemePermissionArrayOutput {
+	return i.ToThemePermissionArrayOutputWithContext(context.Background())
+}
+
+func (i ThemePermissionArray) ToThemePermissionArrayOutputWithContext(ctx context.Context) ThemePermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemePermissionArrayOutput)
+}
+
+type ThemePermissionOutput struct{ *pulumi.OutputState }
+
+func (ThemePermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemePermission)(nil)).Elem()
+}
+
+func (o ThemePermissionOutput) ToThemePermissionOutput() ThemePermissionOutput {
+	return o
+}
+
+func (o ThemePermissionOutput) ToThemePermissionOutputWithContext(ctx context.Context) ThemePermissionOutput {
+	return o
+}
+
+// List of IAM actions to grant or revoke permissions on.
+func (o ThemePermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ThemePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+func (o ThemePermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v ThemePermission) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+type ThemePermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (ThemePermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemePermission)(nil)).Elem()
+}
+
+func (o ThemePermissionArrayOutput) ToThemePermissionArrayOutput() ThemePermissionArrayOutput {
+	return o
+}
+
+func (o ThemePermissionArrayOutput) ToThemePermissionArrayOutputWithContext(ctx context.Context) ThemePermissionArrayOutput {
+	return o
+}
+
+func (o ThemePermissionArrayOutput) Index(i pulumi.IntInput) ThemePermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemePermission {
+		return vs[0].([]ThemePermission)[vs[1].(int)]
+	}).(ThemePermissionOutput)
 }
 
 type VpcConnectionTimeouts struct {
@@ -19298,6 +21293,1383 @@ func (o GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) Index(i 
 	}).(GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput)
 }
 
+type GetThemeConfiguration struct {
+	// Color properties that apply to chart data colors. See data_color_palette.
+	DataColorPalettes []GetThemeConfigurationDataColorPalette `pulumi:"dataColorPalettes"`
+	// Display options related to sheets. See sheet.
+	Sheets []GetThemeConfigurationSheet `pulumi:"sheets"`
+	// Determines the typography options. See typography.
+	Typographies []GetThemeConfigurationTypography `pulumi:"typographies"`
+	// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+	UiColorPalettes []GetThemeConfigurationUiColorPalette `pulumi:"uiColorPalettes"`
+}
+
+// GetThemeConfigurationInput is an input type that accepts GetThemeConfigurationArgs and GetThemeConfigurationOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationInput` via:
+//
+//	GetThemeConfigurationArgs{...}
+type GetThemeConfigurationInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationOutput() GetThemeConfigurationOutput
+	ToGetThemeConfigurationOutputWithContext(context.Context) GetThemeConfigurationOutput
+}
+
+type GetThemeConfigurationArgs struct {
+	// Color properties that apply to chart data colors. See data_color_palette.
+	DataColorPalettes GetThemeConfigurationDataColorPaletteArrayInput `pulumi:"dataColorPalettes"`
+	// Display options related to sheets. See sheet.
+	Sheets GetThemeConfigurationSheetArrayInput `pulumi:"sheets"`
+	// Determines the typography options. See typography.
+	Typographies GetThemeConfigurationTypographyArrayInput `pulumi:"typographies"`
+	// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+	UiColorPalettes GetThemeConfigurationUiColorPaletteArrayInput `pulumi:"uiColorPalettes"`
+}
+
+func (GetThemeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfiguration)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationArgs) ToGetThemeConfigurationOutput() GetThemeConfigurationOutput {
+	return i.ToGetThemeConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationArgs) ToGetThemeConfigurationOutputWithContext(ctx context.Context) GetThemeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationOutput)
+}
+
+// GetThemeConfigurationArrayInput is an input type that accepts GetThemeConfigurationArray and GetThemeConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationArrayInput` via:
+//
+//	GetThemeConfigurationArray{ GetThemeConfigurationArgs{...} }
+type GetThemeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationArrayOutput() GetThemeConfigurationArrayOutput
+	ToGetThemeConfigurationArrayOutputWithContext(context.Context) GetThemeConfigurationArrayOutput
+}
+
+type GetThemeConfigurationArray []GetThemeConfigurationInput
+
+func (GetThemeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfiguration)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationArray) ToGetThemeConfigurationArrayOutput() GetThemeConfigurationArrayOutput {
+	return i.ToGetThemeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationArray) ToGetThemeConfigurationArrayOutputWithContext(ctx context.Context) GetThemeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationArrayOutput)
+}
+
+type GetThemeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfiguration)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationOutput) ToGetThemeConfigurationOutput() GetThemeConfigurationOutput {
+	return o
+}
+
+func (o GetThemeConfigurationOutput) ToGetThemeConfigurationOutputWithContext(ctx context.Context) GetThemeConfigurationOutput {
+	return o
+}
+
+// Color properties that apply to chart data colors. See data_color_palette.
+func (o GetThemeConfigurationOutput) DataColorPalettes() GetThemeConfigurationDataColorPaletteArrayOutput {
+	return o.ApplyT(func(v GetThemeConfiguration) []GetThemeConfigurationDataColorPalette { return v.DataColorPalettes }).(GetThemeConfigurationDataColorPaletteArrayOutput)
+}
+
+// Display options related to sheets. See sheet.
+func (o GetThemeConfigurationOutput) Sheets() GetThemeConfigurationSheetArrayOutput {
+	return o.ApplyT(func(v GetThemeConfiguration) []GetThemeConfigurationSheet { return v.Sheets }).(GetThemeConfigurationSheetArrayOutput)
+}
+
+// Determines the typography options. See typography.
+func (o GetThemeConfigurationOutput) Typographies() GetThemeConfigurationTypographyArrayOutput {
+	return o.ApplyT(func(v GetThemeConfiguration) []GetThemeConfigurationTypography { return v.Typographies }).(GetThemeConfigurationTypographyArrayOutput)
+}
+
+// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+func (o GetThemeConfigurationOutput) UiColorPalettes() GetThemeConfigurationUiColorPaletteArrayOutput {
+	return o.ApplyT(func(v GetThemeConfiguration) []GetThemeConfigurationUiColorPalette { return v.UiColorPalettes }).(GetThemeConfigurationUiColorPaletteArrayOutput)
+}
+
+type GetThemeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfiguration)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationArrayOutput) ToGetThemeConfigurationArrayOutput() GetThemeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationArrayOutput) ToGetThemeConfigurationArrayOutputWithContext(ctx context.Context) GetThemeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationArrayOutput) Index(i pulumi.IntInput) GetThemeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemeConfiguration {
+		return vs[0].([]GetThemeConfiguration)[vs[1].(int)]
+	}).(GetThemeConfigurationOutput)
+}
+
+type GetThemeConfigurationDataColorPalette struct {
+	// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+	Colors []string `pulumi:"colors"`
+	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+	EmptyFillColor string `pulumi:"emptyFillColor"`
+	// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+	MinMaxGradients []string `pulumi:"minMaxGradients"`
+}
+
+// GetThemeConfigurationDataColorPaletteInput is an input type that accepts GetThemeConfigurationDataColorPaletteArgs and GetThemeConfigurationDataColorPaletteOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationDataColorPaletteInput` via:
+//
+//	GetThemeConfigurationDataColorPaletteArgs{...}
+type GetThemeConfigurationDataColorPaletteInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationDataColorPaletteOutput() GetThemeConfigurationDataColorPaletteOutput
+	ToGetThemeConfigurationDataColorPaletteOutputWithContext(context.Context) GetThemeConfigurationDataColorPaletteOutput
+}
+
+type GetThemeConfigurationDataColorPaletteArgs struct {
+	// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+	Colors pulumi.StringArrayInput `pulumi:"colors"`
+	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+	EmptyFillColor pulumi.StringInput `pulumi:"emptyFillColor"`
+	// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+	MinMaxGradients pulumi.StringArrayInput `pulumi:"minMaxGradients"`
+}
+
+func (GetThemeConfigurationDataColorPaletteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationDataColorPalette)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationDataColorPaletteArgs) ToGetThemeConfigurationDataColorPaletteOutput() GetThemeConfigurationDataColorPaletteOutput {
+	return i.ToGetThemeConfigurationDataColorPaletteOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationDataColorPaletteArgs) ToGetThemeConfigurationDataColorPaletteOutputWithContext(ctx context.Context) GetThemeConfigurationDataColorPaletteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationDataColorPaletteOutput)
+}
+
+// GetThemeConfigurationDataColorPaletteArrayInput is an input type that accepts GetThemeConfigurationDataColorPaletteArray and GetThemeConfigurationDataColorPaletteArrayOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationDataColorPaletteArrayInput` via:
+//
+//	GetThemeConfigurationDataColorPaletteArray{ GetThemeConfigurationDataColorPaletteArgs{...} }
+type GetThemeConfigurationDataColorPaletteArrayInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationDataColorPaletteArrayOutput() GetThemeConfigurationDataColorPaletteArrayOutput
+	ToGetThemeConfigurationDataColorPaletteArrayOutputWithContext(context.Context) GetThemeConfigurationDataColorPaletteArrayOutput
+}
+
+type GetThemeConfigurationDataColorPaletteArray []GetThemeConfigurationDataColorPaletteInput
+
+func (GetThemeConfigurationDataColorPaletteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationDataColorPalette)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationDataColorPaletteArray) ToGetThemeConfigurationDataColorPaletteArrayOutput() GetThemeConfigurationDataColorPaletteArrayOutput {
+	return i.ToGetThemeConfigurationDataColorPaletteArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationDataColorPaletteArray) ToGetThemeConfigurationDataColorPaletteArrayOutputWithContext(ctx context.Context) GetThemeConfigurationDataColorPaletteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationDataColorPaletteArrayOutput)
+}
+
+type GetThemeConfigurationDataColorPaletteOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationDataColorPaletteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationDataColorPalette)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationDataColorPaletteOutput) ToGetThemeConfigurationDataColorPaletteOutput() GetThemeConfigurationDataColorPaletteOutput {
+	return o
+}
+
+func (o GetThemeConfigurationDataColorPaletteOutput) ToGetThemeConfigurationDataColorPaletteOutputWithContext(ctx context.Context) GetThemeConfigurationDataColorPaletteOutput {
+	return o
+}
+
+// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+func (o GetThemeConfigurationDataColorPaletteOutput) Colors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetThemeConfigurationDataColorPalette) []string { return v.Colors }).(pulumi.StringArrayOutput)
+}
+
+// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+func (o GetThemeConfigurationDataColorPaletteOutput) EmptyFillColor() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationDataColorPalette) string { return v.EmptyFillColor }).(pulumi.StringOutput)
+}
+
+// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+func (o GetThemeConfigurationDataColorPaletteOutput) MinMaxGradients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetThemeConfigurationDataColorPalette) []string { return v.MinMaxGradients }).(pulumi.StringArrayOutput)
+}
+
+type GetThemeConfigurationDataColorPaletteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationDataColorPaletteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationDataColorPalette)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationDataColorPaletteArrayOutput) ToGetThemeConfigurationDataColorPaletteArrayOutput() GetThemeConfigurationDataColorPaletteArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationDataColorPaletteArrayOutput) ToGetThemeConfigurationDataColorPaletteArrayOutputWithContext(ctx context.Context) GetThemeConfigurationDataColorPaletteArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationDataColorPaletteArrayOutput) Index(i pulumi.IntInput) GetThemeConfigurationDataColorPaletteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemeConfigurationDataColorPalette {
+		return vs[0].([]GetThemeConfigurationDataColorPalette)[vs[1].(int)]
+	}).(GetThemeConfigurationDataColorPaletteOutput)
+}
+
+type GetThemeConfigurationSheet struct {
+	// The layout options for tiles. See tile_layout.
+	TileLayouts []GetThemeConfigurationSheetTileLayout `pulumi:"tileLayouts"`
+	// The display options for tiles. See tile.
+	Tiles []GetThemeConfigurationSheetTile `pulumi:"tiles"`
+}
+
+// GetThemeConfigurationSheetInput is an input type that accepts GetThemeConfigurationSheetArgs and GetThemeConfigurationSheetOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetInput` via:
+//
+//	GetThemeConfigurationSheetArgs{...}
+type GetThemeConfigurationSheetInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetOutput() GetThemeConfigurationSheetOutput
+	ToGetThemeConfigurationSheetOutputWithContext(context.Context) GetThemeConfigurationSheetOutput
+}
+
+type GetThemeConfigurationSheetArgs struct {
+	// The layout options for tiles. See tile_layout.
+	TileLayouts GetThemeConfigurationSheetTileLayoutArrayInput `pulumi:"tileLayouts"`
+	// The display options for tiles. See tile.
+	Tiles GetThemeConfigurationSheetTileArrayInput `pulumi:"tiles"`
+}
+
+func (GetThemeConfigurationSheetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheet)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetArgs) ToGetThemeConfigurationSheetOutput() GetThemeConfigurationSheetOutput {
+	return i.ToGetThemeConfigurationSheetOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetArgs) ToGetThemeConfigurationSheetOutputWithContext(ctx context.Context) GetThemeConfigurationSheetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetOutput)
+}
+
+// GetThemeConfigurationSheetArrayInput is an input type that accepts GetThemeConfigurationSheetArray and GetThemeConfigurationSheetArrayOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetArrayInput` via:
+//
+//	GetThemeConfigurationSheetArray{ GetThemeConfigurationSheetArgs{...} }
+type GetThemeConfigurationSheetArrayInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetArrayOutput() GetThemeConfigurationSheetArrayOutput
+	ToGetThemeConfigurationSheetArrayOutputWithContext(context.Context) GetThemeConfigurationSheetArrayOutput
+}
+
+type GetThemeConfigurationSheetArray []GetThemeConfigurationSheetInput
+
+func (GetThemeConfigurationSheetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheet)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetArray) ToGetThemeConfigurationSheetArrayOutput() GetThemeConfigurationSheetArrayOutput {
+	return i.ToGetThemeConfigurationSheetArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetArray) ToGetThemeConfigurationSheetArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetArrayOutput)
+}
+
+type GetThemeConfigurationSheetOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheet)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetOutput) ToGetThemeConfigurationSheetOutput() GetThemeConfigurationSheetOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetOutput) ToGetThemeConfigurationSheetOutputWithContext(ctx context.Context) GetThemeConfigurationSheetOutput {
+	return o
+}
+
+// The layout options for tiles. See tile_layout.
+func (o GetThemeConfigurationSheetOutput) TileLayouts() GetThemeConfigurationSheetTileLayoutArrayOutput {
+	return o.ApplyT(func(v GetThemeConfigurationSheet) []GetThemeConfigurationSheetTileLayout { return v.TileLayouts }).(GetThemeConfigurationSheetTileLayoutArrayOutput)
+}
+
+// The display options for tiles. See tile.
+func (o GetThemeConfigurationSheetOutput) Tiles() GetThemeConfigurationSheetTileArrayOutput {
+	return o.ApplyT(func(v GetThemeConfigurationSheet) []GetThemeConfigurationSheetTile { return v.Tiles }).(GetThemeConfigurationSheetTileArrayOutput)
+}
+
+type GetThemeConfigurationSheetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheet)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetArrayOutput) ToGetThemeConfigurationSheetArrayOutput() GetThemeConfigurationSheetArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetArrayOutput) ToGetThemeConfigurationSheetArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetArrayOutput) Index(i pulumi.IntInput) GetThemeConfigurationSheetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemeConfigurationSheet {
+		return vs[0].([]GetThemeConfigurationSheet)[vs[1].(int)]
+	}).(GetThemeConfigurationSheetOutput)
+}
+
+type GetThemeConfigurationSheetTile struct {
+	// The border around a tile. See border.
+	Borders []GetThemeConfigurationSheetTileBorder `pulumi:"borders"`
+}
+
+// GetThemeConfigurationSheetTileInput is an input type that accepts GetThemeConfigurationSheetTileArgs and GetThemeConfigurationSheetTileOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetTileInput` via:
+//
+//	GetThemeConfigurationSheetTileArgs{...}
+type GetThemeConfigurationSheetTileInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetTileOutput() GetThemeConfigurationSheetTileOutput
+	ToGetThemeConfigurationSheetTileOutputWithContext(context.Context) GetThemeConfigurationSheetTileOutput
+}
+
+type GetThemeConfigurationSheetTileArgs struct {
+	// The border around a tile. See border.
+	Borders GetThemeConfigurationSheetTileBorderArrayInput `pulumi:"borders"`
+}
+
+func (GetThemeConfigurationSheetTileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheetTile)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetTileArgs) ToGetThemeConfigurationSheetTileOutput() GetThemeConfigurationSheetTileOutput {
+	return i.ToGetThemeConfigurationSheetTileOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetTileArgs) ToGetThemeConfigurationSheetTileOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetTileOutput)
+}
+
+// GetThemeConfigurationSheetTileArrayInput is an input type that accepts GetThemeConfigurationSheetTileArray and GetThemeConfigurationSheetTileArrayOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetTileArrayInput` via:
+//
+//	GetThemeConfigurationSheetTileArray{ GetThemeConfigurationSheetTileArgs{...} }
+type GetThemeConfigurationSheetTileArrayInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetTileArrayOutput() GetThemeConfigurationSheetTileArrayOutput
+	ToGetThemeConfigurationSheetTileArrayOutputWithContext(context.Context) GetThemeConfigurationSheetTileArrayOutput
+}
+
+type GetThemeConfigurationSheetTileArray []GetThemeConfigurationSheetTileInput
+
+func (GetThemeConfigurationSheetTileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheetTile)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetTileArray) ToGetThemeConfigurationSheetTileArrayOutput() GetThemeConfigurationSheetTileArrayOutput {
+	return i.ToGetThemeConfigurationSheetTileArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetTileArray) ToGetThemeConfigurationSheetTileArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetTileArrayOutput)
+}
+
+type GetThemeConfigurationSheetTileOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetTileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheetTile)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetTileOutput) ToGetThemeConfigurationSheetTileOutput() GetThemeConfigurationSheetTileOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileOutput) ToGetThemeConfigurationSheetTileOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileOutput {
+	return o
+}
+
+// The border around a tile. See border.
+func (o GetThemeConfigurationSheetTileOutput) Borders() GetThemeConfigurationSheetTileBorderArrayOutput {
+	return o.ApplyT(func(v GetThemeConfigurationSheetTile) []GetThemeConfigurationSheetTileBorder { return v.Borders }).(GetThemeConfigurationSheetTileBorderArrayOutput)
+}
+
+type GetThemeConfigurationSheetTileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetTileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheetTile)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetTileArrayOutput) ToGetThemeConfigurationSheetTileArrayOutput() GetThemeConfigurationSheetTileArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileArrayOutput) ToGetThemeConfigurationSheetTileArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileArrayOutput) Index(i pulumi.IntInput) GetThemeConfigurationSheetTileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemeConfigurationSheetTile {
+		return vs[0].([]GetThemeConfigurationSheetTile)[vs[1].(int)]
+	}).(GetThemeConfigurationSheetTileOutput)
+}
+
+type GetThemeConfigurationSheetTileBorder struct {
+	// This Boolean value controls whether to display sheet margins.
+	Show bool `pulumi:"show"`
+}
+
+// GetThemeConfigurationSheetTileBorderInput is an input type that accepts GetThemeConfigurationSheetTileBorderArgs and GetThemeConfigurationSheetTileBorderOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetTileBorderInput` via:
+//
+//	GetThemeConfigurationSheetTileBorderArgs{...}
+type GetThemeConfigurationSheetTileBorderInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetTileBorderOutput() GetThemeConfigurationSheetTileBorderOutput
+	ToGetThemeConfigurationSheetTileBorderOutputWithContext(context.Context) GetThemeConfigurationSheetTileBorderOutput
+}
+
+type GetThemeConfigurationSheetTileBorderArgs struct {
+	// This Boolean value controls whether to display sheet margins.
+	Show pulumi.BoolInput `pulumi:"show"`
+}
+
+func (GetThemeConfigurationSheetTileBorderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheetTileBorder)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetTileBorderArgs) ToGetThemeConfigurationSheetTileBorderOutput() GetThemeConfigurationSheetTileBorderOutput {
+	return i.ToGetThemeConfigurationSheetTileBorderOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetTileBorderArgs) ToGetThemeConfigurationSheetTileBorderOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileBorderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetTileBorderOutput)
+}
+
+// GetThemeConfigurationSheetTileBorderArrayInput is an input type that accepts GetThemeConfigurationSheetTileBorderArray and GetThemeConfigurationSheetTileBorderArrayOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetTileBorderArrayInput` via:
+//
+//	GetThemeConfigurationSheetTileBorderArray{ GetThemeConfigurationSheetTileBorderArgs{...} }
+type GetThemeConfigurationSheetTileBorderArrayInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetTileBorderArrayOutput() GetThemeConfigurationSheetTileBorderArrayOutput
+	ToGetThemeConfigurationSheetTileBorderArrayOutputWithContext(context.Context) GetThemeConfigurationSheetTileBorderArrayOutput
+}
+
+type GetThemeConfigurationSheetTileBorderArray []GetThemeConfigurationSheetTileBorderInput
+
+func (GetThemeConfigurationSheetTileBorderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheetTileBorder)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetTileBorderArray) ToGetThemeConfigurationSheetTileBorderArrayOutput() GetThemeConfigurationSheetTileBorderArrayOutput {
+	return i.ToGetThemeConfigurationSheetTileBorderArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetTileBorderArray) ToGetThemeConfigurationSheetTileBorderArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileBorderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetTileBorderArrayOutput)
+}
+
+type GetThemeConfigurationSheetTileBorderOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetTileBorderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheetTileBorder)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetTileBorderOutput) ToGetThemeConfigurationSheetTileBorderOutput() GetThemeConfigurationSheetTileBorderOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileBorderOutput) ToGetThemeConfigurationSheetTileBorderOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileBorderOutput {
+	return o
+}
+
+// This Boolean value controls whether to display sheet margins.
+func (o GetThemeConfigurationSheetTileBorderOutput) Show() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetThemeConfigurationSheetTileBorder) bool { return v.Show }).(pulumi.BoolOutput)
+}
+
+type GetThemeConfigurationSheetTileBorderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetTileBorderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheetTileBorder)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetTileBorderArrayOutput) ToGetThemeConfigurationSheetTileBorderArrayOutput() GetThemeConfigurationSheetTileBorderArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileBorderArrayOutput) ToGetThemeConfigurationSheetTileBorderArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileBorderArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileBorderArrayOutput) Index(i pulumi.IntInput) GetThemeConfigurationSheetTileBorderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemeConfigurationSheetTileBorder {
+		return vs[0].([]GetThemeConfigurationSheetTileBorder)[vs[1].(int)]
+	}).(GetThemeConfigurationSheetTileBorderOutput)
+}
+
+type GetThemeConfigurationSheetTileLayout struct {
+	// The gutter settings that apply between tiles. See gutter.
+	Gutters []GetThemeConfigurationSheetTileLayoutGutter `pulumi:"gutters"`
+	// The margin settings that apply around the outside edge of sheets. See margin.
+	Margins []GetThemeConfigurationSheetTileLayoutMargin `pulumi:"margins"`
+}
+
+// GetThemeConfigurationSheetTileLayoutInput is an input type that accepts GetThemeConfigurationSheetTileLayoutArgs and GetThemeConfigurationSheetTileLayoutOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetTileLayoutInput` via:
+//
+//	GetThemeConfigurationSheetTileLayoutArgs{...}
+type GetThemeConfigurationSheetTileLayoutInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetTileLayoutOutput() GetThemeConfigurationSheetTileLayoutOutput
+	ToGetThemeConfigurationSheetTileLayoutOutputWithContext(context.Context) GetThemeConfigurationSheetTileLayoutOutput
+}
+
+type GetThemeConfigurationSheetTileLayoutArgs struct {
+	// The gutter settings that apply between tiles. See gutter.
+	Gutters GetThemeConfigurationSheetTileLayoutGutterArrayInput `pulumi:"gutters"`
+	// The margin settings that apply around the outside edge of sheets. See margin.
+	Margins GetThemeConfigurationSheetTileLayoutMarginArrayInput `pulumi:"margins"`
+}
+
+func (GetThemeConfigurationSheetTileLayoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheetTileLayout)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetTileLayoutArgs) ToGetThemeConfigurationSheetTileLayoutOutput() GetThemeConfigurationSheetTileLayoutOutput {
+	return i.ToGetThemeConfigurationSheetTileLayoutOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetTileLayoutArgs) ToGetThemeConfigurationSheetTileLayoutOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetTileLayoutOutput)
+}
+
+// GetThemeConfigurationSheetTileLayoutArrayInput is an input type that accepts GetThemeConfigurationSheetTileLayoutArray and GetThemeConfigurationSheetTileLayoutArrayOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetTileLayoutArrayInput` via:
+//
+//	GetThemeConfigurationSheetTileLayoutArray{ GetThemeConfigurationSheetTileLayoutArgs{...} }
+type GetThemeConfigurationSheetTileLayoutArrayInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetTileLayoutArrayOutput() GetThemeConfigurationSheetTileLayoutArrayOutput
+	ToGetThemeConfigurationSheetTileLayoutArrayOutputWithContext(context.Context) GetThemeConfigurationSheetTileLayoutArrayOutput
+}
+
+type GetThemeConfigurationSheetTileLayoutArray []GetThemeConfigurationSheetTileLayoutInput
+
+func (GetThemeConfigurationSheetTileLayoutArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheetTileLayout)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetTileLayoutArray) ToGetThemeConfigurationSheetTileLayoutArrayOutput() GetThemeConfigurationSheetTileLayoutArrayOutput {
+	return i.ToGetThemeConfigurationSheetTileLayoutArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetTileLayoutArray) ToGetThemeConfigurationSheetTileLayoutArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetTileLayoutArrayOutput)
+}
+
+type GetThemeConfigurationSheetTileLayoutOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetTileLayoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheetTileLayout)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetTileLayoutOutput) ToGetThemeConfigurationSheetTileLayoutOutput() GetThemeConfigurationSheetTileLayoutOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileLayoutOutput) ToGetThemeConfigurationSheetTileLayoutOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutOutput {
+	return o
+}
+
+// The gutter settings that apply between tiles. See gutter.
+func (o GetThemeConfigurationSheetTileLayoutOutput) Gutters() GetThemeConfigurationSheetTileLayoutGutterArrayOutput {
+	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayout) []GetThemeConfigurationSheetTileLayoutGutter {
+		return v.Gutters
+	}).(GetThemeConfigurationSheetTileLayoutGutterArrayOutput)
+}
+
+// The margin settings that apply around the outside edge of sheets. See margin.
+func (o GetThemeConfigurationSheetTileLayoutOutput) Margins() GetThemeConfigurationSheetTileLayoutMarginArrayOutput {
+	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayout) []GetThemeConfigurationSheetTileLayoutMargin {
+		return v.Margins
+	}).(GetThemeConfigurationSheetTileLayoutMarginArrayOutput)
+}
+
+type GetThemeConfigurationSheetTileLayoutArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetTileLayoutArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheetTileLayout)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetTileLayoutArrayOutput) ToGetThemeConfigurationSheetTileLayoutArrayOutput() GetThemeConfigurationSheetTileLayoutArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileLayoutArrayOutput) ToGetThemeConfigurationSheetTileLayoutArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileLayoutArrayOutput) Index(i pulumi.IntInput) GetThemeConfigurationSheetTileLayoutOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemeConfigurationSheetTileLayout {
+		return vs[0].([]GetThemeConfigurationSheetTileLayout)[vs[1].(int)]
+	}).(GetThemeConfigurationSheetTileLayoutOutput)
+}
+
+type GetThemeConfigurationSheetTileLayoutGutter struct {
+	// This Boolean value controls whether to display sheet margins.
+	Show bool `pulumi:"show"`
+}
+
+// GetThemeConfigurationSheetTileLayoutGutterInput is an input type that accepts GetThemeConfigurationSheetTileLayoutGutterArgs and GetThemeConfigurationSheetTileLayoutGutterOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetTileLayoutGutterInput` via:
+//
+//	GetThemeConfigurationSheetTileLayoutGutterArgs{...}
+type GetThemeConfigurationSheetTileLayoutGutterInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetTileLayoutGutterOutput() GetThemeConfigurationSheetTileLayoutGutterOutput
+	ToGetThemeConfigurationSheetTileLayoutGutterOutputWithContext(context.Context) GetThemeConfigurationSheetTileLayoutGutterOutput
+}
+
+type GetThemeConfigurationSheetTileLayoutGutterArgs struct {
+	// This Boolean value controls whether to display sheet margins.
+	Show pulumi.BoolInput `pulumi:"show"`
+}
+
+func (GetThemeConfigurationSheetTileLayoutGutterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheetTileLayoutGutter)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetTileLayoutGutterArgs) ToGetThemeConfigurationSheetTileLayoutGutterOutput() GetThemeConfigurationSheetTileLayoutGutterOutput {
+	return i.ToGetThemeConfigurationSheetTileLayoutGutterOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetTileLayoutGutterArgs) ToGetThemeConfigurationSheetTileLayoutGutterOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutGutterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetTileLayoutGutterOutput)
+}
+
+// GetThemeConfigurationSheetTileLayoutGutterArrayInput is an input type that accepts GetThemeConfigurationSheetTileLayoutGutterArray and GetThemeConfigurationSheetTileLayoutGutterArrayOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetTileLayoutGutterArrayInput` via:
+//
+//	GetThemeConfigurationSheetTileLayoutGutterArray{ GetThemeConfigurationSheetTileLayoutGutterArgs{...} }
+type GetThemeConfigurationSheetTileLayoutGutterArrayInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetTileLayoutGutterArrayOutput() GetThemeConfigurationSheetTileLayoutGutterArrayOutput
+	ToGetThemeConfigurationSheetTileLayoutGutterArrayOutputWithContext(context.Context) GetThemeConfigurationSheetTileLayoutGutterArrayOutput
+}
+
+type GetThemeConfigurationSheetTileLayoutGutterArray []GetThemeConfigurationSheetTileLayoutGutterInput
+
+func (GetThemeConfigurationSheetTileLayoutGutterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheetTileLayoutGutter)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetTileLayoutGutterArray) ToGetThemeConfigurationSheetTileLayoutGutterArrayOutput() GetThemeConfigurationSheetTileLayoutGutterArrayOutput {
+	return i.ToGetThemeConfigurationSheetTileLayoutGutterArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetTileLayoutGutterArray) ToGetThemeConfigurationSheetTileLayoutGutterArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutGutterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetTileLayoutGutterArrayOutput)
+}
+
+type GetThemeConfigurationSheetTileLayoutGutterOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetTileLayoutGutterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheetTileLayoutGutter)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetTileLayoutGutterOutput) ToGetThemeConfigurationSheetTileLayoutGutterOutput() GetThemeConfigurationSheetTileLayoutGutterOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileLayoutGutterOutput) ToGetThemeConfigurationSheetTileLayoutGutterOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutGutterOutput {
+	return o
+}
+
+// This Boolean value controls whether to display sheet margins.
+func (o GetThemeConfigurationSheetTileLayoutGutterOutput) Show() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayoutGutter) bool { return v.Show }).(pulumi.BoolOutput)
+}
+
+type GetThemeConfigurationSheetTileLayoutGutterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetTileLayoutGutterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheetTileLayoutGutter)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetTileLayoutGutterArrayOutput) ToGetThemeConfigurationSheetTileLayoutGutterArrayOutput() GetThemeConfigurationSheetTileLayoutGutterArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileLayoutGutterArrayOutput) ToGetThemeConfigurationSheetTileLayoutGutterArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutGutterArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileLayoutGutterArrayOutput) Index(i pulumi.IntInput) GetThemeConfigurationSheetTileLayoutGutterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemeConfigurationSheetTileLayoutGutter {
+		return vs[0].([]GetThemeConfigurationSheetTileLayoutGutter)[vs[1].(int)]
+	}).(GetThemeConfigurationSheetTileLayoutGutterOutput)
+}
+
+type GetThemeConfigurationSheetTileLayoutMargin struct {
+	// This Boolean value controls whether to display sheet margins.
+	Show bool `pulumi:"show"`
+}
+
+// GetThemeConfigurationSheetTileLayoutMarginInput is an input type that accepts GetThemeConfigurationSheetTileLayoutMarginArgs and GetThemeConfigurationSheetTileLayoutMarginOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetTileLayoutMarginInput` via:
+//
+//	GetThemeConfigurationSheetTileLayoutMarginArgs{...}
+type GetThemeConfigurationSheetTileLayoutMarginInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetTileLayoutMarginOutput() GetThemeConfigurationSheetTileLayoutMarginOutput
+	ToGetThemeConfigurationSheetTileLayoutMarginOutputWithContext(context.Context) GetThemeConfigurationSheetTileLayoutMarginOutput
+}
+
+type GetThemeConfigurationSheetTileLayoutMarginArgs struct {
+	// This Boolean value controls whether to display sheet margins.
+	Show pulumi.BoolInput `pulumi:"show"`
+}
+
+func (GetThemeConfigurationSheetTileLayoutMarginArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheetTileLayoutMargin)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetTileLayoutMarginArgs) ToGetThemeConfigurationSheetTileLayoutMarginOutput() GetThemeConfigurationSheetTileLayoutMarginOutput {
+	return i.ToGetThemeConfigurationSheetTileLayoutMarginOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetTileLayoutMarginArgs) ToGetThemeConfigurationSheetTileLayoutMarginOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutMarginOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetTileLayoutMarginOutput)
+}
+
+// GetThemeConfigurationSheetTileLayoutMarginArrayInput is an input type that accepts GetThemeConfigurationSheetTileLayoutMarginArray and GetThemeConfigurationSheetTileLayoutMarginArrayOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationSheetTileLayoutMarginArrayInput` via:
+//
+//	GetThemeConfigurationSheetTileLayoutMarginArray{ GetThemeConfigurationSheetTileLayoutMarginArgs{...} }
+type GetThemeConfigurationSheetTileLayoutMarginArrayInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationSheetTileLayoutMarginArrayOutput() GetThemeConfigurationSheetTileLayoutMarginArrayOutput
+	ToGetThemeConfigurationSheetTileLayoutMarginArrayOutputWithContext(context.Context) GetThemeConfigurationSheetTileLayoutMarginArrayOutput
+}
+
+type GetThemeConfigurationSheetTileLayoutMarginArray []GetThemeConfigurationSheetTileLayoutMarginInput
+
+func (GetThemeConfigurationSheetTileLayoutMarginArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheetTileLayoutMargin)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationSheetTileLayoutMarginArray) ToGetThemeConfigurationSheetTileLayoutMarginArrayOutput() GetThemeConfigurationSheetTileLayoutMarginArrayOutput {
+	return i.ToGetThemeConfigurationSheetTileLayoutMarginArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationSheetTileLayoutMarginArray) ToGetThemeConfigurationSheetTileLayoutMarginArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutMarginArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationSheetTileLayoutMarginArrayOutput)
+}
+
+type GetThemeConfigurationSheetTileLayoutMarginOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetTileLayoutMarginOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationSheetTileLayoutMargin)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetTileLayoutMarginOutput) ToGetThemeConfigurationSheetTileLayoutMarginOutput() GetThemeConfigurationSheetTileLayoutMarginOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileLayoutMarginOutput) ToGetThemeConfigurationSheetTileLayoutMarginOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutMarginOutput {
+	return o
+}
+
+// This Boolean value controls whether to display sheet margins.
+func (o GetThemeConfigurationSheetTileLayoutMarginOutput) Show() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayoutMargin) bool { return v.Show }).(pulumi.BoolOutput)
+}
+
+type GetThemeConfigurationSheetTileLayoutMarginArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationSheetTileLayoutMarginArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationSheetTileLayoutMargin)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationSheetTileLayoutMarginArrayOutput) ToGetThemeConfigurationSheetTileLayoutMarginArrayOutput() GetThemeConfigurationSheetTileLayoutMarginArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileLayoutMarginArrayOutput) ToGetThemeConfigurationSheetTileLayoutMarginArrayOutputWithContext(ctx context.Context) GetThemeConfigurationSheetTileLayoutMarginArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationSheetTileLayoutMarginArrayOutput) Index(i pulumi.IntInput) GetThemeConfigurationSheetTileLayoutMarginOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemeConfigurationSheetTileLayoutMargin {
+		return vs[0].([]GetThemeConfigurationSheetTileLayoutMargin)[vs[1].(int)]
+	}).(GetThemeConfigurationSheetTileLayoutMarginOutput)
+}
+
+type GetThemeConfigurationTypography struct {
+	// Determines the list of font families. Maximum number of 5 items. See font_families.
+	FontFamilies []GetThemeConfigurationTypographyFontFamily `pulumi:"fontFamilies"`
+}
+
+// GetThemeConfigurationTypographyInput is an input type that accepts GetThemeConfigurationTypographyArgs and GetThemeConfigurationTypographyOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationTypographyInput` via:
+//
+//	GetThemeConfigurationTypographyArgs{...}
+type GetThemeConfigurationTypographyInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationTypographyOutput() GetThemeConfigurationTypographyOutput
+	ToGetThemeConfigurationTypographyOutputWithContext(context.Context) GetThemeConfigurationTypographyOutput
+}
+
+type GetThemeConfigurationTypographyArgs struct {
+	// Determines the list of font families. Maximum number of 5 items. See font_families.
+	FontFamilies GetThemeConfigurationTypographyFontFamilyArrayInput `pulumi:"fontFamilies"`
+}
+
+func (GetThemeConfigurationTypographyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationTypography)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationTypographyArgs) ToGetThemeConfigurationTypographyOutput() GetThemeConfigurationTypographyOutput {
+	return i.ToGetThemeConfigurationTypographyOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationTypographyArgs) ToGetThemeConfigurationTypographyOutputWithContext(ctx context.Context) GetThemeConfigurationTypographyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationTypographyOutput)
+}
+
+// GetThemeConfigurationTypographyArrayInput is an input type that accepts GetThemeConfigurationTypographyArray and GetThemeConfigurationTypographyArrayOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationTypographyArrayInput` via:
+//
+//	GetThemeConfigurationTypographyArray{ GetThemeConfigurationTypographyArgs{...} }
+type GetThemeConfigurationTypographyArrayInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationTypographyArrayOutput() GetThemeConfigurationTypographyArrayOutput
+	ToGetThemeConfigurationTypographyArrayOutputWithContext(context.Context) GetThemeConfigurationTypographyArrayOutput
+}
+
+type GetThemeConfigurationTypographyArray []GetThemeConfigurationTypographyInput
+
+func (GetThemeConfigurationTypographyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationTypography)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationTypographyArray) ToGetThemeConfigurationTypographyArrayOutput() GetThemeConfigurationTypographyArrayOutput {
+	return i.ToGetThemeConfigurationTypographyArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationTypographyArray) ToGetThemeConfigurationTypographyArrayOutputWithContext(ctx context.Context) GetThemeConfigurationTypographyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationTypographyArrayOutput)
+}
+
+type GetThemeConfigurationTypographyOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationTypographyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationTypography)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationTypographyOutput) ToGetThemeConfigurationTypographyOutput() GetThemeConfigurationTypographyOutput {
+	return o
+}
+
+func (o GetThemeConfigurationTypographyOutput) ToGetThemeConfigurationTypographyOutputWithContext(ctx context.Context) GetThemeConfigurationTypographyOutput {
+	return o
+}
+
+// Determines the list of font families. Maximum number of 5 items. See font_families.
+func (o GetThemeConfigurationTypographyOutput) FontFamilies() GetThemeConfigurationTypographyFontFamilyArrayOutput {
+	return o.ApplyT(func(v GetThemeConfigurationTypography) []GetThemeConfigurationTypographyFontFamily {
+		return v.FontFamilies
+	}).(GetThemeConfigurationTypographyFontFamilyArrayOutput)
+}
+
+type GetThemeConfigurationTypographyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationTypographyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationTypography)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationTypographyArrayOutput) ToGetThemeConfigurationTypographyArrayOutput() GetThemeConfigurationTypographyArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationTypographyArrayOutput) ToGetThemeConfigurationTypographyArrayOutputWithContext(ctx context.Context) GetThemeConfigurationTypographyArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationTypographyArrayOutput) Index(i pulumi.IntInput) GetThemeConfigurationTypographyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemeConfigurationTypography {
+		return vs[0].([]GetThemeConfigurationTypography)[vs[1].(int)]
+	}).(GetThemeConfigurationTypographyOutput)
+}
+
+type GetThemeConfigurationTypographyFontFamily struct {
+	// Font family name.
+	FontFamily string `pulumi:"fontFamily"`
+}
+
+// GetThemeConfigurationTypographyFontFamilyInput is an input type that accepts GetThemeConfigurationTypographyFontFamilyArgs and GetThemeConfigurationTypographyFontFamilyOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationTypographyFontFamilyInput` via:
+//
+//	GetThemeConfigurationTypographyFontFamilyArgs{...}
+type GetThemeConfigurationTypographyFontFamilyInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationTypographyFontFamilyOutput() GetThemeConfigurationTypographyFontFamilyOutput
+	ToGetThemeConfigurationTypographyFontFamilyOutputWithContext(context.Context) GetThemeConfigurationTypographyFontFamilyOutput
+}
+
+type GetThemeConfigurationTypographyFontFamilyArgs struct {
+	// Font family name.
+	FontFamily pulumi.StringInput `pulumi:"fontFamily"`
+}
+
+func (GetThemeConfigurationTypographyFontFamilyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationTypographyFontFamily)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationTypographyFontFamilyArgs) ToGetThemeConfigurationTypographyFontFamilyOutput() GetThemeConfigurationTypographyFontFamilyOutput {
+	return i.ToGetThemeConfigurationTypographyFontFamilyOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationTypographyFontFamilyArgs) ToGetThemeConfigurationTypographyFontFamilyOutputWithContext(ctx context.Context) GetThemeConfigurationTypographyFontFamilyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationTypographyFontFamilyOutput)
+}
+
+// GetThemeConfigurationTypographyFontFamilyArrayInput is an input type that accepts GetThemeConfigurationTypographyFontFamilyArray and GetThemeConfigurationTypographyFontFamilyArrayOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationTypographyFontFamilyArrayInput` via:
+//
+//	GetThemeConfigurationTypographyFontFamilyArray{ GetThemeConfigurationTypographyFontFamilyArgs{...} }
+type GetThemeConfigurationTypographyFontFamilyArrayInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationTypographyFontFamilyArrayOutput() GetThemeConfigurationTypographyFontFamilyArrayOutput
+	ToGetThemeConfigurationTypographyFontFamilyArrayOutputWithContext(context.Context) GetThemeConfigurationTypographyFontFamilyArrayOutput
+}
+
+type GetThemeConfigurationTypographyFontFamilyArray []GetThemeConfigurationTypographyFontFamilyInput
+
+func (GetThemeConfigurationTypographyFontFamilyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationTypographyFontFamily)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationTypographyFontFamilyArray) ToGetThemeConfigurationTypographyFontFamilyArrayOutput() GetThemeConfigurationTypographyFontFamilyArrayOutput {
+	return i.ToGetThemeConfigurationTypographyFontFamilyArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationTypographyFontFamilyArray) ToGetThemeConfigurationTypographyFontFamilyArrayOutputWithContext(ctx context.Context) GetThemeConfigurationTypographyFontFamilyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationTypographyFontFamilyArrayOutput)
+}
+
+type GetThemeConfigurationTypographyFontFamilyOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationTypographyFontFamilyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationTypographyFontFamily)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationTypographyFontFamilyOutput) ToGetThemeConfigurationTypographyFontFamilyOutput() GetThemeConfigurationTypographyFontFamilyOutput {
+	return o
+}
+
+func (o GetThemeConfigurationTypographyFontFamilyOutput) ToGetThemeConfigurationTypographyFontFamilyOutputWithContext(ctx context.Context) GetThemeConfigurationTypographyFontFamilyOutput {
+	return o
+}
+
+// Font family name.
+func (o GetThemeConfigurationTypographyFontFamilyOutput) FontFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationTypographyFontFamily) string { return v.FontFamily }).(pulumi.StringOutput)
+}
+
+type GetThemeConfigurationTypographyFontFamilyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationTypographyFontFamilyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationTypographyFontFamily)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationTypographyFontFamilyArrayOutput) ToGetThemeConfigurationTypographyFontFamilyArrayOutput() GetThemeConfigurationTypographyFontFamilyArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationTypographyFontFamilyArrayOutput) ToGetThemeConfigurationTypographyFontFamilyArrayOutputWithContext(ctx context.Context) GetThemeConfigurationTypographyFontFamilyArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationTypographyFontFamilyArrayOutput) Index(i pulumi.IntInput) GetThemeConfigurationTypographyFontFamilyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemeConfigurationTypographyFontFamily {
+		return vs[0].([]GetThemeConfigurationTypographyFontFamily)[vs[1].(int)]
+	}).(GetThemeConfigurationTypographyFontFamilyOutput)
+}
+
+type GetThemeConfigurationUiColorPalette struct {
+	// Color (hexadecimal) that applies to selected states and buttons.
+	Accent string `pulumi:"accent"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+	AccentForeground string `pulumi:"accentForeground"`
+	// Color (hexadecimal) that applies to error messages.
+	Danger string `pulumi:"danger"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+	DangerForeground string `pulumi:"dangerForeground"`
+	// Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+	Dimension string `pulumi:"dimension"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+	DimensionForeground string `pulumi:"dimensionForeground"`
+	// Color (hexadecimal) that applies to the names of fields that are identified as measures.
+	Measure string `pulumi:"measure"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+	MeasureForeground string `pulumi:"measureForeground"`
+	// Color (hexadecimal) that applies to visuals and other high emphasis UI.
+	PrimaryBackground string `pulumi:"primaryBackground"`
+	// Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+	PrimaryForeground string `pulumi:"primaryForeground"`
+	// Color (hexadecimal) that applies to the sheet background and sheet controls.
+	SecondaryBackground string `pulumi:"secondaryBackground"`
+	// Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+	SecondaryForeground string `pulumi:"secondaryForeground"`
+	// Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+	Success string `pulumi:"success"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+	SuccessForeground string `pulumi:"successForeground"`
+	// Color (hexadecimal) that applies to warning and informational messages.
+	Warning string `pulumi:"warning"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+	WarningForeground string `pulumi:"warningForeground"`
+}
+
+// GetThemeConfigurationUiColorPaletteInput is an input type that accepts GetThemeConfigurationUiColorPaletteArgs and GetThemeConfigurationUiColorPaletteOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationUiColorPaletteInput` via:
+//
+//	GetThemeConfigurationUiColorPaletteArgs{...}
+type GetThemeConfigurationUiColorPaletteInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationUiColorPaletteOutput() GetThemeConfigurationUiColorPaletteOutput
+	ToGetThemeConfigurationUiColorPaletteOutputWithContext(context.Context) GetThemeConfigurationUiColorPaletteOutput
+}
+
+type GetThemeConfigurationUiColorPaletteArgs struct {
+	// Color (hexadecimal) that applies to selected states and buttons.
+	Accent pulumi.StringInput `pulumi:"accent"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+	AccentForeground pulumi.StringInput `pulumi:"accentForeground"`
+	// Color (hexadecimal) that applies to error messages.
+	Danger pulumi.StringInput `pulumi:"danger"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+	DangerForeground pulumi.StringInput `pulumi:"dangerForeground"`
+	// Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+	Dimension pulumi.StringInput `pulumi:"dimension"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+	DimensionForeground pulumi.StringInput `pulumi:"dimensionForeground"`
+	// Color (hexadecimal) that applies to the names of fields that are identified as measures.
+	Measure pulumi.StringInput `pulumi:"measure"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+	MeasureForeground pulumi.StringInput `pulumi:"measureForeground"`
+	// Color (hexadecimal) that applies to visuals and other high emphasis UI.
+	PrimaryBackground pulumi.StringInput `pulumi:"primaryBackground"`
+	// Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+	PrimaryForeground pulumi.StringInput `pulumi:"primaryForeground"`
+	// Color (hexadecimal) that applies to the sheet background and sheet controls.
+	SecondaryBackground pulumi.StringInput `pulumi:"secondaryBackground"`
+	// Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+	SecondaryForeground pulumi.StringInput `pulumi:"secondaryForeground"`
+	// Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+	Success pulumi.StringInput `pulumi:"success"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+	SuccessForeground pulumi.StringInput `pulumi:"successForeground"`
+	// Color (hexadecimal) that applies to warning and informational messages.
+	Warning pulumi.StringInput `pulumi:"warning"`
+	// Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+	WarningForeground pulumi.StringInput `pulumi:"warningForeground"`
+}
+
+func (GetThemeConfigurationUiColorPaletteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationUiColorPalette)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationUiColorPaletteArgs) ToGetThemeConfigurationUiColorPaletteOutput() GetThemeConfigurationUiColorPaletteOutput {
+	return i.ToGetThemeConfigurationUiColorPaletteOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationUiColorPaletteArgs) ToGetThemeConfigurationUiColorPaletteOutputWithContext(ctx context.Context) GetThemeConfigurationUiColorPaletteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationUiColorPaletteOutput)
+}
+
+// GetThemeConfigurationUiColorPaletteArrayInput is an input type that accepts GetThemeConfigurationUiColorPaletteArray and GetThemeConfigurationUiColorPaletteArrayOutput values.
+// You can construct a concrete instance of `GetThemeConfigurationUiColorPaletteArrayInput` via:
+//
+//	GetThemeConfigurationUiColorPaletteArray{ GetThemeConfigurationUiColorPaletteArgs{...} }
+type GetThemeConfigurationUiColorPaletteArrayInput interface {
+	pulumi.Input
+
+	ToGetThemeConfigurationUiColorPaletteArrayOutput() GetThemeConfigurationUiColorPaletteArrayOutput
+	ToGetThemeConfigurationUiColorPaletteArrayOutputWithContext(context.Context) GetThemeConfigurationUiColorPaletteArrayOutput
+}
+
+type GetThemeConfigurationUiColorPaletteArray []GetThemeConfigurationUiColorPaletteInput
+
+func (GetThemeConfigurationUiColorPaletteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationUiColorPalette)(nil)).Elem()
+}
+
+func (i GetThemeConfigurationUiColorPaletteArray) ToGetThemeConfigurationUiColorPaletteArrayOutput() GetThemeConfigurationUiColorPaletteArrayOutput {
+	return i.ToGetThemeConfigurationUiColorPaletteArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemeConfigurationUiColorPaletteArray) ToGetThemeConfigurationUiColorPaletteArrayOutputWithContext(ctx context.Context) GetThemeConfigurationUiColorPaletteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemeConfigurationUiColorPaletteArrayOutput)
+}
+
+type GetThemeConfigurationUiColorPaletteOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationUiColorPaletteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemeConfigurationUiColorPalette)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationUiColorPaletteOutput) ToGetThemeConfigurationUiColorPaletteOutput() GetThemeConfigurationUiColorPaletteOutput {
+	return o
+}
+
+func (o GetThemeConfigurationUiColorPaletteOutput) ToGetThemeConfigurationUiColorPaletteOutputWithContext(ctx context.Context) GetThemeConfigurationUiColorPaletteOutput {
+	return o
+}
+
+// Color (hexadecimal) that applies to selected states and buttons.
+func (o GetThemeConfigurationUiColorPaletteOutput) Accent() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Accent }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+func (o GetThemeConfigurationUiColorPaletteOutput) AccentForeground() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.AccentForeground }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to error messages.
+func (o GetThemeConfigurationUiColorPaletteOutput) Danger() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Danger }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+func (o GetThemeConfigurationUiColorPaletteOutput) DangerForeground() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.DangerForeground }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+func (o GetThemeConfigurationUiColorPaletteOutput) Dimension() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Dimension }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+func (o GetThemeConfigurationUiColorPaletteOutput) DimensionForeground() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.DimensionForeground }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to the names of fields that are identified as measures.
+func (o GetThemeConfigurationUiColorPaletteOutput) Measure() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Measure }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+func (o GetThemeConfigurationUiColorPaletteOutput) MeasureForeground() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.MeasureForeground }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to visuals and other high emphasis UI.
+func (o GetThemeConfigurationUiColorPaletteOutput) PrimaryBackground() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.PrimaryBackground }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+func (o GetThemeConfigurationUiColorPaletteOutput) PrimaryForeground() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.PrimaryForeground }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to the sheet background and sheet controls.
+func (o GetThemeConfigurationUiColorPaletteOutput) SecondaryBackground() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.SecondaryBackground }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+func (o GetThemeConfigurationUiColorPaletteOutput) SecondaryForeground() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.SecondaryForeground }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+func (o GetThemeConfigurationUiColorPaletteOutput) Success() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Success }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+func (o GetThemeConfigurationUiColorPaletteOutput) SuccessForeground() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.SuccessForeground }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to warning and informational messages.
+func (o GetThemeConfigurationUiColorPaletteOutput) Warning() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.Warning }).(pulumi.StringOutput)
+}
+
+// Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+func (o GetThemeConfigurationUiColorPaletteOutput) WarningForeground() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemeConfigurationUiColorPalette) string { return v.WarningForeground }).(pulumi.StringOutput)
+}
+
+type GetThemeConfigurationUiColorPaletteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemeConfigurationUiColorPaletteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemeConfigurationUiColorPalette)(nil)).Elem()
+}
+
+func (o GetThemeConfigurationUiColorPaletteArrayOutput) ToGetThemeConfigurationUiColorPaletteArrayOutput() GetThemeConfigurationUiColorPaletteArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationUiColorPaletteArrayOutput) ToGetThemeConfigurationUiColorPaletteArrayOutputWithContext(ctx context.Context) GetThemeConfigurationUiColorPaletteArrayOutput {
+	return o
+}
+
+func (o GetThemeConfigurationUiColorPaletteArrayOutput) Index(i pulumi.IntInput) GetThemeConfigurationUiColorPaletteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemeConfigurationUiColorPalette {
+		return vs[0].([]GetThemeConfigurationUiColorPalette)[vs[1].(int)]
+	}).(GetThemeConfigurationUiColorPaletteOutput)
+}
+
+type GetThemePermission struct {
+	// List of IAM actions to grant or revoke permissions on.
+	Actions []string `pulumi:"actions"`
+	// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+	Principal string `pulumi:"principal"`
+}
+
+// GetThemePermissionInput is an input type that accepts GetThemePermissionArgs and GetThemePermissionOutput values.
+// You can construct a concrete instance of `GetThemePermissionInput` via:
+//
+//	GetThemePermissionArgs{...}
+type GetThemePermissionInput interface {
+	pulumi.Input
+
+	ToGetThemePermissionOutput() GetThemePermissionOutput
+	ToGetThemePermissionOutputWithContext(context.Context) GetThemePermissionOutput
+}
+
+type GetThemePermissionArgs struct {
+	// List of IAM actions to grant or revoke permissions on.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+	Principal pulumi.StringInput `pulumi:"principal"`
+}
+
+func (GetThemePermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemePermission)(nil)).Elem()
+}
+
+func (i GetThemePermissionArgs) ToGetThemePermissionOutput() GetThemePermissionOutput {
+	return i.ToGetThemePermissionOutputWithContext(context.Background())
+}
+
+func (i GetThemePermissionArgs) ToGetThemePermissionOutputWithContext(ctx context.Context) GetThemePermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemePermissionOutput)
+}
+
+// GetThemePermissionArrayInput is an input type that accepts GetThemePermissionArray and GetThemePermissionArrayOutput values.
+// You can construct a concrete instance of `GetThemePermissionArrayInput` via:
+//
+//	GetThemePermissionArray{ GetThemePermissionArgs{...} }
+type GetThemePermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetThemePermissionArrayOutput() GetThemePermissionArrayOutput
+	ToGetThemePermissionArrayOutputWithContext(context.Context) GetThemePermissionArrayOutput
+}
+
+type GetThemePermissionArray []GetThemePermissionInput
+
+func (GetThemePermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemePermission)(nil)).Elem()
+}
+
+func (i GetThemePermissionArray) ToGetThemePermissionArrayOutput() GetThemePermissionArrayOutput {
+	return i.ToGetThemePermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetThemePermissionArray) ToGetThemePermissionArrayOutputWithContext(ctx context.Context) GetThemePermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThemePermissionArrayOutput)
+}
+
+type GetThemePermissionOutput struct{ *pulumi.OutputState }
+
+func (GetThemePermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThemePermission)(nil)).Elem()
+}
+
+func (o GetThemePermissionOutput) ToGetThemePermissionOutput() GetThemePermissionOutput {
+	return o
+}
+
+func (o GetThemePermissionOutput) ToGetThemePermissionOutputWithContext(ctx context.Context) GetThemePermissionOutput {
+	return o
+}
+
+// List of IAM actions to grant or revoke permissions on.
+func (o GetThemePermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetThemePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+func (o GetThemePermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThemePermission) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+type GetThemePermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThemePermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThemePermission)(nil)).Elem()
+}
+
+func (o GetThemePermissionArrayOutput) ToGetThemePermissionArrayOutput() GetThemePermissionArrayOutput {
+	return o
+}
+
+func (o GetThemePermissionArrayOutput) ToGetThemePermissionArrayOutputWithContext(ctx context.Context) GetThemePermissionArrayOutput {
+	return o
+}
+
+func (o GetThemePermissionArrayOutput) Index(i pulumi.IntInput) GetThemePermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThemePermission {
+		return vs[0].([]GetThemePermission)[vs[1].(int)]
+	}).(GetThemePermissionOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisParametersInput)(nil)).Elem(), AnalysisParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisParametersPtrInput)(nil)).Elem(), AnalysisParametersArgs{})
@@ -19508,6 +22880,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSourceEntitySourceAnalysisDataSetReferenceArrayInput)(nil)).Elem(), TemplateSourceEntitySourceAnalysisDataSetReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSourceEntitySourceTemplateInput)(nil)).Elem(), TemplateSourceEntitySourceTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSourceEntitySourceTemplatePtrInput)(nil)).Elem(), TemplateSourceEntitySourceTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationInput)(nil)).Elem(), ThemeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationPtrInput)(nil)).Elem(), ThemeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationDataColorPaletteInput)(nil)).Elem(), ThemeConfigurationDataColorPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationDataColorPalettePtrInput)(nil)).Elem(), ThemeConfigurationDataColorPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetInput)(nil)).Elem(), ThemeConfigurationSheetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetPtrInput)(nil)).Elem(), ThemeConfigurationSheetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetTileInput)(nil)).Elem(), ThemeConfigurationSheetTileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetTilePtrInput)(nil)).Elem(), ThemeConfigurationSheetTileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetTileBorderInput)(nil)).Elem(), ThemeConfigurationSheetTileBorderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetTileBorderPtrInput)(nil)).Elem(), ThemeConfigurationSheetTileBorderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetTileLayoutInput)(nil)).Elem(), ThemeConfigurationSheetTileLayoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetTileLayoutPtrInput)(nil)).Elem(), ThemeConfigurationSheetTileLayoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetTileLayoutGutterInput)(nil)).Elem(), ThemeConfigurationSheetTileLayoutGutterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetTileLayoutGutterPtrInput)(nil)).Elem(), ThemeConfigurationSheetTileLayoutGutterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetTileLayoutMarginInput)(nil)).Elem(), ThemeConfigurationSheetTileLayoutMarginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationSheetTileLayoutMarginPtrInput)(nil)).Elem(), ThemeConfigurationSheetTileLayoutMarginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationTypographyInput)(nil)).Elem(), ThemeConfigurationTypographyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationTypographyPtrInput)(nil)).Elem(), ThemeConfigurationTypographyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationTypographyFontFamilyInput)(nil)).Elem(), ThemeConfigurationTypographyFontFamilyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationTypographyFontFamilyArrayInput)(nil)).Elem(), ThemeConfigurationTypographyFontFamilyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationUiColorPaletteInput)(nil)).Elem(), ThemeConfigurationUiColorPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeConfigurationUiColorPalettePtrInput)(nil)).Elem(), ThemeConfigurationUiColorPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemePermissionInput)(nil)).Elem(), ThemePermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemePermissionArrayInput)(nil)).Elem(), ThemePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTimeoutsInput)(nil)).Elem(), VpcConnectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTimeoutsPtrInput)(nil)).Elem(), VpcConnectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupInput)(nil)).Elem(), GetDataSetColumnGroupArgs{})
@@ -19576,6 +22972,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationArrayInput)(nil)).Elem(), GetDataSetRowLevelPermissionTagConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationTagRuleInput)(nil)).Elem(), GetDataSetRowLevelPermissionTagConfigurationTagRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayInput)(nil)).Elem(), GetDataSetRowLevelPermissionTagConfigurationTagRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationInput)(nil)).Elem(), GetThemeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationArrayInput)(nil)).Elem(), GetThemeConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationDataColorPaletteInput)(nil)).Elem(), GetThemeConfigurationDataColorPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationDataColorPaletteArrayInput)(nil)).Elem(), GetThemeConfigurationDataColorPaletteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetInput)(nil)).Elem(), GetThemeConfigurationSheetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetArrayInput)(nil)).Elem(), GetThemeConfigurationSheetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetTileInput)(nil)).Elem(), GetThemeConfigurationSheetTileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetTileArrayInput)(nil)).Elem(), GetThemeConfigurationSheetTileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetTileBorderInput)(nil)).Elem(), GetThemeConfigurationSheetTileBorderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetTileBorderArrayInput)(nil)).Elem(), GetThemeConfigurationSheetTileBorderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetTileLayoutInput)(nil)).Elem(), GetThemeConfigurationSheetTileLayoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetTileLayoutArrayInput)(nil)).Elem(), GetThemeConfigurationSheetTileLayoutArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetTileLayoutGutterInput)(nil)).Elem(), GetThemeConfigurationSheetTileLayoutGutterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetTileLayoutGutterArrayInput)(nil)).Elem(), GetThemeConfigurationSheetTileLayoutGutterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetTileLayoutMarginInput)(nil)).Elem(), GetThemeConfigurationSheetTileLayoutMarginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationSheetTileLayoutMarginArrayInput)(nil)).Elem(), GetThemeConfigurationSheetTileLayoutMarginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationTypographyInput)(nil)).Elem(), GetThemeConfigurationTypographyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationTypographyArrayInput)(nil)).Elem(), GetThemeConfigurationTypographyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationTypographyFontFamilyInput)(nil)).Elem(), GetThemeConfigurationTypographyFontFamilyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationTypographyFontFamilyArrayInput)(nil)).Elem(), GetThemeConfigurationTypographyFontFamilyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationUiColorPaletteInput)(nil)).Elem(), GetThemeConfigurationUiColorPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemeConfigurationUiColorPaletteArrayInput)(nil)).Elem(), GetThemeConfigurationUiColorPaletteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemePermissionInput)(nil)).Elem(), GetThemePermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThemePermissionArrayInput)(nil)).Elem(), GetThemePermissionArray{})
 	pulumi.RegisterOutputType(AnalysisParametersOutput{})
 	pulumi.RegisterOutputType(AnalysisParametersPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisParametersDateTimeParameterOutput{})
@@ -19785,6 +23205,30 @@ func init() {
 	pulumi.RegisterOutputType(TemplateSourceEntitySourceAnalysisDataSetReferenceArrayOutput{})
 	pulumi.RegisterOutputType(TemplateSourceEntitySourceTemplateOutput{})
 	pulumi.RegisterOutputType(TemplateSourceEntitySourceTemplatePtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationDataColorPaletteOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationDataColorPalettePtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetPtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetTileOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetTilePtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetTileBorderOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetTileBorderPtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetTileLayoutOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetTileLayoutPtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetTileLayoutGutterOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetTileLayoutGutterPtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetTileLayoutMarginOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationSheetTileLayoutMarginPtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationTypographyOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationTypographyPtrOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationTypographyFontFamilyOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationTypographyFontFamilyArrayOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationUiColorPaletteOutput{})
+	pulumi.RegisterOutputType(ThemeConfigurationUiColorPalettePtrOutput{})
+	pulumi.RegisterOutputType(ThemePermissionOutput{})
+	pulumi.RegisterOutputType(ThemePermissionArrayOutput{})
 	pulumi.RegisterOutputType(VpcConnectionTimeoutsOutput{})
 	pulumi.RegisterOutputType(VpcConnectionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupOutput{})
@@ -19853,4 +23297,28 @@ func init() {
 	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionTagConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionTagConfigurationTagRuleOutput{})
 	pulumi.RegisterOutputType(GetDataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationDataColorPaletteOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationDataColorPaletteArrayOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetArrayOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetTileOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetTileArrayOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetTileBorderOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetTileBorderArrayOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetTileLayoutOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetTileLayoutArrayOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetTileLayoutGutterOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetTileLayoutGutterArrayOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetTileLayoutMarginOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationSheetTileLayoutMarginArrayOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationTypographyOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationTypographyArrayOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationTypographyFontFamilyOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationTypographyFontFamilyArrayOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationUiColorPaletteOutput{})
+	pulumi.RegisterOutputType(GetThemeConfigurationUiColorPaletteArrayOutput{})
+	pulumi.RegisterOutputType(GetThemePermissionOutput{})
+	pulumi.RegisterOutputType(GetThemePermissionArrayOutput{})
 }

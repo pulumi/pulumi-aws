@@ -41,7 +41,7 @@ public final class WebAclRuleStatement {
      */
     private @Nullable WebAclRuleStatementGeoMatchStatement geoMatchStatement;
     /**
-     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementIpSetReferenceStatement ipSetReferenceStatement;
@@ -51,7 +51,7 @@ public final class WebAclRuleStatement {
      */
     private @Nullable WebAclRuleStatementLabelMatchStatement labelMatchStatement;
     /**
-     * @return Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
+     * @return Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatement managedRuleGroupStatement;
@@ -76,12 +76,12 @@ public final class WebAclRuleStatement {
      */
     private @Nullable WebAclRuleStatementRegexMatchStatement regexMatchStatement;
     /**
-     * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+     * @return Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
     /**
-     * @return Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See Rule Group Reference Statement below for details.
+     * @return Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRuleGroupReferenceStatement ruleGroupReferenceStatement;
@@ -124,7 +124,7 @@ public final class WebAclRuleStatement {
         return Optional.ofNullable(this.geoMatchStatement);
     }
     /**
-     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
      * 
      */
     public Optional<WebAclRuleStatementIpSetReferenceStatement> ipSetReferenceStatement() {
@@ -138,7 +138,7 @@ public final class WebAclRuleStatement {
         return Optional.ofNullable(this.labelMatchStatement);
     }
     /**
-     * @return Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
+     * @return Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
      * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatement> managedRuleGroupStatement() {
@@ -173,14 +173,14 @@ public final class WebAclRuleStatement {
         return Optional.ofNullable(this.regexMatchStatement);
     }
     /**
-     * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+     * @return Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRegexPatternSetReferenceStatement> regexPatternSetReferenceStatement() {
         return Optional.ofNullable(this.regexPatternSetReferenceStatement);
     }
     /**
-     * @return Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See Rule Group Reference Statement below for details.
+     * @return Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRuleGroupReferenceStatement> ruleGroupReferenceStatement() {

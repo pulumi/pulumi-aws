@@ -5225,6 +5225,162 @@ func (o EventTargetSqsTargetPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type InternetMonitorHealthEventsConfig struct {
+	// The health event threshold percentage set for availability scores.
+	AvailabilityScoreThreshold *float64 `pulumi:"availabilityScoreThreshold"`
+	// The health event threshold percentage set for performance scores.
+	PerformanceScoreThreshold *float64 `pulumi:"performanceScoreThreshold"`
+}
+
+// InternetMonitorHealthEventsConfigInput is an input type that accepts InternetMonitorHealthEventsConfigArgs and InternetMonitorHealthEventsConfigOutput values.
+// You can construct a concrete instance of `InternetMonitorHealthEventsConfigInput` via:
+//
+//	InternetMonitorHealthEventsConfigArgs{...}
+type InternetMonitorHealthEventsConfigInput interface {
+	pulumi.Input
+
+	ToInternetMonitorHealthEventsConfigOutput() InternetMonitorHealthEventsConfigOutput
+	ToInternetMonitorHealthEventsConfigOutputWithContext(context.Context) InternetMonitorHealthEventsConfigOutput
+}
+
+type InternetMonitorHealthEventsConfigArgs struct {
+	// The health event threshold percentage set for availability scores.
+	AvailabilityScoreThreshold pulumi.Float64PtrInput `pulumi:"availabilityScoreThreshold"`
+	// The health event threshold percentage set for performance scores.
+	PerformanceScoreThreshold pulumi.Float64PtrInput `pulumi:"performanceScoreThreshold"`
+}
+
+func (InternetMonitorHealthEventsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InternetMonitorHealthEventsConfig)(nil)).Elem()
+}
+
+func (i InternetMonitorHealthEventsConfigArgs) ToInternetMonitorHealthEventsConfigOutput() InternetMonitorHealthEventsConfigOutput {
+	return i.ToInternetMonitorHealthEventsConfigOutputWithContext(context.Background())
+}
+
+func (i InternetMonitorHealthEventsConfigArgs) ToInternetMonitorHealthEventsConfigOutputWithContext(ctx context.Context) InternetMonitorHealthEventsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorHealthEventsConfigOutput)
+}
+
+func (i InternetMonitorHealthEventsConfigArgs) ToInternetMonitorHealthEventsConfigPtrOutput() InternetMonitorHealthEventsConfigPtrOutput {
+	return i.ToInternetMonitorHealthEventsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InternetMonitorHealthEventsConfigArgs) ToInternetMonitorHealthEventsConfigPtrOutputWithContext(ctx context.Context) InternetMonitorHealthEventsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorHealthEventsConfigOutput).ToInternetMonitorHealthEventsConfigPtrOutputWithContext(ctx)
+}
+
+// InternetMonitorHealthEventsConfigPtrInput is an input type that accepts InternetMonitorHealthEventsConfigArgs, InternetMonitorHealthEventsConfigPtr and InternetMonitorHealthEventsConfigPtrOutput values.
+// You can construct a concrete instance of `InternetMonitorHealthEventsConfigPtrInput` via:
+//
+//	        InternetMonitorHealthEventsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InternetMonitorHealthEventsConfigPtrInput interface {
+	pulumi.Input
+
+	ToInternetMonitorHealthEventsConfigPtrOutput() InternetMonitorHealthEventsConfigPtrOutput
+	ToInternetMonitorHealthEventsConfigPtrOutputWithContext(context.Context) InternetMonitorHealthEventsConfigPtrOutput
+}
+
+type internetMonitorHealthEventsConfigPtrType InternetMonitorHealthEventsConfigArgs
+
+func InternetMonitorHealthEventsConfigPtr(v *InternetMonitorHealthEventsConfigArgs) InternetMonitorHealthEventsConfigPtrInput {
+	return (*internetMonitorHealthEventsConfigPtrType)(v)
+}
+
+func (*internetMonitorHealthEventsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InternetMonitorHealthEventsConfig)(nil)).Elem()
+}
+
+func (i *internetMonitorHealthEventsConfigPtrType) ToInternetMonitorHealthEventsConfigPtrOutput() InternetMonitorHealthEventsConfigPtrOutput {
+	return i.ToInternetMonitorHealthEventsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *internetMonitorHealthEventsConfigPtrType) ToInternetMonitorHealthEventsConfigPtrOutputWithContext(ctx context.Context) InternetMonitorHealthEventsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorHealthEventsConfigPtrOutput)
+}
+
+type InternetMonitorHealthEventsConfigOutput struct{ *pulumi.OutputState }
+
+func (InternetMonitorHealthEventsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InternetMonitorHealthEventsConfig)(nil)).Elem()
+}
+
+func (o InternetMonitorHealthEventsConfigOutput) ToInternetMonitorHealthEventsConfigOutput() InternetMonitorHealthEventsConfigOutput {
+	return o
+}
+
+func (o InternetMonitorHealthEventsConfigOutput) ToInternetMonitorHealthEventsConfigOutputWithContext(ctx context.Context) InternetMonitorHealthEventsConfigOutput {
+	return o
+}
+
+func (o InternetMonitorHealthEventsConfigOutput) ToInternetMonitorHealthEventsConfigPtrOutput() InternetMonitorHealthEventsConfigPtrOutput {
+	return o.ToInternetMonitorHealthEventsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InternetMonitorHealthEventsConfigOutput) ToInternetMonitorHealthEventsConfigPtrOutputWithContext(ctx context.Context) InternetMonitorHealthEventsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InternetMonitorHealthEventsConfig) *InternetMonitorHealthEventsConfig {
+		return &v
+	}).(InternetMonitorHealthEventsConfigPtrOutput)
+}
+
+// The health event threshold percentage set for availability scores.
+func (o InternetMonitorHealthEventsConfigOutput) AvailabilityScoreThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InternetMonitorHealthEventsConfig) *float64 { return v.AvailabilityScoreThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// The health event threshold percentage set for performance scores.
+func (o InternetMonitorHealthEventsConfigOutput) PerformanceScoreThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InternetMonitorHealthEventsConfig) *float64 { return v.PerformanceScoreThreshold }).(pulumi.Float64PtrOutput)
+}
+
+type InternetMonitorHealthEventsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InternetMonitorHealthEventsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InternetMonitorHealthEventsConfig)(nil)).Elem()
+}
+
+func (o InternetMonitorHealthEventsConfigPtrOutput) ToInternetMonitorHealthEventsConfigPtrOutput() InternetMonitorHealthEventsConfigPtrOutput {
+	return o
+}
+
+func (o InternetMonitorHealthEventsConfigPtrOutput) ToInternetMonitorHealthEventsConfigPtrOutputWithContext(ctx context.Context) InternetMonitorHealthEventsConfigPtrOutput {
+	return o
+}
+
+func (o InternetMonitorHealthEventsConfigPtrOutput) Elem() InternetMonitorHealthEventsConfigOutput {
+	return o.ApplyT(func(v *InternetMonitorHealthEventsConfig) InternetMonitorHealthEventsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InternetMonitorHealthEventsConfig
+		return ret
+	}).(InternetMonitorHealthEventsConfigOutput)
+}
+
+// The health event threshold percentage set for availability scores.
+func (o InternetMonitorHealthEventsConfigPtrOutput) AvailabilityScoreThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *InternetMonitorHealthEventsConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityScoreThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The health event threshold percentage set for performance scores.
+func (o InternetMonitorHealthEventsConfigPtrOutput) PerformanceScoreThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *InternetMonitorHealthEventsConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PerformanceScoreThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
 type InternetMonitorInternetMeasurementsLogDelivery struct {
 	S3Config *InternetMonitorInternetMeasurementsLogDeliveryS3Config `pulumi:"s3Config"`
 }
@@ -7847,6 +8003,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetRunCommandTargetArrayInput)(nil)).Elem(), EventTargetRunCommandTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSqsTargetInput)(nil)).Elem(), EventTargetSqsTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSqsTargetPtrInput)(nil)).Elem(), EventTargetSqsTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InternetMonitorHealthEventsConfigInput)(nil)).Elem(), InternetMonitorHealthEventsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InternetMonitorHealthEventsConfigPtrInput)(nil)).Elem(), InternetMonitorHealthEventsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetMonitorInternetMeasurementsLogDeliveryInput)(nil)).Elem(), InternetMonitorInternetMeasurementsLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetMonitorInternetMeasurementsLogDeliveryPtrInput)(nil)).Elem(), InternetMonitorInternetMeasurementsLogDeliveryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InternetMonitorInternetMeasurementsLogDeliveryS3ConfigInput)(nil)).Elem(), InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs{})
@@ -7950,6 +8108,8 @@ func init() {
 	pulumi.RegisterOutputType(EventTargetRunCommandTargetArrayOutput{})
 	pulumi.RegisterOutputType(EventTargetSqsTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetSqsTargetPtrOutput{})
+	pulumi.RegisterOutputType(InternetMonitorHealthEventsConfigOutput{})
+	pulumi.RegisterOutputType(InternetMonitorHealthEventsConfigPtrOutput{})
 	pulumi.RegisterOutputType(InternetMonitorInternetMeasurementsLogDeliveryOutput{})
 	pulumi.RegisterOutputType(InternetMonitorInternetMeasurementsLogDeliveryPtrOutput{})
 	pulumi.RegisterOutputType(InternetMonitorInternetMeasurementsLogDeliveryS3ConfigOutput{})

@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2transitgateway/connect:Connect")
 public class Connect extends com.pulumi.resources.CustomResource {
     /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocol;
 
     /**
-     * @return The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * @return The tunnel protocol. Valid values: `gre`. Default is `gre`.
      * 
      */
     public Output<Optional<String>> protocol() {

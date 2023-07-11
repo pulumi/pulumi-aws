@@ -11,15 +11,15 @@ import (
 )
 
 type CachePolicyParametersInCacheKeyAndForwardedToOrigin struct {
-	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+	// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
 	CookiesConfig CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig `pulumi:"cookiesConfig"`
-	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	// Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
 	EnableAcceptEncodingBrotli *bool `pulumi:"enableAcceptEncodingBrotli"`
-	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	// Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
 	EnableAcceptEncodingGzip *bool `pulumi:"enableAcceptEncodingGzip"`
-	// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+	// Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
 	HeadersConfig CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig `pulumi:"headersConfig"`
-	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+	// Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
 	QueryStringsConfig CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig `pulumi:"queryStringsConfig"`
 }
 
@@ -35,15 +35,15 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginInput interface {
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginArgs struct {
-	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+	// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
 	CookiesConfig CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput `pulumi:"cookiesConfig"`
-	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	// Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
 	EnableAcceptEncodingBrotli pulumi.BoolPtrInput `pulumi:"enableAcceptEncodingBrotli"`
-	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+	// Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
 	EnableAcceptEncodingGzip pulumi.BoolPtrInput `pulumi:"enableAcceptEncodingGzip"`
-	// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+	// Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
 	HeadersConfig CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput `pulumi:"headersConfig"`
-	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+	// Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
 	QueryStringsConfig CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput `pulumi:"queryStringsConfig"`
 }
 
@@ -124,31 +124,31 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicy
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
 }
 
-// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) CookiesConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
 		return v.CookiesConfig
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput)
 }
 
-// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+// Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool { return v.EnableAcceptEncodingBrotli }).(pulumi.BoolPtrOutput)
 }
 
-// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+// Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingGzip() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool { return v.EnableAcceptEncodingGzip }).(pulumi.BoolPtrOutput)
 }
 
-// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+// Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) HeadersConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
 		return v.HeadersConfig
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput)
 }
 
-// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+// Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) QueryStringsConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
 		return v.QueryStringsConfig
@@ -179,7 +179,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) Elem() Cac
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
 }
 
-// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) CookiesConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
 		if v == nil {
@@ -189,7 +189,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) CookiesCon
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput)
 }
 
-// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+// Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
 		if v == nil {
@@ -199,7 +199,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcce
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+// Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingGzip() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
 		if v == nil {
@@ -209,7 +209,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcce
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+// Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) HeadersConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
 		if v == nil {
@@ -219,7 +219,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) HeadersCon
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput)
 }
 
-// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+// Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) QueryStringsConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
 		if v == nil {
@@ -230,7 +230,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) QueryStrin
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig struct {
-	// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+	// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookieBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
 	CookieBehavior string `pulumi:"cookieBehavior"`
 	// Object that contains a list of cookie names. See Items for more information.
 	Cookies *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies `pulumi:"cookies"`
@@ -248,7 +248,7 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput inter
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs struct {
-	// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+	// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookieBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
 	CookieBehavior pulumi.StringInput `pulumi:"cookieBehavior"`
 	// Object that contains a list of cookie names. See Items for more information.
 	Cookies CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrInput `pulumi:"cookies"`
@@ -331,7 +331,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) 
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput)
 }
 
-// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookieBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) string {
 		return v.CookieBehavior
@@ -369,7 +369,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutpu
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput)
 }
 
-// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookieBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) *string {
 		if v == nil {
@@ -525,9 +525,9 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesP
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig struct {
-	// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+	// Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `headerBehavior` are `none` and `whitelist`.
 	HeaderBehavior *string `pulumi:"headerBehavior"`
-	// Object that contains a list of header names. See Items for more information.
+	// Object contains a list of header names. See Items for more information.
 	Headers *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders `pulumi:"headers"`
 }
 
@@ -543,9 +543,9 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput inter
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs struct {
-	// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+	// Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `headerBehavior` are `none` and `whitelist`.
 	HeaderBehavior pulumi.StringPtrInput `pulumi:"headerBehavior"`
-	// Object that contains a list of header names. See Items for more information.
+	// Object contains a list of header names. See Items for more information.
 	Headers CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrInput `pulumi:"headers"`
 }
 
@@ -626,14 +626,14 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) 
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput)
 }
 
-// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+// Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `headerBehavior` are `none` and `whitelist`.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) HeaderBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *string {
 		return v.HeaderBehavior
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object that contains a list of header names. See Items for more information.
+// Object contains a list of header names. See Items for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) Headers() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
 		return v.Headers
@@ -664,7 +664,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutpu
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput)
 }
 
-// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+// Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `headerBehavior` are `none` and `whitelist`.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *string {
 		if v == nil {
@@ -674,7 +674,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object that contains a list of header names. See Items for more information.
+// Object contains a list of header names. See Items for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) Headers() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
 		if v == nil {
@@ -820,9 +820,9 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersP
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig struct {
-	// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+	// Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `queryStringBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
 	QueryStringBehavior string `pulumi:"queryStringBehavior"`
-	// Object that contains a list of query string names. See Items for more information.
+	// Configuration parameter that contains a list of query string names. See Items for more information.
 	QueryStrings *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings `pulumi:"queryStrings"`
 }
 
@@ -838,9 +838,9 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput 
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs struct {
-	// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+	// Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `queryStringBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
 	QueryStringBehavior pulumi.StringInput `pulumi:"queryStringBehavior"`
-	// Object that contains a list of query string names. See Items for more information.
+	// Configuration parameter that contains a list of query string names. See Items for more information.
 	QueryStrings CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrInput `pulumi:"queryStrings"`
 }
 
@@ -921,14 +921,14 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOut
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput)
 }
 
-// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+// Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `queryStringBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) string {
 		return v.QueryStringBehavior
 	}).(pulumi.StringOutput)
 }
 
-// Object that contains a list of query string names. See Items for more information.
+// Configuration parameter that contains a list of query string names. See Items for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) QueryStrings() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
 		return v.QueryStrings
@@ -959,7 +959,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtr
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput)
 }
 
-// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+// Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `queryStringBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *string {
 		if v == nil {
@@ -969,7 +969,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Object that contains a list of query string names. See Items for more information.
+// Configuration parameter that contains a list of query string names. See Items for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) QueryStrings() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
 		if v == nil {

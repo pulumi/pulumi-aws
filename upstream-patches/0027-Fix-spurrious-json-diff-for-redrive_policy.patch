@@ -1,7 +1,7 @@
-From 8757e88aa3d39dbbd0ad6ec22eefe4c3249468dd Mon Sep 17 00:00:00 2001
+From 0e32a962ed8f8a2d4da28e32ab2e149ce046874c Mon Sep 17 00:00:00 2001
 From: Ramon Quitales <ramon@pulumi.com>
 Date: Thu, 18 May 2023 15:21:33 -0700
-Subject: [PATCH 27/27] Fix spurrious json diff for redrive_policy
+Subject: [PATCH 27/28] Fix spurrious json diff for redrive_policy
 
 We need to normalize the json input to compare agasint the one stored
 in state.
@@ -12,10 +12,10 @@ Fix for https://github.com/pulumi/pulumi-aws/issues/2307.
  1 file changed, 5 insertions(+), 3 deletions(-)
 
 diff --git a/internal/service/sqs/queue_redrive_policy.go b/internal/service/sqs/queue_redrive_policy.go
-index 9f93ea1090..5b9842dad6 100644
+index 7f55a8e6e8..d3a620f555 100644
 --- a/internal/service/sqs/queue_redrive_policy.go
 +++ b/internal/service/sqs/queue_redrive_policy.go
-@@ -5,6 +5,7 @@ import (
+@@ -8,6 +8,7 @@ import (
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/structure"
  	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
@@ -23,7 +23,7 @@ index 9f93ea1090..5b9842dad6 100644
  )
  
  // @SDKResource("aws_sqs_queue_redrive_policy")
-@@ -28,9 +29,10 @@ func ResourceQueueRedrivePolicy() *schema.Resource {
+@@ -31,9 +32,10 @@ func ResourceQueueRedrivePolicy() *schema.Resource {
  				ForceNew: true,
  			},
  			"redrive_policy": {

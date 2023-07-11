@@ -6,7 +6,11 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .access import *
+from .agreement import *
+from .certificate import *
+from .connector import *
 from .get_server import *
+from .profile import *
 from .server import *
 from .ssh_key import *
 from .tag import *

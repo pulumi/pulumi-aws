@@ -75,7 +75,7 @@ type Environment struct {
 	// ARN of the AppConfig Environment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the environment. Can be at most 1024 characters.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// AppConfig environment ID.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
@@ -295,8 +295,8 @@ func (o EnvironmentOutput) Arn() pulumi.StringOutput {
 }
 
 // Description of the environment. Can be at most 1024 characters.
-func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o EnvironmentOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // AppConfig environment ID.

@@ -433,6 +433,8 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptions(dict):
         suggest = None
         if key == "ruleOrder":
             suggest = "rule_order"
+        elif key == "streamExceptionPolicy":
+            suggest = "stream_exception_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyFirewallPolicyStatefulEngineOptions. Access the value via the '{suggest}' property getter instead.")
@@ -446,19 +448,32 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 rule_order: str):
+                 rule_order: Optional[str] = None,
+                 stream_exception_policy: Optional[str] = None):
         """
         :param str rule_order: Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        :param str stream_exception_policy: Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
         """
-        pulumi.set(__self__, "rule_order", rule_order)
+        if rule_order is not None:
+            pulumi.set(__self__, "rule_order", rule_order)
+        if stream_exception_policy is not None:
+            pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
 
     @property
     @pulumi.getter(name="ruleOrder")
-    def rule_order(self) -> str:
+    def rule_order(self) -> Optional[str]:
         """
         Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
         """
         return pulumi.get(self, "rule_order")
+
+    @property
+    @pulumi.getter(name="streamExceptionPolicy")
+    def stream_exception_policy(self) -> Optional[str]:
+        """
+        Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+        """
+        return pulumi.get(self, "stream_exception_policy")
 
 
 @pulumi.output_type
@@ -2457,13 +2472,20 @@ class GetFirewallPolicyFirewallPolicyResult(dict):
 @pulumi.output_type
 class GetFirewallPolicyFirewallPolicyStatefulEngineOptionResult(dict):
     def __init__(__self__, *,
-                 rule_order: str):
+                 rule_order: str,
+                 stream_exception_policy: str):
         pulumi.set(__self__, "rule_order", rule_order)
+        pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
 
     @property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> str:
         return pulumi.get(self, "rule_order")
+
+    @property
+    @pulumi.getter(name="streamExceptionPolicy")
+    def stream_exception_policy(self) -> str:
+        return pulumi.get(self, "stream_exception_policy")
 
 
 @pulumi.output_type

@@ -6,7 +6,6 @@ package com.pulumi.aws.apigateway.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Double;
-import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -24,7 +23,7 @@ public final class StageCanarySettings {
      * @return Map of overridden stage `variables` (including new variables) for the canary deployment.
      * 
      */
-    private @Nullable Map<String,Object> stageVariableOverrides;
+    private @Nullable Map<String,String> stageVariableOverrides;
     /**
      * @return Whether the canary deployment uses the stage cache. Defaults to false.
      * 
@@ -43,7 +42,7 @@ public final class StageCanarySettings {
      * @return Map of overridden stage `variables` (including new variables) for the canary deployment.
      * 
      */
-    public Map<String,Object> stageVariableOverrides() {
+    public Map<String,String> stageVariableOverrides() {
         return this.stageVariableOverrides == null ? Map.of() : this.stageVariableOverrides;
     }
     /**
@@ -64,7 +63,7 @@ public final class StageCanarySettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Double percentTraffic;
-        private @Nullable Map<String,Object> stageVariableOverrides;
+        private @Nullable Map<String,String> stageVariableOverrides;
         private @Nullable Boolean useStageCache;
         public Builder() {}
         public Builder(StageCanarySettings defaults) {
@@ -80,7 +79,7 @@ public final class StageCanarySettings {
             return this;
         }
         @CustomType.Setter
-        public Builder stageVariableOverrides(@Nullable Map<String,Object> stageVariableOverrides) {
+        public Builder stageVariableOverrides(@Nullable Map<String,String> stageVariableOverrides) {
             this.stageVariableOverrides = stageVariableOverrides;
             return this;
         }

@@ -101,7 +101,7 @@ class GetProductResult:
     @pulumi.getter
     def distributor(self) -> str:
         """
-        Distributor (i.e., vendor) of the product.
+        Vendor of the product.
         """
         return pulumi.get(self, "distributor")
 
@@ -146,7 +146,7 @@ class GetProductResult:
     @pulumi.getter(name="supportDescription")
     def support_description(self) -> str:
         """
-        Support information about the product.
+        Field that provides support information about the product.
         """
         return pulumi.get(self, "support_description")
 
@@ -170,7 +170,7 @@ class GetProductResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Tags to apply to the product.
+        Tags applied to the product.
         """
         return pulumi.get(self, "tags")
 
@@ -211,9 +211,9 @@ def get_product(accept_language: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
-    Provides information on a Service Catalog Product.
+    Use this data source to retrieve information about a Service Catalog product.
 
-    > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
+    > **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
 
     ## Example Usage
     ### Basic Usage
@@ -226,11 +226,11 @@ def get_product(accept_language: Optional[str] = None,
     ```
 
 
-    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param str id: Product ID.
+    :param str accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
+    :param str id: ID of the product.
            
            The following arguments are optional:
-    :param Mapping[str, str] tags: Tags to apply to the product.
+    :param Mapping[str, str] tags: Tags applied to the product.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -263,9 +263,9 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[str]]] = 
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
     """
-    Provides information on a Service Catalog Product.
+    Use this data source to retrieve information about a Service Catalog product.
 
-    > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
+    > **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
 
     ## Example Usage
     ### Basic Usage
@@ -278,10 +278,10 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[str]]] = 
     ```
 
 
-    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param str id: Product ID.
+    :param str accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
+    :param str id: ID of the product.
            
            The following arguments are optional:
-    :param Mapping[str, str] tags: Tags to apply to the product.
+    :param Mapping[str, str] tags: Tags applied to the product.
     """
     ...

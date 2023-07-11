@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Quicksight.Inputs
         [Input("refreshOnDay")]
         public Input<Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs>? RefreshOnDay { get; set; }
 
+        /// <summary>
+        /// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+        /// </summary>
         [Input("timeOfTheDay")]
         public Input<string>? TimeOfTheDay { get; set; }
 

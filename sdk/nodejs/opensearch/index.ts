@@ -25,6 +25,31 @@ export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
+export { GetServerlessAccessPolicyArgs, GetServerlessAccessPolicyResult, GetServerlessAccessPolicyOutputArgs } from "./getServerlessAccessPolicy";
+export const getServerlessAccessPolicy: typeof import("./getServerlessAccessPolicy").getServerlessAccessPolicy = null as any;
+export const getServerlessAccessPolicyOutput: typeof import("./getServerlessAccessPolicy").getServerlessAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessAccessPolicy","getServerlessAccessPolicyOutput"], () => require("./getServerlessAccessPolicy"));
+
+export { GetServerlessCollectionArgs, GetServerlessCollectionResult, GetServerlessCollectionOutputArgs } from "./getServerlessCollection";
+export const getServerlessCollection: typeof import("./getServerlessCollection").getServerlessCollection = null as any;
+export const getServerlessCollectionOutput: typeof import("./getServerlessCollection").getServerlessCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessCollection","getServerlessCollectionOutput"], () => require("./getServerlessCollection"));
+
+export { GetServerlessSecurityConfigArgs, GetServerlessSecurityConfigResult, GetServerlessSecurityConfigOutputArgs } from "./getServerlessSecurityConfig";
+export const getServerlessSecurityConfig: typeof import("./getServerlessSecurityConfig").getServerlessSecurityConfig = null as any;
+export const getServerlessSecurityConfigOutput: typeof import("./getServerlessSecurityConfig").getServerlessSecurityConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessSecurityConfig","getServerlessSecurityConfigOutput"], () => require("./getServerlessSecurityConfig"));
+
+export { GetServerlessSecurityPolicyArgs, GetServerlessSecurityPolicyResult, GetServerlessSecurityPolicyOutputArgs } from "./getServerlessSecurityPolicy";
+export const getServerlessSecurityPolicy: typeof import("./getServerlessSecurityPolicy").getServerlessSecurityPolicy = null as any;
+export const getServerlessSecurityPolicyOutput: typeof import("./getServerlessSecurityPolicy").getServerlessSecurityPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessSecurityPolicy","getServerlessSecurityPolicyOutput"], () => require("./getServerlessSecurityPolicy"));
+
+export { GetServerlessVpcEndpointArgs, GetServerlessVpcEndpointResult, GetServerlessVpcEndpointOutputArgs } from "./getServerlessVpcEndpoint";
+export const getServerlessVpcEndpoint: typeof import("./getServerlessVpcEndpoint").getServerlessVpcEndpoint = null as any;
+export const getServerlessVpcEndpointOutput: typeof import("./getServerlessVpcEndpoint").getServerlessVpcEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessVpcEndpoint","getServerlessVpcEndpointOutput"], () => require("./getServerlessVpcEndpoint"));
+
 export { InboundConnectionAccepterArgs, InboundConnectionAccepterState } from "./inboundConnectionAccepter";
 export type InboundConnectionAccepter = import("./inboundConnectionAccepter").InboundConnectionAccepter;
 export const InboundConnectionAccepter: typeof import("./inboundConnectionAccepter").InboundConnectionAccepter = null as any;
@@ -34,6 +59,31 @@ export { OutboundConnectionArgs, OutboundConnectionState } from "./outboundConne
 export type OutboundConnection = import("./outboundConnection").OutboundConnection;
 export const OutboundConnection: typeof import("./outboundConnection").OutboundConnection = null as any;
 utilities.lazyLoad(exports, ["OutboundConnection"], () => require("./outboundConnection"));
+
+export { ServerlessAccessPolicyArgs, ServerlessAccessPolicyState } from "./serverlessAccessPolicy";
+export type ServerlessAccessPolicy = import("./serverlessAccessPolicy").ServerlessAccessPolicy;
+export const ServerlessAccessPolicy: typeof import("./serverlessAccessPolicy").ServerlessAccessPolicy = null as any;
+utilities.lazyLoad(exports, ["ServerlessAccessPolicy"], () => require("./serverlessAccessPolicy"));
+
+export { ServerlessCollectionArgs, ServerlessCollectionState } from "./serverlessCollection";
+export type ServerlessCollection = import("./serverlessCollection").ServerlessCollection;
+export const ServerlessCollection: typeof import("./serverlessCollection").ServerlessCollection = null as any;
+utilities.lazyLoad(exports, ["ServerlessCollection"], () => require("./serverlessCollection"));
+
+export { ServerlessSecurityConfigArgs, ServerlessSecurityConfigState } from "./serverlessSecurityConfig";
+export type ServerlessSecurityConfig = import("./serverlessSecurityConfig").ServerlessSecurityConfig;
+export const ServerlessSecurityConfig: typeof import("./serverlessSecurityConfig").ServerlessSecurityConfig = null as any;
+utilities.lazyLoad(exports, ["ServerlessSecurityConfig"], () => require("./serverlessSecurityConfig"));
+
+export { ServerlessSecurityPolicyArgs, ServerlessSecurityPolicyState } from "./serverlessSecurityPolicy";
+export type ServerlessSecurityPolicy = import("./serverlessSecurityPolicy").ServerlessSecurityPolicy;
+export const ServerlessSecurityPolicy: typeof import("./serverlessSecurityPolicy").ServerlessSecurityPolicy = null as any;
+utilities.lazyLoad(exports, ["ServerlessSecurityPolicy"], () => require("./serverlessSecurityPolicy"));
+
+export { ServerlessVpcEndpointArgs, ServerlessVpcEndpointState } from "./serverlessVpcEndpoint";
+export type ServerlessVpcEndpoint = import("./serverlessVpcEndpoint").ServerlessVpcEndpoint;
+export const ServerlessVpcEndpoint: typeof import("./serverlessVpcEndpoint").ServerlessVpcEndpoint = null as any;
+utilities.lazyLoad(exports, ["ServerlessVpcEndpoint"], () => require("./serverlessVpcEndpoint"));
 
 
 const _module = {
@@ -50,6 +100,16 @@ const _module = {
                 return new InboundConnectionAccepter(name, <any>undefined, { urn })
             case "aws:opensearch/outboundConnection:OutboundConnection":
                 return new OutboundConnection(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy":
+                return new ServerlessAccessPolicy(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessCollection:ServerlessCollection":
+                return new ServerlessCollection(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig":
+                return new ServerlessSecurityConfig(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy":
+                return new ServerlessSecurityPolicy(name, <any>undefined, { urn })
+            case "aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint":
+                return new ServerlessVpcEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -60,3 +120,8 @@ pulumi.runtime.registerResourceModule("aws", "opensearch/domainPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/domainSamlOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/inboundConnectionAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/outboundConnection", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessAccessPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessCollection", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessSecurityConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessSecurityPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "opensearch/serverlessVpcEndpoint", _module)

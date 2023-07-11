@@ -75,6 +75,12 @@ namespace Pulumi.Aws.Keyspaces
         public Output<Outputs.TableCapacitySpecification> CapacitySpecification { get; private set; } = null!;
 
         /// <summary>
+        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// </summary>
+        [Output("clientSideTimestamps")]
+        public Output<Outputs.TableClientSideTimestamps?> ClientSideTimestamps { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the table.
         /// </summary>
         [Output("comment")]
@@ -189,6 +195,12 @@ namespace Pulumi.Aws.Keyspaces
         public Input<Inputs.TableCapacitySpecificationArgs>? CapacitySpecification { get; set; }
 
         /// <summary>
+        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// </summary>
+        [Input("clientSideTimestamps")]
+        public Input<Inputs.TableClientSideTimestampsArgs>? ClientSideTimestamps { get; set; }
+
+        /// <summary>
         /// A description of the table.
         /// </summary>
         [Input("comment")]
@@ -269,6 +281,12 @@ namespace Pulumi.Aws.Keyspaces
         /// </summary>
         [Input("capacitySpecification")]
         public Input<Inputs.TableCapacitySpecificationGetArgs>? CapacitySpecification { get; set; }
+
+        /// <summary>
+        /// Enables client-side timestamps for the table. By default, the setting is disabled.
+        /// </summary>
+        [Input("clientSideTimestamps")]
+        public Input<Inputs.TableClientSideTimestampsGetArgs>? ClientSideTimestamps { get; set; }
 
         /// <summary>
         /// A description of the table.

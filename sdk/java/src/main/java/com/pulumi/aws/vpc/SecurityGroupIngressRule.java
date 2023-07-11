@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .cidrIpv4(&#34;10.0.0.0/8&#34;)
  *             .fromPort(80)
  *             .ipProtocol(&#34;tcp&#34;)
- *             .toPort(8080)
+ *             .toPort(80)
  *             .build());
  * 
  *     }
@@ -188,14 +188,14 @@ public class SecurityGroupIngressRule extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="securityGroupId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> securityGroupId;
+    private Output<String> securityGroupId;
 
     /**
      * @return The ID of the security group.
      * 
      */
-    public Output<Optional<String>> securityGroupId() {
-        return Codegen.optional(this.securityGroupId);
+    public Output<String> securityGroupId() {
+        return this.securityGroupId;
     }
     /**
      * The ID of the security group rule.

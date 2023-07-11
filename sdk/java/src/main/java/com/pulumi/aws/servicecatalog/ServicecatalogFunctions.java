@@ -638,9 +638,9 @@ public final class ServicecatalogFunctions {
         return Deployment.getInstance().invokeAsync("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", TypeShape.of(GetPortfolioConstraintsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information on a Service Catalog Product.
+     * Use this data source to retrieve information about a Service Catalog product.
      * 
-     * &gt; **Tip:** A &#34;provisioning artifact&#34; is also referred to as a &#34;version.&#34; A &#34;distributor&#34; is also referred to as a &#34;vendor.&#34;
+     * &gt; **NOTE:** A &#34;provisioning artifact&#34; is also known as a &#34;version,&#34; and a &#34;distributor&#34; is also known as a &#34;vendor.&#34;
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -678,9 +678,9 @@ public final class ServicecatalogFunctions {
         return getProduct(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information on a Service Catalog Product.
+     * Use this data source to retrieve information about a Service Catalog product.
      * 
-     * &gt; **Tip:** A &#34;provisioning artifact&#34; is also referred to as a &#34;version.&#34; A &#34;distributor&#34; is also referred to as a &#34;vendor.&#34;
+     * &gt; **NOTE:** A &#34;provisioning artifact&#34; is also known as a &#34;version,&#34; and a &#34;distributor&#34; is also known as a &#34;vendor.&#34;
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -718,9 +718,9 @@ public final class ServicecatalogFunctions {
         return getProductPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information on a Service Catalog Product.
+     * Use this data source to retrieve information about a Service Catalog product.
      * 
-     * &gt; **Tip:** A &#34;provisioning artifact&#34; is also referred to as a &#34;version.&#34; A &#34;distributor&#34; is also referred to as a &#34;vendor.&#34;
+     * &gt; **NOTE:** A &#34;provisioning artifact&#34; is also known as a &#34;version,&#34; and a &#34;distributor&#34; is also known as a &#34;vendor.&#34;
      * 
      * ## Example Usage
      * ### Basic Usage
@@ -758,9 +758,9 @@ public final class ServicecatalogFunctions {
         return Deployment.getInstance().invoke("aws:servicecatalog/getProduct:getProduct", TypeShape.of(GetProductResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information on a Service Catalog Product.
+     * Use this data source to retrieve information about a Service Catalog product.
      * 
-     * &gt; **Tip:** A &#34;provisioning artifact&#34; is also referred to as a &#34;version.&#34; A &#34;distributor&#34; is also referred to as a &#34;vendor.&#34;
+     * &gt; **NOTE:** A &#34;provisioning artifact&#34; is also known as a &#34;version,&#34; and a &#34;distributor&#34; is also known as a &#34;vendor.&#34;
      * 
      * ## Example Usage
      * ### Basic Usage

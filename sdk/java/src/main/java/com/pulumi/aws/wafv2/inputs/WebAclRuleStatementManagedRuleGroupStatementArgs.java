@@ -20,14 +20,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
     public static final WebAclRuleStatementManagedRuleGroupStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementArgs();
 
     /**
-     * Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
      * 
      */
     @Import(name="managedRuleGroupConfigs")
     private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>> managedRuleGroupConfigs;
 
     /**
-     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+     * @return Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
      * 
      */
     public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>>> managedRuleGroupConfigs() {
@@ -139,7 +139,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs extends com.
         }
 
         /**
-         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * @param managedRuleGroupConfigs Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
          * 
          * @return builder
          * 

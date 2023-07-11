@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatement
     {
         /// <summary>
-        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig> ManagedRuleGroupConfigs;
         /// <summary>

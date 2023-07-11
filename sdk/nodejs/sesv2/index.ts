@@ -55,6 +55,16 @@ export const getDedicatedIpPool: typeof import("./getDedicatedIpPool").getDedica
 export const getDedicatedIpPoolOutput: typeof import("./getDedicatedIpPool").getDedicatedIpPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getDedicatedIpPool","getDedicatedIpPoolOutput"], () => require("./getDedicatedIpPool"));
 
+export { GetEmailIdentityArgs, GetEmailIdentityResult, GetEmailIdentityOutputArgs } from "./getEmailIdentity";
+export const getEmailIdentity: typeof import("./getEmailIdentity").getEmailIdentity = null as any;
+export const getEmailIdentityOutput: typeof import("./getEmailIdentity").getEmailIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getEmailIdentity","getEmailIdentityOutput"], () => require("./getEmailIdentity"));
+
+export { GetEmailIdentityMailFromAttributesArgs, GetEmailIdentityMailFromAttributesResult, GetEmailIdentityMailFromAttributesOutputArgs } from "./getEmailIdentityMailFromAttributes";
+export const getEmailIdentityMailFromAttributes: typeof import("./getEmailIdentityMailFromAttributes").getEmailIdentityMailFromAttributes = null as any;
+export const getEmailIdentityMailFromAttributesOutput: typeof import("./getEmailIdentityMailFromAttributes").getEmailIdentityMailFromAttributesOutput = null as any;
+utilities.lazyLoad(exports, ["getEmailIdentityMailFromAttributes","getEmailIdentityMailFromAttributesOutput"], () => require("./getEmailIdentityMailFromAttributes"));
+
 
 const _module = {
     version: utilities.getVersion(),

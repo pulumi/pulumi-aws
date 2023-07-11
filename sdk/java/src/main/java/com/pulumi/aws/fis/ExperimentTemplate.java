@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.fis.ExperimentTemplateArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateState;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateAction;
+import com.pulumi.aws.fis.outputs.ExperimentTemplateLogConfiguration;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateStopCondition;
 import com.pulumi.aws.fis.outputs.ExperimentTemplateTarget;
 import com.pulumi.core.Output;
@@ -119,6 +120,20 @@ public class ExperimentTemplate extends com.pulumi.resources.CustomResource {
      */
     public Output<String> description() {
         return this.description;
+    }
+    /**
+     * The configuration for experiment logging. See below.
+     * 
+     */
+    @Export(name="logConfiguration", refs={ExperimentTemplateLogConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ ExperimentTemplateLogConfiguration> logConfiguration;
+
+    /**
+     * @return The configuration for experiment logging. See below.
+     * 
+     */
+    public Output<Optional<ExperimentTemplateLogConfiguration>> logConfiguration() {
+        return Codegen.optional(this.logConfiguration);
     }
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.

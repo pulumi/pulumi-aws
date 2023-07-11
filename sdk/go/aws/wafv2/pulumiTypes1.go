@@ -3318,9 +3318,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement 
 	FieldToMatch *WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// String representing the regular expression. Minimum of `1` and maximum of `512` characters.
 	RegexString string `pulumi:"regexString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations []WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -3340,9 +3338,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementA
 	FieldToMatch WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// String representing the regular expression. Minimum of `1` and maximum of `512` characters.
 	RegexString pulumi.StringInput `pulumi:"regexString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -3437,9 +3433,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 	}).(pulumi.StringOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -3490,9 +3484,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation {
 		if v == nil {
@@ -6039,9 +6031,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefer
 	Arn string `pulumi:"arn"`
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch *WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations []WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -6061,9 +6051,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefer
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -6158,9 +6146,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation {
 		return v.TextTransformations
@@ -6211,9 +6197,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation {
 		if v == nil {
@@ -8762,9 +8746,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatem
 	FieldToMatch *WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 	Size int `pulumi:"size"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations []WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -8786,9 +8768,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatem
 	FieldToMatch WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 	Size pulumi.IntInput `pulumi:"size"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -8890,9 +8870,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 	}).(pulumi.IntOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation {
 		return v.TextTransformations
@@ -8953,9 +8931,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 	}).(pulumi.IntPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPtrOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation {
 		if v == nil {
@@ -11500,9 +11476,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement struct {
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations []WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -11520,9 +11494,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementIn
 type WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs struct {
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -11610,9 +11582,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -11653,9 +11623,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation {
 		if v == nil {
@@ -14200,9 +14168,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement struct {
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -14220,9 +14186,7 @@ type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementInp
 type WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs struct {
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -14310,9 +14274,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -14353,9 +14315,7 @@ func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation {
 		if v == nil {
@@ -16902,9 +16862,7 @@ type WebAclRuleStatementRegexMatchStatement struct {
 	FieldToMatch *WebAclRuleStatementRegexMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// String representing the regular expression. Minimum of `1` and maximum of `512` characters.
 	RegexString string `pulumi:"regexString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations []WebAclRuleStatementRegexMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -16924,9 +16882,7 @@ type WebAclRuleStatementRegexMatchStatementArgs struct {
 	FieldToMatch WebAclRuleStatementRegexMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// String representing the regular expression. Minimum of `1` and maximum of `512` characters.
 	RegexString pulumi.StringInput `pulumi:"regexString"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations WebAclRuleStatementRegexMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -17019,9 +16975,7 @@ func (o WebAclRuleStatementRegexMatchStatementOutput) RegexString() pulumi.Strin
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatement) string { return v.RegexString }).(pulumi.StringOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRegexMatchStatementOutput) TextTransformations() WebAclRuleStatementRegexMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexMatchStatement) []WebAclRuleStatementRegexMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -17072,9 +17026,7 @@ func (o WebAclRuleStatementRegexMatchStatementPtrOutput) RegexString() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRegexMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementRegexMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexMatchStatement) []WebAclRuleStatementRegexMatchStatementTextTransformation {
 		if v == nil {
@@ -19599,9 +19551,7 @@ type WebAclRuleStatementRegexPatternSetReferenceStatement struct {
 	Arn string `pulumi:"arn"`
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch *WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations []WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -19621,9 +19571,7 @@ type WebAclRuleStatementRegexPatternSetReferenceStatementArgs struct {
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -19716,9 +19664,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementOutput) FieldToMatch
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementOutput) TextTransformations() WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRegexPatternSetReferenceStatement) []WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation {
 		return v.TextTransformations
@@ -19769,9 +19715,7 @@ func (o WebAclRuleStatementRegexPatternSetReferenceStatementPtrOutput) FieldToMa
 	}).(WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementRegexPatternSetReferenceStatementPtrOutput) TextTransformations() WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementRegexPatternSetReferenceStatement) []WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation {
 		if v == nil {
@@ -22468,7 +22412,7 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementPtrOutput) RuleActionOverr
 }
 
 type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride struct {
-	// Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+	// Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
 	ActionToUse WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse `pulumi:"actionToUse"`
 	// Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
 	Name string `pulumi:"name"`
@@ -22486,7 +22430,7 @@ type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideInput inter
 }
 
 type WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs struct {
-	// Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+	// Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
 	ActionToUse WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseInput `pulumi:"actionToUse"`
 	// Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -22543,7 +22487,7 @@ func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideOutput) 
 	return o
 }
 
-// Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+// Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
 func (o WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideOutput) ActionToUse() WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseOutput {
 	return o.ApplyT(func(v WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride) WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse {
 		return v.ActionToUse
@@ -24263,9 +24207,7 @@ type WebAclRuleStatementSizeConstraintStatement struct {
 	FieldToMatch *WebAclRuleStatementSizeConstraintStatementFieldToMatch `pulumi:"fieldToMatch"`
 	// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 	Size int `pulumi:"size"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations []WebAclRuleStatementSizeConstraintStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -24287,9 +24229,7 @@ type WebAclRuleStatementSizeConstraintStatementArgs struct {
 	FieldToMatch WebAclRuleStatementSizeConstraintStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
 	// Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
 	Size pulumi.IntInput `pulumi:"size"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations WebAclRuleStatementSizeConstraintStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -24387,9 +24327,7 @@ func (o WebAclRuleStatementSizeConstraintStatementOutput) Size() pulumi.IntOutpu
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatement) int { return v.Size }).(pulumi.IntOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementSizeConstraintStatementOutput) TextTransformations() WebAclRuleStatementSizeConstraintStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSizeConstraintStatement) []WebAclRuleStatementSizeConstraintStatementTextTransformation {
 		return v.TextTransformations
@@ -24450,9 +24388,7 @@ func (o WebAclRuleStatementSizeConstraintStatementPtrOutput) Size() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementSizeConstraintStatementPtrOutput) TextTransformations() WebAclRuleStatementSizeConstraintStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSizeConstraintStatement) []WebAclRuleStatementSizeConstraintStatementTextTransformation {
 		if v == nil {
@@ -26981,9 +26917,7 @@ func (o WebAclRuleStatementSizeConstraintStatementTextTransformationArrayOutput)
 type WebAclRuleStatementSqliMatchStatement struct {
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch *WebAclRuleStatementSqliMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations []WebAclRuleStatementSqliMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -27001,9 +26935,7 @@ type WebAclRuleStatementSqliMatchStatementInput interface {
 type WebAclRuleStatementSqliMatchStatementArgs struct {
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch WebAclRuleStatementSqliMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations WebAclRuleStatementSqliMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -27091,9 +27023,7 @@ func (o WebAclRuleStatementSqliMatchStatementOutput) FieldToMatch() WebAclRuleSt
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementSqliMatchStatementOutput) TextTransformations() WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementSqliMatchStatement) []WebAclRuleStatementSqliMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -27134,9 +27064,7 @@ func (o WebAclRuleStatementSqliMatchStatementPtrOutput) FieldToMatch() WebAclRul
 	}).(WebAclRuleStatementSqliMatchStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementSqliMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementSqliMatchStatement) []WebAclRuleStatementSqliMatchStatementTextTransformation {
 		if v == nil {
@@ -29659,9 +29587,7 @@ func (o WebAclRuleStatementSqliMatchStatementTextTransformationArrayOutput) Inde
 type WebAclRuleStatementXssMatchStatement struct {
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch *WebAclRuleStatementXssMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations []WebAclRuleStatementXssMatchStatementTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -29679,9 +29605,7 @@ type WebAclRuleStatementXssMatchStatementInput interface {
 type WebAclRuleStatementXssMatchStatementArgs struct {
 	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
 	FieldToMatch WebAclRuleStatementXssMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-	// At least one required.
-	// See `textTransformation` below for details.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 	TextTransformations WebAclRuleStatementXssMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -29769,9 +29693,7 @@ func (o WebAclRuleStatementXssMatchStatementOutput) FieldToMatch() WebAclRuleSta
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementXssMatchStatementOutput) TextTransformations() WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclRuleStatementXssMatchStatement) []WebAclRuleStatementXssMatchStatementTextTransformation {
 		return v.TextTransformations
@@ -29812,9 +29734,7 @@ func (o WebAclRuleStatementXssMatchStatementPtrOutput) FieldToMatch() WebAclRule
 	}).(WebAclRuleStatementXssMatchStatementFieldToMatchPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-// At least one required.
-// See `textTransformation` below for details.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
 func (o WebAclRuleStatementXssMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementXssMatchStatementTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclRuleStatementXssMatchStatement) []WebAclRuleStatementXssMatchStatementTextTransformation {
 		if v == nil {

@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementRateBasedStatement {
     /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
     private @Nullable String aggregateKeyType;
@@ -30,14 +30,14 @@ public final class WebAclRuleStatementRateBasedStatement {
      */
     private Integer limit;
     /**
-     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement;
 
     private WebAclRuleStatementRateBasedStatement() {}
     /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+     * @return Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
     public Optional<String> aggregateKeyType() {
@@ -58,7 +58,7 @@ public final class WebAclRuleStatementRateBasedStatement {
         return this.limit;
     }
     /**
-     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatement> scopeDownStatement() {

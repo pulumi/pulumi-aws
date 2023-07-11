@@ -23,13 +23,19 @@ class GetConnectPeerResult:
     """
     A collection of values returned by getConnectPeer.
     """
-    def __init__(__self__, arn=None, bgp_asn=None, filters=None, id=None, inside_cidr_blocks=None, peer_address=None, tags=None, transit_gateway_address=None, transit_gateway_attachment_id=None, transit_gateway_connect_peer_id=None):
+    def __init__(__self__, arn=None, bgp_asn=None, bgp_peer_address=None, bgp_transit_gateway_addresses=None, filters=None, id=None, inside_cidr_blocks=None, peer_address=None, tags=None, transit_gateway_address=None, transit_gateway_attachment_id=None, transit_gateway_connect_peer_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if bgp_asn and not isinstance(bgp_asn, str):
             raise TypeError("Expected argument 'bgp_asn' to be a str")
         pulumi.set(__self__, "bgp_asn", bgp_asn)
+        if bgp_peer_address and not isinstance(bgp_peer_address, str):
+            raise TypeError("Expected argument 'bgp_peer_address' to be a str")
+        pulumi.set(__self__, "bgp_peer_address", bgp_peer_address)
+        if bgp_transit_gateway_addresses and not isinstance(bgp_transit_gateway_addresses, list):
+            raise TypeError("Expected argument 'bgp_transit_gateway_addresses' to be a list")
+        pulumi.set(__self__, "bgp_transit_gateway_addresses", bgp_transit_gateway_addresses)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -70,6 +76,22 @@ class GetConnectPeerResult:
         BGP ASN number assigned customer device
         """
         return pulumi.get(self, "bgp_asn")
+
+    @property
+    @pulumi.getter(name="bgpPeerAddress")
+    def bgp_peer_address(self) -> str:
+        """
+        The IP address assigned to customer device, which is used as BGP IP address.
+        """
+        return pulumi.get(self, "bgp_peer_address")
+
+    @property
+    @pulumi.getter(name="bgpTransitGatewayAddresses")
+    def bgp_transit_gateway_addresses(self) -> Sequence[str]:
+        """
+        The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+        """
+        return pulumi.get(self, "bgp_transit_gateway_addresses")
 
     @property
     @pulumi.getter
@@ -138,6 +160,8 @@ class AwaitableGetConnectPeerResult(GetConnectPeerResult):
         return GetConnectPeerResult(
             arn=self.arn,
             bgp_asn=self.bgp_asn,
+            bgp_peer_address=self.bgp_peer_address,
+            bgp_transit_gateway_addresses=self.bgp_transit_gateway_addresses,
             filters=self.filters,
             id=self.id,
             inside_cidr_blocks=self.inside_cidr_blocks,
@@ -191,6 +215,8 @@ def get_connect_peer(filters: Optional[Sequence[pulumi.InputType['GetConnectPeer
     return AwaitableGetConnectPeerResult(
         arn=pulumi.get(__ret__, 'arn'),
         bgp_asn=pulumi.get(__ret__, 'bgp_asn'),
+        bgp_peer_address=pulumi.get(__ret__, 'bgp_peer_address'),
+        bgp_transit_gateway_addresses=pulumi.get(__ret__, 'bgp_transit_gateway_addresses'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         inside_cidr_blocks=pulumi.get(__ret__, 'inside_cidr_blocks'),

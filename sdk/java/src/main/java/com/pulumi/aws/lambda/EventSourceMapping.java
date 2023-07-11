@@ -256,6 +256,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Amazon MQ (ActiveMQ)
+ * 
  * ```java
  * package generated_program;
  * 
@@ -294,6 +295,7 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Amazon MQ (RabbitMQ)
+ * 
  * ```java
  * package generated_program;
  * 
@@ -587,17 +589,17 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
         return this.parallelizationFactor;
     }
     /**
-     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      * 
      */
-    @Export(name="queues", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> queues;
+    @Export(name="queues", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> queues;
 
     /**
-     * @return The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
+     * @return The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      * 
      */
-    public Output<Optional<List<String>>> queues() {
+    public Output<Optional<String>> queues() {
         return Codegen.optional(this.queues);
     }
     /**

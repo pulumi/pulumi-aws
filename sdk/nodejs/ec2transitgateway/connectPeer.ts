@@ -69,6 +69,14 @@ export class ConnectPeer extends pulumi.CustomResource {
      */
     public readonly bgpAsn!: pulumi.Output<string>;
     /**
+     * The IP address assigned to customer device, which is used as BGP IP address.
+     */
+    public /*out*/ readonly bgpPeerAddress!: pulumi.Output<string>;
+    /**
+     * The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+     */
+    public /*out*/ readonly bgpTransitGatewayAddresses!: pulumi.Output<string[]>;
+    /**
      * The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
      */
     public readonly insideCidrBlocks!: pulumi.Output<string[]>;
@@ -108,6 +116,8 @@ export class ConnectPeer extends pulumi.CustomResource {
             const state = argsOrState as ConnectPeerState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            resourceInputs["bgpPeerAddress"] = state ? state.bgpPeerAddress : undefined;
+            resourceInputs["bgpTransitGatewayAddresses"] = state ? state.bgpTransitGatewayAddresses : undefined;
             resourceInputs["insideCidrBlocks"] = state ? state.insideCidrBlocks : undefined;
             resourceInputs["peerAddress"] = state ? state.peerAddress : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -132,6 +142,8 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["transitGatewayAddress"] = args ? args.transitGatewayAddress : undefined;
             resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["bgpPeerAddress"] = undefined /*out*/;
+            resourceInputs["bgpTransitGatewayAddresses"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -151,6 +163,14 @@ export interface ConnectPeerState {
      * The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
      */
     bgpAsn?: pulumi.Input<string>;
+    /**
+     * The IP address assigned to customer device, which is used as BGP IP address.
+     */
+    bgpPeerAddress?: pulumi.Input<string>;
+    /**
+     * The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
+     */
+    bgpTransitGatewayAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
      */

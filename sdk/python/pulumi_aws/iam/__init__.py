@@ -17,6 +17,7 @@ from .get_instance_profiles import *
 from .get_openid_connect_provider import *
 from .get_policy import *
 from .get_policy_document import *
+from .get_principal_policy_simulation import *
 from .get_role import *
 from .get_roles import *
 from .get_saml_provider import *

@@ -32,6 +32,7 @@ __all__ = [
     'CrawlerCatalogTarget',
     'CrawlerDeltaTarget',
     'CrawlerDynamodbTarget',
+    'CrawlerIcebergTarget',
     'CrawlerJdbcTarget',
     'CrawlerLakeFormationConfiguration',
     'CrawlerLineageConfiguration',
@@ -175,13 +176,17 @@ class CatalogDatabaseTargetDatabase(dict):
 
     def __init__(__self__, *,
                  catalog_id: str,
-                 database_name: str):
+                 database_name: str,
+                 region: Optional[str] = None):
         """
         :param str catalog_id: ID of the Data Catalog in which the database resides.
         :param str database_name: Name of the catalog database.
+        :param str region: Region of the target database.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -198,6 +203,14 @@ class CatalogDatabaseTargetDatabase(dict):
         Name of the catalog database.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        Region of the target database.
+        """
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type
@@ -1473,6 +1486,78 @@ class CrawlerDynamodbTarget(dict):
 
 
 @pulumi.output_type
+class CrawlerIcebergTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumTraversalDepth":
+            suggest = "maximum_traversal_depth"
+        elif key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrawlerIcebergTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrawlerIcebergTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrawlerIcebergTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_traversal_depth: int,
+                 paths: Sequence[str],
+                 connection_name: Optional[str] = None,
+                 exclusions: Optional[Sequence[str]] = None):
+        """
+        :param int maximum_traversal_depth: The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        :param Sequence[str] paths: One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+        :param str connection_name: The name of the connection to use to connect to the Iceberg target.
+        :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
+        """
+        pulumi.set(__self__, "maximum_traversal_depth", maximum_traversal_depth)
+        pulumi.set(__self__, "paths", paths)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter(name="maximumTraversalDepth")
+    def maximum_traversal_depth(self) -> int:
+        """
+        The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        """
+        return pulumi.get(self, "maximum_traversal_depth")
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Sequence[str]:
+        """
+        One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+        """
+        return pulumi.get(self, "paths")
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        """
+        The name of the connection to use to connect to the Iceberg target.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence[str]]:
+        """
+        A list of glob patterns used to exclude from the crawl.
+        """
+        return pulumi.get(self, "exclusions")
+
+
+@pulumi.output_type
 class CrawlerJdbcTarget(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1616,7 +1701,7 @@ class CrawlerLineageConfiguration(dict):
     def __init__(__self__, *,
                  crawler_lineage_settings: Optional[str] = None):
         """
-        :param str crawler_lineage_settings: Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+        :param str crawler_lineage_settings: Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
         """
         if crawler_lineage_settings is not None:
             pulumi.set(__self__, "crawler_lineage_settings", crawler_lineage_settings)
@@ -1625,7 +1710,7 @@ class CrawlerLineageConfiguration(dict):
     @pulumi.getter(name="crawlerLineageSettings")
     def crawler_lineage_settings(self) -> Optional[str]:
         """
-        Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+        Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
         """
         return pulumi.get(self, "crawler_lineage_settings")
 
@@ -2040,6 +2125,8 @@ class DataQualityRulesetTargetTable(dict):
             suggest = "database_name"
         elif key == "tableName":
             suggest = "table_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataQualityRulesetTargetTable. Access the value via the '{suggest}' property getter instead.")
@@ -2054,13 +2141,17 @@ class DataQualityRulesetTargetTable(dict):
 
     def __init__(__self__, *,
                  database_name: str,
-                 table_name: str):
+                 table_name: str,
+                 catalog_id: Optional[str] = None):
         """
         :param str database_name: Name of the database where the AWS Glue table exists.
         :param str table_name: Name of the AWS Glue table.
+        :param str catalog_id: The catalog id where the AWS Glue table exists.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -2077,6 +2168,14 @@ class DataQualityRulesetTargetTable(dict):
         Name of the AWS Glue table.
         """
         return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        The catalog id where the AWS Glue table exists.
+        """
+        return pulumi.get(self, "catalog_id")
 
 
 @pulumi.output_type

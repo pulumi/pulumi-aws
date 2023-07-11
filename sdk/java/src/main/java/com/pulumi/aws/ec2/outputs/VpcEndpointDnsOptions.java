@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,11 @@ public final class VpcEndpointDnsOptions {
      * 
      */
     private @Nullable String dnsRecordIpType;
+    /**
+     * @return Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `private_dns_enabled` is `true`.
+     * 
+     */
+    private @Nullable Boolean privateDnsOnlyForInboundResolverEndpoint;
 
     private VpcEndpointDnsOptions() {}
     /**
@@ -24,6 +30,13 @@ public final class VpcEndpointDnsOptions {
      */
     public Optional<String> dnsRecordIpType() {
         return Optional.ofNullable(this.dnsRecordIpType);
+    }
+    /**
+     * @return Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `private_dns_enabled` is `true`.
+     * 
+     */
+    public Optional<Boolean> privateDnsOnlyForInboundResolverEndpoint() {
+        return Optional.ofNullable(this.privateDnsOnlyForInboundResolverEndpoint);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class VpcEndpointDnsOptions {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String dnsRecordIpType;
+        private @Nullable Boolean privateDnsOnlyForInboundResolverEndpoint;
         public Builder() {}
         public Builder(VpcEndpointDnsOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsRecordIpType = defaults.dnsRecordIpType;
+    	      this.privateDnsOnlyForInboundResolverEndpoint = defaults.privateDnsOnlyForInboundResolverEndpoint;
         }
 
         @CustomType.Setter
@@ -47,9 +62,15 @@ public final class VpcEndpointDnsOptions {
             this.dnsRecordIpType = dnsRecordIpType;
             return this;
         }
+        @CustomType.Setter
+        public Builder privateDnsOnlyForInboundResolverEndpoint(@Nullable Boolean privateDnsOnlyForInboundResolverEndpoint) {
+            this.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
+            return this;
+        }
         public VpcEndpointDnsOptions build() {
             final var o = new VpcEndpointDnsOptions();
             o.dnsRecordIpType = dnsRecordIpType;
+            o.privateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
             return o;
         }
     }

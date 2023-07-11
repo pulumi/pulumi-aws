@@ -103,7 +103,7 @@ import * as utilities from "../utilities";
  *     },
  *     environment: {
  *         computeType: "BUILD_GENERAL1_SMALL",
- *         image: "aws/codebuild/standard:1.0",
+ *         image: "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
  *         type: "LINUX_CONTAINER",
  *         imagePullCredentialsType: "CODEBUILD",
  *         environmentVariables: [
@@ -169,7 +169,7 @@ import * as utilities from "../utilities";
  *     },
  *     environment: {
  *         computeType: "BUILD_GENERAL1_SMALL",
- *         image: "aws/codebuild/standard:1.0",
+ *         image: "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
  *         type: "LINUX_CONTAINER",
  *         imagePullCredentialsType: "CODEBUILD",
  *         environmentVariables: [{

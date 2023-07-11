@@ -850,7 +850,10 @@ class EventTarget(pulumi.CustomResource):
                 resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
-                    identifiers=["events.amazonaws.com"],
+                    identifiers=[
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
                 )],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
@@ -859,7 +862,10 @@ class EventTarget(pulumi.CustomResource):
                 resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
-                    identifiers=["events.amazonaws.com"],
+                    identifiers=[
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
                 )],
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="ArnEquals",
@@ -1157,7 +1163,10 @@ class EventTarget(pulumi.CustomResource):
                 resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
-                    identifiers=["events.amazonaws.com"],
+                    identifiers=[
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
                 )],
             ),
             aws.iam.GetPolicyDocumentStatementArgs(
@@ -1166,7 +1175,10 @@ class EventTarget(pulumi.CustomResource):
                 resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
                 principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
                     type="Service",
-                    identifiers=["events.amazonaws.com"],
+                    identifiers=[
+                        "events.amazonaws.com",
+                        "delivery.logs.amazonaws.com",
+                    ],
                 )],
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="ArnEquals",

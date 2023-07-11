@@ -79,6 +79,12 @@ region: Optional[str]
 The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 """
 
+retryMode: Optional[str]
+"""
+Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+`AWS_RETRY_MODE` environment variable.
+"""
+
 s3UsePathStyle: Optional[bool]
 """
 Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By

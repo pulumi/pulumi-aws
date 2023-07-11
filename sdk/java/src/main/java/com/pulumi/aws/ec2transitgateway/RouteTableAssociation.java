@@ -10,7 +10,9 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -58,6 +60,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ec2transitgateway/routeTableAssociation:RouteTableAssociation")
 public class RouteTableAssociation extends com.pulumi.resources.CustomResource {
+    /**
+     * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+     * 
+     */
+    @Export(name="replaceExistingAssociation", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> replaceExistingAssociation;
+
+    /**
+     * @return Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
+     * 
+     */
+    public Output<Optional<Boolean>> replaceExistingAssociation() {
+        return Codegen.optional(this.replaceExistingAssociation);
+    }
     /**
      * Identifier of the resource
      * 

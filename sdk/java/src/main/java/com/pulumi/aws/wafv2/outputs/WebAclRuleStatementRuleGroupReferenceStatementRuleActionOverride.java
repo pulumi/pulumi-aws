@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride {
     /**
-     * @return Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+     * @return Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
      * 
      */
     private WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse actionToUse;
@@ -23,7 +23,7 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
 
     private WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride() {}
     /**
-     * @return Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+     * @return Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
      * 
      */
     public WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse actionToUse() {

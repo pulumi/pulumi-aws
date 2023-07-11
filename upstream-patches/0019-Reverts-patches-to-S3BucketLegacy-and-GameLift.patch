@@ -1,7 +1,7 @@
-From ff4e039fa0f8490d93100fe2683c5ecc974c0d9f Mon Sep 17 00:00:00 2001
+From 12c71195b61462734658291b95e7d8032c8be029 Mon Sep 17 00:00:00 2001
 From: Kyle Pitzen <kpitzen@pulumi.com>
 Date: Fri, 27 Jan 2023 09:37:43 -0600
-Subject: [PATCH 19/27] Reverts patches to S3BucketLegacy and GameLift
+Subject: [PATCH 19/28] Reverts patches to S3BucketLegacy and GameLift
 
 Previously, we were pulling along patches which removed a few simplifications
 to waiters in AWS GameLift, and a newer patch which plumbed through context.Context

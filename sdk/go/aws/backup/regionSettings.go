@@ -67,7 +67,7 @@ import (
 type RegionSettings struct {
 	pulumi.CustomResourceState
 
-	// A map of services along with the management preferences for the Region.
+	// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
 	ResourceTypeManagementPreference pulumi.BoolMapOutput `pulumi:"resourceTypeManagementPreference"`
 	// A map of services along with the opt-in preferences for the Region.
 	ResourceTypeOptInPreference pulumi.BoolMapOutput `pulumi:"resourceTypeOptInPreference"`
@@ -105,14 +105,14 @@ func GetRegionSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegionSettings resources.
 type regionSettingsState struct {
-	// A map of services along with the management preferences for the Region.
+	// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
 	ResourceTypeManagementPreference map[string]bool `pulumi:"resourceTypeManagementPreference"`
 	// A map of services along with the opt-in preferences for the Region.
 	ResourceTypeOptInPreference map[string]bool `pulumi:"resourceTypeOptInPreference"`
 }
 
 type RegionSettingsState struct {
-	// A map of services along with the management preferences for the Region.
+	// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
 	ResourceTypeManagementPreference pulumi.BoolMapInput
 	// A map of services along with the opt-in preferences for the Region.
 	ResourceTypeOptInPreference pulumi.BoolMapInput
@@ -123,7 +123,7 @@ func (RegionSettingsState) ElementType() reflect.Type {
 }
 
 type regionSettingsArgs struct {
-	// A map of services along with the management preferences for the Region.
+	// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
 	ResourceTypeManagementPreference map[string]bool `pulumi:"resourceTypeManagementPreference"`
 	// A map of services along with the opt-in preferences for the Region.
 	ResourceTypeOptInPreference map[string]bool `pulumi:"resourceTypeOptInPreference"`
@@ -131,7 +131,7 @@ type regionSettingsArgs struct {
 
 // The set of arguments for constructing a RegionSettings resource.
 type RegionSettingsArgs struct {
-	// A map of services along with the management preferences for the Region.
+	// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
 	ResourceTypeManagementPreference pulumi.BoolMapInput
 	// A map of services along with the opt-in preferences for the Region.
 	ResourceTypeOptInPreference pulumi.BoolMapInput
@@ -224,7 +224,7 @@ func (o RegionSettingsOutput) ToRegionSettingsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A map of services along with the management preferences for the Region.
+// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
 func (o RegionSettingsOutput) ResourceTypeManagementPreference() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v *RegionSettings) pulumi.BoolMapOutput { return v.ResourceTypeManagementPreference }).(pulumi.BoolMapOutput)
 }

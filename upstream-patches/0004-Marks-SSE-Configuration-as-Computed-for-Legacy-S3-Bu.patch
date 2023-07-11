@@ -1,7 +1,7 @@
-From 4873d390698fe5855899c49c333f7235a0bc2589 Mon Sep 17 00:00:00 2001
+From 46f7834fc572b7c6d0a81b52ba9b7aaf42ecd8f3 Mon Sep 17 00:00:00 2001
 From: Kyle Pitzen <kpitzen@pulumi.com>
 Date: Thu, 9 Mar 2023 09:47:49 -0600
-Subject: [PATCH 04/27] Marks SSE Configuration as Computed for Legacy S3
+Subject: [PATCH 04/28] Marks SSE Configuration as Computed for Legacy S3
  Bucket
 
 In January, AWS enabled SSE by default for all new S3 buckets.

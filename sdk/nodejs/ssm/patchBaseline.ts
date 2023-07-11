@@ -250,9 +250,11 @@ export class PatchBaseline extends pulumi.CustomResource {
     /**
      * The operating system the patch baseline applies to.
      * Valid values are
+     * `ALMA_LINUX`,
      * `AMAZON_LINUX`,
      * `AMAZON_LINUX_2`,
      * `AMAZON_LINUX_2022`,
+     * `AMAZON_LINUX_2023`,
      * `CENTOS`,
      * `DEBIAN`,
      * `MACOS`,
@@ -387,9 +389,11 @@ export interface PatchBaselineState {
     /**
      * The operating system the patch baseline applies to.
      * Valid values are
+     * `ALMA_LINUX`,
      * `AMAZON_LINUX`,
      * `AMAZON_LINUX_2`,
      * `AMAZON_LINUX_2022`,
+     * `AMAZON_LINUX_2023`,
      * `CENTOS`,
      * `DEBIAN`,
      * `MACOS`,
@@ -472,9 +476,11 @@ export interface PatchBaselineArgs {
     /**
      * The operating system the patch baseline applies to.
      * Valid values are
+     * `ALMA_LINUX`,
      * `AMAZON_LINUX`,
      * `AMAZON_LINUX_2`,
      * `AMAZON_LINUX_2022`,
+     * `AMAZON_LINUX_2023`,
      * `CENTOS`,
      * `DEBIAN`,
      * `MACOS`,

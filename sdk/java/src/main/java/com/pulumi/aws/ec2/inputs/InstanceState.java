@@ -11,6 +11,7 @@ import com.pulumi.aws.ec2.inputs.InstanceCreditSpecificationArgs;
 import com.pulumi.aws.ec2.inputs.InstanceEbsBlockDeviceArgs;
 import com.pulumi.aws.ec2.inputs.InstanceEnclaveOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceEphemeralBlockDeviceArgs;
+import com.pulumi.aws.ec2.inputs.InstanceInstanceMarketOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceLaunchTemplateArgs;
 import com.pulumi.aws.ec2.inputs.InstanceMaintenanceOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceMetadataOptionsArgs;
@@ -367,6 +368,36 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> instanceInitiatedShutdownBehavior() {
         return Optional.ofNullable(this.instanceInitiatedShutdownBehavior);
+    }
+
+    /**
+     * Indicates whether this is a Spot Instance or a Scheduled Instance.
+     * 
+     */
+    @Import(name="instanceLifecycle")
+    private @Nullable Output<String> instanceLifecycle;
+
+    /**
+     * @return Indicates whether this is a Spot Instance or a Scheduled Instance.
+     * 
+     */
+    public Optional<Output<String>> instanceLifecycle() {
+        return Optional.ofNullable(this.instanceLifecycle);
+    }
+
+    /**
+     * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+     * 
+     */
+    @Import(name="instanceMarketOptions")
+    private @Nullable Output<InstanceInstanceMarketOptionsArgs> instanceMarketOptions;
+
+    /**
+     * @return Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+     * 
+     */
+    public Optional<Output<InstanceInstanceMarketOptionsArgs>> instanceMarketOptions() {
+        return Optional.ofNullable(this.instanceMarketOptions);
     }
 
     /**
@@ -742,6 +773,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * If the request is a Spot Instance request, the ID of the request.
+     * 
+     */
+    @Import(name="spotInstanceRequestId")
+    private @Nullable Output<String> spotInstanceRequestId;
+
+    /**
+     * @return If the request is a Spot Instance request, the ID of the request.
+     * 
+     */
+    public Optional<Output<String>> spotInstanceRequestId() {
+        return Optional.ofNullable(this.spotInstanceRequestId);
+    }
+
+    /**
      * VPC Subnet ID to launch in.
      * 
      */
@@ -904,6 +950,8 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.hostResourceGroupArn = $.hostResourceGroupArn;
         this.iamInstanceProfile = $.iamInstanceProfile;
         this.instanceInitiatedShutdownBehavior = $.instanceInitiatedShutdownBehavior;
+        this.instanceLifecycle = $.instanceLifecycle;
+        this.instanceMarketOptions = $.instanceMarketOptions;
         this.instanceState = $.instanceState;
         this.instanceType = $.instanceType;
         this.ipv6AddressCount = $.ipv6AddressCount;
@@ -928,6 +976,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.secondaryPrivateIps = $.secondaryPrivateIps;
         this.securityGroups = $.securityGroups;
         this.sourceDestCheck = $.sourceDestCheck;
+        this.spotInstanceRequestId = $.spotInstanceRequestId;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -1436,6 +1485,48 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder instanceInitiatedShutdownBehavior(String instanceInitiatedShutdownBehavior) {
             return instanceInitiatedShutdownBehavior(Output.of(instanceInitiatedShutdownBehavior));
+        }
+
+        /**
+         * @param instanceLifecycle Indicates whether this is a Spot Instance or a Scheduled Instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceLifecycle(@Nullable Output<String> instanceLifecycle) {
+            $.instanceLifecycle = instanceLifecycle;
+            return this;
+        }
+
+        /**
+         * @param instanceLifecycle Indicates whether this is a Spot Instance or a Scheduled Instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceLifecycle(String instanceLifecycle) {
+            return instanceLifecycle(Output.of(instanceLifecycle));
+        }
+
+        /**
+         * @param instanceMarketOptions Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceMarketOptions(@Nullable Output<InstanceInstanceMarketOptionsArgs> instanceMarketOptions) {
+            $.instanceMarketOptions = instanceMarketOptions;
+            return this;
+        }
+
+        /**
+         * @param instanceMarketOptions Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceMarketOptions(InstanceInstanceMarketOptionsArgs instanceMarketOptions) {
+            return instanceMarketOptions(Output.of(instanceMarketOptions));
         }
 
         /**
@@ -2018,6 +2109,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sourceDestCheck(Boolean sourceDestCheck) {
             return sourceDestCheck(Output.of(sourceDestCheck));
+        }
+
+        /**
+         * @param spotInstanceRequestId If the request is a Spot Instance request, the ID of the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spotInstanceRequestId(@Nullable Output<String> spotInstanceRequestId) {
+            $.spotInstanceRequestId = spotInstanceRequestId;
+            return this;
+        }
+
+        /**
+         * @param spotInstanceRequestId If the request is a Spot Instance request, the ID of the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spotInstanceRequestId(String spotInstanceRequestId) {
+            return spotInstanceRequestId(Output.of(spotInstanceRequestId));
         }
 
         /**

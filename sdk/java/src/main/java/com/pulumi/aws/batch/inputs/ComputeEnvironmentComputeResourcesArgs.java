@@ -186,6 +186,21 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
     }
 
     /**
+     * The Amazon EC2 placement group to associate with your compute resources.
+     * 
+     */
+    @Import(name="placementGroup")
+    private @Nullable Output<String> placementGroup;
+
+    /**
+     * @return The Amazon EC2 placement group to associate with your compute resources.
+     * 
+     */
+    public Optional<Output<String>> placementGroup() {
+        return Optional.ofNullable(this.placementGroup);
+    }
+
+    /**
      * A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
@@ -274,6 +289,7 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
         this.launchTemplate = $.launchTemplate;
         this.maxVcpus = $.maxVcpus;
         this.minVcpus = $.minVcpus;
+        this.placementGroup = $.placementGroup;
         this.securityGroupIds = $.securityGroupIds;
         this.spotIamFleetRole = $.spotIamFleetRole;
         this.subnets = $.subnets;
@@ -538,6 +554,27 @@ public final class ComputeEnvironmentComputeResourcesArgs extends com.pulumi.res
          */
         public Builder minVcpus(Integer minVcpus) {
             return minVcpus(Output.of(minVcpus));
+        }
+
+        /**
+         * @param placementGroup The Amazon EC2 placement group to associate with your compute resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroup(@Nullable Output<String> placementGroup) {
+            $.placementGroup = placementGroup;
+            return this;
+        }
+
+        /**
+         * @param placementGroup The Amazon EC2 placement group to associate with your compute resources.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder placementGroup(String placementGroup) {
+            return placementGroup(Output.of(placementGroup));
         }
 
         /**

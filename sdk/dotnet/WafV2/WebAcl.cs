@@ -25,7 +25,7 @@ namespace Pulumi.Aws.WafV2
         public Output<int> Capacity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         /// </summary>
         [Output("captchaConfig")]
         public Output<Outputs.WebAclCaptchaConfig?> CaptchaConfig { get; private set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.WafV2
         public Output<ImmutableArray<Outputs.WebAclCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
 
         /// <summary>
-        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         /// </summary>
         [Output("defaultAction")]
         public Output<Outputs.WebAclDefaultAction> DefaultAction { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class WebAclArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.WebAclCaptchaConfigArgs>? CaptchaConfig { get; set; }
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         /// </summary>
         [Input("defaultAction", required: true)]
         public Input<Inputs.WebAclDefaultActionArgs> DefaultAction { get; set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.WafV2
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.WebAclCaptchaConfigGetArgs>? CaptchaConfig { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
-        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         /// </summary>
         [Input("defaultAction")]
         public Input<Inputs.WebAclDefaultActionGetArgs>? DefaultAction { get; set; }

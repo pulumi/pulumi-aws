@@ -6,9 +6,16 @@ package com.pulumi.aws.glue.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class DataQualityRulesetTargetTable {
+    /**
+     * @return The catalog id where the AWS Glue table exists.
+     * 
+     */
+    private @Nullable String catalogId;
     /**
      * @return Name of the database where the AWS Glue table exists.
      * 
@@ -21,6 +28,13 @@ public final class DataQualityRulesetTargetTable {
     private String tableName;
 
     private DataQualityRulesetTargetTable() {}
+    /**
+     * @return The catalog id where the AWS Glue table exists.
+     * 
+     */
+    public Optional<String> catalogId() {
+        return Optional.ofNullable(this.catalogId);
+    }
     /**
      * @return Name of the database where the AWS Glue table exists.
      * 
@@ -45,15 +59,22 @@ public final class DataQualityRulesetTargetTable {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String catalogId;
         private String databaseName;
         private String tableName;
         public Builder() {}
         public Builder(DataQualityRulesetTargetTable defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.catalogId = defaults.catalogId;
     	      this.databaseName = defaults.databaseName;
     	      this.tableName = defaults.tableName;
         }
 
+        @CustomType.Setter
+        public Builder catalogId(@Nullable String catalogId) {
+            this.catalogId = catalogId;
+            return this;
+        }
         @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
@@ -66,6 +87,7 @@ public final class DataQualityRulesetTargetTable {
         }
         public DataQualityRulesetTargetTable build() {
             final var o = new DataQualityRulesetTargetTable();
+            o.catalogId = catalogId;
             o.databaseName = databaseName;
             o.tableName = tableName;
             return o;

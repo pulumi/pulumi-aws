@@ -75,14 +75,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+     * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
      * 
      */
     @Import(name="ipSetReferenceStatement")
     private @Nullable Output<WebAclRuleStatementIpSetReferenceStatementArgs> ipSetReferenceStatement;
 
     /**
-     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+     * @return Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementIpSetReferenceStatementArgs>> ipSetReferenceStatement() {
@@ -105,14 +105,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
+     * Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
      * 
      */
     @Import(name="managedRuleGroupStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementArgs> managedRuleGroupStatement;
 
     /**
-     * @return Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
+     * @return Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementArgs>> managedRuleGroupStatement() {
@@ -180,14 +180,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+     * Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
      * 
      */
     @Import(name="regexPatternSetReferenceStatement")
     private @Nullable Output<WebAclRuleStatementRegexPatternSetReferenceStatementArgs> regexPatternSetReferenceStatement;
 
     /**
-     * @return Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+     * @return Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRegexPatternSetReferenceStatementArgs>> regexPatternSetReferenceStatement() {
@@ -195,14 +195,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See Rule Group Reference Statement below for details.
+     * Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
      * 
      */
     @Import(name="ruleGroupReferenceStatement")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementArgs> ruleGroupReferenceStatement;
 
     /**
-     * @return Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See Rule Group Reference Statement below for details.
+     * @return Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementArgs>> ruleGroupReferenceStatement() {
@@ -356,7 +356,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
          * 
          * @return builder
          * 
@@ -367,7 +367,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         * @param ipSetReferenceStatement Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param managedRuleGroupStatement Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
+         * @param managedRuleGroupStatement Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
          * 
          * @return builder
          * 
@@ -409,7 +409,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param managedRuleGroupStatement Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
+         * @param managedRuleGroupStatement Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
          * 
          * @return builder
          * 
@@ -503,7 +503,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         * @param regexPatternSetReferenceStatement Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
          * 
          * @return builder
          * 
@@ -524,7 +524,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ruleGroupReferenceStatement Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See Rule Group Reference Statement below for details.
+         * @param ruleGroupReferenceStatement Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ruleGroupReferenceStatement Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See Rule Group Reference Statement below for details.
+         * @param ruleGroupReferenceStatement Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
          * 
          * @return builder
          * 

@@ -170,7 +170,7 @@ namespace Pulumi.Aws.CodeBuild
     ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
     ///         {
     ///             ComputeType = "BUILD_GENERAL1_SMALL",
-    ///             Image = "aws/codebuild/standard:1.0",
+    ///             Image = "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
     ///             Type = "LINUX_CONTAINER",
     ///             ImagePullCredentialsType = "CODEBUILD",
     ///             EnvironmentVariables = new[]
@@ -254,7 +254,7 @@ namespace Pulumi.Aws.CodeBuild
     ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
     ///         {
     ///             ComputeType = "BUILD_GENERAL1_SMALL",
-    ///             Image = "aws/codebuild/standard:1.0",
+    ///             Image = "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
     ///             Type = "LINUX_CONTAINER",
     ///             ImagePullCredentialsType = "CODEBUILD",
     ///             EnvironmentVariables = new[]

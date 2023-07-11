@@ -4,6 +4,7 @@
 package com.pulumi.aws.fis.inputs;
 
 import com.pulumi.aws.fis.inputs.ExperimentTemplateActionArgs;
+import com.pulumi.aws.fis.inputs.ExperimentTemplateLogConfigurationArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateStopConditionArgs;
 import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
 import com.pulumi.core.Output;
@@ -48,6 +49,21 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * The configuration for experiment logging. See below.
+     * 
+     */
+    @Import(name="logConfiguration")
+    private @Nullable Output<ExperimentTemplateLogConfigurationArgs> logConfiguration;
+
+    /**
+     * @return The configuration for experiment logging. See below.
+     * 
+     */
+    public Optional<Output<ExperimentTemplateLogConfigurationArgs>> logConfiguration() {
+        return Optional.ofNullable(this.logConfiguration);
     }
 
     /**
@@ -126,6 +142,7 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
     private ExperimentTemplateState(ExperimentTemplateState $) {
         this.actions = $.actions;
         this.description = $.description;
+        this.logConfiguration = $.logConfiguration;
         this.roleArn = $.roleArn;
         this.stopConditions = $.stopConditions;
         this.tags = $.tags;
@@ -201,6 +218,27 @@ public final class ExperimentTemplateState extends com.pulumi.resources.Resource
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param logConfiguration The configuration for experiment logging. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logConfiguration(@Nullable Output<ExperimentTemplateLogConfigurationArgs> logConfiguration) {
+            $.logConfiguration = logConfiguration;
+            return this;
+        }
+
+        /**
+         * @param logConfiguration The configuration for experiment logging. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logConfiguration(ExperimentTemplateLogConfigurationArgs logConfiguration) {
+            return logConfiguration(Output.of(logConfiguration));
         }
 
         /**

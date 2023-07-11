@@ -54,14 +54,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
      * 
      */
     @Import(name="captchaConfig")
     private @Nullable Output<WebAclCaptchaConfigArgs> captchaConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * @return Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
      * 
      */
     public Optional<Output<WebAclCaptchaConfigArgs>> captchaConfig() {
@@ -84,14 +84,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
      * 
      */
     @Import(name="defaultAction")
     private @Nullable Output<WebAclDefaultActionArgs> defaultAction;
 
     /**
-     * @return Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * @return Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
      * 
      */
     public Optional<Output<WebAclDefaultActionArgs>> defaultAction() {
@@ -305,7 +305,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+         * @param defaultAction Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
          * 
          * @return builder
          * 

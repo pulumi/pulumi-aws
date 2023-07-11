@@ -174,7 +174,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Configuration blocked for information about the user pool password policy. Detailed below.
+     * Configuration block for information about the user pool password policy. Detailed below.
      */
     public readonly passwordPolicy!: pulumi.Output<outputs.cognito.UserPoolPasswordPolicy>;
     /**
@@ -394,7 +394,7 @@ export interface UserPoolState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Configuration blocked for information about the user pool password policy. Detailed below.
+     * Configuration block for information about the user pool password policy. Detailed below.
      */
     passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
     /**
@@ -502,7 +502,7 @@ export interface UserPoolArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Configuration blocked for information about the user pool password policy. Detailed below.
+     * Configuration block for information about the user pool password policy. Detailed below.
      */
     passwordPolicy?: pulumi.Input<inputs.cognito.UserPoolPasswordPolicy>;
     /**

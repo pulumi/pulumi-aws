@@ -10,11 +10,14 @@ import com.pulumi.aws.ecr.inputs.GetCredentialsArgs;
 import com.pulumi.aws.ecr.inputs.GetCredentialsPlainArgs;
 import com.pulumi.aws.ecr.inputs.GetImageArgs;
 import com.pulumi.aws.ecr.inputs.GetImagePlainArgs;
+import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
+import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRulePlainArgs;
 import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
 import com.pulumi.aws.ecr.inputs.GetRepositoryPlainArgs;
 import com.pulumi.aws.ecr.outputs.GetAuthorizationTokenResult;
 import com.pulumi.aws.ecr.outputs.GetCredentialsResult;
 import com.pulumi.aws.ecr.outputs.GetImageResult;
+import com.pulumi.aws.ecr.outputs.GetPullThroughCacheRuleResult;
 import com.pulumi.aws.ecr.outputs.GetRepositoryResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -396,6 +399,154 @@ public final class EcrFunctions {
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ecr/getImage:getImage", TypeShape.of(GetImageResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
+     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPullThroughCacheRuleResult> getPullThroughCacheRule(GetPullThroughCacheRuleArgs args) {
+        return getPullThroughCacheRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
+     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPullThroughCacheRuleResult> getPullThroughCacheRulePlain(GetPullThroughCacheRulePlainArgs args) {
+        return getPullThroughCacheRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
+     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPullThroughCacheRuleResult> getPullThroughCacheRule(GetPullThroughCacheRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", TypeShape.of(GetPullThroughCacheRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var ecrPublic = EcrFunctions.getPullThroughCacheRule(GetPullThroughCacheRuleArgs.builder()
+     *             .ecrRepositoryPrefix(&#34;ecr-public&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPullThroughCacheRuleResult> getPullThroughCacheRulePlain(GetPullThroughCacheRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", TypeShape.of(GetPullThroughCacheRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.

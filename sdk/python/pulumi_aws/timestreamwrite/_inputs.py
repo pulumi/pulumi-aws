@@ -14,6 +14,8 @@ __all__ = [
     'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs',
     'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs',
     'TableRetentionPropertiesArgs',
+    'TableSchemaArgs',
+    'TableSchemaCompositePartitionKeyArgs',
 ]
 
 @pulumi.input_type
@@ -184,5 +186,82 @@ class TableRetentionPropertiesArgs:
     @memory_store_retention_period_in_hours.setter
     def memory_store_retention_period_in_hours(self, value: pulumi.Input[int]):
         pulumi.set(self, "memory_store_retention_period_in_hours", value)
+
+
+@pulumi.input_type
+class TableSchemaArgs:
+    def __init__(__self__, *,
+                 composite_partition_key: Optional[pulumi.Input['TableSchemaCompositePartitionKeyArgs']] = None):
+        """
+        :param pulumi.Input['TableSchemaCompositePartitionKeyArgs'] composite_partition_key: A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+        """
+        if composite_partition_key is not None:
+            pulumi.set(__self__, "composite_partition_key", composite_partition_key)
+
+    @property
+    @pulumi.getter(name="compositePartitionKey")
+    def composite_partition_key(self) -> Optional[pulumi.Input['TableSchemaCompositePartitionKeyArgs']]:
+        """
+        A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+        """
+        return pulumi.get(self, "composite_partition_key")
+
+    @composite_partition_key.setter
+    def composite_partition_key(self, value: Optional[pulumi.Input['TableSchemaCompositePartitionKeyArgs']]):
+        pulumi.set(self, "composite_partition_key", value)
+
+
+@pulumi.input_type
+class TableSchemaCompositePartitionKeyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 enforcement_in_record: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+        :param pulumi.Input[str] enforcement_in_record: The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+        :param pulumi.Input[str] name: The name of the attribute used for a dimension key.
+        """
+        pulumi.set(__self__, "type", type)
+        if enforcement_in_record is not None:
+            pulumi.set(__self__, "enforcement_in_record", enforcement_in_record)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="enforcementInRecord")
+    def enforcement_in_record(self) -> Optional[pulumi.Input[str]]:
+        """
+        The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+        """
+        return pulumi.get(self, "enforcement_in_record")
+
+    @enforcement_in_record.setter
+    def enforcement_in_record(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enforcement_in_record", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the attribute used for a dimension key.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 

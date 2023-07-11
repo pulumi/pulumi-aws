@@ -551,6 +551,7 @@ export interface ProviderEndpoint {
     transcribestreamingservice?: pulumi.Input<string>;
     transfer?: pulumi.Input<string>;
     translate?: pulumi.Input<string>;
+    verifiedpermissions?: pulumi.Input<string>;
     voiceid?: pulumi.Input<string>;
     vpclattice?: pulumi.Input<string>;
     waf?: pulumi.Input<string>;
@@ -1616,7 +1617,7 @@ export namespace apigateway {
         /**
          * Map of overridden stage `variables` (including new variables) for the canary deployment.
          */
-        stageVariableOverrides?: pulumi.Input<{[key: string]: any}>;
+        stageVariableOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * Whether the canary deployment uses the stage cache. Defaults to false.
          */
@@ -9323,6 +9324,10 @@ export namespace batch {
          */
         minVcpus?: pulumi.Input<number>;
         /**
+         * The Amazon EC2 placement group to associate with your compute resources.
+         */
+        placementGroup?: pulumi.Input<string>;
+        /**
          * A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
          */
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -9632,6 +9637,7 @@ export namespace budgets {
          */
         unit: pulumi.Input<string>;
     }
+
 }
 
 export namespace cfg {
@@ -9704,13 +9710,32 @@ export namespace cfg {
          */
         allSupported?: pulumi.Input<boolean>;
         /**
+         * An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `allSupported = false`. Conflicts with `resourceTypes`.
+         */
+        exclusionByResourceTypes?: pulumi.Input<pulumi.Input<inputs.cfg.RecorderRecordingGroupExclusionByResourceType>[]>;
+        /**
          * Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `allSupported = true`. Conflicts with `resourceTypes`.
          */
         includeGlobalResourceTypes?: pulumi.Input<boolean>;
         /**
+         * Recording Strategy - see below..
+         */
+        recordingStrategies?: pulumi.Input<pulumi.Input<inputs.cfg.RecorderRecordingGroupRecordingStrategy>[]>;
+        /**
          * A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
          */
         resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RecorderRecordingGroupExclusionByResourceType {
+        /**
+         * A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `allSupported` must be set to false.
+         */
+        resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RecorderRecordingGroupRecordingStrategy {
+        useOnly?: pulumi.Input<string>;
     }
 
     export interface RemediationConfigurationExecutionControls {
@@ -9820,6 +9845,35 @@ export namespace cfg {
 }
 
 export namespace chime {
+    export interface SdkvoiceGlobalSettingsVoiceConnector {
+        /**
+         * The S3 bucket that stores the Voice Connector's call detail records.
+         */
+        cdrBucket?: pulumi.Input<string>;
+    }
+
+    export interface SdkvoiceSipMediaApplicationEndpoints {
+        /**
+         * Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+         */
+        lambdaArn: pulumi.Input<string>;
+    }
+
+    export interface SdkvoiceSipRuleTargetApplication {
+        /**
+         * The AWS Region of the target application.
+         */
+        awsRegion: pulumi.Input<string>;
+        /**
+         * Priority of the SIP media application in the target list.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The SIP media application ID.
+         */
+        sipMediaApplicationId: pulumi.Input<string>;
+    }
+
     export interface SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration {
         /**
          * ARN for KMS Key.
@@ -10165,6 +10219,22 @@ export namespace chimesdkmediapipelines {
     }
 }
 
+export namespace cleanrooms {
+    export interface CollaborationDataEncryptionMetadata {
+        allowClearText: pulumi.Input<boolean>;
+        allowDuplicates: pulumi.Input<boolean>;
+        allowJoinsOnColumnsWithDifferentNames: pulumi.Input<boolean>;
+        preserveNulls: pulumi.Input<boolean>;
+    }
+
+    export interface CollaborationMember {
+        accountId: pulumi.Input<string>;
+        displayName: pulumi.Input<string>;
+        memberAbilities: pulumi.Input<pulumi.Input<string>[]>;
+        status?: pulumi.Input<string>;
+    }
+}
+
 export namespace cloudformation {
     export interface CloudFormationTypeLoggingConfig {
         /**
@@ -10260,30 +10330,30 @@ export namespace cloudformation {
 export namespace cloudfront {
     export interface CachePolicyParametersInCacheKeyAndForwardedToOrigin {
         /**
-         * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+         * Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
          */
         cookiesConfig: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig>;
         /**
-         * A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+         * Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
          */
         enableAcceptEncodingBrotli?: pulumi.Input<boolean>;
         /**
-         * A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+         * Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
          */
         enableAcceptEncodingGzip?: pulumi.Input<boolean>;
         /**
-         * Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+         * Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
          */
         headersConfig: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig>;
         /**
-         * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+         * Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
          */
         queryStringsConfig: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig>;
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
         /**
-         * Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+         * Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookieBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
          */
         cookieBehavior: pulumi.Input<string>;
         /**
@@ -10298,11 +10368,11 @@ export namespace cloudfront {
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
         /**
-         * Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+         * Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `headerBehavior` are `none` and `whitelist`.
          */
         headerBehavior?: pulumi.Input<string>;
         /**
-         * Object that contains a list of header names. See Items for more information.
+         * Object contains a list of header names. See Items for more information.
          */
         headers?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders>;
     }
@@ -10313,11 +10383,11 @@ export namespace cloudfront {
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
         /**
-         * Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+         * Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `queryStringBehavior` are `none`, `whitelist`, `allExcept`, and `all`.
          */
         queryStringBehavior: pulumi.Input<string>;
         /**
-         * Object that contains a list of query string names. See Items for more information.
+         * Configuration parameter that contains a list of query string names. See Items for more information.
          */
         queryStrings?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings>;
     }
@@ -12022,6 +12092,17 @@ export namespace cloudwatch {
     export interface GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs {
     }
 
+    export interface InternetMonitorHealthEventsConfig {
+        /**
+         * The health event threshold percentage set for availability scores.
+         */
+        availabilityScoreThreshold?: pulumi.Input<number>;
+        /**
+         * The health event threshold percentage set for performance scores.
+         */
+        performanceScoreThreshold?: pulumi.Input<number>;
+    }
+
     export interface InternetMonitorInternetMeasurementsLogDelivery {
         s3Config?: pulumi.Input<inputs.cloudwatch.InternetMonitorInternetMeasurementsLogDeliveryS3Config>;
     }
@@ -12292,7 +12373,7 @@ export namespace codebuild {
          */
         environmentVariables?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectEnvironmentEnvironmentVariable>[]>;
         /**
-         * Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `nginx/nginx:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+         * Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
          */
         image: pulumi.Input<string>;
         /**
@@ -13321,38 +13402,38 @@ export namespace cognito {
 
     export interface ManagedUserPoolClientAnalyticsConfiguration {
         /**
-         * Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+         * Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
          */
         applicationArn?: pulumi.Input<string>;
         /**
-         * Application ID for an Amazon Pinpoint application.
+         * Unique identifier for an Amazon Pinpoint application.
          */
         applicationId?: pulumi.Input<string>;
         /**
-         * ID for the Analytics Configuration. Conflicts with `applicationArn`.
+         * ID for the Analytics Configuration and conflicts with `applicationArn`.
          */
         externalId?: pulumi.Input<string>;
         /**
-         * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+         * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
          */
         roleArn?: pulumi.Input<string>;
         /**
-         * If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+         * If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
          */
         userDataShared?: pulumi.Input<boolean>;
     }
 
     export interface ManagedUserPoolClientTokenValidityUnits {
         /**
-         * Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
+         * Time unit for the value in `accessTokenValidity` and defaults to `hours`.
          */
         accessToken?: pulumi.Input<string>;
         /**
-         * Time unit in for the value in `idTokenValidity`, defaults to `hours`.
+         * Time unit for the value in `idTokenValidity`, and it defaults to `hours`.
          */
         idToken?: pulumi.Input<string>;
         /**
-         * Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
+         * Time unit for the value in `refreshTokenValidity` and defaults to `days`.
          */
         refreshToken?: pulumi.Input<string>;
     }
@@ -13624,7 +13705,7 @@ export namespace cognito {
          */
         configurationSet?: pulumi.Input<string>;
         /**
-         * Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+         * Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `fromEmailAddress` is set.
          */
         emailSendingAccount?: pulumi.Input<string>;
         /**
@@ -15915,6 +15996,10 @@ export namespace datasync {
          */
         mtime?: pulumi.Input<string>;
         /**
+         * Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+         */
+        objectTags?: pulumi.Input<string>;
+        /**
          * Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
          */
         overwriteMode?: pulumi.Input<string>;
@@ -15931,7 +16016,7 @@ export namespace datasync {
          */
         preserveDevices?: pulumi.Input<string>;
         /**
-         * Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+         * Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
          */
         securityDescriptorCopyFlags?: pulumi.Input<string>;
         /**
@@ -19205,6 +19290,36 @@ export namespace ec2 {
         virtualName?: pulumi.Input<string>;
     }
 
+    export interface InstanceInstanceMarketOptions {
+        /**
+         * Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+         */
+        marketType?: pulumi.Input<string>;
+        /**
+         * Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+         */
+        spotOptions?: pulumi.Input<inputs.ec2.InstanceInstanceMarketOptionsSpotOptions>;
+    }
+
+    export interface InstanceInstanceMarketOptionsSpotOptions {
+        /**
+         * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+         */
+        instanceInterruptionBehavior?: pulumi.Input<string>;
+        /**
+         * The maximum hourly price that you're willing to pay for a Spot Instance.
+         */
+        maxPrice?: pulumi.Input<string>;
+        /**
+         * The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+         */
+        spotInstanceType?: pulumi.Input<string>;
+        /**
+         * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+         */
+        validUntil?: pulumi.Input<string>;
+    }
+
     export interface InstanceLaunchTemplate {
         /**
          * ID of the launch template. Conflicts with `name`.
@@ -20932,16 +21047,14 @@ export namespace ec2 {
 
     export interface PeeringConnectionOptionsAccepter {
         /**
-         * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC.
+         * Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
     }
 
     export interface PeeringConnectionOptionsRequester {
         /**
-         * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC.
+         * Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
     }
@@ -21042,6 +21155,8 @@ export namespace ec2 {
          * End range port (or ICMP code if protocol is `icmp`).
          *
          * The following arguments are optional:
+         *
+         * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `securityGroups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
          */
         toPort: pulumi.Input<number>;
     }
@@ -21071,6 +21186,8 @@ export namespace ec2 {
          * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `fromPort` and `toPort` equal to 0.  The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
          *
          * The following arguments are optional:
+         *
+         * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `securityGroups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
          */
         protocol: pulumi.Input<string>;
         /**
@@ -21735,6 +21852,10 @@ export namespace ec2 {
          * The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
          */
         dnsRecordIpType?: pulumi.Input<string>;
+        /**
+         * Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `privateDnsEnabled` is `true`.
+         */
+        privateDnsOnlyForInboundResolverEndpoint?: pulumi.Input<boolean>;
     }
 
     export interface VpcEndpointServicePrivateDnsNameConfiguration {
@@ -22303,6 +22424,11 @@ export namespace ec2transitgateway {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface InstanceConnectEndpointTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
     }
 }
 
@@ -25193,7 +25319,7 @@ export namespace emr {
         /**
          * Map of properties specified within a configuration classification.
          */
-        properties?: pulumi.Input<{[key: string]: any}>;
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig {
@@ -25235,7 +25361,7 @@ export namespace emr {
 
     export interface ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification {
         /**
-         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
          */
         allocationStrategy: pulumi.Input<string>;
         /**
@@ -25434,7 +25560,7 @@ export namespace emr {
         /**
          * Map of properties specified within a configuration classification.
          */
-        properties?: pulumi.Input<{[key: string]: any}>;
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig {
@@ -25476,7 +25602,7 @@ export namespace emr {
 
     export interface ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification {
         /**
-         * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
+         * Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
          */
         allocationStrategy: pulumi.Input<string>;
         /**
@@ -25645,7 +25771,7 @@ export namespace emr {
         /**
          * A map of properties specified within a configuration classification
          */
-        properties?: pulumi.Input<{[key: string]: any}>;
+        properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface InstanceFleetInstanceTypeConfigEbsConfig {
@@ -26169,6 +26295,161 @@ export namespace evidently {
     }
 }
 
+export namespace finspace {
+    export interface KxClusterAutoScalingConfiguration {
+        /**
+         * Metric your cluster will track in order to scale in and out. For example, CPU_UTILIZATION_PERCENTAGE is the average CPU usage across all nodes in a cluster.
+         */
+        autoScalingMetric: pulumi.Input<string>;
+        /**
+         * Highest number of nodes to scale. Cannot be greater than 5
+         */
+        maxNodeCount: pulumi.Input<number>;
+        /**
+         * Desired value of chosen `autoScalingMetric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
+         */
+        metricTarget: pulumi.Input<number>;
+        /**
+         * Lowest number of nodes to scale. Must be at least 1 and less than the `maxNodeCount`. If nodes in cluster belong to multiple availability zones, then `minNodeCount` must be at least 3.
+         */
+        minNodeCount: pulumi.Input<number>;
+        /**
+         * Duration in seconds that FinSpace will wait after a scale in event before initiating another scaling event.
+         */
+        scaleInCooldownSeconds: pulumi.Input<number>;
+        /**
+         * Duration in seconds that FinSpace will wait after a scale out event before initiating another scaling event.
+         */
+        scaleOutCooldownSeconds: pulumi.Input<number>;
+    }
+
+    export interface KxClusterCacheStorageConfiguration {
+        /**
+         * Size of cache in Gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Type of KDB database. The following types are available:
+         * * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
+         * * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
+         * * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface KxClusterCapacityConfiguration {
+        /**
+         * Number of instances running in a cluster. Must be at least 1 and at most 5.
+         */
+        nodeCount: pulumi.Input<number>;
+        /**
+         * Determines the hardware of the host computer used for your cluster instance. Each node type offers different memory and storage capabilities. Choose a node type based on the requirements of the application or software that you plan to run on your instance.
+         *
+         * You can only specify one of the following values:
+         * * kx.s.large – The node type with a configuration of 12 GiB memory and 2 vCPUs.
+         * * kx.s.xlarge – The node type with a configuration of 27 GiB memory and 4 vCPUs.
+         * * kx.s.2xlarge – The node type with a configuration of 54 GiB memory and 8 vCPUs.
+         * * kx.s.4xlarge – The node type with a configuration of 108 GiB memory and 16 vCPUs.
+         * * kx.s.8xlarge – The node type with a configuration of 216 GiB memory and 32 vCPUs.
+         * * kx.s.16xlarge – The node type with a configuration of 432 GiB memory and 64 vCPUs.
+         * * kx.s.32xlarge – The node type with a configuration of 864 GiB memory and 128 vCPUs.
+         */
+        nodeType: pulumi.Input<string>;
+    }
+
+    export interface KxClusterCode {
+        /**
+         * Unique name for the S3 bucket.
+         */
+        s3Bucket: pulumi.Input<string>;
+        /**
+         * Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
+         */
+        s3Key: pulumi.Input<string>;
+        /**
+         * Version of an S3 Object.
+         */
+        s3ObjectVersion?: pulumi.Input<string>;
+    }
+
+    export interface KxClusterDatabase {
+        /**
+         * Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+         */
+        cacheConfigurations: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterDatabaseCacheConfiguration>[]>;
+        /**
+         * A unique identifier of the changeset that is associated with the cluster.
+         */
+        changesetId?: pulumi.Input<string>;
+        /**
+         * Name of the KX database.
+         */
+        databaseName: pulumi.Input<string>;
+    }
+
+    export interface KxClusterDatabaseCacheConfiguration {
+        /**
+         * Type of disk cache.
+         */
+        cacheType: pulumi.Input<string>;
+        /**
+         * Paths within the database to cache.
+         */
+        dbPaths: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface KxClusterSavedownStorageConfiguration {
+        /**
+         * Size of temporary storage in bytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Type of writeable storage space for temporarily storing your savedown data. The valid values are:
+         * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface KxClusterVpcConfiguration {
+        /**
+         * IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
+         */
+        ipAddressType: pulumi.Input<string>;
+        /**
+         * Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
+         * * `subnetIds `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Identifier of the VPC endpoint
+         */
+        vpcId: pulumi.Input<string>;
+    }
+
+    export interface KxEnvironmentCustomDnsConfiguration {
+        /**
+         * IP address of the DNS server.
+         */
+        customDnsServerIp: pulumi.Input<string>;
+        /**
+         * Name of the DNS server.
+         */
+        customDnsServerName: pulumi.Input<string>;
+    }
+
+    export interface KxEnvironmentTransitGatewayConfiguration {
+        /**
+         * Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
+         */
+        routableCidrSpace: pulumi.Input<string>;
+        /**
+         * Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
+         */
+        transitGatewayId: pulumi.Input<string>;
+    }
+}
+
 export namespace fis {
     export interface ExperimentTemplateAction {
         /**
@@ -26212,13 +26493,46 @@ export namespace fis {
 
     export interface ExperimentTemplateActionTarget {
         /**
-         * Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets).
+         * Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Volumes` (EBS Volumes) , `Pods` (EKS Pods), `Tasks` (ECS Tasks). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
          */
         key: pulumi.Input<string>;
         /**
          * Target name, referencing a corresponding target.
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface ExperimentTemplateLogConfiguration {
+        /**
+         * The configuration for experiment logging to Amazon CloudWatch Logs. See below.
+         */
+        cloudwatchLogsConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration>;
+        /**
+         * The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
+         */
+        logSchemaVersion: pulumi.Input<number>;
+        /**
+         * The configuration for experiment logging to Amazon S3. See below.
+         */
+        s3Configuration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationS3Configuration>;
+    }
+
+    export interface ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
+         */
+        logGroupArn: pulumi.Input<string>;
+    }
+
+    export interface ExperimentTemplateLogConfigurationS3Configuration {
+        /**
+         * The name of the destination bucket.
+         */
+        bucketName: pulumi.Input<string>;
+        /**
+         * The bucket prefix.
+         */
+        prefix?: pulumi.Input<string>;
     }
 
     export interface ExperimentTemplateStopCondition {
@@ -26242,13 +26556,17 @@ export namespace fis {
          */
         name: pulumi.Input<string>;
         /**
+         * The resource type parameters.
+         *
+         * > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
          * Set of ARNs of the resources to target with an action. Conflicts with `resourceTag`.
          */
         resourceArns?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resourceArns`. See below.
-         *
-         * > **NOTE:** The `target` configuration block requires either `resourceArns` or `resourceTag`.
          */
         resourceTags?: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateTargetResourceTag>[]>;
         /**
@@ -26608,6 +26926,9 @@ export namespace fsx {
     }
 
     export interface OntapVolumeTieringPolicy {
+        /**
+         * Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+         */
         coolingPeriod?: pulumi.Input<number>;
         /**
          * Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
@@ -27125,6 +27446,10 @@ export namespace glue {
          * Name of the catalog database.
          */
         databaseName: pulumi.Input<string>;
+        /**
+         * Region of the target database.
+         */
+        region?: pulumi.Input<string>;
     }
 
     export interface CatalogTablePartitionIndex {
@@ -27458,6 +27783,25 @@ export namespace glue {
         scanRate?: pulumi.Input<number>;
     }
 
+    export interface CrawlerIcebergTarget {
+        /**
+         * The name of the connection to use to connect to the Iceberg target.
+         */
+        connectionName?: pulumi.Input<string>;
+        /**
+         * A list of glob patterns used to exclude from the crawl.
+         */
+        exclusions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+         */
+        maximumTraversalDepth: pulumi.Input<number>;
+        /**
+         * One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+         */
+        paths: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface CrawlerJdbcTarget {
         /**
          * The name of the connection to use to connect to the JDBC target.
@@ -27490,7 +27834,7 @@ export namespace glue {
 
     export interface CrawlerLineageConfiguration {
         /**
-         * Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
+         * Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
          */
         crawlerLineageSettings?: pulumi.Input<string>;
     }
@@ -27593,6 +27937,10 @@ export namespace glue {
     }
 
     export interface DataQualityRulesetTargetTable {
+        /**
+         * The catalog id where the AWS Glue table exists.
+         */
+        catalogId?: pulumi.Input<string>;
         /**
          * Name of the database where the AWS Glue table exists.
          */
@@ -28381,6 +28729,44 @@ export namespace iam {
          * Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface GetPrincipalPolicySimulationContext {
+        /**
+         * The context _condition key_ to set.
+         *
+         * If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+         */
+        key: string;
+        /**
+         * An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
+         *
+         * For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+         */
+        type: string;
+        /**
+         * A set of one or more values for this context entry.
+         */
+        values: string[];
+    }
+
+    export interface GetPrincipalPolicySimulationContextArgs {
+        /**
+         * The context _condition key_ to set.
+         *
+         * If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
+         *
+         * For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * A set of one or more values for this context entry.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface RoleInlinePolicy {
@@ -30899,11 +31285,11 @@ export namespace kendra {
 
     export interface QuerySuggestionsBlockListSourceS3Path {
         /**
-         * The name of the S3 bucket that contains the file.
+         * Name of the S3 bucket that contains the file.
          */
         bucket: pulumi.Input<string>;
         /**
-         * The name of the file.
+         * Name of the file.
          *
          * The following arguments are optional:
          */
@@ -30938,6 +31324,13 @@ export namespace keyspaces {
          * The throughput capacity specified for write operations defined in write capacity units (WCUs).
          */
         writeCapacityUnits?: pulumi.Input<number>;
+    }
+
+    export interface TableClientSideTimestamps {
+        /**
+         * Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
+         */
+        status: pulumi.Input<string>;
     }
 
     export interface TableComment {
@@ -38836,7 +39229,11 @@ export namespace networkfirewall {
         /**
          * Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
          */
-        ruleOrder: pulumi.Input<string>;
+        ruleOrder?: pulumi.Input<string>;
+        /**
+         * Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+         */
+        streamExceptionPolicy?: pulumi.Input<string>;
     }
 
     export interface FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
@@ -40104,6 +40501,44 @@ export namespace opensearch {
         minutes?: pulumi.Input<number>;
     }
 
+    export interface GetServerlessSecurityConfigSamlOptions {
+        /**
+         * Group attribute for this SAML integration.
+         */
+        groupAttribute?: string;
+        /**
+         * The XML IdP metadata file generated from your identity provider.
+         */
+        metadata?: string;
+        /**
+         * Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+         */
+        sessionTimeout?: number;
+        /**
+         * User attribute for this SAML integration.
+         */
+        userAttribute?: string;
+    }
+
+    export interface GetServerlessSecurityConfigSamlOptionsArgs {
+        /**
+         * Group attribute for this SAML integration.
+         */
+        groupAttribute?: pulumi.Input<string>;
+        /**
+         * The XML IdP metadata file generated from your identity provider.
+         */
+        metadata?: pulumi.Input<string>;
+        /**
+         * Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+         */
+        sessionTimeout?: pulumi.Input<number>;
+        /**
+         * User attribute for this SAML integration.
+         */
+        userAttribute?: pulumi.Input<string>;
+    }
+
     export interface OutboundConnectionLocalDomainInfo {
         /**
          * The name of the local domain.
@@ -40132,6 +40567,36 @@ export namespace opensearch {
          * The region of the remote domain.
          */
         region: pulumi.Input<string>;
+    }
+
+    export interface ServerlessCollectionTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+    }
+
+    export interface ServerlessSecurityConfigSamlOptions {
+        /**
+         * Group attribute for this SAML integration.
+         */
+        groupAttribute?: pulumi.Input<string>;
+        /**
+         * The XML IdP metadata file generated from your identity provider.
+         */
+        metadata: pulumi.Input<string>;
+        /**
+         * Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
+         */
+        sessionTimeout?: pulumi.Input<number>;
+        /**
+         * User attribute for this SAML integration.
+         */
+        userAttribute?: pulumi.Input<string>;
+    }
+
+    export interface ServerlessVpcEndpointTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+        update?: pulumi.Input<string>;
     }
 }
 
@@ -41277,11 +41742,133 @@ export namespace pinpoint {
 }
 
 export namespace pipes {
+    export interface PipeEnrichmentParameters {
+        /**
+         * Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+         */
+        httpParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParametersHttpParameters>;
+        /**
+         * Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
+         */
+        inputTemplate?: pulumi.Input<string>;
+    }
+
+    export interface PipeEnrichmentParametersHttpParameters {
+        /**
+         * Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
+         */
+        headerParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
+         */
+        pathParameterValues?: pulumi.Input<string>;
+        /**
+         * Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
+         */
+        queryStringParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
     export interface PipeSourceParameters {
         /**
-         * The collection of event patterns used to filter events. Detailed below.
+         * The parameters for using an Active MQ broker as a source. Detailed below.
+         */
+        activemqBrokerParameters?: pulumi.Input<inputs.pipes.PipeSourceParametersActivemqBrokerParameters>;
+        /**
+         * The parameters for using a DynamoDB stream as a source.  Detailed below.
+         */
+        dynamodbStreamParameters?: pulumi.Input<inputs.pipes.PipeSourceParametersDynamodbStreamParameters>;
+        /**
+         * The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
          */
         filterCriteria?: pulumi.Input<inputs.pipes.PipeSourceParametersFilterCriteria>;
+        /**
+         * The parameters for using a Kinesis stream as a source. Detailed below.
+         */
+        kinesisStreamParameters?: pulumi.Input<inputs.pipes.PipeSourceParametersKinesisStreamParameters>;
+        /**
+         * The parameters for using an MSK stream as a source. Detailed below.
+         */
+        managedStreamingKafkaParameters?: pulumi.Input<inputs.pipes.PipeSourceParametersManagedStreamingKafkaParameters>;
+        /**
+         * The parameters for using a Rabbit MQ broker as a source. Detailed below.
+         */
+        rabbitmqBrokerParameters?: pulumi.Input<inputs.pipes.PipeSourceParametersRabbitmqBrokerParameters>;
+        /**
+         * The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+         */
+        selfManagedKafkaParameters?: pulumi.Input<inputs.pipes.PipeSourceParametersSelfManagedKafkaParameters>;
+        /**
+         * The parameters for using a Amazon SQS stream as a source. Detailed below.
+         */
+        sqsQueueParameters?: pulumi.Input<inputs.pipes.PipeSourceParametersSqsQueueParameters>;
+    }
+
+    export interface PipeSourceParametersActivemqBrokerParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
+        batchSize?: pulumi.Input<number>;
+        /**
+         * The credentials needed to access the resource. Detailed below.
+         */
+        credentials: pulumi.Input<inputs.pipes.PipeSourceParametersActivemqBrokerParametersCredentials>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * The name of the destination queue to consume. Maximum length of 1000.
+         */
+        queueName: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceParametersActivemqBrokerParametersCredentials {
+        /**
+         * The ARN of the Secrets Manager secret containing the basic auth credentials.
+         */
+        basicAuth: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceParametersDynamodbStreamParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
+        batchSize?: pulumi.Input<number>;
+        /**
+         * Define the target queue to send dead-letter queue events to. Detailed below.
+         */
+        deadLetterConfig?: pulumi.Input<inputs.pipes.PipeSourceParametersDynamodbStreamParametersDeadLetterConfig>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
+         */
+        maximumRecordAgeInSeconds?: pulumi.Input<number>;
+        /**
+         * Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
+         */
+        maximumRetryAttempts?: pulumi.Input<number>;
+        /**
+         * Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
+         */
+        onPartialBatchItemFailure?: pulumi.Input<string>;
+        /**
+         * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+         */
+        parallelizationFactor?: pulumi.Input<number>;
+        /**
+         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         */
+        startingPosition: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceParametersDynamodbStreamParametersDeadLetterConfig {
+        /**
+         * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+         */
+        arn?: pulumi.Input<string>;
     }
 
     export interface PipeSourceParametersFilterCriteria {
@@ -41298,11 +41885,711 @@ export namespace pipes {
         pattern: pulumi.Input<string>;
     }
 
+    export interface PipeSourceParametersKinesisStreamParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
+        batchSize?: pulumi.Input<number>;
+        /**
+         * Define the target queue to send dead-letter queue events to. Detailed below.
+         */
+        deadLetterConfig?: pulumi.Input<inputs.pipes.PipeSourceParametersKinesisStreamParametersDeadLetterConfig>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
+         */
+        maximumRecordAgeInSeconds?: pulumi.Input<number>;
+        /**
+         * Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
+         */
+        maximumRetryAttempts?: pulumi.Input<number>;
+        /**
+         * Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
+         */
+        onPartialBatchItemFailure?: pulumi.Input<string>;
+        /**
+         * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+         */
+        parallelizationFactor?: pulumi.Input<number>;
+        /**
+         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         */
+        startingPosition: pulumi.Input<string>;
+        /**
+         * With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
+         */
+        startingPositionTimestamp?: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceParametersKinesisStreamParametersDeadLetterConfig {
+        /**
+         * The ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
+         */
+        arn?: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceParametersManagedStreamingKafkaParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
+        batchSize?: pulumi.Input<number>;
+        /**
+         * The name of the destination queue to consume. Maximum value of 200.
+         */
+        consumerGroupId?: pulumi.Input<string>;
+        /**
+         * The credentials needed to access the resource. Detailed below.
+         */
+        credentials?: pulumi.Input<inputs.pipes.PipeSourceParametersManagedStreamingKafkaParametersCredentials>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         */
+        startingPosition?: pulumi.Input<string>;
+        /**
+         * The name of the topic that the pipe will read from. Maximum length of 249.
+         */
+        topicName: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceParametersManagedStreamingKafkaParametersCredentials {
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
+        clientCertificateTlsAuth?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
+        saslScram512Auth?: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceParametersRabbitmqBrokerParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
+        batchSize?: pulumi.Input<number>;
+        /**
+         * The credentials needed to access the resource. Detailed below.
+         */
+        credentials: pulumi.Input<inputs.pipes.PipeSourceParametersRabbitmqBrokerParametersCredentials>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * The name of the destination queue to consume. Maximum length of 1000.
+         */
+        queueName: pulumi.Input<string>;
+        /**
+         * The name of the virtual host associated with the source broker. Maximum length of 200.
+         */
+        virtualHost?: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceParametersRabbitmqBrokerParametersCredentials {
+        /**
+         * The ARN of the Secrets Manager secret containing the basic auth credentials.
+         */
+        basicAuth: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceParametersSelfManagedKafkaParameters {
+        /**
+         * An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+         */
+        additionalBootstrapServers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
+        batchSize?: pulumi.Input<number>;
+        /**
+         * The name of the destination queue to consume. Maximum value of 200.
+         */
+        consumerGroupId?: pulumi.Input<string>;
+        /**
+         * The credentials needed to access the resource. Detailed below.
+         */
+        credentials?: pulumi.Input<inputs.pipes.PipeSourceParametersSelfManagedKafkaParametersCredentials>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * The ARN of the Secrets Manager secret used for certification.
+         */
+        serverRootCaCertificate?: pulumi.Input<string>;
+        /**
+         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         */
+        startingPosition?: pulumi.Input<string>;
+        /**
+         * The name of the topic that the pipe will read from. Maximum length of 249.
+         */
+        topicName: pulumi.Input<string>;
+        /**
+         * This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+         */
+        vpc?: pulumi.Input<inputs.pipes.PipeSourceParametersSelfManagedKafkaParametersVpc>;
+    }
+
+    export interface PipeSourceParametersSelfManagedKafkaParametersCredentials {
+        /**
+         * The ARN of the Secrets Manager secret containing the basic auth credentials.
+         */
+        basicAuth: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
+        clientCertificateTlsAuth?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
+        saslScram256Auth?: pulumi.Input<string>;
+        /**
+         * The ARN of the Secrets Manager secret containing the credentials.
+         */
+        saslScram512Auth?: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceParametersSelfManagedKafkaParametersVpc {
+        /**
+         * List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+         */
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+         */
+        subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PipeSourceParametersSqsQueueParameters {
+        /**
+         * The maximum number of records to include in each batch. Maximum value of 10000.
+         */
+        batchSize?: pulumi.Input<number>;
+        /**
+         * The maximum length of a time to wait for events. Maximum value of 300.
+         */
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+    }
+
     export interface PipeTargetParameters {
         /**
-         * Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target.
+         * The parameters for using an AWS Batch job as a target. Detailed below.
+         */
+        batchJobParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParameters>;
+        /**
+         * The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+         */
+        cloudwatchLogsParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersCloudwatchLogsParameters>;
+        /**
+         * The parameters for using an Amazon ECS task as a target. Detailed below.
+         */
+        ecsTaskParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParameters>;
+        /**
+         * The parameters for using an EventBridge event bus as a target. Detailed below.
+         */
+        eventbridgeEventBusParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersEventbridgeEventBusParameters>;
+        /**
+         * These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+         */
+        httpParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersHttpParameters>;
+        /**
+         * Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
          */
         inputTemplate?: pulumi.Input<string>;
+        /**
+         * The parameters for using a Kinesis stream as a source. Detailed below.
+         */
+        kinesisStreamParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersKinesisStreamParameters>;
+        /**
+         * The parameters for using a Lambda function as a target. Detailed below.
+         */
+        lambdaFunctionParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersLambdaFunctionParameters>;
+        /**
+         * These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+         */
+        redshiftDataParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersRedshiftDataParameters>;
+        /**
+         * The parameters for using a SageMaker pipeline as a target. Detailed below.
+         */
+        sagemakerPipelineParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersSagemakerPipelineParameters>;
+        /**
+         * The parameters for using a Amazon SQS stream as a target. Detailed below.
+         */
+        sqsQueueParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersSqsQueueParameters>;
+        /**
+         * The parameters for using a Step Functions state machine as a target. Detailed below.
+         */
+        stepFunctionStateMachineParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersStepFunctionStateMachineParameters>;
+    }
+
+    export interface PipeTargetParametersBatchJobParameters {
+        /**
+         * The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+         */
+        arrayProperties?: pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersArrayProperties>;
+        /**
+         * The overrides that are sent to a container. Detailed below.
+         */
+        containerOverrides?: pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersContainerOverrides>;
+        /**
+         * A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+         */
+        dependsOns?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersDependsOn>[]>;
+        /**
+         * The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+         */
+        jobDefinition: pulumi.Input<string>;
+        /**
+         * The name of the job. It can be up to 128 letters long.
+         */
+        jobName: pulumi.Input<string>;
+        /**
+         * Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+         */
+        retryStrategy?: pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersRetryStrategy>;
+    }
+
+    export interface PipeTargetParametersBatchJobParametersArrayProperties {
+        /**
+         * The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+         */
+        size?: pulumi.Input<number>;
+    }
+
+    export interface PipeTargetParametersBatchJobParametersContainerOverrides {
+        /**
+         * List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+         */
+        commands?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+         */
+        environments?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersContainerOverridesEnvironment>[]>;
+        /**
+         * The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+         */
+        resourceRequirements?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement>[]>;
+    }
+
+    export interface PipeTargetParametersBatchJobParametersContainerOverridesEnvironment {
+        /**
+         * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement {
+        /**
+         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersBatchJobParametersDependsOn {
+        /**
+         * The job ID of the AWS Batch job that's associated with this dependency.
+         */
+        jobId?: pulumi.Input<string>;
+        /**
+         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersBatchJobParametersRetryStrategy {
+        /**
+         * The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
+         */
+        attempts?: pulumi.Input<number>;
+    }
+
+    export interface PipeTargetParametersCloudwatchLogsParameters {
+        /**
+         * The name of the log stream.
+         */
+        logStreamName?: pulumi.Input<string>;
+        /**
+         * The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
+         */
+        timestamp?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParameters {
+        /**
+         * List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+         */
+        capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersCapacityProviderStrategy>[]>;
+        /**
+         * Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
+         */
+        enableEcsManagedTags?: pulumi.Input<boolean>;
+        /**
+         * Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
+         */
+        enableExecuteCommand?: pulumi.Input<boolean>;
+        /**
+         * Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+         */
+        group?: pulumi.Input<string>;
+        /**
+         * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
+         */
+        launchType?: pulumi.Input<string>;
+        /**
+         * Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
+         */
+        networkConfiguration?: pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersNetworkConfiguration>;
+        /**
+         * The overrides that are associated with a task. Detailed below.
+         */
+        overrides?: pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverrides>;
+        /**
+         * An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+         */
+        placementConstraints?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersPlacementConstraint>[]>;
+        /**
+         * The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+         */
+        placementStrategies?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersPlacementStrategy>[]>;
+        /**
+         * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
+         */
+        platformVersion?: pulumi.Input<string>;
+        /**
+         * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
+         */
+        propagateTags?: pulumi.Input<string>;
+        /**
+         * The reference ID to use for the task. Maximum length of 1,024.
+         */
+        referenceId?: pulumi.Input<string>;
+        /**
+         * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The number of tasks to create based on TaskDefinition. The default is 1.
+         */
+        taskCount?: pulumi.Input<number>;
+        /**
+         * The ARN of the task definition to use if the event target is an Amazon ECS task.
+         */
+        taskDefinitionArn: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersCapacityProviderStrategy {
+        /**
+         * The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
+         */
+        base?: pulumi.Input<number>;
+        /**
+         * The short name of the capacity provider. Maximum value of 255.
+         */
+        capacityProvider: pulumi.Input<string>;
+        /**
+         * The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
+         */
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersNetworkConfiguration {
+        /**
+         * Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+         */
+        awsVpcConfiguration?: pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration {
+        /**
+         * Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+         */
+        assignPublicIp?: pulumi.Input<string>;
+        /**
+         * List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+         */
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+         */
+        subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersOverrides {
+        /**
+         * One or more container overrides that are sent to a task. Detailed below.
+         */
+        containerOverrides?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverride>[]>;
+        /**
+         * The cpu override for the task.
+         */
+        cpu?: pulumi.Input<string>;
+        /**
+         * The ephemeral storage setting override for the task.  Detailed below.
+         */
+        ephemeralStorage?: pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage>;
+        /**
+         * The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+         */
+        executionRoleArn?: pulumi.Input<string>;
+        /**
+         * List of Elastic Inference accelerator overrides for the task. Detailed below.
+         */
+        inferenceAcceleratorOverrides?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride>[]>;
+        /**
+         * The memory override for the task.
+         */
+        memory?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+         */
+        taskRoleArn?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverride {
+        /**
+         * List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+         */
+        commands?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The cpu override for the task.
+         */
+        cpu?: pulumi.Input<number>;
+        /**
+         * A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+         */
+        environmentFiles?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile>[]>;
+        /**
+         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. Detailed below.
+         */
+        environments?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment>[]>;
+        /**
+         * The memory override for the task.
+         */
+        memory?: pulumi.Input<number>;
+        /**
+         * The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+         */
+        memoryReservation?: pulumi.Input<number>;
+        /**
+         * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. Detailed below.
+         */
+        resourceRequirements?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement>[]>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment {
+        /**
+         * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile {
+        /**
+         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement {
+        /**
+         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage {
+        /**
+         * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
+         */
+        sizeInGib: pulumi.Input<number>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride {
+        /**
+         * The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+         */
+        deviceName?: pulumi.Input<string>;
+        /**
+         * The Elastic Inference accelerator type to use.
+         */
+        deviceType?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersPlacementConstraint {
+        /**
+         * A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
+         */
+        expression?: pulumi.Input<string>;
+        /**
+         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersEcsTaskParametersPlacementStrategy {
+        /**
+         * The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
+         */
+        field?: pulumi.Input<string>;
+        /**
+         * The type of resource to assign to a container. The supported resources include GPU, MEMORY, and VCPU.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersEventbridgeEventBusParameters {
+        /**
+         * A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+         */
+        detailType?: pulumi.Input<string>;
+        /**
+         * The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+         */
+        endpointId?: pulumi.Input<string>;
+        /**
+         * List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+         */
+        resources?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Source resource of the pipe (typically an ARN).
+         */
+        source?: pulumi.Input<string>;
+        /**
+         * The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+         */
+        time?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersHttpParameters {
+        /**
+         * Key-value mapping of the headers that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
+         */
+        headerParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The path parameter values to be used to populate API Gateway REST API or EventBridge ApiDestination path wildcards ("*").
+         */
+        pathParameterValues?: pulumi.Input<string>;
+        /**
+         * Key-value mapping of the query strings that need to be sent as part of request invoking the API Gateway REST API or EventBridge ApiDestination.
+         */
+        queryStringParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface PipeTargetParametersKinesisStreamParameters {
+        /**
+         * Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+         */
+        partitionKey: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersLambdaFunctionParameters {
+        /**
+         * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+         */
+        invocationType: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersRedshiftDataParameters {
+        /**
+         * The name of the database. Required when authenticating using temporary credentials.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The database user name. Required when authenticating using temporary credentials.
+         */
+        dbUser?: pulumi.Input<string>;
+        /**
+         * The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+         */
+        secretManagerArn?: pulumi.Input<string>;
+        /**
+         * List of SQL statements text to run, each of maximum length of 100,000.
+         */
+        sqls: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+         */
+        statementName?: pulumi.Input<string>;
+        /**
+         * Indicates whether to send an event back to EventBridge after the SQL statement runs.
+         */
+        withEvent?: pulumi.Input<boolean>;
+    }
+
+    export interface PipeTargetParametersSagemakerPipelineParameters {
+        /**
+         * List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+         */
+        pipelineParameters?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTargetParametersSagemakerPipelineParametersPipelineParameter>[]>;
+    }
+
+    export interface PipeTargetParametersSagemakerPipelineParametersPipelineParameter {
+        /**
+         * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the key-value pair. For environment variables, this is the value of the environment variable.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersSqsQueueParameters {
+        /**
+         * This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+         */
+        messageDeduplicationId?: pulumi.Input<string>;
+        /**
+         * The FIFO message group ID to use as the target.
+         */
+        messageGroupId?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetParametersStepFunctionStateMachineParameters {
+        /**
+         * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+         */
+        invocationType: pulumi.Input<string>;
     }
 }
 
@@ -42605,6 +43892,9 @@ export namespace quicksight {
          * The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
          */
         refreshOnDay?: pulumi.Input<inputs.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay>;
+        /**
+         * The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+         */
         timeOfTheDay?: pulumi.Input<string>;
         /**
          * The timezone that you want the refresh schedule to use.
@@ -42672,6 +43962,182 @@ export namespace quicksight {
          * The Amazon Resource Name (ARN) of the resource.
          */
         arn: pulumi.Input<string>;
+    }
+
+    export interface ThemeConfiguration {
+        /**
+         * Color properties that apply to chart data colors. See data_color_palette.
+         */
+        dataColorPalette?: pulumi.Input<inputs.quicksight.ThemeConfigurationDataColorPalette>;
+        /**
+         * Display options related to sheets. See sheet.
+         */
+        sheet?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheet>;
+        /**
+         * Determines the typography options. See typography.
+         */
+        typography?: pulumi.Input<inputs.quicksight.ThemeConfigurationTypography>;
+        /**
+         * Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+         */
+        uiColorPalette?: pulumi.Input<inputs.quicksight.ThemeConfigurationUiColorPalette>;
+    }
+
+    export interface ThemeConfigurationDataColorPalette {
+        /**
+         * List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+         */
+        colors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+         */
+        emptyFillColor?: pulumi.Input<string>;
+        /**
+         * The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+         */
+        minMaxGradients?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ThemeConfigurationSheet {
+        /**
+         * The display options for tiles. See tile.
+         */
+        tile?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheetTile>;
+        /**
+         * The layout options for tiles. See tile_layout.
+         */
+        tileLayout?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheetTileLayout>;
+    }
+
+    export interface ThemeConfigurationSheetTile {
+        /**
+         * The border around a tile. See border.
+         */
+        border?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheetTileBorder>;
+    }
+
+    export interface ThemeConfigurationSheetTileBorder {
+        /**
+         * The option to enable display of borders for visuals.
+         */
+        show?: pulumi.Input<boolean>;
+    }
+
+    export interface ThemeConfigurationSheetTileLayout {
+        /**
+         * The gutter settings that apply between tiles. See gutter.
+         */
+        gutter?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheetTileLayoutGutter>;
+        /**
+         * The margin settings that apply around the outside edge of sheets. See margin.
+         */
+        margin?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheetTileLayoutMargin>;
+    }
+
+    export interface ThemeConfigurationSheetTileLayoutGutter {
+        /**
+         * This Boolean value controls whether to display a gutter space between sheet tiles.
+         */
+        show?: pulumi.Input<boolean>;
+    }
+
+    export interface ThemeConfigurationSheetTileLayoutMargin {
+        /**
+         * This Boolean value controls whether to display sheet margins.
+         */
+        show?: pulumi.Input<boolean>;
+    }
+
+    export interface ThemeConfigurationTypography {
+        /**
+         * Determines the list of font families. Maximum number of 5 items. See font_families.
+         */
+        fontFamilies?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeConfigurationTypographyFontFamily>[]>;
+    }
+
+    export interface ThemeConfigurationTypographyFontFamily {
+        /**
+         * Font family name.
+         */
+        fontFamily?: pulumi.Input<string>;
+    }
+
+    export interface ThemeConfigurationUiColorPalette {
+        /**
+         * Color (hexadecimal) that applies to selected states and buttons.
+         */
+        accent?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+         */
+        accentForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to error messages.
+         */
+        danger?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+         */
+        dangerForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+         */
+        dimension?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+         */
+        dimensionForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to the names of fields that are identified as measures.
+         */
+        measure?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+         */
+        measureForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to visuals and other high emphasis UI.
+         */
+        primaryBackground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+         */
+        primaryForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to the sheet background and sheet controls.
+         */
+        secondaryBackground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+         */
+        secondaryForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+         */
+        success?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+         */
+        successForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to warning and informational messages.
+         */
+        warning?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+         */
+        warningForeground?: pulumi.Input<string>;
+    }
+
+    export interface ThemePermission {
+        /**
+         * List of IAM actions to grant or revoke permissions on.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+         */
+        principal: pulumi.Input<string>;
     }
 
     export interface VpcConnectionTimeouts {
@@ -43333,7 +44799,7 @@ export namespace redshiftserverless {
 
     export interface WorkgroupConfigParameter {
         /**
-         * The key of the parameter. The options are `datestyle`, `enableUserActivityLogging`, `queryGroup`, `searchPath`, and `maxQueryExecutionTime`.
+         * The key of the parameter. The options are `autoMv`, `datestyle`, `enableCaseSensitiveIdentifier`, `enableUserActivityLogging`, `queryGroup`, `searchPath` and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `maxQueryCpuTime`, `maxQueryBlocksRead`, `maxScanRowCount`, `maxQueryExecutionTime`, `maxQueryQueueTime`, `maxQueryCpuUsagePercent`, `maxQueryTempBlocksToDisk`, `maxJoinRowCount` and `maxNestedLoopJoinRowCount`.
          */
         parameterKey: pulumi.Input<string>;
         /**
@@ -47650,7 +49116,7 @@ export namespace sagemaker {
         /**
          * The registry path where the inference code image is stored in Amazon ECR.
          */
-        image: pulumi.Input<string>;
+        image?: pulumi.Input<string>;
         /**
          * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
          */
@@ -47663,6 +49129,10 @@ export namespace sagemaker {
          * The URL for the S3 location where model artifacts are stored.
          */
         modelDataUrl?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the model package to use to create the model.
+         */
+        modelPackageName?: pulumi.Input<string>;
     }
 
     export interface ModelContainerImageConfig {
@@ -47703,7 +49173,7 @@ export namespace sagemaker {
         /**
          * The registry path where the inference code image is stored in Amazon ECR.
          */
-        image: pulumi.Input<string>;
+        image?: pulumi.Input<string>;
         /**
          * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
          */
@@ -47716,6 +49186,10 @@ export namespace sagemaker {
          * The URL for the S3 location where model artifacts are stored.
          */
         modelDataUrl?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the model package to use to create the model.
+         */
+        modelPackageName?: pulumi.Input<string>;
     }
 
     export interface ModelPrimaryContainerImageConfig {
@@ -50654,6 +52128,19 @@ export namespace sesv2 {
 }
 
 export namespace sfn {
+    export interface AliasRoutingConfiguration {
+        /**
+         * A version of the state machine.
+         */
+        stateMachineVersionArn: pulumi.Input<string>;
+        /**
+         * Percentage of traffic routed to the state machine version.
+         *
+         * The following arguments are optional:
+         */
+        weight: pulumi.Input<number>;
+    }
+
     export interface StateMachineLoggingConfiguration {
         /**
          * Determines whether execution data is included in your log. When set to `false`, data is excluded.
@@ -51555,6 +53042,28 @@ export namespace timestreamwrite {
          */
         memoryStoreRetentionPeriodInHours: pulumi.Input<number>;
     }
+
+    export interface TableSchema {
+        /**
+         * A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+         */
+        compositePartitionKey?: pulumi.Input<inputs.timestreamwrite.TableSchemaCompositePartitionKey>;
+    }
+
+    export interface TableSchemaCompositePartitionKey {
+        /**
+         * The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+         */
+        enforcementInRecord?: pulumi.Input<string>;
+        /**
+         * The name of the attribute used for a dimension key.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+         */
+        type: pulumi.Input<string>;
+    }
 }
 
 export namespace transcribe {
@@ -51601,6 +53110,41 @@ export namespace transfer {
          * The POSIX user ID used for all EFS operations by this user.
          */
         uid: pulumi.Input<number>;
+    }
+
+    export interface ConnectorAs2Config {
+        /**
+         * Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
+         */
+        compression: pulumi.Input<string>;
+        /**
+         * The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
+         */
+        encryptionAlgorithm: pulumi.Input<string>;
+        /**
+         * The unique identifier for the AS2 local profile.
+         */
+        localProfileId: pulumi.Input<string>;
+        /**
+         * Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
+         */
+        mdnResponse: pulumi.Input<string>;
+        /**
+         * The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
+         */
+        mdnSigningAlgorithm?: pulumi.Input<string>;
+        /**
+         * Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
+         */
+        messageSubject?: pulumi.Input<string>;
+        /**
+         * The unique identifier for the AS2 partner profile.
+         */
+        partnerProfileId: pulumi.Input<string>;
+        /**
+         * The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
+         */
+        signingAlgorithm: pulumi.Input<string>;
     }
 
     export interface ServerEndpointDetails {
@@ -53608,7 +55152,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatement {
         /**
-         * Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+         * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
          */
         aggregateKeyType?: pulumi.Input<string>;
         /**
@@ -53620,7 +55164,7 @@ export namespace wafv2 {
          */
         limit: pulumi.Input<number>;
         /**
-         * An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+         * An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
          */
         scopeDownStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatement>;
     }
@@ -55929,7 +57473,7 @@ export namespace wafv2 {
 
     export interface WebAclCaptchaConfig {
         /**
-         * Defines custom immunity time. See Immunity Time Property below for details.
+         * Defines custom immunity time. See `immunityTimeProperty` below for details.
          */
         immunityTimeProperty?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfigImmunityTimeProperty>;
     }
@@ -56027,7 +57571,7 @@ export namespace wafv2 {
 
     export interface WebAclLoggingConfigurationLoggingFilter {
         /**
-         * Default handling for logs that don't match any of the specified filtering conditions. Valid values: `KEEP` or `DROP`.
+         * Default handling for logs that don't match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
          */
         defaultBehavior: pulumi.Input<string>;
         /**
@@ -56038,7 +57582,7 @@ export namespace wafv2 {
 
     export interface WebAclLoggingConfigurationLoggingFilterFilter {
         /**
-         * How to handle logs that satisfy the filter's conditions and requirement. Valid values: `KEEP` or `DROP`.
+         * Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
          */
         behavior: pulumi.Input<string>;
         /**
@@ -56046,51 +57590,51 @@ export namespace wafv2 {
          */
         conditions: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilterFilterCondition>[]>;
         /**
-         * Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition. Valid values: `MEETS_ALL` or `MEETS_ANY`.
+         * Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
          */
         requirement: pulumi.Input<string>;
     }
 
     export interface WebAclLoggingConfigurationLoggingFilterFilterCondition {
         /**
-         * A single action condition. See Action Condition below for more details.
+         * Configuration for a single action condition. See Action Condition below for more details.
          */
         actionCondition?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition>;
         /**
-         * A single label name condition. See Label Name Condition below for more details.
+         * Condition for a single label name. See Label Name Condition below for more details.
          */
         labelNameCondition?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition>;
     }
 
     export interface WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition {
         /**
-         * The action setting that a log record must contain in order to meet the condition. Valid values: `ALLOW`, `BLOCK`, `COUNT`.
+         * Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
          */
         action: pulumi.Input<string>;
     }
 
     export interface WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition {
         /**
-         * The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
+         * Name of the label that a log record must contain in order to meet the condition. It must be a fully qualified label name, which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
          */
         labelName: pulumi.Input<string>;
     }
 
     export interface WebAclLoggingConfigurationRedactedField {
         /**
-         * Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+         * HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
          */
         method?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldMethod>;
         /**
-         * Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
+         * Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
          */
         queryString?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldQueryString>;
         /**
-         * Redact a single header. See Single Header below for details.
+         * "singleHeader" refers to the redaction of a single header. For more information, please see the details below under Single Header.
          */
         singleHeader?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeader>;
         /**
-         * Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         * Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
          */
         uriPath?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldUriPath>;
     }
@@ -56103,7 +57647,7 @@ export namespace wafv2 {
 
     export interface WebAclLoggingConfigurationRedactedFieldSingleHeader {
         /**
-         * The name of the query header to redact. This setting must be provided as lower case characters.
+         * Name of the query header to redact. This setting must be provided in lowercase characters.
          */
         name: pulumi.Input<string>;
     }
@@ -56113,15 +57657,15 @@ export namespace wafv2 {
 
     export interface WebAclRule {
         /**
-         * Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` below for details.
+         * Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
          */
         action?: pulumi.Input<inputs.wafv2.WebAclRuleAction>;
         /**
-         * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
          */
         captchaConfig?: pulumi.Input<inputs.wafv2.WebAclRuleCaptchaConfig>;
         /**
-         * Friendly name of the rule. **NOTE:** The provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_<account-id>_<web-acl-guid>_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
+         * Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_<account-id>_<web-acl-guid>_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
          */
         name: pulumi.Input<string>;
         /**
@@ -56304,7 +57848,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleCaptchaConfig {
         /**
-         * Defines custom immunity time. See Immunity Time Property below for details.
+         * Defines custom immunity time. See `immunityTimeProperty` below for details.
          */
         immunityTimeProperty?: pulumi.Input<inputs.wafv2.WebAclRuleCaptchaConfigImmunityTimeProperty>;
     }
@@ -56354,7 +57898,7 @@ export namespace wafv2 {
          */
         geoMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementGeoMatchStatement>;
         /**
-         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementIpSetReferenceStatement>;
         /**
@@ -56362,7 +57906,7 @@ export namespace wafv2 {
          */
         labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementLabelMatchStatement>;
         /**
-         * Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
+         * Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managedRuleGroupStatement` below for details.
          */
         managedRuleGroupStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatement>;
         /**
@@ -56382,11 +57926,11 @@ export namespace wafv2 {
          */
         regexMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatement>;
         /**
-         * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         * Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatement>;
         /**
-         * Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See Rule Group Reference Statement below for details.
+         * Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `ruleGroupReferenceStatement` below for details.
          */
         ruleGroupReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatement>;
         /**
@@ -56424,9 +57968,7 @@ export namespace wafv2 {
          */
         searchString: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementTextTransformation>[]>;
     }
@@ -56669,7 +58211,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatement {
         /**
-         * Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+         * Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
          */
         managedRuleGroupConfigs?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig>[]>;
         /**
@@ -56859,7 +58401,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride {
         /**
-         * Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+         * Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
          */
         actionToUse: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse>;
         /**
@@ -57009,7 +58551,7 @@ export namespace wafv2 {
          */
         geoMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement>;
         /**
-         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement>;
         /**
@@ -57029,7 +58571,7 @@ export namespace wafv2 {
          */
         regexMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement>;
         /**
-         * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         * Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement>;
         /**
@@ -57067,9 +58609,7 @@ export namespace wafv2 {
          */
         searchString: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation>[]>;
     }
@@ -57334,9 +58874,7 @@ export namespace wafv2 {
          */
         regexString: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation>[]>;
     }
@@ -57528,9 +59066,7 @@ export namespace wafv2 {
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
     }
@@ -57726,9 +59262,7 @@ export namespace wafv2 {
          */
         size: pulumi.Input<number>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformation>[]>;
     }
@@ -57916,9 +59450,7 @@ export namespace wafv2 {
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation>[]>;
     }
@@ -58106,9 +59638,7 @@ export namespace wafv2 {
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatch>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation>[]>;
     }
@@ -58306,7 +59836,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRateBasedStatement {
         /**
-         * Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
+         * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
          */
         aggregateKeyType?: pulumi.Input<string>;
         /**
@@ -58318,7 +59848,7 @@ export namespace wafv2 {
          */
         limit: pulumi.Input<number>;
         /**
-         * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+         * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
          */
         scopeDownStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement>;
     }
@@ -58348,7 +59878,7 @@ export namespace wafv2 {
          */
         geoMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement>;
         /**
-         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement>;
         /**
@@ -58368,7 +59898,7 @@ export namespace wafv2 {
          */
         regexMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement>;
         /**
-         * Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         * Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement>;
         /**
@@ -58406,9 +59936,7 @@ export namespace wafv2 {
          */
         searchString: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation>[]>;
     }
@@ -58673,9 +60201,7 @@ export namespace wafv2 {
          */
         regexString: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation>[]>;
     }
@@ -58867,9 +60393,7 @@ export namespace wafv2 {
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
     }
@@ -59065,9 +60589,7 @@ export namespace wafv2 {
          */
         size: pulumi.Input<number>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation>[]>;
     }
@@ -59255,9 +60777,7 @@ export namespace wafv2 {
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation>[]>;
     }
@@ -59445,9 +60965,7 @@ export namespace wafv2 {
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation>[]>;
     }
@@ -59639,9 +61157,7 @@ export namespace wafv2 {
          */
         regexString: pulumi.Input<string>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementTextTransformation>[]>;
     }
@@ -59833,9 +61349,7 @@ export namespace wafv2 {
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
     }
@@ -60030,7 +61544,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride {
         /**
-         * Override action to use, in place of the configured action of the rule in the rule group. See `action` below for details.
+         * Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
          */
         actionToUse: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse>;
         /**
@@ -60180,9 +61694,7 @@ export namespace wafv2 {
          */
         size: pulumi.Input<number>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementTextTransformation>[]>;
     }
@@ -60370,9 +61882,7 @@ export namespace wafv2 {
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatch>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementTextTransformation>[]>;
     }
@@ -60560,9 +62070,7 @@ export namespace wafv2 {
          */
         fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatch>;
         /**
-         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See `textTransformation` below for details.
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementTextTransformation>[]>;
     }

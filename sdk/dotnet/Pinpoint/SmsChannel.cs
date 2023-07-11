@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
-    /// Provides a Pinpoint SMS Channel resource.
+    /// Use the `aws.pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
     /// 
     /// ## Example Usage
     /// 
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Pinpoint SMS Channel can be imported using the `application-id`, e.g.,
+    /// To import the Pinpoint SMS Channel, use the `application_id`. For example
     /// 
     /// ```sh
     ///  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
@@ -44,37 +44,37 @@ namespace Pulumi.Aws.Pinpoint
     public partial class SmsChannel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The application ID.
+        /// ID of the application.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
+        /// Whether the channel is enabled or disabled. By default, it is set to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Promotional messages per second that can be sent.
+        /// Maximum number of promotional messages that can be sent per second.
         /// </summary>
         [Output("promotionalMessagesPerSecond")]
         public Output<int> PromotionalMessagesPerSecond { get; private set; } = null!;
 
         /// <summary>
-        /// Sender identifier of your messages.
+        /// Identifier of the sender for your messages.
         /// </summary>
         [Output("senderId")]
         public Output<string?> SenderId { get; private set; } = null!;
 
         /// <summary>
-        /// The Short Code registered with the phone provider.
+        /// Short Code registered with the phone provider.
         /// </summary>
         [Output("shortCode")]
         public Output<string?> ShortCode { get; private set; } = null!;
 
         /// <summary>
-        /// Transactional messages per second that can be sent.
+        /// Maximum number of transactional messages per second that can be sent.
         /// </summary>
         [Output("transactionalMessagesPerSecond")]
         public Output<int> TransactionalMessagesPerSecond { get; private set; } = null!;
@@ -126,25 +126,25 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class SmsChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application ID.
+        /// ID of the application.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
+        /// Whether the channel is enabled or disabled. By default, it is set to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Sender identifier of your messages.
+        /// Identifier of the sender for your messages.
         /// </summary>
         [Input("senderId")]
         public Input<string>? SenderId { get; set; }
 
         /// <summary>
-        /// The Short Code registered with the phone provider.
+        /// Short Code registered with the phone provider.
         /// </summary>
         [Input("shortCode")]
         public Input<string>? ShortCode { get; set; }
@@ -158,37 +158,37 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class SmsChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application ID.
+        /// ID of the application.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// Whether the channel is enabled or disabled. Defaults to `true`.
+        /// Whether the channel is enabled or disabled. By default, it is set to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Promotional messages per second that can be sent.
+        /// Maximum number of promotional messages that can be sent per second.
         /// </summary>
         [Input("promotionalMessagesPerSecond")]
         public Input<int>? PromotionalMessagesPerSecond { get; set; }
 
         /// <summary>
-        /// Sender identifier of your messages.
+        /// Identifier of the sender for your messages.
         /// </summary>
         [Input("senderId")]
         public Input<string>? SenderId { get; set; }
 
         /// <summary>
-        /// The Short Code registered with the phone provider.
+        /// Short Code registered with the phone provider.
         /// </summary>
         [Input("shortCode")]
         public Input<string>? ShortCode { get; set; }
 
         /// <summary>
-        /// Transactional messages per second that can be sent.
+        /// Maximum number of transactional messages per second that can be sent.
         /// </summary>
         [Input("transactionalMessagesPerSecond")]
         public Input<int>? TransactionalMessagesPerSecond { get; set; }

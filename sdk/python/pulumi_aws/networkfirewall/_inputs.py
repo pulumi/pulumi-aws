@@ -359,23 +359,40 @@ class FirewallPolicyFirewallPolicyArgs:
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs:
     def __init__(__self__, *,
-                 rule_order: pulumi.Input[str]):
+                 rule_order: Optional[pulumi.Input[str]] = None,
+                 stream_exception_policy: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] rule_order: Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        :param pulumi.Input[str] stream_exception_policy: Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
         """
-        pulumi.set(__self__, "rule_order", rule_order)
+        if rule_order is not None:
+            pulumi.set(__self__, "rule_order", rule_order)
+        if stream_exception_policy is not None:
+            pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
 
     @property
     @pulumi.getter(name="ruleOrder")
-    def rule_order(self) -> pulumi.Input[str]:
+    def rule_order(self) -> Optional[pulumi.Input[str]]:
         """
         Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
         """
         return pulumi.get(self, "rule_order")
 
     @rule_order.setter
-    def rule_order(self, value: pulumi.Input[str]):
+    def rule_order(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rule_order", value)
+
+    @property
+    @pulumi.getter(name="streamExceptionPolicy")
+    def stream_exception_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+        """
+        return pulumi.get(self, "stream_exception_policy")
+
+    @stream_exception_policy.setter
+    def stream_exception_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stream_exception_policy", value)
 
 
 @pulumi.input_type

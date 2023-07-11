@@ -101,6 +101,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
+     * The namespace Amazon Resource Name (ARN) of the cluster
+     */
+    public /*out*/ readonly clusterNamespaceArn!: pulumi.Output<string>;
+    /**
      * The nodes in the cluster. Cluster node blocks are documented below
      */
     public /*out*/ readonly clusterNodes!: pulumi.Output<outputs.redshift.ClusterClusterNode[]>;
@@ -270,6 +274,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["availabilityZoneRelocationEnabled"] = state ? state.availabilityZoneRelocationEnabled : undefined;
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["clusterNamespaceArn"] = state ? state.clusterNamespaceArn : undefined;
             resourceInputs["clusterNodes"] = state ? state.clusterNodes : undefined;
             resourceInputs["clusterParameterGroupName"] = state ? state.clusterParameterGroupName : undefined;
             resourceInputs["clusterPublicKey"] = state ? state.clusterPublicKey : undefined;
@@ -353,6 +358,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["clusterNamespaceArn"] = undefined /*out*/;
             resourceInputs["clusterNodes"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -404,6 +410,10 @@ export interface ClusterState {
      * The Cluster Identifier. Must be a lower case string.
      */
     clusterIdentifier?: pulumi.Input<string>;
+    /**
+     * The namespace Amazon Resource Name (ARN) of the cluster
+     */
+    clusterNamespaceArn?: pulumi.Input<string>;
     /**
      * The nodes in the cluster. Cluster node blocks are documented below
      */

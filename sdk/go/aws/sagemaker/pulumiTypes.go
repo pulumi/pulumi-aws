@@ -14547,13 +14547,15 @@ type ModelContainer struct {
 	// A list of key value pairs.
 	Environment map[string]string `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
-	Image string `pulumi:"image"`
+	Image *string `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig *ModelContainerImageConfig `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode *string `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
+	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	ModelPackageName *string `pulumi:"modelPackageName"`
 }
 
 // ModelContainerInput is an input type that accepts ModelContainerArgs and ModelContainerOutput values.
@@ -14574,13 +14576,15 @@ type ModelContainerArgs struct {
 	// A list of key value pairs.
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
-	Image pulumi.StringInput `pulumi:"image"`
+	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig ModelContainerImageConfigPtrInput `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
+	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	ModelPackageName pulumi.StringPtrInput `pulumi:"modelPackageName"`
 }
 
 func (ModelContainerArgs) ElementType() reflect.Type {
@@ -14646,8 +14650,8 @@ func (o ModelContainerOutput) Environment() pulumi.StringMapOutput {
 }
 
 // The registry path where the inference code image is stored in Amazon ECR.
-func (o ModelContainerOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelContainer) string { return v.Image }).(pulumi.StringOutput)
+func (o ModelContainerOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelContainer) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
@@ -14663,6 +14667,11 @@ func (o ModelContainerOutput) Mode() pulumi.StringPtrOutput {
 // The URL for the S3 location where model artifacts are stored.
 func (o ModelContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model package to use to create the model.
+func (o ModelContainerOutput) ModelPackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelContainer) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
 }
 
 type ModelContainerArrayOutput struct{ *pulumi.OutputState }
@@ -15126,13 +15135,15 @@ type ModelPrimaryContainer struct {
 	// A list of key value pairs.
 	Environment map[string]string `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
-	Image string `pulumi:"image"`
+	Image *string `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig *ModelPrimaryContainerImageConfig `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode *string `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
+	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	ModelPackageName *string `pulumi:"modelPackageName"`
 }
 
 // ModelPrimaryContainerInput is an input type that accepts ModelPrimaryContainerArgs and ModelPrimaryContainerOutput values.
@@ -15153,13 +15164,15 @@ type ModelPrimaryContainerArgs struct {
 	// A list of key value pairs.
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The registry path where the inference code image is stored in Amazon ECR.
-	Image pulumi.StringInput `pulumi:"image"`
+	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
 	ImageConfig ModelPrimaryContainerImageConfigPtrInput `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
+	// The Amazon Resource Name (ARN) of the model package to use to create the model.
+	ModelPackageName pulumi.StringPtrInput `pulumi:"modelPackageName"`
 }
 
 func (ModelPrimaryContainerArgs) ElementType() reflect.Type {
@@ -15251,8 +15264,8 @@ func (o ModelPrimaryContainerOutput) Environment() pulumi.StringMapOutput {
 }
 
 // The registry path where the inference code image is stored in Amazon ECR.
-func (o ModelPrimaryContainerOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func(v ModelPrimaryContainer) string { return v.Image }).(pulumi.StringOutput)
+func (o ModelPrimaryContainerOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
@@ -15268,6 +15281,11 @@ func (o ModelPrimaryContainerOutput) Mode() pulumi.StringPtrOutput {
 // The URL for the S3 location where model artifacts are stored.
 func (o ModelPrimaryContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model package to use to create the model.
+func (o ModelPrimaryContainerOutput) ModelPackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelPackageName }).(pulumi.StringPtrOutput)
 }
 
 type ModelPrimaryContainerPtrOutput struct{ *pulumi.OutputState }
@@ -15321,7 +15339,7 @@ func (o ModelPrimaryContainerPtrOutput) Image() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Image
+		return v.Image
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15352,6 +15370,16 @@ func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.ModelDataUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the model package to use to create the model.
+func (o ModelPrimaryContainerPtrOutput) ModelPackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ModelPackageName
 	}).(pulumi.StringPtrOutput)
 }
 

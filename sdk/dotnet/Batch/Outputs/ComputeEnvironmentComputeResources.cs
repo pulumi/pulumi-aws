@@ -58,6 +58,10 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly int? MinVcpus;
         /// <summary>
+        /// The Amazon EC2 placement group to associate with your compute resources.
+        /// </summary>
+        public readonly string? PlacementGroup;
+        /// <summary>
         /// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
@@ -102,6 +106,8 @@ namespace Pulumi.Aws.Batch.Outputs
 
             int? minVcpus,
 
+            string? placementGroup,
+
             ImmutableArray<string> securityGroupIds,
 
             string? spotIamFleetRole,
@@ -123,6 +129,7 @@ namespace Pulumi.Aws.Batch.Outputs
             LaunchTemplate = launchTemplate;
             MaxVcpus = maxVcpus;
             MinVcpus = minVcpus;
+            PlacementGroup = placementGroup;
             SecurityGroupIds = securityGroupIds;
             SpotIamFleetRole = spotIamFleetRole;
             Subnets = subnets;

@@ -176,6 +176,8 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
      * 
      * The following arguments are optional:
      * 
+     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
@@ -185,6 +187,8 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
      * or `egress` (outbound).
      * 
      * The following arguments are optional:
+     * 
+     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      * 
      */
     public Output<String> type() {
@@ -491,6 +495,8 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
          * 
          * The following arguments are optional:
          * 
+         * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+         * 
          * @return builder
          * 
          */
@@ -504,6 +510,8 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
          * or `egress` (outbound).
          * 
          * The following arguments are optional:
+         * 
+         * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
          * 
          * @return builder
          * 

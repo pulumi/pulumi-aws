@@ -84,6 +84,12 @@ namespace Pulumi.Aws.Batch.Inputs
         [Input("minVcpus")]
         public Input<int>? MinVcpus { get; set; }
 
+        /// <summary>
+        /// The Amazon EC2 placement group to associate with your compute resources.
+        /// </summary>
+        [Input("placementGroup")]
+        public Input<string>? PlacementGroup { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 

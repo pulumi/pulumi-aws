@@ -169,6 +169,18 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
+ * ### Emit events to EventBridge
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const bucket = new aws.s3.BucketV2("bucket", {});
+ * const bucketNotification = new aws.s3.BucketNotification("bucketNotification", {
+ *     bucket: bucket.id,
+ *     eventbridge: true,
+ * });
+ * ```
  *
  * ## Import
  *
@@ -213,7 +225,7 @@ export class BucketNotification extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * Whether to enable Amazon EventBridge notifications.
+     * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      */
     public readonly eventbridge!: pulumi.Output<boolean | undefined>;
     /**
@@ -274,7 +286,7 @@ export interface BucketNotificationState {
      */
     bucket?: pulumi.Input<string>;
     /**
-     * Whether to enable Amazon EventBridge notifications.
+     * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      */
     eventbridge?: pulumi.Input<boolean>;
     /**
@@ -302,7 +314,7 @@ export interface BucketNotificationArgs {
      */
     bucket: pulumi.Input<string>;
     /**
-     * Whether to enable Amazon EventBridge notifications.
+     * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      */
     eventbridge?: pulumi.Input<boolean>;
     /**

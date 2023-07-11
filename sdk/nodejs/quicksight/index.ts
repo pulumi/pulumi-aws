@@ -55,6 +55,11 @@ export const getQuicksightUser: typeof import("./getQuicksightUser").getQuicksig
 export const getQuicksightUserOutput: typeof import("./getQuicksightUser").getQuicksightUserOutput = null as any;
 utilities.lazyLoad(exports, ["getQuicksightUser","getQuicksightUserOutput"], () => require("./getQuicksightUser"));
 
+export { GetThemeArgs, GetThemeResult, GetThemeOutputArgs } from "./getTheme";
+export const getTheme: typeof import("./getTheme").getTheme = null as any;
+export const getThemeOutput: typeof import("./getTheme").getThemeOutput = null as any;
+utilities.lazyLoad(exports, ["getTheme","getThemeOutput"], () => require("./getTheme"));
+
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
@@ -94,6 +99,11 @@ export { TemplateAliasArgs, TemplateAliasState } from "./templateAlias";
 export type TemplateAlias = import("./templateAlias").TemplateAlias;
 export const TemplateAlias: typeof import("./templateAlias").TemplateAlias = null as any;
 utilities.lazyLoad(exports, ["TemplateAlias"], () => require("./templateAlias"));
+
+export { ThemeArgs, ThemeState } from "./theme";
+export type Theme = import("./theme").Theme;
+export const Theme: typeof import("./theme").Theme = null as any;
+utilities.lazyLoad(exports, ["Theme"], () => require("./theme"));
 
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
@@ -140,6 +150,8 @@ const _module = {
                 return new Template(name, <any>undefined, { urn })
             case "aws:quicksight/templateAlias:TemplateAlias":
                 return new TemplateAlias(name, <any>undefined, { urn })
+            case "aws:quicksight/theme:Theme":
+                return new Theme(name, <any>undefined, { urn })
             case "aws:quicksight/user:User":
                 return new User(name, <any>undefined, { urn })
             case "aws:quicksight/vpcConnection:VpcConnection":
@@ -164,5 +176,6 @@ pulumi.runtime.registerResourceModule("aws", "quicksight/namespace", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/refreshSchedule", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/template", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/templateAlias", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/theme", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/user", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/vpcConnection", _module)

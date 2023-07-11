@@ -10,12 +10,112 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'SdkvoiceGlobalSettingsVoiceConnectorArgs',
+    'SdkvoiceSipMediaApplicationEndpointsArgs',
+    'SdkvoiceSipRuleTargetApplicationArgs',
     'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs',
     'VoiceConnectorGroupConnectorArgs',
     'VoiceConnectorOrganizationRouteArgs',
     'VoiceConnectorStreamingMediaInsightsConfigurationArgs',
     'VoiceConnectorTerminationCredentialsCredentialArgs',
 ]
+
+@pulumi.input_type
+class SdkvoiceGlobalSettingsVoiceConnectorArgs:
+    def __init__(__self__, *,
+                 cdr_bucket: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cdr_bucket: The S3 bucket that stores the Voice Connector's call detail records.
+        """
+        if cdr_bucket is not None:
+            pulumi.set(__self__, "cdr_bucket", cdr_bucket)
+
+    @property
+    @pulumi.getter(name="cdrBucket")
+    def cdr_bucket(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3 bucket that stores the Voice Connector's call detail records.
+        """
+        return pulumi.get(self, "cdr_bucket")
+
+    @cdr_bucket.setter
+    def cdr_bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cdr_bucket", value)
+
+
+@pulumi.input_type
+class SdkvoiceSipMediaApplicationEndpointsArgs:
+    def __init__(__self__, *,
+                 lambda_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] lambda_arn: Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> pulumi.Input[str]:
+        """
+        Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lambda_arn", value)
+
+
+@pulumi.input_type
+class SdkvoiceSipRuleTargetApplicationArgs:
+    def __init__(__self__, *,
+                 aws_region: pulumi.Input[str],
+                 priority: pulumi.Input[int],
+                 sip_media_application_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] aws_region: The AWS Region of the target application.
+        :param pulumi.Input[int] priority: Priority of the SIP media application in the target list.
+        :param pulumi.Input[str] sip_media_application_id: The SIP media application ID.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "sip_media_application_id", sip_media_application_id)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> pulumi.Input[str]:
+        """
+        The AWS Region of the target application.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Priority of the SIP media application in the target list.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter(name="sipMediaApplicationId")
+    def sip_media_application_id(self) -> pulumi.Input[str]:
+        """
+        The SIP media application ID.
+        """
+        return pulumi.get(self, "sip_media_application_id")
+
+    @sip_media_application_id.setter
+    def sip_media_application_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sip_media_application_id", value)
+
 
 @pulumi.input_type
 class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs:

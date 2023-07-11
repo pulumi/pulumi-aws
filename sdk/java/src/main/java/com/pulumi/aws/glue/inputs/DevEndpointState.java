@@ -6,7 +6,6 @@ package com.pulumi.aws.glue.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -24,13 +23,13 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="arguments")
-    private @Nullable Output<Map<String,Object>> arguments;
+    private @Nullable Output<Map<String,String>> arguments;
 
     /**
      * @return A map of arguments used to configure the endpoint.
      * 
      */
-    public Optional<Output<Map<String,Object>>> arguments() {
+    public Optional<Output<Map<String,String>>> arguments() {
         return Optional.ofNullable(this.arguments);
     }
 
@@ -448,7 +447,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder arguments(@Nullable Output<Map<String,Object>> arguments) {
+        public Builder arguments(@Nullable Output<Map<String,String>> arguments) {
             $.arguments = arguments;
             return this;
         }
@@ -459,7 +458,7 @@ public final class DevEndpointState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder arguments(Map<String,Object> arguments) {
+        public Builder arguments(Map<String,String> arguments) {
             return arguments(Output.of(arguments));
         }
 

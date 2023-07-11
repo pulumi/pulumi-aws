@@ -48,9 +48,11 @@ class PatchBaselineArgs:
         :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
                Valid values are
+               `ALMA_LINUX`,
                `AMAZON_LINUX`,
                `AMAZON_LINUX_2`,
                `AMAZON_LINUX_2022`,
+               `AMAZON_LINUX_2023`,
                `CENTOS`,
                `DEBIAN`,
                `MACOS`,
@@ -194,9 +196,11 @@ class PatchBaselineArgs:
         """
         The operating system the patch baseline applies to.
         Valid values are
+        `ALMA_LINUX`,
         `AMAZON_LINUX`,
         `AMAZON_LINUX_2`,
         `AMAZON_LINUX_2022`,
+        `AMAZON_LINUX_2023`,
         `CENTOS`,
         `DEBIAN`,
         `MACOS`,
@@ -305,9 +309,11 @@ class _PatchBaselineState:
         :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
                Valid values are
+               `ALMA_LINUX`,
                `AMAZON_LINUX`,
                `AMAZON_LINUX_2`,
                `AMAZON_LINUX_2022`,
+               `AMAZON_LINUX_2023`,
                `CENTOS`,
                `DEBIAN`,
                `MACOS`,
@@ -468,9 +474,11 @@ class _PatchBaselineState:
         """
         The operating system the patch baseline applies to.
         Valid values are
+        `ALMA_LINUX`,
         `AMAZON_LINUX`,
         `AMAZON_LINUX_2`,
         `AMAZON_LINUX_2022`,
+        `AMAZON_LINUX_2023`,
         `CENTOS`,
         `DEBIAN`,
         `MACOS`,
@@ -759,9 +767,11 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
                Valid values are
+               `ALMA_LINUX`,
                `AMAZON_LINUX`,
                `AMAZON_LINUX_2`,
                `AMAZON_LINUX_2022`,
+               `AMAZON_LINUX_2023`,
                `CENTOS`,
                `DEBIAN`,
                `MACOS`,
@@ -1055,9 +1065,11 @@ class PatchBaseline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the patch baseline.
         :param pulumi.Input[str] operating_system: The operating system the patch baseline applies to.
                Valid values are
+               `ALMA_LINUX`,
                `AMAZON_LINUX`,
                `AMAZON_LINUX_2`,
                `AMAZON_LINUX_2022`,
+               `AMAZON_LINUX_2023`,
                `CENTOS`,
                `DEBIAN`,
                `MACOS`,
@@ -1177,9 +1189,11 @@ class PatchBaseline(pulumi.CustomResource):
         """
         The operating system the patch baseline applies to.
         Valid values are
+        `ALMA_LINUX`,
         `AMAZON_LINUX`,
         `AMAZON_LINUX_2`,
         `AMAZON_LINUX_2022`,
+        `AMAZON_LINUX_2023`,
         `CENTOS`,
         `DEBIAN`,
         `MACOS`,

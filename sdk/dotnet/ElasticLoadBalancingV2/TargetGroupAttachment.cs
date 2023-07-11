@@ -15,6 +15,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// &gt; **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -39,7 +40,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     /// 
     /// });
     /// ```
-    /// ## Usage with lambda
+    /// ### Lambda Target
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -89,7 +90,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     public partial class TargetGroupAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
@@ -101,13 +102,15 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the target group with which to register targets
+        /// The ARN of the target group with which to register targets.
         /// </summary>
         [Output("targetGroupArn")]
         public Output<string> TargetGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
@@ -159,7 +162,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     public sealed class TargetGroupAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -171,13 +174,15 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The ARN of the target group with which to register targets
+        /// The ARN of the target group with which to register targets.
         /// </summary>
         [Input("targetGroupArn", required: true)]
         public Input<string> TargetGroupArn { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
@@ -191,7 +196,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     public sealed class TargetGroupAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
+        /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -203,13 +208,15 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The ARN of the target group with which to register targets
+        /// The ARN of the target group with which to register targets.
         /// </summary>
         [Input("targetGroupArn")]
         public Input<string>? TargetGroupArn { get; set; }
 
         /// <summary>
-        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
+        /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }

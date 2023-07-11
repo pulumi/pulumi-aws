@@ -17,14 +17,14 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
     public static final ManagedUserPoolClientAnalyticsConfigurationArgs Empty = new ManagedUserPoolClientAnalyticsConfigurationArgs();
 
     /**
-     * Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+     * Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
      * 
      */
     @Import(name="applicationArn")
     private @Nullable Output<String> applicationArn;
 
     /**
-     * @return Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+     * @return Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
      * 
      */
     public Optional<Output<String>> applicationArn() {
@@ -32,14 +32,14 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
     }
 
     /**
-     * Application ID for an Amazon Pinpoint application.
+     * Unique identifier for an Amazon Pinpoint application.
      * 
      */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
     /**
-     * @return Application ID for an Amazon Pinpoint application.
+     * @return Unique identifier for an Amazon Pinpoint application.
      * 
      */
     public Optional<Output<String>> applicationId() {
@@ -47,14 +47,14 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
     }
 
     /**
-     * ID for the Analytics Configuration. Conflicts with `application_arn`.
+     * ID for the Analytics Configuration and conflicts with `application_arn`.
      * 
      */
     @Import(name="externalId")
     private @Nullable Output<String> externalId;
 
     /**
-     * @return ID for the Analytics Configuration. Conflicts with `application_arn`.
+     * @return ID for the Analytics Configuration and conflicts with `application_arn`.
      * 
      */
     public Optional<Output<String>> externalId() {
@@ -62,14 +62,14 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
     }
 
     /**
-     * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+     * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -77,14 +77,14 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
     }
 
     /**
-     * If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+     * If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
      * 
      */
     @Import(name="userDataShared")
     private @Nullable Output<Boolean> userDataShared;
 
     /**
-     * @return If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+     * @return If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
      * 
      */
     public Optional<Output<Boolean>> userDataShared() {
@@ -120,7 +120,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param applicationArn Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+         * @param applicationArn Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param applicationArn Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+         * @param applicationArn Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param applicationId Application ID for an Amazon Pinpoint application.
+         * @param applicationId Unique identifier for an Amazon Pinpoint application.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param applicationId Application ID for an Amazon Pinpoint application.
+         * @param applicationId Unique identifier for an Amazon Pinpoint application.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param externalId ID for the Analytics Configuration. Conflicts with `application_arn`.
+         * @param externalId ID for the Analytics Configuration and conflicts with `application_arn`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param externalId ID for the Analytics Configuration. Conflicts with `application_arn`.
+         * @param externalId ID for the Analytics Configuration and conflicts with `application_arn`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param roleArn ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+         * @param roleArn ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param roleArn ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+         * @param roleArn ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param userDataShared If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+         * @param userDataShared If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ManagedUserPoolClientAnalyticsConfigurationArgs extends com.p
         }
 
         /**
-         * @param userDataShared If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+         * @param userDataShared If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
          * 
          * @return builder
          * 

@@ -44,7 +44,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public /*out*/ readonly capacity!: pulumi.Output<number>;
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
      */
     public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
     /**
@@ -52,7 +52,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebAclCustomResponseBody[] | undefined>;
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
     public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
     /**
@@ -160,7 +160,7 @@ export interface WebAclState {
      */
     capacity?: pulumi.Input<number>;
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
      */
     captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
     /**
@@ -168,7 +168,7 @@ export interface WebAclState {
      */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
     defaultAction?: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
     /**
@@ -211,7 +211,7 @@ export interface WebAclState {
  */
 export interface WebAclArgs {
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+     * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
      */
     captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfig>;
     /**
@@ -219,7 +219,7 @@ export interface WebAclArgs {
      */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclCustomResponseBody>[]>;
     /**
-     * Action to perform if none of the `rules` contained in the WebACL match. See `default_ action` below for details.
+     * Action to perform if none of the `rules` contained in the WebACL match. See `defaultAction` below for details.
      */
     defaultAction: pulumi.Input<inputs.wafv2.WebAclDefaultAction>;
     /**

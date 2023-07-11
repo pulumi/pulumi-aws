@@ -63,7 +63,8 @@ class ReplicationGroupArgs:
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
-               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               If the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
@@ -270,7 +271,8 @@ class ReplicationGroupArgs:
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
         Version number of the cache engine to be used for the cache clusters in this replication group.
-        If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        If the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         Otherwise, specify the full version desired, e.g., `5.0.6`.
         The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
@@ -648,7 +650,8 @@ class _ReplicationGroupState:
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
-               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               If the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
@@ -912,7 +915,8 @@ class _ReplicationGroupState:
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
         Version number of the cache engine to be used for the cache clusters in this replication group.
-        If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        If the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         Otherwise, specify the full version desired, e.g., `5.0.6`.
         The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
@@ -1495,7 +1499,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
-               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               If the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
@@ -1864,7 +1869,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: User-created description for the replication group. Must not be empty.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used for the cache clusters in this replication group.
-               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+               If the version is 6, the major and minor version can be set, e.g., `6.2`,
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                Otherwise, specify the full version desired, e.g., `5.0.6`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
@@ -2047,7 +2053,8 @@ class ReplicationGroup(pulumi.CustomResource):
     def engine_version(self) -> pulumi.Output[str]:
         """
         Version number of the cache engine to be used for the cache clusters in this replication group.
-        If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
+        If the version is 6, the major and minor version can be set, e.g., `6.2`,
         or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         Otherwise, specify the full version desired, e.g., `5.0.6`.
         The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.

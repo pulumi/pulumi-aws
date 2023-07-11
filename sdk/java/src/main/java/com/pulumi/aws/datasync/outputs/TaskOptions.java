@@ -38,6 +38,11 @@ public final class TaskOptions {
      */
     private @Nullable String mtime;
     /**
+     * @return Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+     * 
+     */
+    private @Nullable String objectTags;
+    /**
      * @return Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
      * 
      */
@@ -58,7 +63,7 @@ public final class TaskOptions {
      */
     private @Nullable String preserveDevices;
     /**
-     * @return Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+     * @return Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
      * 
      */
     private @Nullable String securityDescriptorCopyFlags;
@@ -120,6 +125,13 @@ public final class TaskOptions {
         return Optional.ofNullable(this.mtime);
     }
     /**
+     * @return Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
+     * 
+     */
+    public Optional<String> objectTags() {
+        return Optional.ofNullable(this.objectTags);
+    }
+    /**
      * @return Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
      * 
      */
@@ -148,7 +160,7 @@ public final class TaskOptions {
         return Optional.ofNullable(this.preserveDevices);
     }
     /**
-     * @return Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`.
+     * @return Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
      * 
      */
     public Optional<String> securityDescriptorCopyFlags() {
@@ -197,6 +209,7 @@ public final class TaskOptions {
         private @Nullable String gid;
         private @Nullable String logLevel;
         private @Nullable String mtime;
+        private @Nullable String objectTags;
         private @Nullable String overwriteMode;
         private @Nullable String posixPermissions;
         private @Nullable String preserveDeletedFiles;
@@ -214,6 +227,7 @@ public final class TaskOptions {
     	      this.gid = defaults.gid;
     	      this.logLevel = defaults.logLevel;
     	      this.mtime = defaults.mtime;
+    	      this.objectTags = defaults.objectTags;
     	      this.overwriteMode = defaults.overwriteMode;
     	      this.posixPermissions = defaults.posixPermissions;
     	      this.preserveDeletedFiles = defaults.preserveDeletedFiles;
@@ -248,6 +262,11 @@ public final class TaskOptions {
         @CustomType.Setter
         public Builder mtime(@Nullable String mtime) {
             this.mtime = mtime;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder objectTags(@Nullable String objectTags) {
+            this.objectTags = objectTags;
             return this;
         }
         @CustomType.Setter
@@ -302,6 +321,7 @@ public final class TaskOptions {
             o.gid = gid;
             o.logLevel = logLevel;
             o.mtime = mtime;
+            o.objectTags = objectTags;
             o.overwriteMode = overwriteMode;
             o.posixPermissions = posixPermissions;
             o.preserveDeletedFiles = preserveDeletedFiles;

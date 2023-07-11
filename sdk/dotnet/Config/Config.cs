@@ -181,6 +181,17 @@ namespace Pulumi.Aws
             set => _region.Set(value);
         }
 
+        private static readonly __Value<string?> _retryMode = new __Value<string?>(() => __config.Get("retryMode"));
+        /// <summary>
+        /// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+        /// `AWS_RETRY_MODE` environment variable.
+        /// </summary>
+        public static string? RetryMode
+        {
+            get => _retryMode.Get();
+            set => _retryMode.Set(value);
+        }
+
         private static readonly __Value<bool?> _s3UsePathStyle = new __Value<bool?>(() => __config.GetBoolean("s3UsePathStyle"));
         /// <summary>
         /// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
@@ -709,6 +720,7 @@ namespace Pulumi.Aws
                 public string? Transcribestreamingservice { get; set; } = null!;
                 public string? Transfer { get; set; } = null!;
                 public string? Translate { get; set; } = null!;
+                public string? Verifiedpermissions { get; set; } = null!;
                 public string? Voiceid { get; set; } = null!;
                 public string? Vpclattice { get; set; } = null!;
                 public string? Waf { get; set; } = null!;

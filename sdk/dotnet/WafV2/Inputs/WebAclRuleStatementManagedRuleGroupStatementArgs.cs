@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>? _managedRuleGroupConfigs;
 
         /// <summary>
-        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See Managed Rule Group Configs for more details
+        /// Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs> ManagedRuleGroupConfigs
         {

@@ -296,11 +296,11 @@ class ManagedUserPoolClientAnalyticsConfiguration(dict):
                  role_arn: Optional[str] = None,
                  user_data_shared: Optional[bool] = None):
         """
-        :param str application_arn: Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
-        :param str application_id: Application ID for an Amazon Pinpoint application.
-        :param str external_id: ID for the Analytics Configuration. Conflicts with `application_arn`.
-        :param str role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
-        :param bool user_data_shared: If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        :param str application_arn: Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
+        :param str application_id: Unique identifier for an Amazon Pinpoint application.
+        :param str external_id: ID for the Analytics Configuration and conflicts with `application_arn`.
+        :param str role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
+        :param bool user_data_shared: If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
@@ -317,7 +317,7 @@ class ManagedUserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[str]:
         """
-        Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
         """
         return pulumi.get(self, "application_arn")
 
@@ -325,7 +325,7 @@ class ManagedUserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[str]:
         """
-        Application ID for an Amazon Pinpoint application.
+        Unique identifier for an Amazon Pinpoint application.
         """
         return pulumi.get(self, "application_id")
 
@@ -333,7 +333,7 @@ class ManagedUserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[str]:
         """
-        ID for the Analytics Configuration. Conflicts with `application_arn`.
+        ID for the Analytics Configuration and conflicts with `application_arn`.
         """
         return pulumi.get(self, "external_id")
 
@@ -341,7 +341,7 @@ class ManagedUserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
-        ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+        ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
         """
         return pulumi.get(self, "role_arn")
 
@@ -349,7 +349,7 @@ class ManagedUserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="userDataShared")
     def user_data_shared(self) -> Optional[bool]:
         """
-        If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
         """
         return pulumi.get(self, "user_data_shared")
 
@@ -382,9 +382,9 @@ class ManagedUserPoolClientTokenValidityUnits(dict):
                  id_token: Optional[str] = None,
                  refresh_token: Optional[str] = None):
         """
-        :param str access_token: Time unit in for the value in `access_token_validity`, defaults to `hours`.
-        :param str id_token: Time unit in for the value in `id_token_validity`, defaults to `hours`.
-        :param str refresh_token: Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        :param str access_token: Time unit for the value in `access_token_validity` and defaults to `hours`.
+        :param str id_token: Time unit for the value in `id_token_validity`, and it defaults to `hours`.
+        :param str refresh_token: Time unit for the value in `refresh_token_validity` and defaults to `days`.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -397,7 +397,7 @@ class ManagedUserPoolClientTokenValidityUnits(dict):
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[str]:
         """
-        Time unit in for the value in `access_token_validity`, defaults to `hours`.
+        Time unit for the value in `access_token_validity` and defaults to `hours`.
         """
         return pulumi.get(self, "access_token")
 
@@ -405,7 +405,7 @@ class ManagedUserPoolClientTokenValidityUnits(dict):
     @pulumi.getter(name="idToken")
     def id_token(self) -> Optional[str]:
         """
-        Time unit in for the value in `id_token_validity`, defaults to `hours`.
+        Time unit for the value in `id_token_validity`, and it defaults to `hours`.
         """
         return pulumi.get(self, "id_token")
 
@@ -413,7 +413,7 @@ class ManagedUserPoolClientTokenValidityUnits(dict):
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[str]:
         """
-        Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        Time unit for the value in `refresh_token_validity` and defaults to `days`.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -1548,7 +1548,7 @@ class UserPoolEmailConfiguration(dict):
                  source_arn: Optional[str] = None):
         """
         :param str configuration_set: Email configuration set name from SES.
-        :param str email_sending_account: Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+        :param str email_sending_account: Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
         :param str from_email_address: Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\\"John Smith Ph.D.\\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
         :param str reply_to_email_address: REPLY-TO email address.
         :param str source_arn: ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
@@ -1576,7 +1576,7 @@ class UserPoolEmailConfiguration(dict):
     @pulumi.getter(name="emailSendingAccount")
     def email_sending_account(self) -> Optional[str]:
         """
-        Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration.
+        Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
         """
         return pulumi.get(self, "email_sending_account")
 

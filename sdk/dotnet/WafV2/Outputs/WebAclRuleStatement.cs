@@ -26,7 +26,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementGeoMatchStatement? GeoMatchStatement;
         /// <summary>
-        /// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        /// Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementIpSetReferenceStatement? IpSetReferenceStatement;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementLabelMatchStatement? LabelMatchStatement;
         /// <summary>
-        /// Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
+        /// Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatement? ManagedRuleGroupStatement;
         /// <summary>
@@ -54,11 +54,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRegexMatchStatement? RegexMatchStatement;
         /// <summary>
-        /// Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        /// Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
         /// <summary>
-        /// Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See Rule Group Reference Statement below for details.
+        /// Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRuleGroupReferenceStatement? RuleGroupReferenceStatement;
         /// <summary>

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kendra
 {
     /// <summary>
-    /// Resource for managing an AWS Kendra block list used for query suggestions for an index.
+    /// Use the `aws_kendra_index_block_list` resource to manage an AWS Kendra block list used for query suggestions for an index.
     /// 
     /// ## Example Usage
     /// ### Basic Usage
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Import
     /// 
-    /// `aws_kendra_query_suggestions_block_list` can be imported using the unique identifiers of the block list and index separated by a slash (`/`), e.g.,
+    /// The `aws_kendra_query_suggestions_block_list` resource can be imported using the unique identifiers of the block list and index separated by a slash (`/`), for example
     /// 
     /// ```sh
     ///  $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
@@ -59,37 +59,37 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description for a block list.
+        /// Description for a block list.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the index for a block list.
+        /// Identifier of the index for a block list.
         /// </summary>
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the block list.
+        /// Name for the block list.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The unique indentifier of the block list.
+        /// Unique identifier of the block list.
         /// </summary>
         [Output("querySuggestionsBlockListId")]
         public Output<string> QuerySuggestionsBlockListId { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM (Identity and Access Management) role used to access the block list text file in S3.
+        /// IAM (Identity and Access Management) role used to access the block list text file in S3.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The S3 path where your block list text file sits in S3. Detailed below.
+        /// S3 path where your block list text file is located. See details below.
         /// 
         /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
@@ -100,13 +100,13 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -158,31 +158,31 @@ namespace Pulumi.Aws.Kendra
     public sealed class QuerySuggestionsBlockListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description for a block list.
+        /// Description for a block list.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The identifier of the index for a block list.
+        /// Identifier of the index for a block list.
         /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
         /// <summary>
-        /// The name for the block list.
+        /// Name for the block list.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The IAM (Identity and Access Management) role used to access the block list text file in S3.
+        /// IAM (Identity and Access Management) role used to access the block list text file in S3.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The S3 path where your block list text file sits in S3. Detailed below.
+        /// S3 path where your block list text file is located. See details below.
         /// 
         /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -216,37 +216,37 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description for a block list.
+        /// Description for a block list.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The identifier of the index for a block list.
+        /// Identifier of the index for a block list.
         /// </summary>
         [Input("indexId")]
         public Input<string>? IndexId { get; set; }
 
         /// <summary>
-        /// The name for the block list.
+        /// Name for the block list.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The unique indentifier of the block list.
+        /// Unique identifier of the block list.
         /// </summary>
         [Input("querySuggestionsBlockListId")]
         public Input<string>? QuerySuggestionsBlockListId { get; set; }
 
         /// <summary>
-        /// The IAM (Identity and Access Management) role used to access the block list text file in S3.
+        /// IAM (Identity and Access Management) role used to access the block list text file in S3.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The S3 path where your block list text file sits in S3. Detailed below.
+        /// S3 path where your block list text file is located. See details below.
         /// 
         /// The `source_s3_path` configuration block supports the following arguments:
         /// </summary>
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

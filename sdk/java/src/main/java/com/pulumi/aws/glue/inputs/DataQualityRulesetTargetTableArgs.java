@@ -7,11 +7,28 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DataQualityRulesetTargetTableArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DataQualityRulesetTargetTableArgs Empty = new DataQualityRulesetTargetTableArgs();
+
+    /**
+     * The catalog id where the AWS Glue table exists.
+     * 
+     */
+    @Import(name="catalogId")
+    private @Nullable Output<String> catalogId;
+
+    /**
+     * @return The catalog id where the AWS Glue table exists.
+     * 
+     */
+    public Optional<Output<String>> catalogId() {
+        return Optional.ofNullable(this.catalogId);
+    }
 
     /**
      * Name of the database where the AWS Glue table exists.
@@ -46,6 +63,7 @@ public final class DataQualityRulesetTargetTableArgs extends com.pulumi.resource
     private DataQualityRulesetTargetTableArgs() {}
 
     private DataQualityRulesetTargetTableArgs(DataQualityRulesetTargetTableArgs $) {
+        this.catalogId = $.catalogId;
         this.databaseName = $.databaseName;
         this.tableName = $.tableName;
     }
@@ -66,6 +84,27 @@ public final class DataQualityRulesetTargetTableArgs extends com.pulumi.resource
 
         public Builder(DataQualityRulesetTargetTableArgs defaults) {
             $ = new DataQualityRulesetTargetTableArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param catalogId The catalog id where the AWS Glue table exists.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catalogId(@Nullable Output<String> catalogId) {
+            $.catalogId = catalogId;
+            return this;
+        }
+
+        /**
+         * @param catalogId The catalog id where the AWS Glue table exists.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catalogId(String catalogId) {
+            return catalogId(Output.of(catalogId));
         }
 
         /**

@@ -82,7 +82,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Description of the environment. Can be at most 1024 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * AppConfig environment ID.
      */

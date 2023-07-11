@@ -90,6 +90,12 @@ func GetRegion(ctx *pulumi.Context) string {
 	return value
 }
 
+// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+// `AWS_RETRY_MODE` environment variable.
+func GetRetryMode(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:retryMode")
+}
+
 // Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
 // default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
 // Specific to the Amazon S3 service.

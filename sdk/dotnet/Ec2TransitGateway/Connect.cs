@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class Connect : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class ConnectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class ConnectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+        /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

@@ -19,14 +19,14 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
     public static final WebAclLoggingConfigurationRedactedFieldArgs Empty = new WebAclLoggingConfigurationRedactedFieldArgs();
 
     /**
-     * Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+     * HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
     @Import(name="method")
     private @Nullable Output<WebAclLoggingConfigurationRedactedFieldMethodArgs> method;
 
     /**
-     * @return Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+     * @return HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
     public Optional<Output<WebAclLoggingConfigurationRedactedFieldMethodArgs>> method() {
@@ -34,14 +34,14 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
     }
 
     /**
-     * Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
+     * Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
      * 
      */
     @Import(name="queryString")
     private @Nullable Output<WebAclLoggingConfigurationRedactedFieldQueryStringArgs> queryString;
 
     /**
-     * @return Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
+     * @return Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
      * 
      */
     public Optional<Output<WebAclLoggingConfigurationRedactedFieldQueryStringArgs>> queryString() {
@@ -49,14 +49,14 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
     }
 
     /**
-     * Redact a single header. See Single Header below for details.
+     * &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
      * 
      */
     @Import(name="singleHeader")
     private @Nullable Output<WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs> singleHeader;
 
     /**
-     * @return Redact a single header. See Single Header below for details.
+     * @return &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
      * 
      */
     public Optional<Output<WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs>> singleHeader() {
@@ -64,14 +64,14 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
     }
 
     /**
-     * Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
      * 
      */
     @Import(name="uriPath")
     private @Nullable Output<WebAclLoggingConfigurationRedactedFieldUriPathArgs> uriPath;
 
     /**
-     * @return Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+     * @return Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
      * 
      */
     public Optional<Output<WebAclLoggingConfigurationRedactedFieldUriPathArgs>> uriPath() {
@@ -106,7 +106,7 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
         }
 
         /**
-         * @param method Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+         * @param method HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
         }
 
         /**
-         * @param method Redact the HTTP method. Must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+         * @param method HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
         }
 
         /**
-         * @param queryString Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
+         * @param queryString Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
         }
 
         /**
-         * @param queryString Redact the query string. Must be specified as an empty configuration block `{}`. This is the part of a URL that appears after a `?` character, if any.
+         * @param queryString Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
         }
 
         /**
-         * @param singleHeader Redact a single header. See Single Header below for details.
+         * @param singleHeader &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
         }
 
         /**
-         * @param singleHeader Redact a single header. See Single Header below for details.
+         * @param singleHeader &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
         }
 
         /**
-         * @param uriPath Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         * @param uriPath Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs extends com.pulum
         }
 
         /**
-         * @param uriPath Redact the request URI path. Must be specified as an empty configuration block `{}`. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         * @param uriPath Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
          * 
          * @return builder
          * 

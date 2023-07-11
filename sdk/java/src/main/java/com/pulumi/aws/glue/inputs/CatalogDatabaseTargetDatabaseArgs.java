@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class CatalogDatabaseTargetDatabaseArgs extends com.pulumi.resources.ResourceArgs {
@@ -43,11 +45,27 @@ public final class CatalogDatabaseTargetDatabaseArgs extends com.pulumi.resource
         return this.databaseName;
     }
 
+    /**
+     * Region of the target database.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region of the target database.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private CatalogDatabaseTargetDatabaseArgs() {}
 
     private CatalogDatabaseTargetDatabaseArgs(CatalogDatabaseTargetDatabaseArgs $) {
         this.catalogId = $.catalogId;
         this.databaseName = $.databaseName;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -108,6 +126,27 @@ public final class CatalogDatabaseTargetDatabaseArgs extends com.pulumi.resource
          */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
+        }
+
+        /**
+         * @param region Region of the target database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region of the target database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public CatalogDatabaseTargetDatabaseArgs build() {

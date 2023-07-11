@@ -62,7 +62,7 @@ import (
 type Connect struct {
 	pulumi.CustomResourceState
 
-	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+	// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
 	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -113,7 +113,7 @@ func GetConnect(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connect resources.
 type connectState struct {
-	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+	// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 	Protocol *string `pulumi:"protocol"`
 	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -130,7 +130,7 @@ type connectState struct {
 }
 
 type ConnectState struct {
-	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+	// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 	Protocol pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -151,7 +151,7 @@ func (ConnectState) ElementType() reflect.Type {
 }
 
 type connectArgs struct {
-	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+	// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 	Protocol *string `pulumi:"protocol"`
 	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -167,7 +167,7 @@ type connectArgs struct {
 
 // The set of arguments for constructing a Connect resource.
 type ConnectArgs struct {
-	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+	// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 	Protocol pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -268,7 +268,7 @@ func (o ConnectOutput) ToConnectOutputWithContext(ctx context.Context) ConnectOu
 	return o
 }
 
-// The tunnel protocol. Valida values: `gre`. Default is `gre`.
+// The tunnel protocol. Valid values: `gre`. Default is `gre`.
 func (o ConnectOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connect) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
 }

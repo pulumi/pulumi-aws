@@ -515,6 +515,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                         Identifiers = new[]
     ///                         {
     ///                             "events.amazonaws.com",
+    ///                             "delivery.logs.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },
@@ -538,6 +539,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                         Identifiers = new[]
     ///                         {
     ///                             "events.amazonaws.com",
+    ///                             "delivery.logs.amazonaws.com",
     ///                         },
     ///                     },
     ///                 },

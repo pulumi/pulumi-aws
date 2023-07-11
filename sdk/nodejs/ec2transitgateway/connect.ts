@@ -61,7 +61,7 @@ export class Connect extends pulumi.CustomResource {
     }
 
     /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
@@ -135,7 +135,7 @@ export class Connect extends pulumi.CustomResource {
  */
 export interface ConnectState {
     /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -169,7 +169,7 @@ export interface ConnectState {
  */
 export interface ConnectArgs {
     /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
+     * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      */
     protocol?: pulumi.Input<string>;
     /**

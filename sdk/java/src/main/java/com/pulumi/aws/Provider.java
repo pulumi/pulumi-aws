@@ -129,6 +129,22 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.region);
     }
     /**
+     * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+     * `AWS_RETRY_MODE` environment variable.
+     * 
+     */
+    @Export(name="retryMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> retryMode;
+
+    /**
+     * @return Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
+     * `AWS_RETRY_MODE` environment variable.
+     * 
+     */
+    public Output<Optional<String>> retryMode() {
+        return Codegen.optional(this.retryMode);
+    }
+    /**
      * The secret key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */

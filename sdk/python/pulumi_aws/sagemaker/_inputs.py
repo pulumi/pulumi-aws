@@ -4665,44 +4665,37 @@ class HumanTaskUIUiTemplateArgs:
 @pulumi.input_type
 class ModelContainerArgs:
     def __init__(__self__, *,
-                 image: pulumi.Input[str],
                  container_hostname: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input['ModelContainerImageConfigArgs']] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 model_data_url: Optional[pulumi.Input[str]] = None):
+                 model_data_url: Optional[pulumi.Input[str]] = None,
+                 model_package_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input[str] container_hostname: The DNS host name for the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Environment variables for the Docker container.
                A list of key value pairs.
+        :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input['ModelContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
+        :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
         """
-        pulumi.set(__self__, "image", image)
         if container_hostname is not None:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
         if image_config is not None:
             pulumi.set(__self__, "image_config", image_config)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
-
-    @property
-    @pulumi.getter
-    def image(self) -> pulumi.Input[str]:
-        """
-        The registry path where the inference code image is stored in Amazon ECR.
-        """
-        return pulumi.get(self, "image")
-
-    @image.setter
-    def image(self, value: pulumi.Input[str]):
-        pulumi.set(self, "image", value)
+        if model_package_name is not None:
+            pulumi.set(__self__, "model_package_name", model_package_name)
 
     @property
     @pulumi.getter(name="containerHostname")
@@ -4728,6 +4721,18 @@ class ModelContainerArgs:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry path where the inference code image is stored in Amazon ECR.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
 
     @property
     @pulumi.getter(name="imageConfig")
@@ -4764,6 +4769,18 @@ class ModelContainerArgs:
     @model_data_url.setter
     def model_data_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "model_data_url", value)
+
+    @property
+    @pulumi.getter(name="modelPackageName")
+    def model_package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the model package to use to create the model.
+        """
+        return pulumi.get(self, "model_package_name")
+
+    @model_package_name.setter
+    def model_package_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_name", value)
 
 
 @pulumi.input_type
@@ -4851,44 +4868,37 @@ class ModelInferenceExecutionConfigArgs:
 @pulumi.input_type
 class ModelPrimaryContainerArgs:
     def __init__(__self__, *,
-                 image: pulumi.Input[str],
                  container_hostname: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input['ModelPrimaryContainerImageConfigArgs']] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 model_data_url: Optional[pulumi.Input[str]] = None):
+                 model_data_url: Optional[pulumi.Input[str]] = None,
+                 model_package_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input[str] container_hostname: The DNS host name for the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: Environment variables for the Docker container.
                A list of key value pairs.
+        :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input['ModelPrimaryContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
+        :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
         """
-        pulumi.set(__self__, "image", image)
         if container_hostname is not None:
             pulumi.set(__self__, "container_hostname", container_hostname)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
         if image_config is not None:
             pulumi.set(__self__, "image_config", image_config)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
-
-    @property
-    @pulumi.getter
-    def image(self) -> pulumi.Input[str]:
-        """
-        The registry path where the inference code image is stored in Amazon ECR.
-        """
-        return pulumi.get(self, "image")
-
-    @image.setter
-    def image(self, value: pulumi.Input[str]):
-        pulumi.set(self, "image", value)
+        if model_package_name is not None:
+            pulumi.set(__self__, "model_package_name", model_package_name)
 
     @property
     @pulumi.getter(name="containerHostname")
@@ -4914,6 +4924,18 @@ class ModelPrimaryContainerArgs:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registry path where the inference code image is stored in Amazon ECR.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
 
     @property
     @pulumi.getter(name="imageConfig")
@@ -4950,6 +4972,18 @@ class ModelPrimaryContainerArgs:
     @model_data_url.setter
     def model_data_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "model_data_url", value)
+
+    @property
+    @pulumi.getter(name="modelPackageName")
+    def model_package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the model package to use to create the model.
+        """
+        return pulumi.get(self, "model_package_name")
+
+    @model_package_name.setter
+    def model_package_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_package_name", value)
 
 
 @pulumi.input_type
