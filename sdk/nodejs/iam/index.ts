@@ -45,10 +45,10 @@ export const getInstanceProfiles: typeof import("./getInstanceProfiles").getInst
 export const getInstanceProfilesOutput: typeof import("./getInstanceProfiles").getInstanceProfilesOutput = null as any;
 utilities.lazyLoad(exports, ["getInstanceProfiles","getInstanceProfilesOutput"], () => require("./getInstanceProfiles"));
 
-export { GetOpenidConnectProviderArgs, GetOpenidConnectProviderResult, GetOpenidConnectProviderOutputArgs } from "./getOpenidConnectProvider";
-export const getOpenidConnectProvider: typeof import("./getOpenidConnectProvider").getOpenidConnectProvider = null as any;
-export const getOpenidConnectProviderOutput: typeof import("./getOpenidConnectProvider").getOpenidConnectProviderOutput = null as any;
-utilities.lazyLoad(exports, ["getOpenidConnectProvider","getOpenidConnectProviderOutput"], () => require("./getOpenidConnectProvider"));
+export { GetOpenIdConnectProviderArgs, GetOpenIdConnectProviderResult, GetOpenIdConnectProviderOutputArgs } from "./getOpenIdConnectProvider";
+export const getOpenIdConnectProvider: typeof import("./getOpenIdConnectProvider").getOpenIdConnectProvider = null as any;
+export const getOpenIdConnectProviderOutput: typeof import("./getOpenIdConnectProvider").getOpenIdConnectProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getOpenIdConnectProvider","getOpenIdConnectProviderOutput"], () => require("./getOpenIdConnectProvider"));
 
 export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;

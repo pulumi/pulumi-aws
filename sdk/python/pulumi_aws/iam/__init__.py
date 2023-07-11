@@ -14,7 +14,7 @@ from .get_account_alias import *
 from .get_group import *
 from .get_instance_profile import *
 from .get_instance_profiles import *
-from .get_openid_connect_provider import *
+from .get_open_id_connect_provider import *
 from .get_policy import *
 from .get_policy_document import *
 from .get_principal_policy_simulation import *
