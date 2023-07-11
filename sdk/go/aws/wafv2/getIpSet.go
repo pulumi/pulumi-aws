@@ -4,21 +4,146 @@
 package wafv2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Retrieves the summary of a WAFv2 IP Set.
-func LookupIpSet(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupIpSetResult, error) {
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := wafv2.LookupIpSet(ctx, &wafv2.LookupIpSetArgs{
+//				Name:  "some-ip-set",
+//				Scope: "REGIONAL",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+func LookupIpSet(ctx *pulumi.Context, args *LookupIpSetArgs, opts ...pulumi.InvokeOption) (*LookupIpSetResult, error) {
 	var rv LookupIpSetResult
-	err := ctx.Invoke("aws:wafv2/getIpSet:getIpSet", nil, &rv, opts...)
+	err := ctx.Invoke("aws:wafv2/getIpSet:getIpSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
+// A collection of arguments for invoking getIpSet.
+type LookupIpSetArgs struct {
+	// Name of the WAFv2 IP Set.
+	Name string `pulumi:"name"`
+	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+	Scope string `pulumi:"scope"`
+}
+
 // A collection of values returned by getIpSet.
 type LookupIpSetResult struct {
+	// An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+	Addresses []string `pulumi:"addresses"`
+	// ARN of the entity.
+	Arn string `pulumi:"arn"`
+	// Description of the set that helps with identification.
+	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// IP address version of the set.
+	IpAddressVersion string `pulumi:"ipAddressVersion"`
+	Name             string `pulumi:"name"`
+	Scope            string `pulumi:"scope"`
+}
+
+func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...pulumi.InvokeOption) LookupIpSetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupIpSetResult, error) {
+			args := v.(LookupIpSetArgs)
+			r, err := LookupIpSet(ctx, &args, opts...)
+			var s LookupIpSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(LookupIpSetResultOutput)
+}
+
+// A collection of arguments for invoking getIpSet.
+type LookupIpSetOutputArgs struct {
+	// Name of the WAFv2 IP Set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (LookupIpSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIpSetArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getIpSet.
+type LookupIpSetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupIpSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupIpSetResult)(nil)).Elem()
+}
+
+func (o LookupIpSetResultOutput) ToLookupIpSetResultOutput() LookupIpSetResultOutput {
+	return o
+}
+
+func (o LookupIpSetResultOutput) ToLookupIpSetResultOutputWithContext(ctx context.Context) LookupIpSetResultOutput {
+	return o
+}
+
+// An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+func (o LookupIpSetResultOutput) Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIpSetResult) []string { return v.Addresses }).(pulumi.StringArrayOutput)
+}
+
+// ARN of the entity.
+func (o LookupIpSetResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIpSetResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Description of the set that helps with identification.
+func (o LookupIpSetResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIpSetResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupIpSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIpSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// IP address version of the set.
+func (o LookupIpSetResultOutput) IpAddressVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIpSetResult) string { return v.IpAddressVersion }).(pulumi.StringOutput)
+}
+
+func (o LookupIpSetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIpSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupIpSetResultOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIpSetResult) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupIpSetResultOutput{})
 }

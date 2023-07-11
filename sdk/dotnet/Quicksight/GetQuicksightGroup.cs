@@ -18,10 +18,117 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Quicksight.GetQuicksightGroup.Invoke(new()
+        ///     {
+        ///         GroupName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetQuicksightGroupResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetQuicksightGroupResult> InvokeAsync(GetQuicksightGroupArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args ?? new GetQuicksightGroupArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// QuickSight group. By using this data source, you can reference QuickSight group
+        /// properties without having to hard code ARNs or unique IDs as input.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Quicksight.GetQuicksightGroup.Invoke(new()
+        ///     {
+        ///         GroupName = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetQuicksightGroupResult> Invoke(GetQuicksightGroupInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args ?? new GetQuicksightGroupInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetQuicksightGroupArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        public string? AwsAccountId { get; set; }
+
+        /// <summary>
+        /// The name of the group that you want to match.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("groupName", required: true)]
+        public string GroupName { get; set; } = null!;
+
+        /// <summary>
+        /// QuickSight namespace. Defaults to `default`.
+        /// </summary>
+        [Input("namespace")]
+        public string? Namespace { get; set; }
+
+        public GetQuicksightGroupArgs()
+        {
+        }
+        public static new GetQuicksightGroupArgs Empty => new GetQuicksightGroupArgs();
+    }
+
+    public sealed class GetQuicksightGroupInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// AWS account ID.
+        /// </summary>
+        [Input("awsAccountId")]
+        public Input<string>? AwsAccountId { get; set; }
+
+        /// <summary>
+        /// The name of the group that you want to match.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
+        [Input("groupName", required: true)]
+        public Input<string> GroupName { get; set; } = null!;
+
+        /// <summary>
+        /// QuickSight namespace. Defaults to `default`.
+        /// </summary>
+        [Input("namespace")]
+        public Input<string>? Namespace { get; set; }
+
+        public GetQuicksightGroupInvokeArgs()
+        {
+        }
+        public static new GetQuicksightGroupInvokeArgs Empty => new GetQuicksightGroupInvokeArgs();
     }
 
 
@@ -29,14 +136,48 @@ namespace Pulumi.Aws.Quicksight
     public sealed class GetQuicksightGroupResult
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the group.
+        /// </summary>
+        public readonly string Arn;
+        public readonly string AwsAccountId;
+        /// <summary>
+        /// The group description.
+        /// </summary>
+        public readonly string Description;
+        public readonly string GroupName;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? Namespace;
+        /// <summary>
+        /// The principal ID of the group.
+        /// </summary>
+        public readonly string PrincipalId;
 
         [OutputConstructor]
-        private GetQuicksightGroupResult(string id)
+        private GetQuicksightGroupResult(
+            string arn,
+
+            string awsAccountId,
+
+            string description,
+
+            string groupName,
+
+            string id,
+
+            string? @namespace,
+
+            string principalId)
         {
+            Arn = arn;
+            AwsAccountId = awsAccountId;
+            Description = description;
+            GroupName = groupName;
             Id = id;
+            Namespace = @namespace;
+            PrincipalId = principalId;
         }
     }
 }

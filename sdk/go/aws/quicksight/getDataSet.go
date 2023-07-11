@@ -4,23 +4,204 @@
 package quicksight
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Data source for managing a QuickSight Data Set.
 //
 // ## Example Usage
-func LookupDataSet(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupDataSetResult, error) {
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := quicksight.LookupDataSet(ctx, &quicksight.LookupDataSetArgs{
+//				DataSetId: "example-id",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.InvokeOption) (*LookupDataSetResult, error) {
 	var rv LookupDataSetResult
-	err := ctx.Invoke("aws:quicksight/getDataSet:getDataSet", nil, &rv, opts...)
+	err := ctx.Invoke("aws:quicksight/getDataSet:getDataSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
+// A collection of arguments for invoking getDataSet.
+type LookupDataSetArgs struct {
+	// AWS account ID.
+	AwsAccountId               *string                               `pulumi:"awsAccountId"`
+	ColumnLevelPermissionRules []GetDataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
+	// Identifier for the data set.
+	//
+	// The following arguments are optional:
+	DataSetId string            `pulumi:"dataSetId"`
+	Tags      map[string]string `pulumi:"tags"`
+	// Deprecated: this attribute has been deprecated
+	TagsAll map[string]string `pulumi:"tagsAll"`
+}
+
 // A collection of values returned by getDataSet.
 type LookupDataSetResult struct {
+	Arn                        string                                `pulumi:"arn"`
+	AwsAccountId               string                                `pulumi:"awsAccountId"`
+	ColumnGroups               []GetDataSetColumnGroup               `pulumi:"columnGroups"`
+	ColumnLevelPermissionRules []GetDataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
+	DataSetId                  string                                `pulumi:"dataSetId"`
+	DataSetUsageConfigurations []GetDataSetDataSetUsageConfiguration `pulumi:"dataSetUsageConfigurations"`
+	FieldFolders               []GetDataSetFieldFolder               `pulumi:"fieldFolders"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id                                  string                                         `pulumi:"id"`
+	ImportMode                          string                                         `pulumi:"importMode"`
+	LogicalTableMaps                    []GetDataSetLogicalTableMap                    `pulumi:"logicalTableMaps"`
+	Name                                string                                         `pulumi:"name"`
+	Permissions                         []GetDataSetPermission                         `pulumi:"permissions"`
+	PhysicalTableMaps                   []GetDataSetPhysicalTableMap                   `pulumi:"physicalTableMaps"`
+	RowLevelPermissionDataSets          []GetDataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSets"`
+	RowLevelPermissionTagConfigurations []GetDataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfigurations"`
+	Tags                                map[string]string                              `pulumi:"tags"`
+	// Deprecated: this attribute has been deprecated
+	TagsAll map[string]string `pulumi:"tagsAll"`
+}
+
+func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupDataSetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDataSetResult, error) {
+			args := v.(LookupDataSetArgs)
+			r, err := LookupDataSet(ctx, &args, opts...)
+			var s LookupDataSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(LookupDataSetResultOutput)
+}
+
+// A collection of arguments for invoking getDataSet.
+type LookupDataSetOutputArgs struct {
+	// AWS account ID.
+	AwsAccountId               pulumi.StringPtrInput                         `pulumi:"awsAccountId"`
+	ColumnLevelPermissionRules GetDataSetColumnLevelPermissionRuleArrayInput `pulumi:"columnLevelPermissionRules"`
+	// Identifier for the data set.
+	//
+	// The following arguments are optional:
+	DataSetId pulumi.StringInput    `pulumi:"dataSetId"`
+	Tags      pulumi.StringMapInput `pulumi:"tags"`
+	// Deprecated: this attribute has been deprecated
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
+}
+
+func (LookupDataSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataSetArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDataSet.
+type LookupDataSetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDataSetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDataSetResult)(nil)).Elem()
+}
+
+func (o LookupDataSetResultOutput) ToLookupDataSetResultOutput() LookupDataSetResultOutput {
+	return o
+}
+
+func (o LookupDataSetResultOutput) ToLookupDataSetResultOutputWithContext(ctx context.Context) LookupDataSetResultOutput {
+	return o
+}
+
+func (o LookupDataSetResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupDataSetResultOutput) AwsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+func (o LookupDataSetResultOutput) ColumnGroups() GetDataSetColumnGroupArrayOutput {
+	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetColumnGroup { return v.ColumnGroups }).(GetDataSetColumnGroupArrayOutput)
+}
+
+func (o LookupDataSetResultOutput) ColumnLevelPermissionRules() GetDataSetColumnLevelPermissionRuleArrayOutput {
+	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetColumnLevelPermissionRule { return v.ColumnLevelPermissionRules }).(GetDataSetColumnLevelPermissionRuleArrayOutput)
+}
+
+func (o LookupDataSetResultOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+func (o LookupDataSetResultOutput) DataSetUsageConfigurations() GetDataSetDataSetUsageConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetDataSetUsageConfiguration { return v.DataSetUsageConfigurations }).(GetDataSetDataSetUsageConfigurationArrayOutput)
+}
+
+func (o LookupDataSetResultOutput) FieldFolders() GetDataSetFieldFolderArrayOutput {
+	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetFieldFolder { return v.FieldFolders }).(GetDataSetFieldFolderArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDataSetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupDataSetResultOutput) ImportMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.ImportMode }).(pulumi.StringOutput)
+}
+
+func (o LookupDataSetResultOutput) LogicalTableMaps() GetDataSetLogicalTableMapArrayOutput {
+	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetLogicalTableMap { return v.LogicalTableMaps }).(GetDataSetLogicalTableMapArrayOutput)
+}
+
+func (o LookupDataSetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupDataSetResultOutput) Permissions() GetDataSetPermissionArrayOutput {
+	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetPermission { return v.Permissions }).(GetDataSetPermissionArrayOutput)
+}
+
+func (o LookupDataSetResultOutput) PhysicalTableMaps() GetDataSetPhysicalTableMapArrayOutput {
+	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetPhysicalTableMap { return v.PhysicalTableMaps }).(GetDataSetPhysicalTableMapArrayOutput)
+}
+
+func (o LookupDataSetResultOutput) RowLevelPermissionDataSets() GetDataSetRowLevelPermissionDataSetArrayOutput {
+	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetRowLevelPermissionDataSet { return v.RowLevelPermissionDataSets }).(GetDataSetRowLevelPermissionDataSetArrayOutput)
+}
+
+func (o LookupDataSetResultOutput) RowLevelPermissionTagConfigurations() GetDataSetRowLevelPermissionTagConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetRowLevelPermissionTagConfiguration {
+		return v.RowLevelPermissionTagConfigurations
+	}).(GetDataSetRowLevelPermissionTagConfigurationArrayOutput)
+}
+
+func (o LookupDataSetResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDataSetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Deprecated: this attribute has been deprecated
+func (o LookupDataSetResultOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDataSetResult) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDataSetResultOutput{})
 }

@@ -40,21 +40,25 @@ export type FolderMembership = import("./folderMembership").FolderMembership;
 export const FolderMembership: typeof import("./folderMembership").FolderMembership = null as any;
 utilities.lazyLoad(exports, ["FolderMembership"], () => require("./folderMembership"));
 
-export { GetDataSetResult } from "./getDataSet";
+export { GetDataSetArgs, GetDataSetResult, GetDataSetOutputArgs } from "./getDataSet";
 export const getDataSet: typeof import("./getDataSet").getDataSet = null as any;
-utilities.lazyLoad(exports, ["getDataSet"], () => require("./getDataSet"));
+export const getDataSetOutput: typeof import("./getDataSet").getDataSetOutput = null as any;
+utilities.lazyLoad(exports, ["getDataSet","getDataSetOutput"], () => require("./getDataSet"));
 
-export { GetQuicksightGroupResult } from "./getQuicksightGroup";
+export { GetQuicksightGroupArgs, GetQuicksightGroupResult, GetQuicksightGroupOutputArgs } from "./getQuicksightGroup";
 export const getQuicksightGroup: typeof import("./getQuicksightGroup").getQuicksightGroup = null as any;
-utilities.lazyLoad(exports, ["getQuicksightGroup"], () => require("./getQuicksightGroup"));
+export const getQuicksightGroupOutput: typeof import("./getQuicksightGroup").getQuicksightGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getQuicksightGroup","getQuicksightGroupOutput"], () => require("./getQuicksightGroup"));
 
-export { GetQuicksightUserResult } from "./getQuicksightUser";
+export { GetQuicksightUserArgs, GetQuicksightUserResult, GetQuicksightUserOutputArgs } from "./getQuicksightUser";
 export const getQuicksightUser: typeof import("./getQuicksightUser").getQuicksightUser = null as any;
-utilities.lazyLoad(exports, ["getQuicksightUser"], () => require("./getQuicksightUser"));
+export const getQuicksightUserOutput: typeof import("./getQuicksightUser").getQuicksightUserOutput = null as any;
+utilities.lazyLoad(exports, ["getQuicksightUser","getQuicksightUserOutput"], () => require("./getQuicksightUser"));
 
-export { GetThemeResult } from "./getTheme";
+export { GetThemeArgs, GetThemeResult, GetThemeOutputArgs } from "./getTheme";
 export const getTheme: typeof import("./getTheme").getTheme = null as any;
-utilities.lazyLoad(exports, ["getTheme"], () => require("./getTheme"));
+export const getThemeOutput: typeof import("./getTheme").getThemeOutput = null as any;
+utilities.lazyLoad(exports, ["getTheme","getThemeOutput"], () => require("./getTheme"));
 
 export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;

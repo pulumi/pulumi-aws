@@ -7,15 +7,17 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.quicksight.GroupArgs;
 import com.pulumi.aws.quicksight.inputs.GroupState;
 import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * Resource for managing QuickSight Group
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -57,6 +59,77 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:quicksight/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
     /**
+     * Amazon Resource Name (ARN) of group
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of group
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
+     * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     * 
+     */
+    @Export(name="awsAccountId", refs={String.class}, tree="[0]")
+    private Output<String> awsAccountId;
+
+    /**
+     * @return The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
+     * 
+     */
+    public Output<String> awsAccountId() {
+        return this.awsAccountId;
+    }
+    /**
+     * A description for the group.
+     * 
+     */
+    @Export(name="description", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> description;
+
+    /**
+     * @return A description for the group.
+     * 
+     */
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
+    }
+    /**
+     * A name for the group.
+     * 
+     */
+    @Export(name="groupName", refs={String.class}, tree="[0]")
+    private Output<String> groupName;
+
+    /**
+     * @return A name for the group.
+     * 
+     */
+    public Output<String> groupName() {
+        return this.groupName;
+    }
+    /**
+     * The namespace. Currently, you should set this to `default`.
+     * 
+     */
+    @Export(name="namespace", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> namespace;
+
+    /**
+     * @return The namespace. Currently, you should set this to `default`.
+     * 
+     */
+    public Output<Optional<String>> namespace() {
+        return Codegen.optional(this.namespace);
+    }
+
+    /**
      *
      * @param name The _unique_ name of the resulting resource.
      */
@@ -68,7 +141,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Group(String name, @Nullable GroupArgs args) {
+    public Group(String name, GroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -77,7 +150,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Group(String name, @Nullable GroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Group(String name, GroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:quicksight/group:Group", name, args == null ? GroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

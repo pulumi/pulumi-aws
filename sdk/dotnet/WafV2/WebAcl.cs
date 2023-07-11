@@ -13,13 +13,95 @@ namespace Pulumi.Aws.WafV2
     public partial class WebAcl : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Web ACL capacity units (WCUs) currently being used by this web ACL.
+        /// </summary>
+        [Output("capacity")]
+        public Output<int> Capacity { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        /// </summary>
+        [Output("captchaConfig")]
+        public Output<Outputs.WebAclCaptchaConfig?> CaptchaConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        /// </summary>
+        [Output("customResponseBodies")]
+        public Output<ImmutableArray<Outputs.WebAclCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
+
+        /// <summary>
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        /// </summary>
+        [Output("defaultAction")]
+        public Output<Outputs.WebAclDefaultAction> DefaultAction { get; private set; } = null!;
+
+        /// <summary>
+        /// Friendly description of the WebACL.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        [Output("lockToken")]
+        public Output<string> LockToken { get; private set; } = null!;
+
+        /// <summary>
+        /// Friendly name of the WebACL.
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+        /// </summary>
+        [Output("rules")]
+        public Output<ImmutableArray<Outputs.WebAclRule>> Rules { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        /// </summary>
+        [Output("scope")]
+        public Output<string> Scope { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        /// </summary>
+        [Output("tokenDomains")]
+        public Output<ImmutableArray<string>> TokenDomains { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        /// </summary>
+        [Output("visibilityConfig")]
+        public Output<Outputs.WebAclVisibilityConfig> VisibilityConfig { get; private set; } = null!;
+
+
+        /// <summary>
         /// Create a WebAcl resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public WebAcl(string name, WebAclArgs? args = null, CustomResourceOptions? options = null)
+        public WebAcl(string name, WebAclArgs args, CustomResourceOptions? options = null)
             : base("aws:wafv2/webAcl:WebAcl", name, args ?? new WebAclArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -57,6 +139,90 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class WebAclArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        /// </summary>
+        [Input("captchaConfig")]
+        public Input<Inputs.WebAclCaptchaConfigArgs>? CaptchaConfig { get; set; }
+
+        [Input("customResponseBodies")]
+        private InputList<Inputs.WebAclCustomResponseBodyArgs>? _customResponseBodies;
+
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclCustomResponseBodyArgs> CustomResponseBodies
+        {
+            get => _customResponseBodies ?? (_customResponseBodies = new InputList<Inputs.WebAclCustomResponseBodyArgs>());
+            set => _customResponseBodies = value;
+        }
+
+        /// <summary>
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        /// </summary>
+        [Input("defaultAction", required: true)]
+        public Input<Inputs.WebAclDefaultActionArgs> DefaultAction { get; set; } = null!;
+
+        /// <summary>
+        /// Friendly description of the WebACL.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Friendly name of the WebACL.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("rules")]
+        private InputList<Inputs.WebAclRuleArgs>? _rules;
+
+        /// <summary>
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclRuleArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.WebAclRuleArgs>());
+            set => _rules = value;
+        }
+
+        /// <summary>
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tokenDomains")]
+        private InputList<string>? _tokenDomains;
+
+        /// <summary>
+        /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        /// </summary>
+        public InputList<string> TokenDomains
+        {
+            get => _tokenDomains ?? (_tokenDomains = new InputList<string>());
+            set => _tokenDomains = value;
+        }
+
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        /// </summary>
+        [Input("visibilityConfig", required: true)]
+        public Input<Inputs.WebAclVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
+
         public WebAclArgs()
         {
         }
@@ -65,6 +231,117 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class WebAclState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Web ACL capacity units (WCUs) currently being used by this web ACL.
+        /// </summary>
+        [Input("capacity")]
+        public Input<int>? Capacity { get; set; }
+
+        /// <summary>
+        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        /// </summary>
+        [Input("captchaConfig")]
+        public Input<Inputs.WebAclCaptchaConfigGetArgs>? CaptchaConfig { get; set; }
+
+        [Input("customResponseBodies")]
+        private InputList<Inputs.WebAclCustomResponseBodyGetArgs>? _customResponseBodies;
+
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclCustomResponseBodyGetArgs> CustomResponseBodies
+        {
+            get => _customResponseBodies ?? (_customResponseBodies = new InputList<Inputs.WebAclCustomResponseBodyGetArgs>());
+            set => _customResponseBodies = value;
+        }
+
+        /// <summary>
+        /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        /// </summary>
+        [Input("defaultAction")]
+        public Input<Inputs.WebAclDefaultActionGetArgs>? DefaultAction { get; set; }
+
+        /// <summary>
+        /// Friendly description of the WebACL.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        [Input("lockToken")]
+        public Input<string>? LockToken { get; set; }
+
+        /// <summary>
+        /// Friendly name of the WebACL.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("rules")]
+        private InputList<Inputs.WebAclRuleGetArgs>? _rules;
+
+        /// <summary>
+        /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclRuleGetArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.WebAclRuleGetArgs>());
+            set => _rules = value;
+        }
+
+        /// <summary>
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        /// </summary>
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
+        [Input("tokenDomains")]
+        private InputList<string>? _tokenDomains;
+
+        /// <summary>
+        /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        /// </summary>
+        public InputList<string> TokenDomains
+        {
+            get => _tokenDomains ?? (_tokenDomains = new InputList<string>());
+            set => _tokenDomains = value;
+        }
+
+        /// <summary>
+        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        /// </summary>
+        [Input("visibilityConfig")]
+        public Input<Inputs.WebAclVisibilityConfigGetArgs>? VisibilityConfig { get; set; }
+
         public WebAclState()
         {
         }

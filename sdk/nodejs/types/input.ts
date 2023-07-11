@@ -36178,6 +36178,1915 @@ export namespace mediaconvert {
 }
 
 export namespace medialive {
+    export interface ChannelCdiInputSpecification {
+        /**
+         * Maximum CDI input resolution.
+         */
+        resolution: pulumi.Input<string>;
+    }
+
+    export interface ChannelDestination {
+        /**
+         * User-specified id. Ths is used in an output group or an output.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
+         */
+        mediaPackageSettings?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelDestinationMediaPackageSetting>[]>;
+        /**
+         * Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
+         */
+        multiplexSettings?: pulumi.Input<inputs.medialive.ChannelDestinationMultiplexSettings>;
+        /**
+         * Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
+         */
+        settings?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelDestinationSetting>[]>;
+    }
+
+    export interface ChannelDestinationMediaPackageSetting {
+        /**
+         * ID of the channel in MediaPackage that is the destination for this output group.
+         */
+        channelId: pulumi.Input<string>;
+    }
+
+    export interface ChannelDestinationMultiplexSettings {
+        /**
+         * The ID of the Multiplex that the encoder is providing output to.
+         */
+        multiplexId: pulumi.Input<string>;
+        /**
+         * The program name of the Multiplex program that the encoder is providing output to.
+         */
+        programName: pulumi.Input<string>;
+    }
+
+    export interface ChannelDestinationSetting {
+        /**
+         * Key used to extract the password from EC2 Parameter store.
+         */
+        passwordParam?: pulumi.Input<string>;
+        /**
+         * Stream name RTMP destinations (URLs of type rtmp://)
+         */
+        streamName?: pulumi.Input<string>;
+        /**
+         * A URL specifying a destination.
+         */
+        url?: pulumi.Input<string>;
+        /**
+         * Username for destination.
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettings {
+        /**
+         * Audio descriptions for the channel. See Audio Descriptions for more details.
+         */
+        audioDescriptions?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescription>[]>;
+        /**
+         * Settings for ad avail blanking. See Avail Blanking for more details.
+         */
+        availBlanking?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAvailBlanking>;
+        /**
+         * Output groups for the channel. See Output Groups for more details.
+         */
+        outputGroups: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroup>[]>;
+        /**
+         * Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+         */
+        timecodeConfig: pulumi.Input<inputs.medialive.ChannelEncoderSettingsTimecodeConfig>;
+        /**
+         * Video Descriptions. See Video Descriptions for more details.
+         */
+        videoDescriptions?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescription>[]>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescription {
+        /**
+         * Advanced audio normalization settings. See Audio Normalization Settings for more details.
+         */
+        audioNormalizationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings>;
+        /**
+         * The name of the audio selector used as the source for this AudioDescription.
+         */
+        audioSelectorName: pulumi.Input<string>;
+        /**
+         * Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+         */
+        audioType?: pulumi.Input<string>;
+        /**
+         * Determined how audio type is determined.
+         */
+        audioTypeControl?: pulumi.Input<string>;
+        /**
+         * Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+         */
+        audioWatermarkSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings>;
+        /**
+         * Audio codec settings. See Audio Codec Settings for more details.
+         */
+        codecSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettings>;
+        /**
+         * When specified this field indicates the three letter language code of the caption track to extract from the source.
+         */
+        languageCode?: pulumi.Input<string>;
+        languageCodeControl?: pulumi.Input<string>;
+        /**
+         * The name of this audio description.
+         */
+        name: pulumi.Input<string>;
+        remixSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionRemixSettings>;
+        /**
+         * Stream name RTMP destinations (URLs of type rtmp://)
+         */
+        streamName?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings {
+        /**
+         * Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
+         */
+        algorithm?: pulumi.Input<string>;
+        /**
+         * Algorithm control for the audio description.
+         */
+        algorithmControl?: pulumi.Input<string>;
+        /**
+         * Target LKFS (loudness) to adjust volume to.
+         */
+        targetLkfs?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings {
+        nielsenWatermarksSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings {
+        /**
+         * Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+         */
+        nielsenCbetSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings>;
+        /**
+         * Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
+         */
+        nielsenDistributionType?: pulumi.Input<string>;
+        /**
+         * Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+         */
+        nielsenNaesIiNwSettings?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting>[]>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings {
+        cbetCheckDigitString: pulumi.Input<string>;
+        /**
+         * Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+         */
+        cbetStepaside: pulumi.Input<string>;
+        /**
+         * CBET source ID to use in the watermark.
+         */
+        csid: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting {
+        checkDigitString: pulumi.Input<string>;
+        /**
+         * The Nielsen Source ID to include in the watermark.
+         */
+        sid: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionCodecSettings {
+        /**
+         * Aac Settings. See AAC Settings for more details.
+         */
+        aacSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings>;
+        /**
+         * Ac3 Settings. See AC3 Settings for more details.
+         */
+        ac3Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings>;
+        /**
+         * Eac3 Atmos Settings. See EAC3 Atmos Settings
+         */
+        eac3AtmosSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings>;
+        /**
+         * Eac3 Settings. See EAC3 Settings
+         */
+        eac3Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings>;
+        mp2Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings>;
+        passThroughSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings>;
+        wavSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings {
+        /**
+         * Average bitrate in bits/second.
+         */
+        bitrate?: pulumi.Input<number>;
+        /**
+         * Mono, Stereo, or 5.1 channel layout.
+         */
+        codingMode?: pulumi.Input<string>;
+        /**
+         * Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+         */
+        inputType?: pulumi.Input<string>;
+        /**
+         * AAC profile.
+         */
+        profile?: pulumi.Input<string>;
+        /**
+         * The rate control mode.
+         */
+        rateControlMode?: pulumi.Input<string>;
+        /**
+         * Sets LATM/LOAS AAC output for raw containers.
+         */
+        rawFormat?: pulumi.Input<string>;
+        /**
+         * Sample rate in Hz.
+         */
+        sampleRate?: pulumi.Input<number>;
+        /**
+         * Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+         */
+        spec?: pulumi.Input<string>;
+        /**
+         * VBR Quality Level - Only used if rateControlMode is VBR.
+         */
+        vbrQuality?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings {
+        /**
+         * Average bitrate in bits/second.
+         */
+        bitrate?: pulumi.Input<number>;
+        /**
+         * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+         */
+        bitstreamMode?: pulumi.Input<string>;
+        /**
+         * Mono, Stereo, or 5.1 channel layout.
+         */
+        codingMode?: pulumi.Input<string>;
+        /**
+         * Sets the dialnorm of the output.
+         */
+        dialnorm?: pulumi.Input<number>;
+        /**
+         * If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+         */
+        drcProfile?: pulumi.Input<string>;
+        /**
+         * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+         */
+        lfeFilter?: pulumi.Input<string>;
+        /**
+         * Metadata control.
+         */
+        metadataControl?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings {
+        /**
+         * Average bitrate in bits/second.
+         */
+        bitrate?: pulumi.Input<number>;
+        /**
+         * Mono, Stereo, or 5.1 channel layout.
+         */
+        codingMode?: pulumi.Input<string>;
+        /**
+         * Sets the dialnorm of the output.
+         */
+        dialnorm?: pulumi.Input<number>;
+        /**
+         * Sets the Dolby dynamic range compression profile.
+         */
+        drcLine?: pulumi.Input<string>;
+        /**
+         * Sets the profile for heavy Dolby dynamic range compression.
+         */
+        drcRf?: pulumi.Input<string>;
+        /**
+         * Height dimensional trim.
+         */
+        heightTrim?: pulumi.Input<number>;
+        /**
+         * Surround dimensional trim.
+         */
+        surroundTrim?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings {
+        /**
+         * Sets the attenuation control.
+         */
+        attenuationControl?: pulumi.Input<string>;
+        /**
+         * Average bitrate in bits/second.
+         */
+        bitrate?: pulumi.Input<number>;
+        /**
+         * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+         */
+        bitstreamMode?: pulumi.Input<string>;
+        /**
+         * Mono, Stereo, or 5.1 channel layout.
+         */
+        codingMode?: pulumi.Input<string>;
+        dcFilter?: pulumi.Input<string>;
+        /**
+         * Sets the dialnorm of the output.
+         */
+        dialnorm?: pulumi.Input<number>;
+        /**
+         * Sets the Dolby dynamic range compression profile.
+         */
+        drcLine?: pulumi.Input<string>;
+        /**
+         * Sets the profile for heavy Dolby dynamic range compression.
+         */
+        drcRf?: pulumi.Input<string>;
+        lfeControl?: pulumi.Input<string>;
+        /**
+         * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+         */
+        lfeFilter?: pulumi.Input<string>;
+        loRoCenterMixLevel?: pulumi.Input<number>;
+        loRoSurroundMixLevel?: pulumi.Input<number>;
+        ltRtCenterMixLevel?: pulumi.Input<number>;
+        ltRtSurroundMixLevel?: pulumi.Input<number>;
+        /**
+         * Metadata control.
+         */
+        metadataControl?: pulumi.Input<string>;
+        passthroughControl?: pulumi.Input<string>;
+        phaseControl?: pulumi.Input<string>;
+        stereoDownmix?: pulumi.Input<string>;
+        surroundExMode?: pulumi.Input<string>;
+        surroundMode?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings {
+        /**
+         * Average bitrate in bits/second.
+         */
+        bitrate?: pulumi.Input<number>;
+        /**
+         * Mono, Stereo, or 5.1 channel layout.
+         */
+        codingMode?: pulumi.Input<string>;
+        /**
+         * Sample rate in Hz.
+         */
+        sampleRate?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings {
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings {
+        bitDepth?: pulumi.Input<number>;
+        /**
+         * Mono, Stereo, or 5.1 channel layout.
+         */
+        codingMode?: pulumi.Input<string>;
+        /**
+         * Sample rate in Hz.
+         */
+        sampleRate?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionRemixSettings {
+        channelMappings: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping>[]>;
+        channelsIn?: pulumi.Input<number>;
+        channelsOut?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping {
+        inputChannelLevels: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel>[]>;
+        outputChannel: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel {
+        gain: pulumi.Input<number>;
+        inputChannel: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsAvailBlanking {
+        /**
+         * Blanking image to be used. See Avail Blanking Image for more details.
+         */
+        availBlankingImage?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAvailBlankingAvailBlankingImage>;
+        /**
+         * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+         */
+        state?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsAvailBlankingAvailBlankingImage {
+        /**
+         * Key used to extract the password from EC2 Parameter store.
+         */
+        passwordParam?: pulumi.Input<string>;
+        /**
+         * Path to a file accessible to the live stream.
+         */
+        uri: pulumi.Input<string>;
+        /**
+         * . Username to be used.
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroup {
+        /**
+         * Custom output group name defined by the user.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Settings associated with the output group. See Output Group Settings for more details.
+         */
+        outputGroupSettings: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettings>;
+        /**
+         * List of outputs. See Outputs for more details.
+         */
+        outputs: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutput>[]>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutput {
+        /**
+         * The names of the audio descriptions used as audio sources for the output.
+         */
+        audioDescriptionNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The names of the caption descriptions used as caption sources for the output.
+         */
+        captionDescriptionNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name used to identify an output.
+         */
+        outputName?: pulumi.Input<string>;
+        /**
+         * Settings for output. See Output Settings for more details.
+         */
+        outputSettings: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettings>;
+        /**
+         * The name of the video description used as video source for the output.
+         */
+        videoDescriptionName?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettings {
+        /**
+         * Archive group settings. See Archive Group Settings for more details.
+         */
+        archiveGroupSettings?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting>[]>;
+        frameCaptureGroupSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings>;
+        hlsGroupSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings>;
+        /**
+         * Media package group settings. See Media Package Group Settings for more details.
+         */
+        mediaPackageGroupSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings>;
+        msSmoothGroupSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings>;
+        multiplexGroupSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings>;
+        /**
+         * RTMP group settings. See RTMP Group Settings for more details.
+         */
+        rtmpGroupSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings>;
+        udpGroupSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting {
+        /**
+         * Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+         */
+        archiveCdnSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings>;
+        /**
+         * A director and base filename where archive files should be written. See Destination for more details.
+         */
+        destination: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination>;
+        /**
+         * Number of seconds to write to archive file before closing and starting a new one.
+         */
+        rolloverInterval?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings {
+        /**
+         * Archive S3 Settings. See Archive S3 Settings for more details.
+         */
+        archiveS3Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings {
+        /**
+         * Specify the canned ACL to apply to each S3 request.
+         */
+        cannedAcl?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination {
+        /**
+         * Reference ID for the destination.
+         */
+        destinationRefId: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings {
+        /**
+         * A director and base filename where archive files should be written. See Destination for more details.
+         */
+        destination: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination>;
+        frameCaptureCdnSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination {
+        /**
+         * Reference ID for the destination.
+         */
+        destinationRefId: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings {
+        frameCaptureS3Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings {
+        /**
+         * Specify the canned ACL to apply to each S3 request.
+         */
+        cannedAcl?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings {
+        /**
+         * The ad marker type for this output group.
+         */
+        adMarkers?: pulumi.Input<pulumi.Input<string>[]>;
+        baseUrlContent?: pulumi.Input<string>;
+        baseUrlContent1?: pulumi.Input<string>;
+        baseUrlManifest?: pulumi.Input<string>;
+        baseUrlManifest1?: pulumi.Input<string>;
+        captionLanguageMappings?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping>[]>;
+        captionLanguageSetting?: pulumi.Input<string>;
+        clientCache?: pulumi.Input<string>;
+        codecSpecification?: pulumi.Input<string>;
+        constantIv?: pulumi.Input<string>;
+        /**
+         * A director and base filename where archive files should be written. See Destination for more details.
+         */
+        destination: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination>;
+        directoryStructure?: pulumi.Input<string>;
+        discontinuityTags?: pulumi.Input<string>;
+        encryptionType?: pulumi.Input<string>;
+        hlsCdnSettings?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting>[]>;
+        hlsId3SegmentTagging?: pulumi.Input<string>;
+        iframeOnlyPlaylists?: pulumi.Input<string>;
+        incompleteSegmentBehavior?: pulumi.Input<string>;
+        indexNSegments?: pulumi.Input<number>;
+        /**
+         * Controls the behavior of the RTMP group if input becomes unavailable.
+         */
+        inputLossAction?: pulumi.Input<string>;
+        ivInManifest?: pulumi.Input<string>;
+        ivSource?: pulumi.Input<string>;
+        keepSegments?: pulumi.Input<number>;
+        keyFormat?: pulumi.Input<string>;
+        keyFormatVersions?: pulumi.Input<string>;
+        keyProviderSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings>;
+        manifestCompression?: pulumi.Input<string>;
+        manifestDurationFormat?: pulumi.Input<string>;
+        minSegmentLength?: pulumi.Input<number>;
+        mode?: pulumi.Input<string>;
+        outputSelection?: pulumi.Input<string>;
+        programDateTime?: pulumi.Input<string>;
+        programDateTimeClock?: pulumi.Input<string>;
+        programDateTimePeriod?: pulumi.Input<number>;
+        redundantManifest?: pulumi.Input<string>;
+        segmentLength?: pulumi.Input<number>;
+        segmentsPerSubdirectory?: pulumi.Input<number>;
+        streamInfResolution?: pulumi.Input<string>;
+        /**
+         * Indicates ID3 frame that has the timecode.
+         */
+        timedMetadataId3Frame?: pulumi.Input<string>;
+        timedMetadataId3Period?: pulumi.Input<number>;
+        timestampDeltaMilliseconds?: pulumi.Input<number>;
+        tsFileMode?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping {
+        captionChannel: pulumi.Input<number>;
+        /**
+         * When specified this field indicates the three letter language code of the caption track to extract from the source.
+         */
+        languageCode: pulumi.Input<string>;
+        languageDescription: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination {
+        /**
+         * Reference ID for the destination.
+         */
+        destinationRefId: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting {
+        hlsAkamaiSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings>;
+        hlsBasicPutSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings>;
+        hlsMediaStoreSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings>;
+        hlsS3Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings>;
+        hlsWebdavSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings {
+        /**
+         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         */
+        connectionRetryInterval?: pulumi.Input<number>;
+        filecacheDuration?: pulumi.Input<number>;
+        httpTransferMode?: pulumi.Input<string>;
+        /**
+         * Number of retry attempts.
+         */
+        numRetries?: pulumi.Input<number>;
+        /**
+         * Number of seconds to wait until a restart is initiated.
+         */
+        restartDelay?: pulumi.Input<number>;
+        salt?: pulumi.Input<string>;
+        token?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings {
+        /**
+         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         */
+        connectionRetryInterval?: pulumi.Input<number>;
+        filecacheDuration?: pulumi.Input<number>;
+        /**
+         * Number of retry attempts.
+         */
+        numRetries?: pulumi.Input<number>;
+        /**
+         * Number of seconds to wait until a restart is initiated.
+         */
+        restartDelay?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings {
+        /**
+         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         */
+        connectionRetryInterval?: pulumi.Input<number>;
+        filecacheDuration?: pulumi.Input<number>;
+        mediaStoreStorageClass?: pulumi.Input<string>;
+        /**
+         * Number of retry attempts.
+         */
+        numRetries?: pulumi.Input<number>;
+        /**
+         * Number of seconds to wait until a restart is initiated.
+         */
+        restartDelay?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings {
+        /**
+         * Specify the canned ACL to apply to each S3 request.
+         */
+        cannedAcl?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings {
+        /**
+         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         */
+        connectionRetryInterval?: pulumi.Input<number>;
+        filecacheDuration?: pulumi.Input<number>;
+        httpTransferMode?: pulumi.Input<string>;
+        /**
+         * Number of retry attempts.
+         */
+        numRetries?: pulumi.Input<number>;
+        /**
+         * Number of seconds to wait until a restart is initiated.
+         */
+        restartDelay?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings {
+        staticKeySettings?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting>[]>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting {
+        keyProviderServer?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer>;
+        staticKeyValue: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer {
+        /**
+         * Key used to extract the password from EC2 Parameter store.
+         */
+        passwordParam?: pulumi.Input<string>;
+        /**
+         * Path to a file accessible to the live stream.
+         */
+        uri: pulumi.Input<string>;
+        /**
+         * Username for destination.
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings {
+        /**
+         * A director and base filename where archive files should be written. See Destination for more details.
+         */
+        destination: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination {
+        /**
+         * Reference ID for the destination.
+         */
+        destinationRefId: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings {
+        acquisitionPointId?: pulumi.Input<string>;
+        audioOnlyTimecodeControl?: pulumi.Input<string>;
+        /**
+         * Setting to allow self signed or verified RTMP certificates.
+         */
+        certificateMode?: pulumi.Input<string>;
+        /**
+         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         */
+        connectionRetryInterval?: pulumi.Input<number>;
+        /**
+         * A director and base filename where archive files should be written. See Destination for more details.
+         */
+        destination: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination>;
+        eventId?: pulumi.Input<string>;
+        eventIdMode?: pulumi.Input<string>;
+        eventStopBehavior?: pulumi.Input<string>;
+        filecacheDuration?: pulumi.Input<number>;
+        fragmentLength?: pulumi.Input<number>;
+        /**
+         * Controls the behavior of the RTMP group if input becomes unavailable.
+         */
+        inputLossAction?: pulumi.Input<string>;
+        /**
+         * Number of retry attempts.
+         */
+        numRetries?: pulumi.Input<number>;
+        /**
+         * Number of seconds to wait until a restart is initiated.
+         */
+        restartDelay?: pulumi.Input<number>;
+        segmentationMode?: pulumi.Input<string>;
+        sendDelayMs?: pulumi.Input<number>;
+        sparseTrackType?: pulumi.Input<string>;
+        streamManifestBehavior?: pulumi.Input<string>;
+        timestampOffset?: pulumi.Input<string>;
+        timestampOffsetMode?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination {
+        /**
+         * Reference ID for the destination.
+         */
+        destinationRefId: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings {
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings {
+        /**
+         * The ad marker type for this output group.
+         */
+        adMarkers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Authentication scheme to use when connecting with CDN.
+         */
+        authenticationScheme?: pulumi.Input<string>;
+        /**
+         * Controls behavior when content cache fills up.
+         */
+        cacheFullBehavior?: pulumi.Input<string>;
+        /**
+         * Cache length in seconds, is used to calculate buffer size.
+         */
+        cacheLength?: pulumi.Input<number>;
+        /**
+         * Controls the types of data that passes to onCaptionInfo outputs.
+         */
+        captionData?: pulumi.Input<string>;
+        /**
+         * Controls the behavior of the RTMP group if input becomes unavailable.
+         */
+        inputLossAction?: pulumi.Input<string>;
+        /**
+         * Number of seconds to wait until a restart is initiated.
+         */
+        restartDelay?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings {
+        /**
+         * Specifies behavior of last resort when input video os lost.
+         */
+        inputLossAction?: pulumi.Input<string>;
+        /**
+         * Indicates ID3 frame that has the timecode.
+         */
+        timedMetadataId3Frame?: pulumi.Input<string>;
+        timedMetadataId3Period?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettings {
+        /**
+         * Archive output settings. See Archive Output Settings for more details.
+         */
+        archiveOutputSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings>;
+        frameCaptureOutputSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings>;
+        hlsOutputSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings>;
+        /**
+         * Media package output settings. This can be set as an empty block.
+         */
+        mediaPackageOutputSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings>;
+        msSmoothOutputSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings>;
+        /**
+         * Multiplex output settings. See Multiplex Output Settings for more details.
+         */
+        multiplexOutputSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings>;
+        /**
+         * RTMP output settings. See RTMP Output Settings for more details.
+         */
+        rtmpOutputSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings>;
+        /**
+         * UDP output settings. See UDP Output Settings for more details
+         */
+        udpOutputSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings {
+        /**
+         * Settings specific to the container type of the file. See Container Settings for more details.
+         */
+        containerSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings>;
+        /**
+         * Output file extension.
+         */
+        extension?: pulumi.Input<string>;
+        /**
+         * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+         */
+        nameModifier?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings {
+        /**
+         * M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+         */
+        m2tsSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings>;
+        /**
+         * Raw Settings. This can be set as an empty block.
+         */
+        rawSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings {
+        absentInputAudioBehavior?: pulumi.Input<string>;
+        arib?: pulumi.Input<string>;
+        aribCaptionsPid?: pulumi.Input<string>;
+        aribCaptionsPidControl?: pulumi.Input<string>;
+        audioBufferModel?: pulumi.Input<string>;
+        audioFramesPerPes?: pulumi.Input<number>;
+        audioPids?: pulumi.Input<string>;
+        audioStreamType?: pulumi.Input<string>;
+        /**
+         * Average bitrate in bits/second.
+         */
+        bitrate?: pulumi.Input<number>;
+        bufferModel?: pulumi.Input<string>;
+        ccDescriptor?: pulumi.Input<string>;
+        dvbNitSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings>;
+        dvbSdtSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings>;
+        dvbSubPids?: pulumi.Input<string>;
+        dvbTdtSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings>;
+        dvbTeletextPid?: pulumi.Input<string>;
+        ebif?: pulumi.Input<string>;
+        ebpAudioInterval?: pulumi.Input<string>;
+        ebpLookaheadMs?: pulumi.Input<number>;
+        ebpPlacement?: pulumi.Input<string>;
+        ecmPid?: pulumi.Input<string>;
+        esRateInPes?: pulumi.Input<string>;
+        etvPlatformPid?: pulumi.Input<string>;
+        etvSignalPid?: pulumi.Input<string>;
+        fragmentTime?: pulumi.Input<number>;
+        klv?: pulumi.Input<string>;
+        klvDataPids?: pulumi.Input<string>;
+        nielsenId3Behavior?: pulumi.Input<string>;
+        nullPacketBitrate?: pulumi.Input<number>;
+        patInterval?: pulumi.Input<number>;
+        pcrControl?: pulumi.Input<string>;
+        pcrPeriod?: pulumi.Input<number>;
+        pcrPid?: pulumi.Input<string>;
+        pmtInterval?: pulumi.Input<number>;
+        pmtPid?: pulumi.Input<string>;
+        programNum?: pulumi.Input<number>;
+        rateMode?: pulumi.Input<string>;
+        scte27Pids?: pulumi.Input<string>;
+        scte35Control?: pulumi.Input<string>;
+        /**
+         * PID from which to read SCTE-35 messages.
+         */
+        scte35Pid?: pulumi.Input<string>;
+        segmentationMarkers?: pulumi.Input<string>;
+        segmentationStyle?: pulumi.Input<string>;
+        segmentationTime?: pulumi.Input<number>;
+        timedMetadataBehavior?: pulumi.Input<string>;
+        timedMetadataPid?: pulumi.Input<string>;
+        transportStreamId?: pulumi.Input<number>;
+        videoPid?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings {
+        networkId: pulumi.Input<number>;
+        networkName: pulumi.Input<string>;
+        repInterval?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings {
+        outputSdt?: pulumi.Input<string>;
+        repInterval?: pulumi.Input<number>;
+        serviceName?: pulumi.Input<string>;
+        serviceProviderName?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings {
+        repInterval?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings {
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings {
+        /**
+         * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+         */
+        nameModifier?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings {
+        h265PackagingType?: pulumi.Input<string>;
+        hlsSettings: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings>;
+        /**
+         * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+         */
+        nameModifier?: pulumi.Input<string>;
+        segmentModifier?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings {
+        audioOnlyHlsSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings>;
+        fmp4HlsSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings>;
+        frameCaptureHlsSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings>;
+        standardHlsSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings {
+        audioGroupId?: pulumi.Input<string>;
+        audioOnlyImage?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage>;
+        audioTrackType?: pulumi.Input<string>;
+        segmentType?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage {
+        /**
+         * Key used to extract the password from EC2 Parameter store.
+         */
+        passwordParam?: pulumi.Input<string>;
+        /**
+         * Path to a file accessible to the live stream.
+         */
+        uri: pulumi.Input<string>;
+        /**
+         * Username for destination.
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings {
+        audioRenditionSets?: pulumi.Input<string>;
+        nielsenId3Behavior?: pulumi.Input<string>;
+        timedMetadataBehavior?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings {
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings {
+        audioRenditionSets?: pulumi.Input<string>;
+        m3u8Settings: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings {
+        audioFramesPerPes?: pulumi.Input<number>;
+        audioPids?: pulumi.Input<string>;
+        ecmPid?: pulumi.Input<string>;
+        nielsenId3Behavior?: pulumi.Input<string>;
+        patInterval?: pulumi.Input<number>;
+        pcrControl?: pulumi.Input<string>;
+        pcrPeriod?: pulumi.Input<number>;
+        pcrPid?: pulumi.Input<string>;
+        pmtInterval?: pulumi.Input<number>;
+        pmtPid?: pulumi.Input<string>;
+        programNum?: pulumi.Input<number>;
+        scte35Behavior?: pulumi.Input<string>;
+        /**
+         * PID from which to read SCTE-35 messages.
+         */
+        scte35Pid?: pulumi.Input<string>;
+        timedMetadataBehavior?: pulumi.Input<string>;
+        timedMetadataPid?: pulumi.Input<string>;
+        transportStreamId?: pulumi.Input<number>;
+        videoPid?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings {
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings {
+        h265PackagingType?: pulumi.Input<string>;
+        /**
+         * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+         */
+        nameModifier?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings {
+        /**
+         * Destination is a multiplex. See Destination for more details.
+         */
+        destination: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination {
+        /**
+         * Reference ID for the destination.
+         */
+        destinationRefId: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings {
+        /**
+         * Setting to allow self signed or verified RTMP certificates.
+         */
+        certificateMode?: pulumi.Input<string>;
+        /**
+         * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         */
+        connectionRetryInterval?: pulumi.Input<number>;
+        /**
+         * The RTMP endpoint excluding the stream name. See Destination for more details.
+         */
+        destination: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination>;
+        /**
+         * Number of retry attempts.
+         */
+        numRetries?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination {
+        /**
+         * Reference ID for the destination.
+         */
+        destinationRefId: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings {
+        /**
+         * UDP output buffering in milliseconds.
+         */
+        bufferMsec?: pulumi.Input<number>;
+        /**
+         * UDP container settings. See Container Settings for more details.
+         */
+        containerSettings: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings>;
+        /**
+         * Destination address and port number for RTP or UDP packets. See Destination for more details.
+         */
+        destination: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination>;
+        fecOutputSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings {
+        /**
+         * M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+         */
+        m2tsSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings {
+        absentInputAudioBehavior?: pulumi.Input<string>;
+        arib?: pulumi.Input<string>;
+        aribCaptionsPid?: pulumi.Input<string>;
+        aribCaptionsPidControl?: pulumi.Input<string>;
+        audioBufferModel?: pulumi.Input<string>;
+        audioFramesPerPes?: pulumi.Input<number>;
+        audioPids?: pulumi.Input<string>;
+        audioStreamType?: pulumi.Input<string>;
+        /**
+         * Average bitrate in bits/second.
+         */
+        bitrate?: pulumi.Input<number>;
+        bufferModel?: pulumi.Input<string>;
+        ccDescriptor?: pulumi.Input<string>;
+        dvbNitSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings>;
+        dvbSdtSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings>;
+        dvbSubPids?: pulumi.Input<string>;
+        dvbTdtSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings>;
+        dvbTeletextPid?: pulumi.Input<string>;
+        ebif?: pulumi.Input<string>;
+        ebpAudioInterval?: pulumi.Input<string>;
+        ebpLookaheadMs?: pulumi.Input<number>;
+        ebpPlacement?: pulumi.Input<string>;
+        ecmPid?: pulumi.Input<string>;
+        esRateInPes?: pulumi.Input<string>;
+        etvPlatformPid?: pulumi.Input<string>;
+        etvSignalPid?: pulumi.Input<string>;
+        fragmentTime?: pulumi.Input<number>;
+        klv?: pulumi.Input<string>;
+        klvDataPids?: pulumi.Input<string>;
+        nielsenId3Behavior?: pulumi.Input<string>;
+        nullPacketBitrate?: pulumi.Input<number>;
+        patInterval?: pulumi.Input<number>;
+        pcrControl?: pulumi.Input<string>;
+        pcrPeriod?: pulumi.Input<number>;
+        pcrPid?: pulumi.Input<string>;
+        pmtInterval?: pulumi.Input<number>;
+        pmtPid?: pulumi.Input<string>;
+        programNum?: pulumi.Input<number>;
+        rateMode?: pulumi.Input<string>;
+        scte27Pids?: pulumi.Input<string>;
+        scte35Control?: pulumi.Input<string>;
+        /**
+         * PID from which to read SCTE-35 messages.
+         */
+        scte35Pid?: pulumi.Input<string>;
+        segmentationMarkers?: pulumi.Input<string>;
+        segmentationStyle?: pulumi.Input<string>;
+        segmentationTime?: pulumi.Input<number>;
+        timedMetadataBehavior?: pulumi.Input<string>;
+        timedMetadataPid?: pulumi.Input<string>;
+        transportStreamId?: pulumi.Input<number>;
+        videoPid?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings {
+        networkId: pulumi.Input<number>;
+        networkName: pulumi.Input<string>;
+        repInterval?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings {
+        outputSdt?: pulumi.Input<string>;
+        repInterval?: pulumi.Input<number>;
+        serviceName?: pulumi.Input<string>;
+        serviceProviderName?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings {
+        repInterval?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination {
+        /**
+         * Reference ID for the destination.
+         */
+        destinationRefId: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings {
+        /**
+         * The height of the FEC protection matrix.
+         */
+        columnDepth?: pulumi.Input<number>;
+        /**
+         * Enables column only or column and row based FEC.
+         */
+        includeFec?: pulumi.Input<string>;
+        /**
+         * The width of the FEC protection matrix.
+         */
+        rowLength?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsTimecodeConfig {
+        /**
+         * The source for the timecode that will be associated with the events outputs.
+         */
+        source: pulumi.Input<string>;
+        /**
+         * Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+         */
+        syncThreshold?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescription {
+        /**
+         * The video codec settings. See Video Codec Settings for more details.
+         */
+        codecSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettings>;
+        /**
+         * Output video height in pixels.
+         */
+        height?: pulumi.Input<number>;
+        /**
+         * The name of the video description.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Indicate how to respond to the AFD values that might be in the input video.
+         */
+        respondToAfd?: pulumi.Input<string>;
+        /**
+         * Behavior on how to scale.
+         */
+        scalingBehavior?: pulumi.Input<string>;
+        /**
+         * Changes the strength of the anti-alias filter used for scaling.
+         */
+        sharpness?: pulumi.Input<number>;
+        /**
+         * Output video width in pixels.
+         */
+        width?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettings {
+        /**
+         * Frame capture settings. See Frame Capture Settings for more details.
+         */
+        frameCaptureSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings>;
+        /**
+         * H264 settings. See H264 Settings for more details.
+         */
+        h264Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings>;
+        h265Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings {
+        /**
+         * The frequency at which to capture frames for inclusion in the output.
+         */
+        captureInterval?: pulumi.Input<number>;
+        /**
+         * Unit for the frame capture interval.
+         */
+        captureIntervalUnits?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings {
+        /**
+         * Enables or disables adaptive quantization.
+         */
+        adaptiveQuantization?: pulumi.Input<string>;
+        /**
+         * Indicates that AFD values will be written into the output stream.
+         */
+        afdSignaling?: pulumi.Input<string>;
+        /**
+         * Average bitrate in bits/second.
+         */
+        bitrate?: pulumi.Input<number>;
+        bufFillPct?: pulumi.Input<number>;
+        /**
+         * Size of buffer in bits.
+         */
+        bufSize?: pulumi.Input<number>;
+        /**
+         * Includes color space metadata in the output.
+         */
+        colorMetadata?: pulumi.Input<string>;
+        /**
+         * Entropy encoding mode.
+         */
+        entropyEncoding?: pulumi.Input<string>;
+        /**
+         * Filters to apply to an encode. See H264 Filter Settings for more details.
+         */
+        filterSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings>;
+        /**
+         * Four bit AFD value to write on all frames of video in the output stream.
+         */
+        fixedAfd?: pulumi.Input<string>;
+        flickerAq?: pulumi.Input<string>;
+        /**
+         * Controls whether coding is performed on a field basis or on a frame basis.
+         */
+        forceFieldPictures?: pulumi.Input<string>;
+        /**
+         * Indicates how the output video frame rate is specified.
+         */
+        framerateControl?: pulumi.Input<string>;
+        /**
+         * Framerate denominator.
+         */
+        framerateDenominator?: pulumi.Input<number>;
+        /**
+         * Framerate numerator.
+         */
+        framerateNumerator?: pulumi.Input<number>;
+        /**
+         * GOP-B reference.
+         */
+        gopBReference?: pulumi.Input<string>;
+        /**
+         * Frequency of closed GOPs.
+         */
+        gopClosedCadence?: pulumi.Input<number>;
+        /**
+         * Number of B-frames between reference frames.
+         */
+        gopNumBFrames?: pulumi.Input<number>;
+        /**
+         * GOP size in units of either frames of seconds per `gopSizeUnits`.
+         */
+        gopSize?: pulumi.Input<number>;
+        /**
+         * Indicates if the `gopSize` is specified in frames or seconds.
+         */
+        gopSizeUnits?: pulumi.Input<string>;
+        /**
+         * H264 level.
+         */
+        level?: pulumi.Input<string>;
+        /**
+         * Amount of lookahead.
+         */
+        lookAheadRateControl?: pulumi.Input<string>;
+        /**
+         * Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+         */
+        maxBitrate?: pulumi.Input<number>;
+        minIInterval?: pulumi.Input<number>;
+        /**
+         * Number of reference frames to use.
+         */
+        numRefFrames?: pulumi.Input<number>;
+        /**
+         * Indicates how the output pixel aspect ratio is specified.
+         */
+        parControl?: pulumi.Input<string>;
+        /**
+         * Pixel Aspect Ratio denominator.
+         */
+        parDenominator?: pulumi.Input<number>;
+        /**
+         * Pixel Aspect Ratio numerator.
+         */
+        parNumerator?: pulumi.Input<number>;
+        /**
+         * AAC profile.
+         */
+        profile?: pulumi.Input<string>;
+        /**
+         * Quality level.
+         */
+        qualityLevel?: pulumi.Input<string>;
+        /**
+         * Controls the target quality for the video encode.
+         */
+        qvbrQualityLevel?: pulumi.Input<number>;
+        /**
+         * The rate control mode.
+         */
+        rateControlMode?: pulumi.Input<string>;
+        /**
+         * Sets the scan type of the output.
+         */
+        scanType?: pulumi.Input<string>;
+        /**
+         * Scene change detection.
+         */
+        sceneChangeDetect?: pulumi.Input<string>;
+        /**
+         * Number of slices per picture.
+         */
+        slices?: pulumi.Input<number>;
+        /**
+         * Softness.
+         */
+        softness?: pulumi.Input<number>;
+        /**
+         * Makes adjustments within each frame based on spatial variation of content complexity.
+         */
+        spatialAq?: pulumi.Input<string>;
+        /**
+         * Subgop length.
+         */
+        subgopLength?: pulumi.Input<string>;
+        /**
+         * Produces a bitstream compliant with SMPTE RP-2027.
+         */
+        syntax?: pulumi.Input<string>;
+        /**
+         * Makes adjustments within each frame based on temporal variation of content complexity.
+         */
+        temporalAq?: pulumi.Input<string>;
+        /**
+         * Determines how timecodes should be inserted into the video elementary stream.
+         */
+        timecodeInsertion?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings {
+        /**
+         * Temporal filter settings. See Temporal Filter Settings
+         */
+        temporalFilterSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings {
+        /**
+         * Post filter sharpening.
+         */
+        postFilterSharpening?: pulumi.Input<string>;
+        /**
+         * Filter strength.
+         */
+        strength?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings {
+        /**
+         * Enables or disables adaptive quantization.
+         */
+        adaptiveQuantization?: pulumi.Input<string>;
+        /**
+         * Indicates that AFD values will be written into the output stream.
+         */
+        afdSignaling?: pulumi.Input<string>;
+        /**
+         * Whether or not EML should insert an Alternative Transfer Function SEI message.
+         */
+        alternativeTransferFunction?: pulumi.Input<string>;
+        /**
+         * Average bitrate in bits/second.
+         */
+        bitrate: pulumi.Input<number>;
+        /**
+         * Size of buffer in bits.
+         */
+        bufSize?: pulumi.Input<number>;
+        /**
+         * Includes color space metadata in the output.
+         */
+        colorMetadata?: pulumi.Input<string>;
+        /**
+         * Define the color metadata for the output. H265 Color Space Settings for more details.
+         */
+        colorSpaceSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings>;
+        /**
+         * Filters to apply to an encode. See H264 Filter Settings for more details.
+         */
+        filterSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings>;
+        /**
+         * Four bit AFD value to write on all frames of video in the output stream.
+         */
+        fixedAfd?: pulumi.Input<string>;
+        flickerAq?: pulumi.Input<string>;
+        /**
+         * Framerate denominator.
+         */
+        framerateDenominator: pulumi.Input<number>;
+        /**
+         * Framerate numerator.
+         */
+        framerateNumerator: pulumi.Input<number>;
+        /**
+         * Frequency of closed GOPs.
+         */
+        gopClosedCadence?: pulumi.Input<number>;
+        /**
+         * GOP size in units of either frames of seconds per `gopSizeUnits`.
+         */
+        gopSize?: pulumi.Input<number>;
+        /**
+         * Indicates if the `gopSize` is specified in frames or seconds.
+         */
+        gopSizeUnits?: pulumi.Input<string>;
+        /**
+         * H264 level.
+         */
+        level?: pulumi.Input<string>;
+        /**
+         * Amount of lookahead.
+         */
+        lookAheadRateControl?: pulumi.Input<string>;
+        /**
+         * Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+         */
+        maxBitrate?: pulumi.Input<number>;
+        minIInterval?: pulumi.Input<number>;
+        /**
+         * Pixel Aspect Ratio denominator.
+         */
+        parDenominator?: pulumi.Input<number>;
+        /**
+         * Pixel Aspect Ratio numerator.
+         */
+        parNumerator?: pulumi.Input<number>;
+        /**
+         * AAC profile.
+         */
+        profile?: pulumi.Input<string>;
+        /**
+         * Controls the target quality for the video encode.
+         */
+        qvbrQualityLevel?: pulumi.Input<number>;
+        /**
+         * The rate control mode.
+         */
+        rateControlMode?: pulumi.Input<string>;
+        /**
+         * Sets the scan type of the output.
+         */
+        scanType?: pulumi.Input<string>;
+        /**
+         * Scene change detection.
+         */
+        sceneChangeDetect?: pulumi.Input<string>;
+        /**
+         * Number of slices per picture.
+         */
+        slices?: pulumi.Input<number>;
+        /**
+         * Set the H265 tier in the output.
+         */
+        tier?: pulumi.Input<string>;
+        /**
+         * Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+         */
+        timecodeBurninSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings>;
+        /**
+         * Determines how timecodes should be inserted into the video elementary stream.
+         */
+        timecodeInsertion?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings {
+        /**
+         * Sets the colorspace metadata to be passed through.
+         */
+        colorSpacePassthroughSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings>;
+        /**
+         * Set the colorspace to Dolby Vision81.
+         */
+        dolbyVision81Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings>;
+        /**
+         * Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+         */
+        hdr10Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings>;
+        /**
+         * Set the colorspace to Rec. 601.
+         */
+        rec601Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings>;
+        /**
+         * Set the colorspace to Rec. 709.
+         */
+        rec709Settings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings {
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings {
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings {
+        /**
+         * Sets the MaxCLL value for HDR10.
+         */
+        maxCll?: pulumi.Input<number>;
+        /**
+         * Sets the MaxFALL value for HDR10.
+         */
+        maxFall?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings {
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings {
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings {
+        /**
+         * Temporal filter settings. See Temporal Filter Settings
+         */
+        temporalFilterSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings {
+        /**
+         * Post filter sharpening.
+         */
+        postFilterSharpening?: pulumi.Input<string>;
+        /**
+         * Filter strength.
+         */
+        strength?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings {
+        /**
+         * Set a prefix on the burned in timecode.
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * Sets the size of the burned in timecode.
+         */
+        timecodeBurninFontSize?: pulumi.Input<string>;
+        /**
+         * Sets the position of the burned in timecode.
+         */
+        timecodeBurninPosition?: pulumi.Input<string>;
+    }
+
+    export interface ChannelInputAttachment {
+        automaticInputFailoverSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettings>;
+        /**
+         * User-specified name for the attachment.
+         */
+        inputAttachmentName: pulumi.Input<string>;
+        /**
+         * The ID of the input.
+         */
+        inputId: pulumi.Input<string>;
+        /**
+         * Settings of an input. See Input Settings for more details
+         */
+        inputSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettings>;
+    }
+
+    export interface ChannelInputAttachmentAutomaticInputFailoverSettings {
+        errorClearTimeMsec?: pulumi.Input<number>;
+        failoverConditions?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition>[]>;
+        inputPreference?: pulumi.Input<string>;
+        secondaryInputId: pulumi.Input<string>;
+    }
+
+    export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition {
+        failoverConditionSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings>;
+    }
+
+    export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings {
+        audioSilenceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings>;
+        inputLossSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings>;
+        videoBlackSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings>;
+    }
+
+    export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
+        /**
+         * The name of the audio selector used as the source for this AudioDescription.
+         */
+        audioSelectorName: pulumi.Input<string>;
+        audioSilenceThresholdMsec?: pulumi.Input<number>;
+    }
+
+    export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings {
+        inputLossThresholdMsec?: pulumi.Input<number>;
+    }
+
+    export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings {
+        blackDetectThreshold?: pulumi.Input<number>;
+        videoBlackThresholdMsec?: pulumi.Input<number>;
+    }
+
+    export interface ChannelInputAttachmentInputSettings {
+        audioSelectors?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelector>[]>;
+        captionSelectors?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelector>[]>;
+        /**
+         * Enable or disable the deblock filter when filtering.
+         */
+        deblockFilter?: pulumi.Input<string>;
+        /**
+         * Enable or disable the denoise filter when filtering.
+         */
+        denoiseFilter?: pulumi.Input<string>;
+        /**
+         * Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+         */
+        filterStrength?: pulumi.Input<number>;
+        /**
+         * Turns on the filter for the input.
+         */
+        inputFilter?: pulumi.Input<string>;
+        /**
+         * Input settings. See Network Input Settings for more details.
+         */
+        networkInputSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsNetworkInputSettings>;
+        /**
+         * PID from which to read SCTE-35 messages.
+         */
+        scte35Pid?: pulumi.Input<number>;
+        /**
+         * Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+         */
+        smpte2038DataPreference?: pulumi.Input<string>;
+        /**
+         * Loop input if it is a file.
+         */
+        sourceEndBehavior?: pulumi.Input<string>;
+        videoSelector?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsVideoSelector>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsAudioSelector {
+        /**
+         * Name of the Channel.
+         *
+         * The following arguments are optional:
+         */
+        name: pulumi.Input<string>;
+        selectorSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings {
+        audioHlsRenditionSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection>;
+        audioLanguageSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection>;
+        audioPidSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection>;
+        audioTrackSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection {
+        groupId: pulumi.Input<string>;
+        /**
+         * Name of the Channel.
+         *
+         * The following arguments are optional:
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection {
+        /**
+         * When specified this field indicates the three letter language code of the caption track to extract from the source.
+         */
+        languageCode: pulumi.Input<string>;
+        languageSelectionPolicy?: pulumi.Input<string>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection {
+        pid: pulumi.Input<number>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection {
+        tracks: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack>[]>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack {
+        track: pulumi.Input<number>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsCaptionSelector {
+        /**
+         * When specified this field indicates the three letter language code of the caption track to extract from the source.
+         */
+        languageCode?: pulumi.Input<string>;
+        /**
+         * Name of the Channel.
+         *
+         * The following arguments are optional:
+         */
+        name: pulumi.Input<string>;
+        selectorSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings {
+        ancillarySourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings>;
+        dvbTdtSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings>;
+        embeddedSourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings>;
+        scte20SourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings>;
+        scte27SourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings>;
+        teletextSourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings {
+        sourceAncillaryChannelNumber?: pulumi.Input<number>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings {
+        ocrLanguage?: pulumi.Input<string>;
+        pid?: pulumi.Input<number>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings {
+        convert608To708?: pulumi.Input<string>;
+        scte20Detection?: pulumi.Input<string>;
+        source608ChannelNumber?: pulumi.Input<number>;
+        source608TrackNumber?: pulumi.Input<number>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings {
+        convert608To708?: pulumi.Input<string>;
+        source608ChannelNumber?: pulumi.Input<number>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings {
+        ocrLanguage?: pulumi.Input<string>;
+        pid?: pulumi.Input<number>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings {
+        outputRectangle?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle>;
+        pageNumber?: pulumi.Input<string>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle {
+        /**
+         * Output video height in pixels.
+         */
+        height: pulumi.Input<number>;
+        leftOffset: pulumi.Input<number>;
+        topOffset: pulumi.Input<number>;
+        /**
+         * Output video width in pixels.
+         */
+        width: pulumi.Input<number>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsNetworkInputSettings {
+        /**
+         * Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+         */
+        hlsInputSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings>;
+        /**
+         * Check HTTPS server certificates.
+         */
+        serverValidation?: pulumi.Input<string>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings {
+        /**
+         * The bitrate is specified in bits per second, as in an HLS manifest.
+         */
+        bandwidth?: pulumi.Input<number>;
+        /**
+         * Buffer segments.
+         */
+        bufferSegments?: pulumi.Input<number>;
+        /**
+         * The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+         */
+        retries?: pulumi.Input<number>;
+        /**
+         * The number of seconds between retries when an attempt to read a manifest or segment fails.
+         */
+        retryInterval?: pulumi.Input<number>;
+        scte35Source?: pulumi.Input<string>;
+    }
+
+    export interface ChannelInputAttachmentInputSettingsVideoSelector {
+        colorSpace?: pulumi.Input<string>;
+        colorSpaceUsage?: pulumi.Input<string>;
+    }
+
+    export interface ChannelInputSpecification {
+        codec: pulumi.Input<string>;
+        inputResolution: pulumi.Input<string>;
+        maximumBitrate: pulumi.Input<string>;
+    }
+
+    export interface ChannelMaintenance {
+        /**
+         * The day of the week to use for maintenance.
+         */
+        maintenanceDay: pulumi.Input<string>;
+        /**
+         * The hour maintenance will start.
+         */
+        maintenanceStartTime: pulumi.Input<string>;
+    }
+
+    export interface ChannelVpc {
+        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+        publicAddressAllocationIds: pulumi.Input<pulumi.Input<string>[]>;
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface InputDestination {
         /**
          * A unique name for the location the RTMP stream is being pushed to.
@@ -38749,6 +40658,388 @@ export namespace opsworks {
         privateKey: pulumi.Input<string>;
     }
 
+    export interface CustomLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * A block the specifies how an opsworks logs look like. See Log Streams.
+         */
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.CustomLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface CustomLayerCloudwatchConfigurationLogStream {
+        /**
+         * Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+         */
+        batchCount?: pulumi.Input<number>;
+        /**
+         * Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+         */
+        batchSize?: pulumi.Input<number>;
+        /**
+         * Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+         */
+        bufferDuration?: pulumi.Input<number>;
+        /**
+         * Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+         */
+        datetimeFormat?: pulumi.Input<string>;
+        /**
+         * Specifies the encoding of the log file so that the file can be read correctly. The default is `utf8`.
+         */
+        encoding?: pulumi.Input<string>;
+        /**
+         * Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+         */
+        file: pulumi.Input<string>;
+        /**
+         * Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+         */
+        fileFingerprintLines?: pulumi.Input<string>;
+        /**
+         * Specifies where to start to read data (`startOfFile` or `endOfFile`). The default is `startOfFile`.
+         */
+        initialPosition?: pulumi.Input<string>;
+        /**
+         * Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+         */
+        logGroupName: pulumi.Input<string>;
+        /**
+         * Specifies the pattern for identifying the start of a log message.
+         */
+        multilineStartPattern?: pulumi.Input<string>;
+        /**
+         * Specifies the time zone of log event time stamps.
+         */
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface CustomLayerEbsVolume {
+        /**
+         * Encrypt the volume.
+         */
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: pulumi.Input<string>;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface CustomLayerLoadBasedAutoScaling {
+        /**
+         * The downscaling settings, as defined below, used for load-based autoscaling
+         */
+        downscaling?: pulumi.Input<inputs.opsworks.CustomLayerLoadBasedAutoScalingDownscaling>;
+        /**
+         * Whether load-based auto scaling is enabled for the layer.
+         */
+        enable?: pulumi.Input<boolean>;
+        /**
+         * The upscaling settings, as defined below, used for load-based autoscaling
+         */
+        upscaling?: pulumi.Input<inputs.opsworks.CustomLayerLoadBasedAutoScalingUpscaling>;
+    }
+
+    export interface CustomLayerLoadBasedAutoScalingDownscaling {
+        /**
+         * Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+         */
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+         */
+        cpuThreshold?: pulumi.Input<number>;
+        /**
+         * The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+         */
+        ignoreMetricsTime?: pulumi.Input<number>;
+        /**
+         * The number of instances to add or remove when the load exceeds a threshold.
+         */
+        instanceCount?: pulumi.Input<number>;
+        /**
+         * The load threshold. A value of -1 disables the threshold.
+         */
+        loadThreshold?: pulumi.Input<number>;
+        /**
+         * The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+         */
+        memoryThreshold?: pulumi.Input<number>;
+        /**
+         * The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+         */
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface CustomLayerLoadBasedAutoScalingUpscaling {
+        /**
+         * Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+         */
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+         */
+        cpuThreshold?: pulumi.Input<number>;
+        /**
+         * The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+         */
+        ignoreMetricsTime?: pulumi.Input<number>;
+        /**
+         * The number of instances to add or remove when the load exceeds a threshold.
+         */
+        instanceCount?: pulumi.Input<number>;
+        /**
+         * The load threshold. A value of -1 disables the threshold.
+         */
+        loadThreshold?: pulumi.Input<number>;
+        /**
+         * The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+         */
+        memoryThreshold?: pulumi.Input<number>;
+        /**
+         * The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+         */
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface EcsClusterLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.EcsClusterLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface EcsClusterLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface EcsClusterLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: pulumi.Input<string>;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface EcsClusterLayerLoadBasedAutoScaling {
+        downscaling?: pulumi.Input<inputs.opsworks.EcsClusterLayerLoadBasedAutoScalingDownscaling>;
+        enable?: pulumi.Input<boolean>;
+        upscaling?: pulumi.Input<inputs.opsworks.EcsClusterLayerLoadBasedAutoScalingUpscaling>;
+    }
+
+    export interface EcsClusterLayerLoadBasedAutoScalingDownscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface EcsClusterLayerLoadBasedAutoScalingUpscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface GangliaLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.GangliaLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface GangliaLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface GangliaLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: pulumi.Input<string>;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface GangliaLayerLoadBasedAutoScaling {
+        downscaling?: pulumi.Input<inputs.opsworks.GangliaLayerLoadBasedAutoScalingDownscaling>;
+        enable?: pulumi.Input<boolean>;
+        upscaling?: pulumi.Input<inputs.opsworks.GangliaLayerLoadBasedAutoScalingUpscaling>;
+    }
+
+    export interface GangliaLayerLoadBasedAutoScalingDownscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface GangliaLayerLoadBasedAutoScalingUpscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface HaproxyLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.HaproxyLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface HaproxyLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface HaproxyLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: pulumi.Input<string>;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface HaproxyLayerLoadBasedAutoScaling {
+        downscaling?: pulumi.Input<inputs.opsworks.HaproxyLayerLoadBasedAutoScalingDownscaling>;
+        enable?: pulumi.Input<boolean>;
+        upscaling?: pulumi.Input<inputs.opsworks.HaproxyLayerLoadBasedAutoScalingUpscaling>;
+    }
+
+    export interface HaproxyLayerLoadBasedAutoScalingDownscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface HaproxyLayerLoadBasedAutoScalingUpscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
     export interface InstanceEbsBlockDevice {
         deleteOnTermination?: pulumi.Input<boolean>;
         deviceName: pulumi.Input<string>;
@@ -38768,6 +41059,444 @@ export namespace opsworks {
         iops?: pulumi.Input<number>;
         volumeSize?: pulumi.Input<number>;
         volumeType?: pulumi.Input<string>;
+    }
+
+    export interface JavaAppLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.JavaAppLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface JavaAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface JavaAppLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: pulumi.Input<string>;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface JavaAppLayerLoadBasedAutoScaling {
+        downscaling?: pulumi.Input<inputs.opsworks.JavaAppLayerLoadBasedAutoScalingDownscaling>;
+        enable?: pulumi.Input<boolean>;
+        upscaling?: pulumi.Input<inputs.opsworks.JavaAppLayerLoadBasedAutoScalingUpscaling>;
+    }
+
+    export interface JavaAppLayerLoadBasedAutoScalingDownscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface JavaAppLayerLoadBasedAutoScalingUpscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface MemcachedLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.MemcachedLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface MemcachedLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface MemcachedLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: pulumi.Input<string>;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface MemcachedLayerLoadBasedAutoScaling {
+        downscaling?: pulumi.Input<inputs.opsworks.MemcachedLayerLoadBasedAutoScalingDownscaling>;
+        enable?: pulumi.Input<boolean>;
+        upscaling?: pulumi.Input<inputs.opsworks.MemcachedLayerLoadBasedAutoScalingUpscaling>;
+    }
+
+    export interface MemcachedLayerLoadBasedAutoScalingDownscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface MemcachedLayerLoadBasedAutoScalingUpscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface MysqlLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.MysqlLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface MysqlLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface MysqlLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: pulumi.Input<string>;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface MysqlLayerLoadBasedAutoScaling {
+        downscaling?: pulumi.Input<inputs.opsworks.MysqlLayerLoadBasedAutoScalingDownscaling>;
+        enable?: pulumi.Input<boolean>;
+        upscaling?: pulumi.Input<inputs.opsworks.MysqlLayerLoadBasedAutoScalingUpscaling>;
+    }
+
+    export interface MysqlLayerLoadBasedAutoScalingDownscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface MysqlLayerLoadBasedAutoScalingUpscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface NodejsAppLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.NodejsAppLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface NodejsAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface NodejsAppLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: pulumi.Input<string>;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface NodejsAppLayerLoadBasedAutoScaling {
+        downscaling?: pulumi.Input<inputs.opsworks.NodejsAppLayerLoadBasedAutoScalingDownscaling>;
+        enable?: pulumi.Input<boolean>;
+        upscaling?: pulumi.Input<inputs.opsworks.NodejsAppLayerLoadBasedAutoScalingUpscaling>;
+    }
+
+    export interface NodejsAppLayerLoadBasedAutoScalingDownscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface NodejsAppLayerLoadBasedAutoScalingUpscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface PhpAppLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.PhpAppLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface PhpAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface PhpAppLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: pulumi.Input<string>;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface PhpAppLayerLoadBasedAutoScaling {
+        downscaling?: pulumi.Input<inputs.opsworks.PhpAppLayerLoadBasedAutoScalingDownscaling>;
+        enable?: pulumi.Input<boolean>;
+        upscaling?: pulumi.Input<inputs.opsworks.PhpAppLayerLoadBasedAutoScalingUpscaling>;
+    }
+
+    export interface PhpAppLayerLoadBasedAutoScalingDownscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface PhpAppLayerLoadBasedAutoScalingUpscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface RailsAppLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.RailsAppLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface RailsAppLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface RailsAppLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: pulumi.Input<string>;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface RailsAppLayerLoadBasedAutoScaling {
+        downscaling?: pulumi.Input<inputs.opsworks.RailsAppLayerLoadBasedAutoScalingDownscaling>;
+        enable?: pulumi.Input<boolean>;
+        upscaling?: pulumi.Input<inputs.opsworks.RailsAppLayerLoadBasedAutoScalingUpscaling>;
+    }
+
+    export interface RailsAppLayerLoadBasedAutoScalingDownscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface RailsAppLayerLoadBasedAutoScalingUpscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
     }
 
     export interface StackCustomCookbooksSource {
@@ -38795,6 +41524,79 @@ export namespace opsworks {
          * Username to use when authenticating to the source.
          */
         username?: pulumi.Input<string>;
+    }
+
+    export interface StaticWebLayerCloudwatchConfiguration {
+        enabled?: pulumi.Input<boolean>;
+        logStreams?: pulumi.Input<pulumi.Input<inputs.opsworks.StaticWebLayerCloudwatchConfigurationLogStream>[]>;
+    }
+
+    export interface StaticWebLayerCloudwatchConfigurationLogStream {
+        batchCount?: pulumi.Input<number>;
+        batchSize?: pulumi.Input<number>;
+        bufferDuration?: pulumi.Input<number>;
+        datetimeFormat?: pulumi.Input<string>;
+        encoding?: pulumi.Input<string>;
+        file: pulumi.Input<string>;
+        fileFingerprintLines?: pulumi.Input<string>;
+        initialPosition?: pulumi.Input<string>;
+        logGroupName: pulumi.Input<string>;
+        multilineStartPattern?: pulumi.Input<string>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface StaticWebLayerEbsVolume {
+        encrypted?: pulumi.Input<boolean>;
+        /**
+         * For PIOPS volumes, the IOPS per disk.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * The path to mount the EBS volume on the layer's instances.
+         */
+        mountPoint: pulumi.Input<string>;
+        /**
+         * The number of disks to use for the EBS volume.
+         */
+        numberOfDisks: pulumi.Input<number>;
+        /**
+         * The RAID level to use for the volume.
+         */
+        raidLevel?: pulumi.Input<string>;
+        /**
+         * The size of the volume in gigabytes.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface StaticWebLayerLoadBasedAutoScaling {
+        downscaling?: pulumi.Input<inputs.opsworks.StaticWebLayerLoadBasedAutoScalingDownscaling>;
+        enable?: pulumi.Input<boolean>;
+        upscaling?: pulumi.Input<inputs.opsworks.StaticWebLayerLoadBasedAutoScalingUpscaling>;
+    }
+
+    export interface StaticWebLayerLoadBasedAutoScalingDownscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
+    }
+
+    export interface StaticWebLayerLoadBasedAutoScalingUpscaling {
+        alarms?: pulumi.Input<pulumi.Input<string>[]>;
+        cpuThreshold?: pulumi.Input<number>;
+        ignoreMetricsTime?: pulumi.Input<number>;
+        instanceCount?: pulumi.Input<number>;
+        loadThreshold?: pulumi.Input<number>;
+        memoryThreshold?: pulumi.Input<number>;
+        thresholdsWaitTime?: pulumi.Input<number>;
     }
 }
 
@@ -39829,6 +42631,1209 @@ export namespace qldb {
 }
 
 export namespace quicksight {
+    export interface AnalysisParameters {
+        /**
+         * A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+         */
+        dateTimeParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisParametersDateTimeParameter>[]>;
+        /**
+         * A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+         */
+        decimalParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisParametersDecimalParameter>[]>;
+        /**
+         * A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+         */
+        integerParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisParametersIntegerParameter>[]>;
+        /**
+         * A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+         */
+        stringParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisParametersStringParameter>[]>;
+    }
+
+    export interface AnalysisParametersDateTimeParameter {
+        /**
+         * Display name for the analysis.
+         *
+         * The following arguments are optional:
+         */
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AnalysisParametersDecimalParameter {
+        /**
+         * Display name for the analysis.
+         *
+         * The following arguments are optional:
+         */
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface AnalysisParametersIntegerParameter {
+        /**
+         * Display name for the analysis.
+         *
+         * The following arguments are optional:
+         */
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface AnalysisParametersStringParameter {
+        /**
+         * Display name for the analysis.
+         *
+         * The following arguments are optional:
+         */
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AnalysisPermission {
+        /**
+         * List of IAM actions to grant or revoke permissions on.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+         */
+        principal: pulumi.Input<string>;
+    }
+
+    export interface AnalysisSourceEntity {
+        /**
+         * The source template. See source_template.
+         */
+        sourceTemplate?: pulumi.Input<inputs.quicksight.AnalysisSourceEntitySourceTemplate>;
+    }
+
+    export interface AnalysisSourceEntitySourceTemplate {
+        /**
+         * The Amazon Resource Name (ARN) of the resource.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * List of dataset references. See data_set_references.
+         */
+        dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSourceEntitySourceTemplateDataSetReference>[]>;
+    }
+
+    export interface AnalysisSourceEntitySourceTemplateDataSetReference {
+        /**
+         * Dataset Amazon Resource Name (ARN).
+         */
+        dataSetArn: pulumi.Input<string>;
+        /**
+         * Dataset placeholder.
+         */
+        dataSetPlaceholder: pulumi.Input<string>;
+    }
+
+    export interface DashboardDashboardPublishOptions {
+        /**
+         * Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+         */
+        adHocFilteringOption?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsAdHocFilteringOption>;
+        /**
+         * The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+         */
+        dataPointDrillUpDownOption?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsDataPointDrillUpDownOption>;
+        /**
+         * The data point menu label options of a dashboard. See data_point_menu_label_option.
+         */
+        dataPointMenuLabelOption?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsDataPointMenuLabelOption>;
+        /**
+         * The data point tool tip options of a dashboard. See data_point_tooltip_option.
+         */
+        dataPointTooltipOption?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsDataPointTooltipOption>;
+        /**
+         * Export to .csv option. See export_to_csv_option.
+         */
+        exportToCsvOption?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsExportToCsvOption>;
+        /**
+         * Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+         */
+        exportWithHiddenFieldsOption?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsExportWithHiddenFieldsOption>;
+        /**
+         * Sheet controls option. See sheet_controls_option.
+         */
+        sheetControlsOption?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsSheetControlsOption>;
+        /**
+         * The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+         */
+        sheetLayoutElementMaximizationOption?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption>;
+        /**
+         * The axis sort options of a dashboard. See visual_axis_sort_option.
+         */
+        visualAxisSortOption?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsVisualAxisSortOption>;
+        /**
+         * The menu options of a visual in a dashboard. See visual_menu_option.
+         */
+        visualMenuOption?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsVisualMenuOption>;
+    }
+
+    export interface DashboardDashboardPublishOptionsAdHocFilteringOption {
+        /**
+         * Availability status. Possibles values: ENABLED, DISABLED.
+         */
+        availabilityStatus?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDashboardPublishOptionsDataPointDrillUpDownOption {
+        /**
+         * Availability status. Possibles values: ENABLED, DISABLED.
+         */
+        availabilityStatus?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDashboardPublishOptionsDataPointMenuLabelOption {
+        /**
+         * Availability status. Possibles values: ENABLED, DISABLED.
+         */
+        availabilityStatus?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDashboardPublishOptionsDataPointTooltipOption {
+        /**
+         * Availability status. Possibles values: ENABLED, DISABLED.
+         */
+        availabilityStatus?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDashboardPublishOptionsExportToCsvOption {
+        /**
+         * Availability status. Possibles values: ENABLED, DISABLED.
+         */
+        availabilityStatus?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDashboardPublishOptionsExportWithHiddenFieldsOption {
+        /**
+         * Availability status. Possibles values: ENABLED, DISABLED.
+         */
+        availabilityStatus?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDashboardPublishOptionsSheetControlsOption {
+        /**
+         * Visibility state. Possibles values: EXPANDED, COLLAPSED.
+         */
+        visibilityState?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption {
+        /**
+         * Availability status. Possibles values: ENABLED, DISABLED.
+         */
+        availabilityStatus?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDashboardPublishOptionsVisualAxisSortOption {
+        /**
+         * Availability status. Possibles values: ENABLED, DISABLED.
+         */
+        availabilityStatus?: pulumi.Input<string>;
+    }
+
+    export interface DashboardDashboardPublishOptionsVisualMenuOption {
+        /**
+         * Availability status. Possibles values: ENABLED, DISABLED.
+         */
+        availabilityStatus?: pulumi.Input<string>;
+    }
+
+    export interface DashboardParameters {
+        /**
+         * A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+         */
+        dateTimeParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardParametersDateTimeParameter>[]>;
+        /**
+         * A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+         */
+        decimalParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardParametersDecimalParameter>[]>;
+        /**
+         * A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+         */
+        integerParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardParametersIntegerParameter>[]>;
+        /**
+         * A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+         */
+        stringParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardParametersStringParameter>[]>;
+    }
+
+    export interface DashboardParametersDateTimeParameter {
+        /**
+         * Display name for the dashboard.
+         */
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DashboardParametersDecimalParameter {
+        /**
+         * Display name for the dashboard.
+         */
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface DashboardParametersIntegerParameter {
+        /**
+         * Display name for the dashboard.
+         */
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface DashboardParametersStringParameter {
+        /**
+         * Display name for the dashboard.
+         */
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DashboardPermission {
+        /**
+         * List of IAM actions to grant or revoke permissions on.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+         */
+        principal: pulumi.Input<string>;
+    }
+
+    export interface DashboardSourceEntity {
+        /**
+         * The source template. See source_template.
+         */
+        sourceTemplate?: pulumi.Input<inputs.quicksight.DashboardSourceEntitySourceTemplate>;
+    }
+
+    export interface DashboardSourceEntitySourceTemplate {
+        /**
+         * The Amazon Resource Name (ARN) of the resource.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * List of dataset references. See data_set_references.
+         */
+        dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSourceEntitySourceTemplateDataSetReference>[]>;
+    }
+
+    export interface DashboardSourceEntitySourceTemplateDataSetReference {
+        /**
+         * Dataset Amazon Resource Name (ARN).
+         */
+        dataSetArn: pulumi.Input<string>;
+        /**
+         * Dataset placeholder.
+         */
+        dataSetPlaceholder: pulumi.Input<string>;
+    }
+
+    export interface DataSetColumnGroup {
+        /**
+         * Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+         */
+        geoSpatialColumnGroup?: pulumi.Input<inputs.quicksight.DataSetColumnGroupGeoSpatialColumnGroup>;
+    }
+
+    export interface DataSetColumnGroupGeoSpatialColumnGroup {
+        /**
+         * Columns in this hierarchy.
+         */
+        columns: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Country code. Valid values are `US`.
+         */
+        countryCode: pulumi.Input<string>;
+        /**
+         * A display name for the hierarchy.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface DataSetColumnLevelPermissionRule {
+        /**
+         * An array of column names.
+         */
+        columnNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of ARNs for Amazon QuickSight users or groups.
+         */
+        principals?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataSetDataSetUsageConfiguration {
+        /**
+         * Controls whether a child dataset of a direct query can use this dataset as a source.
+         */
+        disableUseAsDirectQuerySource?: pulumi.Input<boolean>;
+        /**
+         * Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+         */
+        disableUseAsImportedSource?: pulumi.Input<boolean>;
+    }
+
+    export interface DataSetFieldFolder {
+        /**
+         * An array of column names to add to the folder. A column can only be in one folder.
+         */
+        columns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Field folder description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Key of the field folder map.
+         */
+        fieldFoldersId: pulumi.Input<string>;
+    }
+
+    export interface DataSetLogicalTableMap {
+        /**
+         * A display name for the logical table.
+         */
+        alias: pulumi.Input<string>;
+        /**
+         * Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+         */
+        dataTransforms?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetLogicalTableMapDataTransform>[]>;
+        /**
+         * Key of the logical table map.
+         */
+        logicalTableMapId: pulumi.Input<string>;
+        /**
+         * Source of this logical table. See source.
+         */
+        source: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapSource>;
+    }
+
+    export interface DataSetLogicalTableMapDataTransform {
+        /**
+         * A transform operation that casts a column to a different type. See cast_column_type_operation.
+         */
+        castColumnTypeOperation?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapDataTransformCastColumnTypeOperation>;
+        /**
+         * An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+         */
+        createColumnsOperation?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapDataTransformCreateColumnsOperation>;
+        /**
+         * An operation that filters rows based on some condition. See filter_operation.
+         */
+        filterOperation?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapDataTransformFilterOperation>;
+        /**
+         * An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+         */
+        projectOperation?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapDataTransformProjectOperation>;
+        /**
+         * An operation that renames a column. See rename_column_operation.
+         */
+        renameColumnOperation?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapDataTransformRenameColumnOperation>;
+        /**
+         * An operation that tags a column with additional information. See tag_column_operation.
+         */
+        tagColumnOperation?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapDataTransformTagColumnOperation>;
+        /**
+         * A transform operation that removes tags associated with a column. See untag_column_operation.
+         */
+        untagColumnOperation?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapDataTransformUntagColumnOperation>;
+    }
+
+    export interface DataSetLogicalTableMapDataTransformCastColumnTypeOperation {
+        /**
+         * Column name.
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
+         */
+        format?: pulumi.Input<string>;
+        /**
+         * New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
+         */
+        newColumnType: pulumi.Input<string>;
+    }
+
+    export interface DataSetLogicalTableMapDataTransformCreateColumnsOperation {
+        /**
+         * Calculated columns to create. See columns.
+         */
+        columns: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn>[]>;
+    }
+
+    export interface DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn {
+        /**
+         * A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+         */
+        columnId: pulumi.Input<string>;
+        /**
+         * Column name.
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * An expression that defines the calculated column.
+         */
+        expression: pulumi.Input<string>;
+    }
+
+    export interface DataSetLogicalTableMapDataTransformFilterOperation {
+        /**
+         * An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+         */
+        conditionExpression: pulumi.Input<string>;
+    }
+
+    export interface DataSetLogicalTableMapDataTransformProjectOperation {
+        /**
+         * Projected columns.
+         */
+        projectedColumns: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataSetLogicalTableMapDataTransformRenameColumnOperation {
+        /**
+         * Column to be renamed.
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * New name for the column.
+         */
+        newColumnName: pulumi.Input<string>;
+    }
+
+    export interface DataSetLogicalTableMapDataTransformTagColumnOperation {
+        /**
+         * Column name.
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * The dataset column tag, currently only used for geospatial type tagging. See tags.
+         */
+        tags: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetLogicalTableMapDataTransformTagColumnOperationTag>[]>;
+    }
+
+    export interface DataSetLogicalTableMapDataTransformTagColumnOperationTag {
+        /**
+         * A description for a column. See column_description.
+         */
+        columnDescription?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription>;
+        /**
+         * A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+         */
+        columnGeographicRole?: pulumi.Input<string>;
+    }
+
+    export interface DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
+        /**
+         * The text of a description for a column.
+         */
+        text?: pulumi.Input<string>;
+    }
+
+    export interface DataSetLogicalTableMapDataTransformUntagColumnOperation {
+        /**
+         * Column name.
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * The column tags to remove from this column.
+         */
+        tagNames: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataSetLogicalTableMapSource {
+        /**
+         * ARN of the parent data set.
+         */
+        dataSetArn?: pulumi.Input<string>;
+        /**
+         * Specifies the result of a join of two logical tables. See join_instruction.
+         */
+        joinInstruction?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapSourceJoinInstruction>;
+        /**
+         * Physical table ID.
+         */
+        physicalTableId?: pulumi.Input<string>;
+    }
+
+    export interface DataSetLogicalTableMapSourceJoinInstruction {
+        /**
+         * Join key properties of the left operand. See left_join_key_properties.
+         */
+        leftJoinKeyProperties?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties>;
+        /**
+         * Operand on the left side of a join.
+         */
+        leftOperand: pulumi.Input<string>;
+        /**
+         * Join instructions provided in the ON clause of a join.
+         */
+        onClause: pulumi.Input<string>;
+        /**
+         * Join key properties of the right operand. See right_join_key_properties.
+         */
+        rightJoinKeyProperties?: pulumi.Input<inputs.quicksight.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties>;
+        /**
+         * Operand on the right side of a join.
+         */
+        rightOperand: pulumi.Input<string>;
+        /**
+         * Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties {
+        /**
+         * A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+         */
+        uniqueKey?: pulumi.Input<boolean>;
+    }
+
+    export interface DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties {
+        /**
+         * A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+         */
+        uniqueKey?: pulumi.Input<boolean>;
+    }
+
+    export interface DataSetOutputColumn {
+        /**
+         * Field folder description.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * Display name for the dataset.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Data type of the column.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface DataSetPermission {
+        /**
+         * List of IAM actions to grant or revoke permissions on.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+         */
+        principal: pulumi.Input<string>;
+    }
+
+    export interface DataSetPhysicalTableMap {
+        /**
+         * A physical table type built from the results of the custom SQL query. See custom_sql.
+         */
+        customSql?: pulumi.Input<inputs.quicksight.DataSetPhysicalTableMapCustomSql>;
+        /**
+         * Key of the physical table map.
+         */
+        physicalTableMapId: pulumi.Input<string>;
+        /**
+         * A physical table type for relational data sources. See relational_table.
+         */
+        relationalTable?: pulumi.Input<inputs.quicksight.DataSetPhysicalTableMapRelationalTable>;
+        /**
+         * A physical table type for as S3 data source. See s3_source.
+         */
+        s3Source?: pulumi.Input<inputs.quicksight.DataSetPhysicalTableMapS3Source>;
+    }
+
+    export interface DataSetPhysicalTableMapCustomSql {
+        /**
+         * Column schema from the SQL query result set. See columns.
+         */
+        columns?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMapCustomSqlColumn>[]>;
+        /**
+         * ARN of the data source.
+         */
+        dataSourceArn: pulumi.Input<string>;
+        /**
+         * Display name for the SQL query result.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * SQL query.
+         */
+        sqlQuery: pulumi.Input<string>;
+    }
+
+    export interface DataSetPhysicalTableMapCustomSqlColumn {
+        /**
+         * Name of this column in the underlying data source.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Data type of the column.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface DataSetPhysicalTableMapRelationalTable {
+        /**
+         * Catalog associated with the table.
+         */
+        catalog?: pulumi.Input<string>;
+        /**
+         * ARN of the data source.
+         */
+        dataSourceArn: pulumi.Input<string>;
+        /**
+         * Column schema of the table. See input_columns.
+         */
+        inputColumns: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMapRelationalTableInputColumn>[]>;
+        /**
+         * Name of the relational table.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Schema name. This name applies to certain relational database engines.
+         */
+        schema?: pulumi.Input<string>;
+    }
+
+    export interface DataSetPhysicalTableMapRelationalTableInputColumn {
+        /**
+         * Name of this column in the underlying data source.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Data type of the column.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface DataSetPhysicalTableMapS3Source {
+        /**
+         * ARN of the data source.
+         */
+        dataSourceArn: pulumi.Input<string>;
+        /**
+         * Column schema of the table. See input_columns.
+         */
+        inputColumns: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetPhysicalTableMapS3SourceInputColumn>[]>;
+        /**
+         * Information about the format for the S3 source file or files. See upload_settings.
+         */
+        uploadSettings: pulumi.Input<inputs.quicksight.DataSetPhysicalTableMapS3SourceUploadSettings>;
+    }
+
+    export interface DataSetPhysicalTableMapS3SourceInputColumn {
+        /**
+         * Name of this column in the underlying data source.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Data type of the column.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface DataSetPhysicalTableMapS3SourceUploadSettings {
+        /**
+         * Whether the file has a header row, or the files each have a header row.
+         */
+        containsHeader?: pulumi.Input<boolean>;
+        /**
+         * Delimiter between values in the file.
+         */
+        delimiter?: pulumi.Input<string>;
+        /**
+         * File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
+         */
+        format?: pulumi.Input<string>;
+        /**
+         * A row number to start reading data from.
+         */
+        startFromRow?: pulumi.Input<number>;
+        /**
+         * Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
+         */
+        textQualifier?: pulumi.Input<string>;
+    }
+
+    export interface DataSetRefreshProperties {
+        /**
+         * The refresh configuration for the data set. See refresh_configuration.
+         */
+        refreshConfiguration: pulumi.Input<inputs.quicksight.DataSetRefreshPropertiesRefreshConfiguration>;
+    }
+
+    export interface DataSetRefreshPropertiesRefreshConfiguration {
+        /**
+         * The incremental refresh for the data set. See incremental_refresh.
+         */
+        incrementalRefresh: pulumi.Input<inputs.quicksight.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh>;
+    }
+
+    export interface DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh {
+        /**
+         * The lookback window setup for an incremental refresh configuration. See lookback_window.
+         */
+        lookbackWindow: pulumi.Input<inputs.quicksight.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow>;
+    }
+
+    export interface DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow {
+        /**
+         * The name of the lookback window column.
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * The lookback window column size.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+         */
+        sizeUnit: pulumi.Input<string>;
+    }
+
+    export interface DataSetRowLevelPermissionDataSet {
+        /**
+         * ARN of the dataset that contains permissions for RLS.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * User or group rules associated with the dataset that contains permissions for RLS.
+         */
+        formatVersion?: pulumi.Input<string>;
+        /**
+         * Namespace associated with the dataset that contains permissions for RLS.
+         */
+        namespace?: pulumi.Input<string>;
+        /**
+         * Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
+         */
+        permissionPolicy: pulumi.Input<string>;
+        /**
+         * Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface DataSetRowLevelPermissionTagConfiguration {
+        /**
+         * The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+         */
+        tagRules: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionTagConfigurationTagRule>[]>;
+    }
+
+    export interface DataSetRowLevelPermissionTagConfigurationTagRule {
+        /**
+         * Column name that a tag key is assigned to.
+         */
+        columnName: pulumi.Input<string>;
+        /**
+         * A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+         */
+        matchAllValue?: pulumi.Input<string>;
+        /**
+         * Unique key for a tag.
+         */
+        tagKey: pulumi.Input<string>;
+        /**
+         * A string that you want to use to delimit the values when you pass the values at run time.
+         */
+        tagMultiValueDelimiter?: pulumi.Input<string>;
+    }
+
+    export interface DataSourceCredentials {
+        /**
+         * The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+         * When the value is not null, the `credentialPair` from the data source in the ARN is used.
+         */
+        copySourceArn?: pulumi.Input<string>;
+        /**
+         * Credential pair. See Credential Pair below for more details.
+         */
+        credentialPair?: pulumi.Input<inputs.quicksight.DataSourceCredentialsCredentialPair>;
+    }
+
+    export interface DataSourceCredentialsCredentialPair {
+        /**
+         * Password, maximum length of 1024 characters.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * User name, maximum length of 64 characters.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParameters {
+        /**
+         * Parameters for connecting to Amazon Elasticsearch.
+         */
+        amazonElasticsearch?: pulumi.Input<inputs.quicksight.DataSourceParametersAmazonElasticsearch>;
+        /**
+         * Parameters for connecting to Athena.
+         */
+        athena?: pulumi.Input<inputs.quicksight.DataSourceParametersAthena>;
+        /**
+         * Parameters for connecting to Aurora MySQL.
+         */
+        aurora?: pulumi.Input<inputs.quicksight.DataSourceParametersAurora>;
+        /**
+         * Parameters for connecting to Aurora Postgresql.
+         */
+        auroraPostgresql?: pulumi.Input<inputs.quicksight.DataSourceParametersAuroraPostgresql>;
+        /**
+         * Parameters for connecting to AWS IOT Analytics.
+         */
+        awsIotAnalytics?: pulumi.Input<inputs.quicksight.DataSourceParametersAwsIotAnalytics>;
+        /**
+         * Parameters for connecting to Jira.
+         */
+        jira?: pulumi.Input<inputs.quicksight.DataSourceParametersJira>;
+        /**
+         * Parameters for connecting to MariaDB.
+         */
+        mariaDb?: pulumi.Input<inputs.quicksight.DataSourceParametersMariaDb>;
+        /**
+         * Parameters for connecting to MySQL.
+         */
+        mysql?: pulumi.Input<inputs.quicksight.DataSourceParametersMysql>;
+        /**
+         * Parameters for connecting to Oracle.
+         */
+        oracle?: pulumi.Input<inputs.quicksight.DataSourceParametersOracle>;
+        /**
+         * Parameters for connecting to Postgresql.
+         */
+        postgresql?: pulumi.Input<inputs.quicksight.DataSourceParametersPostgresql>;
+        /**
+         * Parameters for connecting to Presto.
+         */
+        presto?: pulumi.Input<inputs.quicksight.DataSourceParametersPresto>;
+        /**
+         * Parameters for connecting to RDS.
+         */
+        rds?: pulumi.Input<inputs.quicksight.DataSourceParametersRds>;
+        /**
+         * Parameters for connecting to Redshift.
+         */
+        redshift?: pulumi.Input<inputs.quicksight.DataSourceParametersRedshift>;
+        /**
+         * Parameters for connecting to S3.
+         */
+        s3?: pulumi.Input<inputs.quicksight.DataSourceParametersS3>;
+        /**
+         * Parameters for connecting to ServiceNow.
+         */
+        serviceNow?: pulumi.Input<inputs.quicksight.DataSourceParametersServiceNow>;
+        /**
+         * Parameters for connecting to Snowflake.
+         */
+        snowflake?: pulumi.Input<inputs.quicksight.DataSourceParametersSnowflake>;
+        /**
+         * Parameters for connecting to Spark.
+         */
+        spark?: pulumi.Input<inputs.quicksight.DataSourceParametersSpark>;
+        /**
+         * Parameters for connecting to SQL Server.
+         */
+        sqlServer?: pulumi.Input<inputs.quicksight.DataSourceParametersSqlServer>;
+        /**
+         * Parameters for connecting to Teradata.
+         */
+        teradata?: pulumi.Input<inputs.quicksight.DataSourceParametersTeradata>;
+        /**
+         * Parameters for connecting to Twitter.
+         */
+        twitter?: pulumi.Input<inputs.quicksight.DataSourceParametersTwitter>;
+    }
+
+    export interface DataSourceParametersAmazonElasticsearch {
+        /**
+         * The OpenSearch domain.
+         */
+        domain: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersAthena {
+        /**
+         * The work-group to which to connect.
+         */
+        workGroup?: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersAurora {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersAuroraPostgresql {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersAwsIotAnalytics {
+        /**
+         * The name of the data set to which to connect.
+         */
+        dataSetName: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersJira {
+        /**
+         * The base URL of the Jira instance's site to which to connect.
+         */
+        siteBaseUrl: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersMariaDb {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersMysql {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersOracle {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersPostgresql {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersPresto {
+        /**
+         * The catalog to which to connect.
+         */
+        catalog: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersRds {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The instance ID to which to connect.
+         */
+        instanceId: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersRedshift {
+        /**
+         * The ID of the cluster to which to connect.
+         */
+        clusterId?: pulumi.Input<string>;
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port?: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersS3 {
+        /**
+         * An object containing the S3 location of the S3 manifest file.
+         */
+        manifestFileLocation: pulumi.Input<inputs.quicksight.DataSourceParametersS3ManifestFileLocation>;
+    }
+
+    export interface DataSourceParametersS3ManifestFileLocation {
+        /**
+         * The name of the bucket that contains the manifest file.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * The key of the manifest file within the bucket.
+         */
+        key: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersServiceNow {
+        /**
+         * The base URL of the Jira instance's site to which to connect.
+         */
+        siteBaseUrl: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersSnowflake {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The warehouse to which to connect.
+         */
+        warehouse: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersSpark {
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The warehouse to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersSqlServer {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The warehouse to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersTeradata {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The warehouse to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersTwitter {
+        /**
+         * The maximum number of rows to query.
+         */
+        maxRows: pulumi.Input<number>;
+        /**
+         * The Twitter query to retrieve the data.
+         */
+        query: pulumi.Input<string>;
+    }
+
+    export interface DataSourcePermission {
+        /**
+         * Set of IAM actions to grant or revoke permissions on. Max of 16 items.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Amazon Resource Name (ARN) of the principal.
+         */
+        principal: pulumi.Input<string>;
+    }
+
+    export interface DataSourceSslProperties {
+        /**
+         * A Boolean option to control whether SSL should be disabled.
+         */
+        disableSsl: pulumi.Input<boolean>;
+    }
+
+    export interface DataSourceVpcConnectionProperties {
+        /**
+         * The Amazon Resource Name (ARN) for the VPC connection.
+         */
+        vpcConnectionArn: pulumi.Input<string>;
+    }
+
     export interface FolderPermission {
         /**
          * List of IAM actions to grant or revoke permissions on.
@@ -39838,6 +43843,16 @@ export namespace quicksight {
          * ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
          */
         principal: pulumi.Input<string>;
+    }
+
+    export interface GetDataSetColumnLevelPermissionRule {
+        columnNames?: string[];
+        principals?: string[];
+    }
+
+    export interface GetDataSetColumnLevelPermissionRuleArgs {
+        columnNames?: pulumi.Input<pulumi.Input<string>[]>;
+        principals?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface IamPolicyAssignmentIdentities {
@@ -39896,6 +43911,233 @@ export namespace quicksight {
          * The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
          */
         dayOfWeek?: pulumi.Input<string>;
+    }
+
+    export interface TemplatePermission {
+        /**
+         * List of IAM actions to grant or revoke permissions on.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+         */
+        principal: pulumi.Input<string>;
+    }
+
+    export interface TemplateSourceEntity {
+        /**
+         * The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+         */
+        sourceAnalysis?: pulumi.Input<inputs.quicksight.TemplateSourceEntitySourceAnalysis>;
+        /**
+         * The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+         */
+        sourceTemplate?: pulumi.Input<inputs.quicksight.TemplateSourceEntitySourceTemplate>;
+    }
+
+    export interface TemplateSourceEntitySourceAnalysis {
+        /**
+         * The Amazon Resource Name (ARN) of the resource.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * A list of dataset references used as placeholders in the template. See data_set_references.
+         */
+        dataSetReferences: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSourceEntitySourceAnalysisDataSetReference>[]>;
+    }
+
+    export interface TemplateSourceEntitySourceAnalysisDataSetReference {
+        /**
+         * Dataset Amazon Resource Name (ARN).
+         */
+        dataSetArn: pulumi.Input<string>;
+        /**
+         * Dataset placeholder.
+         */
+        dataSetPlaceholder: pulumi.Input<string>;
+    }
+
+    export interface TemplateSourceEntitySourceTemplate {
+        /**
+         * The Amazon Resource Name (ARN) of the resource.
+         */
+        arn: pulumi.Input<string>;
+    }
+
+    export interface ThemeConfiguration {
+        /**
+         * Color properties that apply to chart data colors. See data_color_palette.
+         */
+        dataColorPalette?: pulumi.Input<inputs.quicksight.ThemeConfigurationDataColorPalette>;
+        /**
+         * Display options related to sheets. See sheet.
+         */
+        sheet?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheet>;
+        /**
+         * Determines the typography options. See typography.
+         */
+        typography?: pulumi.Input<inputs.quicksight.ThemeConfigurationTypography>;
+        /**
+         * Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+         */
+        uiColorPalette?: pulumi.Input<inputs.quicksight.ThemeConfigurationUiColorPalette>;
+    }
+
+    export interface ThemeConfigurationDataColorPalette {
+        /**
+         * List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+         */
+        colors?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+         */
+        emptyFillColor?: pulumi.Input<string>;
+        /**
+         * The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+         */
+        minMaxGradients?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ThemeConfigurationSheet {
+        /**
+         * The display options for tiles. See tile.
+         */
+        tile?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheetTile>;
+        /**
+         * The layout options for tiles. See tile_layout.
+         */
+        tileLayout?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheetTileLayout>;
+    }
+
+    export interface ThemeConfigurationSheetTile {
+        /**
+         * The border around a tile. See border.
+         */
+        border?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheetTileBorder>;
+    }
+
+    export interface ThemeConfigurationSheetTileBorder {
+        /**
+         * The option to enable display of borders for visuals.
+         */
+        show?: pulumi.Input<boolean>;
+    }
+
+    export interface ThemeConfigurationSheetTileLayout {
+        /**
+         * The gutter settings that apply between tiles. See gutter.
+         */
+        gutter?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheetTileLayoutGutter>;
+        /**
+         * The margin settings that apply around the outside edge of sheets. See margin.
+         */
+        margin?: pulumi.Input<inputs.quicksight.ThemeConfigurationSheetTileLayoutMargin>;
+    }
+
+    export interface ThemeConfigurationSheetTileLayoutGutter {
+        /**
+         * This Boolean value controls whether to display a gutter space between sheet tiles.
+         */
+        show?: pulumi.Input<boolean>;
+    }
+
+    export interface ThemeConfigurationSheetTileLayoutMargin {
+        /**
+         * This Boolean value controls whether to display sheet margins.
+         */
+        show?: pulumi.Input<boolean>;
+    }
+
+    export interface ThemeConfigurationTypography {
+        /**
+         * Determines the list of font families. Maximum number of 5 items. See font_families.
+         */
+        fontFamilies?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeConfigurationTypographyFontFamily>[]>;
+    }
+
+    export interface ThemeConfigurationTypographyFontFamily {
+        /**
+         * Font family name.
+         */
+        fontFamily?: pulumi.Input<string>;
+    }
+
+    export interface ThemeConfigurationUiColorPalette {
+        /**
+         * Color (hexadecimal) that applies to selected states and buttons.
+         */
+        accent?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+         */
+        accentForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to error messages.
+         */
+        danger?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+         */
+        dangerForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+         */
+        dimension?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+         */
+        dimensionForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to the names of fields that are identified as measures.
+         */
+        measure?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+         */
+        measureForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to visuals and other high emphasis UI.
+         */
+        primaryBackground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+         */
+        primaryForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to the sheet background and sheet controls.
+         */
+        secondaryBackground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+         */
+        secondaryForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+         */
+        success?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+         */
+        successForeground?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to warning and informational messages.
+         */
+        warning?: pulumi.Input<string>;
+        /**
+         * Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+         */
+        warningForeground?: pulumi.Input<string>;
+    }
+
+    export interface ThemePermission {
+        /**
+         * List of IAM actions to grant or revoke permissions on.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+         */
+        principal: pulumi.Input<string>;
     }
 
     export interface VpcConnectionTimeouts {
@@ -50341,6 +54583,7703 @@ export namespace wafregional {
          * The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
          */
         type: pulumi.Input<string>;
+    }
+}
+
+export namespace wafv2 {
+    export interface RegexPatternSetRegularExpression {
+        /**
+         * The string representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
+         */
+        regexString: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupCustomResponseBody {
+        /**
+         * The payload of the custom response.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+         */
+        key: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRule {
+        /**
+         * The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+         */
+        action: pulumi.Input<inputs.wafv2.RuleGroupRuleAction>;
+        /**
+         * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+         */
+        captchaConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleCaptchaConfig>;
+        /**
+         * A friendly name of the rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
+         */
+        ruleLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleRuleLabel>[]>;
+        /**
+         * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
+         */
+        statement: pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>;
+        /**
+         * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+         */
+        visibilityConfig: pulumi.Input<inputs.wafv2.RuleGroupRuleVisibilityConfig>;
+    }
+
+    export interface RuleGroupRuleAction {
+        /**
+         * Instructs AWS WAF to allow the web request. See Allow below for details.
+         */
+        allow?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionAllow>;
+        /**
+         * Instructs AWS WAF to block the web request. See Block below for details.
+         */
+        block?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlock>;
+        /**
+         * Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
+         */
+        captcha?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCaptcha>;
+        /**
+         * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+         */
+        challenge?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionChallenge>;
+        /**
+         * Instructs AWS WAF to count the web request and allow it. See Count below for details.
+         */
+        count?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCount>;
+    }
+
+    export interface RuleGroupRuleActionAllow {
+        /**
+         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionAllowCustomRequestHandling>;
+    }
+
+    export interface RuleGroupRuleActionAllowCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader {
+        /**
+         * A friendly name of the rule group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleActionBlock {
+        /**
+         * Defines a custom response for the web request. See Custom Response below for details.
+         */
+        customResponse?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlockCustomResponse>;
+    }
+
+    export interface RuleGroupRuleActionBlockCustomResponse {
+        /**
+         * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         */
+        customResponseBodyKey?: pulumi.Input<string>;
+        /**
+         * The HTTP status code to return to the client.
+         */
+        responseCode: pulumi.Input<number>;
+        /**
+         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+         */
+        responseHeaders?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlockCustomResponseResponseHeader>[]>;
+    }
+
+    export interface RuleGroupRuleActionBlockCustomResponseResponseHeader {
+        /**
+         * A friendly name of the rule group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleActionCaptcha {
+        /**
+         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCaptchaCustomRequestHandling>;
+    }
+
+    export interface RuleGroupRuleActionCaptchaCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader {
+        /**
+         * A friendly name of the rule group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleActionChallenge {
+        /**
+         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionChallengeCustomRequestHandling>;
+    }
+
+    export interface RuleGroupRuleActionChallengeCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader {
+        /**
+         * A friendly name of the rule group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleActionCount {
+        /**
+         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCountCustomRequestHandling>;
+    }
+
+    export interface RuleGroupRuleActionCountCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionCountCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface RuleGroupRuleActionCountCustomRequestHandlingInsertHeader {
+        /**
+         * A friendly name of the rule group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleCaptchaConfig {
+        /**
+         * Defines custom immunity time. See Immunity Time Property below for details.
+         */
+        immunityTimeProperty?: pulumi.Input<inputs.wafv2.RuleGroupRuleCaptchaConfigImmunityTimeProperty>;
+    }
+
+    export interface RuleGroupRuleCaptchaConfigImmunityTimeProperty {
+        /**
+         * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         */
+        immunityTime?: pulumi.Input<number>;
+    }
+
+    export interface RuleGroupRuleRuleLabel {
+        /**
+         * The label string.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatement {
+        /**
+         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         */
+        andStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatement>;
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementLabelMatchStatement>;
+        /**
+         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         */
+        notStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatement>;
+        /**
+         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         */
+        orStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatement>;
+        /**
+         * A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+         */
+        rateBasedStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatement>;
+        /**
+         * A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         */
+        regexMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig>;
+    }
+
+    export interface RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * The name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig>;
+    }
+
+    export interface RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * The name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+        /**
+         * The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatement {
+        /**
+         * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+         */
+        aggregateKeyType?: pulumi.Input<string>;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementForwardedIpConfig>;
+        /**
+         * The limit on requests per 5-minute period for a single originating IP address.
+         */
+        limit: pulumi.Input<number>;
+        /**
+         * An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+         */
+        scopeDownStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatement>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementForwardedIpConfig {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * The name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
+        /**
+         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         */
+        andStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement>;
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement>;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement>;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement>;
+        /**
+         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         */
+        notStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement>;
+        /**
+         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         */
+        orStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement>;
+        /**
+         * A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+         */
+        regexMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement>;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement>;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement>;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch>;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * The name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * The name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+        /**
+         * The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatement>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch>;
+        /**
+         * The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
+         */
+        regexString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatch>;
+        /**
+         * The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
+         */
+        regexString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementRegexMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+         * At least one required.
+         * See Text Transformation below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See Cookies below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See Headers below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See JSON Body for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchBody {
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface RuleGroupRuleStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleVisibilityConfig {
+        /**
+         * A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         */
+        cloudwatchMetricsEnabled: pulumi.Input<boolean>;
+        /**
+         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         */
+        sampledRequestsEnabled: pulumi.Input<boolean>;
+    }
+
+    export interface RuleGroupVisibilityConfig {
+        /**
+         * A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         */
+        cloudwatchMetricsEnabled: pulumi.Input<boolean>;
+        /**
+         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         */
+        sampledRequestsEnabled: pulumi.Input<boolean>;
+    }
+
+    export interface WebAclCaptchaConfig {
+        /**
+         * Defines custom immunity time. See `immunityTimeProperty` below for details.
+         */
+        immunityTimeProperty?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfigImmunityTimeProperty>;
+    }
+
+    export interface WebAclCaptchaConfigImmunityTimeProperty {
+        /**
+         * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         */
+        immunityTime?: pulumi.Input<number>;
+    }
+
+    export interface WebAclCustomResponseBody {
+        /**
+         * Payload of the custom response.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * Unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the `customResponse` block.
+         */
+        key: pulumi.Input<string>;
+    }
+
+    export interface WebAclDefaultAction {
+        /**
+         * Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+         */
+        allow?: pulumi.Input<inputs.wafv2.WebAclDefaultActionAllow>;
+        /**
+         * Specifies that AWS WAF should block requests by default. See `block` below for details.
+         */
+        block?: pulumi.Input<inputs.wafv2.WebAclDefaultActionBlock>;
+    }
+
+    export interface WebAclDefaultActionAllow {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclDefaultActionAllowCustomRequestHandling>;
+    }
+
+    export interface WebAclDefaultActionAllowCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclDefaultActionAllowCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclDefaultActionAllowCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclDefaultActionBlock {
+        /**
+         * Defines a custom response for the web request. See `customResponse` below for details.
+         */
+        customResponse?: pulumi.Input<inputs.wafv2.WebAclDefaultActionBlockCustomResponse>;
+    }
+
+    export interface WebAclDefaultActionBlockCustomResponse {
+        /**
+         * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         */
+        customResponseBodyKey?: pulumi.Input<string>;
+        /**
+         * The HTTP status code to return to the client.
+         */
+        responseCode: pulumi.Input<number>;
+        /**
+         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+         */
+        responseHeaders?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclDefaultActionBlockCustomResponseResponseHeader>[]>;
+    }
+
+    export interface WebAclDefaultActionBlockCustomResponseResponseHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclLoggingConfigurationLoggingFilter {
+        /**
+         * Default handling for logs that don't match any of the specified filtering conditions. Valid values for `defaultBehavior` are `KEEP` or `DROP`.
+         */
+        defaultBehavior: pulumi.Input<string>;
+        /**
+         * Filter(s) that you want to apply to the logs. See Filter below for more details.
+         */
+        filters: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilterFilter>[]>;
+    }
+
+    export interface WebAclLoggingConfigurationLoggingFilterFilter {
+        /**
+         * Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
+         */
+        behavior: pulumi.Input<string>;
+        /**
+         * Match condition(s) for the filter. See Condition below for more details.
+         */
+        conditions: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilterFilterCondition>[]>;
+        /**
+         * Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
+         */
+        requirement: pulumi.Input<string>;
+    }
+
+    export interface WebAclLoggingConfigurationLoggingFilterFilterCondition {
+        /**
+         * Configuration for a single action condition. See Action Condition below for more details.
+         */
+        actionCondition?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition>;
+        /**
+         * Condition for a single label name. See Label Name Condition below for more details.
+         */
+        labelNameCondition?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition>;
+    }
+
+    export interface WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition {
+        /**
+         * Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, and `COUNT`.
+         */
+        action: pulumi.Input<string>;
+    }
+
+    export interface WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition {
+        /**
+         * Name of the label that a log record must contain in order to meet the condition. It must be a fully qualified label name, which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
+         */
+        labelName: pulumi.Input<string>;
+    }
+
+    export interface WebAclLoggingConfigurationRedactedField {
+        /**
+         * HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldMethod>;
+        /**
+         * Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldQueryString>;
+        /**
+         * "singleHeader" refers to the redaction of a single header. For more information, please see the details below under Single Header.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeader>;
+        /**
+         * Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedFieldUriPath>;
+    }
+
+    export interface WebAclLoggingConfigurationRedactedFieldMethod {
+    }
+
+    export interface WebAclLoggingConfigurationRedactedFieldQueryString {
+    }
+
+    export interface WebAclLoggingConfigurationRedactedFieldSingleHeader {
+        /**
+         * Name of the query header to redact. This setting must be provided in lowercase characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclLoggingConfigurationRedactedFieldUriPath {
+    }
+
+    export interface WebAclRule {
+        /**
+         * Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
+         */
+        action?: pulumi.Input<inputs.wafv2.WebAclRuleAction>;
+        /**
+         * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
+         */
+        captchaConfig?: pulumi.Input<inputs.wafv2.WebAclRuleCaptchaConfig>;
+        /**
+         * Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_<account-id>_<web-acl-guid>_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `ruleGroupReferenceStatement` and `managedRuleGroupStatement`. See `overrideAction` below for details.
+         */
+        overrideAction?: pulumi.Input<inputs.wafv2.WebAclRuleOverrideAction>;
+        /**
+         * If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Labels to apply to web requests that match the rule match statement. See `ruleLabel` below for details.
+         */
+        ruleLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleRuleLabel>[]>;
+        /**
+         * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See `statement` below for details.
+         */
+        statement: pulumi.Input<inputs.wafv2.WebAclRuleStatement>;
+        /**
+         * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+         */
+        visibilityConfig: pulumi.Input<inputs.wafv2.WebAclRuleVisibilityConfig>;
+    }
+
+    export interface WebAclRuleAction {
+        /**
+         * Instructs AWS WAF to allow the web request. See `allow` below for details.
+         */
+        allow?: pulumi.Input<inputs.wafv2.WebAclRuleActionAllow>;
+        /**
+         * Instructs AWS WAF to block the web request. See `block` below for details.
+         */
+        block?: pulumi.Input<inputs.wafv2.WebAclRuleActionBlock>;
+        /**
+         * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+         */
+        captcha?: pulumi.Input<inputs.wafv2.WebAclRuleActionCaptcha>;
+        /**
+         * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+         */
+        challenge?: pulumi.Input<inputs.wafv2.WebAclRuleActionChallenge>;
+        /**
+         * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
+         */
+        count?: pulumi.Input<inputs.wafv2.WebAclRuleActionCount>;
+    }
+
+    export interface WebAclRuleActionAllow {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleActionAllowCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleActionAllowCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleActionAllowCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleActionAllowCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleActionBlock {
+        /**
+         * Defines a custom response for the web request. See `customResponse` below for details.
+         */
+        customResponse?: pulumi.Input<inputs.wafv2.WebAclRuleActionBlockCustomResponse>;
+    }
+
+    export interface WebAclRuleActionBlockCustomResponse {
+        /**
+         * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         */
+        customResponseBodyKey?: pulumi.Input<string>;
+        /**
+         * The HTTP status code to return to the client.
+         */
+        responseCode: pulumi.Input<number>;
+        /**
+         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+         */
+        responseHeaders?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleActionBlockCustomResponseResponseHeader>[]>;
+    }
+
+    export interface WebAclRuleActionBlockCustomResponseResponseHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleActionCaptcha {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleActionCaptchaCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleActionCaptchaCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleActionChallenge {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleActionChallengeCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleActionChallengeCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleActionChallengeCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleActionChallengeCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleActionCount {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleActionCountCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleActionCountCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleActionCountCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleActionCountCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleCaptchaConfig {
+        /**
+         * Defines custom immunity time. See `immunityTimeProperty` below for details.
+         */
+        immunityTimeProperty?: pulumi.Input<inputs.wafv2.WebAclRuleCaptchaConfigImmunityTimeProperty>;
+    }
+
+    export interface WebAclRuleCaptchaConfigImmunityTimeProperty {
+        /**
+         * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         */
+        immunityTime?: pulumi.Input<number>;
+    }
+
+    export interface WebAclRuleOverrideAction {
+        /**
+         * Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
+         */
+        count?: pulumi.Input<inputs.wafv2.WebAclRuleOverrideActionCount>;
+        /**
+         * Don't override the rule action setting. Configured as an empty block `{}`.
+         */
+        none?: pulumi.Input<inputs.wafv2.WebAclRuleOverrideActionNone>;
+    }
+
+    export interface WebAclRuleOverrideActionCount {
+    }
+
+    export interface WebAclRuleOverrideActionNone {
+    }
+
+    export interface WebAclRuleRuleLabel {
+        /**
+         * Label string.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatement {
+        /**
+         * Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
+         */
+        andStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatement>;
+        /**
+         * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatement>;
+        /**
+         * Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementGeoMatchStatement>;
+        /**
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementIpSetReferenceStatement>;
+        /**
+         * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementLabelMatchStatement>;
+        /**
+         * Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managedRuleGroupStatement` below for details.
+         */
+        managedRuleGroupStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatement>;
+        /**
+         * Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
+         */
+        notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatement>;
+        /**
+         * Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
+         */
+        orStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatement>;
+        /**
+         * Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rateBasedStatement` below for details.
+         */
+        rateBasedStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatement>;
+        /**
+         * Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
+         */
+        regexMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatement>;
+        /**
+         * Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatement>;
+        /**
+         * Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `ruleGroupReferenceStatement` below for details.
+         */
+        ruleGroupReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatement>;
+        /**
+         * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `sizeConstraintStatement` below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatement>;
+        /**
+         * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatement>;
+    }
+
+    export interface WebAclRuleStatementAndStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[]>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatement {
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatch>;
+        /**
+         * Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementByteMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementGeoMatchStatement {
+        /**
+         * Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwardedIpConfig` below for details.
+         */
+        forwardedIpConfig?: pulumi.Input<inputs.wafv2.WebAclRuleStatementGeoMatchStatementForwardedIpConfig>;
+    }
+
+    export interface WebAclRuleStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * Name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
+         */
+        ipSetForwardedIpConfig?: pulumi.Input<inputs.wafv2.WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig>;
+    }
+
+    export interface WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * Name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+        /**
+         * Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementLabelMatchStatement {
+        /**
+         * String to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatement {
+        /**
+         * Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managedRuleGroupConfigs` for more details
+         */
+        managedRuleGroupConfigs?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig>[]>;
+        /**
+         * Name of the managed rule group.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
+         */
+        ruleActionOverrides?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride>[]>;
+        /**
+         * Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+         */
+        scopeDownStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement>;
+        /**
+         * Name of the managed rule group vendor.
+         */
+        vendorName: pulumi.Input<string>;
+        /**
+         * Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig {
+        /**
+         * Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
+         */
+        awsManagedRulesAtpRuleSet?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet>;
+        /**
+         * Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `awsManagedRulesBotControlRuleSet` for more details
+         */
+        awsManagedRulesBotControlRuleSet?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet>;
+        /**
+         * The path of the login endpoint for your application.
+         */
+        loginPath?: pulumi.Input<string>;
+        /**
+         * Details about your login page password field. See `passwordField` for more details.
+         */
+        passwordField?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField>;
+        /**
+         * The payload type for your login endpoint, either JSON or form encoded.
+         */
+        payloadType?: pulumi.Input<string>;
+        /**
+         * Details about your login page username field. See `usernameField` for more details.
+         */
+        usernameField?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet {
+        /**
+         * The path of the login endpoint for your application.
+         */
+        loginPath: pulumi.Input<string>;
+        /**
+         * The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `requestInspection` for more details.
+         */
+        requestInspection?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection>;
+        /**
+         * The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `responseInspection` for more details.
+         */
+        responseInspection?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection {
+        /**
+         * Details about your login page password field. See `passwordField` for more details.
+         */
+        passwordField: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField>;
+        /**
+         * The payload type for your login endpoint, either JSON or form encoded.
+         */
+        payloadType: pulumi.Input<string>;
+        /**
+         * Details about your login page username field. See `usernameField` for more details.
+         */
+        usernameField: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField {
+        /**
+         * The name of the password field.
+         */
+        identifier: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField {
+        /**
+         * The name of the username field.
+         */
+        identifier: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection {
+        /**
+         * Configures inspection of the response body. See `bodyContains` for more details.
+         */
+        bodyContains?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains>;
+        /**
+         * Configures inspection of the response header.See `header` for more details.
+         */
+        header?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader>;
+        /**
+         * Configures inspection of the response JSON. See `json` for more details.
+         */
+        json?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson>;
+        /**
+         * Configures inspection of the response status code.See `statusCode` for more details.
+         */
+        statusCode?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains {
+        /**
+         * Strings in the body of the response that indicate a failed login attempt.
+         */
+        failureStrings: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Strings in the body of the response that indicate a successful login attempt.
+         */
+        successStrings: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader {
+        /**
+         * Values in the response header with the specified name that indicate a failed login attempt.
+         */
+        failureValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the header to match against. The name must be an exact match, including case.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Values in the response header with the specified name that indicate a successful login attempt.
+         */
+        successValues: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson {
+        /**
+         * Values in the response header with the specified name that indicate a failed login attempt.
+         */
+        failureValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The identifier for the value to match against in the JSON.
+         */
+        identifier: pulumi.Input<string>;
+        /**
+         * Values in the response header with the specified name that indicate a successful login attempt.
+         */
+        successValues: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode {
+        /**
+         * Status codes in the response that indicate a failed login attempt.
+         */
+        failureCodes: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Status codes in the response that indicate a successful login attempt.
+         */
+        successCodes: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet {
+        /**
+         * The inspection level to use for the Bot Control rule group.
+         */
+        inspectionLevel: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField {
+        /**
+         * The name of the password field.
+         */
+        identifier: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField {
+        /**
+         * The name of the username field.
+         */
+        identifier: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride {
+        /**
+         * Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
+         */
+        actionToUse: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse>;
+        /**
+         * Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse {
+        /**
+         * Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+         */
+        allow?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow>;
+        /**
+         * Specifies that AWS WAF should block requests by default. See `block` below for details.
+         */
+        block?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock>;
+        /**
+         * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+         */
+        captcha?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha>;
+        /**
+         * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
+         */
+        count?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock {
+        /**
+         * Defines a custom response for the web request. See `customResponse` below for details.
+         */
+        customResponse?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponse>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponse {
+        /**
+         * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         */
+        customResponseBodyKey?: pulumi.Input<string>;
+        /**
+         * The HTTP status code to return to the client.
+         */
+        responseCode: pulumi.Input<number>;
+        /**
+         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+         */
+        responseHeaders?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
+        /**
+         * Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
+         */
+        andStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement>;
+        /**
+         * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement>;
+        /**
+         * Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement>;
+        /**
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement>;
+        /**
+         * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement>;
+        /**
+         * Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
+         */
+        notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement>;
+        /**
+         * Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
+         */
+        orStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement>;
+        /**
+         * Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
+         */
+        regexMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement>;
+        /**
+         * Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement>;
+        /**
+         * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `sizeConstraintStatement` below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement>;
+        /**
+         * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement {
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch>;
+        /**
+         * Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement {
+        /**
+         * Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwardedIpConfig` below for details.
+         */
+        forwardedIpConfig?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * Name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
+         */
+        ipSetForwardedIpConfig?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * Name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+        /**
+         * Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement {
+        /**
+         * String to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch>;
+        /**
+         * String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+         */
+        regexString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement {
+        /**
+         * Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement {
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement {
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementNotStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[]>;
+    }
+
+    export interface WebAclRuleStatementOrStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatement {
+        /**
+         * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `FORWARDED_IP` or `IP`. Default: `IP`.
+         */
+        aggregateKeyType?: pulumi.Input<string>;
+        /**
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
+         */
+        forwardedIpConfig?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementForwardedIpConfig>;
+        /**
+         * Limit on requests per 5-minute period for a single originating IP address.
+         */
+        limit: pulumi.Input<number>;
+        /**
+         * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregateKeyType` is set to `CONSTANT`, this block is required.
+         */
+        scopeDownStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatement>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementForwardedIpConfig {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * Name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatement {
+        /**
+         * Logical rule statement used to combine other rule statements with AND logic. See `andStatement` below for details.
+         */
+        andStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement>;
+        /**
+         * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byteMatchStatement` below for details.
+         */
+        byteMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement>;
+        /**
+         * Rule statement used to identify web requests based on country of origin. See `geoMatchStatement` below for details.
+         */
+        geoMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement>;
+        /**
+         * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ipSetReferenceStatement` below for details.
+         */
+        ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement>;
+        /**
+         * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `labelMatchStatement` below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement>;
+        /**
+         * Logical rule statement used to negate the results of another rule statement. See `notStatement` below for details.
+         */
+        notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement>;
+        /**
+         * Logical rule statement used to combine other rule statements with OR logic. See `orStatement` below for details.
+         */
+        orStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement>;
+        /**
+         * Rule statement used to search web request components for a match against a single regular expression. See `regexMatchStatement` below for details.
+         */
+        regexMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement>;
+        /**
+         * Rule statement used to search web request components for matches with regular expressions. See `regexPatternSetReferenceStatement` below for details.
+         */
+        regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement>;
+        /**
+         * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `sizeConstraintStatement` below for more details.
+         */
+        sizeConstraintStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement>;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqliMatchStatement` below for details.
+         */
+        sqliMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement>;
+        /**
+         * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xssMatchStatement` below for details.
+         */
+        xssMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement {
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch>;
+        /**
+         * Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: pulumi.Input<string>;
+        /**
+         * String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement {
+        /**
+         * Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwardedIpConfig` below for details.
+         */
+        forwardedIpConfig?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * Name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ipSetForwardedIpConfig` below for more details.
+         */
+        ipSetForwardedIpConfig?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * Match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: pulumi.Input<string>;
+        /**
+         * Name of the HTTP header to use for the IP address.
+         */
+        headerName: pulumi.Input<string>;
+        /**
+         * Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
+        /**
+         * String to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement {
+        /**
+         * The statements to combine.
+         */
+        statements: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatement>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch>;
+        /**
+         * String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+         */
+        regexString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement {
+        /**
+         * Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement {
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement {
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatch>;
+        /**
+         * String representing the regular expression. Minimum of `1` and maximum of `512` characters.
+         */
+        regexString: pulumi.Input<string>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementRegexMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the `aws.wafv2.RuleGroup` resource.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `ruleActionOverride` below for details.
+         */
+        ruleActionOverrides?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride>[]>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride {
+        /**
+         * Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
+         */
+        actionToUse: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse>;
+        /**
+         * Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse {
+        /**
+         * Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+         */
+        allow?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow>;
+        /**
+         * Specifies that AWS WAF should block requests by default. See `block` below for details.
+         */
+        block?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock>;
+        /**
+         * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+         */
+        captcha?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha>;
+        /**
+         * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
+         */
+        count?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock {
+        /**
+         * Defines a custom response for the web request. See `customResponse` below for details.
+         */
+        customResponse?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse {
+        /**
+         * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         */
+        customResponseBodyKey?: pulumi.Input<string>;
+        /**
+         * The HTTP status code to return to the client.
+         */
+        responseCode: pulumi.Input<number>;
+        /**
+         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See `responseHeader` below for details.
+         */
+        responseHeaders?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader>[]>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatement {
+        /**
+         * Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: pulumi.Input<string>;
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatch>;
+        /**
+         * Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: pulumi.Input<number>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementSizeConstraintStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatement {
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementSqliMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatement {
+        /**
+         * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+         */
+        fieldToMatch?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatch>;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+         */
+        textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementTextTransformation>[]>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments>;
+        /**
+         * Inspect the request body, which immediately follows the request headers. See `body` below for details.
+         */
+        body?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchBody>;
+        /**
+         * Inspect the cookies in the web request. See `cookies` below for details.
+         */
+        cookies?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchCookies>;
+        /**
+         * Inspect the request headers. See `headers` below for details.
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchHeader>[]>;
+        /**
+         * Inspect the request body as JSON. See `jsonBody` for details.
+         */
+        jsonBody?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody>;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchMethod>;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchQueryString>;
+        /**
+         * Inspect a single header. See `singleHeader` below for details.
+         */
+        singleHeader?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader>;
+        /**
+         * Inspect a single query argument. See `singleQueryArgument` below for details.
+         */
+        singleQueryArgument?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument>;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchUriPath>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchBody {
+        /**
+         * What WAF should do if the body is larger than WAF can inspect. WAF does not support inspecting the entire contents of the body of a web request when the body exceeds 8 KB (8192 bytes). Only the first 8 KB of the request body are forwarded to WAF by the underlying host service. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchCookies {
+        /**
+         * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         */
+        matchPatterns: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern>[]>;
+        /**
+         * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll>;
+        excludedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+        includedCookies?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchHeader {
+        /**
+         * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern>;
+        /**
+         * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
+         */
+        oversizeHandling: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll>;
+        /**
+         * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         */
+        excludedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         */
+        includedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody {
+        /**
+         * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
+         */
+        invalidFallbackBehavior?: pulumi.Input<string>;
+        /**
+         * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+         */
+        matchPattern: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern>;
+        /**
+         * The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+         */
+        matchScope: pulumi.Input<string>;
+        /**
+         * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
+         */
+        oversizeHandling?: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern {
+        /**
+         * An empty configuration block that is used for inspecting all headers.
+         */
+        all?: pulumi.Input<inputs.wafv2.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll>;
+        includedPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll {
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * Name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementXssMatchStatementTextTransformation {
+        /**
+         * Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: pulumi.Input<number>;
+        /**
+         * Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleVisibilityConfig {
+        /**
+         * Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         */
+        cloudwatchMetricsEnabled: pulumi.Input<boolean>;
+        /**
+         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         */
+        sampledRequestsEnabled: pulumi.Input<boolean>;
+    }
+
+    export interface WebAclVisibilityConfig {
+        /**
+         * Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+         */
+        cloudwatchMetricsEnabled: pulumi.Input<boolean>;
+        /**
+         * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+         */
+        metricName: pulumi.Input<string>;
+        /**
+         * Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+         */
+        sampledRequestsEnabled: pulumi.Input<boolean>;
     }
 }
 

@@ -8,16 +8,402 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['WebAclArgs', 'WebAcl']
 
 @pulumi.input_type
 class WebAclArgs:
-    def __init__(__self__):
+    def __init__(__self__, *,
+                 default_action: pulumi.Input['WebAclDefaultActionArgs'],
+                 scope: pulumi.Input[str],
+                 visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
+                 captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a WebAcl resource.
+        :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        :param pulumi.Input[str] description: Friendly description of the WebACL.
+        :param pulumi.Input[str] name: Friendly name of the WebACL.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         """
-        pass
+        pulumi.set(__self__, "default_action", default_action)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "visibility_config", visibility_config)
+        if captcha_config is not None:
+            pulumi.set(__self__, "captcha_config", captcha_config)
+        if custom_response_bodies is not None:
+            pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if token_domains is not None:
+            pulumi.set(__self__, "token_domains", token_domains)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> pulumi.Input['WebAclDefaultActionArgs']:
+        """
+        Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: pulumi.Input['WebAclDefaultActionArgs']):
+        pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[str]:
+        """
+        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="visibilityConfig")
+    def visibility_config(self) -> pulumi.Input['WebAclVisibilityConfigArgs']:
+        """
+        Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        """
+        return pulumi.get(self, "visibility_config")
+
+    @visibility_config.setter
+    def visibility_config(self, value: pulumi.Input['WebAclVisibilityConfigArgs']):
+        pulumi.set(self, "visibility_config", value)
+
+    @property
+    @pulumi.getter(name="captchaConfig")
+    def captcha_config(self) -> Optional[pulumi.Input['WebAclCaptchaConfigArgs']]:
+        """
+        Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        """
+        return pulumi.get(self, "captcha_config")
+
+    @captcha_config.setter
+    def captcha_config(self, value: Optional[pulumi.Input['WebAclCaptchaConfigArgs']]):
+        pulumi.set(self, "captcha_config", value)
+
+    @property
+    @pulumi.getter(name="customResponseBodies")
+    def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]:
+        """
+        Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        """
+        return pulumi.get(self, "custom_response_bodies")
+
+    @custom_response_bodies.setter
+    def custom_response_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
+        pulumi.set(self, "custom_response_bodies", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly description of the WebACL.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the WebACL.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
+        """
+        Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tokenDomains")
+    def token_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        """
+        return pulumi.get(self, "token_domains")
+
+    @token_domains.setter
+    def token_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "token_domains", value)
+
+
+@pulumi.input_type
+class _WebAclState:
+    def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
+                 default_action: Optional[pulumi.Input['WebAclDefaultActionArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 lock_token: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 visibility_config: Optional[pulumi.Input['WebAclVisibilityConfigArgs']] = None):
+        """
+        Input properties used for looking up and filtering WebAcl resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input[int] capacity: Web ACL capacity units (WCUs) currently being used by this web ACL.
+        :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        :param pulumi.Input['WebAclDefaultActionArgs'] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        :param pulumi.Input[str] description: Friendly description of the WebACL.
+        :param pulumi.Input[str] name: Friendly name of the WebACL.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+        :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if captcha_config is not None:
+            pulumi.set(__self__, "captcha_config", captcha_config)
+        if custom_response_bodies is not None:
+            pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if lock_token is not None:
+            pulumi.set(__self__, "lock_token", lock_token)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
+        if token_domains is not None:
+            pulumi.set(__self__, "token_domains", token_domains)
+        if visibility_config is not None:
+            pulumi.set(__self__, "visibility_config", visibility_config)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Web ACL capacity units (WCUs) currently being used by this web ACL.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter(name="captchaConfig")
+    def captcha_config(self) -> Optional[pulumi.Input['WebAclCaptchaConfigArgs']]:
+        """
+        Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        """
+        return pulumi.get(self, "captcha_config")
+
+    @captcha_config.setter
+    def captcha_config(self, value: Optional[pulumi.Input['WebAclCaptchaConfigArgs']]):
+        pulumi.set(self, "captcha_config", value)
+
+    @property
+    @pulumi.getter(name="customResponseBodies")
+    def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]:
+        """
+        Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        """
+        return pulumi.get(self, "custom_response_bodies")
+
+    @custom_response_bodies.setter
+    def custom_response_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
+        pulumi.set(self, "custom_response_bodies", value)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[pulumi.Input['WebAclDefaultActionArgs']]:
+        """
+        Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: Optional[pulumi.Input['WebAclDefaultActionArgs']]):
+        pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly description of the WebACL.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="lockToken")
+    def lock_token(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "lock_token")
+
+    @lock_token.setter
+    def lock_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lock_token", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Friendly name of the WebACL.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
+        """
+        Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter(name="tokenDomains")
+    def token_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        """
+        return pulumi.get(self, "token_domains")
+
+    @token_domains.setter
+    def token_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "token_domains", value)
+
+    @property
+    @pulumi.getter(name="visibilityConfig")
+    def visibility_config(self) -> Optional[pulumi.Input['WebAclVisibilityConfigArgs']]:
+        """
+        Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        """
+        return pulumi.get(self, "visibility_config")
+
+    @visibility_config.setter
+    def visibility_config(self, value: Optional[pulumi.Input['WebAclVisibilityConfigArgs']]):
+        pulumi.set(self, "visibility_config", value)
 
 
 class WebAcl(pulumi.CustomResource):
@@ -25,17 +411,37 @@ class WebAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
+                 default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None,
                  __props__=None):
         """
         Create a WebAcl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        :param pulumi.Input[str] description: Friendly description of the WebACL.
+        :param pulumi.Input[str] name: Friendly name of the WebACL.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+        :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        :param pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[WebAclArgs] = None,
+                 args: WebAclArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a WebAcl resource with the given unique name, props, and options.
@@ -54,6 +460,16 @@ class WebAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
+                 default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -63,6 +479,26 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAclArgs.__new__(WebAclArgs)
 
+            __props__.__dict__["captcha_config"] = captcha_config
+            __props__.__dict__["custom_response_bodies"] = custom_response_bodies
+            if default_action is None and not opts.urn:
+                raise TypeError("Missing required property 'default_action'")
+            __props__.__dict__["default_action"] = default_action
+            __props__.__dict__["description"] = description
+            __props__.__dict__["name"] = name
+            __props__.__dict__["rules"] = rules
+            if scope is None and not opts.urn:
+                raise TypeError("Missing required property 'scope'")
+            __props__.__dict__["scope"] = scope
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["token_domains"] = token_domains
+            if visibility_config is None and not opts.urn:
+                raise TypeError("Missing required property 'visibility_config'")
+            __props__.__dict__["visibility_config"] = visibility_config
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["capacity"] = None
+            __props__.__dict__["lock_token"] = None
+            __props__.__dict__["tags_all"] = None
         super(WebAcl, __self__).__init__(
             'aws:wafv2/webAcl:WebAcl',
             resource_name,
@@ -72,7 +508,21 @@ class WebAcl(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebAcl':
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            capacity: Optional[pulumi.Input[int]] = None,
+            captcha_config: Optional[pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']]] = None,
+            custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
+            default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            lock_token: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]]] = None,
+            scope: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            visibility_config: Optional[pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']]] = None) -> 'WebAcl':
         """
         Get an existing WebAcl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -80,10 +530,146 @@ class WebAcl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        :param pulumi.Input[int] capacity: Web ACL capacity units (WCUs) currently being used by this web ACL.
+        :param pulumi.Input[pulumi.InputType['WebAclCaptchaConfigArgs']] captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        :param pulumi.Input[str] description: Friendly description of the WebACL.
+        :param pulumi.Input[str] name: Friendly name of the WebACL.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+        :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] token_domains: Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        :param pulumi.Input[pulumi.InputType['WebAclVisibilityConfigArgs']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = WebAclArgs.__new__(WebAclArgs)
+        __props__ = _WebAclState.__new__(_WebAclState)
 
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["capacity"] = capacity
+        __props__.__dict__["captcha_config"] = captcha_config
+        __props__.__dict__["custom_response_bodies"] = custom_response_bodies
+        __props__.__dict__["default_action"] = default_action
+        __props__.__dict__["description"] = description
+        __props__.__dict__["lock_token"] = lock_token
+        __props__.__dict__["name"] = name
+        __props__.__dict__["rules"] = rules
+        __props__.__dict__["scope"] = scope
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["token_domains"] = token_domains
+        __props__.__dict__["visibility_config"] = visibility_config
         return WebAcl(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> pulumi.Output[int]:
+        """
+        Web ACL capacity units (WCUs) currently being used by this web ACL.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter(name="captchaConfig")
+    def captcha_config(self) -> pulumi.Output[Optional['outputs.WebAclCaptchaConfig']]:
+        """
+        Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        """
+        return pulumi.get(self, "captcha_config")
+
+    @property
+    @pulumi.getter(name="customResponseBodies")
+    def custom_response_bodies(self) -> pulumi.Output[Optional[Sequence['outputs.WebAclCustomResponseBody']]]:
+        """
+        Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
+        """
+        return pulumi.get(self, "custom_response_bodies")
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> pulumi.Output['outputs.WebAclDefaultAction']:
+        """
+        Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Friendly description of the WebACL.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="lockToken")
+    def lock_token(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "lock_token")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        """
+        Friendly name of the WebACL.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Output[Optional[Sequence['outputs.WebAclRule']]]:
+        """
+        Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Output[str]:
+        """
+        Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="tokenDomains")
+    def token_domains(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
+        """
+        return pulumi.get(self, "token_domains")
+
+    @property
+    @pulumi.getter(name="visibilityConfig")
+    def visibility_config(self) -> pulumi.Output['outputs.WebAclVisibilityConfig']:
+        """
+        Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        """
+        return pulumi.get(self, "visibility_config")
 

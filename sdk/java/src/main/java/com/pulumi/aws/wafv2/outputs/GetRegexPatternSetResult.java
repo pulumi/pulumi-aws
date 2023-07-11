@@ -3,25 +3,71 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.GetRegexPatternSetRegularExpression;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetRegexPatternSetResult {
     /**
+     * @return ARN of the entity.
+     * 
+     */
+    private String arn;
+    /**
+     * @return Description of the set that helps with identification.
+     * 
+     */
+    private String description;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    private String name;
+    /**
+     * @return One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
+     * 
+     */
+    private List<GetRegexPatternSetRegularExpression> regularExpressions;
+    private String scope;
 
     private GetRegexPatternSetResult() {}
+    /**
+     * @return ARN of the entity.
+     * 
+     */
+    public String arn() {
+        return this.arn;
+    }
+    /**
+     * @return Description of the set that helps with identification.
+     * 
+     */
+    public String description() {
+        return this.description;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     public String id() {
         return this.id;
+    }
+    public String name() {
+        return this.name;
+    }
+    /**
+     * @return One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
+     * 
+     */
+    public List<GetRegexPatternSetRegularExpression> regularExpressions() {
+        return this.regularExpressions;
+    }
+    public String scope() {
+        return this.scope;
     }
 
     public static Builder builder() {
@@ -33,21 +79,64 @@ public final class GetRegexPatternSetResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
+        private String description;
         private String id;
+        private String name;
+        private List<GetRegexPatternSetRegularExpression> regularExpressions;
+        private String scope;
         public Builder() {}
         public Builder(GetRegexPatternSetResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
+    	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.name = defaults.name;
+    	      this.regularExpressions = defaults.regularExpressions;
+    	      this.scope = defaults.scope;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            this.arn = Objects.requireNonNull(arn);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(String description) {
+            this.description = Objects.requireNonNull(description);
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
+        public Builder name(String name) {
+            this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder regularExpressions(List<GetRegexPatternSetRegularExpression> regularExpressions) {
+            this.regularExpressions = Objects.requireNonNull(regularExpressions);
+            return this;
+        }
+        public Builder regularExpressions(GetRegexPatternSetRegularExpression... regularExpressions) {
+            return regularExpressions(List.of(regularExpressions));
+        }
+        @CustomType.Setter
+        public Builder scope(String scope) {
+            this.scope = Objects.requireNonNull(scope);
+            return this;
+        }
         public GetRegexPatternSetResult build() {
             final var o = new GetRegexPatternSetResult();
+            o.arn = arn;
+            o.description = description;
             o.id = id;
+            o.name = name;
+            o.regularExpressions = regularExpressions;
+            o.scope = scope;
             return o;
         }
     }

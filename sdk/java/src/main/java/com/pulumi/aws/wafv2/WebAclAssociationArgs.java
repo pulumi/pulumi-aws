@@ -3,15 +3,58 @@
 
 package com.pulumi.aws.wafv2;
 
-
+import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Import;
+import java.lang.String;
+import java.util.Objects;
 
 
 public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclAssociationArgs Empty = new WebAclAssociationArgs();
 
+    /**
+     * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+     * 
+     */
+    @Import(name="resourceArn", required=true)
+    private Output<String> resourceArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+     * 
+     */
+    public Output<String> resourceArn() {
+        return this.resourceArn;
+    }
+
+    /**
+     * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+     * 
+     */
+    @Import(name="webAclArn", required=true)
+    private Output<String> webAclArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+     * 
+     */
+    public Output<String> webAclArn() {
+        return this.webAclArn;
+    }
+
+    private WebAclAssociationArgs() {}
+
+    private WebAclAssociationArgs(WebAclAssociationArgs $) {
+        this.resourceArn = $.resourceArn;
+        this.webAclArn = $.webAclArn;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+    public static Builder builder(WebAclAssociationArgs defaults) {
+        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -20,7 +63,56 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.ResourceAr
         public Builder() {
             $ = new WebAclAssociationArgs();
         }
+
+        public Builder(WebAclAssociationArgs defaults) {
+            $ = new WebAclAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceArn(Output<String> resourceArn) {
+            $.resourceArn = resourceArn;
+            return this;
+        }
+
+        /**
+         * @param resourceArn The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage, or an Amazon Cognito User Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceArn(String resourceArn) {
+            return resourceArn(Output.of(resourceArn));
+        }
+
+        /**
+         * @param webAclArn The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webAclArn(Output<String> webAclArn) {
+            $.webAclArn = webAclArn;
+            return this;
+        }
+
+        /**
+         * @param webAclArn The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webAclArn(String webAclArn) {
+            return webAclArn(Output.of(webAclArn));
+        }
+
         public WebAclAssociationArgs build() {
+            $.resourceArn = Objects.requireNonNull($.resourceArn, "expected parameter 'resourceArn' to be non-null");
+            $.webAclArn = Objects.requireNonNull($.webAclArn, "expected parameter 'webAclArn' to be non-null");
             return $;
         }
     }

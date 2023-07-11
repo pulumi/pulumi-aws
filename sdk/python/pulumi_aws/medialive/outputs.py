@@ -11,6 +11,139 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ChannelCdiInputSpecification',
+    'ChannelDestination',
+    'ChannelDestinationMediaPackageSetting',
+    'ChannelDestinationMultiplexSettings',
+    'ChannelDestinationSetting',
+    'ChannelEncoderSettings',
+    'ChannelEncoderSettingsAudioDescription',
+    'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings',
+    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings',
+    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings',
+    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings',
+    'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettings',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings',
+    'ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings',
+    'ChannelEncoderSettingsAudioDescriptionRemixSettings',
+    'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping',
+    'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel',
+    'ChannelEncoderSettingsAvailBlanking',
+    'ChannelEncoderSettingsAvailBlankingAvailBlankingImage',
+    'ChannelEncoderSettingsOutputGroup',
+    'ChannelEncoderSettingsOutputGroupOutput',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings',
+    'ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination',
+    'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings',
+    'ChannelEncoderSettingsTimecodeConfig',
+    'ChannelEncoderSettingsVideoDescription',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings',
+    'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings',
+    'ChannelInputAttachment',
+    'ChannelInputAttachmentAutomaticInputFailoverSettings',
+    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition',
+    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings',
+    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings',
+    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings',
+    'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings',
+    'ChannelInputAttachmentInputSettings',
+    'ChannelInputAttachmentInputSettingsAudioSelector',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection',
+    'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack',
+    'ChannelInputAttachmentInputSettingsCaptionSelector',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings',
+    'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle',
+    'ChannelInputAttachmentInputSettingsNetworkInputSettings',
+    'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings',
+    'ChannelInputAttachmentInputSettingsVideoSelector',
+    'ChannelInputSpecification',
+    'ChannelMaintenance',
+    'ChannelVpc',
     'InputDestination',
     'InputInputDevice',
     'InputMediaConnectFlow',
@@ -23,6 +156,9686 @@ __all__ = [
     'MultiplexProgramMultiplexProgramSettingsVideoSettings',
     'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings',
 ]
+
+@pulumi.output_type
+class ChannelCdiInputSpecification(dict):
+    def __init__(__self__, *,
+                 resolution: str):
+        """
+        :param str resolution: Maximum CDI input resolution.
+        """
+        pulumi.set(__self__, "resolution", resolution)
+
+    @property
+    @pulumi.getter
+    def resolution(self) -> str:
+        """
+        Maximum CDI input resolution.
+        """
+        return pulumi.get(self, "resolution")
+
+
+@pulumi.output_type
+class ChannelDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mediaPackageSettings":
+            suggest = "media_package_settings"
+        elif key == "multiplexSettings":
+            suggest = "multiplex_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 media_package_settings: Optional[Sequence['outputs.ChannelDestinationMediaPackageSetting']] = None,
+                 multiplex_settings: Optional['outputs.ChannelDestinationMultiplexSettings'] = None,
+                 settings: Optional[Sequence['outputs.ChannelDestinationSetting']] = None):
+        """
+        :param str id: User-specified id. Ths is used in an output group or an output.
+        :param Sequence['ChannelDestinationMediaPackageSettingArgs'] media_package_settings: Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
+        :param 'ChannelDestinationMultiplexSettingsArgs' multiplex_settings: Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
+        :param Sequence['ChannelDestinationSettingArgs'] settings: Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
+        """
+        pulumi.set(__self__, "id", id)
+        if media_package_settings is not None:
+            pulumi.set(__self__, "media_package_settings", media_package_settings)
+        if multiplex_settings is not None:
+            pulumi.set(__self__, "multiplex_settings", multiplex_settings)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        User-specified id. Ths is used in an output group or an output.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="mediaPackageSettings")
+    def media_package_settings(self) -> Optional[Sequence['outputs.ChannelDestinationMediaPackageSetting']]:
+        """
+        Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
+        """
+        return pulumi.get(self, "media_package_settings")
+
+    @property
+    @pulumi.getter(name="multiplexSettings")
+    def multiplex_settings(self) -> Optional['outputs.ChannelDestinationMultiplexSettings']:
+        """
+        Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
+        """
+        return pulumi.get(self, "multiplex_settings")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[Sequence['outputs.ChannelDestinationSetting']]:
+        """
+        Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
+        """
+        return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class ChannelDestinationMediaPackageSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelId":
+            suggest = "channel_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelDestinationMediaPackageSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelDestinationMediaPackageSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelDestinationMediaPackageSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_id: str):
+        """
+        :param str channel_id: ID of the channel in MediaPackage that is the destination for this output group.
+        """
+        pulumi.set(__self__, "channel_id", channel_id)
+
+    @property
+    @pulumi.getter(name="channelId")
+    def channel_id(self) -> str:
+        """
+        ID of the channel in MediaPackage that is the destination for this output group.
+        """
+        return pulumi.get(self, "channel_id")
+
+
+@pulumi.output_type
+class ChannelDestinationMultiplexSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "multiplexId":
+            suggest = "multiplex_id"
+        elif key == "programName":
+            suggest = "program_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelDestinationMultiplexSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelDestinationMultiplexSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelDestinationMultiplexSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 multiplex_id: str,
+                 program_name: str):
+        """
+        :param str multiplex_id: The ID of the Multiplex that the encoder is providing output to.
+        :param str program_name: The program name of the Multiplex program that the encoder is providing output to.
+        """
+        pulumi.set(__self__, "multiplex_id", multiplex_id)
+        pulumi.set(__self__, "program_name", program_name)
+
+    @property
+    @pulumi.getter(name="multiplexId")
+    def multiplex_id(self) -> str:
+        """
+        The ID of the Multiplex that the encoder is providing output to.
+        """
+        return pulumi.get(self, "multiplex_id")
+
+    @property
+    @pulumi.getter(name="programName")
+    def program_name(self) -> str:
+        """
+        The program name of the Multiplex program that the encoder is providing output to.
+        """
+        return pulumi.get(self, "program_name")
+
+
+@pulumi.output_type
+class ChannelDestinationSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordParam":
+            suggest = "password_param"
+        elif key == "streamName":
+            suggest = "stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelDestinationSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelDestinationSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelDestinationSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password_param: Optional[str] = None,
+                 stream_name: Optional[str] = None,
+                 url: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        :param str password_param: Key used to extract the password from EC2 Parameter store.
+        :param str stream_name: Stream name RTMP destinations (URLs of type rtmp://)
+        :param str url: A URL specifying a destination.
+        :param str username: Username for destination.
+        """
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if stream_name is not None:
+            pulumi.set(__self__, "stream_name", stream_name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> Optional[str]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
+        return pulumi.get(self, "password_param")
+
+    @property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> Optional[str]:
+        """
+        Stream name RTMP destinations (URLs of type rtmp://)
+        """
+        return pulumi.get(self, "stream_name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        A URL specifying a destination.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Username for destination.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ChannelEncoderSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputGroups":
+            suggest = "output_groups"
+        elif key == "timecodeConfig":
+            suggest = "timecode_config"
+        elif key == "audioDescriptions":
+            suggest = "audio_descriptions"
+        elif key == "availBlanking":
+            suggest = "avail_blanking"
+        elif key == "videoDescriptions":
+            suggest = "video_descriptions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_groups: Sequence['outputs.ChannelEncoderSettingsOutputGroup'],
+                 timecode_config: 'outputs.ChannelEncoderSettingsTimecodeConfig',
+                 audio_descriptions: Optional[Sequence['outputs.ChannelEncoderSettingsAudioDescription']] = None,
+                 avail_blanking: Optional['outputs.ChannelEncoderSettingsAvailBlanking'] = None,
+                 video_descriptions: Optional[Sequence['outputs.ChannelEncoderSettingsVideoDescription']] = None):
+        """
+        :param Sequence['ChannelEncoderSettingsOutputGroupArgs'] output_groups: Output groups for the channel. See Output Groups for more details.
+        :param 'ChannelEncoderSettingsTimecodeConfigArgs' timecode_config: Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+        :param Sequence['ChannelEncoderSettingsAudioDescriptionArgs'] audio_descriptions: Audio descriptions for the channel. See Audio Descriptions for more details.
+        :param 'ChannelEncoderSettingsAvailBlankingArgs' avail_blanking: Settings for ad avail blanking. See Avail Blanking for more details.
+        :param Sequence['ChannelEncoderSettingsVideoDescriptionArgs'] video_descriptions: Video Descriptions. See Video Descriptions for more details.
+        """
+        pulumi.set(__self__, "output_groups", output_groups)
+        pulumi.set(__self__, "timecode_config", timecode_config)
+        if audio_descriptions is not None:
+            pulumi.set(__self__, "audio_descriptions", audio_descriptions)
+        if avail_blanking is not None:
+            pulumi.set(__self__, "avail_blanking", avail_blanking)
+        if video_descriptions is not None:
+            pulumi.set(__self__, "video_descriptions", video_descriptions)
+
+    @property
+    @pulumi.getter(name="outputGroups")
+    def output_groups(self) -> Sequence['outputs.ChannelEncoderSettingsOutputGroup']:
+        """
+        Output groups for the channel. See Output Groups for more details.
+        """
+        return pulumi.get(self, "output_groups")
+
+    @property
+    @pulumi.getter(name="timecodeConfig")
+    def timecode_config(self) -> 'outputs.ChannelEncoderSettingsTimecodeConfig':
+        """
+        Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+        """
+        return pulumi.get(self, "timecode_config")
+
+    @property
+    @pulumi.getter(name="audioDescriptions")
+    def audio_descriptions(self) -> Optional[Sequence['outputs.ChannelEncoderSettingsAudioDescription']]:
+        """
+        Audio descriptions for the channel. See Audio Descriptions for more details.
+        """
+        return pulumi.get(self, "audio_descriptions")
+
+    @property
+    @pulumi.getter(name="availBlanking")
+    def avail_blanking(self) -> Optional['outputs.ChannelEncoderSettingsAvailBlanking']:
+        """
+        Settings for ad avail blanking. See Avail Blanking for more details.
+        """
+        return pulumi.get(self, "avail_blanking")
+
+    @property
+    @pulumi.getter(name="videoDescriptions")
+    def video_descriptions(self) -> Optional[Sequence['outputs.ChannelEncoderSettingsVideoDescription']]:
+        """
+        Video Descriptions. See Video Descriptions for more details.
+        """
+        return pulumi.get(self, "video_descriptions")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescription(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioSelectorName":
+            suggest = "audio_selector_name"
+        elif key == "audioNormalizationSettings":
+            suggest = "audio_normalization_settings"
+        elif key == "audioType":
+            suggest = "audio_type"
+        elif key == "audioTypeControl":
+            suggest = "audio_type_control"
+        elif key == "audioWatermarkSettings":
+            suggest = "audio_watermark_settings"
+        elif key == "codecSettings":
+            suggest = "codec_settings"
+        elif key == "languageCode":
+            suggest = "language_code"
+        elif key == "languageCodeControl":
+            suggest = "language_code_control"
+        elif key == "remixSettings":
+            suggest = "remix_settings"
+        elif key == "streamName":
+            suggest = "stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_selector_name: str,
+                 name: str,
+                 audio_normalization_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings'] = None,
+                 audio_type: Optional[str] = None,
+                 audio_type_control: Optional[str] = None,
+                 audio_watermark_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings'] = None,
+                 codec_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettings'] = None,
+                 language_code: Optional[str] = None,
+                 language_code_control: Optional[str] = None,
+                 remix_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionRemixSettings'] = None,
+                 stream_name: Optional[str] = None):
+        """
+        :param str audio_selector_name: The name of the audio selector used as the source for this AudioDescription.
+        :param str name: The name of this audio description.
+        :param 'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs' audio_normalization_settings: Advanced audio normalization settings. See Audio Normalization Settings for more details.
+        :param str audio_type: Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+        :param str audio_type_control: Determined how audio type is determined.
+        :param 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs' audio_watermark_settings: Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs' codec_settings: Audio codec settings. See Audio Codec Settings for more details.
+        :param str language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
+        :param str stream_name: Stream name RTMP destinations (URLs of type rtmp://)
+        """
+        pulumi.set(__self__, "audio_selector_name", audio_selector_name)
+        pulumi.set(__self__, "name", name)
+        if audio_normalization_settings is not None:
+            pulumi.set(__self__, "audio_normalization_settings", audio_normalization_settings)
+        if audio_type is not None:
+            pulumi.set(__self__, "audio_type", audio_type)
+        if audio_type_control is not None:
+            pulumi.set(__self__, "audio_type_control", audio_type_control)
+        if audio_watermark_settings is not None:
+            pulumi.set(__self__, "audio_watermark_settings", audio_watermark_settings)
+        if codec_settings is not None:
+            pulumi.set(__self__, "codec_settings", codec_settings)
+        if language_code is not None:
+            pulumi.set(__self__, "language_code", language_code)
+        if language_code_control is not None:
+            pulumi.set(__self__, "language_code_control", language_code_control)
+        if remix_settings is not None:
+            pulumi.set(__self__, "remix_settings", remix_settings)
+        if stream_name is not None:
+            pulumi.set(__self__, "stream_name", stream_name)
+
+    @property
+    @pulumi.getter(name="audioSelectorName")
+    def audio_selector_name(self) -> str:
+        """
+        The name of the audio selector used as the source for this AudioDescription.
+        """
+        return pulumi.get(self, "audio_selector_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this audio description.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="audioNormalizationSettings")
+    def audio_normalization_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings']:
+        """
+        Advanced audio normalization settings. See Audio Normalization Settings for more details.
+        """
+        return pulumi.get(self, "audio_normalization_settings")
+
+    @property
+    @pulumi.getter(name="audioType")
+    def audio_type(self) -> Optional[str]:
+        """
+        Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
+        """
+        return pulumi.get(self, "audio_type")
+
+    @property
+    @pulumi.getter(name="audioTypeControl")
+    def audio_type_control(self) -> Optional[str]:
+        """
+        Determined how audio type is determined.
+        """
+        return pulumi.get(self, "audio_type_control")
+
+    @property
+    @pulumi.getter(name="audioWatermarkSettings")
+    def audio_watermark_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings']:
+        """
+        Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+        """
+        return pulumi.get(self, "audio_watermark_settings")
+
+    @property
+    @pulumi.getter(name="codecSettings")
+    def codec_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettings']:
+        """
+        Audio codec settings. See Audio Codec Settings for more details.
+        """
+        return pulumi.get(self, "codec_settings")
+
+    @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> Optional[str]:
+        """
+        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
+        return pulumi.get(self, "language_code")
+
+    @property
+    @pulumi.getter(name="languageCodeControl")
+    def language_code_control(self) -> Optional[str]:
+        return pulumi.get(self, "language_code_control")
+
+    @property
+    @pulumi.getter(name="remixSettings")
+    def remix_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionRemixSettings']:
+        return pulumi.get(self, "remix_settings")
+
+    @property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> Optional[str]:
+        """
+        Stream name RTMP destinations (URLs of type rtmp://)
+        """
+        return pulumi.get(self, "stream_name")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "algorithmControl":
+            suggest = "algorithm_control"
+        elif key == "targetLkfs":
+            suggest = "target_lkfs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm: Optional[str] = None,
+                 algorithm_control: Optional[str] = None,
+                 target_lkfs: Optional[float] = None):
+        """
+        :param str algorithm: Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
+        :param str algorithm_control: Algorithm control for the audio description.
+        :param float target_lkfs: Target LKFS (loudness) to adjust volume to.
+        """
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
+        if algorithm_control is not None:
+            pulumi.set(__self__, "algorithm_control", algorithm_control)
+        if target_lkfs is not None:
+            pulumi.set(__self__, "target_lkfs", target_lkfs)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> Optional[str]:
+        """
+        Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="algorithmControl")
+    def algorithm_control(self) -> Optional[str]:
+        """
+        Algorithm control for the audio description.
+        """
+        return pulumi.get(self, "algorithm_control")
+
+    @property
+    @pulumi.getter(name="targetLkfs")
+    def target_lkfs(self) -> Optional[float]:
+        """
+        Target LKFS (loudness) to adjust volume to.
+        """
+        return pulumi.get(self, "target_lkfs")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nielsenWatermarksSettings":
+            suggest = "nielsen_watermarks_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 nielsen_watermarks_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings'] = None):
+        if nielsen_watermarks_settings is not None:
+            pulumi.set(__self__, "nielsen_watermarks_settings", nielsen_watermarks_settings)
+
+    @property
+    @pulumi.getter(name="nielsenWatermarksSettings")
+    def nielsen_watermarks_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings']:
+        return pulumi.get(self, "nielsen_watermarks_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nielsenCbetSettings":
+            suggest = "nielsen_cbet_settings"
+        elif key == "nielsenDistributionType":
+            suggest = "nielsen_distribution_type"
+        elif key == "nielsenNaesIiNwSettings":
+            suggest = "nielsen_naes_ii_nw_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 nielsen_cbet_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings'] = None,
+                 nielsen_distribution_type: Optional[str] = None,
+                 nielsen_naes_ii_nw_settings: Optional[Sequence['outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting']] = None):
+        """
+        :param 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs' nielsen_cbet_settings: Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+        :param str nielsen_distribution_type: Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
+        :param Sequence['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs'] nielsen_naes_ii_nw_settings: Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+        """
+        if nielsen_cbet_settings is not None:
+            pulumi.set(__self__, "nielsen_cbet_settings", nielsen_cbet_settings)
+        if nielsen_distribution_type is not None:
+            pulumi.set(__self__, "nielsen_distribution_type", nielsen_distribution_type)
+        if nielsen_naes_ii_nw_settings is not None:
+            pulumi.set(__self__, "nielsen_naes_ii_nw_settings", nielsen_naes_ii_nw_settings)
+
+    @property
+    @pulumi.getter(name="nielsenCbetSettings")
+    def nielsen_cbet_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings']:
+        """
+        Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+        """
+        return pulumi.get(self, "nielsen_cbet_settings")
+
+    @property
+    @pulumi.getter(name="nielsenDistributionType")
+    def nielsen_distribution_type(self) -> Optional[str]:
+        """
+        Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
+        """
+        return pulumi.get(self, "nielsen_distribution_type")
+
+    @property
+    @pulumi.getter(name="nielsenNaesIiNwSettings")
+    def nielsen_naes_ii_nw_settings(self) -> Optional[Sequence['outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting']]:
+        """
+        Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+        """
+        return pulumi.get(self, "nielsen_naes_ii_nw_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cbetCheckDigitString":
+            suggest = "cbet_check_digit_string"
+        elif key == "cbetStepaside":
+            suggest = "cbet_stepaside"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cbet_check_digit_string: str,
+                 cbet_stepaside: str,
+                 csid: str):
+        """
+        :param str cbet_stepaside: Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+        :param str csid: CBET source ID to use in the watermark.
+        """
+        pulumi.set(__self__, "cbet_check_digit_string", cbet_check_digit_string)
+        pulumi.set(__self__, "cbet_stepaside", cbet_stepaside)
+        pulumi.set(__self__, "csid", csid)
+
+    @property
+    @pulumi.getter(name="cbetCheckDigitString")
+    def cbet_check_digit_string(self) -> str:
+        return pulumi.get(self, "cbet_check_digit_string")
+
+    @property
+    @pulumi.getter(name="cbetStepaside")
+    def cbet_stepaside(self) -> str:
+        """
+        Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+        """
+        return pulumi.get(self, "cbet_stepaside")
+
+    @property
+    @pulumi.getter
+    def csid(self) -> str:
+        """
+        CBET source ID to use in the watermark.
+        """
+        return pulumi.get(self, "csid")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "checkDigitString":
+            suggest = "check_digit_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check_digit_string: str,
+                 sid: float):
+        """
+        :param float sid: The Nielsen Source ID to include in the watermark.
+        """
+        pulumi.set(__self__, "check_digit_string", check_digit_string)
+        pulumi.set(__self__, "sid", sid)
+
+    @property
+    @pulumi.getter(name="checkDigitString")
+    def check_digit_string(self) -> str:
+        return pulumi.get(self, "check_digit_string")
+
+    @property
+    @pulumi.getter
+    def sid(self) -> float:
+        """
+        The Nielsen Source ID to include in the watermark.
+        """
+        return pulumi.get(self, "sid")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionCodecSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aacSettings":
+            suggest = "aac_settings"
+        elif key == "ac3Settings":
+            suggest = "ac3_settings"
+        elif key == "eac3AtmosSettings":
+            suggest = "eac3_atmos_settings"
+        elif key == "eac3Settings":
+            suggest = "eac3_settings"
+        elif key == "mp2Settings":
+            suggest = "mp2_settings"
+        elif key == "passThroughSettings":
+            suggest = "pass_through_settings"
+        elif key == "wavSettings":
+            suggest = "wav_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionCodecSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aac_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings'] = None,
+                 ac3_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings'] = None,
+                 eac3_atmos_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings'] = None,
+                 eac3_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings'] = None,
+                 mp2_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings'] = None,
+                 pass_through_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings'] = None,
+                 wav_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings'] = None):
+        """
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs' aac_settings: Aac Settings. See AAC Settings for more details.
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs' ac3_settings: Ac3 Settings. See AC3 Settings for more details.
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs' eac3_atmos_settings: Eac3 Atmos Settings. See EAC3 Atmos Settings
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs' eac3_settings: Eac3 Settings. See EAC3 Settings
+        """
+        if aac_settings is not None:
+            pulumi.set(__self__, "aac_settings", aac_settings)
+        if ac3_settings is not None:
+            pulumi.set(__self__, "ac3_settings", ac3_settings)
+        if eac3_atmos_settings is not None:
+            pulumi.set(__self__, "eac3_atmos_settings", eac3_atmos_settings)
+        if eac3_settings is not None:
+            pulumi.set(__self__, "eac3_settings", eac3_settings)
+        if mp2_settings is not None:
+            pulumi.set(__self__, "mp2_settings", mp2_settings)
+        if pass_through_settings is not None:
+            pulumi.set(__self__, "pass_through_settings", pass_through_settings)
+        if wav_settings is not None:
+            pulumi.set(__self__, "wav_settings", wav_settings)
+
+    @property
+    @pulumi.getter(name="aacSettings")
+    def aac_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings']:
+        """
+        Aac Settings. See AAC Settings for more details.
+        """
+        return pulumi.get(self, "aac_settings")
+
+    @property
+    @pulumi.getter(name="ac3Settings")
+    def ac3_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings']:
+        """
+        Ac3 Settings. See AC3 Settings for more details.
+        """
+        return pulumi.get(self, "ac3_settings")
+
+    @property
+    @pulumi.getter(name="eac3AtmosSettings")
+    def eac3_atmos_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings']:
+        """
+        Eac3 Atmos Settings. See EAC3 Atmos Settings
+        """
+        return pulumi.get(self, "eac3_atmos_settings")
+
+    @property
+    @pulumi.getter(name="eac3Settings")
+    def eac3_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings']:
+        """
+        Eac3 Settings. See EAC3 Settings
+        """
+        return pulumi.get(self, "eac3_settings")
+
+    @property
+    @pulumi.getter(name="mp2Settings")
+    def mp2_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings']:
+        return pulumi.get(self, "mp2_settings")
+
+    @property
+    @pulumi.getter(name="passThroughSettings")
+    def pass_through_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings']:
+        return pulumi.get(self, "pass_through_settings")
+
+    @property
+    @pulumi.getter(name="wavSettings")
+    def wav_settings(self) -> Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings']:
+        return pulumi.get(self, "wav_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codingMode":
+            suggest = "coding_mode"
+        elif key == "inputType":
+            suggest = "input_type"
+        elif key == "rateControlMode":
+            suggest = "rate_control_mode"
+        elif key == "rawFormat":
+            suggest = "raw_format"
+        elif key == "sampleRate":
+            suggest = "sample_rate"
+        elif key == "vbrQuality":
+            suggest = "vbr_quality"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bitrate: Optional[float] = None,
+                 coding_mode: Optional[str] = None,
+                 input_type: Optional[str] = None,
+                 profile: Optional[str] = None,
+                 rate_control_mode: Optional[str] = None,
+                 raw_format: Optional[str] = None,
+                 sample_rate: Optional[float] = None,
+                 spec: Optional[str] = None,
+                 vbr_quality: Optional[str] = None):
+        """
+        :param float bitrate: Average bitrate in bits/second.
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
+        :param str input_type: Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+        :param str profile: AAC profile.
+        :param str rate_control_mode: The rate control mode.
+        :param str raw_format: Sets LATM/LOAS AAC output for raw containers.
+        :param float sample_rate: Sample rate in Hz.
+        :param str spec: Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+        :param str vbr_quality: VBR Quality Level - Only used if rateControlMode is VBR.
+        """
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if coding_mode is not None:
+            pulumi.set(__self__, "coding_mode", coding_mode)
+        if input_type is not None:
+            pulumi.set(__self__, "input_type", input_type)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if rate_control_mode is not None:
+            pulumi.set(__self__, "rate_control_mode", rate_control_mode)
+        if raw_format is not None:
+            pulumi.set(__self__, "raw_format", raw_format)
+        if sample_rate is not None:
+            pulumi.set(__self__, "sample_rate", sample_rate)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+        if vbr_quality is not None:
+            pulumi.set(__self__, "vbr_quality", vbr_quality)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[float]:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="codingMode")
+    def coding_mode(self) -> Optional[str]:
+        """
+        Mono, Stereo, or 5.1 channel layout.
+        """
+        return pulumi.get(self, "coding_mode")
+
+    @property
+    @pulumi.getter(name="inputType")
+    def input_type(self) -> Optional[str]:
+        """
+        Set to "broadcasterMixedAd" when input contains pre-mixed main audio + AD (narration) as a stereo pair.
+        """
+        return pulumi.get(self, "input_type")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[str]:
+        """
+        AAC profile.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="rateControlMode")
+    def rate_control_mode(self) -> Optional[str]:
+        """
+        The rate control mode.
+        """
+        return pulumi.get(self, "rate_control_mode")
+
+    @property
+    @pulumi.getter(name="rawFormat")
+    def raw_format(self) -> Optional[str]:
+        """
+        Sets LATM/LOAS AAC output for raw containers.
+        """
+        return pulumi.get(self, "raw_format")
+
+    @property
+    @pulumi.getter(name="sampleRate")
+    def sample_rate(self) -> Optional[float]:
+        """
+        Sample rate in Hz.
+        """
+        return pulumi.get(self, "sample_rate")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional[str]:
+        """
+        Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
+        """
+        return pulumi.get(self, "spec")
+
+    @property
+    @pulumi.getter(name="vbrQuality")
+    def vbr_quality(self) -> Optional[str]:
+        """
+        VBR Quality Level - Only used if rateControlMode is VBR.
+        """
+        return pulumi.get(self, "vbr_quality")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bitstreamMode":
+            suggest = "bitstream_mode"
+        elif key == "codingMode":
+            suggest = "coding_mode"
+        elif key == "drcProfile":
+            suggest = "drc_profile"
+        elif key == "lfeFilter":
+            suggest = "lfe_filter"
+        elif key == "metadataControl":
+            suggest = "metadata_control"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bitrate: Optional[float] = None,
+                 bitstream_mode: Optional[str] = None,
+                 coding_mode: Optional[str] = None,
+                 dialnorm: Optional[int] = None,
+                 drc_profile: Optional[str] = None,
+                 lfe_filter: Optional[str] = None,
+                 metadata_control: Optional[str] = None):
+        """
+        :param float bitrate: Average bitrate in bits/second.
+        :param str bitstream_mode: Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
+        :param int dialnorm: Sets the dialnorm of the output.
+        :param str drc_profile: If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+        :param str lfe_filter: When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        :param str metadata_control: Metadata control.
+        """
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if bitstream_mode is not None:
+            pulumi.set(__self__, "bitstream_mode", bitstream_mode)
+        if coding_mode is not None:
+            pulumi.set(__self__, "coding_mode", coding_mode)
+        if dialnorm is not None:
+            pulumi.set(__self__, "dialnorm", dialnorm)
+        if drc_profile is not None:
+            pulumi.set(__self__, "drc_profile", drc_profile)
+        if lfe_filter is not None:
+            pulumi.set(__self__, "lfe_filter", lfe_filter)
+        if metadata_control is not None:
+            pulumi.set(__self__, "metadata_control", metadata_control)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[float]:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="bitstreamMode")
+    def bitstream_mode(self) -> Optional[str]:
+        """
+        Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        """
+        return pulumi.get(self, "bitstream_mode")
+
+    @property
+    @pulumi.getter(name="codingMode")
+    def coding_mode(self) -> Optional[str]:
+        """
+        Mono, Stereo, or 5.1 channel layout.
+        """
+        return pulumi.get(self, "coding_mode")
+
+    @property
+    @pulumi.getter
+    def dialnorm(self) -> Optional[int]:
+        """
+        Sets the dialnorm of the output.
+        """
+        return pulumi.get(self, "dialnorm")
+
+    @property
+    @pulumi.getter(name="drcProfile")
+    def drc_profile(self) -> Optional[str]:
+        """
+        If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+        """
+        return pulumi.get(self, "drc_profile")
+
+    @property
+    @pulumi.getter(name="lfeFilter")
+    def lfe_filter(self) -> Optional[str]:
+        """
+        When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        """
+        return pulumi.get(self, "lfe_filter")
+
+    @property
+    @pulumi.getter(name="metadataControl")
+    def metadata_control(self) -> Optional[str]:
+        """
+        Metadata control.
+        """
+        return pulumi.get(self, "metadata_control")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codingMode":
+            suggest = "coding_mode"
+        elif key == "drcLine":
+            suggest = "drc_line"
+        elif key == "drcRf":
+            suggest = "drc_rf"
+        elif key == "heightTrim":
+            suggest = "height_trim"
+        elif key == "surroundTrim":
+            suggest = "surround_trim"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bitrate: Optional[float] = None,
+                 coding_mode: Optional[str] = None,
+                 dialnorm: Optional[float] = None,
+                 drc_line: Optional[str] = None,
+                 drc_rf: Optional[str] = None,
+                 height_trim: Optional[float] = None,
+                 surround_trim: Optional[float] = None):
+        """
+        :param float bitrate: Average bitrate in bits/second.
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
+        :param float dialnorm: Sets the dialnorm of the output.
+        :param str drc_line: Sets the Dolby dynamic range compression profile.
+        :param str drc_rf: Sets the profile for heavy Dolby dynamic range compression.
+        :param float height_trim: Height dimensional trim.
+        :param float surround_trim: Surround dimensional trim.
+        """
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if coding_mode is not None:
+            pulumi.set(__self__, "coding_mode", coding_mode)
+        if dialnorm is not None:
+            pulumi.set(__self__, "dialnorm", dialnorm)
+        if drc_line is not None:
+            pulumi.set(__self__, "drc_line", drc_line)
+        if drc_rf is not None:
+            pulumi.set(__self__, "drc_rf", drc_rf)
+        if height_trim is not None:
+            pulumi.set(__self__, "height_trim", height_trim)
+        if surround_trim is not None:
+            pulumi.set(__self__, "surround_trim", surround_trim)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[float]:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="codingMode")
+    def coding_mode(self) -> Optional[str]:
+        """
+        Mono, Stereo, or 5.1 channel layout.
+        """
+        return pulumi.get(self, "coding_mode")
+
+    @property
+    @pulumi.getter
+    def dialnorm(self) -> Optional[float]:
+        """
+        Sets the dialnorm of the output.
+        """
+        return pulumi.get(self, "dialnorm")
+
+    @property
+    @pulumi.getter(name="drcLine")
+    def drc_line(self) -> Optional[str]:
+        """
+        Sets the Dolby dynamic range compression profile.
+        """
+        return pulumi.get(self, "drc_line")
+
+    @property
+    @pulumi.getter(name="drcRf")
+    def drc_rf(self) -> Optional[str]:
+        """
+        Sets the profile for heavy Dolby dynamic range compression.
+        """
+        return pulumi.get(self, "drc_rf")
+
+    @property
+    @pulumi.getter(name="heightTrim")
+    def height_trim(self) -> Optional[float]:
+        """
+        Height dimensional trim.
+        """
+        return pulumi.get(self, "height_trim")
+
+    @property
+    @pulumi.getter(name="surroundTrim")
+    def surround_trim(self) -> Optional[float]:
+        """
+        Surround dimensional trim.
+        """
+        return pulumi.get(self, "surround_trim")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attenuationControl":
+            suggest = "attenuation_control"
+        elif key == "bitstreamMode":
+            suggest = "bitstream_mode"
+        elif key == "codingMode":
+            suggest = "coding_mode"
+        elif key == "dcFilter":
+            suggest = "dc_filter"
+        elif key == "drcLine":
+            suggest = "drc_line"
+        elif key == "drcRf":
+            suggest = "drc_rf"
+        elif key == "lfeControl":
+            suggest = "lfe_control"
+        elif key == "lfeFilter":
+            suggest = "lfe_filter"
+        elif key == "loRoCenterMixLevel":
+            suggest = "lo_ro_center_mix_level"
+        elif key == "loRoSurroundMixLevel":
+            suggest = "lo_ro_surround_mix_level"
+        elif key == "ltRtCenterMixLevel":
+            suggest = "lt_rt_center_mix_level"
+        elif key == "ltRtSurroundMixLevel":
+            suggest = "lt_rt_surround_mix_level"
+        elif key == "metadataControl":
+            suggest = "metadata_control"
+        elif key == "passthroughControl":
+            suggest = "passthrough_control"
+        elif key == "phaseControl":
+            suggest = "phase_control"
+        elif key == "stereoDownmix":
+            suggest = "stereo_downmix"
+        elif key == "surroundExMode":
+            suggest = "surround_ex_mode"
+        elif key == "surroundMode":
+            suggest = "surround_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attenuation_control: Optional[str] = None,
+                 bitrate: Optional[float] = None,
+                 bitstream_mode: Optional[str] = None,
+                 coding_mode: Optional[str] = None,
+                 dc_filter: Optional[str] = None,
+                 dialnorm: Optional[int] = None,
+                 drc_line: Optional[str] = None,
+                 drc_rf: Optional[str] = None,
+                 lfe_control: Optional[str] = None,
+                 lfe_filter: Optional[str] = None,
+                 lo_ro_center_mix_level: Optional[float] = None,
+                 lo_ro_surround_mix_level: Optional[float] = None,
+                 lt_rt_center_mix_level: Optional[float] = None,
+                 lt_rt_surround_mix_level: Optional[float] = None,
+                 metadata_control: Optional[str] = None,
+                 passthrough_control: Optional[str] = None,
+                 phase_control: Optional[str] = None,
+                 stereo_downmix: Optional[str] = None,
+                 surround_ex_mode: Optional[str] = None,
+                 surround_mode: Optional[str] = None):
+        """
+        :param str attenuation_control: Sets the attenuation control.
+        :param float bitrate: Average bitrate in bits/second.
+        :param str bitstream_mode: Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
+        :param int dialnorm: Sets the dialnorm of the output.
+        :param str drc_line: Sets the Dolby dynamic range compression profile.
+        :param str drc_rf: Sets the profile for heavy Dolby dynamic range compression.
+        :param str lfe_filter: When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        :param str metadata_control: Metadata control.
+        """
+        if attenuation_control is not None:
+            pulumi.set(__self__, "attenuation_control", attenuation_control)
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if bitstream_mode is not None:
+            pulumi.set(__self__, "bitstream_mode", bitstream_mode)
+        if coding_mode is not None:
+            pulumi.set(__self__, "coding_mode", coding_mode)
+        if dc_filter is not None:
+            pulumi.set(__self__, "dc_filter", dc_filter)
+        if dialnorm is not None:
+            pulumi.set(__self__, "dialnorm", dialnorm)
+        if drc_line is not None:
+            pulumi.set(__self__, "drc_line", drc_line)
+        if drc_rf is not None:
+            pulumi.set(__self__, "drc_rf", drc_rf)
+        if lfe_control is not None:
+            pulumi.set(__self__, "lfe_control", lfe_control)
+        if lfe_filter is not None:
+            pulumi.set(__self__, "lfe_filter", lfe_filter)
+        if lo_ro_center_mix_level is not None:
+            pulumi.set(__self__, "lo_ro_center_mix_level", lo_ro_center_mix_level)
+        if lo_ro_surround_mix_level is not None:
+            pulumi.set(__self__, "lo_ro_surround_mix_level", lo_ro_surround_mix_level)
+        if lt_rt_center_mix_level is not None:
+            pulumi.set(__self__, "lt_rt_center_mix_level", lt_rt_center_mix_level)
+        if lt_rt_surround_mix_level is not None:
+            pulumi.set(__self__, "lt_rt_surround_mix_level", lt_rt_surround_mix_level)
+        if metadata_control is not None:
+            pulumi.set(__self__, "metadata_control", metadata_control)
+        if passthrough_control is not None:
+            pulumi.set(__self__, "passthrough_control", passthrough_control)
+        if phase_control is not None:
+            pulumi.set(__self__, "phase_control", phase_control)
+        if stereo_downmix is not None:
+            pulumi.set(__self__, "stereo_downmix", stereo_downmix)
+        if surround_ex_mode is not None:
+            pulumi.set(__self__, "surround_ex_mode", surround_ex_mode)
+        if surround_mode is not None:
+            pulumi.set(__self__, "surround_mode", surround_mode)
+
+    @property
+    @pulumi.getter(name="attenuationControl")
+    def attenuation_control(self) -> Optional[str]:
+        """
+        Sets the attenuation control.
+        """
+        return pulumi.get(self, "attenuation_control")
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[float]:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="bitstreamMode")
+    def bitstream_mode(self) -> Optional[str]:
+        """
+        Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
+        """
+        return pulumi.get(self, "bitstream_mode")
+
+    @property
+    @pulumi.getter(name="codingMode")
+    def coding_mode(self) -> Optional[str]:
+        """
+        Mono, Stereo, or 5.1 channel layout.
+        """
+        return pulumi.get(self, "coding_mode")
+
+    @property
+    @pulumi.getter(name="dcFilter")
+    def dc_filter(self) -> Optional[str]:
+        return pulumi.get(self, "dc_filter")
+
+    @property
+    @pulumi.getter
+    def dialnorm(self) -> Optional[int]:
+        """
+        Sets the dialnorm of the output.
+        """
+        return pulumi.get(self, "dialnorm")
+
+    @property
+    @pulumi.getter(name="drcLine")
+    def drc_line(self) -> Optional[str]:
+        """
+        Sets the Dolby dynamic range compression profile.
+        """
+        return pulumi.get(self, "drc_line")
+
+    @property
+    @pulumi.getter(name="drcRf")
+    def drc_rf(self) -> Optional[str]:
+        """
+        Sets the profile for heavy Dolby dynamic range compression.
+        """
+        return pulumi.get(self, "drc_rf")
+
+    @property
+    @pulumi.getter(name="lfeControl")
+    def lfe_control(self) -> Optional[str]:
+        return pulumi.get(self, "lfe_control")
+
+    @property
+    @pulumi.getter(name="lfeFilter")
+    def lfe_filter(self) -> Optional[str]:
+        """
+        When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
+        """
+        return pulumi.get(self, "lfe_filter")
+
+    @property
+    @pulumi.getter(name="loRoCenterMixLevel")
+    def lo_ro_center_mix_level(self) -> Optional[float]:
+        return pulumi.get(self, "lo_ro_center_mix_level")
+
+    @property
+    @pulumi.getter(name="loRoSurroundMixLevel")
+    def lo_ro_surround_mix_level(self) -> Optional[float]:
+        return pulumi.get(self, "lo_ro_surround_mix_level")
+
+    @property
+    @pulumi.getter(name="ltRtCenterMixLevel")
+    def lt_rt_center_mix_level(self) -> Optional[float]:
+        return pulumi.get(self, "lt_rt_center_mix_level")
+
+    @property
+    @pulumi.getter(name="ltRtSurroundMixLevel")
+    def lt_rt_surround_mix_level(self) -> Optional[float]:
+        return pulumi.get(self, "lt_rt_surround_mix_level")
+
+    @property
+    @pulumi.getter(name="metadataControl")
+    def metadata_control(self) -> Optional[str]:
+        """
+        Metadata control.
+        """
+        return pulumi.get(self, "metadata_control")
+
+    @property
+    @pulumi.getter(name="passthroughControl")
+    def passthrough_control(self) -> Optional[str]:
+        return pulumi.get(self, "passthrough_control")
+
+    @property
+    @pulumi.getter(name="phaseControl")
+    def phase_control(self) -> Optional[str]:
+        return pulumi.get(self, "phase_control")
+
+    @property
+    @pulumi.getter(name="stereoDownmix")
+    def stereo_downmix(self) -> Optional[str]:
+        return pulumi.get(self, "stereo_downmix")
+
+    @property
+    @pulumi.getter(name="surroundExMode")
+    def surround_ex_mode(self) -> Optional[str]:
+        return pulumi.get(self, "surround_ex_mode")
+
+    @property
+    @pulumi.getter(name="surroundMode")
+    def surround_mode(self) -> Optional[str]:
+        return pulumi.get(self, "surround_mode")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codingMode":
+            suggest = "coding_mode"
+        elif key == "sampleRate":
+            suggest = "sample_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bitrate: Optional[float] = None,
+                 coding_mode: Optional[str] = None,
+                 sample_rate: Optional[float] = None):
+        """
+        :param float bitrate: Average bitrate in bits/second.
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
+        :param float sample_rate: Sample rate in Hz.
+        """
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if coding_mode is not None:
+            pulumi.set(__self__, "coding_mode", coding_mode)
+        if sample_rate is not None:
+            pulumi.set(__self__, "sample_rate", sample_rate)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[float]:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="codingMode")
+    def coding_mode(self) -> Optional[str]:
+        """
+        Mono, Stereo, or 5.1 channel layout.
+        """
+        return pulumi.get(self, "coding_mode")
+
+    @property
+    @pulumi.getter(name="sampleRate")
+    def sample_rate(self) -> Optional[float]:
+        """
+        Sample rate in Hz.
+        """
+        return pulumi.get(self, "sample_rate")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bitDepth":
+            suggest = "bit_depth"
+        elif key == "codingMode":
+            suggest = "coding_mode"
+        elif key == "sampleRate":
+            suggest = "sample_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bit_depth: Optional[float] = None,
+                 coding_mode: Optional[str] = None,
+                 sample_rate: Optional[float] = None):
+        """
+        :param str coding_mode: Mono, Stereo, or 5.1 channel layout.
+        :param float sample_rate: Sample rate in Hz.
+        """
+        if bit_depth is not None:
+            pulumi.set(__self__, "bit_depth", bit_depth)
+        if coding_mode is not None:
+            pulumi.set(__self__, "coding_mode", coding_mode)
+        if sample_rate is not None:
+            pulumi.set(__self__, "sample_rate", sample_rate)
+
+    @property
+    @pulumi.getter(name="bitDepth")
+    def bit_depth(self) -> Optional[float]:
+        return pulumi.get(self, "bit_depth")
+
+    @property
+    @pulumi.getter(name="codingMode")
+    def coding_mode(self) -> Optional[str]:
+        """
+        Mono, Stereo, or 5.1 channel layout.
+        """
+        return pulumi.get(self, "coding_mode")
+
+    @property
+    @pulumi.getter(name="sampleRate")
+    def sample_rate(self) -> Optional[float]:
+        """
+        Sample rate in Hz.
+        """
+        return pulumi.get(self, "sample_rate")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionRemixSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelMappings":
+            suggest = "channel_mappings"
+        elif key == "channelsIn":
+            suggest = "channels_in"
+        elif key == "channelsOut":
+            suggest = "channels_out"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionRemixSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionRemixSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionRemixSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_mappings: Sequence['outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping'],
+                 channels_in: Optional[int] = None,
+                 channels_out: Optional[int] = None):
+        pulumi.set(__self__, "channel_mappings", channel_mappings)
+        if channels_in is not None:
+            pulumi.set(__self__, "channels_in", channels_in)
+        if channels_out is not None:
+            pulumi.set(__self__, "channels_out", channels_out)
+
+    @property
+    @pulumi.getter(name="channelMappings")
+    def channel_mappings(self) -> Sequence['outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping']:
+        return pulumi.get(self, "channel_mappings")
+
+    @property
+    @pulumi.getter(name="channelsIn")
+    def channels_in(self) -> Optional[int]:
+        return pulumi.get(self, "channels_in")
+
+    @property
+    @pulumi.getter(name="channelsOut")
+    def channels_out(self) -> Optional[int]:
+        return pulumi.get(self, "channels_out")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputChannelLevels":
+            suggest = "input_channel_levels"
+        elif key == "outputChannel":
+            suggest = "output_channel"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_channel_levels: Sequence['outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel'],
+                 output_channel: int):
+        pulumi.set(__self__, "input_channel_levels", input_channel_levels)
+        pulumi.set(__self__, "output_channel", output_channel)
+
+    @property
+    @pulumi.getter(name="inputChannelLevels")
+    def input_channel_levels(self) -> Sequence['outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel']:
+        return pulumi.get(self, "input_channel_levels")
+
+    @property
+    @pulumi.getter(name="outputChannel")
+    def output_channel(self) -> int:
+        return pulumi.get(self, "output_channel")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputChannel":
+            suggest = "input_channel"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gain: int,
+                 input_channel: int):
+        pulumi.set(__self__, "gain", gain)
+        pulumi.set(__self__, "input_channel", input_channel)
+
+    @property
+    @pulumi.getter
+    def gain(self) -> int:
+        return pulumi.get(self, "gain")
+
+    @property
+    @pulumi.getter(name="inputChannel")
+    def input_channel(self) -> int:
+        return pulumi.get(self, "input_channel")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAvailBlanking(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availBlankingImage":
+            suggest = "avail_blanking_image"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAvailBlanking. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAvailBlanking.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAvailBlanking.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 avail_blanking_image: Optional['outputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImage'] = None,
+                 state: Optional[str] = None):
+        """
+        :param 'ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs' avail_blanking_image: Blanking image to be used. See Avail Blanking Image for more details.
+        :param str state: When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+        """
+        if avail_blanking_image is not None:
+            pulumi.set(__self__, "avail_blanking_image", avail_blanking_image)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="availBlankingImage")
+    def avail_blanking_image(self) -> Optional['outputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImage']:
+        """
+        Blanking image to be used. See Avail Blanking Image for more details.
+        """
+        return pulumi.get(self, "avail_blanking_image")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsAvailBlankingAvailBlankingImage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordParam":
+            suggest = "password_param"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsAvailBlankingAvailBlankingImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsAvailBlankingAvailBlankingImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsAvailBlankingAvailBlankingImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: str,
+                 password_param: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        :param str uri: Path to a file accessible to the live stream.
+        :param str password_param: Key used to extract the password from EC2 Parameter store.
+        :param str username: . Username to be used.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        Path to a file accessible to the live stream.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> Optional[str]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
+        return pulumi.get(self, "password_param")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        . Username to be used.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputGroupSettings":
+            suggest = "output_group_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_group_settings: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettings',
+                 outputs: Sequence['outputs.ChannelEncoderSettingsOutputGroupOutput'],
+                 name: Optional[str] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs' output_group_settings: Settings associated with the output group. See Output Group Settings for more details.
+        :param Sequence['ChannelEncoderSettingsOutputGroupOutputArgs'] outputs: List of outputs. See Outputs for more details.
+        :param str name: Custom output group name defined by the user.
+        """
+        pulumi.set(__self__, "output_group_settings", output_group_settings)
+        pulumi.set(__self__, "outputs", outputs)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="outputGroupSettings")
+    def output_group_settings(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettings':
+        """
+        Settings associated with the output group. See Output Group Settings for more details.
+        """
+        return pulumi.get(self, "output_group_settings")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Sequence['outputs.ChannelEncoderSettingsOutputGroupOutput']:
+        """
+        List of outputs. See Outputs for more details.
+        """
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Custom output group name defined by the user.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputSettings":
+            suggest = "output_settings"
+        elif key == "audioDescriptionNames":
+            suggest = "audio_description_names"
+        elif key == "captionDescriptionNames":
+            suggest = "caption_description_names"
+        elif key == "outputName":
+            suggest = "output_name"
+        elif key == "videoDescriptionName":
+            suggest = "video_description_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_settings: 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettings',
+                 audio_description_names: Optional[Sequence[str]] = None,
+                 caption_description_names: Optional[Sequence[str]] = None,
+                 output_name: Optional[str] = None,
+                 video_description_name: Optional[str] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs' output_settings: Settings for output. See Output Settings for more details.
+        :param Sequence[str] audio_description_names: The names of the audio descriptions used as audio sources for the output.
+        :param Sequence[str] caption_description_names: The names of the caption descriptions used as caption sources for the output.
+        :param str output_name: The name used to identify an output.
+        :param str video_description_name: The name of the video description used as video source for the output.
+        """
+        pulumi.set(__self__, "output_settings", output_settings)
+        if audio_description_names is not None:
+            pulumi.set(__self__, "audio_description_names", audio_description_names)
+        if caption_description_names is not None:
+            pulumi.set(__self__, "caption_description_names", caption_description_names)
+        if output_name is not None:
+            pulumi.set(__self__, "output_name", output_name)
+        if video_description_name is not None:
+            pulumi.set(__self__, "video_description_name", video_description_name)
+
+    @property
+    @pulumi.getter(name="outputSettings")
+    def output_settings(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettings':
+        """
+        Settings for output. See Output Settings for more details.
+        """
+        return pulumi.get(self, "output_settings")
+
+    @property
+    @pulumi.getter(name="audioDescriptionNames")
+    def audio_description_names(self) -> Optional[Sequence[str]]:
+        """
+        The names of the audio descriptions used as audio sources for the output.
+        """
+        return pulumi.get(self, "audio_description_names")
+
+    @property
+    @pulumi.getter(name="captionDescriptionNames")
+    def caption_description_names(self) -> Optional[Sequence[str]]:
+        """
+        The names of the caption descriptions used as caption sources for the output.
+        """
+        return pulumi.get(self, "caption_description_names")
+
+    @property
+    @pulumi.getter(name="outputName")
+    def output_name(self) -> Optional[str]:
+        """
+        The name used to identify an output.
+        """
+        return pulumi.get(self, "output_name")
+
+    @property
+    @pulumi.getter(name="videoDescriptionName")
+    def video_description_name(self) -> Optional[str]:
+        """
+        The name of the video description used as video source for the output.
+        """
+        return pulumi.get(self, "video_description_name")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "archiveGroupSettings":
+            suggest = "archive_group_settings"
+        elif key == "frameCaptureGroupSettings":
+            suggest = "frame_capture_group_settings"
+        elif key == "hlsGroupSettings":
+            suggest = "hls_group_settings"
+        elif key == "mediaPackageGroupSettings":
+            suggest = "media_package_group_settings"
+        elif key == "msSmoothGroupSettings":
+            suggest = "ms_smooth_group_settings"
+        elif key == "multiplexGroupSettings":
+            suggest = "multiplex_group_settings"
+        elif key == "rtmpGroupSettings":
+            suggest = "rtmp_group_settings"
+        elif key == "udpGroupSettings":
+            suggest = "udp_group_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 archive_group_settings: Optional[Sequence['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting']] = None,
+                 frame_capture_group_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings'] = None,
+                 hls_group_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings'] = None,
+                 media_package_group_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings'] = None,
+                 ms_smooth_group_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings'] = None,
+                 multiplex_group_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings'] = None,
+                 rtmp_group_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings'] = None,
+                 udp_group_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings'] = None):
+        """
+        :param Sequence['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs'] archive_group_settings: Archive group settings. See Archive Group Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs' media_package_group_settings: Media package group settings. See Media Package Group Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs' rtmp_group_settings: RTMP group settings. See RTMP Group Settings for more details.
+        """
+        if archive_group_settings is not None:
+            pulumi.set(__self__, "archive_group_settings", archive_group_settings)
+        if frame_capture_group_settings is not None:
+            pulumi.set(__self__, "frame_capture_group_settings", frame_capture_group_settings)
+        if hls_group_settings is not None:
+            pulumi.set(__self__, "hls_group_settings", hls_group_settings)
+        if media_package_group_settings is not None:
+            pulumi.set(__self__, "media_package_group_settings", media_package_group_settings)
+        if ms_smooth_group_settings is not None:
+            pulumi.set(__self__, "ms_smooth_group_settings", ms_smooth_group_settings)
+        if multiplex_group_settings is not None:
+            pulumi.set(__self__, "multiplex_group_settings", multiplex_group_settings)
+        if rtmp_group_settings is not None:
+            pulumi.set(__self__, "rtmp_group_settings", rtmp_group_settings)
+        if udp_group_settings is not None:
+            pulumi.set(__self__, "udp_group_settings", udp_group_settings)
+
+    @property
+    @pulumi.getter(name="archiveGroupSettings")
+    def archive_group_settings(self) -> Optional[Sequence['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting']]:
+        """
+        Archive group settings. See Archive Group Settings for more details.
+        """
+        return pulumi.get(self, "archive_group_settings")
+
+    @property
+    @pulumi.getter(name="frameCaptureGroupSettings")
+    def frame_capture_group_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings']:
+        return pulumi.get(self, "frame_capture_group_settings")
+
+    @property
+    @pulumi.getter(name="hlsGroupSettings")
+    def hls_group_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings']:
+        return pulumi.get(self, "hls_group_settings")
+
+    @property
+    @pulumi.getter(name="mediaPackageGroupSettings")
+    def media_package_group_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings']:
+        """
+        Media package group settings. See Media Package Group Settings for more details.
+        """
+        return pulumi.get(self, "media_package_group_settings")
+
+    @property
+    @pulumi.getter(name="msSmoothGroupSettings")
+    def ms_smooth_group_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings']:
+        return pulumi.get(self, "ms_smooth_group_settings")
+
+    @property
+    @pulumi.getter(name="multiplexGroupSettings")
+    def multiplex_group_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings']:
+        return pulumi.get(self, "multiplex_group_settings")
+
+    @property
+    @pulumi.getter(name="rtmpGroupSettings")
+    def rtmp_group_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings']:
+        """
+        RTMP group settings. See RTMP Group Settings for more details.
+        """
+        return pulumi.get(self, "rtmp_group_settings")
+
+    @property
+    @pulumi.getter(name="udpGroupSettings")
+    def udp_group_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings']:
+        return pulumi.get(self, "udp_group_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "archiveCdnSettings":
+            suggest = "archive_cdn_settings"
+        elif key == "rolloverInterval":
+            suggest = "rollover_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination',
+                 archive_cdn_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings'] = None,
+                 rollover_interval: Optional[int] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs' archive_cdn_settings: Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+        :param int rollover_interval: Number of seconds to write to archive file before closing and starting a new one.
+        """
+        pulumi.set(__self__, "destination", destination)
+        if archive_cdn_settings is not None:
+            pulumi.set(__self__, "archive_cdn_settings", archive_cdn_settings)
+        if rollover_interval is not None:
+            pulumi.set(__self__, "rollover_interval", rollover_interval)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination':
+        """
+        A director and base filename where archive files should be written. See Destination for more details.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="archiveCdnSettings")
+    def archive_cdn_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings']:
+        """
+        Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+        """
+        return pulumi.get(self, "archive_cdn_settings")
+
+    @property
+    @pulumi.getter(name="rolloverInterval")
+    def rollover_interval(self) -> Optional[int]:
+        """
+        Number of seconds to write to archive file before closing and starting a new one.
+        """
+        return pulumi.get(self, "rollover_interval")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "archiveS3Settings":
+            suggest = "archive_s3_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 archive_s3_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings'] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs' archive_s3_settings: Archive S3 Settings. See Archive S3 Settings for more details.
+        """
+        if archive_s3_settings is not None:
+            pulumi.set(__self__, "archive_s3_settings", archive_s3_settings)
+
+    @property
+    @pulumi.getter(name="archiveS3Settings")
+    def archive_s3_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings']:
+        """
+        Archive S3 Settings. See Archive S3 Settings for more details.
+        """
+        return pulumi.get(self, "archive_s3_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cannedAcl":
+            suggest = "canned_acl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 canned_acl: Optional[str] = None):
+        """
+        :param str canned_acl: Specify the canned ACL to apply to each S3 request.
+        """
+        if canned_acl is not None:
+            pulumi.set(__self__, "canned_acl", canned_acl)
+
+    @property
+    @pulumi.getter(name="cannedAcl")
+    def canned_acl(self) -> Optional[str]:
+        """
+        Specify the canned ACL to apply to each S3 request.
+        """
+        return pulumi.get(self, "canned_acl")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationRefId":
+            suggest = "destination_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_ref_id: str):
+        """
+        :param str destination_ref_id: Reference ID for the destination.
+        """
+        pulumi.set(__self__, "destination_ref_id", destination_ref_id)
+
+    @property
+    @pulumi.getter(name="destinationRefId")
+    def destination_ref_id(self) -> str:
+        """
+        Reference ID for the destination.
+        """
+        return pulumi.get(self, "destination_ref_id")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "frameCaptureCdnSettings":
+            suggest = "frame_capture_cdn_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination',
+                 frame_capture_cdn_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings'] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
+        """
+        pulumi.set(__self__, "destination", destination)
+        if frame_capture_cdn_settings is not None:
+            pulumi.set(__self__, "frame_capture_cdn_settings", frame_capture_cdn_settings)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination':
+        """
+        A director and base filename where archive files should be written. See Destination for more details.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="frameCaptureCdnSettings")
+    def frame_capture_cdn_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings']:
+        return pulumi.get(self, "frame_capture_cdn_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationRefId":
+            suggest = "destination_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_ref_id: str):
+        """
+        :param str destination_ref_id: Reference ID for the destination.
+        """
+        pulumi.set(__self__, "destination_ref_id", destination_ref_id)
+
+    @property
+    @pulumi.getter(name="destinationRefId")
+    def destination_ref_id(self) -> str:
+        """
+        Reference ID for the destination.
+        """
+        return pulumi.get(self, "destination_ref_id")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "frameCaptureS3Settings":
+            suggest = "frame_capture_s3_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 frame_capture_s3_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings'] = None):
+        if frame_capture_s3_settings is not None:
+            pulumi.set(__self__, "frame_capture_s3_settings", frame_capture_s3_settings)
+
+    @property
+    @pulumi.getter(name="frameCaptureS3Settings")
+    def frame_capture_s3_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings']:
+        return pulumi.get(self, "frame_capture_s3_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cannedAcl":
+            suggest = "canned_acl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 canned_acl: Optional[str] = None):
+        """
+        :param str canned_acl: Specify the canned ACL to apply to each S3 request.
+        """
+        if canned_acl is not None:
+            pulumi.set(__self__, "canned_acl", canned_acl)
+
+    @property
+    @pulumi.getter(name="cannedAcl")
+    def canned_acl(self) -> Optional[str]:
+        """
+        Specify the canned ACL to apply to each S3 request.
+        """
+        return pulumi.get(self, "canned_acl")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adMarkers":
+            suggest = "ad_markers"
+        elif key == "baseUrlContent":
+            suggest = "base_url_content"
+        elif key == "baseUrlContent1":
+            suggest = "base_url_content1"
+        elif key == "baseUrlManifest":
+            suggest = "base_url_manifest"
+        elif key == "baseUrlManifest1":
+            suggest = "base_url_manifest1"
+        elif key == "captionLanguageMappings":
+            suggest = "caption_language_mappings"
+        elif key == "captionLanguageSetting":
+            suggest = "caption_language_setting"
+        elif key == "clientCache":
+            suggest = "client_cache"
+        elif key == "codecSpecification":
+            suggest = "codec_specification"
+        elif key == "constantIv":
+            suggest = "constant_iv"
+        elif key == "directoryStructure":
+            suggest = "directory_structure"
+        elif key == "discontinuityTags":
+            suggest = "discontinuity_tags"
+        elif key == "encryptionType":
+            suggest = "encryption_type"
+        elif key == "hlsCdnSettings":
+            suggest = "hls_cdn_settings"
+        elif key == "hlsId3SegmentTagging":
+            suggest = "hls_id3_segment_tagging"
+        elif key == "iframeOnlyPlaylists":
+            suggest = "iframe_only_playlists"
+        elif key == "incompleteSegmentBehavior":
+            suggest = "incomplete_segment_behavior"
+        elif key == "indexNSegments":
+            suggest = "index_n_segments"
+        elif key == "inputLossAction":
+            suggest = "input_loss_action"
+        elif key == "ivInManifest":
+            suggest = "iv_in_manifest"
+        elif key == "ivSource":
+            suggest = "iv_source"
+        elif key == "keepSegments":
+            suggest = "keep_segments"
+        elif key == "keyFormat":
+            suggest = "key_format"
+        elif key == "keyFormatVersions":
+            suggest = "key_format_versions"
+        elif key == "keyProviderSettings":
+            suggest = "key_provider_settings"
+        elif key == "manifestCompression":
+            suggest = "manifest_compression"
+        elif key == "manifestDurationFormat":
+            suggest = "manifest_duration_format"
+        elif key == "minSegmentLength":
+            suggest = "min_segment_length"
+        elif key == "outputSelection":
+            suggest = "output_selection"
+        elif key == "programDateTime":
+            suggest = "program_date_time"
+        elif key == "programDateTimeClock":
+            suggest = "program_date_time_clock"
+        elif key == "programDateTimePeriod":
+            suggest = "program_date_time_period"
+        elif key == "redundantManifest":
+            suggest = "redundant_manifest"
+        elif key == "segmentLength":
+            suggest = "segment_length"
+        elif key == "segmentsPerSubdirectory":
+            suggest = "segments_per_subdirectory"
+        elif key == "streamInfResolution":
+            suggest = "stream_inf_resolution"
+        elif key == "timedMetadataId3Frame":
+            suggest = "timed_metadata_id3_frame"
+        elif key == "timedMetadataId3Period":
+            suggest = "timed_metadata_id3_period"
+        elif key == "timestampDeltaMilliseconds":
+            suggest = "timestamp_delta_milliseconds"
+        elif key == "tsFileMode":
+            suggest = "ts_file_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination',
+                 ad_markers: Optional[Sequence[str]] = None,
+                 base_url_content: Optional[str] = None,
+                 base_url_content1: Optional[str] = None,
+                 base_url_manifest: Optional[str] = None,
+                 base_url_manifest1: Optional[str] = None,
+                 caption_language_mappings: Optional[Sequence['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping']] = None,
+                 caption_language_setting: Optional[str] = None,
+                 client_cache: Optional[str] = None,
+                 codec_specification: Optional[str] = None,
+                 constant_iv: Optional[str] = None,
+                 directory_structure: Optional[str] = None,
+                 discontinuity_tags: Optional[str] = None,
+                 encryption_type: Optional[str] = None,
+                 hls_cdn_settings: Optional[Sequence['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting']] = None,
+                 hls_id3_segment_tagging: Optional[str] = None,
+                 iframe_only_playlists: Optional[str] = None,
+                 incomplete_segment_behavior: Optional[str] = None,
+                 index_n_segments: Optional[int] = None,
+                 input_loss_action: Optional[str] = None,
+                 iv_in_manifest: Optional[str] = None,
+                 iv_source: Optional[str] = None,
+                 keep_segments: Optional[int] = None,
+                 key_format: Optional[str] = None,
+                 key_format_versions: Optional[str] = None,
+                 key_provider_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings'] = None,
+                 manifest_compression: Optional[str] = None,
+                 manifest_duration_format: Optional[str] = None,
+                 min_segment_length: Optional[int] = None,
+                 mode: Optional[str] = None,
+                 output_selection: Optional[str] = None,
+                 program_date_time: Optional[str] = None,
+                 program_date_time_clock: Optional[str] = None,
+                 program_date_time_period: Optional[int] = None,
+                 redundant_manifest: Optional[str] = None,
+                 segment_length: Optional[int] = None,
+                 segments_per_subdirectory: Optional[int] = None,
+                 stream_inf_resolution: Optional[str] = None,
+                 timed_metadata_id3_frame: Optional[str] = None,
+                 timed_metadata_id3_period: Optional[int] = None,
+                 timestamp_delta_milliseconds: Optional[int] = None,
+                 ts_file_mode: Optional[str] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param Sequence[str] ad_markers: The ad marker type for this output group.
+        :param str input_loss_action: Controls the behavior of the RTMP group if input becomes unavailable.
+        :param str timed_metadata_id3_frame: Indicates ID3 frame that has the timecode.
+        """
+        pulumi.set(__self__, "destination", destination)
+        if ad_markers is not None:
+            pulumi.set(__self__, "ad_markers", ad_markers)
+        if base_url_content is not None:
+            pulumi.set(__self__, "base_url_content", base_url_content)
+        if base_url_content1 is not None:
+            pulumi.set(__self__, "base_url_content1", base_url_content1)
+        if base_url_manifest is not None:
+            pulumi.set(__self__, "base_url_manifest", base_url_manifest)
+        if base_url_manifest1 is not None:
+            pulumi.set(__self__, "base_url_manifest1", base_url_manifest1)
+        if caption_language_mappings is not None:
+            pulumi.set(__self__, "caption_language_mappings", caption_language_mappings)
+        if caption_language_setting is not None:
+            pulumi.set(__self__, "caption_language_setting", caption_language_setting)
+        if client_cache is not None:
+            pulumi.set(__self__, "client_cache", client_cache)
+        if codec_specification is not None:
+            pulumi.set(__self__, "codec_specification", codec_specification)
+        if constant_iv is not None:
+            pulumi.set(__self__, "constant_iv", constant_iv)
+        if directory_structure is not None:
+            pulumi.set(__self__, "directory_structure", directory_structure)
+        if discontinuity_tags is not None:
+            pulumi.set(__self__, "discontinuity_tags", discontinuity_tags)
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
+        if hls_cdn_settings is not None:
+            pulumi.set(__self__, "hls_cdn_settings", hls_cdn_settings)
+        if hls_id3_segment_tagging is not None:
+            pulumi.set(__self__, "hls_id3_segment_tagging", hls_id3_segment_tagging)
+        if iframe_only_playlists is not None:
+            pulumi.set(__self__, "iframe_only_playlists", iframe_only_playlists)
+        if incomplete_segment_behavior is not None:
+            pulumi.set(__self__, "incomplete_segment_behavior", incomplete_segment_behavior)
+        if index_n_segments is not None:
+            pulumi.set(__self__, "index_n_segments", index_n_segments)
+        if input_loss_action is not None:
+            pulumi.set(__self__, "input_loss_action", input_loss_action)
+        if iv_in_manifest is not None:
+            pulumi.set(__self__, "iv_in_manifest", iv_in_manifest)
+        if iv_source is not None:
+            pulumi.set(__self__, "iv_source", iv_source)
+        if keep_segments is not None:
+            pulumi.set(__self__, "keep_segments", keep_segments)
+        if key_format is not None:
+            pulumi.set(__self__, "key_format", key_format)
+        if key_format_versions is not None:
+            pulumi.set(__self__, "key_format_versions", key_format_versions)
+        if key_provider_settings is not None:
+            pulumi.set(__self__, "key_provider_settings", key_provider_settings)
+        if manifest_compression is not None:
+            pulumi.set(__self__, "manifest_compression", manifest_compression)
+        if manifest_duration_format is not None:
+            pulumi.set(__self__, "manifest_duration_format", manifest_duration_format)
+        if min_segment_length is not None:
+            pulumi.set(__self__, "min_segment_length", min_segment_length)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if output_selection is not None:
+            pulumi.set(__self__, "output_selection", output_selection)
+        if program_date_time is not None:
+            pulumi.set(__self__, "program_date_time", program_date_time)
+        if program_date_time_clock is not None:
+            pulumi.set(__self__, "program_date_time_clock", program_date_time_clock)
+        if program_date_time_period is not None:
+            pulumi.set(__self__, "program_date_time_period", program_date_time_period)
+        if redundant_manifest is not None:
+            pulumi.set(__self__, "redundant_manifest", redundant_manifest)
+        if segment_length is not None:
+            pulumi.set(__self__, "segment_length", segment_length)
+        if segments_per_subdirectory is not None:
+            pulumi.set(__self__, "segments_per_subdirectory", segments_per_subdirectory)
+        if stream_inf_resolution is not None:
+            pulumi.set(__self__, "stream_inf_resolution", stream_inf_resolution)
+        if timed_metadata_id3_frame is not None:
+            pulumi.set(__self__, "timed_metadata_id3_frame", timed_metadata_id3_frame)
+        if timed_metadata_id3_period is not None:
+            pulumi.set(__self__, "timed_metadata_id3_period", timed_metadata_id3_period)
+        if timestamp_delta_milliseconds is not None:
+            pulumi.set(__self__, "timestamp_delta_milliseconds", timestamp_delta_milliseconds)
+        if ts_file_mode is not None:
+            pulumi.set(__self__, "ts_file_mode", ts_file_mode)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination':
+        """
+        A director and base filename where archive files should be written. See Destination for more details.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="adMarkers")
+    def ad_markers(self) -> Optional[Sequence[str]]:
+        """
+        The ad marker type for this output group.
+        """
+        return pulumi.get(self, "ad_markers")
+
+    @property
+    @pulumi.getter(name="baseUrlContent")
+    def base_url_content(self) -> Optional[str]:
+        return pulumi.get(self, "base_url_content")
+
+    @property
+    @pulumi.getter(name="baseUrlContent1")
+    def base_url_content1(self) -> Optional[str]:
+        return pulumi.get(self, "base_url_content1")
+
+    @property
+    @pulumi.getter(name="baseUrlManifest")
+    def base_url_manifest(self) -> Optional[str]:
+        return pulumi.get(self, "base_url_manifest")
+
+    @property
+    @pulumi.getter(name="baseUrlManifest1")
+    def base_url_manifest1(self) -> Optional[str]:
+        return pulumi.get(self, "base_url_manifest1")
+
+    @property
+    @pulumi.getter(name="captionLanguageMappings")
+    def caption_language_mappings(self) -> Optional[Sequence['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping']]:
+        return pulumi.get(self, "caption_language_mappings")
+
+    @property
+    @pulumi.getter(name="captionLanguageSetting")
+    def caption_language_setting(self) -> Optional[str]:
+        return pulumi.get(self, "caption_language_setting")
+
+    @property
+    @pulumi.getter(name="clientCache")
+    def client_cache(self) -> Optional[str]:
+        return pulumi.get(self, "client_cache")
+
+    @property
+    @pulumi.getter(name="codecSpecification")
+    def codec_specification(self) -> Optional[str]:
+        return pulumi.get(self, "codec_specification")
+
+    @property
+    @pulumi.getter(name="constantIv")
+    def constant_iv(self) -> Optional[str]:
+        return pulumi.get(self, "constant_iv")
+
+    @property
+    @pulumi.getter(name="directoryStructure")
+    def directory_structure(self) -> Optional[str]:
+        return pulumi.get(self, "directory_structure")
+
+    @property
+    @pulumi.getter(name="discontinuityTags")
+    def discontinuity_tags(self) -> Optional[str]:
+        return pulumi.get(self, "discontinuity_tags")
+
+    @property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[str]:
+        return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="hlsCdnSettings")
+    def hls_cdn_settings(self) -> Optional[Sequence['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting']]:
+        return pulumi.get(self, "hls_cdn_settings")
+
+    @property
+    @pulumi.getter(name="hlsId3SegmentTagging")
+    def hls_id3_segment_tagging(self) -> Optional[str]:
+        return pulumi.get(self, "hls_id3_segment_tagging")
+
+    @property
+    @pulumi.getter(name="iframeOnlyPlaylists")
+    def iframe_only_playlists(self) -> Optional[str]:
+        return pulumi.get(self, "iframe_only_playlists")
+
+    @property
+    @pulumi.getter(name="incompleteSegmentBehavior")
+    def incomplete_segment_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "incomplete_segment_behavior")
+
+    @property
+    @pulumi.getter(name="indexNSegments")
+    def index_n_segments(self) -> Optional[int]:
+        return pulumi.get(self, "index_n_segments")
+
+    @property
+    @pulumi.getter(name="inputLossAction")
+    def input_loss_action(self) -> Optional[str]:
+        """
+        Controls the behavior of the RTMP group if input becomes unavailable.
+        """
+        return pulumi.get(self, "input_loss_action")
+
+    @property
+    @pulumi.getter(name="ivInManifest")
+    def iv_in_manifest(self) -> Optional[str]:
+        return pulumi.get(self, "iv_in_manifest")
+
+    @property
+    @pulumi.getter(name="ivSource")
+    def iv_source(self) -> Optional[str]:
+        return pulumi.get(self, "iv_source")
+
+    @property
+    @pulumi.getter(name="keepSegments")
+    def keep_segments(self) -> Optional[int]:
+        return pulumi.get(self, "keep_segments")
+
+    @property
+    @pulumi.getter(name="keyFormat")
+    def key_format(self) -> Optional[str]:
+        return pulumi.get(self, "key_format")
+
+    @property
+    @pulumi.getter(name="keyFormatVersions")
+    def key_format_versions(self) -> Optional[str]:
+        return pulumi.get(self, "key_format_versions")
+
+    @property
+    @pulumi.getter(name="keyProviderSettings")
+    def key_provider_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings']:
+        return pulumi.get(self, "key_provider_settings")
+
+    @property
+    @pulumi.getter(name="manifestCompression")
+    def manifest_compression(self) -> Optional[str]:
+        return pulumi.get(self, "manifest_compression")
+
+    @property
+    @pulumi.getter(name="manifestDurationFormat")
+    def manifest_duration_format(self) -> Optional[str]:
+        return pulumi.get(self, "manifest_duration_format")
+
+    @property
+    @pulumi.getter(name="minSegmentLength")
+    def min_segment_length(self) -> Optional[int]:
+        return pulumi.get(self, "min_segment_length")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="outputSelection")
+    def output_selection(self) -> Optional[str]:
+        return pulumi.get(self, "output_selection")
+
+    @property
+    @pulumi.getter(name="programDateTime")
+    def program_date_time(self) -> Optional[str]:
+        return pulumi.get(self, "program_date_time")
+
+    @property
+    @pulumi.getter(name="programDateTimeClock")
+    def program_date_time_clock(self) -> Optional[str]:
+        return pulumi.get(self, "program_date_time_clock")
+
+    @property
+    @pulumi.getter(name="programDateTimePeriod")
+    def program_date_time_period(self) -> Optional[int]:
+        return pulumi.get(self, "program_date_time_period")
+
+    @property
+    @pulumi.getter(name="redundantManifest")
+    def redundant_manifest(self) -> Optional[str]:
+        return pulumi.get(self, "redundant_manifest")
+
+    @property
+    @pulumi.getter(name="segmentLength")
+    def segment_length(self) -> Optional[int]:
+        return pulumi.get(self, "segment_length")
+
+    @property
+    @pulumi.getter(name="segmentsPerSubdirectory")
+    def segments_per_subdirectory(self) -> Optional[int]:
+        return pulumi.get(self, "segments_per_subdirectory")
+
+    @property
+    @pulumi.getter(name="streamInfResolution")
+    def stream_inf_resolution(self) -> Optional[str]:
+        return pulumi.get(self, "stream_inf_resolution")
+
+    @property
+    @pulumi.getter(name="timedMetadataId3Frame")
+    def timed_metadata_id3_frame(self) -> Optional[str]:
+        """
+        Indicates ID3 frame that has the timecode.
+        """
+        return pulumi.get(self, "timed_metadata_id3_frame")
+
+    @property
+    @pulumi.getter(name="timedMetadataId3Period")
+    def timed_metadata_id3_period(self) -> Optional[int]:
+        return pulumi.get(self, "timed_metadata_id3_period")
+
+    @property
+    @pulumi.getter(name="timestampDeltaMilliseconds")
+    def timestamp_delta_milliseconds(self) -> Optional[int]:
+        return pulumi.get(self, "timestamp_delta_milliseconds")
+
+    @property
+    @pulumi.getter(name="tsFileMode")
+    def ts_file_mode(self) -> Optional[str]:
+        return pulumi.get(self, "ts_file_mode")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "captionChannel":
+            suggest = "caption_channel"
+        elif key == "languageCode":
+            suggest = "language_code"
+        elif key == "languageDescription":
+            suggest = "language_description"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 caption_channel: int,
+                 language_code: str,
+                 language_description: str):
+        """
+        :param str language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
+        pulumi.set(__self__, "caption_channel", caption_channel)
+        pulumi.set(__self__, "language_code", language_code)
+        pulumi.set(__self__, "language_description", language_description)
+
+    @property
+    @pulumi.getter(name="captionChannel")
+    def caption_channel(self) -> int:
+        return pulumi.get(self, "caption_channel")
+
+    @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> str:
+        """
+        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
+        return pulumi.get(self, "language_code")
+
+    @property
+    @pulumi.getter(name="languageDescription")
+    def language_description(self) -> str:
+        return pulumi.get(self, "language_description")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationRefId":
+            suggest = "destination_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_ref_id: str):
+        """
+        :param str destination_ref_id: Reference ID for the destination.
+        """
+        pulumi.set(__self__, "destination_ref_id", destination_ref_id)
+
+    @property
+    @pulumi.getter(name="destinationRefId")
+    def destination_ref_id(self) -> str:
+        """
+        Reference ID for the destination.
+        """
+        return pulumi.get(self, "destination_ref_id")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hlsAkamaiSettings":
+            suggest = "hls_akamai_settings"
+        elif key == "hlsBasicPutSettings":
+            suggest = "hls_basic_put_settings"
+        elif key == "hlsMediaStoreSettings":
+            suggest = "hls_media_store_settings"
+        elif key == "hlsS3Settings":
+            suggest = "hls_s3_settings"
+        elif key == "hlsWebdavSettings":
+            suggest = "hls_webdav_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hls_akamai_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings'] = None,
+                 hls_basic_put_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings'] = None,
+                 hls_media_store_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings'] = None,
+                 hls_s3_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings'] = None,
+                 hls_webdav_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings'] = None):
+        if hls_akamai_settings is not None:
+            pulumi.set(__self__, "hls_akamai_settings", hls_akamai_settings)
+        if hls_basic_put_settings is not None:
+            pulumi.set(__self__, "hls_basic_put_settings", hls_basic_put_settings)
+        if hls_media_store_settings is not None:
+            pulumi.set(__self__, "hls_media_store_settings", hls_media_store_settings)
+        if hls_s3_settings is not None:
+            pulumi.set(__self__, "hls_s3_settings", hls_s3_settings)
+        if hls_webdav_settings is not None:
+            pulumi.set(__self__, "hls_webdav_settings", hls_webdav_settings)
+
+    @property
+    @pulumi.getter(name="hlsAkamaiSettings")
+    def hls_akamai_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings']:
+        return pulumi.get(self, "hls_akamai_settings")
+
+    @property
+    @pulumi.getter(name="hlsBasicPutSettings")
+    def hls_basic_put_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings']:
+        return pulumi.get(self, "hls_basic_put_settings")
+
+    @property
+    @pulumi.getter(name="hlsMediaStoreSettings")
+    def hls_media_store_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings']:
+        return pulumi.get(self, "hls_media_store_settings")
+
+    @property
+    @pulumi.getter(name="hlsS3Settings")
+    def hls_s3_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings']:
+        return pulumi.get(self, "hls_s3_settings")
+
+    @property
+    @pulumi.getter(name="hlsWebdavSettings")
+    def hls_webdav_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings']:
+        return pulumi.get(self, "hls_webdav_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionRetryInterval":
+            suggest = "connection_retry_interval"
+        elif key == "filecacheDuration":
+            suggest = "filecache_duration"
+        elif key == "httpTransferMode":
+            suggest = "http_transfer_mode"
+        elif key == "numRetries":
+            suggest = "num_retries"
+        elif key == "restartDelay":
+            suggest = "restart_delay"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_retry_interval: Optional[int] = None,
+                 filecache_duration: Optional[int] = None,
+                 http_transfer_mode: Optional[str] = None,
+                 num_retries: Optional[int] = None,
+                 restart_delay: Optional[int] = None,
+                 salt: Optional[str] = None,
+                 token: Optional[str] = None):
+        """
+        :param int connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        :param int num_retries: Number of retry attempts.
+        :param int restart_delay: Number of seconds to wait until a restart is initiated.
+        """
+        if connection_retry_interval is not None:
+            pulumi.set(__self__, "connection_retry_interval", connection_retry_interval)
+        if filecache_duration is not None:
+            pulumi.set(__self__, "filecache_duration", filecache_duration)
+        if http_transfer_mode is not None:
+            pulumi.set(__self__, "http_transfer_mode", http_transfer_mode)
+        if num_retries is not None:
+            pulumi.set(__self__, "num_retries", num_retries)
+        if restart_delay is not None:
+            pulumi.set(__self__, "restart_delay", restart_delay)
+        if salt is not None:
+            pulumi.set(__self__, "salt", salt)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter(name="connectionRetryInterval")
+    def connection_retry_interval(self) -> Optional[int]:
+        """
+        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        """
+        return pulumi.get(self, "connection_retry_interval")
+
+    @property
+    @pulumi.getter(name="filecacheDuration")
+    def filecache_duration(self) -> Optional[int]:
+        return pulumi.get(self, "filecache_duration")
+
+    @property
+    @pulumi.getter(name="httpTransferMode")
+    def http_transfer_mode(self) -> Optional[str]:
+        return pulumi.get(self, "http_transfer_mode")
+
+    @property
+    @pulumi.getter(name="numRetries")
+    def num_retries(self) -> Optional[int]:
+        """
+        Number of retry attempts.
+        """
+        return pulumi.get(self, "num_retries")
+
+    @property
+    @pulumi.getter(name="restartDelay")
+    def restart_delay(self) -> Optional[int]:
+        """
+        Number of seconds to wait until a restart is initiated.
+        """
+        return pulumi.get(self, "restart_delay")
+
+    @property
+    @pulumi.getter
+    def salt(self) -> Optional[str]:
+        return pulumi.get(self, "salt")
+
+    @property
+    @pulumi.getter
+    def token(self) -> Optional[str]:
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionRetryInterval":
+            suggest = "connection_retry_interval"
+        elif key == "filecacheDuration":
+            suggest = "filecache_duration"
+        elif key == "numRetries":
+            suggest = "num_retries"
+        elif key == "restartDelay":
+            suggest = "restart_delay"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_retry_interval: Optional[int] = None,
+                 filecache_duration: Optional[int] = None,
+                 num_retries: Optional[int] = None,
+                 restart_delay: Optional[int] = None):
+        """
+        :param int connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        :param int num_retries: Number of retry attempts.
+        :param int restart_delay: Number of seconds to wait until a restart is initiated.
+        """
+        if connection_retry_interval is not None:
+            pulumi.set(__self__, "connection_retry_interval", connection_retry_interval)
+        if filecache_duration is not None:
+            pulumi.set(__self__, "filecache_duration", filecache_duration)
+        if num_retries is not None:
+            pulumi.set(__self__, "num_retries", num_retries)
+        if restart_delay is not None:
+            pulumi.set(__self__, "restart_delay", restart_delay)
+
+    @property
+    @pulumi.getter(name="connectionRetryInterval")
+    def connection_retry_interval(self) -> Optional[int]:
+        """
+        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        """
+        return pulumi.get(self, "connection_retry_interval")
+
+    @property
+    @pulumi.getter(name="filecacheDuration")
+    def filecache_duration(self) -> Optional[int]:
+        return pulumi.get(self, "filecache_duration")
+
+    @property
+    @pulumi.getter(name="numRetries")
+    def num_retries(self) -> Optional[int]:
+        """
+        Number of retry attempts.
+        """
+        return pulumi.get(self, "num_retries")
+
+    @property
+    @pulumi.getter(name="restartDelay")
+    def restart_delay(self) -> Optional[int]:
+        """
+        Number of seconds to wait until a restart is initiated.
+        """
+        return pulumi.get(self, "restart_delay")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionRetryInterval":
+            suggest = "connection_retry_interval"
+        elif key == "filecacheDuration":
+            suggest = "filecache_duration"
+        elif key == "mediaStoreStorageClass":
+            suggest = "media_store_storage_class"
+        elif key == "numRetries":
+            suggest = "num_retries"
+        elif key == "restartDelay":
+            suggest = "restart_delay"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_retry_interval: Optional[int] = None,
+                 filecache_duration: Optional[int] = None,
+                 media_store_storage_class: Optional[str] = None,
+                 num_retries: Optional[int] = None,
+                 restart_delay: Optional[int] = None):
+        """
+        :param int connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        :param int num_retries: Number of retry attempts.
+        :param int restart_delay: Number of seconds to wait until a restart is initiated.
+        """
+        if connection_retry_interval is not None:
+            pulumi.set(__self__, "connection_retry_interval", connection_retry_interval)
+        if filecache_duration is not None:
+            pulumi.set(__self__, "filecache_duration", filecache_duration)
+        if media_store_storage_class is not None:
+            pulumi.set(__self__, "media_store_storage_class", media_store_storage_class)
+        if num_retries is not None:
+            pulumi.set(__self__, "num_retries", num_retries)
+        if restart_delay is not None:
+            pulumi.set(__self__, "restart_delay", restart_delay)
+
+    @property
+    @pulumi.getter(name="connectionRetryInterval")
+    def connection_retry_interval(self) -> Optional[int]:
+        """
+        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        """
+        return pulumi.get(self, "connection_retry_interval")
+
+    @property
+    @pulumi.getter(name="filecacheDuration")
+    def filecache_duration(self) -> Optional[int]:
+        return pulumi.get(self, "filecache_duration")
+
+    @property
+    @pulumi.getter(name="mediaStoreStorageClass")
+    def media_store_storage_class(self) -> Optional[str]:
+        return pulumi.get(self, "media_store_storage_class")
+
+    @property
+    @pulumi.getter(name="numRetries")
+    def num_retries(self) -> Optional[int]:
+        """
+        Number of retry attempts.
+        """
+        return pulumi.get(self, "num_retries")
+
+    @property
+    @pulumi.getter(name="restartDelay")
+    def restart_delay(self) -> Optional[int]:
+        """
+        Number of seconds to wait until a restart is initiated.
+        """
+        return pulumi.get(self, "restart_delay")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cannedAcl":
+            suggest = "canned_acl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 canned_acl: Optional[str] = None):
+        """
+        :param str canned_acl: Specify the canned ACL to apply to each S3 request.
+        """
+        if canned_acl is not None:
+            pulumi.set(__self__, "canned_acl", canned_acl)
+
+    @property
+    @pulumi.getter(name="cannedAcl")
+    def canned_acl(self) -> Optional[str]:
+        """
+        Specify the canned ACL to apply to each S3 request.
+        """
+        return pulumi.get(self, "canned_acl")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionRetryInterval":
+            suggest = "connection_retry_interval"
+        elif key == "filecacheDuration":
+            suggest = "filecache_duration"
+        elif key == "httpTransferMode":
+            suggest = "http_transfer_mode"
+        elif key == "numRetries":
+            suggest = "num_retries"
+        elif key == "restartDelay":
+            suggest = "restart_delay"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_retry_interval: Optional[int] = None,
+                 filecache_duration: Optional[int] = None,
+                 http_transfer_mode: Optional[str] = None,
+                 num_retries: Optional[int] = None,
+                 restart_delay: Optional[int] = None):
+        """
+        :param int connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        :param int num_retries: Number of retry attempts.
+        :param int restart_delay: Number of seconds to wait until a restart is initiated.
+        """
+        if connection_retry_interval is not None:
+            pulumi.set(__self__, "connection_retry_interval", connection_retry_interval)
+        if filecache_duration is not None:
+            pulumi.set(__self__, "filecache_duration", filecache_duration)
+        if http_transfer_mode is not None:
+            pulumi.set(__self__, "http_transfer_mode", http_transfer_mode)
+        if num_retries is not None:
+            pulumi.set(__self__, "num_retries", num_retries)
+        if restart_delay is not None:
+            pulumi.set(__self__, "restart_delay", restart_delay)
+
+    @property
+    @pulumi.getter(name="connectionRetryInterval")
+    def connection_retry_interval(self) -> Optional[int]:
+        """
+        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        """
+        return pulumi.get(self, "connection_retry_interval")
+
+    @property
+    @pulumi.getter(name="filecacheDuration")
+    def filecache_duration(self) -> Optional[int]:
+        return pulumi.get(self, "filecache_duration")
+
+    @property
+    @pulumi.getter(name="httpTransferMode")
+    def http_transfer_mode(self) -> Optional[str]:
+        return pulumi.get(self, "http_transfer_mode")
+
+    @property
+    @pulumi.getter(name="numRetries")
+    def num_retries(self) -> Optional[int]:
+        """
+        Number of retry attempts.
+        """
+        return pulumi.get(self, "num_retries")
+
+    @property
+    @pulumi.getter(name="restartDelay")
+    def restart_delay(self) -> Optional[int]:
+        """
+        Number of seconds to wait until a restart is initiated.
+        """
+        return pulumi.get(self, "restart_delay")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticKeySettings":
+            suggest = "static_key_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_key_settings: Optional[Sequence['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting']] = None):
+        if static_key_settings is not None:
+            pulumi.set(__self__, "static_key_settings", static_key_settings)
+
+    @property
+    @pulumi.getter(name="staticKeySettings")
+    def static_key_settings(self) -> Optional[Sequence['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting']]:
+        return pulumi.get(self, "static_key_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "staticKeyValue":
+            suggest = "static_key_value"
+        elif key == "keyProviderServer":
+            suggest = "key_provider_server"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 static_key_value: str,
+                 key_provider_server: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer'] = None):
+        pulumi.set(__self__, "static_key_value", static_key_value)
+        if key_provider_server is not None:
+            pulumi.set(__self__, "key_provider_server", key_provider_server)
+
+    @property
+    @pulumi.getter(name="staticKeyValue")
+    def static_key_value(self) -> str:
+        return pulumi.get(self, "static_key_value")
+
+    @property
+    @pulumi.getter(name="keyProviderServer")
+    def key_provider_server(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer']:
+        return pulumi.get(self, "key_provider_server")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordParam":
+            suggest = "password_param"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: str,
+                 password_param: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        :param str uri: Path to a file accessible to the live stream.
+        :param str password_param: Key used to extract the password from EC2 Parameter store.
+        :param str username: Username for destination.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        Path to a file accessible to the live stream.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> Optional[str]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
+        return pulumi.get(self, "password_param")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Username for destination.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings(dict):
+    def __init__(__self__, *,
+                 destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination'):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
+        """
+        pulumi.set(__self__, "destination", destination)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination':
+        """
+        A director and base filename where archive files should be written. See Destination for more details.
+        """
+        return pulumi.get(self, "destination")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationRefId":
+            suggest = "destination_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_ref_id: str):
+        """
+        :param str destination_ref_id: Reference ID for the destination.
+        """
+        pulumi.set(__self__, "destination_ref_id", destination_ref_id)
+
+    @property
+    @pulumi.getter(name="destinationRefId")
+    def destination_ref_id(self) -> str:
+        """
+        Reference ID for the destination.
+        """
+        return pulumi.get(self, "destination_ref_id")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "acquisitionPointId":
+            suggest = "acquisition_point_id"
+        elif key == "audioOnlyTimecodeControl":
+            suggest = "audio_only_timecode_control"
+        elif key == "certificateMode":
+            suggest = "certificate_mode"
+        elif key == "connectionRetryInterval":
+            suggest = "connection_retry_interval"
+        elif key == "eventId":
+            suggest = "event_id"
+        elif key == "eventIdMode":
+            suggest = "event_id_mode"
+        elif key == "eventStopBehavior":
+            suggest = "event_stop_behavior"
+        elif key == "filecacheDuration":
+            suggest = "filecache_duration"
+        elif key == "fragmentLength":
+            suggest = "fragment_length"
+        elif key == "inputLossAction":
+            suggest = "input_loss_action"
+        elif key == "numRetries":
+            suggest = "num_retries"
+        elif key == "restartDelay":
+            suggest = "restart_delay"
+        elif key == "segmentationMode":
+            suggest = "segmentation_mode"
+        elif key == "sendDelayMs":
+            suggest = "send_delay_ms"
+        elif key == "sparseTrackType":
+            suggest = "sparse_track_type"
+        elif key == "streamManifestBehavior":
+            suggest = "stream_manifest_behavior"
+        elif key == "timestampOffset":
+            suggest = "timestamp_offset"
+        elif key == "timestampOffsetMode":
+            suggest = "timestamp_offset_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination',
+                 acquisition_point_id: Optional[str] = None,
+                 audio_only_timecode_control: Optional[str] = None,
+                 certificate_mode: Optional[str] = None,
+                 connection_retry_interval: Optional[int] = None,
+                 event_id: Optional[str] = None,
+                 event_id_mode: Optional[str] = None,
+                 event_stop_behavior: Optional[str] = None,
+                 filecache_duration: Optional[int] = None,
+                 fragment_length: Optional[int] = None,
+                 input_loss_action: Optional[str] = None,
+                 num_retries: Optional[int] = None,
+                 restart_delay: Optional[int] = None,
+                 segmentation_mode: Optional[str] = None,
+                 send_delay_ms: Optional[int] = None,
+                 sparse_track_type: Optional[str] = None,
+                 stream_manifest_behavior: Optional[str] = None,
+                 timestamp_offset: Optional[str] = None,
+                 timestamp_offset_mode: Optional[str] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param str certificate_mode: Setting to allow self signed or verified RTMP certificates.
+        :param int connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        :param str input_loss_action: Controls the behavior of the RTMP group if input becomes unavailable.
+        :param int num_retries: Number of retry attempts.
+        :param int restart_delay: Number of seconds to wait until a restart is initiated.
+        """
+        pulumi.set(__self__, "destination", destination)
+        if acquisition_point_id is not None:
+            pulumi.set(__self__, "acquisition_point_id", acquisition_point_id)
+        if audio_only_timecode_control is not None:
+            pulumi.set(__self__, "audio_only_timecode_control", audio_only_timecode_control)
+        if certificate_mode is not None:
+            pulumi.set(__self__, "certificate_mode", certificate_mode)
+        if connection_retry_interval is not None:
+            pulumi.set(__self__, "connection_retry_interval", connection_retry_interval)
+        if event_id is not None:
+            pulumi.set(__self__, "event_id", event_id)
+        if event_id_mode is not None:
+            pulumi.set(__self__, "event_id_mode", event_id_mode)
+        if event_stop_behavior is not None:
+            pulumi.set(__self__, "event_stop_behavior", event_stop_behavior)
+        if filecache_duration is not None:
+            pulumi.set(__self__, "filecache_duration", filecache_duration)
+        if fragment_length is not None:
+            pulumi.set(__self__, "fragment_length", fragment_length)
+        if input_loss_action is not None:
+            pulumi.set(__self__, "input_loss_action", input_loss_action)
+        if num_retries is not None:
+            pulumi.set(__self__, "num_retries", num_retries)
+        if restart_delay is not None:
+            pulumi.set(__self__, "restart_delay", restart_delay)
+        if segmentation_mode is not None:
+            pulumi.set(__self__, "segmentation_mode", segmentation_mode)
+        if send_delay_ms is not None:
+            pulumi.set(__self__, "send_delay_ms", send_delay_ms)
+        if sparse_track_type is not None:
+            pulumi.set(__self__, "sparse_track_type", sparse_track_type)
+        if stream_manifest_behavior is not None:
+            pulumi.set(__self__, "stream_manifest_behavior", stream_manifest_behavior)
+        if timestamp_offset is not None:
+            pulumi.set(__self__, "timestamp_offset", timestamp_offset)
+        if timestamp_offset_mode is not None:
+            pulumi.set(__self__, "timestamp_offset_mode", timestamp_offset_mode)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination':
+        """
+        A director and base filename where archive files should be written. See Destination for more details.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="acquisitionPointId")
+    def acquisition_point_id(self) -> Optional[str]:
+        return pulumi.get(self, "acquisition_point_id")
+
+    @property
+    @pulumi.getter(name="audioOnlyTimecodeControl")
+    def audio_only_timecode_control(self) -> Optional[str]:
+        return pulumi.get(self, "audio_only_timecode_control")
+
+    @property
+    @pulumi.getter(name="certificateMode")
+    def certificate_mode(self) -> Optional[str]:
+        """
+        Setting to allow self signed or verified RTMP certificates.
+        """
+        return pulumi.get(self, "certificate_mode")
+
+    @property
+    @pulumi.getter(name="connectionRetryInterval")
+    def connection_retry_interval(self) -> Optional[int]:
+        """
+        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        """
+        return pulumi.get(self, "connection_retry_interval")
+
+    @property
+    @pulumi.getter(name="eventId")
+    def event_id(self) -> Optional[str]:
+        return pulumi.get(self, "event_id")
+
+    @property
+    @pulumi.getter(name="eventIdMode")
+    def event_id_mode(self) -> Optional[str]:
+        return pulumi.get(self, "event_id_mode")
+
+    @property
+    @pulumi.getter(name="eventStopBehavior")
+    def event_stop_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "event_stop_behavior")
+
+    @property
+    @pulumi.getter(name="filecacheDuration")
+    def filecache_duration(self) -> Optional[int]:
+        return pulumi.get(self, "filecache_duration")
+
+    @property
+    @pulumi.getter(name="fragmentLength")
+    def fragment_length(self) -> Optional[int]:
+        return pulumi.get(self, "fragment_length")
+
+    @property
+    @pulumi.getter(name="inputLossAction")
+    def input_loss_action(self) -> Optional[str]:
+        """
+        Controls the behavior of the RTMP group if input becomes unavailable.
+        """
+        return pulumi.get(self, "input_loss_action")
+
+    @property
+    @pulumi.getter(name="numRetries")
+    def num_retries(self) -> Optional[int]:
+        """
+        Number of retry attempts.
+        """
+        return pulumi.get(self, "num_retries")
+
+    @property
+    @pulumi.getter(name="restartDelay")
+    def restart_delay(self) -> Optional[int]:
+        """
+        Number of seconds to wait until a restart is initiated.
+        """
+        return pulumi.get(self, "restart_delay")
+
+    @property
+    @pulumi.getter(name="segmentationMode")
+    def segmentation_mode(self) -> Optional[str]:
+        return pulumi.get(self, "segmentation_mode")
+
+    @property
+    @pulumi.getter(name="sendDelayMs")
+    def send_delay_ms(self) -> Optional[int]:
+        return pulumi.get(self, "send_delay_ms")
+
+    @property
+    @pulumi.getter(name="sparseTrackType")
+    def sparse_track_type(self) -> Optional[str]:
+        return pulumi.get(self, "sparse_track_type")
+
+    @property
+    @pulumi.getter(name="streamManifestBehavior")
+    def stream_manifest_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "stream_manifest_behavior")
+
+    @property
+    @pulumi.getter(name="timestampOffset")
+    def timestamp_offset(self) -> Optional[str]:
+        return pulumi.get(self, "timestamp_offset")
+
+    @property
+    @pulumi.getter(name="timestampOffsetMode")
+    def timestamp_offset_mode(self) -> Optional[str]:
+        return pulumi.get(self, "timestamp_offset_mode")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationRefId":
+            suggest = "destination_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_ref_id: str):
+        """
+        :param str destination_ref_id: Reference ID for the destination.
+        """
+        pulumi.set(__self__, "destination_ref_id", destination_ref_id)
+
+    @property
+    @pulumi.getter(name="destinationRefId")
+    def destination_ref_id(self) -> str:
+        """
+        Reference ID for the destination.
+        """
+        return pulumi.get(self, "destination_ref_id")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adMarkers":
+            suggest = "ad_markers"
+        elif key == "authenticationScheme":
+            suggest = "authentication_scheme"
+        elif key == "cacheFullBehavior":
+            suggest = "cache_full_behavior"
+        elif key == "cacheLength":
+            suggest = "cache_length"
+        elif key == "captionData":
+            suggest = "caption_data"
+        elif key == "inputLossAction":
+            suggest = "input_loss_action"
+        elif key == "restartDelay":
+            suggest = "restart_delay"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ad_markers: Optional[Sequence[str]] = None,
+                 authentication_scheme: Optional[str] = None,
+                 cache_full_behavior: Optional[str] = None,
+                 cache_length: Optional[int] = None,
+                 caption_data: Optional[str] = None,
+                 input_loss_action: Optional[str] = None,
+                 restart_delay: Optional[int] = None):
+        """
+        :param Sequence[str] ad_markers: The ad marker type for this output group.
+        :param str authentication_scheme: Authentication scheme to use when connecting with CDN.
+        :param str cache_full_behavior: Controls behavior when content cache fills up.
+        :param int cache_length: Cache length in seconds, is used to calculate buffer size.
+        :param str caption_data: Controls the types of data that passes to onCaptionInfo outputs.
+        :param str input_loss_action: Controls the behavior of the RTMP group if input becomes unavailable.
+        :param int restart_delay: Number of seconds to wait until a restart is initiated.
+        """
+        if ad_markers is not None:
+            pulumi.set(__self__, "ad_markers", ad_markers)
+        if authentication_scheme is not None:
+            pulumi.set(__self__, "authentication_scheme", authentication_scheme)
+        if cache_full_behavior is not None:
+            pulumi.set(__self__, "cache_full_behavior", cache_full_behavior)
+        if cache_length is not None:
+            pulumi.set(__self__, "cache_length", cache_length)
+        if caption_data is not None:
+            pulumi.set(__self__, "caption_data", caption_data)
+        if input_loss_action is not None:
+            pulumi.set(__self__, "input_loss_action", input_loss_action)
+        if restart_delay is not None:
+            pulumi.set(__self__, "restart_delay", restart_delay)
+
+    @property
+    @pulumi.getter(name="adMarkers")
+    def ad_markers(self) -> Optional[Sequence[str]]:
+        """
+        The ad marker type for this output group.
+        """
+        return pulumi.get(self, "ad_markers")
+
+    @property
+    @pulumi.getter(name="authenticationScheme")
+    def authentication_scheme(self) -> Optional[str]:
+        """
+        Authentication scheme to use when connecting with CDN.
+        """
+        return pulumi.get(self, "authentication_scheme")
+
+    @property
+    @pulumi.getter(name="cacheFullBehavior")
+    def cache_full_behavior(self) -> Optional[str]:
+        """
+        Controls behavior when content cache fills up.
+        """
+        return pulumi.get(self, "cache_full_behavior")
+
+    @property
+    @pulumi.getter(name="cacheLength")
+    def cache_length(self) -> Optional[int]:
+        """
+        Cache length in seconds, is used to calculate buffer size.
+        """
+        return pulumi.get(self, "cache_length")
+
+    @property
+    @pulumi.getter(name="captionData")
+    def caption_data(self) -> Optional[str]:
+        """
+        Controls the types of data that passes to onCaptionInfo outputs.
+        """
+        return pulumi.get(self, "caption_data")
+
+    @property
+    @pulumi.getter(name="inputLossAction")
+    def input_loss_action(self) -> Optional[str]:
+        """
+        Controls the behavior of the RTMP group if input becomes unavailable.
+        """
+        return pulumi.get(self, "input_loss_action")
+
+    @property
+    @pulumi.getter(name="restartDelay")
+    def restart_delay(self) -> Optional[int]:
+        """
+        Number of seconds to wait until a restart is initiated.
+        """
+        return pulumi.get(self, "restart_delay")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputLossAction":
+            suggest = "input_loss_action"
+        elif key == "timedMetadataId3Frame":
+            suggest = "timed_metadata_id3_frame"
+        elif key == "timedMetadataId3Period":
+            suggest = "timed_metadata_id3_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_loss_action: Optional[str] = None,
+                 timed_metadata_id3_frame: Optional[str] = None,
+                 timed_metadata_id3_period: Optional[int] = None):
+        """
+        :param str input_loss_action: Specifies behavior of last resort when input video os lost.
+        :param str timed_metadata_id3_frame: Indicates ID3 frame that has the timecode.
+        """
+        if input_loss_action is not None:
+            pulumi.set(__self__, "input_loss_action", input_loss_action)
+        if timed_metadata_id3_frame is not None:
+            pulumi.set(__self__, "timed_metadata_id3_frame", timed_metadata_id3_frame)
+        if timed_metadata_id3_period is not None:
+            pulumi.set(__self__, "timed_metadata_id3_period", timed_metadata_id3_period)
+
+    @property
+    @pulumi.getter(name="inputLossAction")
+    def input_loss_action(self) -> Optional[str]:
+        """
+        Specifies behavior of last resort when input video os lost.
+        """
+        return pulumi.get(self, "input_loss_action")
+
+    @property
+    @pulumi.getter(name="timedMetadataId3Frame")
+    def timed_metadata_id3_frame(self) -> Optional[str]:
+        """
+        Indicates ID3 frame that has the timecode.
+        """
+        return pulumi.get(self, "timed_metadata_id3_frame")
+
+    @property
+    @pulumi.getter(name="timedMetadataId3Period")
+    def timed_metadata_id3_period(self) -> Optional[int]:
+        return pulumi.get(self, "timed_metadata_id3_period")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "archiveOutputSettings":
+            suggest = "archive_output_settings"
+        elif key == "frameCaptureOutputSettings":
+            suggest = "frame_capture_output_settings"
+        elif key == "hlsOutputSettings":
+            suggest = "hls_output_settings"
+        elif key == "mediaPackageOutputSettings":
+            suggest = "media_package_output_settings"
+        elif key == "msSmoothOutputSettings":
+            suggest = "ms_smooth_output_settings"
+        elif key == "multiplexOutputSettings":
+            suggest = "multiplex_output_settings"
+        elif key == "rtmpOutputSettings":
+            suggest = "rtmp_output_settings"
+        elif key == "udpOutputSettings":
+            suggest = "udp_output_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 archive_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings'] = None,
+                 frame_capture_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings'] = None,
+                 hls_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings'] = None,
+                 media_package_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings'] = None,
+                 ms_smooth_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings'] = None,
+                 multiplex_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings'] = None,
+                 rtmp_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings'] = None,
+                 udp_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings'] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs' archive_output_settings: Archive output settings. See Archive Output Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs' media_package_output_settings: Media package output settings. This can be set as an empty block.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs' multiplex_output_settings: Multiplex output settings. See Multiplex Output Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs' rtmp_output_settings: RTMP output settings. See RTMP Output Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs' udp_output_settings: UDP output settings. See UDP Output Settings for more details
+        """
+        if archive_output_settings is not None:
+            pulumi.set(__self__, "archive_output_settings", archive_output_settings)
+        if frame_capture_output_settings is not None:
+            pulumi.set(__self__, "frame_capture_output_settings", frame_capture_output_settings)
+        if hls_output_settings is not None:
+            pulumi.set(__self__, "hls_output_settings", hls_output_settings)
+        if media_package_output_settings is not None:
+            pulumi.set(__self__, "media_package_output_settings", media_package_output_settings)
+        if ms_smooth_output_settings is not None:
+            pulumi.set(__self__, "ms_smooth_output_settings", ms_smooth_output_settings)
+        if multiplex_output_settings is not None:
+            pulumi.set(__self__, "multiplex_output_settings", multiplex_output_settings)
+        if rtmp_output_settings is not None:
+            pulumi.set(__self__, "rtmp_output_settings", rtmp_output_settings)
+        if udp_output_settings is not None:
+            pulumi.set(__self__, "udp_output_settings", udp_output_settings)
+
+    @property
+    @pulumi.getter(name="archiveOutputSettings")
+    def archive_output_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings']:
+        """
+        Archive output settings. See Archive Output Settings for more details.
+        """
+        return pulumi.get(self, "archive_output_settings")
+
+    @property
+    @pulumi.getter(name="frameCaptureOutputSettings")
+    def frame_capture_output_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings']:
+        return pulumi.get(self, "frame_capture_output_settings")
+
+    @property
+    @pulumi.getter(name="hlsOutputSettings")
+    def hls_output_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings']:
+        return pulumi.get(self, "hls_output_settings")
+
+    @property
+    @pulumi.getter(name="mediaPackageOutputSettings")
+    def media_package_output_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings']:
+        """
+        Media package output settings. This can be set as an empty block.
+        """
+        return pulumi.get(self, "media_package_output_settings")
+
+    @property
+    @pulumi.getter(name="msSmoothOutputSettings")
+    def ms_smooth_output_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings']:
+        return pulumi.get(self, "ms_smooth_output_settings")
+
+    @property
+    @pulumi.getter(name="multiplexOutputSettings")
+    def multiplex_output_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings']:
+        """
+        Multiplex output settings. See Multiplex Output Settings for more details.
+        """
+        return pulumi.get(self, "multiplex_output_settings")
+
+    @property
+    @pulumi.getter(name="rtmpOutputSettings")
+    def rtmp_output_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings']:
+        """
+        RTMP output settings. See RTMP Output Settings for more details.
+        """
+        return pulumi.get(self, "rtmp_output_settings")
+
+    @property
+    @pulumi.getter(name="udpOutputSettings")
+    def udp_output_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings']:
+        """
+        UDP output settings. See UDP Output Settings for more details
+        """
+        return pulumi.get(self, "udp_output_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerSettings":
+            suggest = "container_settings"
+        elif key == "nameModifier":
+            suggest = "name_modifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings'] = None,
+                 extension: Optional[str] = None,
+                 name_modifier: Optional[str] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs' container_settings: Settings specific to the container type of the file. See Container Settings for more details.
+        :param str extension: Output file extension.
+        :param str name_modifier: String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        """
+        if container_settings is not None:
+            pulumi.set(__self__, "container_settings", container_settings)
+        if extension is not None:
+            pulumi.set(__self__, "extension", extension)
+        if name_modifier is not None:
+            pulumi.set(__self__, "name_modifier", name_modifier)
+
+    @property
+    @pulumi.getter(name="containerSettings")
+    def container_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings']:
+        """
+        Settings specific to the container type of the file. See Container Settings for more details.
+        """
+        return pulumi.get(self, "container_settings")
+
+    @property
+    @pulumi.getter
+    def extension(self) -> Optional[str]:
+        """
+        Output file extension.
+        """
+        return pulumi.get(self, "extension")
+
+    @property
+    @pulumi.getter(name="nameModifier")
+    def name_modifier(self) -> Optional[str]:
+        """
+        String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        """
+        return pulumi.get(self, "name_modifier")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "m2tsSettings":
+            suggest = "m2ts_settings"
+        elif key == "rawSettings":
+            suggest = "raw_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 m2ts_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings'] = None,
+                 raw_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings'] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs' m2ts_settings: M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs' raw_settings: Raw Settings. This can be set as an empty block.
+        """
+        if m2ts_settings is not None:
+            pulumi.set(__self__, "m2ts_settings", m2ts_settings)
+        if raw_settings is not None:
+            pulumi.set(__self__, "raw_settings", raw_settings)
+
+    @property
+    @pulumi.getter(name="m2tsSettings")
+    def m2ts_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings']:
+        """
+        M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+        """
+        return pulumi.get(self, "m2ts_settings")
+
+    @property
+    @pulumi.getter(name="rawSettings")
+    def raw_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings']:
+        """
+        Raw Settings. This can be set as an empty block.
+        """
+        return pulumi.get(self, "raw_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "absentInputAudioBehavior":
+            suggest = "absent_input_audio_behavior"
+        elif key == "aribCaptionsPid":
+            suggest = "arib_captions_pid"
+        elif key == "aribCaptionsPidControl":
+            suggest = "arib_captions_pid_control"
+        elif key == "audioBufferModel":
+            suggest = "audio_buffer_model"
+        elif key == "audioFramesPerPes":
+            suggest = "audio_frames_per_pes"
+        elif key == "audioPids":
+            suggest = "audio_pids"
+        elif key == "audioStreamType":
+            suggest = "audio_stream_type"
+        elif key == "bufferModel":
+            suggest = "buffer_model"
+        elif key == "ccDescriptor":
+            suggest = "cc_descriptor"
+        elif key == "dvbNitSettings":
+            suggest = "dvb_nit_settings"
+        elif key == "dvbSdtSettings":
+            suggest = "dvb_sdt_settings"
+        elif key == "dvbSubPids":
+            suggest = "dvb_sub_pids"
+        elif key == "dvbTdtSettings":
+            suggest = "dvb_tdt_settings"
+        elif key == "dvbTeletextPid":
+            suggest = "dvb_teletext_pid"
+        elif key == "ebpAudioInterval":
+            suggest = "ebp_audio_interval"
+        elif key == "ebpLookaheadMs":
+            suggest = "ebp_lookahead_ms"
+        elif key == "ebpPlacement":
+            suggest = "ebp_placement"
+        elif key == "ecmPid":
+            suggest = "ecm_pid"
+        elif key == "esRateInPes":
+            suggest = "es_rate_in_pes"
+        elif key == "etvPlatformPid":
+            suggest = "etv_platform_pid"
+        elif key == "etvSignalPid":
+            suggest = "etv_signal_pid"
+        elif key == "fragmentTime":
+            suggest = "fragment_time"
+        elif key == "klvDataPids":
+            suggest = "klv_data_pids"
+        elif key == "nielsenId3Behavior":
+            suggest = "nielsen_id3_behavior"
+        elif key == "nullPacketBitrate":
+            suggest = "null_packet_bitrate"
+        elif key == "patInterval":
+            suggest = "pat_interval"
+        elif key == "pcrControl":
+            suggest = "pcr_control"
+        elif key == "pcrPeriod":
+            suggest = "pcr_period"
+        elif key == "pcrPid":
+            suggest = "pcr_pid"
+        elif key == "pmtInterval":
+            suggest = "pmt_interval"
+        elif key == "pmtPid":
+            suggest = "pmt_pid"
+        elif key == "programNum":
+            suggest = "program_num"
+        elif key == "rateMode":
+            suggest = "rate_mode"
+        elif key == "scte27Pids":
+            suggest = "scte27_pids"
+        elif key == "scte35Control":
+            suggest = "scte35_control"
+        elif key == "scte35Pid":
+            suggest = "scte35_pid"
+        elif key == "segmentationMarkers":
+            suggest = "segmentation_markers"
+        elif key == "segmentationStyle":
+            suggest = "segmentation_style"
+        elif key == "segmentationTime":
+            suggest = "segmentation_time"
+        elif key == "timedMetadataBehavior":
+            suggest = "timed_metadata_behavior"
+        elif key == "timedMetadataPid":
+            suggest = "timed_metadata_pid"
+        elif key == "transportStreamId":
+            suggest = "transport_stream_id"
+        elif key == "videoPid":
+            suggest = "video_pid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 absent_input_audio_behavior: Optional[str] = None,
+                 arib: Optional[str] = None,
+                 arib_captions_pid: Optional[str] = None,
+                 arib_captions_pid_control: Optional[str] = None,
+                 audio_buffer_model: Optional[str] = None,
+                 audio_frames_per_pes: Optional[int] = None,
+                 audio_pids: Optional[str] = None,
+                 audio_stream_type: Optional[str] = None,
+                 bitrate: Optional[int] = None,
+                 buffer_model: Optional[str] = None,
+                 cc_descriptor: Optional[str] = None,
+                 dvb_nit_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings'] = None,
+                 dvb_sdt_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings'] = None,
+                 dvb_sub_pids: Optional[str] = None,
+                 dvb_tdt_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings'] = None,
+                 dvb_teletext_pid: Optional[str] = None,
+                 ebif: Optional[str] = None,
+                 ebp_audio_interval: Optional[str] = None,
+                 ebp_lookahead_ms: Optional[int] = None,
+                 ebp_placement: Optional[str] = None,
+                 ecm_pid: Optional[str] = None,
+                 es_rate_in_pes: Optional[str] = None,
+                 etv_platform_pid: Optional[str] = None,
+                 etv_signal_pid: Optional[str] = None,
+                 fragment_time: Optional[float] = None,
+                 klv: Optional[str] = None,
+                 klv_data_pids: Optional[str] = None,
+                 nielsen_id3_behavior: Optional[str] = None,
+                 null_packet_bitrate: Optional[float] = None,
+                 pat_interval: Optional[int] = None,
+                 pcr_control: Optional[str] = None,
+                 pcr_period: Optional[int] = None,
+                 pcr_pid: Optional[str] = None,
+                 pmt_interval: Optional[int] = None,
+                 pmt_pid: Optional[str] = None,
+                 program_num: Optional[int] = None,
+                 rate_mode: Optional[str] = None,
+                 scte27_pids: Optional[str] = None,
+                 scte35_control: Optional[str] = None,
+                 scte35_pid: Optional[str] = None,
+                 segmentation_markers: Optional[str] = None,
+                 segmentation_style: Optional[str] = None,
+                 segmentation_time: Optional[float] = None,
+                 timed_metadata_behavior: Optional[str] = None,
+                 timed_metadata_pid: Optional[str] = None,
+                 transport_stream_id: Optional[int] = None,
+                 video_pid: Optional[str] = None):
+        """
+        :param int bitrate: Average bitrate in bits/second.
+        :param str scte35_pid: PID from which to read SCTE-35 messages.
+        """
+        if absent_input_audio_behavior is not None:
+            pulumi.set(__self__, "absent_input_audio_behavior", absent_input_audio_behavior)
+        if arib is not None:
+            pulumi.set(__self__, "arib", arib)
+        if arib_captions_pid is not None:
+            pulumi.set(__self__, "arib_captions_pid", arib_captions_pid)
+        if arib_captions_pid_control is not None:
+            pulumi.set(__self__, "arib_captions_pid_control", arib_captions_pid_control)
+        if audio_buffer_model is not None:
+            pulumi.set(__self__, "audio_buffer_model", audio_buffer_model)
+        if audio_frames_per_pes is not None:
+            pulumi.set(__self__, "audio_frames_per_pes", audio_frames_per_pes)
+        if audio_pids is not None:
+            pulumi.set(__self__, "audio_pids", audio_pids)
+        if audio_stream_type is not None:
+            pulumi.set(__self__, "audio_stream_type", audio_stream_type)
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if buffer_model is not None:
+            pulumi.set(__self__, "buffer_model", buffer_model)
+        if cc_descriptor is not None:
+            pulumi.set(__self__, "cc_descriptor", cc_descriptor)
+        if dvb_nit_settings is not None:
+            pulumi.set(__self__, "dvb_nit_settings", dvb_nit_settings)
+        if dvb_sdt_settings is not None:
+            pulumi.set(__self__, "dvb_sdt_settings", dvb_sdt_settings)
+        if dvb_sub_pids is not None:
+            pulumi.set(__self__, "dvb_sub_pids", dvb_sub_pids)
+        if dvb_tdt_settings is not None:
+            pulumi.set(__self__, "dvb_tdt_settings", dvb_tdt_settings)
+        if dvb_teletext_pid is not None:
+            pulumi.set(__self__, "dvb_teletext_pid", dvb_teletext_pid)
+        if ebif is not None:
+            pulumi.set(__self__, "ebif", ebif)
+        if ebp_audio_interval is not None:
+            pulumi.set(__self__, "ebp_audio_interval", ebp_audio_interval)
+        if ebp_lookahead_ms is not None:
+            pulumi.set(__self__, "ebp_lookahead_ms", ebp_lookahead_ms)
+        if ebp_placement is not None:
+            pulumi.set(__self__, "ebp_placement", ebp_placement)
+        if ecm_pid is not None:
+            pulumi.set(__self__, "ecm_pid", ecm_pid)
+        if es_rate_in_pes is not None:
+            pulumi.set(__self__, "es_rate_in_pes", es_rate_in_pes)
+        if etv_platform_pid is not None:
+            pulumi.set(__self__, "etv_platform_pid", etv_platform_pid)
+        if etv_signal_pid is not None:
+            pulumi.set(__self__, "etv_signal_pid", etv_signal_pid)
+        if fragment_time is not None:
+            pulumi.set(__self__, "fragment_time", fragment_time)
+        if klv is not None:
+            pulumi.set(__self__, "klv", klv)
+        if klv_data_pids is not None:
+            pulumi.set(__self__, "klv_data_pids", klv_data_pids)
+        if nielsen_id3_behavior is not None:
+            pulumi.set(__self__, "nielsen_id3_behavior", nielsen_id3_behavior)
+        if null_packet_bitrate is not None:
+            pulumi.set(__self__, "null_packet_bitrate", null_packet_bitrate)
+        if pat_interval is not None:
+            pulumi.set(__self__, "pat_interval", pat_interval)
+        if pcr_control is not None:
+            pulumi.set(__self__, "pcr_control", pcr_control)
+        if pcr_period is not None:
+            pulumi.set(__self__, "pcr_period", pcr_period)
+        if pcr_pid is not None:
+            pulumi.set(__self__, "pcr_pid", pcr_pid)
+        if pmt_interval is not None:
+            pulumi.set(__self__, "pmt_interval", pmt_interval)
+        if pmt_pid is not None:
+            pulumi.set(__self__, "pmt_pid", pmt_pid)
+        if program_num is not None:
+            pulumi.set(__self__, "program_num", program_num)
+        if rate_mode is not None:
+            pulumi.set(__self__, "rate_mode", rate_mode)
+        if scte27_pids is not None:
+            pulumi.set(__self__, "scte27_pids", scte27_pids)
+        if scte35_control is not None:
+            pulumi.set(__self__, "scte35_control", scte35_control)
+        if scte35_pid is not None:
+            pulumi.set(__self__, "scte35_pid", scte35_pid)
+        if segmentation_markers is not None:
+            pulumi.set(__self__, "segmentation_markers", segmentation_markers)
+        if segmentation_style is not None:
+            pulumi.set(__self__, "segmentation_style", segmentation_style)
+        if segmentation_time is not None:
+            pulumi.set(__self__, "segmentation_time", segmentation_time)
+        if timed_metadata_behavior is not None:
+            pulumi.set(__self__, "timed_metadata_behavior", timed_metadata_behavior)
+        if timed_metadata_pid is not None:
+            pulumi.set(__self__, "timed_metadata_pid", timed_metadata_pid)
+        if transport_stream_id is not None:
+            pulumi.set(__self__, "transport_stream_id", transport_stream_id)
+        if video_pid is not None:
+            pulumi.set(__self__, "video_pid", video_pid)
+
+    @property
+    @pulumi.getter(name="absentInputAudioBehavior")
+    def absent_input_audio_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "absent_input_audio_behavior")
+
+    @property
+    @pulumi.getter
+    def arib(self) -> Optional[str]:
+        return pulumi.get(self, "arib")
+
+    @property
+    @pulumi.getter(name="aribCaptionsPid")
+    def arib_captions_pid(self) -> Optional[str]:
+        return pulumi.get(self, "arib_captions_pid")
+
+    @property
+    @pulumi.getter(name="aribCaptionsPidControl")
+    def arib_captions_pid_control(self) -> Optional[str]:
+        return pulumi.get(self, "arib_captions_pid_control")
+
+    @property
+    @pulumi.getter(name="audioBufferModel")
+    def audio_buffer_model(self) -> Optional[str]:
+        return pulumi.get(self, "audio_buffer_model")
+
+    @property
+    @pulumi.getter(name="audioFramesPerPes")
+    def audio_frames_per_pes(self) -> Optional[int]:
+        return pulumi.get(self, "audio_frames_per_pes")
+
+    @property
+    @pulumi.getter(name="audioPids")
+    def audio_pids(self) -> Optional[str]:
+        return pulumi.get(self, "audio_pids")
+
+    @property
+    @pulumi.getter(name="audioStreamType")
+    def audio_stream_type(self) -> Optional[str]:
+        return pulumi.get(self, "audio_stream_type")
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[int]:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="bufferModel")
+    def buffer_model(self) -> Optional[str]:
+        return pulumi.get(self, "buffer_model")
+
+    @property
+    @pulumi.getter(name="ccDescriptor")
+    def cc_descriptor(self) -> Optional[str]:
+        return pulumi.get(self, "cc_descriptor")
+
+    @property
+    @pulumi.getter(name="dvbNitSettings")
+    def dvb_nit_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings']:
+        return pulumi.get(self, "dvb_nit_settings")
+
+    @property
+    @pulumi.getter(name="dvbSdtSettings")
+    def dvb_sdt_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings']:
+        return pulumi.get(self, "dvb_sdt_settings")
+
+    @property
+    @pulumi.getter(name="dvbSubPids")
+    def dvb_sub_pids(self) -> Optional[str]:
+        return pulumi.get(self, "dvb_sub_pids")
+
+    @property
+    @pulumi.getter(name="dvbTdtSettings")
+    def dvb_tdt_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings']:
+        return pulumi.get(self, "dvb_tdt_settings")
+
+    @property
+    @pulumi.getter(name="dvbTeletextPid")
+    def dvb_teletext_pid(self) -> Optional[str]:
+        return pulumi.get(self, "dvb_teletext_pid")
+
+    @property
+    @pulumi.getter
+    def ebif(self) -> Optional[str]:
+        return pulumi.get(self, "ebif")
+
+    @property
+    @pulumi.getter(name="ebpAudioInterval")
+    def ebp_audio_interval(self) -> Optional[str]:
+        return pulumi.get(self, "ebp_audio_interval")
+
+    @property
+    @pulumi.getter(name="ebpLookaheadMs")
+    def ebp_lookahead_ms(self) -> Optional[int]:
+        return pulumi.get(self, "ebp_lookahead_ms")
+
+    @property
+    @pulumi.getter(name="ebpPlacement")
+    def ebp_placement(self) -> Optional[str]:
+        return pulumi.get(self, "ebp_placement")
+
+    @property
+    @pulumi.getter(name="ecmPid")
+    def ecm_pid(self) -> Optional[str]:
+        return pulumi.get(self, "ecm_pid")
+
+    @property
+    @pulumi.getter(name="esRateInPes")
+    def es_rate_in_pes(self) -> Optional[str]:
+        return pulumi.get(self, "es_rate_in_pes")
+
+    @property
+    @pulumi.getter(name="etvPlatformPid")
+    def etv_platform_pid(self) -> Optional[str]:
+        return pulumi.get(self, "etv_platform_pid")
+
+    @property
+    @pulumi.getter(name="etvSignalPid")
+    def etv_signal_pid(self) -> Optional[str]:
+        return pulumi.get(self, "etv_signal_pid")
+
+    @property
+    @pulumi.getter(name="fragmentTime")
+    def fragment_time(self) -> Optional[float]:
+        return pulumi.get(self, "fragment_time")
+
+    @property
+    @pulumi.getter
+    def klv(self) -> Optional[str]:
+        return pulumi.get(self, "klv")
+
+    @property
+    @pulumi.getter(name="klvDataPids")
+    def klv_data_pids(self) -> Optional[str]:
+        return pulumi.get(self, "klv_data_pids")
+
+    @property
+    @pulumi.getter(name="nielsenId3Behavior")
+    def nielsen_id3_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "nielsen_id3_behavior")
+
+    @property
+    @pulumi.getter(name="nullPacketBitrate")
+    def null_packet_bitrate(self) -> Optional[float]:
+        return pulumi.get(self, "null_packet_bitrate")
+
+    @property
+    @pulumi.getter(name="patInterval")
+    def pat_interval(self) -> Optional[int]:
+        return pulumi.get(self, "pat_interval")
+
+    @property
+    @pulumi.getter(name="pcrControl")
+    def pcr_control(self) -> Optional[str]:
+        return pulumi.get(self, "pcr_control")
+
+    @property
+    @pulumi.getter(name="pcrPeriod")
+    def pcr_period(self) -> Optional[int]:
+        return pulumi.get(self, "pcr_period")
+
+    @property
+    @pulumi.getter(name="pcrPid")
+    def pcr_pid(self) -> Optional[str]:
+        return pulumi.get(self, "pcr_pid")
+
+    @property
+    @pulumi.getter(name="pmtInterval")
+    def pmt_interval(self) -> Optional[int]:
+        return pulumi.get(self, "pmt_interval")
+
+    @property
+    @pulumi.getter(name="pmtPid")
+    def pmt_pid(self) -> Optional[str]:
+        return pulumi.get(self, "pmt_pid")
+
+    @property
+    @pulumi.getter(name="programNum")
+    def program_num(self) -> Optional[int]:
+        return pulumi.get(self, "program_num")
+
+    @property
+    @pulumi.getter(name="rateMode")
+    def rate_mode(self) -> Optional[str]:
+        return pulumi.get(self, "rate_mode")
+
+    @property
+    @pulumi.getter(name="scte27Pids")
+    def scte27_pids(self) -> Optional[str]:
+        return pulumi.get(self, "scte27_pids")
+
+    @property
+    @pulumi.getter(name="scte35Control")
+    def scte35_control(self) -> Optional[str]:
+        return pulumi.get(self, "scte35_control")
+
+    @property
+    @pulumi.getter(name="scte35Pid")
+    def scte35_pid(self) -> Optional[str]:
+        """
+        PID from which to read SCTE-35 messages.
+        """
+        return pulumi.get(self, "scte35_pid")
+
+    @property
+    @pulumi.getter(name="segmentationMarkers")
+    def segmentation_markers(self) -> Optional[str]:
+        return pulumi.get(self, "segmentation_markers")
+
+    @property
+    @pulumi.getter(name="segmentationStyle")
+    def segmentation_style(self) -> Optional[str]:
+        return pulumi.get(self, "segmentation_style")
+
+    @property
+    @pulumi.getter(name="segmentationTime")
+    def segmentation_time(self) -> Optional[float]:
+        return pulumi.get(self, "segmentation_time")
+
+    @property
+    @pulumi.getter(name="timedMetadataBehavior")
+    def timed_metadata_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "timed_metadata_behavior")
+
+    @property
+    @pulumi.getter(name="timedMetadataPid")
+    def timed_metadata_pid(self) -> Optional[str]:
+        return pulumi.get(self, "timed_metadata_pid")
+
+    @property
+    @pulumi.getter(name="transportStreamId")
+    def transport_stream_id(self) -> Optional[int]:
+        return pulumi.get(self, "transport_stream_id")
+
+    @property
+    @pulumi.getter(name="videoPid")
+    def video_pid(self) -> Optional[str]:
+        return pulumi.get(self, "video_pid")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkId":
+            suggest = "network_id"
+        elif key == "networkName":
+            suggest = "network_name"
+        elif key == "repInterval":
+            suggest = "rep_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_id: int,
+                 network_name: str,
+                 rep_interval: Optional[int] = None):
+        pulumi.set(__self__, "network_id", network_id)
+        pulumi.set(__self__, "network_name", network_name)
+        if rep_interval is not None:
+            pulumi.set(__self__, "rep_interval", rep_interval)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> int:
+        return pulumi.get(self, "network_id")
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> str:
+        return pulumi.get(self, "network_name")
+
+    @property
+    @pulumi.getter(name="repInterval")
+    def rep_interval(self) -> Optional[int]:
+        return pulumi.get(self, "rep_interval")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputSdt":
+            suggest = "output_sdt"
+        elif key == "repInterval":
+            suggest = "rep_interval"
+        elif key == "serviceName":
+            suggest = "service_name"
+        elif key == "serviceProviderName":
+            suggest = "service_provider_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_sdt: Optional[str] = None,
+                 rep_interval: Optional[int] = None,
+                 service_name: Optional[str] = None,
+                 service_provider_name: Optional[str] = None):
+        if output_sdt is not None:
+            pulumi.set(__self__, "output_sdt", output_sdt)
+        if rep_interval is not None:
+            pulumi.set(__self__, "rep_interval", rep_interval)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if service_provider_name is not None:
+            pulumi.set(__self__, "service_provider_name", service_provider_name)
+
+    @property
+    @pulumi.getter(name="outputSdt")
+    def output_sdt(self) -> Optional[str]:
+        return pulumi.get(self, "output_sdt")
+
+    @property
+    @pulumi.getter(name="repInterval")
+    def rep_interval(self) -> Optional[int]:
+        return pulumi.get(self, "rep_interval")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[str]:
+        return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter(name="serviceProviderName")
+    def service_provider_name(self) -> Optional[str]:
+        return pulumi.get(self, "service_provider_name")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repInterval":
+            suggest = "rep_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rep_interval: Optional[int] = None):
+        if rep_interval is not None:
+            pulumi.set(__self__, "rep_interval", rep_interval)
+
+    @property
+    @pulumi.getter(name="repInterval")
+    def rep_interval(self) -> Optional[int]:
+        return pulumi.get(self, "rep_interval")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nameModifier":
+            suggest = "name_modifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name_modifier: Optional[str] = None):
+        """
+        :param str name_modifier: String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        """
+        if name_modifier is not None:
+            pulumi.set(__self__, "name_modifier", name_modifier)
+
+    @property
+    @pulumi.getter(name="nameModifier")
+    def name_modifier(self) -> Optional[str]:
+        """
+        String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        """
+        return pulumi.get(self, "name_modifier")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hlsSettings":
+            suggest = "hls_settings"
+        elif key == "h265PackagingType":
+            suggest = "h265_packaging_type"
+        elif key == "nameModifier":
+            suggest = "name_modifier"
+        elif key == "segmentModifier":
+            suggest = "segment_modifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hls_settings: 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings',
+                 h265_packaging_type: Optional[str] = None,
+                 name_modifier: Optional[str] = None,
+                 segment_modifier: Optional[str] = None):
+        """
+        :param str name_modifier: String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        """
+        pulumi.set(__self__, "hls_settings", hls_settings)
+        if h265_packaging_type is not None:
+            pulumi.set(__self__, "h265_packaging_type", h265_packaging_type)
+        if name_modifier is not None:
+            pulumi.set(__self__, "name_modifier", name_modifier)
+        if segment_modifier is not None:
+            pulumi.set(__self__, "segment_modifier", segment_modifier)
+
+    @property
+    @pulumi.getter(name="hlsSettings")
+    def hls_settings(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings':
+        return pulumi.get(self, "hls_settings")
+
+    @property
+    @pulumi.getter(name="h265PackagingType")
+    def h265_packaging_type(self) -> Optional[str]:
+        return pulumi.get(self, "h265_packaging_type")
+
+    @property
+    @pulumi.getter(name="nameModifier")
+    def name_modifier(self) -> Optional[str]:
+        """
+        String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        """
+        return pulumi.get(self, "name_modifier")
+
+    @property
+    @pulumi.getter(name="segmentModifier")
+    def segment_modifier(self) -> Optional[str]:
+        return pulumi.get(self, "segment_modifier")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioOnlyHlsSettings":
+            suggest = "audio_only_hls_settings"
+        elif key == "fmp4HlsSettings":
+            suggest = "fmp4_hls_settings"
+        elif key == "frameCaptureHlsSettings":
+            suggest = "frame_capture_hls_settings"
+        elif key == "standardHlsSettings":
+            suggest = "standard_hls_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_only_hls_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings'] = None,
+                 fmp4_hls_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings'] = None,
+                 frame_capture_hls_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings'] = None,
+                 standard_hls_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings'] = None):
+        if audio_only_hls_settings is not None:
+            pulumi.set(__self__, "audio_only_hls_settings", audio_only_hls_settings)
+        if fmp4_hls_settings is not None:
+            pulumi.set(__self__, "fmp4_hls_settings", fmp4_hls_settings)
+        if frame_capture_hls_settings is not None:
+            pulumi.set(__self__, "frame_capture_hls_settings", frame_capture_hls_settings)
+        if standard_hls_settings is not None:
+            pulumi.set(__self__, "standard_hls_settings", standard_hls_settings)
+
+    @property
+    @pulumi.getter(name="audioOnlyHlsSettings")
+    def audio_only_hls_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings']:
+        return pulumi.get(self, "audio_only_hls_settings")
+
+    @property
+    @pulumi.getter(name="fmp4HlsSettings")
+    def fmp4_hls_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings']:
+        return pulumi.get(self, "fmp4_hls_settings")
+
+    @property
+    @pulumi.getter(name="frameCaptureHlsSettings")
+    def frame_capture_hls_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings']:
+        return pulumi.get(self, "frame_capture_hls_settings")
+
+    @property
+    @pulumi.getter(name="standardHlsSettings")
+    def standard_hls_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings']:
+        return pulumi.get(self, "standard_hls_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioGroupId":
+            suggest = "audio_group_id"
+        elif key == "audioOnlyImage":
+            suggest = "audio_only_image"
+        elif key == "audioTrackType":
+            suggest = "audio_track_type"
+        elif key == "segmentType":
+            suggest = "segment_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_group_id: Optional[str] = None,
+                 audio_only_image: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage'] = None,
+                 audio_track_type: Optional[str] = None,
+                 segment_type: Optional[str] = None):
+        if audio_group_id is not None:
+            pulumi.set(__self__, "audio_group_id", audio_group_id)
+        if audio_only_image is not None:
+            pulumi.set(__self__, "audio_only_image", audio_only_image)
+        if audio_track_type is not None:
+            pulumi.set(__self__, "audio_track_type", audio_track_type)
+        if segment_type is not None:
+            pulumi.set(__self__, "segment_type", segment_type)
+
+    @property
+    @pulumi.getter(name="audioGroupId")
+    def audio_group_id(self) -> Optional[str]:
+        return pulumi.get(self, "audio_group_id")
+
+    @property
+    @pulumi.getter(name="audioOnlyImage")
+    def audio_only_image(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage']:
+        return pulumi.get(self, "audio_only_image")
+
+    @property
+    @pulumi.getter(name="audioTrackType")
+    def audio_track_type(self) -> Optional[str]:
+        return pulumi.get(self, "audio_track_type")
+
+    @property
+    @pulumi.getter(name="segmentType")
+    def segment_type(self) -> Optional[str]:
+        return pulumi.get(self, "segment_type")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordParam":
+            suggest = "password_param"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: str,
+                 password_param: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        :param str uri: Path to a file accessible to the live stream.
+        :param str password_param: Key used to extract the password from EC2 Parameter store.
+        :param str username: Username for destination.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        Path to a file accessible to the live stream.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> Optional[str]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
+        return pulumi.get(self, "password_param")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Username for destination.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioRenditionSets":
+            suggest = "audio_rendition_sets"
+        elif key == "nielsenId3Behavior":
+            suggest = "nielsen_id3_behavior"
+        elif key == "timedMetadataBehavior":
+            suggest = "timed_metadata_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_rendition_sets: Optional[str] = None,
+                 nielsen_id3_behavior: Optional[str] = None,
+                 timed_metadata_behavior: Optional[str] = None):
+        if audio_rendition_sets is not None:
+            pulumi.set(__self__, "audio_rendition_sets", audio_rendition_sets)
+        if nielsen_id3_behavior is not None:
+            pulumi.set(__self__, "nielsen_id3_behavior", nielsen_id3_behavior)
+        if timed_metadata_behavior is not None:
+            pulumi.set(__self__, "timed_metadata_behavior", timed_metadata_behavior)
+
+    @property
+    @pulumi.getter(name="audioRenditionSets")
+    def audio_rendition_sets(self) -> Optional[str]:
+        return pulumi.get(self, "audio_rendition_sets")
+
+    @property
+    @pulumi.getter(name="nielsenId3Behavior")
+    def nielsen_id3_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "nielsen_id3_behavior")
+
+    @property
+    @pulumi.getter(name="timedMetadataBehavior")
+    def timed_metadata_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "timed_metadata_behavior")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "m3u8Settings":
+            suggest = "m3u8_settings"
+        elif key == "audioRenditionSets":
+            suggest = "audio_rendition_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 m3u8_settings: 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings',
+                 audio_rendition_sets: Optional[str] = None):
+        pulumi.set(__self__, "m3u8_settings", m3u8_settings)
+        if audio_rendition_sets is not None:
+            pulumi.set(__self__, "audio_rendition_sets", audio_rendition_sets)
+
+    @property
+    @pulumi.getter(name="m3u8Settings")
+    def m3u8_settings(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings':
+        return pulumi.get(self, "m3u8_settings")
+
+    @property
+    @pulumi.getter(name="audioRenditionSets")
+    def audio_rendition_sets(self) -> Optional[str]:
+        return pulumi.get(self, "audio_rendition_sets")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioFramesPerPes":
+            suggest = "audio_frames_per_pes"
+        elif key == "audioPids":
+            suggest = "audio_pids"
+        elif key == "ecmPid":
+            suggest = "ecm_pid"
+        elif key == "nielsenId3Behavior":
+            suggest = "nielsen_id3_behavior"
+        elif key == "patInterval":
+            suggest = "pat_interval"
+        elif key == "pcrControl":
+            suggest = "pcr_control"
+        elif key == "pcrPeriod":
+            suggest = "pcr_period"
+        elif key == "pcrPid":
+            suggest = "pcr_pid"
+        elif key == "pmtInterval":
+            suggest = "pmt_interval"
+        elif key == "pmtPid":
+            suggest = "pmt_pid"
+        elif key == "programNum":
+            suggest = "program_num"
+        elif key == "scte35Behavior":
+            suggest = "scte35_behavior"
+        elif key == "scte35Pid":
+            suggest = "scte35_pid"
+        elif key == "timedMetadataBehavior":
+            suggest = "timed_metadata_behavior"
+        elif key == "timedMetadataPid":
+            suggest = "timed_metadata_pid"
+        elif key == "transportStreamId":
+            suggest = "transport_stream_id"
+        elif key == "videoPid":
+            suggest = "video_pid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_frames_per_pes: Optional[int] = None,
+                 audio_pids: Optional[str] = None,
+                 ecm_pid: Optional[str] = None,
+                 nielsen_id3_behavior: Optional[str] = None,
+                 pat_interval: Optional[int] = None,
+                 pcr_control: Optional[str] = None,
+                 pcr_period: Optional[int] = None,
+                 pcr_pid: Optional[str] = None,
+                 pmt_interval: Optional[int] = None,
+                 pmt_pid: Optional[str] = None,
+                 program_num: Optional[int] = None,
+                 scte35_behavior: Optional[str] = None,
+                 scte35_pid: Optional[str] = None,
+                 timed_metadata_behavior: Optional[str] = None,
+                 timed_metadata_pid: Optional[str] = None,
+                 transport_stream_id: Optional[int] = None,
+                 video_pid: Optional[str] = None):
+        """
+        :param str scte35_pid: PID from which to read SCTE-35 messages.
+        """
+        if audio_frames_per_pes is not None:
+            pulumi.set(__self__, "audio_frames_per_pes", audio_frames_per_pes)
+        if audio_pids is not None:
+            pulumi.set(__self__, "audio_pids", audio_pids)
+        if ecm_pid is not None:
+            pulumi.set(__self__, "ecm_pid", ecm_pid)
+        if nielsen_id3_behavior is not None:
+            pulumi.set(__self__, "nielsen_id3_behavior", nielsen_id3_behavior)
+        if pat_interval is not None:
+            pulumi.set(__self__, "pat_interval", pat_interval)
+        if pcr_control is not None:
+            pulumi.set(__self__, "pcr_control", pcr_control)
+        if pcr_period is not None:
+            pulumi.set(__self__, "pcr_period", pcr_period)
+        if pcr_pid is not None:
+            pulumi.set(__self__, "pcr_pid", pcr_pid)
+        if pmt_interval is not None:
+            pulumi.set(__self__, "pmt_interval", pmt_interval)
+        if pmt_pid is not None:
+            pulumi.set(__self__, "pmt_pid", pmt_pid)
+        if program_num is not None:
+            pulumi.set(__self__, "program_num", program_num)
+        if scte35_behavior is not None:
+            pulumi.set(__self__, "scte35_behavior", scte35_behavior)
+        if scte35_pid is not None:
+            pulumi.set(__self__, "scte35_pid", scte35_pid)
+        if timed_metadata_behavior is not None:
+            pulumi.set(__self__, "timed_metadata_behavior", timed_metadata_behavior)
+        if timed_metadata_pid is not None:
+            pulumi.set(__self__, "timed_metadata_pid", timed_metadata_pid)
+        if transport_stream_id is not None:
+            pulumi.set(__self__, "transport_stream_id", transport_stream_id)
+        if video_pid is not None:
+            pulumi.set(__self__, "video_pid", video_pid)
+
+    @property
+    @pulumi.getter(name="audioFramesPerPes")
+    def audio_frames_per_pes(self) -> Optional[int]:
+        return pulumi.get(self, "audio_frames_per_pes")
+
+    @property
+    @pulumi.getter(name="audioPids")
+    def audio_pids(self) -> Optional[str]:
+        return pulumi.get(self, "audio_pids")
+
+    @property
+    @pulumi.getter(name="ecmPid")
+    def ecm_pid(self) -> Optional[str]:
+        return pulumi.get(self, "ecm_pid")
+
+    @property
+    @pulumi.getter(name="nielsenId3Behavior")
+    def nielsen_id3_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "nielsen_id3_behavior")
+
+    @property
+    @pulumi.getter(name="patInterval")
+    def pat_interval(self) -> Optional[int]:
+        return pulumi.get(self, "pat_interval")
+
+    @property
+    @pulumi.getter(name="pcrControl")
+    def pcr_control(self) -> Optional[str]:
+        return pulumi.get(self, "pcr_control")
+
+    @property
+    @pulumi.getter(name="pcrPeriod")
+    def pcr_period(self) -> Optional[int]:
+        return pulumi.get(self, "pcr_period")
+
+    @property
+    @pulumi.getter(name="pcrPid")
+    def pcr_pid(self) -> Optional[str]:
+        return pulumi.get(self, "pcr_pid")
+
+    @property
+    @pulumi.getter(name="pmtInterval")
+    def pmt_interval(self) -> Optional[int]:
+        return pulumi.get(self, "pmt_interval")
+
+    @property
+    @pulumi.getter(name="pmtPid")
+    def pmt_pid(self) -> Optional[str]:
+        return pulumi.get(self, "pmt_pid")
+
+    @property
+    @pulumi.getter(name="programNum")
+    def program_num(self) -> Optional[int]:
+        return pulumi.get(self, "program_num")
+
+    @property
+    @pulumi.getter(name="scte35Behavior")
+    def scte35_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "scte35_behavior")
+
+    @property
+    @pulumi.getter(name="scte35Pid")
+    def scte35_pid(self) -> Optional[str]:
+        """
+        PID from which to read SCTE-35 messages.
+        """
+        return pulumi.get(self, "scte35_pid")
+
+    @property
+    @pulumi.getter(name="timedMetadataBehavior")
+    def timed_metadata_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "timed_metadata_behavior")
+
+    @property
+    @pulumi.getter(name="timedMetadataPid")
+    def timed_metadata_pid(self) -> Optional[str]:
+        return pulumi.get(self, "timed_metadata_pid")
+
+    @property
+    @pulumi.getter(name="transportStreamId")
+    def transport_stream_id(self) -> Optional[int]:
+        return pulumi.get(self, "transport_stream_id")
+
+    @property
+    @pulumi.getter(name="videoPid")
+    def video_pid(self) -> Optional[str]:
+        return pulumi.get(self, "video_pid")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "h265PackagingType":
+            suggest = "h265_packaging_type"
+        elif key == "nameModifier":
+            suggest = "name_modifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 h265_packaging_type: Optional[str] = None,
+                 name_modifier: Optional[str] = None):
+        """
+        :param str name_modifier: String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        """
+        if h265_packaging_type is not None:
+            pulumi.set(__self__, "h265_packaging_type", h265_packaging_type)
+        if name_modifier is not None:
+            pulumi.set(__self__, "name_modifier", name_modifier)
+
+    @property
+    @pulumi.getter(name="h265PackagingType")
+    def h265_packaging_type(self) -> Optional[str]:
+        return pulumi.get(self, "h265_packaging_type")
+
+    @property
+    @pulumi.getter(name="nameModifier")
+    def name_modifier(self) -> Optional[str]:
+        """
+        String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
+        """
+        return pulumi.get(self, "name_modifier")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings(dict):
+    def __init__(__self__, *,
+                 destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination'):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs' destination: Destination is a multiplex. See Destination for more details.
+        """
+        pulumi.set(__self__, "destination", destination)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination':
+        """
+        Destination is a multiplex. See Destination for more details.
+        """
+        return pulumi.get(self, "destination")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationRefId":
+            suggest = "destination_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_ref_id: str):
+        """
+        :param str destination_ref_id: Reference ID for the destination.
+        """
+        pulumi.set(__self__, "destination_ref_id", destination_ref_id)
+
+    @property
+    @pulumi.getter(name="destinationRefId")
+    def destination_ref_id(self) -> str:
+        """
+        Reference ID for the destination.
+        """
+        return pulumi.get(self, "destination_ref_id")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateMode":
+            suggest = "certificate_mode"
+        elif key == "connectionRetryInterval":
+            suggest = "connection_retry_interval"
+        elif key == "numRetries":
+            suggest = "num_retries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination',
+                 certificate_mode: Optional[str] = None,
+                 connection_retry_interval: Optional[int] = None,
+                 num_retries: Optional[int] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs' destination: The RTMP endpoint excluding the stream name. See Destination for more details.
+        :param str certificate_mode: Setting to allow self signed or verified RTMP certificates.
+        :param int connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        :param int num_retries: Number of retry attempts.
+        """
+        pulumi.set(__self__, "destination", destination)
+        if certificate_mode is not None:
+            pulumi.set(__self__, "certificate_mode", certificate_mode)
+        if connection_retry_interval is not None:
+            pulumi.set(__self__, "connection_retry_interval", connection_retry_interval)
+        if num_retries is not None:
+            pulumi.set(__self__, "num_retries", num_retries)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination':
+        """
+        The RTMP endpoint excluding the stream name. See Destination for more details.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="certificateMode")
+    def certificate_mode(self) -> Optional[str]:
+        """
+        Setting to allow self signed or verified RTMP certificates.
+        """
+        return pulumi.get(self, "certificate_mode")
+
+    @property
+    @pulumi.getter(name="connectionRetryInterval")
+    def connection_retry_interval(self) -> Optional[int]:
+        """
+        Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+        """
+        return pulumi.get(self, "connection_retry_interval")
+
+    @property
+    @pulumi.getter(name="numRetries")
+    def num_retries(self) -> Optional[int]:
+        """
+        Number of retry attempts.
+        """
+        return pulumi.get(self, "num_retries")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationRefId":
+            suggest = "destination_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_ref_id: str):
+        """
+        :param str destination_ref_id: Reference ID for the destination.
+        """
+        pulumi.set(__self__, "destination_ref_id", destination_ref_id)
+
+    @property
+    @pulumi.getter(name="destinationRefId")
+    def destination_ref_id(self) -> str:
+        """
+        Reference ID for the destination.
+        """
+        return pulumi.get(self, "destination_ref_id")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerSettings":
+            suggest = "container_settings"
+        elif key == "bufferMsec":
+            suggest = "buffer_msec"
+        elif key == "fecOutputSettings":
+            suggest = "fec_output_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_settings: 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings',
+                 destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination',
+                 buffer_msec: Optional[int] = None,
+                 fec_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings'] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs' container_settings: UDP container settings. See Container Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs' destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
+        :param int buffer_msec: UDP output buffering in milliseconds.
+        """
+        pulumi.set(__self__, "container_settings", container_settings)
+        pulumi.set(__self__, "destination", destination)
+        if buffer_msec is not None:
+            pulumi.set(__self__, "buffer_msec", buffer_msec)
+        if fec_output_settings is not None:
+            pulumi.set(__self__, "fec_output_settings", fec_output_settings)
+
+    @property
+    @pulumi.getter(name="containerSettings")
+    def container_settings(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings':
+        """
+        UDP container settings. See Container Settings for more details.
+        """
+        return pulumi.get(self, "container_settings")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination':
+        """
+        Destination address and port number for RTP or UDP packets. See Destination for more details.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="bufferMsec")
+    def buffer_msec(self) -> Optional[int]:
+        """
+        UDP output buffering in milliseconds.
+        """
+        return pulumi.get(self, "buffer_msec")
+
+    @property
+    @pulumi.getter(name="fecOutputSettings")
+    def fec_output_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings']:
+        return pulumi.get(self, "fec_output_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "m2tsSettings":
+            suggest = "m2ts_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 m2ts_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings'] = None):
+        """
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs' m2ts_settings: M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+        """
+        if m2ts_settings is not None:
+            pulumi.set(__self__, "m2ts_settings", m2ts_settings)
+
+    @property
+    @pulumi.getter(name="m2tsSettings")
+    def m2ts_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings']:
+        """
+        M2ts Settings. See [M2ts Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+        """
+        return pulumi.get(self, "m2ts_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "absentInputAudioBehavior":
+            suggest = "absent_input_audio_behavior"
+        elif key == "aribCaptionsPid":
+            suggest = "arib_captions_pid"
+        elif key == "aribCaptionsPidControl":
+            suggest = "arib_captions_pid_control"
+        elif key == "audioBufferModel":
+            suggest = "audio_buffer_model"
+        elif key == "audioFramesPerPes":
+            suggest = "audio_frames_per_pes"
+        elif key == "audioPids":
+            suggest = "audio_pids"
+        elif key == "audioStreamType":
+            suggest = "audio_stream_type"
+        elif key == "bufferModel":
+            suggest = "buffer_model"
+        elif key == "ccDescriptor":
+            suggest = "cc_descriptor"
+        elif key == "dvbNitSettings":
+            suggest = "dvb_nit_settings"
+        elif key == "dvbSdtSettings":
+            suggest = "dvb_sdt_settings"
+        elif key == "dvbSubPids":
+            suggest = "dvb_sub_pids"
+        elif key == "dvbTdtSettings":
+            suggest = "dvb_tdt_settings"
+        elif key == "dvbTeletextPid":
+            suggest = "dvb_teletext_pid"
+        elif key == "ebpAudioInterval":
+            suggest = "ebp_audio_interval"
+        elif key == "ebpLookaheadMs":
+            suggest = "ebp_lookahead_ms"
+        elif key == "ebpPlacement":
+            suggest = "ebp_placement"
+        elif key == "ecmPid":
+            suggest = "ecm_pid"
+        elif key == "esRateInPes":
+            suggest = "es_rate_in_pes"
+        elif key == "etvPlatformPid":
+            suggest = "etv_platform_pid"
+        elif key == "etvSignalPid":
+            suggest = "etv_signal_pid"
+        elif key == "fragmentTime":
+            suggest = "fragment_time"
+        elif key == "klvDataPids":
+            suggest = "klv_data_pids"
+        elif key == "nielsenId3Behavior":
+            suggest = "nielsen_id3_behavior"
+        elif key == "nullPacketBitrate":
+            suggest = "null_packet_bitrate"
+        elif key == "patInterval":
+            suggest = "pat_interval"
+        elif key == "pcrControl":
+            suggest = "pcr_control"
+        elif key == "pcrPeriod":
+            suggest = "pcr_period"
+        elif key == "pcrPid":
+            suggest = "pcr_pid"
+        elif key == "pmtInterval":
+            suggest = "pmt_interval"
+        elif key == "pmtPid":
+            suggest = "pmt_pid"
+        elif key == "programNum":
+            suggest = "program_num"
+        elif key == "rateMode":
+            suggest = "rate_mode"
+        elif key == "scte27Pids":
+            suggest = "scte27_pids"
+        elif key == "scte35Control":
+            suggest = "scte35_control"
+        elif key == "scte35Pid":
+            suggest = "scte35_pid"
+        elif key == "segmentationMarkers":
+            suggest = "segmentation_markers"
+        elif key == "segmentationStyle":
+            suggest = "segmentation_style"
+        elif key == "segmentationTime":
+            suggest = "segmentation_time"
+        elif key == "timedMetadataBehavior":
+            suggest = "timed_metadata_behavior"
+        elif key == "timedMetadataPid":
+            suggest = "timed_metadata_pid"
+        elif key == "transportStreamId":
+            suggest = "transport_stream_id"
+        elif key == "videoPid":
+            suggest = "video_pid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 absent_input_audio_behavior: Optional[str] = None,
+                 arib: Optional[str] = None,
+                 arib_captions_pid: Optional[str] = None,
+                 arib_captions_pid_control: Optional[str] = None,
+                 audio_buffer_model: Optional[str] = None,
+                 audio_frames_per_pes: Optional[int] = None,
+                 audio_pids: Optional[str] = None,
+                 audio_stream_type: Optional[str] = None,
+                 bitrate: Optional[int] = None,
+                 buffer_model: Optional[str] = None,
+                 cc_descriptor: Optional[str] = None,
+                 dvb_nit_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings'] = None,
+                 dvb_sdt_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings'] = None,
+                 dvb_sub_pids: Optional[str] = None,
+                 dvb_tdt_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings'] = None,
+                 dvb_teletext_pid: Optional[str] = None,
+                 ebif: Optional[str] = None,
+                 ebp_audio_interval: Optional[str] = None,
+                 ebp_lookahead_ms: Optional[int] = None,
+                 ebp_placement: Optional[str] = None,
+                 ecm_pid: Optional[str] = None,
+                 es_rate_in_pes: Optional[str] = None,
+                 etv_platform_pid: Optional[str] = None,
+                 etv_signal_pid: Optional[str] = None,
+                 fragment_time: Optional[float] = None,
+                 klv: Optional[str] = None,
+                 klv_data_pids: Optional[str] = None,
+                 nielsen_id3_behavior: Optional[str] = None,
+                 null_packet_bitrate: Optional[float] = None,
+                 pat_interval: Optional[int] = None,
+                 pcr_control: Optional[str] = None,
+                 pcr_period: Optional[int] = None,
+                 pcr_pid: Optional[str] = None,
+                 pmt_interval: Optional[int] = None,
+                 pmt_pid: Optional[str] = None,
+                 program_num: Optional[int] = None,
+                 rate_mode: Optional[str] = None,
+                 scte27_pids: Optional[str] = None,
+                 scte35_control: Optional[str] = None,
+                 scte35_pid: Optional[str] = None,
+                 segmentation_markers: Optional[str] = None,
+                 segmentation_style: Optional[str] = None,
+                 segmentation_time: Optional[float] = None,
+                 timed_metadata_behavior: Optional[str] = None,
+                 timed_metadata_pid: Optional[str] = None,
+                 transport_stream_id: Optional[int] = None,
+                 video_pid: Optional[str] = None):
+        """
+        :param int bitrate: Average bitrate in bits/second.
+        :param str scte35_pid: PID from which to read SCTE-35 messages.
+        """
+        if absent_input_audio_behavior is not None:
+            pulumi.set(__self__, "absent_input_audio_behavior", absent_input_audio_behavior)
+        if arib is not None:
+            pulumi.set(__self__, "arib", arib)
+        if arib_captions_pid is not None:
+            pulumi.set(__self__, "arib_captions_pid", arib_captions_pid)
+        if arib_captions_pid_control is not None:
+            pulumi.set(__self__, "arib_captions_pid_control", arib_captions_pid_control)
+        if audio_buffer_model is not None:
+            pulumi.set(__self__, "audio_buffer_model", audio_buffer_model)
+        if audio_frames_per_pes is not None:
+            pulumi.set(__self__, "audio_frames_per_pes", audio_frames_per_pes)
+        if audio_pids is not None:
+            pulumi.set(__self__, "audio_pids", audio_pids)
+        if audio_stream_type is not None:
+            pulumi.set(__self__, "audio_stream_type", audio_stream_type)
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if buffer_model is not None:
+            pulumi.set(__self__, "buffer_model", buffer_model)
+        if cc_descriptor is not None:
+            pulumi.set(__self__, "cc_descriptor", cc_descriptor)
+        if dvb_nit_settings is not None:
+            pulumi.set(__self__, "dvb_nit_settings", dvb_nit_settings)
+        if dvb_sdt_settings is not None:
+            pulumi.set(__self__, "dvb_sdt_settings", dvb_sdt_settings)
+        if dvb_sub_pids is not None:
+            pulumi.set(__self__, "dvb_sub_pids", dvb_sub_pids)
+        if dvb_tdt_settings is not None:
+            pulumi.set(__self__, "dvb_tdt_settings", dvb_tdt_settings)
+        if dvb_teletext_pid is not None:
+            pulumi.set(__self__, "dvb_teletext_pid", dvb_teletext_pid)
+        if ebif is not None:
+            pulumi.set(__self__, "ebif", ebif)
+        if ebp_audio_interval is not None:
+            pulumi.set(__self__, "ebp_audio_interval", ebp_audio_interval)
+        if ebp_lookahead_ms is not None:
+            pulumi.set(__self__, "ebp_lookahead_ms", ebp_lookahead_ms)
+        if ebp_placement is not None:
+            pulumi.set(__self__, "ebp_placement", ebp_placement)
+        if ecm_pid is not None:
+            pulumi.set(__self__, "ecm_pid", ecm_pid)
+        if es_rate_in_pes is not None:
+            pulumi.set(__self__, "es_rate_in_pes", es_rate_in_pes)
+        if etv_platform_pid is not None:
+            pulumi.set(__self__, "etv_platform_pid", etv_platform_pid)
+        if etv_signal_pid is not None:
+            pulumi.set(__self__, "etv_signal_pid", etv_signal_pid)
+        if fragment_time is not None:
+            pulumi.set(__self__, "fragment_time", fragment_time)
+        if klv is not None:
+            pulumi.set(__self__, "klv", klv)
+        if klv_data_pids is not None:
+            pulumi.set(__self__, "klv_data_pids", klv_data_pids)
+        if nielsen_id3_behavior is not None:
+            pulumi.set(__self__, "nielsen_id3_behavior", nielsen_id3_behavior)
+        if null_packet_bitrate is not None:
+            pulumi.set(__self__, "null_packet_bitrate", null_packet_bitrate)
+        if pat_interval is not None:
+            pulumi.set(__self__, "pat_interval", pat_interval)
+        if pcr_control is not None:
+            pulumi.set(__self__, "pcr_control", pcr_control)
+        if pcr_period is not None:
+            pulumi.set(__self__, "pcr_period", pcr_period)
+        if pcr_pid is not None:
+            pulumi.set(__self__, "pcr_pid", pcr_pid)
+        if pmt_interval is not None:
+            pulumi.set(__self__, "pmt_interval", pmt_interval)
+        if pmt_pid is not None:
+            pulumi.set(__self__, "pmt_pid", pmt_pid)
+        if program_num is not None:
+            pulumi.set(__self__, "program_num", program_num)
+        if rate_mode is not None:
+            pulumi.set(__self__, "rate_mode", rate_mode)
+        if scte27_pids is not None:
+            pulumi.set(__self__, "scte27_pids", scte27_pids)
+        if scte35_control is not None:
+            pulumi.set(__self__, "scte35_control", scte35_control)
+        if scte35_pid is not None:
+            pulumi.set(__self__, "scte35_pid", scte35_pid)
+        if segmentation_markers is not None:
+            pulumi.set(__self__, "segmentation_markers", segmentation_markers)
+        if segmentation_style is not None:
+            pulumi.set(__self__, "segmentation_style", segmentation_style)
+        if segmentation_time is not None:
+            pulumi.set(__self__, "segmentation_time", segmentation_time)
+        if timed_metadata_behavior is not None:
+            pulumi.set(__self__, "timed_metadata_behavior", timed_metadata_behavior)
+        if timed_metadata_pid is not None:
+            pulumi.set(__self__, "timed_metadata_pid", timed_metadata_pid)
+        if transport_stream_id is not None:
+            pulumi.set(__self__, "transport_stream_id", transport_stream_id)
+        if video_pid is not None:
+            pulumi.set(__self__, "video_pid", video_pid)
+
+    @property
+    @pulumi.getter(name="absentInputAudioBehavior")
+    def absent_input_audio_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "absent_input_audio_behavior")
+
+    @property
+    @pulumi.getter
+    def arib(self) -> Optional[str]:
+        return pulumi.get(self, "arib")
+
+    @property
+    @pulumi.getter(name="aribCaptionsPid")
+    def arib_captions_pid(self) -> Optional[str]:
+        return pulumi.get(self, "arib_captions_pid")
+
+    @property
+    @pulumi.getter(name="aribCaptionsPidControl")
+    def arib_captions_pid_control(self) -> Optional[str]:
+        return pulumi.get(self, "arib_captions_pid_control")
+
+    @property
+    @pulumi.getter(name="audioBufferModel")
+    def audio_buffer_model(self) -> Optional[str]:
+        return pulumi.get(self, "audio_buffer_model")
+
+    @property
+    @pulumi.getter(name="audioFramesPerPes")
+    def audio_frames_per_pes(self) -> Optional[int]:
+        return pulumi.get(self, "audio_frames_per_pes")
+
+    @property
+    @pulumi.getter(name="audioPids")
+    def audio_pids(self) -> Optional[str]:
+        return pulumi.get(self, "audio_pids")
+
+    @property
+    @pulumi.getter(name="audioStreamType")
+    def audio_stream_type(self) -> Optional[str]:
+        return pulumi.get(self, "audio_stream_type")
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[int]:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="bufferModel")
+    def buffer_model(self) -> Optional[str]:
+        return pulumi.get(self, "buffer_model")
+
+    @property
+    @pulumi.getter(name="ccDescriptor")
+    def cc_descriptor(self) -> Optional[str]:
+        return pulumi.get(self, "cc_descriptor")
+
+    @property
+    @pulumi.getter(name="dvbNitSettings")
+    def dvb_nit_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings']:
+        return pulumi.get(self, "dvb_nit_settings")
+
+    @property
+    @pulumi.getter(name="dvbSdtSettings")
+    def dvb_sdt_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings']:
+        return pulumi.get(self, "dvb_sdt_settings")
+
+    @property
+    @pulumi.getter(name="dvbSubPids")
+    def dvb_sub_pids(self) -> Optional[str]:
+        return pulumi.get(self, "dvb_sub_pids")
+
+    @property
+    @pulumi.getter(name="dvbTdtSettings")
+    def dvb_tdt_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings']:
+        return pulumi.get(self, "dvb_tdt_settings")
+
+    @property
+    @pulumi.getter(name="dvbTeletextPid")
+    def dvb_teletext_pid(self) -> Optional[str]:
+        return pulumi.get(self, "dvb_teletext_pid")
+
+    @property
+    @pulumi.getter
+    def ebif(self) -> Optional[str]:
+        return pulumi.get(self, "ebif")
+
+    @property
+    @pulumi.getter(name="ebpAudioInterval")
+    def ebp_audio_interval(self) -> Optional[str]:
+        return pulumi.get(self, "ebp_audio_interval")
+
+    @property
+    @pulumi.getter(name="ebpLookaheadMs")
+    def ebp_lookahead_ms(self) -> Optional[int]:
+        return pulumi.get(self, "ebp_lookahead_ms")
+
+    @property
+    @pulumi.getter(name="ebpPlacement")
+    def ebp_placement(self) -> Optional[str]:
+        return pulumi.get(self, "ebp_placement")
+
+    @property
+    @pulumi.getter(name="ecmPid")
+    def ecm_pid(self) -> Optional[str]:
+        return pulumi.get(self, "ecm_pid")
+
+    @property
+    @pulumi.getter(name="esRateInPes")
+    def es_rate_in_pes(self) -> Optional[str]:
+        return pulumi.get(self, "es_rate_in_pes")
+
+    @property
+    @pulumi.getter(name="etvPlatformPid")
+    def etv_platform_pid(self) -> Optional[str]:
+        return pulumi.get(self, "etv_platform_pid")
+
+    @property
+    @pulumi.getter(name="etvSignalPid")
+    def etv_signal_pid(self) -> Optional[str]:
+        return pulumi.get(self, "etv_signal_pid")
+
+    @property
+    @pulumi.getter(name="fragmentTime")
+    def fragment_time(self) -> Optional[float]:
+        return pulumi.get(self, "fragment_time")
+
+    @property
+    @pulumi.getter
+    def klv(self) -> Optional[str]:
+        return pulumi.get(self, "klv")
+
+    @property
+    @pulumi.getter(name="klvDataPids")
+    def klv_data_pids(self) -> Optional[str]:
+        return pulumi.get(self, "klv_data_pids")
+
+    @property
+    @pulumi.getter(name="nielsenId3Behavior")
+    def nielsen_id3_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "nielsen_id3_behavior")
+
+    @property
+    @pulumi.getter(name="nullPacketBitrate")
+    def null_packet_bitrate(self) -> Optional[float]:
+        return pulumi.get(self, "null_packet_bitrate")
+
+    @property
+    @pulumi.getter(name="patInterval")
+    def pat_interval(self) -> Optional[int]:
+        return pulumi.get(self, "pat_interval")
+
+    @property
+    @pulumi.getter(name="pcrControl")
+    def pcr_control(self) -> Optional[str]:
+        return pulumi.get(self, "pcr_control")
+
+    @property
+    @pulumi.getter(name="pcrPeriod")
+    def pcr_period(self) -> Optional[int]:
+        return pulumi.get(self, "pcr_period")
+
+    @property
+    @pulumi.getter(name="pcrPid")
+    def pcr_pid(self) -> Optional[str]:
+        return pulumi.get(self, "pcr_pid")
+
+    @property
+    @pulumi.getter(name="pmtInterval")
+    def pmt_interval(self) -> Optional[int]:
+        return pulumi.get(self, "pmt_interval")
+
+    @property
+    @pulumi.getter(name="pmtPid")
+    def pmt_pid(self) -> Optional[str]:
+        return pulumi.get(self, "pmt_pid")
+
+    @property
+    @pulumi.getter(name="programNum")
+    def program_num(self) -> Optional[int]:
+        return pulumi.get(self, "program_num")
+
+    @property
+    @pulumi.getter(name="rateMode")
+    def rate_mode(self) -> Optional[str]:
+        return pulumi.get(self, "rate_mode")
+
+    @property
+    @pulumi.getter(name="scte27Pids")
+    def scte27_pids(self) -> Optional[str]:
+        return pulumi.get(self, "scte27_pids")
+
+    @property
+    @pulumi.getter(name="scte35Control")
+    def scte35_control(self) -> Optional[str]:
+        return pulumi.get(self, "scte35_control")
+
+    @property
+    @pulumi.getter(name="scte35Pid")
+    def scte35_pid(self) -> Optional[str]:
+        """
+        PID from which to read SCTE-35 messages.
+        """
+        return pulumi.get(self, "scte35_pid")
+
+    @property
+    @pulumi.getter(name="segmentationMarkers")
+    def segmentation_markers(self) -> Optional[str]:
+        return pulumi.get(self, "segmentation_markers")
+
+    @property
+    @pulumi.getter(name="segmentationStyle")
+    def segmentation_style(self) -> Optional[str]:
+        return pulumi.get(self, "segmentation_style")
+
+    @property
+    @pulumi.getter(name="segmentationTime")
+    def segmentation_time(self) -> Optional[float]:
+        return pulumi.get(self, "segmentation_time")
+
+    @property
+    @pulumi.getter(name="timedMetadataBehavior")
+    def timed_metadata_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "timed_metadata_behavior")
+
+    @property
+    @pulumi.getter(name="timedMetadataPid")
+    def timed_metadata_pid(self) -> Optional[str]:
+        return pulumi.get(self, "timed_metadata_pid")
+
+    @property
+    @pulumi.getter(name="transportStreamId")
+    def transport_stream_id(self) -> Optional[int]:
+        return pulumi.get(self, "transport_stream_id")
+
+    @property
+    @pulumi.getter(name="videoPid")
+    def video_pid(self) -> Optional[str]:
+        return pulumi.get(self, "video_pid")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkId":
+            suggest = "network_id"
+        elif key == "networkName":
+            suggest = "network_name"
+        elif key == "repInterval":
+            suggest = "rep_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_id: int,
+                 network_name: str,
+                 rep_interval: Optional[int] = None):
+        pulumi.set(__self__, "network_id", network_id)
+        pulumi.set(__self__, "network_name", network_name)
+        if rep_interval is not None:
+            pulumi.set(__self__, "rep_interval", rep_interval)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> int:
+        return pulumi.get(self, "network_id")
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> str:
+        return pulumi.get(self, "network_name")
+
+    @property
+    @pulumi.getter(name="repInterval")
+    def rep_interval(self) -> Optional[int]:
+        return pulumi.get(self, "rep_interval")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputSdt":
+            suggest = "output_sdt"
+        elif key == "repInterval":
+            suggest = "rep_interval"
+        elif key == "serviceName":
+            suggest = "service_name"
+        elif key == "serviceProviderName":
+            suggest = "service_provider_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_sdt: Optional[str] = None,
+                 rep_interval: Optional[int] = None,
+                 service_name: Optional[str] = None,
+                 service_provider_name: Optional[str] = None):
+        if output_sdt is not None:
+            pulumi.set(__self__, "output_sdt", output_sdt)
+        if rep_interval is not None:
+            pulumi.set(__self__, "rep_interval", rep_interval)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if service_provider_name is not None:
+            pulumi.set(__self__, "service_provider_name", service_provider_name)
+
+    @property
+    @pulumi.getter(name="outputSdt")
+    def output_sdt(self) -> Optional[str]:
+        return pulumi.get(self, "output_sdt")
+
+    @property
+    @pulumi.getter(name="repInterval")
+    def rep_interval(self) -> Optional[int]:
+        return pulumi.get(self, "rep_interval")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[str]:
+        return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter(name="serviceProviderName")
+    def service_provider_name(self) -> Optional[str]:
+        return pulumi.get(self, "service_provider_name")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repInterval":
+            suggest = "rep_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rep_interval: Optional[int] = None):
+        if rep_interval is not None:
+            pulumi.set(__self__, "rep_interval", rep_interval)
+
+    @property
+    @pulumi.getter(name="repInterval")
+    def rep_interval(self) -> Optional[int]:
+        return pulumi.get(self, "rep_interval")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationRefId":
+            suggest = "destination_ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_ref_id: str):
+        """
+        :param str destination_ref_id: Reference ID for the destination.
+        """
+        pulumi.set(__self__, "destination_ref_id", destination_ref_id)
+
+    @property
+    @pulumi.getter(name="destinationRefId")
+    def destination_ref_id(self) -> str:
+        """
+        Reference ID for the destination.
+        """
+        return pulumi.get(self, "destination_ref_id")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnDepth":
+            suggest = "column_depth"
+        elif key == "includeFec":
+            suggest = "include_fec"
+        elif key == "rowLength":
+            suggest = "row_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_depth: Optional[int] = None,
+                 include_fec: Optional[str] = None,
+                 row_length: Optional[int] = None):
+        """
+        :param int column_depth: The height of the FEC protection matrix.
+        :param str include_fec: Enables column only or column and row based FEC.
+        :param int row_length: The width of the FEC protection matrix.
+        """
+        if column_depth is not None:
+            pulumi.set(__self__, "column_depth", column_depth)
+        if include_fec is not None:
+            pulumi.set(__self__, "include_fec", include_fec)
+        if row_length is not None:
+            pulumi.set(__self__, "row_length", row_length)
+
+    @property
+    @pulumi.getter(name="columnDepth")
+    def column_depth(self) -> Optional[int]:
+        """
+        The height of the FEC protection matrix.
+        """
+        return pulumi.get(self, "column_depth")
+
+    @property
+    @pulumi.getter(name="includeFec")
+    def include_fec(self) -> Optional[str]:
+        """
+        Enables column only or column and row based FEC.
+        """
+        return pulumi.get(self, "include_fec")
+
+    @property
+    @pulumi.getter(name="rowLength")
+    def row_length(self) -> Optional[int]:
+        """
+        The width of the FEC protection matrix.
+        """
+        return pulumi.get(self, "row_length")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsTimecodeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "syncThreshold":
+            suggest = "sync_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsTimecodeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsTimecodeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsTimecodeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source: str,
+                 sync_threshold: Optional[int] = None):
+        """
+        :param str source: The source for the timecode that will be associated with the events outputs.
+        :param int sync_threshold: Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+        """
+        pulumi.set(__self__, "source", source)
+        if sync_threshold is not None:
+            pulumi.set(__self__, "sync_threshold", sync_threshold)
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The source for the timecode that will be associated with the events outputs.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="syncThreshold")
+    def sync_threshold(self) -> Optional[int]:
+        """
+        Threshold in frames beyond which output timecode is resynchronized to the input timecode.
+        """
+        return pulumi.get(self, "sync_threshold")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescription(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codecSettings":
+            suggest = "codec_settings"
+        elif key == "respondToAfd":
+            suggest = "respond_to_afd"
+        elif key == "scalingBehavior":
+            suggest = "scaling_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 codec_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettings'] = None,
+                 height: Optional[int] = None,
+                 respond_to_afd: Optional[str] = None,
+                 scaling_behavior: Optional[str] = None,
+                 sharpness: Optional[int] = None,
+                 width: Optional[int] = None):
+        """
+        :param str name: The name of the video description.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs' codec_settings: The video codec settings. See Video Codec Settings for more details.
+        :param int height: Output video height in pixels.
+        :param str respond_to_afd: Indicate how to respond to the AFD values that might be in the input video.
+        :param str scaling_behavior: Behavior on how to scale.
+        :param int sharpness: Changes the strength of the anti-alias filter used for scaling.
+        :param int width: Output video width in pixels.
+        """
+        pulumi.set(__self__, "name", name)
+        if codec_settings is not None:
+            pulumi.set(__self__, "codec_settings", codec_settings)
+        if height is not None:
+            pulumi.set(__self__, "height", height)
+        if respond_to_afd is not None:
+            pulumi.set(__self__, "respond_to_afd", respond_to_afd)
+        if scaling_behavior is not None:
+            pulumi.set(__self__, "scaling_behavior", scaling_behavior)
+        if sharpness is not None:
+            pulumi.set(__self__, "sharpness", sharpness)
+        if width is not None:
+            pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the video description.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="codecSettings")
+    def codec_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettings']:
+        """
+        The video codec settings. See Video Codec Settings for more details.
+        """
+        return pulumi.get(self, "codec_settings")
+
+    @property
+    @pulumi.getter
+    def height(self) -> Optional[int]:
+        """
+        Output video height in pixels.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter(name="respondToAfd")
+    def respond_to_afd(self) -> Optional[str]:
+        """
+        Indicate how to respond to the AFD values that might be in the input video.
+        """
+        return pulumi.get(self, "respond_to_afd")
+
+    @property
+    @pulumi.getter(name="scalingBehavior")
+    def scaling_behavior(self) -> Optional[str]:
+        """
+        Behavior on how to scale.
+        """
+        return pulumi.get(self, "scaling_behavior")
+
+    @property
+    @pulumi.getter
+    def sharpness(self) -> Optional[int]:
+        """
+        Changes the strength of the anti-alias filter used for scaling.
+        """
+        return pulumi.get(self, "sharpness")
+
+    @property
+    @pulumi.getter
+    def width(self) -> Optional[int]:
+        """
+        Output video width in pixels.
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "frameCaptureSettings":
+            suggest = "frame_capture_settings"
+        elif key == "h264Settings":
+            suggest = "h264_settings"
+        elif key == "h265Settings":
+            suggest = "h265_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 frame_capture_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings'] = None,
+                 h264_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings'] = None,
+                 h265_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings'] = None):
+        """
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs' frame_capture_settings: Frame capture settings. See Frame Capture Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs' h264_settings: H264 settings. See H264 Settings for more details.
+        """
+        if frame_capture_settings is not None:
+            pulumi.set(__self__, "frame_capture_settings", frame_capture_settings)
+        if h264_settings is not None:
+            pulumi.set(__self__, "h264_settings", h264_settings)
+        if h265_settings is not None:
+            pulumi.set(__self__, "h265_settings", h265_settings)
+
+    @property
+    @pulumi.getter(name="frameCaptureSettings")
+    def frame_capture_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings']:
+        """
+        Frame capture settings. See Frame Capture Settings for more details.
+        """
+        return pulumi.get(self, "frame_capture_settings")
+
+    @property
+    @pulumi.getter(name="h264Settings")
+    def h264_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings']:
+        """
+        H264 settings. See H264 Settings for more details.
+        """
+        return pulumi.get(self, "h264_settings")
+
+    @property
+    @pulumi.getter(name="h265Settings")
+    def h265_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings']:
+        return pulumi.get(self, "h265_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "captureInterval":
+            suggest = "capture_interval"
+        elif key == "captureIntervalUnits":
+            suggest = "capture_interval_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capture_interval: Optional[int] = None,
+                 capture_interval_units: Optional[str] = None):
+        """
+        :param int capture_interval: The frequency at which to capture frames for inclusion in the output.
+        :param str capture_interval_units: Unit for the frame capture interval.
+        """
+        if capture_interval is not None:
+            pulumi.set(__self__, "capture_interval", capture_interval)
+        if capture_interval_units is not None:
+            pulumi.set(__self__, "capture_interval_units", capture_interval_units)
+
+    @property
+    @pulumi.getter(name="captureInterval")
+    def capture_interval(self) -> Optional[int]:
+        """
+        The frequency at which to capture frames for inclusion in the output.
+        """
+        return pulumi.get(self, "capture_interval")
+
+    @property
+    @pulumi.getter(name="captureIntervalUnits")
+    def capture_interval_units(self) -> Optional[str]:
+        """
+        Unit for the frame capture interval.
+        """
+        return pulumi.get(self, "capture_interval_units")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adaptiveQuantization":
+            suggest = "adaptive_quantization"
+        elif key == "afdSignaling":
+            suggest = "afd_signaling"
+        elif key == "bufFillPct":
+            suggest = "buf_fill_pct"
+        elif key == "bufSize":
+            suggest = "buf_size"
+        elif key == "colorMetadata":
+            suggest = "color_metadata"
+        elif key == "entropyEncoding":
+            suggest = "entropy_encoding"
+        elif key == "filterSettings":
+            suggest = "filter_settings"
+        elif key == "fixedAfd":
+            suggest = "fixed_afd"
+        elif key == "flickerAq":
+            suggest = "flicker_aq"
+        elif key == "forceFieldPictures":
+            suggest = "force_field_pictures"
+        elif key == "framerateControl":
+            suggest = "framerate_control"
+        elif key == "framerateDenominator":
+            suggest = "framerate_denominator"
+        elif key == "framerateNumerator":
+            suggest = "framerate_numerator"
+        elif key == "gopBReference":
+            suggest = "gop_b_reference"
+        elif key == "gopClosedCadence":
+            suggest = "gop_closed_cadence"
+        elif key == "gopNumBFrames":
+            suggest = "gop_num_b_frames"
+        elif key == "gopSize":
+            suggest = "gop_size"
+        elif key == "gopSizeUnits":
+            suggest = "gop_size_units"
+        elif key == "lookAheadRateControl":
+            suggest = "look_ahead_rate_control"
+        elif key == "maxBitrate":
+            suggest = "max_bitrate"
+        elif key == "minIInterval":
+            suggest = "min_i_interval"
+        elif key == "numRefFrames":
+            suggest = "num_ref_frames"
+        elif key == "parControl":
+            suggest = "par_control"
+        elif key == "parDenominator":
+            suggest = "par_denominator"
+        elif key == "parNumerator":
+            suggest = "par_numerator"
+        elif key == "qualityLevel":
+            suggest = "quality_level"
+        elif key == "qvbrQualityLevel":
+            suggest = "qvbr_quality_level"
+        elif key == "rateControlMode":
+            suggest = "rate_control_mode"
+        elif key == "scanType":
+            suggest = "scan_type"
+        elif key == "sceneChangeDetect":
+            suggest = "scene_change_detect"
+        elif key == "spatialAq":
+            suggest = "spatial_aq"
+        elif key == "subgopLength":
+            suggest = "subgop_length"
+        elif key == "temporalAq":
+            suggest = "temporal_aq"
+        elif key == "timecodeInsertion":
+            suggest = "timecode_insertion"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 adaptive_quantization: Optional[str] = None,
+                 afd_signaling: Optional[str] = None,
+                 bitrate: Optional[int] = None,
+                 buf_fill_pct: Optional[int] = None,
+                 buf_size: Optional[int] = None,
+                 color_metadata: Optional[str] = None,
+                 entropy_encoding: Optional[str] = None,
+                 filter_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings'] = None,
+                 fixed_afd: Optional[str] = None,
+                 flicker_aq: Optional[str] = None,
+                 force_field_pictures: Optional[str] = None,
+                 framerate_control: Optional[str] = None,
+                 framerate_denominator: Optional[int] = None,
+                 framerate_numerator: Optional[int] = None,
+                 gop_b_reference: Optional[str] = None,
+                 gop_closed_cadence: Optional[int] = None,
+                 gop_num_b_frames: Optional[int] = None,
+                 gop_size: Optional[float] = None,
+                 gop_size_units: Optional[str] = None,
+                 level: Optional[str] = None,
+                 look_ahead_rate_control: Optional[str] = None,
+                 max_bitrate: Optional[int] = None,
+                 min_i_interval: Optional[int] = None,
+                 num_ref_frames: Optional[int] = None,
+                 par_control: Optional[str] = None,
+                 par_denominator: Optional[int] = None,
+                 par_numerator: Optional[int] = None,
+                 profile: Optional[str] = None,
+                 quality_level: Optional[str] = None,
+                 qvbr_quality_level: Optional[int] = None,
+                 rate_control_mode: Optional[str] = None,
+                 scan_type: Optional[str] = None,
+                 scene_change_detect: Optional[str] = None,
+                 slices: Optional[int] = None,
+                 softness: Optional[int] = None,
+                 spatial_aq: Optional[str] = None,
+                 subgop_length: Optional[str] = None,
+                 syntax: Optional[str] = None,
+                 temporal_aq: Optional[str] = None,
+                 timecode_insertion: Optional[str] = None):
+        """
+        :param str adaptive_quantization: Enables or disables adaptive quantization.
+        :param str afd_signaling: Indicates that AFD values will be written into the output stream.
+        :param int bitrate: Average bitrate in bits/second.
+        :param int buf_size: Size of buffer in bits.
+        :param str color_metadata: Includes color space metadata in the output.
+        :param str entropy_encoding: Entropy encoding mode.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs' filter_settings: Filters to apply to an encode. See H264 Filter Settings for more details.
+        :param str fixed_afd: Four bit AFD value to write on all frames of video in the output stream.
+        :param str force_field_pictures: Controls whether coding is performed on a field basis or on a frame basis.
+        :param str framerate_control: Indicates how the output video frame rate is specified.
+        :param int framerate_denominator: Framerate denominator.
+        :param int framerate_numerator: Framerate numerator.
+        :param str gop_b_reference: GOP-B reference.
+        :param int gop_closed_cadence: Frequency of closed GOPs.
+        :param int gop_num_b_frames: Number of B-frames between reference frames.
+        :param float gop_size: GOP size in units of either frames of seconds per `gop_size_units`.
+        :param str gop_size_units: Indicates if the `gop_size` is specified in frames or seconds.
+        :param str level: H264 level.
+        :param str look_ahead_rate_control: Amount of lookahead.
+        :param int max_bitrate: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        :param int num_ref_frames: Number of reference frames to use.
+        :param str par_control: Indicates how the output pixel aspect ratio is specified.
+        :param int par_denominator: Pixel Aspect Ratio denominator.
+        :param int par_numerator: Pixel Aspect Ratio numerator.
+        :param str profile: AAC profile.
+        :param str quality_level: Quality level.
+        :param int qvbr_quality_level: Controls the target quality for the video encode.
+        :param str rate_control_mode: The rate control mode.
+        :param str scan_type: Sets the scan type of the output.
+        :param str scene_change_detect: Scene change detection.
+        :param int slices: Number of slices per picture.
+        :param int softness: Softness.
+        :param str spatial_aq: Makes adjustments within each frame based on spatial variation of content complexity.
+        :param str subgop_length: Subgop length.
+        :param str syntax: Produces a bitstream compliant with SMPTE RP-2027.
+        :param str temporal_aq: Makes adjustments within each frame based on temporal variation of content complexity.
+        :param str timecode_insertion: Determines how timecodes should be inserted into the video elementary stream.
+        """
+        if adaptive_quantization is not None:
+            pulumi.set(__self__, "adaptive_quantization", adaptive_quantization)
+        if afd_signaling is not None:
+            pulumi.set(__self__, "afd_signaling", afd_signaling)
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if buf_fill_pct is not None:
+            pulumi.set(__self__, "buf_fill_pct", buf_fill_pct)
+        if buf_size is not None:
+            pulumi.set(__self__, "buf_size", buf_size)
+        if color_metadata is not None:
+            pulumi.set(__self__, "color_metadata", color_metadata)
+        if entropy_encoding is not None:
+            pulumi.set(__self__, "entropy_encoding", entropy_encoding)
+        if filter_settings is not None:
+            pulumi.set(__self__, "filter_settings", filter_settings)
+        if fixed_afd is not None:
+            pulumi.set(__self__, "fixed_afd", fixed_afd)
+        if flicker_aq is not None:
+            pulumi.set(__self__, "flicker_aq", flicker_aq)
+        if force_field_pictures is not None:
+            pulumi.set(__self__, "force_field_pictures", force_field_pictures)
+        if framerate_control is not None:
+            pulumi.set(__self__, "framerate_control", framerate_control)
+        if framerate_denominator is not None:
+            pulumi.set(__self__, "framerate_denominator", framerate_denominator)
+        if framerate_numerator is not None:
+            pulumi.set(__self__, "framerate_numerator", framerate_numerator)
+        if gop_b_reference is not None:
+            pulumi.set(__self__, "gop_b_reference", gop_b_reference)
+        if gop_closed_cadence is not None:
+            pulumi.set(__self__, "gop_closed_cadence", gop_closed_cadence)
+        if gop_num_b_frames is not None:
+            pulumi.set(__self__, "gop_num_b_frames", gop_num_b_frames)
+        if gop_size is not None:
+            pulumi.set(__self__, "gop_size", gop_size)
+        if gop_size_units is not None:
+            pulumi.set(__self__, "gop_size_units", gop_size_units)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if look_ahead_rate_control is not None:
+            pulumi.set(__self__, "look_ahead_rate_control", look_ahead_rate_control)
+        if max_bitrate is not None:
+            pulumi.set(__self__, "max_bitrate", max_bitrate)
+        if min_i_interval is not None:
+            pulumi.set(__self__, "min_i_interval", min_i_interval)
+        if num_ref_frames is not None:
+            pulumi.set(__self__, "num_ref_frames", num_ref_frames)
+        if par_control is not None:
+            pulumi.set(__self__, "par_control", par_control)
+        if par_denominator is not None:
+            pulumi.set(__self__, "par_denominator", par_denominator)
+        if par_numerator is not None:
+            pulumi.set(__self__, "par_numerator", par_numerator)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if quality_level is not None:
+            pulumi.set(__self__, "quality_level", quality_level)
+        if qvbr_quality_level is not None:
+            pulumi.set(__self__, "qvbr_quality_level", qvbr_quality_level)
+        if rate_control_mode is not None:
+            pulumi.set(__self__, "rate_control_mode", rate_control_mode)
+        if scan_type is not None:
+            pulumi.set(__self__, "scan_type", scan_type)
+        if scene_change_detect is not None:
+            pulumi.set(__self__, "scene_change_detect", scene_change_detect)
+        if slices is not None:
+            pulumi.set(__self__, "slices", slices)
+        if softness is not None:
+            pulumi.set(__self__, "softness", softness)
+        if spatial_aq is not None:
+            pulumi.set(__self__, "spatial_aq", spatial_aq)
+        if subgop_length is not None:
+            pulumi.set(__self__, "subgop_length", subgop_length)
+        if syntax is not None:
+            pulumi.set(__self__, "syntax", syntax)
+        if temporal_aq is not None:
+            pulumi.set(__self__, "temporal_aq", temporal_aq)
+        if timecode_insertion is not None:
+            pulumi.set(__self__, "timecode_insertion", timecode_insertion)
+
+    @property
+    @pulumi.getter(name="adaptiveQuantization")
+    def adaptive_quantization(self) -> Optional[str]:
+        """
+        Enables or disables adaptive quantization.
+        """
+        return pulumi.get(self, "adaptive_quantization")
+
+    @property
+    @pulumi.getter(name="afdSignaling")
+    def afd_signaling(self) -> Optional[str]:
+        """
+        Indicates that AFD values will be written into the output stream.
+        """
+        return pulumi.get(self, "afd_signaling")
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[int]:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="bufFillPct")
+    def buf_fill_pct(self) -> Optional[int]:
+        return pulumi.get(self, "buf_fill_pct")
+
+    @property
+    @pulumi.getter(name="bufSize")
+    def buf_size(self) -> Optional[int]:
+        """
+        Size of buffer in bits.
+        """
+        return pulumi.get(self, "buf_size")
+
+    @property
+    @pulumi.getter(name="colorMetadata")
+    def color_metadata(self) -> Optional[str]:
+        """
+        Includes color space metadata in the output.
+        """
+        return pulumi.get(self, "color_metadata")
+
+    @property
+    @pulumi.getter(name="entropyEncoding")
+    def entropy_encoding(self) -> Optional[str]:
+        """
+        Entropy encoding mode.
+        """
+        return pulumi.get(self, "entropy_encoding")
+
+    @property
+    @pulumi.getter(name="filterSettings")
+    def filter_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings']:
+        """
+        Filters to apply to an encode. See H264 Filter Settings for more details.
+        """
+        return pulumi.get(self, "filter_settings")
+
+    @property
+    @pulumi.getter(name="fixedAfd")
+    def fixed_afd(self) -> Optional[str]:
+        """
+        Four bit AFD value to write on all frames of video in the output stream.
+        """
+        return pulumi.get(self, "fixed_afd")
+
+    @property
+    @pulumi.getter(name="flickerAq")
+    def flicker_aq(self) -> Optional[str]:
+        return pulumi.get(self, "flicker_aq")
+
+    @property
+    @pulumi.getter(name="forceFieldPictures")
+    def force_field_pictures(self) -> Optional[str]:
+        """
+        Controls whether coding is performed on a field basis or on a frame basis.
+        """
+        return pulumi.get(self, "force_field_pictures")
+
+    @property
+    @pulumi.getter(name="framerateControl")
+    def framerate_control(self) -> Optional[str]:
+        """
+        Indicates how the output video frame rate is specified.
+        """
+        return pulumi.get(self, "framerate_control")
+
+    @property
+    @pulumi.getter(name="framerateDenominator")
+    def framerate_denominator(self) -> Optional[int]:
+        """
+        Framerate denominator.
+        """
+        return pulumi.get(self, "framerate_denominator")
+
+    @property
+    @pulumi.getter(name="framerateNumerator")
+    def framerate_numerator(self) -> Optional[int]:
+        """
+        Framerate numerator.
+        """
+        return pulumi.get(self, "framerate_numerator")
+
+    @property
+    @pulumi.getter(name="gopBReference")
+    def gop_b_reference(self) -> Optional[str]:
+        """
+        GOP-B reference.
+        """
+        return pulumi.get(self, "gop_b_reference")
+
+    @property
+    @pulumi.getter(name="gopClosedCadence")
+    def gop_closed_cadence(self) -> Optional[int]:
+        """
+        Frequency of closed GOPs.
+        """
+        return pulumi.get(self, "gop_closed_cadence")
+
+    @property
+    @pulumi.getter(name="gopNumBFrames")
+    def gop_num_b_frames(self) -> Optional[int]:
+        """
+        Number of B-frames between reference frames.
+        """
+        return pulumi.get(self, "gop_num_b_frames")
+
+    @property
+    @pulumi.getter(name="gopSize")
+    def gop_size(self) -> Optional[float]:
+        """
+        GOP size in units of either frames of seconds per `gop_size_units`.
+        """
+        return pulumi.get(self, "gop_size")
+
+    @property
+    @pulumi.getter(name="gopSizeUnits")
+    def gop_size_units(self) -> Optional[str]:
+        """
+        Indicates if the `gop_size` is specified in frames or seconds.
+        """
+        return pulumi.get(self, "gop_size_units")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        H264 level.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter(name="lookAheadRateControl")
+    def look_ahead_rate_control(self) -> Optional[str]:
+        """
+        Amount of lookahead.
+        """
+        return pulumi.get(self, "look_ahead_rate_control")
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> Optional[int]:
+        """
+        Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+    @property
+    @pulumi.getter(name="minIInterval")
+    def min_i_interval(self) -> Optional[int]:
+        return pulumi.get(self, "min_i_interval")
+
+    @property
+    @pulumi.getter(name="numRefFrames")
+    def num_ref_frames(self) -> Optional[int]:
+        """
+        Number of reference frames to use.
+        """
+        return pulumi.get(self, "num_ref_frames")
+
+    @property
+    @pulumi.getter(name="parControl")
+    def par_control(self) -> Optional[str]:
+        """
+        Indicates how the output pixel aspect ratio is specified.
+        """
+        return pulumi.get(self, "par_control")
+
+    @property
+    @pulumi.getter(name="parDenominator")
+    def par_denominator(self) -> Optional[int]:
+        """
+        Pixel Aspect Ratio denominator.
+        """
+        return pulumi.get(self, "par_denominator")
+
+    @property
+    @pulumi.getter(name="parNumerator")
+    def par_numerator(self) -> Optional[int]:
+        """
+        Pixel Aspect Ratio numerator.
+        """
+        return pulumi.get(self, "par_numerator")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[str]:
+        """
+        AAC profile.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="qualityLevel")
+    def quality_level(self) -> Optional[str]:
+        """
+        Quality level.
+        """
+        return pulumi.get(self, "quality_level")
+
+    @property
+    @pulumi.getter(name="qvbrQualityLevel")
+    def qvbr_quality_level(self) -> Optional[int]:
+        """
+        Controls the target quality for the video encode.
+        """
+        return pulumi.get(self, "qvbr_quality_level")
+
+    @property
+    @pulumi.getter(name="rateControlMode")
+    def rate_control_mode(self) -> Optional[str]:
+        """
+        The rate control mode.
+        """
+        return pulumi.get(self, "rate_control_mode")
+
+    @property
+    @pulumi.getter(name="scanType")
+    def scan_type(self) -> Optional[str]:
+        """
+        Sets the scan type of the output.
+        """
+        return pulumi.get(self, "scan_type")
+
+    @property
+    @pulumi.getter(name="sceneChangeDetect")
+    def scene_change_detect(self) -> Optional[str]:
+        """
+        Scene change detection.
+        """
+        return pulumi.get(self, "scene_change_detect")
+
+    @property
+    @pulumi.getter
+    def slices(self) -> Optional[int]:
+        """
+        Number of slices per picture.
+        """
+        return pulumi.get(self, "slices")
+
+    @property
+    @pulumi.getter
+    def softness(self) -> Optional[int]:
+        """
+        Softness.
+        """
+        return pulumi.get(self, "softness")
+
+    @property
+    @pulumi.getter(name="spatialAq")
+    def spatial_aq(self) -> Optional[str]:
+        """
+        Makes adjustments within each frame based on spatial variation of content complexity.
+        """
+        return pulumi.get(self, "spatial_aq")
+
+    @property
+    @pulumi.getter(name="subgopLength")
+    def subgop_length(self) -> Optional[str]:
+        """
+        Subgop length.
+        """
+        return pulumi.get(self, "subgop_length")
+
+    @property
+    @pulumi.getter
+    def syntax(self) -> Optional[str]:
+        """
+        Produces a bitstream compliant with SMPTE RP-2027.
+        """
+        return pulumi.get(self, "syntax")
+
+    @property
+    @pulumi.getter(name="temporalAq")
+    def temporal_aq(self) -> Optional[str]:
+        """
+        Makes adjustments within each frame based on temporal variation of content complexity.
+        """
+        return pulumi.get(self, "temporal_aq")
+
+    @property
+    @pulumi.getter(name="timecodeInsertion")
+    def timecode_insertion(self) -> Optional[str]:
+        """
+        Determines how timecodes should be inserted into the video elementary stream.
+        """
+        return pulumi.get(self, "timecode_insertion")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "temporalFilterSettings":
+            suggest = "temporal_filter_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 temporal_filter_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings'] = None):
+        """
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs' temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
+        """
+        if temporal_filter_settings is not None:
+            pulumi.set(__self__, "temporal_filter_settings", temporal_filter_settings)
+
+    @property
+    @pulumi.getter(name="temporalFilterSettings")
+    def temporal_filter_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings']:
+        """
+        Temporal filter settings. See Temporal Filter Settings
+        """
+        return pulumi.get(self, "temporal_filter_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postFilterSharpening":
+            suggest = "post_filter_sharpening"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 post_filter_sharpening: Optional[str] = None,
+                 strength: Optional[str] = None):
+        """
+        :param str post_filter_sharpening: Post filter sharpening.
+        :param str strength: Filter strength.
+        """
+        if post_filter_sharpening is not None:
+            pulumi.set(__self__, "post_filter_sharpening", post_filter_sharpening)
+        if strength is not None:
+            pulumi.set(__self__, "strength", strength)
+
+    @property
+    @pulumi.getter(name="postFilterSharpening")
+    def post_filter_sharpening(self) -> Optional[str]:
+        """
+        Post filter sharpening.
+        """
+        return pulumi.get(self, "post_filter_sharpening")
+
+    @property
+    @pulumi.getter
+    def strength(self) -> Optional[str]:
+        """
+        Filter strength.
+        """
+        return pulumi.get(self, "strength")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "framerateDenominator":
+            suggest = "framerate_denominator"
+        elif key == "framerateNumerator":
+            suggest = "framerate_numerator"
+        elif key == "adaptiveQuantization":
+            suggest = "adaptive_quantization"
+        elif key == "afdSignaling":
+            suggest = "afd_signaling"
+        elif key == "alternativeTransferFunction":
+            suggest = "alternative_transfer_function"
+        elif key == "bufSize":
+            suggest = "buf_size"
+        elif key == "colorMetadata":
+            suggest = "color_metadata"
+        elif key == "colorSpaceSettings":
+            suggest = "color_space_settings"
+        elif key == "filterSettings":
+            suggest = "filter_settings"
+        elif key == "fixedAfd":
+            suggest = "fixed_afd"
+        elif key == "flickerAq":
+            suggest = "flicker_aq"
+        elif key == "gopClosedCadence":
+            suggest = "gop_closed_cadence"
+        elif key == "gopSize":
+            suggest = "gop_size"
+        elif key == "gopSizeUnits":
+            suggest = "gop_size_units"
+        elif key == "lookAheadRateControl":
+            suggest = "look_ahead_rate_control"
+        elif key == "maxBitrate":
+            suggest = "max_bitrate"
+        elif key == "minIInterval":
+            suggest = "min_i_interval"
+        elif key == "parDenominator":
+            suggest = "par_denominator"
+        elif key == "parNumerator":
+            suggest = "par_numerator"
+        elif key == "qvbrQualityLevel":
+            suggest = "qvbr_quality_level"
+        elif key == "rateControlMode":
+            suggest = "rate_control_mode"
+        elif key == "scanType":
+            suggest = "scan_type"
+        elif key == "sceneChangeDetect":
+            suggest = "scene_change_detect"
+        elif key == "timecodeBurninSettings":
+            suggest = "timecode_burnin_settings"
+        elif key == "timecodeInsertion":
+            suggest = "timecode_insertion"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bitrate: int,
+                 framerate_denominator: int,
+                 framerate_numerator: int,
+                 adaptive_quantization: Optional[str] = None,
+                 afd_signaling: Optional[str] = None,
+                 alternative_transfer_function: Optional[str] = None,
+                 buf_size: Optional[int] = None,
+                 color_metadata: Optional[str] = None,
+                 color_space_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings'] = None,
+                 filter_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings'] = None,
+                 fixed_afd: Optional[str] = None,
+                 flicker_aq: Optional[str] = None,
+                 gop_closed_cadence: Optional[int] = None,
+                 gop_size: Optional[float] = None,
+                 gop_size_units: Optional[str] = None,
+                 level: Optional[str] = None,
+                 look_ahead_rate_control: Optional[str] = None,
+                 max_bitrate: Optional[int] = None,
+                 min_i_interval: Optional[int] = None,
+                 par_denominator: Optional[int] = None,
+                 par_numerator: Optional[int] = None,
+                 profile: Optional[str] = None,
+                 qvbr_quality_level: Optional[int] = None,
+                 rate_control_mode: Optional[str] = None,
+                 scan_type: Optional[str] = None,
+                 scene_change_detect: Optional[str] = None,
+                 slices: Optional[int] = None,
+                 tier: Optional[str] = None,
+                 timecode_burnin_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings'] = None,
+                 timecode_insertion: Optional[str] = None):
+        """
+        :param int bitrate: Average bitrate in bits/second.
+        :param int framerate_denominator: Framerate denominator.
+        :param int framerate_numerator: Framerate numerator.
+        :param str adaptive_quantization: Enables or disables adaptive quantization.
+        :param str afd_signaling: Indicates that AFD values will be written into the output stream.
+        :param str alternative_transfer_function: Whether or not EML should insert an Alternative Transfer Function SEI message.
+        :param int buf_size: Size of buffer in bits.
+        :param str color_metadata: Includes color space metadata in the output.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs' color_space_settings: Define the color metadata for the output. H265 Color Space Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs' filter_settings: Filters to apply to an encode. See H264 Filter Settings for more details.
+        :param str fixed_afd: Four bit AFD value to write on all frames of video in the output stream.
+        :param int gop_closed_cadence: Frequency of closed GOPs.
+        :param float gop_size: GOP size in units of either frames of seconds per `gop_size_units`.
+        :param str gop_size_units: Indicates if the `gop_size` is specified in frames or seconds.
+        :param str level: H264 level.
+        :param str look_ahead_rate_control: Amount of lookahead.
+        :param int max_bitrate: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        :param int par_denominator: Pixel Aspect Ratio denominator.
+        :param int par_numerator: Pixel Aspect Ratio numerator.
+        :param str profile: AAC profile.
+        :param int qvbr_quality_level: Controls the target quality for the video encode.
+        :param str rate_control_mode: The rate control mode.
+        :param str scan_type: Sets the scan type of the output.
+        :param str scene_change_detect: Scene change detection.
+        :param int slices: Number of slices per picture.
+        :param str tier: Set the H265 tier in the output.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs' timecode_burnin_settings: Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+        :param str timecode_insertion: Determines how timecodes should be inserted into the video elementary stream.
+        """
+        pulumi.set(__self__, "bitrate", bitrate)
+        pulumi.set(__self__, "framerate_denominator", framerate_denominator)
+        pulumi.set(__self__, "framerate_numerator", framerate_numerator)
+        if adaptive_quantization is not None:
+            pulumi.set(__self__, "adaptive_quantization", adaptive_quantization)
+        if afd_signaling is not None:
+            pulumi.set(__self__, "afd_signaling", afd_signaling)
+        if alternative_transfer_function is not None:
+            pulumi.set(__self__, "alternative_transfer_function", alternative_transfer_function)
+        if buf_size is not None:
+            pulumi.set(__self__, "buf_size", buf_size)
+        if color_metadata is not None:
+            pulumi.set(__self__, "color_metadata", color_metadata)
+        if color_space_settings is not None:
+            pulumi.set(__self__, "color_space_settings", color_space_settings)
+        if filter_settings is not None:
+            pulumi.set(__self__, "filter_settings", filter_settings)
+        if fixed_afd is not None:
+            pulumi.set(__self__, "fixed_afd", fixed_afd)
+        if flicker_aq is not None:
+            pulumi.set(__self__, "flicker_aq", flicker_aq)
+        if gop_closed_cadence is not None:
+            pulumi.set(__self__, "gop_closed_cadence", gop_closed_cadence)
+        if gop_size is not None:
+            pulumi.set(__self__, "gop_size", gop_size)
+        if gop_size_units is not None:
+            pulumi.set(__self__, "gop_size_units", gop_size_units)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if look_ahead_rate_control is not None:
+            pulumi.set(__self__, "look_ahead_rate_control", look_ahead_rate_control)
+        if max_bitrate is not None:
+            pulumi.set(__self__, "max_bitrate", max_bitrate)
+        if min_i_interval is not None:
+            pulumi.set(__self__, "min_i_interval", min_i_interval)
+        if par_denominator is not None:
+            pulumi.set(__self__, "par_denominator", par_denominator)
+        if par_numerator is not None:
+            pulumi.set(__self__, "par_numerator", par_numerator)
+        if profile is not None:
+            pulumi.set(__self__, "profile", profile)
+        if qvbr_quality_level is not None:
+            pulumi.set(__self__, "qvbr_quality_level", qvbr_quality_level)
+        if rate_control_mode is not None:
+            pulumi.set(__self__, "rate_control_mode", rate_control_mode)
+        if scan_type is not None:
+            pulumi.set(__self__, "scan_type", scan_type)
+        if scene_change_detect is not None:
+            pulumi.set(__self__, "scene_change_detect", scene_change_detect)
+        if slices is not None:
+            pulumi.set(__self__, "slices", slices)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+        if timecode_burnin_settings is not None:
+            pulumi.set(__self__, "timecode_burnin_settings", timecode_burnin_settings)
+        if timecode_insertion is not None:
+            pulumi.set(__self__, "timecode_insertion", timecode_insertion)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> int:
+        """
+        Average bitrate in bits/second.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @property
+    @pulumi.getter(name="framerateDenominator")
+    def framerate_denominator(self) -> int:
+        """
+        Framerate denominator.
+        """
+        return pulumi.get(self, "framerate_denominator")
+
+    @property
+    @pulumi.getter(name="framerateNumerator")
+    def framerate_numerator(self) -> int:
+        """
+        Framerate numerator.
+        """
+        return pulumi.get(self, "framerate_numerator")
+
+    @property
+    @pulumi.getter(name="adaptiveQuantization")
+    def adaptive_quantization(self) -> Optional[str]:
+        """
+        Enables or disables adaptive quantization.
+        """
+        return pulumi.get(self, "adaptive_quantization")
+
+    @property
+    @pulumi.getter(name="afdSignaling")
+    def afd_signaling(self) -> Optional[str]:
+        """
+        Indicates that AFD values will be written into the output stream.
+        """
+        return pulumi.get(self, "afd_signaling")
+
+    @property
+    @pulumi.getter(name="alternativeTransferFunction")
+    def alternative_transfer_function(self) -> Optional[str]:
+        """
+        Whether or not EML should insert an Alternative Transfer Function SEI message.
+        """
+        return pulumi.get(self, "alternative_transfer_function")
+
+    @property
+    @pulumi.getter(name="bufSize")
+    def buf_size(self) -> Optional[int]:
+        """
+        Size of buffer in bits.
+        """
+        return pulumi.get(self, "buf_size")
+
+    @property
+    @pulumi.getter(name="colorMetadata")
+    def color_metadata(self) -> Optional[str]:
+        """
+        Includes color space metadata in the output.
+        """
+        return pulumi.get(self, "color_metadata")
+
+    @property
+    @pulumi.getter(name="colorSpaceSettings")
+    def color_space_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings']:
+        """
+        Define the color metadata for the output. H265 Color Space Settings for more details.
+        """
+        return pulumi.get(self, "color_space_settings")
+
+    @property
+    @pulumi.getter(name="filterSettings")
+    def filter_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings']:
+        """
+        Filters to apply to an encode. See H264 Filter Settings for more details.
+        """
+        return pulumi.get(self, "filter_settings")
+
+    @property
+    @pulumi.getter(name="fixedAfd")
+    def fixed_afd(self) -> Optional[str]:
+        """
+        Four bit AFD value to write on all frames of video in the output stream.
+        """
+        return pulumi.get(self, "fixed_afd")
+
+    @property
+    @pulumi.getter(name="flickerAq")
+    def flicker_aq(self) -> Optional[str]:
+        return pulumi.get(self, "flicker_aq")
+
+    @property
+    @pulumi.getter(name="gopClosedCadence")
+    def gop_closed_cadence(self) -> Optional[int]:
+        """
+        Frequency of closed GOPs.
+        """
+        return pulumi.get(self, "gop_closed_cadence")
+
+    @property
+    @pulumi.getter(name="gopSize")
+    def gop_size(self) -> Optional[float]:
+        """
+        GOP size in units of either frames of seconds per `gop_size_units`.
+        """
+        return pulumi.get(self, "gop_size")
+
+    @property
+    @pulumi.getter(name="gopSizeUnits")
+    def gop_size_units(self) -> Optional[str]:
+        """
+        Indicates if the `gop_size` is specified in frames or seconds.
+        """
+        return pulumi.get(self, "gop_size_units")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        H264 level.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter(name="lookAheadRateControl")
+    def look_ahead_rate_control(self) -> Optional[str]:
+        """
+        Amount of lookahead.
+        """
+        return pulumi.get(self, "look_ahead_rate_control")
+
+    @property
+    @pulumi.getter(name="maxBitrate")
+    def max_bitrate(self) -> Optional[int]:
+        """
+        Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
+        """
+        return pulumi.get(self, "max_bitrate")
+
+    @property
+    @pulumi.getter(name="minIInterval")
+    def min_i_interval(self) -> Optional[int]:
+        return pulumi.get(self, "min_i_interval")
+
+    @property
+    @pulumi.getter(name="parDenominator")
+    def par_denominator(self) -> Optional[int]:
+        """
+        Pixel Aspect Ratio denominator.
+        """
+        return pulumi.get(self, "par_denominator")
+
+    @property
+    @pulumi.getter(name="parNumerator")
+    def par_numerator(self) -> Optional[int]:
+        """
+        Pixel Aspect Ratio numerator.
+        """
+        return pulumi.get(self, "par_numerator")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> Optional[str]:
+        """
+        AAC profile.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="qvbrQualityLevel")
+    def qvbr_quality_level(self) -> Optional[int]:
+        """
+        Controls the target quality for the video encode.
+        """
+        return pulumi.get(self, "qvbr_quality_level")
+
+    @property
+    @pulumi.getter(name="rateControlMode")
+    def rate_control_mode(self) -> Optional[str]:
+        """
+        The rate control mode.
+        """
+        return pulumi.get(self, "rate_control_mode")
+
+    @property
+    @pulumi.getter(name="scanType")
+    def scan_type(self) -> Optional[str]:
+        """
+        Sets the scan type of the output.
+        """
+        return pulumi.get(self, "scan_type")
+
+    @property
+    @pulumi.getter(name="sceneChangeDetect")
+    def scene_change_detect(self) -> Optional[str]:
+        """
+        Scene change detection.
+        """
+        return pulumi.get(self, "scene_change_detect")
+
+    @property
+    @pulumi.getter
+    def slices(self) -> Optional[int]:
+        """
+        Number of slices per picture.
+        """
+        return pulumi.get(self, "slices")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        Set the H265 tier in the output.
+        """
+        return pulumi.get(self, "tier")
+
+    @property
+    @pulumi.getter(name="timecodeBurninSettings")
+    def timecode_burnin_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings']:
+        """
+        Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+        """
+        return pulumi.get(self, "timecode_burnin_settings")
+
+    @property
+    @pulumi.getter(name="timecodeInsertion")
+    def timecode_insertion(self) -> Optional[str]:
+        """
+        Determines how timecodes should be inserted into the video elementary stream.
+        """
+        return pulumi.get(self, "timecode_insertion")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colorSpacePassthroughSettings":
+            suggest = "color_space_passthrough_settings"
+        elif key == "dolbyVision81Settings":
+            suggest = "dolby_vision81_settings"
+        elif key == "hdr10Settings":
+            suggest = "hdr10_settings"
+        elif key == "rec601Settings":
+            suggest = "rec601_settings"
+        elif key == "rec709Settings":
+            suggest = "rec709_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color_space_passthrough_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings'] = None,
+                 dolby_vision81_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings'] = None,
+                 hdr10_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings'] = None,
+                 rec601_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings'] = None,
+                 rec709_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings'] = None):
+        """
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs' color_space_passthrough_settings: Sets the colorspace metadata to be passed through.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs' dolby_vision81_settings: Set the colorspace to Dolby Vision81.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs' hdr10_settings: Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs' rec601_settings: Set the colorspace to Rec. 601.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs' rec709_settings: Set the colorspace to Rec. 709.
+        """
+        if color_space_passthrough_settings is not None:
+            pulumi.set(__self__, "color_space_passthrough_settings", color_space_passthrough_settings)
+        if dolby_vision81_settings is not None:
+            pulumi.set(__self__, "dolby_vision81_settings", dolby_vision81_settings)
+        if hdr10_settings is not None:
+            pulumi.set(__self__, "hdr10_settings", hdr10_settings)
+        if rec601_settings is not None:
+            pulumi.set(__self__, "rec601_settings", rec601_settings)
+        if rec709_settings is not None:
+            pulumi.set(__self__, "rec709_settings", rec709_settings)
+
+    @property
+    @pulumi.getter(name="colorSpacePassthroughSettings")
+    def color_space_passthrough_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings']:
+        """
+        Sets the colorspace metadata to be passed through.
+        """
+        return pulumi.get(self, "color_space_passthrough_settings")
+
+    @property
+    @pulumi.getter(name="dolbyVision81Settings")
+    def dolby_vision81_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings']:
+        """
+        Set the colorspace to Dolby Vision81.
+        """
+        return pulumi.get(self, "dolby_vision81_settings")
+
+    @property
+    @pulumi.getter(name="hdr10Settings")
+    def hdr10_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings']:
+        """
+        Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+        """
+        return pulumi.get(self, "hdr10_settings")
+
+    @property
+    @pulumi.getter(name="rec601Settings")
+    def rec601_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings']:
+        """
+        Set the colorspace to Rec. 601.
+        """
+        return pulumi.get(self, "rec601_settings")
+
+    @property
+    @pulumi.getter(name="rec709Settings")
+    def rec709_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings']:
+        """
+        Set the colorspace to Rec. 709.
+        """
+        return pulumi.get(self, "rec709_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCll":
+            suggest = "max_cll"
+        elif key == "maxFall":
+            suggest = "max_fall"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_cll: Optional[int] = None,
+                 max_fall: Optional[int] = None):
+        """
+        :param int max_cll: Sets the MaxCLL value for HDR10.
+        :param int max_fall: Sets the MaxFALL value for HDR10.
+        """
+        if max_cll is not None:
+            pulumi.set(__self__, "max_cll", max_cll)
+        if max_fall is not None:
+            pulumi.set(__self__, "max_fall", max_fall)
+
+    @property
+    @pulumi.getter(name="maxCll")
+    def max_cll(self) -> Optional[int]:
+        """
+        Sets the MaxCLL value for HDR10.
+        """
+        return pulumi.get(self, "max_cll")
+
+    @property
+    @pulumi.getter(name="maxFall")
+    def max_fall(self) -> Optional[int]:
+        """
+        Sets the MaxFALL value for HDR10.
+        """
+        return pulumi.get(self, "max_fall")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "temporalFilterSettings":
+            suggest = "temporal_filter_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 temporal_filter_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings'] = None):
+        """
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs' temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
+        """
+        if temporal_filter_settings is not None:
+            pulumi.set(__self__, "temporal_filter_settings", temporal_filter_settings)
+
+    @property
+    @pulumi.getter(name="temporalFilterSettings")
+    def temporal_filter_settings(self) -> Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings']:
+        """
+        Temporal filter settings. See Temporal Filter Settings
+        """
+        return pulumi.get(self, "temporal_filter_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postFilterSharpening":
+            suggest = "post_filter_sharpening"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 post_filter_sharpening: Optional[str] = None,
+                 strength: Optional[str] = None):
+        """
+        :param str post_filter_sharpening: Post filter sharpening.
+        :param str strength: Filter strength.
+        """
+        if post_filter_sharpening is not None:
+            pulumi.set(__self__, "post_filter_sharpening", post_filter_sharpening)
+        if strength is not None:
+            pulumi.set(__self__, "strength", strength)
+
+    @property
+    @pulumi.getter(name="postFilterSharpening")
+    def post_filter_sharpening(self) -> Optional[str]:
+        """
+        Post filter sharpening.
+        """
+        return pulumi.get(self, "post_filter_sharpening")
+
+    @property
+    @pulumi.getter
+    def strength(self) -> Optional[str]:
+        """
+        Filter strength.
+        """
+        return pulumi.get(self, "strength")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timecodeBurninFontSize":
+            suggest = "timecode_burnin_font_size"
+        elif key == "timecodeBurninPosition":
+            suggest = "timecode_burnin_position"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix: Optional[str] = None,
+                 timecode_burnin_font_size: Optional[str] = None,
+                 timecode_burnin_position: Optional[str] = None):
+        """
+        :param str prefix: Set a prefix on the burned in timecode.
+        :param str timecode_burnin_font_size: Sets the size of the burned in timecode.
+        :param str timecode_burnin_position: Sets the position of the burned in timecode.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if timecode_burnin_font_size is not None:
+            pulumi.set(__self__, "timecode_burnin_font_size", timecode_burnin_font_size)
+        if timecode_burnin_position is not None:
+            pulumi.set(__self__, "timecode_burnin_position", timecode_burnin_position)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        Set a prefix on the burned in timecode.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter(name="timecodeBurninFontSize")
+    def timecode_burnin_font_size(self) -> Optional[str]:
+        """
+        Sets the size of the burned in timecode.
+        """
+        return pulumi.get(self, "timecode_burnin_font_size")
+
+    @property
+    @pulumi.getter(name="timecodeBurninPosition")
+    def timecode_burnin_position(self) -> Optional[str]:
+        """
+        Sets the position of the burned in timecode.
+        """
+        return pulumi.get(self, "timecode_burnin_position")
+
+
+@pulumi.output_type
+class ChannelInputAttachment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputAttachmentName":
+            suggest = "input_attachment_name"
+        elif key == "inputId":
+            suggest = "input_id"
+        elif key == "automaticInputFailoverSettings":
+            suggest = "automatic_input_failover_settings"
+        elif key == "inputSettings":
+            suggest = "input_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_attachment_name: str,
+                 input_id: str,
+                 automatic_input_failover_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettings'] = None,
+                 input_settings: Optional['outputs.ChannelInputAttachmentInputSettings'] = None):
+        """
+        :param str input_attachment_name: User-specified name for the attachment.
+        :param str input_id: The ID of the input.
+        :param 'ChannelInputAttachmentInputSettingsArgs' input_settings: Settings of an input. See Input Settings for more details
+        """
+        pulumi.set(__self__, "input_attachment_name", input_attachment_name)
+        pulumi.set(__self__, "input_id", input_id)
+        if automatic_input_failover_settings is not None:
+            pulumi.set(__self__, "automatic_input_failover_settings", automatic_input_failover_settings)
+        if input_settings is not None:
+            pulumi.set(__self__, "input_settings", input_settings)
+
+    @property
+    @pulumi.getter(name="inputAttachmentName")
+    def input_attachment_name(self) -> str:
+        """
+        User-specified name for the attachment.
+        """
+        return pulumi.get(self, "input_attachment_name")
+
+    @property
+    @pulumi.getter(name="inputId")
+    def input_id(self) -> str:
+        """
+        The ID of the input.
+        """
+        return pulumi.get(self, "input_id")
+
+    @property
+    @pulumi.getter(name="automaticInputFailoverSettings")
+    def automatic_input_failover_settings(self) -> Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettings']:
+        return pulumi.get(self, "automatic_input_failover_settings")
+
+    @property
+    @pulumi.getter(name="inputSettings")
+    def input_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettings']:
+        """
+        Settings of an input. See Input Settings for more details
+        """
+        return pulumi.get(self, "input_settings")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentAutomaticInputFailoverSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secondaryInputId":
+            suggest = "secondary_input_id"
+        elif key == "errorClearTimeMsec":
+            suggest = "error_clear_time_msec"
+        elif key == "failoverConditions":
+            suggest = "failover_conditions"
+        elif key == "inputPreference":
+            suggest = "input_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentAutomaticInputFailoverSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secondary_input_id: str,
+                 error_clear_time_msec: Optional[int] = None,
+                 failover_conditions: Optional[Sequence['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition']] = None,
+                 input_preference: Optional[str] = None):
+        pulumi.set(__self__, "secondary_input_id", secondary_input_id)
+        if error_clear_time_msec is not None:
+            pulumi.set(__self__, "error_clear_time_msec", error_clear_time_msec)
+        if failover_conditions is not None:
+            pulumi.set(__self__, "failover_conditions", failover_conditions)
+        if input_preference is not None:
+            pulumi.set(__self__, "input_preference", input_preference)
+
+    @property
+    @pulumi.getter(name="secondaryInputId")
+    def secondary_input_id(self) -> str:
+        return pulumi.get(self, "secondary_input_id")
+
+    @property
+    @pulumi.getter(name="errorClearTimeMsec")
+    def error_clear_time_msec(self) -> Optional[int]:
+        return pulumi.get(self, "error_clear_time_msec")
+
+    @property
+    @pulumi.getter(name="failoverConditions")
+    def failover_conditions(self) -> Optional[Sequence['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition']]:
+        return pulumi.get(self, "failover_conditions")
+
+    @property
+    @pulumi.getter(name="inputPreference")
+    def input_preference(self) -> Optional[str]:
+        return pulumi.get(self, "input_preference")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failoverConditionSettings":
+            suggest = "failover_condition_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failover_condition_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings'] = None):
+        if failover_condition_settings is not None:
+            pulumi.set(__self__, "failover_condition_settings", failover_condition_settings)
+
+    @property
+    @pulumi.getter(name="failoverConditionSettings")
+    def failover_condition_settings(self) -> Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings']:
+        return pulumi.get(self, "failover_condition_settings")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioSilenceSettings":
+            suggest = "audio_silence_settings"
+        elif key == "inputLossSettings":
+            suggest = "input_loss_settings"
+        elif key == "videoBlackSettings":
+            suggest = "video_black_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_silence_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings'] = None,
+                 input_loss_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings'] = None,
+                 video_black_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings'] = None):
+        if audio_silence_settings is not None:
+            pulumi.set(__self__, "audio_silence_settings", audio_silence_settings)
+        if input_loss_settings is not None:
+            pulumi.set(__self__, "input_loss_settings", input_loss_settings)
+        if video_black_settings is not None:
+            pulumi.set(__self__, "video_black_settings", video_black_settings)
+
+    @property
+    @pulumi.getter(name="audioSilenceSettings")
+    def audio_silence_settings(self) -> Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings']:
+        return pulumi.get(self, "audio_silence_settings")
+
+    @property
+    @pulumi.getter(name="inputLossSettings")
+    def input_loss_settings(self) -> Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings']:
+        return pulumi.get(self, "input_loss_settings")
+
+    @property
+    @pulumi.getter(name="videoBlackSettings")
+    def video_black_settings(self) -> Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings']:
+        return pulumi.get(self, "video_black_settings")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioSelectorName":
+            suggest = "audio_selector_name"
+        elif key == "audioSilenceThresholdMsec":
+            suggest = "audio_silence_threshold_msec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_selector_name: str,
+                 audio_silence_threshold_msec: Optional[int] = None):
+        """
+        :param str audio_selector_name: The name of the audio selector used as the source for this AudioDescription.
+        """
+        pulumi.set(__self__, "audio_selector_name", audio_selector_name)
+        if audio_silence_threshold_msec is not None:
+            pulumi.set(__self__, "audio_silence_threshold_msec", audio_silence_threshold_msec)
+
+    @property
+    @pulumi.getter(name="audioSelectorName")
+    def audio_selector_name(self) -> str:
+        """
+        The name of the audio selector used as the source for this AudioDescription.
+        """
+        return pulumi.get(self, "audio_selector_name")
+
+    @property
+    @pulumi.getter(name="audioSilenceThresholdMsec")
+    def audio_silence_threshold_msec(self) -> Optional[int]:
+        return pulumi.get(self, "audio_silence_threshold_msec")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputLossThresholdMsec":
+            suggest = "input_loss_threshold_msec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_loss_threshold_msec: Optional[int] = None):
+        if input_loss_threshold_msec is not None:
+            pulumi.set(__self__, "input_loss_threshold_msec", input_loss_threshold_msec)
+
+    @property
+    @pulumi.getter(name="inputLossThresholdMsec")
+    def input_loss_threshold_msec(self) -> Optional[int]:
+        return pulumi.get(self, "input_loss_threshold_msec")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blackDetectThreshold":
+            suggest = "black_detect_threshold"
+        elif key == "videoBlackThresholdMsec":
+            suggest = "video_black_threshold_msec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 black_detect_threshold: Optional[float] = None,
+                 video_black_threshold_msec: Optional[int] = None):
+        if black_detect_threshold is not None:
+            pulumi.set(__self__, "black_detect_threshold", black_detect_threshold)
+        if video_black_threshold_msec is not None:
+            pulumi.set(__self__, "video_black_threshold_msec", video_black_threshold_msec)
+
+    @property
+    @pulumi.getter(name="blackDetectThreshold")
+    def black_detect_threshold(self) -> Optional[float]:
+        return pulumi.get(self, "black_detect_threshold")
+
+    @property
+    @pulumi.getter(name="videoBlackThresholdMsec")
+    def video_black_threshold_msec(self) -> Optional[int]:
+        return pulumi.get(self, "video_black_threshold_msec")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioSelectors":
+            suggest = "audio_selectors"
+        elif key == "captionSelectors":
+            suggest = "caption_selectors"
+        elif key == "deblockFilter":
+            suggest = "deblock_filter"
+        elif key == "denoiseFilter":
+            suggest = "denoise_filter"
+        elif key == "filterStrength":
+            suggest = "filter_strength"
+        elif key == "inputFilter":
+            suggest = "input_filter"
+        elif key == "networkInputSettings":
+            suggest = "network_input_settings"
+        elif key == "scte35Pid":
+            suggest = "scte35_pid"
+        elif key == "smpte2038DataPreference":
+            suggest = "smpte2038_data_preference"
+        elif key == "sourceEndBehavior":
+            suggest = "source_end_behavior"
+        elif key == "videoSelector":
+            suggest = "video_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_selectors: Optional[Sequence['outputs.ChannelInputAttachmentInputSettingsAudioSelector']] = None,
+                 caption_selectors: Optional[Sequence['outputs.ChannelInputAttachmentInputSettingsCaptionSelector']] = None,
+                 deblock_filter: Optional[str] = None,
+                 denoise_filter: Optional[str] = None,
+                 filter_strength: Optional[int] = None,
+                 input_filter: Optional[str] = None,
+                 network_input_settings: Optional['outputs.ChannelInputAttachmentInputSettingsNetworkInputSettings'] = None,
+                 scte35_pid: Optional[int] = None,
+                 smpte2038_data_preference: Optional[str] = None,
+                 source_end_behavior: Optional[str] = None,
+                 video_selector: Optional['outputs.ChannelInputAttachmentInputSettingsVideoSelector'] = None):
+        """
+        :param str deblock_filter: Enable or disable the deblock filter when filtering.
+        :param str denoise_filter: Enable or disable the denoise filter when filtering.
+        :param int filter_strength: Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+        :param str input_filter: Turns on the filter for the input.
+        :param 'ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs' network_input_settings: Input settings. See Network Input Settings for more details.
+        :param int scte35_pid: PID from which to read SCTE-35 messages.
+        :param str smpte2038_data_preference: Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+        :param str source_end_behavior: Loop input if it is a file.
+        """
+        if audio_selectors is not None:
+            pulumi.set(__self__, "audio_selectors", audio_selectors)
+        if caption_selectors is not None:
+            pulumi.set(__self__, "caption_selectors", caption_selectors)
+        if deblock_filter is not None:
+            pulumi.set(__self__, "deblock_filter", deblock_filter)
+        if denoise_filter is not None:
+            pulumi.set(__self__, "denoise_filter", denoise_filter)
+        if filter_strength is not None:
+            pulumi.set(__self__, "filter_strength", filter_strength)
+        if input_filter is not None:
+            pulumi.set(__self__, "input_filter", input_filter)
+        if network_input_settings is not None:
+            pulumi.set(__self__, "network_input_settings", network_input_settings)
+        if scte35_pid is not None:
+            pulumi.set(__self__, "scte35_pid", scte35_pid)
+        if smpte2038_data_preference is not None:
+            pulumi.set(__self__, "smpte2038_data_preference", smpte2038_data_preference)
+        if source_end_behavior is not None:
+            pulumi.set(__self__, "source_end_behavior", source_end_behavior)
+        if video_selector is not None:
+            pulumi.set(__self__, "video_selector", video_selector)
+
+    @property
+    @pulumi.getter(name="audioSelectors")
+    def audio_selectors(self) -> Optional[Sequence['outputs.ChannelInputAttachmentInputSettingsAudioSelector']]:
+        return pulumi.get(self, "audio_selectors")
+
+    @property
+    @pulumi.getter(name="captionSelectors")
+    def caption_selectors(self) -> Optional[Sequence['outputs.ChannelInputAttachmentInputSettingsCaptionSelector']]:
+        return pulumi.get(self, "caption_selectors")
+
+    @property
+    @pulumi.getter(name="deblockFilter")
+    def deblock_filter(self) -> Optional[str]:
+        """
+        Enable or disable the deblock filter when filtering.
+        """
+        return pulumi.get(self, "deblock_filter")
+
+    @property
+    @pulumi.getter(name="denoiseFilter")
+    def denoise_filter(self) -> Optional[str]:
+        """
+        Enable or disable the denoise filter when filtering.
+        """
+        return pulumi.get(self, "denoise_filter")
+
+    @property
+    @pulumi.getter(name="filterStrength")
+    def filter_strength(self) -> Optional[int]:
+        """
+        Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
+        """
+        return pulumi.get(self, "filter_strength")
+
+    @property
+    @pulumi.getter(name="inputFilter")
+    def input_filter(self) -> Optional[str]:
+        """
+        Turns on the filter for the input.
+        """
+        return pulumi.get(self, "input_filter")
+
+    @property
+    @pulumi.getter(name="networkInputSettings")
+    def network_input_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsNetworkInputSettings']:
+        """
+        Input settings. See Network Input Settings for more details.
+        """
+        return pulumi.get(self, "network_input_settings")
+
+    @property
+    @pulumi.getter(name="scte35Pid")
+    def scte35_pid(self) -> Optional[int]:
+        """
+        PID from which to read SCTE-35 messages.
+        """
+        return pulumi.get(self, "scte35_pid")
+
+    @property
+    @pulumi.getter(name="smpte2038DataPreference")
+    def smpte2038_data_preference(self) -> Optional[str]:
+        """
+        Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
+        """
+        return pulumi.get(self, "smpte2038_data_preference")
+
+    @property
+    @pulumi.getter(name="sourceEndBehavior")
+    def source_end_behavior(self) -> Optional[str]:
+        """
+        Loop input if it is a file.
+        """
+        return pulumi.get(self, "source_end_behavior")
+
+    @property
+    @pulumi.getter(name="videoSelector")
+    def video_selector(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsVideoSelector']:
+        return pulumi.get(self, "video_selector")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsAudioSelector(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selectorSettings":
+            suggest = "selector_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsAudioSelector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsAudioSelector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsAudioSelector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 selector_settings: Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings'] = None):
+        """
+        :param str name: Name of the Channel.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "name", name)
+        if selector_settings is not None:
+            pulumi.set(__self__, "selector_settings", selector_settings)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Channel.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="selectorSettings")
+    def selector_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings']:
+        return pulumi.get(self, "selector_settings")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "audioHlsRenditionSelection":
+            suggest = "audio_hls_rendition_selection"
+        elif key == "audioLanguageSelection":
+            suggest = "audio_language_selection"
+        elif key == "audioPidSelection":
+            suggest = "audio_pid_selection"
+        elif key == "audioTrackSelection":
+            suggest = "audio_track_selection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audio_hls_rendition_selection: Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection'] = None,
+                 audio_language_selection: Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection'] = None,
+                 audio_pid_selection: Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection'] = None,
+                 audio_track_selection: Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection'] = None):
+        if audio_hls_rendition_selection is not None:
+            pulumi.set(__self__, "audio_hls_rendition_selection", audio_hls_rendition_selection)
+        if audio_language_selection is not None:
+            pulumi.set(__self__, "audio_language_selection", audio_language_selection)
+        if audio_pid_selection is not None:
+            pulumi.set(__self__, "audio_pid_selection", audio_pid_selection)
+        if audio_track_selection is not None:
+            pulumi.set(__self__, "audio_track_selection", audio_track_selection)
+
+    @property
+    @pulumi.getter(name="audioHlsRenditionSelection")
+    def audio_hls_rendition_selection(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection']:
+        return pulumi.get(self, "audio_hls_rendition_selection")
+
+    @property
+    @pulumi.getter(name="audioLanguageSelection")
+    def audio_language_selection(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection']:
+        return pulumi.get(self, "audio_language_selection")
+
+    @property
+    @pulumi.getter(name="audioPidSelection")
+    def audio_pid_selection(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection']:
+        return pulumi.get(self, "audio_pid_selection")
+
+    @property
+    @pulumi.getter(name="audioTrackSelection")
+    def audio_track_selection(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection']:
+        return pulumi.get(self, "audio_track_selection")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: str,
+                 name: str):
+        """
+        :param str name: Name of the Channel.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Channel.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "languageCode":
+            suggest = "language_code"
+        elif key == "languageSelectionPolicy":
+            suggest = "language_selection_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 language_code: str,
+                 language_selection_policy: Optional[str] = None):
+        """
+        :param str language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
+        pulumi.set(__self__, "language_code", language_code)
+        if language_selection_policy is not None:
+            pulumi.set(__self__, "language_selection_policy", language_selection_policy)
+
+    @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> str:
+        """
+        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
+        return pulumi.get(self, "language_code")
+
+    @property
+    @pulumi.getter(name="languageSelectionPolicy")
+    def language_selection_policy(self) -> Optional[str]:
+        return pulumi.get(self, "language_selection_policy")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection(dict):
+    def __init__(__self__, *,
+                 pid: int):
+        pulumi.set(__self__, "pid", pid)
+
+    @property
+    @pulumi.getter
+    def pid(self) -> int:
+        return pulumi.get(self, "pid")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection(dict):
+    def __init__(__self__, *,
+                 tracks: Sequence['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack']):
+        pulumi.set(__self__, "tracks", tracks)
+
+    @property
+    @pulumi.getter
+    def tracks(self) -> Sequence['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack']:
+        return pulumi.get(self, "tracks")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack(dict):
+    def __init__(__self__, *,
+                 track: int):
+        pulumi.set(__self__, "track", track)
+
+    @property
+    @pulumi.getter
+    def track(self) -> int:
+        return pulumi.get(self, "track")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsCaptionSelector(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "languageCode":
+            suggest = "language_code"
+        elif key == "selectorSettings":
+            suggest = "selector_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsCaptionSelector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 language_code: Optional[str] = None,
+                 selector_settings: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings'] = None):
+        """
+        :param str name: Name of the Channel.
+               
+               The following arguments are optional:
+        :param str language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
+        pulumi.set(__self__, "name", name)
+        if language_code is not None:
+            pulumi.set(__self__, "language_code", language_code)
+        if selector_settings is not None:
+            pulumi.set(__self__, "selector_settings", selector_settings)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Channel.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> Optional[str]:
+        """
+        When specified this field indicates the three letter language code of the caption track to extract from the source.
+        """
+        return pulumi.get(self, "language_code")
+
+    @property
+    @pulumi.getter(name="selectorSettings")
+    def selector_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings']:
+        return pulumi.get(self, "selector_settings")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ancillarySourceSettings":
+            suggest = "ancillary_source_settings"
+        elif key == "dvbTdtSettings":
+            suggest = "dvb_tdt_settings"
+        elif key == "embeddedSourceSettings":
+            suggest = "embedded_source_settings"
+        elif key == "scte20SourceSettings":
+            suggest = "scte20_source_settings"
+        elif key == "scte27SourceSettings":
+            suggest = "scte27_source_settings"
+        elif key == "teletextSourceSettings":
+            suggest = "teletext_source_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ancillary_source_settings: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings'] = None,
+                 dvb_tdt_settings: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings'] = None,
+                 embedded_source_settings: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings'] = None,
+                 scte20_source_settings: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings'] = None,
+                 scte27_source_settings: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings'] = None,
+                 teletext_source_settings: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings'] = None):
+        if ancillary_source_settings is not None:
+            pulumi.set(__self__, "ancillary_source_settings", ancillary_source_settings)
+        if dvb_tdt_settings is not None:
+            pulumi.set(__self__, "dvb_tdt_settings", dvb_tdt_settings)
+        if embedded_source_settings is not None:
+            pulumi.set(__self__, "embedded_source_settings", embedded_source_settings)
+        if scte20_source_settings is not None:
+            pulumi.set(__self__, "scte20_source_settings", scte20_source_settings)
+        if scte27_source_settings is not None:
+            pulumi.set(__self__, "scte27_source_settings", scte27_source_settings)
+        if teletext_source_settings is not None:
+            pulumi.set(__self__, "teletext_source_settings", teletext_source_settings)
+
+    @property
+    @pulumi.getter(name="ancillarySourceSettings")
+    def ancillary_source_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings']:
+        return pulumi.get(self, "ancillary_source_settings")
+
+    @property
+    @pulumi.getter(name="dvbTdtSettings")
+    def dvb_tdt_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings']:
+        return pulumi.get(self, "dvb_tdt_settings")
+
+    @property
+    @pulumi.getter(name="embeddedSourceSettings")
+    def embedded_source_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings']:
+        return pulumi.get(self, "embedded_source_settings")
+
+    @property
+    @pulumi.getter(name="scte20SourceSettings")
+    def scte20_source_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings']:
+        return pulumi.get(self, "scte20_source_settings")
+
+    @property
+    @pulumi.getter(name="scte27SourceSettings")
+    def scte27_source_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings']:
+        return pulumi.get(self, "scte27_source_settings")
+
+    @property
+    @pulumi.getter(name="teletextSourceSettings")
+    def teletext_source_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings']:
+        return pulumi.get(self, "teletext_source_settings")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceAncillaryChannelNumber":
+            suggest = "source_ancillary_channel_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_ancillary_channel_number: Optional[int] = None):
+        if source_ancillary_channel_number is not None:
+            pulumi.set(__self__, "source_ancillary_channel_number", source_ancillary_channel_number)
+
+    @property
+    @pulumi.getter(name="sourceAncillaryChannelNumber")
+    def source_ancillary_channel_number(self) -> Optional[int]:
+        return pulumi.get(self, "source_ancillary_channel_number")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ocrLanguage":
+            suggest = "ocr_language"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ocr_language: Optional[str] = None,
+                 pid: Optional[int] = None):
+        if ocr_language is not None:
+            pulumi.set(__self__, "ocr_language", ocr_language)
+        if pid is not None:
+            pulumi.set(__self__, "pid", pid)
+
+    @property
+    @pulumi.getter(name="ocrLanguage")
+    def ocr_language(self) -> Optional[str]:
+        return pulumi.get(self, "ocr_language")
+
+    @property
+    @pulumi.getter
+    def pid(self) -> Optional[int]:
+        return pulumi.get(self, "pid")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "convert608To708":
+            suggest = "convert608_to708"
+        elif key == "scte20Detection":
+            suggest = "scte20_detection"
+        elif key == "source608ChannelNumber":
+            suggest = "source608_channel_number"
+        elif key == "source608TrackNumber":
+            suggest = "source608_track_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 convert608_to708: Optional[str] = None,
+                 scte20_detection: Optional[str] = None,
+                 source608_channel_number: Optional[int] = None,
+                 source608_track_number: Optional[int] = None):
+        if convert608_to708 is not None:
+            pulumi.set(__self__, "convert608_to708", convert608_to708)
+        if scte20_detection is not None:
+            pulumi.set(__self__, "scte20_detection", scte20_detection)
+        if source608_channel_number is not None:
+            pulumi.set(__self__, "source608_channel_number", source608_channel_number)
+        if source608_track_number is not None:
+            pulumi.set(__self__, "source608_track_number", source608_track_number)
+
+    @property
+    @pulumi.getter(name="convert608To708")
+    def convert608_to708(self) -> Optional[str]:
+        return pulumi.get(self, "convert608_to708")
+
+    @property
+    @pulumi.getter(name="scte20Detection")
+    def scte20_detection(self) -> Optional[str]:
+        return pulumi.get(self, "scte20_detection")
+
+    @property
+    @pulumi.getter(name="source608ChannelNumber")
+    def source608_channel_number(self) -> Optional[int]:
+        return pulumi.get(self, "source608_channel_number")
+
+    @property
+    @pulumi.getter(name="source608TrackNumber")
+    def source608_track_number(self) -> Optional[int]:
+        return pulumi.get(self, "source608_track_number")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "convert608To708":
+            suggest = "convert608_to708"
+        elif key == "source608ChannelNumber":
+            suggest = "source608_channel_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 convert608_to708: Optional[str] = None,
+                 source608_channel_number: Optional[int] = None):
+        if convert608_to708 is not None:
+            pulumi.set(__self__, "convert608_to708", convert608_to708)
+        if source608_channel_number is not None:
+            pulumi.set(__self__, "source608_channel_number", source608_channel_number)
+
+    @property
+    @pulumi.getter(name="convert608To708")
+    def convert608_to708(self) -> Optional[str]:
+        return pulumi.get(self, "convert608_to708")
+
+    @property
+    @pulumi.getter(name="source608ChannelNumber")
+    def source608_channel_number(self) -> Optional[int]:
+        return pulumi.get(self, "source608_channel_number")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ocrLanguage":
+            suggest = "ocr_language"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ocr_language: Optional[str] = None,
+                 pid: Optional[int] = None):
+        if ocr_language is not None:
+            pulumi.set(__self__, "ocr_language", ocr_language)
+        if pid is not None:
+            pulumi.set(__self__, "pid", pid)
+
+    @property
+    @pulumi.getter(name="ocrLanguage")
+    def ocr_language(self) -> Optional[str]:
+        return pulumi.get(self, "ocr_language")
+
+    @property
+    @pulumi.getter
+    def pid(self) -> Optional[int]:
+        return pulumi.get(self, "pid")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputRectangle":
+            suggest = "output_rectangle"
+        elif key == "pageNumber":
+            suggest = "page_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_rectangle: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle'] = None,
+                 page_number: Optional[str] = None):
+        if output_rectangle is not None:
+            pulumi.set(__self__, "output_rectangle", output_rectangle)
+        if page_number is not None:
+            pulumi.set(__self__, "page_number", page_number)
+
+    @property
+    @pulumi.getter(name="outputRectangle")
+    def output_rectangle(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle']:
+        return pulumi.get(self, "output_rectangle")
+
+    @property
+    @pulumi.getter(name="pageNumber")
+    def page_number(self) -> Optional[str]:
+        return pulumi.get(self, "page_number")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "leftOffset":
+            suggest = "left_offset"
+        elif key == "topOffset":
+            suggest = "top_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 height: float,
+                 left_offset: float,
+                 top_offset: float,
+                 width: float):
+        """
+        :param float height: Output video height in pixels.
+        :param float width: Output video width in pixels.
+        """
+        pulumi.set(__self__, "height", height)
+        pulumi.set(__self__, "left_offset", left_offset)
+        pulumi.set(__self__, "top_offset", top_offset)
+        pulumi.set(__self__, "width", width)
+
+    @property
+    @pulumi.getter
+    def height(self) -> float:
+        """
+        Output video height in pixels.
+        """
+        return pulumi.get(self, "height")
+
+    @property
+    @pulumi.getter(name="leftOffset")
+    def left_offset(self) -> float:
+        return pulumi.get(self, "left_offset")
+
+    @property
+    @pulumi.getter(name="topOffset")
+    def top_offset(self) -> float:
+        return pulumi.get(self, "top_offset")
+
+    @property
+    @pulumi.getter
+    def width(self) -> float:
+        """
+        Output video width in pixels.
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsNetworkInputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hlsInputSettings":
+            suggest = "hls_input_settings"
+        elif key == "serverValidation":
+            suggest = "server_validation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsNetworkInputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsNetworkInputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsNetworkInputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hls_input_settings: Optional['outputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings'] = None,
+                 server_validation: Optional[str] = None):
+        """
+        :param 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs' hls_input_settings: Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+        :param str server_validation: Check HTTPS server certificates.
+        """
+        if hls_input_settings is not None:
+            pulumi.set(__self__, "hls_input_settings", hls_input_settings)
+        if server_validation is not None:
+            pulumi.set(__self__, "server_validation", server_validation)
+
+    @property
+    @pulumi.getter(name="hlsInputSettings")
+    def hls_input_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings']:
+        """
+        Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+        """
+        return pulumi.get(self, "hls_input_settings")
+
+    @property
+    @pulumi.getter(name="serverValidation")
+    def server_validation(self) -> Optional[str]:
+        """
+        Check HTTPS server certificates.
+        """
+        return pulumi.get(self, "server_validation")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bufferSegments":
+            suggest = "buffer_segments"
+        elif key == "retryInterval":
+            suggest = "retry_interval"
+        elif key == "scte35Source":
+            suggest = "scte35_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bandwidth: Optional[int] = None,
+                 buffer_segments: Optional[int] = None,
+                 retries: Optional[int] = None,
+                 retry_interval: Optional[int] = None,
+                 scte35_source: Optional[str] = None):
+        """
+        :param int bandwidth: The bitrate is specified in bits per second, as in an HLS manifest.
+        :param int buffer_segments: Buffer segments.
+        :param int retries: The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+        :param int retry_interval: The number of seconds between retries when an attempt to read a manifest or segment fails.
+        """
+        if bandwidth is not None:
+            pulumi.set(__self__, "bandwidth", bandwidth)
+        if buffer_segments is not None:
+            pulumi.set(__self__, "buffer_segments", buffer_segments)
+        if retries is not None:
+            pulumi.set(__self__, "retries", retries)
+        if retry_interval is not None:
+            pulumi.set(__self__, "retry_interval", retry_interval)
+        if scte35_source is not None:
+            pulumi.set(__self__, "scte35_source", scte35_source)
+
+    @property
+    @pulumi.getter
+    def bandwidth(self) -> Optional[int]:
+        """
+        The bitrate is specified in bits per second, as in an HLS manifest.
+        """
+        return pulumi.get(self, "bandwidth")
+
+    @property
+    @pulumi.getter(name="bufferSegments")
+    def buffer_segments(self) -> Optional[int]:
+        """
+        Buffer segments.
+        """
+        return pulumi.get(self, "buffer_segments")
+
+    @property
+    @pulumi.getter
+    def retries(self) -> Optional[int]:
+        """
+        The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
+        """
+        return pulumi.get(self, "retries")
+
+    @property
+    @pulumi.getter(name="retryInterval")
+    def retry_interval(self) -> Optional[int]:
+        """
+        The number of seconds between retries when an attempt to read a manifest or segment fails.
+        """
+        return pulumi.get(self, "retry_interval")
+
+    @property
+    @pulumi.getter(name="scte35Source")
+    def scte35_source(self) -> Optional[str]:
+        return pulumi.get(self, "scte35_source")
+
+
+@pulumi.output_type
+class ChannelInputAttachmentInputSettingsVideoSelector(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colorSpace":
+            suggest = "color_space"
+        elif key == "colorSpaceUsage":
+            suggest = "color_space_usage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputAttachmentInputSettingsVideoSelector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputAttachmentInputSettingsVideoSelector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputAttachmentInputSettingsVideoSelector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 color_space: Optional[str] = None,
+                 color_space_usage: Optional[str] = None):
+        if color_space is not None:
+            pulumi.set(__self__, "color_space", color_space)
+        if color_space_usage is not None:
+            pulumi.set(__self__, "color_space_usage", color_space_usage)
+
+    @property
+    @pulumi.getter(name="colorSpace")
+    def color_space(self) -> Optional[str]:
+        return pulumi.get(self, "color_space")
+
+    @property
+    @pulumi.getter(name="colorSpaceUsage")
+    def color_space_usage(self) -> Optional[str]:
+        return pulumi.get(self, "color_space_usage")
+
+
+@pulumi.output_type
+class ChannelInputSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputResolution":
+            suggest = "input_resolution"
+        elif key == "maximumBitrate":
+            suggest = "maximum_bitrate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelInputSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelInputSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelInputSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 codec: str,
+                 input_resolution: str,
+                 maximum_bitrate: str):
+        pulumi.set(__self__, "codec", codec)
+        pulumi.set(__self__, "input_resolution", input_resolution)
+        pulumi.set(__self__, "maximum_bitrate", maximum_bitrate)
+
+    @property
+    @pulumi.getter
+    def codec(self) -> str:
+        return pulumi.get(self, "codec")
+
+    @property
+    @pulumi.getter(name="inputResolution")
+    def input_resolution(self) -> str:
+        return pulumi.get(self, "input_resolution")
+
+    @property
+    @pulumi.getter(name="maximumBitrate")
+    def maximum_bitrate(self) -> str:
+        return pulumi.get(self, "maximum_bitrate")
+
+
+@pulumi.output_type
+class ChannelMaintenance(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maintenanceDay":
+            suggest = "maintenance_day"
+        elif key == "maintenanceStartTime":
+            suggest = "maintenance_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelMaintenance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelMaintenance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelMaintenance.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maintenance_day: str,
+                 maintenance_start_time: str):
+        """
+        :param str maintenance_day: The day of the week to use for maintenance.
+        :param str maintenance_start_time: The hour maintenance will start.
+        """
+        pulumi.set(__self__, "maintenance_day", maintenance_day)
+        pulumi.set(__self__, "maintenance_start_time", maintenance_start_time)
+
+    @property
+    @pulumi.getter(name="maintenanceDay")
+    def maintenance_day(self) -> str:
+        """
+        The day of the week to use for maintenance.
+        """
+        return pulumi.get(self, "maintenance_day")
+
+    @property
+    @pulumi.getter(name="maintenanceStartTime")
+    def maintenance_start_time(self) -> str:
+        """
+        The hour maintenance will start.
+        """
+        return pulumi.get(self, "maintenance_start_time")
+
+
+@pulumi.output_type
+class ChannelVpc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicAddressAllocationIds":
+            suggest = "public_address_allocation_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelVpc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelVpc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelVpc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public_address_allocation_ids: Sequence[str],
+                 subnet_ids: Sequence[str],
+                 availability_zones: Optional[Sequence[str]] = None,
+                 security_group_ids: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "public_address_allocation_ids", public_address_allocation_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+
+    @property
+    @pulumi.getter(name="publicAddressAllocationIds")
+    def public_address_allocation_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "public_address_allocation_ids")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "security_group_ids")
+
 
 @pulumi.output_type
 class InputDestination(dict):

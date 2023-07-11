@@ -7,15 +7,18 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.quicksight.AccountSubscriptionArgs;
 import com.pulumi.aws.quicksight.inputs.AccountSubscriptionState;
 import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.String;
+import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * Resource for managing an AWS QuickSight Account Subscription.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -56,6 +59,235 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:quicksight/accountSubscription:AccountSubscription")
 public class AccountSubscription extends com.pulumi.resources.CustomResource {
     /**
+     * Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
+     * 
+     */
+    @Export(name="accountName", refs={String.class}, tree="[0]")
+    private Output<String> accountName;
+
+    /**
+     * @return Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
+     * 
+     */
+    public Output<String> accountName() {
+        return this.accountName;
+    }
+    /**
+     * Status of the Amazon QuickSight account&#39;s subscription.
+     * 
+     */
+    @Export(name="accountSubscriptionStatus", refs={String.class}, tree="[0]")
+    private Output<String> accountSubscriptionStatus;
+
+    /**
+     * @return Status of the Amazon QuickSight account&#39;s subscription.
+     * 
+     */
+    public Output<String> accountSubscriptionStatus() {
+        return this.accountSubscriptionStatus;
+    }
+    /**
+     * Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+     * 
+     */
+    @Export(name="activeDirectoryName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> activeDirectoryName;
+
+    /**
+     * @return Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+     * 
+     */
+    public Output<Optional<String>> activeDirectoryName() {
+        return Codegen.optional(this.activeDirectoryName);
+    }
+    /**
+     * Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+     * 
+     */
+    @Export(name="adminGroups", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> adminGroups;
+
+    /**
+     * @return Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
+     * 
+     */
+    public Output<Optional<List<String>>> adminGroups() {
+        return Codegen.optional(this.adminGroups);
+    }
+    /**
+     * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+     * 
+     */
+    @Export(name="authenticationMethod", refs={String.class}, tree="[0]")
+    private Output<String> authenticationMethod;
+
+    /**
+     * @return Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, and `ACTIVE_DIRECTORY`.
+     * 
+     */
+    public Output<String> authenticationMethod() {
+        return this.authenticationMethod;
+    }
+    /**
+     * Author group associated with your Active Directory.
+     * 
+     */
+    @Export(name="authorGroups", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> authorGroups;
+
+    /**
+     * @return Author group associated with your Active Directory.
+     * 
+     */
+    public Output<Optional<List<String>>> authorGroups() {
+        return Codegen.optional(this.authorGroups);
+    }
+    /**
+     * AWS account ID hosting the QuickSight account. Default to provider account.
+     * 
+     */
+    @Export(name="awsAccountId", refs={String.class}, tree="[0]")
+    private Output<String> awsAccountId;
+
+    /**
+     * @return AWS account ID hosting the QuickSight account. Default to provider account.
+     * 
+     */
+    public Output<String> awsAccountId() {
+        return this.awsAccountId;
+    }
+    /**
+     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 
+     */
+    @Export(name="contactNumber", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> contactNumber;
+
+    /**
+     * @return A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 
+     */
+    public Output<Optional<String>> contactNumber() {
+        return Codegen.optional(this.contactNumber);
+    }
+    /**
+     * Active Directory ID that is associated with your Amazon QuickSight account.
+     * 
+     */
+    @Export(name="directoryId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> directoryId;
+
+    /**
+     * @return Active Directory ID that is associated with your Amazon QuickSight account.
+     * 
+     */
+    public Output<Optional<String>> directoryId() {
+        return Codegen.optional(this.directoryId);
+    }
+    /**
+     * Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
+     * 
+     */
+    @Export(name="edition", refs={String.class}, tree="[0]")
+    private Output<String> edition;
+
+    /**
+     * @return Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
+     * 
+     */
+    public Output<String> edition() {
+        return this.edition;
+    }
+    /**
+     * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 
+     */
+    @Export(name="emailAddress", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> emailAddress;
+
+    /**
+     * @return Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 
+     */
+    public Output<Optional<String>> emailAddress() {
+        return Codegen.optional(this.emailAddress);
+    }
+    /**
+     * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 
+     */
+    @Export(name="firstName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> firstName;
+
+    /**
+     * @return First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 
+     */
+    public Output<Optional<String>> firstName() {
+        return Codegen.optional(this.firstName);
+    }
+    /**
+     * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 
+     */
+    @Export(name="lastName", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> lastName;
+
+    /**
+     * @return Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 
+     */
+    public Output<Optional<String>> lastName() {
+        return Codegen.optional(this.lastName);
+    }
+    /**
+     * Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+     * 
+     * The following arguments are optional:
+     * 
+     */
+    @Export(name="notificationEmail", refs={String.class}, tree="[0]")
+    private Output<String> notificationEmail;
+
+    /**
+     * @return Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
+     * 
+     * The following arguments are optional:
+     * 
+     */
+    public Output<String> notificationEmail() {
+        return this.notificationEmail;
+    }
+    /**
+     * Reader group associated with your Active Direcrtory.
+     * 
+     */
+    @Export(name="readerGroups", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> readerGroups;
+
+    /**
+     * @return Reader group associated with your Active Direcrtory.
+     * 
+     */
+    public Output<Optional<List<String>>> readerGroups() {
+        return Codegen.optional(this.readerGroups);
+    }
+    /**
+     * Realm of the Active Directory that is associated with your Amazon QuickSight account.
+     * 
+     */
+    @Export(name="realm", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> realm;
+
+    /**
+     * @return Realm of the Active Directory that is associated with your Amazon QuickSight account.
+     * 
+     */
+    public Output<Optional<String>> realm() {
+        return Codegen.optional(this.realm);
+    }
+
+    /**
      *
      * @param name The _unique_ name of the resulting resource.
      */
@@ -67,7 +299,7 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccountSubscription(String name, @Nullable AccountSubscriptionArgs args) {
+    public AccountSubscription(String name, AccountSubscriptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -76,7 +308,7 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccountSubscription(String name, @Nullable AccountSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public AccountSubscription(String name, AccountSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:quicksight/accountSubscription:AccountSubscription", name, args == null ? AccountSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

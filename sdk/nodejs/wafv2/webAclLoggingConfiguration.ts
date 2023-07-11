@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -12,6 +15,63 @@ import * as utilities from "../utilities";
  * !> **WARNING:** When logging from a WAFv2 Web ACL to a CloudWatch Log Group, the WAFv2 service tries to create or update a generic Log Resource Policy named `AWSWAF-LOGS`. However, if there are a large number of Web ACLs or if the account frequently creates and deletes Web ACLs, this policy may exceed the maximum policy size. As a result, this resource type will fail to be created. More details about this issue can be found in this issue. To prevent this issue, you can manage a specific resource policy. Please refer to the example below for managing a CloudWatch Log Group with a managed CloudWatch Log Resource Policy.
  *
  * ## Example Usage
+ * ### With Redacted Fields
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
+ *     logDestinationConfigs: [aws_kinesis_firehose_delivery_stream.example.arn],
+ *     resourceArn: aws_wafv2_web_acl.example.arn,
+ *     redactedFields: [{
+ *         singleHeader: {
+ *             name: "user-agent",
+ *         },
+ *     }],
+ * });
+ * ```
+ * ### With Logging Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
+ *     logDestinationConfigs: [aws_kinesis_firehose_delivery_stream.example.arn],
+ *     resourceArn: aws_wafv2_web_acl.example.arn,
+ *     loggingFilter: {
+ *         defaultBehavior: "KEEP",
+ *         filters: [
+ *             {
+ *                 behavior: "DROP",
+ *                 conditions: [
+ *                     {
+ *                         actionCondition: {
+ *                             action: "COUNT",
+ *                         },
+ *                     },
+ *                     {
+ *                         labelNameCondition: {
+ *                             labelName: "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
+ *                         },
+ *                     },
+ *                 ],
+ *                 requirement: "MEETS_ALL",
+ *             },
+ *             {
+ *                 behavior: "KEEP",
+ *                 conditions: [{
+ *                     actionCondition: {
+ *                         action: "ALLOW",
+ *                     },
+ *                 }],
+ *                 requirement: "MEETS_ANY",
+ *             },
+ *         ],
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -49,6 +109,22 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAclLoggingConfiguration.__pulumiType;
     }
 
+    /**
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+     */
+    public readonly logDestinationConfigs!: pulumi.Output<string[]>;
+    /**
+     * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+     */
+    public readonly loggingFilter!: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationLoggingFilter | undefined>;
+    /**
+     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+     */
+    public readonly redactedFields!: pulumi.Output<outputs.wafv2.WebAclLoggingConfigurationRedactedField[] | undefined>;
+    /**
+     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     */
+    public readonly resourceArn!: pulumi.Output<string>;
 
     /**
      * Create a WebAclLoggingConfiguration resource with the given unique name, arguments, and options.
@@ -57,14 +133,28 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: WebAclLoggingConfigurationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: WebAclLoggingConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebAclLoggingConfigurationArgs | WebAclLoggingConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclLoggingConfigurationState | undefined;
+            resourceInputs["logDestinationConfigs"] = state ? state.logDestinationConfigs : undefined;
+            resourceInputs["loggingFilter"] = state ? state.loggingFilter : undefined;
+            resourceInputs["redactedFields"] = state ? state.redactedFields : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as WebAclLoggingConfigurationArgs | undefined;
+            if ((!args || args.logDestinationConfigs === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'logDestinationConfigs'");
+            }
+            if ((!args || args.resourceArn === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'resourceArn'");
+            }
+            resourceInputs["logDestinationConfigs"] = args ? args.logDestinationConfigs : undefined;
+            resourceInputs["loggingFilter"] = args ? args.loggingFilter : undefined;
+            resourceInputs["redactedFields"] = args ? args.redactedFields : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WebAclLoggingConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -75,10 +165,42 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAclLoggingConfiguration resources.
  */
 export interface WebAclLoggingConfigurationState {
+    /**
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+     */
+    logDestinationConfigs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+     */
+    loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
+    /**
+     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+     */
+    redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
+    /**
+     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     */
+    resourceArn?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a WebAclLoggingConfiguration resource.
  */
 export interface WebAclLoggingConfigurationArgs {
+    /**
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+     */
+    logDestinationConfigs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+     */
+    loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
+    /**
+     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
+     */
+    redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
+    /**
+     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     */
+    resourceArn: pulumi.Input<string>;
 }

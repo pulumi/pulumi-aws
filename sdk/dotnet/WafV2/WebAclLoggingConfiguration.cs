@@ -17,6 +17,102 @@ namespace Pulumi.Aws.WafV2
     /// !&gt; **WARNING:** When logging from a WAFv2 Web ACL to a CloudWatch Log Group, the WAFv2 service tries to create or update a generic Log Resource Policy named `AWSWAF-LOGS`. However, if there are a large number of Web ACLs or if the account frequently creates and deletes Web ACLs, this policy may exceed the maximum policy size. As a result, this resource type will fail to be created. More details about this issue can be found in this issue. To prevent this issue, you can manage a specific resource policy. Please refer to the example below for managing a CloudWatch Log Group with a managed CloudWatch Log Resource Policy.
     /// 
     /// ## Example Usage
+    /// ### With Redacted Fields
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.WebAclLoggingConfiguration("example", new()
+    ///     {
+    ///         LogDestinationConfigs = new[]
+    ///         {
+    ///             aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///         },
+    ///         ResourceArn = aws_wafv2_web_acl.Example.Arn,
+    ///         RedactedFields = new[]
+    ///         {
+    ///             new Aws.WafV2.Inputs.WebAclLoggingConfigurationRedactedFieldArgs
+    ///             {
+    ///                 SingleHeader = new Aws.WafV2.Inputs.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs
+    ///                 {
+    ///                     Name = "user-agent",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Logging Filter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.WafV2.WebAclLoggingConfiguration("example", new()
+    ///     {
+    ///         LogDestinationConfigs = new[]
+    ///         {
+    ///             aws_kinesis_firehose_delivery_stream.Example.Arn,
+    ///         },
+    ///         ResourceArn = aws_wafv2_web_acl.Example.Arn,
+    ///         LoggingFilter = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterArgs
+    ///         {
+    ///             DefaultBehavior = "KEEP",
+    ///             Filters = new[]
+    ///             {
+    ///                 new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
+    ///                 {
+    ///                     Behavior = "DROP",
+    ///                     Conditions = new[]
+    ///                     {
+    ///                         new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                         {
+    ///                             ActionCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs
+    ///                             {
+    ///                                 Action = "COUNT",
+    ///                             },
+    ///                         },
+    ///                         new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                         {
+    ///                             LabelNameCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs
+    ///                             {
+    ///                                 LabelName = "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Requirement = "MEETS_ALL",
+    ///                 },
+    ///                 new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs
+    ///                 {
+    ///                     Behavior = "KEEP",
+    ///                     Conditions = new[]
+    ///                     {
+    ///                         new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs
+    ///                         {
+    ///                             ActionCondition = new Aws.WafV2.Inputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs
+    ///                             {
+    ///                                 Action = "ALLOW",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Requirement = "MEETS_ANY",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -30,13 +126,38 @@ namespace Pulumi.Aws.WafV2
     public partial class WebAclLoggingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+        /// </summary>
+        [Output("logDestinationConfigs")]
+        public Output<ImmutableArray<string>> LogDestinationConfigs { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+        /// </summary>
+        [Output("loggingFilter")]
+        public Output<Outputs.WebAclLoggingConfigurationLoggingFilter?> LoggingFilter { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+        /// </summary>
+        [Output("redactedFields")]
+        public Output<ImmutableArray<Outputs.WebAclLoggingConfigurationRedactedField>> RedactedFields { get; private set; } = null!;
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+        /// </summary>
+        [Output("resourceArn")]
+        public Output<string> ResourceArn { get; private set; } = null!;
+
+
+        /// <summary>
         /// Create a WebAclLoggingConfiguration resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public WebAclLoggingConfiguration(string name, WebAclLoggingConfigurationArgs? args = null, CustomResourceOptions? options = null)
+        public WebAclLoggingConfiguration(string name, WebAclLoggingConfigurationArgs args, CustomResourceOptions? options = null)
             : base("aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration", name, args ?? new WebAclLoggingConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -74,6 +195,42 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class WebAclLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("logDestinationConfigs", required: true)]
+        private InputList<string>? _logDestinationConfigs;
+
+        /// <summary>
+        /// Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+        /// </summary>
+        public InputList<string> LogDestinationConfigs
+        {
+            get => _logDestinationConfigs ?? (_logDestinationConfigs = new InputList<string>());
+            set => _logDestinationConfigs = value;
+        }
+
+        /// <summary>
+        /// Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+        /// </summary>
+        [Input("loggingFilter")]
+        public Input<Inputs.WebAclLoggingConfigurationLoggingFilterArgs>? LoggingFilter { get; set; }
+
+        [Input("redactedFields")]
+        private InputList<Inputs.WebAclLoggingConfigurationRedactedFieldArgs>? _redactedFields;
+
+        /// <summary>
+        /// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+        /// </summary>
+        public InputList<Inputs.WebAclLoggingConfigurationRedactedFieldArgs> RedactedFields
+        {
+            get => _redactedFields ?? (_redactedFields = new InputList<Inputs.WebAclLoggingConfigurationRedactedFieldArgs>());
+            set => _redactedFields = value;
+        }
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+        /// </summary>
+        [Input("resourceArn", required: true)]
+        public Input<string> ResourceArn { get; set; } = null!;
+
         public WebAclLoggingConfigurationArgs()
         {
         }
@@ -82,6 +239,42 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class WebAclLoggingConfigurationState : global::Pulumi.ResourceArgs
     {
+        [Input("logDestinationConfigs")]
+        private InputList<string>? _logDestinationConfigs;
+
+        /// <summary>
+        /// Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+        /// </summary>
+        public InputList<string> LogDestinationConfigs
+        {
+            get => _logDestinationConfigs ?? (_logDestinationConfigs = new InputList<string>());
+            set => _logDestinationConfigs = value;
+        }
+
+        /// <summary>
+        /// Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+        /// </summary>
+        [Input("loggingFilter")]
+        public Input<Inputs.WebAclLoggingConfigurationLoggingFilterGetArgs>? LoggingFilter { get; set; }
+
+        [Input("redactedFields")]
+        private InputList<Inputs.WebAclLoggingConfigurationRedactedFieldGetArgs>? _redactedFields;
+
+        /// <summary>
+        /// Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+        /// </summary>
+        public InputList<Inputs.WebAclLoggingConfigurationRedactedFieldGetArgs> RedactedFields
+        {
+            get => _redactedFields ?? (_redactedFields = new InputList<Inputs.WebAclLoggingConfigurationRedactedFieldGetArgs>());
+            set => _redactedFields = value;
+        }
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+        /// </summary>
+        [Input("resourceArn")]
+        public Input<string>? ResourceArn { get; set; }
+
         public WebAclLoggingConfigurationState()
         {
         }

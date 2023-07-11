@@ -6,9 +6,15 @@ package com.pulumi.aws.wafv2;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.wafv2.WebAclLoggingConfigurationArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationState;
+import com.pulumi.aws.wafv2.outputs.WebAclLoggingConfigurationLoggingFilter;
+import com.pulumi.aws.wafv2.outputs.WebAclLoggingConfigurationRedactedField;
 import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.String;
+import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -20,7 +26,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### With Redacted Fields
- * 
  * ```java
  * package generated_program;
  * 
@@ -29,6 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.wafv2.WebAclLoggingConfiguration;
  * import com.pulumi.aws.wafv2.WebAclLoggingConfigurationArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,14 +52,17 @@ import javax.annotation.Nullable;
  *         var example = new WebAclLoggingConfiguration(&#34;example&#34;, WebAclLoggingConfigurationArgs.builder()        
  *             .logDestinationConfigs(aws_kinesis_firehose_delivery_stream.example().arn())
  *             .resourceArn(aws_wafv2_web_acl.example().arn())
- *             .redactedFields(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .redactedFields(WebAclLoggingConfigurationRedactedFieldArgs.builder()
+ *                 .singleHeader(WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs.builder()
+ *                     .name(&#34;user-agent&#34;)
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
  * }
  * ```
  * ### With Logging Filter
- * 
  * ```java
  * package generated_program;
  * 
@@ -61,6 +71,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.wafv2.WebAclLoggingConfiguration;
  * import com.pulumi.aws.wafv2.WebAclLoggingConfigurationArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclLoggingConfigurationLoggingFilterArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -77,7 +88,34 @@ import javax.annotation.Nullable;
  *         var example = new WebAclLoggingConfiguration(&#34;example&#34;, WebAclLoggingConfigurationArgs.builder()        
  *             .logDestinationConfigs(aws_kinesis_firehose_delivery_stream.example().arn())
  *             .resourceArn(aws_wafv2_web_acl.example().arn())
- *             .loggingFilter(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .loggingFilter(WebAclLoggingConfigurationLoggingFilterArgs.builder()
+ *                 .defaultBehavior(&#34;KEEP&#34;)
+ *                 .filters(                
+ *                     WebAclLoggingConfigurationLoggingFilterFilterArgs.builder()
+ *                         .behavior(&#34;DROP&#34;)
+ *                         .conditions(                        
+ *                             WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
+ *                                 .actionCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs.builder()
+ *                                     .action(&#34;COUNT&#34;)
+ *                                     .build())
+ *                                 .build(),
+ *                             WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
+ *                                 .labelNameCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs.builder()
+ *                                     .labelName(&#34;awswaf:111122223333:rulegroup:testRules:LabelNameZ&#34;)
+ *                                     .build())
+ *                                 .build())
+ *                         .requirement(&#34;MEETS_ALL&#34;)
+ *                         .build(),
+ *                     WebAclLoggingConfigurationLoggingFilterFilterArgs.builder()
+ *                         .behavior(&#34;KEEP&#34;)
+ *                         .conditions(WebAclLoggingConfigurationLoggingFilterFilterConditionArgs.builder()
+ *                             .actionCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs.builder()
+ *                                 .action(&#34;ALLOW&#34;)
+ *                                 .build())
+ *                             .build())
+ *                         .requirement(&#34;MEETS_ANY&#34;)
+ *                         .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -96,6 +134,63 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")
 public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResource {
     /**
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+     * 
+     */
+    @Export(name="logDestinationConfigs", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> logDestinationConfigs;
+
+    /**
+     * @return Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL.
+     * 
+     */
+    public Output<List<String>> logDestinationConfigs() {
+        return this.logDestinationConfigs;
+    }
+    /**
+     * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+     * 
+     */
+    @Export(name="loggingFilter", refs={WebAclLoggingConfigurationLoggingFilter.class}, tree="[0]")
+    private Output</* @Nullable */ WebAclLoggingConfigurationLoggingFilter> loggingFilter;
+
+    /**
+     * @return Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
+     * 
+     */
+    public Output<Optional<WebAclLoggingConfigurationLoggingFilter>> loggingFilter() {
+        return Codegen.optional(this.loggingFilter);
+    }
+    /**
+     * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+     * 
+     */
+    @Export(name="redactedFields", refs={List.class,WebAclLoggingConfigurationRedactedField.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<WebAclLoggingConfigurationRedactedField>> redactedFields;
+
+    /**
+     * @return Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
+     * 
+     */
+    public Output<Optional<List<WebAclLoggingConfigurationRedactedField>>> redactedFields() {
+        return Codegen.optional(this.redactedFields);
+    }
+    /**
+     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+     * 
+     */
+    @Export(name="resourceArn", refs={String.class}, tree="[0]")
+    private Output<String> resourceArn;
+
+    /**
+     * @return Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
+     * 
+     */
+    public Output<String> resourceArn() {
+        return this.resourceArn;
+    }
+
+    /**
      *
      * @param name The _unique_ name of the resulting resource.
      */
@@ -107,7 +202,7 @@ public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WebAclLoggingConfiguration(String name, @Nullable WebAclLoggingConfigurationArgs args) {
+    public WebAclLoggingConfiguration(String name, WebAclLoggingConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -116,7 +211,7 @@ public class WebAclLoggingConfiguration extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WebAclLoggingConfiguration(String name, @Nullable WebAclLoggingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public WebAclLoggingConfiguration(String name, WebAclLoggingConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration", name, args == null ? WebAclLoggingConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 
