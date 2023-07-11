@@ -6367,7 +6367,7 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_iam_session_context":         {Tok: awsDataSource(iamMod, "getSessionContext")},
 			"aws_iam_roles":                   {Tok: awsDataSource(iamMod, "getRoles")},
 			"aws_iam_user_ssh_key":            {Tok: awsDataSource(iamMod, "getUserSshKey")},
-			"aws_iam_openid_connect_provider": {Tok: awsDataSource(iamMod, "getOpenidConnectProvider")},
+			"aws_iam_openid_connect_provider": {Tok: awsDataSource(iamMod, "getOpenIdConnectProvider")},
 			"aws_iam_saml_provider":           {Tok: awsDataSource(iamMod, "getSamlProvider")},
 			"aws_iam_instance_profiles":       {Tok: awsDataSource(iamMod, "getInstanceProfiles")},
 			"aws_iam_access_keys":             {Tok: awsDataSource(iamMod, "getAccessKeys")},
