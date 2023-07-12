@@ -12,7 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
+
+const config = new pulumi.Config("aws");
+const provider = new aws.Provider("prov",
+  { region: <aws.Region>config.require("envRegion") });
+
 
 new aws.wafv2.WebAcl("web-acl", {
   defaultAction: {
@@ -43,4 +49,4 @@ new aws.wafv2.WebAcl("web-acl", {
       sampledRequestsEnabled: true,
     }
   }]
-});
+}, { provider });
