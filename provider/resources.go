@@ -6568,141 +6568,173 @@ func Provider() *tfbridge.ProviderInfo {
 		},
 	}
 
-	// Fix the spelling mistake on `aws_ses_configuration_set` Tok
-	prov.RenameResourceWithAlias("aws_ses_configuration_set",
-		awsResource(sesMod, "ConfgurationSet"), awsResource(sesMod, "ConfigurationSet"), sesMod, sesMod, nil)
+	rAlias := func(mod, name string) []tfbridge.AliasInfo {
+		token := string(awsResource(mod, name))
+		return []tfbridge.AliasInfo{
+			{Type: &token},
+		}
+	}
+	prov.Resources["aws_ses_configuration_set"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(sesMod, "ConfigurationSet"),
+		Aliases: rAlias(sesMod, "ConfgurationSet"),
+	}
+	prov.Resources["aws_app_cookie_stickiness_policy"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(elbMod, "AppCookieStickinessPolicy"),
+		Aliases: rAlias(legacyElbMod, "AppCookieStickinessPolicy"),
+	}
+	prov.Resources["aws_elb"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(elbMod, "LoadBalancer"),
+		Aliases: rAlias(legacyElbMod, "LoadBalancer"),
+	}
+	prov.Resources["aws_elb_attachment"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(elbMod, "Attachment"),
+		Aliases: rAlias(legacyElbMod, "Attachment"),
+	}
+	prov.Resources["aws_lb_cookie_stickiness_policy"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(elbMod, "LoadBalancerCookieStickinessPolicy"),
+		Aliases: rAlias(legacyElbMod, "LoadBalancerCookieStickinessPolicy"),
+	}
+	prov.Resources["aws_load_balancer_policy"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(elbMod, "LoadBalancerPolicy"),
+		Aliases: rAlias(legacyElbMod, "LoadBalancerPolicy"),
+	}
+	prov.Resources["aws_load_balancer_listener_policy"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(elbMod, "ListenerPolicy"),
+		Aliases: rAlias(legacyElbMod, "ListenerPolicy"),
+	}
+	prov.Resources["aws_lb_ssl_negotiation_policy"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(elbMod, "SslNegotiationPolicy"),
+		Aliases: rAlias(legacyElbMod, "SslNegotiationPolicy"),
+	}
+	prov.Resources["aws_load_balancer_backend_server_policy"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(elbMod, "LoadBalancerBackendServerPolicy"),
+		Aliases: rAlias(legacyElbMod, "LoadBalancerBackendServerPolicy"),
+	}
 
-	// Define the tf `elb` resources.  For legacy compat we also export them from the `elasticloadbalancing` module
-	// not just the `elb` module.
-	prov.RenameResourceWithAlias("aws_app_cookie_stickiness_policy",
-		awsResource(legacyElbMod, "AppCookieStickinessPolicy"), awsResource(elbMod, "AppCookieStickinessPolicy"),
-		legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_elb",
-		awsResource(legacyElbMod, "LoadBalancer"), awsResource(elbMod, "LoadBalancer"),
-		legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_elb_attachment",
-		awsResource(legacyElbMod, "Attachment"), awsResource(elbMod, "Attachment"),
-		legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_cookie_stickiness_policy",
-		awsResource(legacyElbMod, "LoadBalancerCookieStickinessPolicy"),
-		awsResource(elbMod, "LoadBalancerCookieStickinessPolicy"), legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_load_balancer_policy",
-		awsResource(legacyElbMod, "LoadBalancerPolicy"), awsResource(elbMod, "LoadBalancerPolicy"),
-		legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_load_balancer_listener_policy",
-		awsResource(legacyElbMod, "ListenerPolicy"), awsResource(elbMod, "ListenerPolicy"), legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_ssl_negotiation_policy",
-		awsResource(legacyElbMod, "SslNegotiationPolicy"), awsResource(elbMod, "SslNegotiationPolicy"),
-		legacyElbMod, elbMod, nil)
-	prov.RenameResourceWithAlias("aws_load_balancer_backend_server_policy",
-		awsResource(legacyElbMod, "LoadBalancerBackendServerPolicy"),
-		awsResource(elbMod, "LoadBalancerBackendServerPolicy"), legacyElbMod, elbMod, nil)
-	prov.RenameDataSource("aws_elb_hosted_zone_id", awsDataSource(legacyElbMod, "getHostedZoneId"),
-		awsDataSource(elbMod, "getHostedZoneId"), legacyElbMod, elbMod, nil)
-	prov.RenameDataSource("aws_elb_service_account", awsDataSource(legacyElbMod, "getServiceAccount"),
-		awsDataSource(elbMod, "getServiceAccount"), legacyElbMod, elbMod, nil)
-	prov.RenameDataSource("aws_elb", awsDataSource(legacyElbMod, "getLoadBalancer"),
-		awsDataSource(elbMod, "getLoadBalancer"), legacyElbMod, elbMod, nil)
+	prov.DataSources["aws_elb_hosted_zone_id"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(elbMod, "getHostedZoneId")}
+	prov.DataSources["aws_elb_service_account"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(elbMod, "getServiceAccount")}
+	prov.DataSources["aws_elb"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(elbMod, "getLoadBalancer")}
 
 	// Define the tf `lb` resources.  For legacy compat we also export them from the
 	// `elasticloadbalancingv2` module not just the `lb` module.
-	prov.RenameResourceWithAlias("aws_lb", awsResource(legacyElbv2Mod, "LoadBalancer"),
-		awsResource(lbMod, "LoadBalancer"), legacyElbv2Mod, lbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_listener", awsResource(legacyElbv2Mod, "Listener"),
-		awsResource(lbMod, "Listener"), legacyElbv2Mod, lbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_listener_certificate", awsResource(legacyElbv2Mod, "ListenerCertificate"),
-		awsResource(lbMod, "ListenerCertificate"), legacyElbv2Mod, lbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_listener_rule", awsResource(legacyElbv2Mod, "ListenerRule"),
-		awsResource(lbMod, "ListenerRule"), legacyElbv2Mod, lbMod, nil)
-	prov.RenameResourceWithAlias("aws_lb_target_group", awsResource(legacyElbv2Mod, "TargetGroup"),
-		awsResource(lbMod, "TargetGroup"), legacyElbv2Mod, lbMod, &tfbridge.ResourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				// https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html
-				"name": tfbridge.AutoName("name", 32, "-"),
-				"deregistration_delay": {
-					Type: "integer",
-				},
+	prov.Resources["aws_lb"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(lbMod, "LoadBalancer"),
+		Aliases: rAlias(legacyElbv2Mod, "LoadBalancer"),
+	}
+	prov.Resources["aws_lb_listener"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(lbMod, "Listener"),
+		Aliases: rAlias(legacyElbv2Mod, "Listener"),
+	}
+	prov.Resources["aws_lb_listener_certificate"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(lbMod, "ListenerCertificate"),
+		Aliases: rAlias(legacyElbv2Mod, "ListenerCertificate"),
+	}
+	prov.Resources["aws_lb_listener_rule"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(lbMod, "ListenerRule"),
+		Aliases: rAlias(legacyElbv2Mod, "ListenerRule"),
+	}
+	prov.Resources["aws_lb_target_group"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(lbMod, "TargetGroup"),
+		Aliases: rAlias(legacyElbv2Mod, "TargetGroup"),
+		Fields: map[string]*tfbridge.SchemaInfo{
+			// https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html
+			"name": tfbridge.AutoName("name", 32, "-"),
+			"deregistration_delay": {
+				Type: "integer",
 			},
-		})
-	prov.RenameResourceWithAlias("aws_lb_target_group_attachment",
-		awsResource(legacyElbv2Mod, "TargetGroupAttachment"), awsResource(lbMod, "TargetGroupAttachment"),
-		legacyElbv2Mod, lbMod, nil)
-	prov.RenameDataSource("aws_lb", awsDataSource(legacyElbv2Mod, "getLoadBalancer"),
-		awsDataSource(lbMod, "getLoadBalancer"), legacyElbv2Mod, lbMod, nil)
-	prov.RenameDataSource("aws_lb_listener", awsDataSource(legacyElbv2Mod, "getListener"),
-		awsDataSource(lbMod, "getListener"), legacyElbv2Mod, lbMod, nil)
-	prov.RenameDataSource("aws_lb_target_group", awsDataSource(legacyElbv2Mod, "getTargetGroup"),
-		awsDataSource(lbMod, "getTargetGroup"), legacyElbv2Mod, lbMod, nil)
+		},
+	}
+	prov.Resources["aws_lb_target_group_attachment"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(lbMod, "TargetGroupAttachment"),
+		Aliases: rAlias(legacyElbv2Mod, "TargetGroupAttachment"),
+	}
 
-	prov.RenameDataSource("aws_cloudfront_function", awsDataSource(cloudtrailMod, "getFunction"),
-		awsDataSource(cloudfrontMod, "getFunction"), cloudtrailMod, cloudfrontMod, nil)
+	prov.DataSources["aws_lb"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(lbMod, "getLoadBalancer")}
+	prov.DataSources["aws_lb_listener"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(lbMod, "getListener")}
+	prov.DataSources["aws_lb_target_group"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(lbMod, "getTargetGroup")}
+
+	prov.DataSources["aws_cloudfront_function"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(cloudfrontMod, "getFunction")}
 
 	// Ec2 Transit Gateway
-	prov.RenameResourceWithAlias("aws_ec2_transit_gateway_peering_attachment_accepter",
-		awsResource(ec2Mod, "TransitGatewayPeeringAttachmentAccepter"),
-		awsResource(ec2TransitGatewayMod, "PeeringAttachmentAccepter"), ec2Mod, ec2TransitGatewayMod, nil)
+	prov.Resources["aws_ec2_transit_gateway_peering_attachment_accepter"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(ec2TransitGatewayMod, "PeeringAttachmentAccepter"),
+		Aliases: rAlias(ec2Mod, "TransitGatewayPeeringAttachmentAccepter"),
+	}
 
 	// Define the tf `alb` resources.  For legacy compat we also export them from the `applicationloadbalancing` module
 	// not just the `alb` module.
-	prov.RenameResourceWithAlias("aws_alb", awsResource(legacyAlbMod, "LoadBalancer"),
-		awsResource(albMod, "LoadBalancer"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"load_balancer_type": {Type: awsResource(albMod, "LoadBalancerType")},
-				"ip_address_type":    {Type: awsResource(albMod, "IpAddressType")},
+	prov.Resources["aws_alb"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(albMod, "LoadBalancer"),
+		Aliases: rAlias(legacyAlbMod, "LoadBalancer"),
+		Fields: map[string]*tfbridge.SchemaInfo{
+			"load_balancer_type": {Type: awsResource(albMod, "LoadBalancerType")},
+			"ip_address_type":    {Type: awsResource(albMod, "IpAddressType")},
+		},
+		Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
+	}
+	prov.Resources["aws_alb_listener"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(albMod, "Listener"),
+		Aliases: rAlias(legacyAlbMod, "Listener"),
+		Docs:    &tfbridge.DocInfo{Source: "lb_listener.html.markdown"},
+	}
+	prov.Resources["aws_alb_listener_certificate"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(albMod, "ListenerCertificate"),
+		Aliases: rAlias(legacyAlbMod, "ListenerCertificate"),
+		Docs:    &tfbridge.DocInfo{Source: "lb_listener_certificate.html.markdown"},
+	}
+	prov.Resources["aws_alb_listener_rule"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(albMod, "ListenerRule"),
+		Aliases: rAlias(legacyAlbMod, "ListenerRule"),
+		Docs:    &tfbridge.DocInfo{Source: "lb_listener_rule.html.markdown"},
+	}
+	prov.Resources["aws_alb_target_group"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(albMod, "TargetGroup"),
+		Aliases: rAlias(legacyAlbMod, "TargetGroup"),
+		Docs:    &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
+		Fields: map[string]*tfbridge.SchemaInfo{
+			"deregistration_delay": {
+				Type: "integer",
 			},
-			Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
-		})
-	prov.RenameResourceWithAlias("aws_alb_listener", awsResource(legacyAlbMod, "Listener"),
-		awsResource(albMod, "Listener"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
-			Docs: &tfbridge.DocInfo{Source: "lb_listener.html.markdown"},
-		})
-	prov.RenameResourceWithAlias("aws_alb_listener_certificate", awsResource(legacyAlbMod, "ListenerCertificate"),
-		awsResource(albMod, "ListenerCertificate"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
-			Docs: &tfbridge.DocInfo{Source: "lb_listener_certificate.html.markdown"},
-		})
-	prov.RenameResourceWithAlias("aws_alb_listener_rule", awsResource(legacyAlbMod, "ListenerRule"),
-		awsResource(albMod, "ListenerRule"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
-			Docs: &tfbridge.DocInfo{Source: "lb_listener_rule.html.markdown"},
-		})
-	prov.RenameResourceWithAlias("aws_alb_target_group", awsResource(legacyAlbMod, "TargetGroup"),
-		awsResource(albMod, "TargetGroup"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
-			Docs: &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"deregistration_delay": {
-					Type: "integer",
-				},
-			},
-		})
-	prov.RenameResourceWithAlias("aws_alb_target_group_attachment", awsResource(legacyAlbMod, "TargetGroupAttachment"),
-		awsResource(albMod, "TargetGroupAttachment"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
-			Docs: &tfbridge.DocInfo{Source: "lb_target_group_attachment.html.markdown"},
-		})
-	prov.RenameDataSource("aws_alb", awsDataSource(legacyAlbMod, "getLoadBalancer"),
-		awsDataSource(albMod, "getLoadBalancer"), legacyAlbMod, albMod, &tfbridge.DataSourceInfo{
-			Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
-		})
-	prov.RenameDataSource("aws_alb_listener", awsDataSource(legacyAlbMod, "getListener"),
-		awsDataSource(albMod, "getListener"), legacyAlbMod, albMod, &tfbridge.DataSourceInfo{
-			Docs: &tfbridge.DocInfo{Source: "lb_listener.html.markdown"},
-		})
-	prov.RenameDataSource("aws_alb_target_group", awsDataSource(legacyAlbMod, "getTargetGroup"),
-		awsDataSource(albMod, "getTargetGroup"), legacyAlbMod, albMod, &tfbridge.DataSourceInfo{
-			Docs: &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
-		})
+		},
+	}
+	prov.Resources["aws_alb_target_group_attachment"] = &tfbridge.ResourceInfo{
+		Tok:     awsResource(albMod, "TargetGroupAttachment"),
+		Aliases: rAlias(legacyAlbMod, "TargetGroupAttachment"),
+		Docs:    &tfbridge.DocInfo{Source: "lb_target_group_attachment.html.markdown"},
+	}
+	prov.DataSources["aws_alb"] = &tfbridge.DataSourceInfo{
+		Tok:  awsDataSource(albMod, "getLoadBalancer"),
+		Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
+	}
+	prov.DataSources["aws_alb_listener"] = &tfbridge.DataSourceInfo{
+		Tok:  awsDataSource(albMod, "getListener"),
+		Docs: &tfbridge.DocInfo{Source: "lb_listener.html.markdown"},
+	}
+	prov.DataSources["aws_alb_target_group"] = &tfbridge.DataSourceInfo{
+		Tok:  awsDataSource(albMod, "getTargetGroup"),
+		Docs: &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
+	}
 
 	// re-homing top level packages - https://github.com/pulumi/pulumi-aws/issues/1352
-	prov.RenameDataSource("aws_ami", awsDataSource(awsMod, "getAmi"),
-		awsDataSource(ec2Mod, "getAmi"), awsMod, ec2Mod, nil)
-	prov.RenameDataSource("aws_ami_ids", awsDataSource(awsMod, "getAmiIds"),
-		awsDataSource(ec2Mod, "getAmiIds"), awsMod, ec2Mod, nil)
-	prov.RenameDataSource("aws_eip", awsDataSource(awsMod, "getElasticIp"),
-		awsDataSource(ec2Mod, "getElasticIp"), awsMod, ec2Mod, nil)
-	prov.RenameDataSource("aws_prefix_list", awsDataSource(awsMod, "getPrefixList"),
-		awsDataSource(ec2Mod, "getPrefixList"), awsMod, ec2Mod, nil)
-	prov.RenameDataSource("aws_autoscaling_groups", awsDataSource(awsMod, "getAutoscalingGroups"),
-		awsDataSource(autoscalingMod, "getAmiIds"), awsMod, autoscalingMod, nil)
-	prov.RenameDataSource("aws_canonical_user_id", awsDataSource(awsMod, "getCanonicalUserId"),
-		awsDataSource(s3Mod, "getCanonicalUserId"), awsMod, s3Mod, nil)
+	prov.DataSources["aws_ami"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(ec2Mod, "getAmi")}
+	prov.DataSources["aws_ami_ids"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(ec2Mod, "getAmiIds")}
+	prov.DataSources["aws_eip"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(ec2Mod, "getElasticIp")}
+	prov.DataSources["aws_prefix_list"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(ec2Mod, "getPrefixList")}
+	prov.DataSources["aws_autoscaling_groups"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(autoscalingMod, "getAmiIds")}
+	prov.DataSources["aws_canonical_user_id"] = &tfbridge.DataSourceInfo{
+		Tok: awsDataSource(s3Mod, "getCanonicalUserId")}
 
 	prov.SetAutonaming(255, "-")
 
