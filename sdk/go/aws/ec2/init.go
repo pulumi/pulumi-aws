@@ -143,8 +143,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TrafficMirrorSession{}
 	case "aws:ec2/trafficMirrorTarget:TrafficMirrorTarget":
 		r = &TrafficMirrorTarget{}
-	case "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter":
-		r = &TransitGatewayPeeringAttachmentAccepter{}
 	case "aws:ec2/volumeAttachment:VolumeAttachment":
 		r = &VolumeAttachment{}
 	case "aws:ec2/vpc:Vpc":
@@ -523,11 +521,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/trafficMirrorTarget",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"ec2/transitGatewayPeeringAttachmentAccepter",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

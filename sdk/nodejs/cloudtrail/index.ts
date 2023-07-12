@@ -10,11 +10,6 @@ export type EventDataStore = import("./eventDataStore").EventDataStore;
 export const EventDataStore: typeof import("./eventDataStore").EventDataStore = null as any;
 utilities.lazyLoad(exports, ["EventDataStore"], () => require("./eventDataStore"));
 
-export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
-export const getFunction: typeof import("./getFunction").getFunction = null as any;
-export const getFunctionOutput: typeof import("./getFunction").getFunctionOutput = null as any;
-utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
-
 export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
 export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
 export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;

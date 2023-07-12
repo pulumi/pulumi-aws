@@ -23,8 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet":
 		r = &ActiveReceiptRuleSet{}
-	case "aws:ses/confgurationSet:ConfgurationSet":
-		r = &ConfgurationSet{}
 	case "aws:ses/configurationSet:ConfigurationSet":
 		r = &ConfigurationSet{}
 	case "aws:ses/domainDkim:DomainDkim":
@@ -67,11 +65,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ses/activeReceiptRuleSet",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"aws",
-		"ses/confgurationSet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
