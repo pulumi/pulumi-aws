@@ -7135,5 +7135,8 @@ func Provider() *tfbridge.ProviderInfo {
 			args.ExamplePath == "#/resources/aws:appsync/graphQLApi:GraphQLApi"
 	}
 
+	// Fixes a spurious diff on repeat pulumi up for the aws_wafv2_web_acl resource (pulumi/pulumi#1423).
+	shimv2.SetInstanceStateStrategy(prov.P.ResourcesMap().Get("aws_wafv2_web_acl"), shimv2.CtyInstanceState)
+
 	return &prov
 }

@@ -458,7 +458,18 @@ func TestAccWafV2(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "wafv2"),
 		})
+	integration.ProgramTest(t, &test)
+}
 
+func TestRegress1423Ts(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "regress-1423"),
+			RunUpdateTest: false,
+		})
+	test.ExpectRefreshChanges = false
+	test.Quick = false
+	test.SkipRefresh = false
 	integration.ProgramTest(t, &test)
 }
 
