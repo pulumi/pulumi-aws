@@ -780,24 +780,23 @@ func Provider() *tfbridge.ProviderInfo {
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"listener": {
-									MaxItemsOne: tfbridge.True(),
-									Name:        "listener",
+									Name: "listener",
 									Elem: &tfbridge.SchemaInfo{
 										Fields: map[string]*tfbridge.SchemaInfo{
 											"connection_pool": {
 												Elem: &tfbridge.SchemaInfo{
 													Fields: map[string]*tfbridge.SchemaInfo{
 														"http": {
-															MaxItemsOne: tfbridge.True(),
-															Name:        "http",
+
+															Name: "http",
 														},
 														"http2": {
-															MaxItemsOne: tfbridge.True(),
-															Name:        "http2",
+
+															Name: "http2",
 														},
 														"tcp": {
-															MaxItemsOne: tfbridge.True(),
-															Name:        "tcp",
+
+															Name: "tcp",
 														},
 													},
 												},
@@ -810,38 +809,11 @@ func Provider() *tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_appmesh_virtual_router": {
-				Tok: awsResource(appmeshMod, "VirtualRouter"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"spec": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"listener": {
-									MaxItemsOne: tfbridge.True(),
-									Name:        "listener",
-								},
-							},
-						},
-					},
-				},
-			},
+			"aws_appmesh_virtual_router":  {Tok: awsResource(appmeshMod, "VirtualRouter")},
 			"aws_appmesh_virtual_service": {Tok: awsResource(appmeshMod, "VirtualService")},
 			"aws_appmesh_gateway_route":   {Tok: awsResource(appmeshMod, "GatewayRoute")},
-			"aws_appmesh_virtual_gateway": {
-				Tok: awsResource(appmeshMod, "VirtualGateway"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"spec": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"listener": {
-									MaxItemsOne: tfbridge.True(),
-									Name:        "listener",
-								},
-							},
-						},
-					},
-				},
-			},
+			"aws_appmesh_virtual_gateway": {Tok: awsResource(appmeshMod, "VirtualGateway")},
+
 			// API Gateway
 			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
 			"aws_api_gateway_api_key": {
@@ -1137,25 +1109,10 @@ func Provider() *tfbridge.ProviderInfo {
 				},
 			},
 			// Batch
-			"aws_batch_compute_environment": {
-				Tok: awsResource(batchMod, "ComputeEnvironment"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Introduced in https://github.com/hashicorp/terraform-provider-aws/pull/27207/files
-					"compute_resources": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"ec2_configuration": {
-									Name:        "ec2Configuration",
-									MaxItemsOne: tfbridge.True(),
-								},
-							},
-						},
-					},
-				},
-			},
-			"aws_batch_job_definition":    {Tok: awsResource(batchMod, "JobDefinition")},
-			"aws_batch_job_queue":         {Tok: awsResource(batchMod, "JobQueue")},
-			"aws_batch_scheduling_policy": {Tok: awsResource(batchMod, "SchedulingPolicy")},
+			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
+			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
+			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
+			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
 			// Budgets
 			"aws_budgets_budget": {
 				Tok: awsResource(budgetsMod, "Budget"),
@@ -1468,20 +1425,7 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_datasync_location_fsx_openzfs_file_system": {Tok: awsResource(datasyncMod, "FsxOpenZfsFileSystem")},
 			"aws_datasync_location_object_storage":          {Tok: awsResource(datasyncMod, "LocationObjectStorage")},
 			// Data Lifecycle Manager
-			"aws_dlm_lifecycle_policy": {
-				Tok: awsResource(dlmMod, "LifecyclePolicy"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"policy_details": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"resource_types": {
-									MaxItemsOne: tfbridge.False(),
-								},
-							},
-						},
-					},
-				},
-			},
+			"aws_dlm_lifecycle_policy": {Tok: awsResource(dlmMod, "LifecyclePolicy")},
 
 			// Detective
 			"aws_detective_graph":               {Tok: awsResource(detectiveMod, "Graph")},
@@ -1795,9 +1739,6 @@ func Provider() *tfbridge.ProviderInfo {
 					"fleet_state": {
 						CSharpName: "State",
 					},
-					"launch_template_config": {
-						MaxItemsOne: tfbridge.True(),
-					},
 				},
 			},
 			"aws_route_table_association": {Tok: awsResource(ec2Mod, "RouteTableAssociation")},
@@ -1997,34 +1938,8 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_ecrpublic_repository":        {Tok: awsResource(ecrPublicMod, "Repository")},
 			"aws_ecrpublic_repository_policy": {Tok: awsResource(ecrPublicMod, "RepositoryPolicy")},
 			// Elastic Container Service
-			"aws_ecs_cluster": {Tok: awsResource(ecsMod, "Cluster")},
-			"aws_ecs_service": {
-				Tok: awsResource(ecsMod, "Service"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"load_balancer": {
-						// Even though only one is currently supported, the AWS API is designed to support multiple, so
-						// force this to project as an array (and assign a plural name).
-						Name:        "loadBalancers",
-						MaxItemsOne: boolRef(false),
-					},
-					"service_connect_configuration": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"service": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"client_alias": {
-												Name:        "clientAlias",
-												MaxItemsOne: tfbridge.False(),
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
+			"aws_ecs_cluster":                    {Tok: awsResource(ecsMod, "Cluster")},
+			"aws_ecs_service":                    {Tok: awsResource(ecsMod, "Service")},
 			"aws_ecs_task_definition":            {Tok: awsResource(ecsMod, "TaskDefinition")},
 			"aws_ecs_capacity_provider":          {Tok: awsResource(ecsMod, "CapacityProvider")},
 			"aws_ecs_tag":                        {Tok: awsResource(ecsMod, "Tag")},
@@ -2054,14 +1969,7 @@ func Provider() *tfbridge.ProviderInfo {
 				},
 			},
 			// ECS for Kubernetes
-			"aws_eks_cluster": {
-				Tok: awsResource(eksMod, "Cluster"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"certificate_authority": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_eks_cluster": {Tok: awsResource(eksMod, "Cluster")},
 			"aws_eks_node_group": {
 				Tok: awsResource(eksMod, "NodeGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2489,17 +2397,6 @@ func Provider() *tfbridge.ProviderInfo {
 						tfbridge.AutoNameOptions{
 							Separator: "_",
 						}),
-					"cloudwatch_alarm":  {Name: "cloudwatchAlarm", MaxItemsOne: boolRef(true)},
-					"cloudwatch_metric": {Name: "cloudwatchMetric", MaxItemsOne: boolRef(true)},
-					"dynamodb":          {Name: "dynamodb", MaxItemsOne: boolRef(true)},
-					"elasticsearch":     {Name: "elasticsearch", MaxItemsOne: boolRef(true)},
-					"firehose":          {Name: "firehose", MaxItemsOne: boolRef(true)},
-					"kinesis":           {Name: "kinesis", MaxItemsOne: boolRef(true)},
-					"lambda":            {Name: "lambda", MaxItemsOne: boolRef(true)},
-					"republish":         {Name: "republish", MaxItemsOne: boolRef(true)},
-					"s3":                {Name: "s3", MaxItemsOne: boolRef(true)},
-					"sns":               {Name: "sns", MaxItemsOne: boolRef(true)},
-					"sqs":               {Name: "sqs", MaxItemsOne: boolRef(true)},
 				},
 			},
 			"aws_iot_thing_group":            {Tok: awsResource(iotMod, "ThingGroup")},
@@ -2595,10 +2492,6 @@ func Provider() *tfbridge.ProviderInfo {
 					"runtime": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(lambdaMod, "Runtime", "Runtime")},
-					},
-					"architectures": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "architectures",
 					},
 				},
 			},
@@ -2796,16 +2689,8 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_opensearch_outbound_connection":         {Tok: awsResource(opensearchMod, "OutboundConnection")},
 
 			// OpsWorks
-			"aws_opsworks_application": {Tok: awsResource(opsworksMod, "Application")},
-			"aws_opsworks_stack": {
-				Tok: awsResource(opsworksMod, "Stack"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"custom_cookbooks_source": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "customCookbooksSources",
-					},
-				},
-			},
+			"aws_opsworks_application":       {Tok: awsResource(opsworksMod, "Application")},
+			"aws_opsworks_stack":             {Tok: awsResource(opsworksMod, "Stack")},
 			"aws_opsworks_java_app_layer":    {Tok: awsResource(opsworksMod, "JavaAppLayer")},
 			"aws_opsworks_haproxy_layer":     {Tok: awsResource(opsworksMod, "HaproxyLayer")},
 			"aws_opsworks_static_web_layer":  {Tok: awsResource(opsworksMod, "StaticWebLayer")},
@@ -3016,27 +2901,10 @@ func Provider() *tfbridge.ProviderInfo {
 					},
 					// Do not autoname Route53 records, as the "name" of these is actually the true
 					// domain name of the DNS record.
+					//
+					// TODO: This should probably be {Default:
+					// &tfbridge.DefaultInfo{Autonamed: false}).
 					"name": {Name: "name"},
-					"alias": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "aliases",
-					},
-					"geolocation_routing_policy": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "geolocationRoutingPolicies",
-					},
-					"latency_routing_policy": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "latencyRoutingPolicies",
-					},
-					"failover_routing_policy": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "failoverRoutingPolicies",
-					},
-					"weighted_routing_policy": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "weightedRoutingPolicies",
-					},
 				},
 			},
 			"aws_route53_resolver_config":               {Tok: awsResource(route53Mod, "ResolverConfig")},
@@ -3219,119 +3087,6 @@ func Provider() *tfbridge.ProviderInfo {
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
-					"logging": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "loggings",
-					},
-					"versioning": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "versionings",
-					},
-					"website": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "websites",
-					},
-					"server_side_encryption_configuration": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "serverSideEncryptionConfigurations",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"rule": {
-									MaxItemsOne: tfbridge.False(),
-									Name:        "rules",
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"apply_server_side_encryption_by_default": {
-												Name:        "applyServerSideEncryptionByDefaults",
-												MaxItemsOne: tfbridge.False(),
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-					"lifecycle_rule": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"expiration": {
-									MaxItemsOne: tfbridge.False(),
-									Name:        "expirations",
-								},
-								"noncurrent_version_expiration": {
-									MaxItemsOne: tfbridge.False(),
-									Name:        "noncurrentVersionExpirations",
-								},
-							},
-						},
-					},
-					"object_lock_configuration": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"rule": {
-									Name:        "rules",
-									MaxItemsOne: tfbridge.False(),
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"default_retention": {
-												Name:        "defaultRetentions",
-												MaxItemsOne: tfbridge.False(),
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-					"replication_configuration": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "replicationConfigurations",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"rules": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"filter": {
-												MaxItemsOne: tfbridge.False(),
-												Name:        "filters",
-											},
-											"source_selection_criteria": {
-												MaxItemsOne: tfbridge.False(),
-												Name:        "sourceSelectionCriterias",
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"sse_kms_encrypted_objects": {
-															Name:        "sseKmsEncryptedObjects",
-															MaxItemsOne: tfbridge.False(),
-														},
-													},
-												},
-											},
-											"destination": {
-												MaxItemsOne: tfbridge.False(),
-												Name:        "destinations",
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"metrics": {
-															MaxItemsOne: tfbridge.False(),
-														},
-														"replication_time": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "replicationTimes",
-														},
-														"access_control_translation": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "accessControlTranslations",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
@@ -6096,12 +5851,6 @@ func Provider() *tfbridge.ProviderInfo {
 					// Override default pluralization ("indices") to match AWS APIs
 					"global_secondary_index": {Name: "globalSecondaryIndexes"},
 					"local_secondary_index":  {Name: "localSecondaryIndexes"},
-					"ttl": {
-						MaxItemsOne: boolRef(true),
-					},
-					"point_in_time_recovery": {
-						MaxItemsOne: boolRef(true),
-					},
 				},
 			},
 			"aws_dynamodb_table_item": {Tok: awsDataSource(dynamodbMod, "getTableItem")},
@@ -6214,14 +5963,7 @@ func Provider() *tfbridge.ProviderInfo {
 			},
 			"aws_ec2_transit_gateway_attachment": {Tok: awsDataSource(ec2TransitGatewayMod, "getAttachment")},
 			// Elastic Beanstalk
-			"aws_elastic_beanstalk_application": {
-				Tok: awsDataSource(elasticbeanstalkMod, "getApplication"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"appversion_lifecycle": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_elastic_beanstalk_application": {Tok: awsDataSource(elasticbeanstalkMod, "getApplication")},
 			// Elastic Block Storage
 			"aws_ebs_default_kms_key":       {Tok: awsDataSource(ebsMod, "getDefaultKmsKey")},
 			"aws_ebs_encryption_by_default": {Tok: awsDataSource(ebsMod, "getEncryptionByDefault")},
@@ -6251,26 +5993,12 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_ecs_task_execution":       {Tok: awsDataSource(ecsMod, "getTaskExecution")},
 
 			// Elastic Filesystem
-			"aws_efs_file_system": {
-				Tok: awsDataSource(efsMod, "getFileSystem"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"lifecycle_policy": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_efs_file_system":   {Tok: awsDataSource(efsMod, "getFileSystem")},
 			"aws_efs_mount_target":  {Tok: awsDataSource(efsMod, "getMountTarget")},
 			"aws_efs_access_point":  {Tok: awsDataSource(efsMod, "getAccessPoint")},
 			"aws_efs_access_points": {Tok: awsDataSource(efsMod, "getAccessPoints")},
 			// ECS for Kubernetes
-			"aws_eks_cluster": {
-				Tok: awsDataSource(eksMod, "getCluster"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"vpc_config": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_eks_cluster":       {Tok: awsDataSource(eksMod, "getCluster")},
 			"aws_eks_cluster_auth":  {Tok: awsDataSource(eksMod, "getClusterAuth")},
 			"aws_eks_addon":         {Tok: awsDataSource(eksMod, "getAddon")},
 			"aws_eks_addon_version": {Tok: awsDataSource(eksMod, "getAddonVersion")},
@@ -6308,23 +6036,7 @@ func Provider() *tfbridge.ProviderInfo {
 			// IOT
 			"aws_iot_endpoint": {Tok: awsDataSource(iotMod, "getEndpoint")},
 			// Lambda
-			"aws_lambda_function": {
-				Tok: awsDataSource(lambdaMod, "getFunction"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"dead_letter_config": {
-						MaxItemsOne: boolRef(true),
-					},
-					"vpc_config": {
-						MaxItemsOne: boolRef(true),
-					},
-					"environment": {
-						MaxItemsOne: boolRef(true),
-					},
-					"tracing_config": {
-						MaxItemsOne: boolRef(true),
-					},
-				},
-			},
+			"aws_lambda_function":            {Tok: awsDataSource(lambdaMod, "getFunction")},
 			"aws_lambda_functions":           {Tok: awsDataSource(lambdaMod, "getFunctions")},
 			"aws_lambda_function_url":        {Tok: awsDataSource(lambdaMod, "getFunctionUrl")},
 			"aws_lambda_invocation":          {Tok: awsDataSource(lambdaMod, "getInvocation")},
@@ -6343,14 +6055,7 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_mq_broker": {
 				Tok: awsDataSource(mqMod, "getBroker"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"configuration": {
-						MaxItemsOne: boolRef(true),
-					},
-					"maintenance_window_start_time": {
-						MaxItemsOne: boolRef(true),
-					},
 					"logs": {
-						MaxItemsOne: boolRef(true),
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"audit": {
@@ -6897,16 +6602,7 @@ func Provider() *tfbridge.ProviderInfo {
 	prov.RenameDataSource("aws_elb_service_account", awsDataSource(legacyElbMod, "getServiceAccount"),
 		awsDataSource(elbMod, "getServiceAccount"), legacyElbMod, elbMod, nil)
 	prov.RenameDataSource("aws_elb", awsDataSource(legacyElbMod, "getLoadBalancer"),
-		awsDataSource(elbMod, "getLoadBalancer"), legacyElbMod, elbMod, &tfbridge.DataSourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"access_logs": {
-					MaxItemsOne: boolRef(true),
-				},
-				"health_check": {
-					MaxItemsOne: boolRef(true),
-				},
-			},
-		})
+		awsDataSource(elbMod, "getLoadBalancer"), legacyElbMod, elbMod, nil)
 
 	// Define the tf `lb` resources.  For legacy compat we also export them from the
 	// `elasticloadbalancingv2` module not just the `lb` module.
@@ -6932,26 +6628,11 @@ func Provider() *tfbridge.ProviderInfo {
 		awsResource(legacyElbv2Mod, "TargetGroupAttachment"), awsResource(lbMod, "TargetGroupAttachment"),
 		legacyElbv2Mod, lbMod, nil)
 	prov.RenameDataSource("aws_lb", awsDataSource(legacyElbv2Mod, "getLoadBalancer"),
-		awsDataSource(lbMod, "getLoadBalancer"), legacyElbv2Mod, lbMod, &tfbridge.DataSourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"access_logs": {
-					MaxItemsOne: boolRef(true),
-				},
-			},
-		})
+		awsDataSource(lbMod, "getLoadBalancer"), legacyElbv2Mod, lbMod, nil)
 	prov.RenameDataSource("aws_lb_listener", awsDataSource(legacyElbv2Mod, "getListener"),
 		awsDataSource(lbMod, "getListener"), legacyElbv2Mod, lbMod, nil)
 	prov.RenameDataSource("aws_lb_target_group", awsDataSource(legacyElbv2Mod, "getTargetGroup"),
-		awsDataSource(lbMod, "getTargetGroup"), legacyElbv2Mod, lbMod, &tfbridge.DataSourceInfo{
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"stickiness": {
-					MaxItemsOne: boolRef(true),
-				},
-				"health_check": {
-					MaxItemsOne: boolRef(true),
-				},
-			},
-		})
+		awsDataSource(lbMod, "getTargetGroup"), legacyElbv2Mod, lbMod, nil)
 
 	prov.RenameDataSource("aws_cloudfront_function", awsDataSource(cloudtrailMod, "getFunction"),
 		awsDataSource(cloudfrontMod, "getFunction"), cloudtrailMod, cloudfrontMod, nil)
@@ -6999,11 +6680,6 @@ func Provider() *tfbridge.ProviderInfo {
 	prov.RenameDataSource("aws_alb", awsDataSource(legacyAlbMod, "getLoadBalancer"),
 		awsDataSource(albMod, "getLoadBalancer"), legacyAlbMod, albMod, &tfbridge.DataSourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"access_logs": {
-					MaxItemsOne: boolRef(true),
-				},
-			},
 		})
 	prov.RenameDataSource("aws_alb_listener", awsDataSource(legacyAlbMod, "getListener"),
 		awsDataSource(albMod, "getListener"), legacyAlbMod, albMod, &tfbridge.DataSourceInfo{
@@ -7012,14 +6688,6 @@ func Provider() *tfbridge.ProviderInfo {
 	prov.RenameDataSource("aws_alb_target_group", awsDataSource(legacyAlbMod, "getTargetGroup"),
 		awsDataSource(albMod, "getTargetGroup"), legacyAlbMod, albMod, &tfbridge.DataSourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
-			Fields: map[string]*tfbridge.SchemaInfo{
-				"health_check": {
-					MaxItemsOne: boolRef(true),
-				},
-				"stickiness": {
-					MaxItemsOne: boolRef(true),
-				},
-			},
 		})
 
 	// re-homing top level packages - https://github.com/pulumi/pulumi-aws/issues/1352
