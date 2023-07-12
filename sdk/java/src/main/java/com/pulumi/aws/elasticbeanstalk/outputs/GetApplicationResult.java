@@ -6,11 +6,12 @@ package com.pulumi.aws.elasticbeanstalk.outputs;
 import com.pulumi.aws.elasticbeanstalk.outputs.GetApplicationAppversionLifecycle;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetApplicationResult {
-    private GetApplicationAppversionLifecycle appversionLifecycle;
+    private List<GetApplicationAppversionLifecycle> appversionLifecycles;
     /**
      * @return ARN of the application.
      * 
@@ -29,8 +30,8 @@ public final class GetApplicationResult {
     private String name;
 
     private GetApplicationResult() {}
-    public GetApplicationAppversionLifecycle appversionLifecycle() {
-        return this.appversionLifecycle;
+    public List<GetApplicationAppversionLifecycle> appversionLifecycles() {
+        return this.appversionLifecycles;
     }
     /**
      * @return ARN of the application.
@@ -66,7 +67,7 @@ public final class GetApplicationResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private GetApplicationAppversionLifecycle appversionLifecycle;
+        private List<GetApplicationAppversionLifecycle> appversionLifecycles;
         private String arn;
         private String description;
         private String id;
@@ -74,7 +75,7 @@ public final class GetApplicationResult {
         public Builder() {}
         public Builder(GetApplicationResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.appversionLifecycle = defaults.appversionLifecycle;
+    	      this.appversionLifecycles = defaults.appversionLifecycles;
     	      this.arn = defaults.arn;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
@@ -82,9 +83,12 @@ public final class GetApplicationResult {
         }
 
         @CustomType.Setter
-        public Builder appversionLifecycle(GetApplicationAppversionLifecycle appversionLifecycle) {
-            this.appversionLifecycle = Objects.requireNonNull(appversionLifecycle);
+        public Builder appversionLifecycles(List<GetApplicationAppversionLifecycle> appversionLifecycles) {
+            this.appversionLifecycles = Objects.requireNonNull(appversionLifecycles);
             return this;
+        }
+        public Builder appversionLifecycles(GetApplicationAppversionLifecycle... appversionLifecycles) {
+            return appversionLifecycles(List.of(appversionLifecycles));
         }
         @CustomType.Setter
         public Builder arn(String arn) {
@@ -108,7 +112,7 @@ public final class GetApplicationResult {
         }
         public GetApplicationResult build() {
             final var o = new GetApplicationResult();
-            o.appversionLifecycle = appversionLifecycle;
+            o.appversionLifecycles = appversionLifecycles;
             o.arn = arn;
             o.description = description;
             o.id = id;

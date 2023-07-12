@@ -67,11 +67,11 @@ type LookupFunctionResult struct {
 	// ARN for a Code Signing Configuration.
 	CodeSigningConfigArn string `pulumi:"codeSigningConfigArn"`
 	// Configure the function's *dead letter queue*.
-	DeadLetterConfig GetFunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
+	DeadLetterConfigs []GetFunctionDeadLetterConfig `pulumi:"deadLetterConfigs"`
 	// Description of what your Lambda Function does.
 	Description string `pulumi:"description"`
 	// Lambda environment's configuration settings.
-	Environment GetFunctionEnvironment `pulumi:"environment"`
+	Environments []GetFunctionEnvironment `pulumi:"environments"`
 	// Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
 	EphemeralStorages []GetFunctionEphemeralStorage `pulumi:"ephemeralStorages"`
 	// Connection settings for an Amazon EFS file system.
@@ -116,11 +116,11 @@ type LookupFunctionResult struct {
 	// Function execution time at which Lambda should terminate the function.
 	Timeout int `pulumi:"timeout"`
 	// Tracing settings of the function.
-	TracingConfig GetFunctionTracingConfig `pulumi:"tracingConfig"`
+	TracingConfigs []GetFunctionTracingConfig `pulumi:"tracingConfigs"`
 	// The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
 	Version string `pulumi:"version"`
 	// VPC configuration associated with your Lambda function.
-	VpcConfig GetFunctionVpcConfig `pulumi:"vpcConfig"`
+	VpcConfigs []GetFunctionVpcConfig `pulumi:"vpcConfigs"`
 }
 
 func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionResultOutput {
@@ -180,8 +180,8 @@ func (o LookupFunctionResultOutput) CodeSigningConfigArn() pulumi.StringOutput {
 }
 
 // Configure the function's *dead letter queue*.
-func (o LookupFunctionResultOutput) DeadLetterConfig() GetFunctionDeadLetterConfigOutput {
-	return o.ApplyT(func(v LookupFunctionResult) GetFunctionDeadLetterConfig { return v.DeadLetterConfig }).(GetFunctionDeadLetterConfigOutput)
+func (o LookupFunctionResultOutput) DeadLetterConfigs() GetFunctionDeadLetterConfigArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionDeadLetterConfig { return v.DeadLetterConfigs }).(GetFunctionDeadLetterConfigArrayOutput)
 }
 
 // Description of what your Lambda Function does.
@@ -190,8 +190,8 @@ func (o LookupFunctionResultOutput) Description() pulumi.StringOutput {
 }
 
 // Lambda environment's configuration settings.
-func (o LookupFunctionResultOutput) Environment() GetFunctionEnvironmentOutput {
-	return o.ApplyT(func(v LookupFunctionResult) GetFunctionEnvironment { return v.Environment }).(GetFunctionEnvironmentOutput)
+func (o LookupFunctionResultOutput) Environments() GetFunctionEnvironmentArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionEnvironment { return v.Environments }).(GetFunctionEnvironmentArrayOutput)
 }
 
 // Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
@@ -307,8 +307,8 @@ func (o LookupFunctionResultOutput) Timeout() pulumi.IntOutput {
 }
 
 // Tracing settings of the function.
-func (o LookupFunctionResultOutput) TracingConfig() GetFunctionTracingConfigOutput {
-	return o.ApplyT(func(v LookupFunctionResult) GetFunctionTracingConfig { return v.TracingConfig }).(GetFunctionTracingConfigOutput)
+func (o LookupFunctionResultOutput) TracingConfigs() GetFunctionTracingConfigArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionTracingConfig { return v.TracingConfigs }).(GetFunctionTracingConfigArrayOutput)
 }
 
 // The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
@@ -317,8 +317,8 @@ func (o LookupFunctionResultOutput) Version() pulumi.StringOutput {
 }
 
 // VPC configuration associated with your Lambda function.
-func (o LookupFunctionResultOutput) VpcConfig() GetFunctionVpcConfigOutput {
-	return o.ApplyT(func(v LookupFunctionResult) GetFunctionVpcConfig { return v.VpcConfig }).(GetFunctionVpcConfigOutput)
+func (o LookupFunctionResultOutput) VpcConfigs() GetFunctionVpcConfigArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionVpcConfig { return v.VpcConfigs }).(GetFunctionVpcConfigArrayOutput)
 }
 
 func init() {

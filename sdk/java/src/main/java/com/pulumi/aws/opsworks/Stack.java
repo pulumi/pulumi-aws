@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -152,15 +151,15 @@ public class Stack extends com.pulumi.resources.CustomResource {
      * When `use_custom_cookbooks` is set, provide this sub-object as described below.
      * 
      */
-    @Export(name="customCookbooksSources", refs={List.class,StackCustomCookbooksSource.class}, tree="[0,1]")
-    private Output<List<StackCustomCookbooksSource>> customCookbooksSources;
+    @Export(name="customCookbooksSource", refs={StackCustomCookbooksSource.class}, tree="[0]")
+    private Output<StackCustomCookbooksSource> customCookbooksSource;
 
     /**
      * @return When `use_custom_cookbooks` is set, provide this sub-object as described below.
      * 
      */
-    public Output<List<StackCustomCookbooksSource>> customCookbooksSources() {
-        return this.customCookbooksSources;
+    public Output<StackCustomCookbooksSource> customCookbooksSource() {
+        return this.customCookbooksSource;
     }
     /**
      * Custom JSON attributes to apply to the entire stack.

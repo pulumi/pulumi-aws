@@ -67,7 +67,7 @@ export interface GetFunctionResult {
     /**
      * Configure the function's *dead letter queue*.
      */
-    readonly deadLetterConfig: outputs.lambda.GetFunctionDeadLetterConfig;
+    readonly deadLetterConfigs: outputs.lambda.GetFunctionDeadLetterConfig[];
     /**
      * Description of what your Lambda Function does.
      */
@@ -75,7 +75,7 @@ export interface GetFunctionResult {
     /**
      * Lambda environment's configuration settings.
      */
-    readonly environment: outputs.lambda.GetFunctionEnvironment;
+    readonly environments: outputs.lambda.GetFunctionEnvironment[];
     /**
      * Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
      */
@@ -162,7 +162,7 @@ export interface GetFunctionResult {
     /**
      * Tracing settings of the function.
      */
-    readonly tracingConfig: outputs.lambda.GetFunctionTracingConfig;
+    readonly tracingConfigs: outputs.lambda.GetFunctionTracingConfig[];
     /**
      * The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
      */
@@ -170,7 +170,7 @@ export interface GetFunctionResult {
     /**
      * VPC configuration associated with your Lambda function.
      */
-    readonly vpcConfig: outputs.lambda.GetFunctionVpcConfig;
+    readonly vpcConfigs: outputs.lambda.GetFunctionVpcConfig[];
 }
 /**
  * Provides information about a Lambda Function.

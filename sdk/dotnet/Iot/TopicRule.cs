@@ -61,11 +61,14 @@ namespace Pulumi.Aws.Iot
     ///         Enabled = true,
     ///         Sql = "SELECT * FROM 'topic/test'",
     ///         SqlVersion = "2016-03-23",
-    ///         Sns = new Aws.Iot.Inputs.TopicRuleSnsArgs
+    ///         Sns = new[]
     ///         {
-    ///             MessageFormat = "RAW",
-    ///             RoleArn = role.Arn,
-    ///             TargetArn = mytopic.Arn,
+    ///             new Aws.Iot.Inputs.TopicRuleSnArgs
+    ///             {
+    ///                 MessageFormat = "RAW",
+    ///                 RoleArn = role.Arn,
+    ///                 TargetArn = mytopic.Arn,
+    ///             },
     ///         },
     ///         ErrorAction = new Aws.Iot.Inputs.TopicRuleErrorActionArgs
     ///         {
@@ -123,14 +126,14 @@ namespace Pulumi.Aws.Iot
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("cloudwatchAlarm")]
-        public Output<Outputs.TopicRuleCloudwatchAlarm?> CloudwatchAlarm { get; private set; } = null!;
+        [Output("cloudwatchAlarms")]
+        public Output<ImmutableArray<Outputs.TopicRuleCloudwatchAlarm>> CloudwatchAlarms { get; private set; } = null!;
 
         [Output("cloudwatchLogs")]
         public Output<ImmutableArray<Outputs.TopicRuleCloudwatchLog>> CloudwatchLogs { get; private set; } = null!;
 
-        [Output("cloudwatchMetric")]
-        public Output<Outputs.TopicRuleCloudwatchMetric?> CloudwatchMetric { get; private set; } = null!;
+        [Output("cloudwatchMetrics")]
+        public Output<ImmutableArray<Outputs.TopicRuleCloudwatchMetric>> CloudwatchMetrics { get; private set; } = null!;
 
         /// <summary>
         /// The description of the rule.
@@ -138,14 +141,14 @@ namespace Pulumi.Aws.Iot
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("dynamodb")]
-        public Output<Outputs.TopicRuleDynamodb?> Dynamodb { get; private set; } = null!;
+        [Output("dynamodbs")]
+        public Output<ImmutableArray<Outputs.TopicRuleDynamodb>> Dynamodbs { get; private set; } = null!;
 
         [Output("dynamodbv2s")]
         public Output<ImmutableArray<Outputs.TopicRuleDynamodbv2>> Dynamodbv2s { get; private set; } = null!;
 
-        [Output("elasticsearch")]
-        public Output<Outputs.TopicRuleElasticsearch?> Elasticsearch { get; private set; } = null!;
+        [Output("elasticsearches")]
+        public Output<ImmutableArray<Outputs.TopicRuleElasticsearch>> Elasticsearches { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the rule is enabled.
@@ -159,8 +162,8 @@ namespace Pulumi.Aws.Iot
         [Output("errorAction")]
         public Output<Outputs.TopicRuleErrorAction?> ErrorAction { get; private set; } = null!;
 
-        [Output("firehose")]
-        public Output<Outputs.TopicRuleFirehose?> Firehose { get; private set; } = null!;
+        [Output("firehoses")]
+        public Output<ImmutableArray<Outputs.TopicRuleFirehose>> Firehoses { get; private set; } = null!;
 
         [Output("https")]
         public Output<ImmutableArray<Outputs.TopicRuleHttp>> Https { get; private set; } = null!;
@@ -174,11 +177,11 @@ namespace Pulumi.Aws.Iot
         [Output("kafkas")]
         public Output<ImmutableArray<Outputs.TopicRuleKafka>> Kafkas { get; private set; } = null!;
 
-        [Output("kinesis")]
-        public Output<Outputs.TopicRuleKinesis?> Kinesis { get; private set; } = null!;
+        [Output("kineses")]
+        public Output<ImmutableArray<Outputs.TopicRuleKinese>> Kineses { get; private set; } = null!;
 
-        [Output("lambda")]
-        public Output<Outputs.TopicRuleLambda?> Lambda { get; private set; } = null!;
+        [Output("lambdas")]
+        public Output<ImmutableArray<Outputs.TopicRuleLambda>> Lambdas { get; private set; } = null!;
 
         /// <summary>
         /// The name of the rule.
@@ -186,14 +189,14 @@ namespace Pulumi.Aws.Iot
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("republish")]
-        public Output<Outputs.TopicRuleRepublish?> Republish { get; private set; } = null!;
+        [Output("republishes")]
+        public Output<ImmutableArray<Outputs.TopicRuleRepublish>> Republishes { get; private set; } = null!;
 
-        [Output("s3")]
-        public Output<Outputs.TopicRuleS3?> S3 { get; private set; } = null!;
+        [Output("s3s")]
+        public Output<ImmutableArray<Outputs.TopicRuleS3>> S3s { get; private set; } = null!;
 
         [Output("sns")]
-        public Output<Outputs.TopicRuleSns?> Sns { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TopicRuleSn>> Sns { get; private set; } = null!;
 
         /// <summary>
         /// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
@@ -208,7 +211,7 @@ namespace Pulumi.Aws.Iot
         public Output<string> SqlVersion { get; private set; } = null!;
 
         [Output("sqs")]
-        public Output<Outputs.TopicRuleSqs?> Sqs { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TopicRuleSq>> Sqs { get; private set; } = null!;
 
         [Output("stepFunctions")]
         public Output<ImmutableArray<Outputs.TopicRuleStepFunction>> StepFunctions { get; private set; } = null!;
@@ -274,8 +277,13 @@ namespace Pulumi.Aws.Iot
 
     public sealed class TopicRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("cloudwatchAlarm")]
-        public Input<Inputs.TopicRuleCloudwatchAlarmArgs>? CloudwatchAlarm { get; set; }
+        [Input("cloudwatchAlarms")]
+        private InputList<Inputs.TopicRuleCloudwatchAlarmArgs>? _cloudwatchAlarms;
+        public InputList<Inputs.TopicRuleCloudwatchAlarmArgs> CloudwatchAlarms
+        {
+            get => _cloudwatchAlarms ?? (_cloudwatchAlarms = new InputList<Inputs.TopicRuleCloudwatchAlarmArgs>());
+            set => _cloudwatchAlarms = value;
+        }
 
         [Input("cloudwatchLogs")]
         private InputList<Inputs.TopicRuleCloudwatchLogArgs>? _cloudwatchLogs;
@@ -285,8 +293,13 @@ namespace Pulumi.Aws.Iot
             set => _cloudwatchLogs = value;
         }
 
-        [Input("cloudwatchMetric")]
-        public Input<Inputs.TopicRuleCloudwatchMetricArgs>? CloudwatchMetric { get; set; }
+        [Input("cloudwatchMetrics")]
+        private InputList<Inputs.TopicRuleCloudwatchMetricArgs>? _cloudwatchMetrics;
+        public InputList<Inputs.TopicRuleCloudwatchMetricArgs> CloudwatchMetrics
+        {
+            get => _cloudwatchMetrics ?? (_cloudwatchMetrics = new InputList<Inputs.TopicRuleCloudwatchMetricArgs>());
+            set => _cloudwatchMetrics = value;
+        }
 
         /// <summary>
         /// The description of the rule.
@@ -294,8 +307,13 @@ namespace Pulumi.Aws.Iot
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("dynamodb")]
-        public Input<Inputs.TopicRuleDynamodbArgs>? Dynamodb { get; set; }
+        [Input("dynamodbs")]
+        private InputList<Inputs.TopicRuleDynamodbArgs>? _dynamodbs;
+        public InputList<Inputs.TopicRuleDynamodbArgs> Dynamodbs
+        {
+            get => _dynamodbs ?? (_dynamodbs = new InputList<Inputs.TopicRuleDynamodbArgs>());
+            set => _dynamodbs = value;
+        }
 
         [Input("dynamodbv2s")]
         private InputList<Inputs.TopicRuleDynamodbv2Args>? _dynamodbv2s;
@@ -305,8 +323,13 @@ namespace Pulumi.Aws.Iot
             set => _dynamodbv2s = value;
         }
 
-        [Input("elasticsearch")]
-        public Input<Inputs.TopicRuleElasticsearchArgs>? Elasticsearch { get; set; }
+        [Input("elasticsearches")]
+        private InputList<Inputs.TopicRuleElasticsearchArgs>? _elasticsearches;
+        public InputList<Inputs.TopicRuleElasticsearchArgs> Elasticsearches
+        {
+            get => _elasticsearches ?? (_elasticsearches = new InputList<Inputs.TopicRuleElasticsearchArgs>());
+            set => _elasticsearches = value;
+        }
 
         /// <summary>
         /// Specifies whether the rule is enabled.
@@ -320,8 +343,13 @@ namespace Pulumi.Aws.Iot
         [Input("errorAction")]
         public Input<Inputs.TopicRuleErrorActionArgs>? ErrorAction { get; set; }
 
-        [Input("firehose")]
-        public Input<Inputs.TopicRuleFirehoseArgs>? Firehose { get; set; }
+        [Input("firehoses")]
+        private InputList<Inputs.TopicRuleFirehoseArgs>? _firehoses;
+        public InputList<Inputs.TopicRuleFirehoseArgs> Firehoses
+        {
+            get => _firehoses ?? (_firehoses = new InputList<Inputs.TopicRuleFirehoseArgs>());
+            set => _firehoses = value;
+        }
 
         [Input("https")]
         private InputList<Inputs.TopicRuleHttpArgs>? _https;
@@ -355,11 +383,21 @@ namespace Pulumi.Aws.Iot
             set => _kafkas = value;
         }
 
-        [Input("kinesis")]
-        public Input<Inputs.TopicRuleKinesisArgs>? Kinesis { get; set; }
+        [Input("kineses")]
+        private InputList<Inputs.TopicRuleKineseArgs>? _kineses;
+        public InputList<Inputs.TopicRuleKineseArgs> Kineses
+        {
+            get => _kineses ?? (_kineses = new InputList<Inputs.TopicRuleKineseArgs>());
+            set => _kineses = value;
+        }
 
-        [Input("lambda")]
-        public Input<Inputs.TopicRuleLambdaArgs>? Lambda { get; set; }
+        [Input("lambdas")]
+        private InputList<Inputs.TopicRuleLambdaArgs>? _lambdas;
+        public InputList<Inputs.TopicRuleLambdaArgs> Lambdas
+        {
+            get => _lambdas ?? (_lambdas = new InputList<Inputs.TopicRuleLambdaArgs>());
+            set => _lambdas = value;
+        }
 
         /// <summary>
         /// The name of the rule.
@@ -367,14 +405,29 @@ namespace Pulumi.Aws.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("republish")]
-        public Input<Inputs.TopicRuleRepublishArgs>? Republish { get; set; }
+        [Input("republishes")]
+        private InputList<Inputs.TopicRuleRepublishArgs>? _republishes;
+        public InputList<Inputs.TopicRuleRepublishArgs> Republishes
+        {
+            get => _republishes ?? (_republishes = new InputList<Inputs.TopicRuleRepublishArgs>());
+            set => _republishes = value;
+        }
 
-        [Input("s3")]
-        public Input<Inputs.TopicRuleS3Args>? S3 { get; set; }
+        [Input("s3s")]
+        private InputList<Inputs.TopicRuleS3Args>? _s3s;
+        public InputList<Inputs.TopicRuleS3Args> S3s
+        {
+            get => _s3s ?? (_s3s = new InputList<Inputs.TopicRuleS3Args>());
+            set => _s3s = value;
+        }
 
         [Input("sns")]
-        public Input<Inputs.TopicRuleSnsArgs>? Sns { get; set; }
+        private InputList<Inputs.TopicRuleSnArgs>? _sns;
+        public InputList<Inputs.TopicRuleSnArgs> Sns
+        {
+            get => _sns ?? (_sns = new InputList<Inputs.TopicRuleSnArgs>());
+            set => _sns = value;
+        }
 
         /// <summary>
         /// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
@@ -389,7 +442,12 @@ namespace Pulumi.Aws.Iot
         public Input<string> SqlVersion { get; set; } = null!;
 
         [Input("sqs")]
-        public Input<Inputs.TopicRuleSqsArgs>? Sqs { get; set; }
+        private InputList<Inputs.TopicRuleSqArgs>? _sqs;
+        public InputList<Inputs.TopicRuleSqArgs> Sqs
+        {
+            get => _sqs ?? (_sqs = new InputList<Inputs.TopicRuleSqArgs>());
+            set => _sqs = value;
+        }
 
         [Input("stepFunctions")]
         private InputList<Inputs.TopicRuleStepFunctionArgs>? _stepFunctions;
@@ -433,8 +491,13 @@ namespace Pulumi.Aws.Iot
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
-        [Input("cloudwatchAlarm")]
-        public Input<Inputs.TopicRuleCloudwatchAlarmGetArgs>? CloudwatchAlarm { get; set; }
+        [Input("cloudwatchAlarms")]
+        private InputList<Inputs.TopicRuleCloudwatchAlarmGetArgs>? _cloudwatchAlarms;
+        public InputList<Inputs.TopicRuleCloudwatchAlarmGetArgs> CloudwatchAlarms
+        {
+            get => _cloudwatchAlarms ?? (_cloudwatchAlarms = new InputList<Inputs.TopicRuleCloudwatchAlarmGetArgs>());
+            set => _cloudwatchAlarms = value;
+        }
 
         [Input("cloudwatchLogs")]
         private InputList<Inputs.TopicRuleCloudwatchLogGetArgs>? _cloudwatchLogs;
@@ -444,8 +507,13 @@ namespace Pulumi.Aws.Iot
             set => _cloudwatchLogs = value;
         }
 
-        [Input("cloudwatchMetric")]
-        public Input<Inputs.TopicRuleCloudwatchMetricGetArgs>? CloudwatchMetric { get; set; }
+        [Input("cloudwatchMetrics")]
+        private InputList<Inputs.TopicRuleCloudwatchMetricGetArgs>? _cloudwatchMetrics;
+        public InputList<Inputs.TopicRuleCloudwatchMetricGetArgs> CloudwatchMetrics
+        {
+            get => _cloudwatchMetrics ?? (_cloudwatchMetrics = new InputList<Inputs.TopicRuleCloudwatchMetricGetArgs>());
+            set => _cloudwatchMetrics = value;
+        }
 
         /// <summary>
         /// The description of the rule.
@@ -453,8 +521,13 @@ namespace Pulumi.Aws.Iot
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("dynamodb")]
-        public Input<Inputs.TopicRuleDynamodbGetArgs>? Dynamodb { get; set; }
+        [Input("dynamodbs")]
+        private InputList<Inputs.TopicRuleDynamodbGetArgs>? _dynamodbs;
+        public InputList<Inputs.TopicRuleDynamodbGetArgs> Dynamodbs
+        {
+            get => _dynamodbs ?? (_dynamodbs = new InputList<Inputs.TopicRuleDynamodbGetArgs>());
+            set => _dynamodbs = value;
+        }
 
         [Input("dynamodbv2s")]
         private InputList<Inputs.TopicRuleDynamodbv2GetArgs>? _dynamodbv2s;
@@ -464,8 +537,13 @@ namespace Pulumi.Aws.Iot
             set => _dynamodbv2s = value;
         }
 
-        [Input("elasticsearch")]
-        public Input<Inputs.TopicRuleElasticsearchGetArgs>? Elasticsearch { get; set; }
+        [Input("elasticsearches")]
+        private InputList<Inputs.TopicRuleElasticsearchGetArgs>? _elasticsearches;
+        public InputList<Inputs.TopicRuleElasticsearchGetArgs> Elasticsearches
+        {
+            get => _elasticsearches ?? (_elasticsearches = new InputList<Inputs.TopicRuleElasticsearchGetArgs>());
+            set => _elasticsearches = value;
+        }
 
         /// <summary>
         /// Specifies whether the rule is enabled.
@@ -479,8 +557,13 @@ namespace Pulumi.Aws.Iot
         [Input("errorAction")]
         public Input<Inputs.TopicRuleErrorActionGetArgs>? ErrorAction { get; set; }
 
-        [Input("firehose")]
-        public Input<Inputs.TopicRuleFirehoseGetArgs>? Firehose { get; set; }
+        [Input("firehoses")]
+        private InputList<Inputs.TopicRuleFirehoseGetArgs>? _firehoses;
+        public InputList<Inputs.TopicRuleFirehoseGetArgs> Firehoses
+        {
+            get => _firehoses ?? (_firehoses = new InputList<Inputs.TopicRuleFirehoseGetArgs>());
+            set => _firehoses = value;
+        }
 
         [Input("https")]
         private InputList<Inputs.TopicRuleHttpGetArgs>? _https;
@@ -514,11 +597,21 @@ namespace Pulumi.Aws.Iot
             set => _kafkas = value;
         }
 
-        [Input("kinesis")]
-        public Input<Inputs.TopicRuleKinesisGetArgs>? Kinesis { get; set; }
+        [Input("kineses")]
+        private InputList<Inputs.TopicRuleKineseGetArgs>? _kineses;
+        public InputList<Inputs.TopicRuleKineseGetArgs> Kineses
+        {
+            get => _kineses ?? (_kineses = new InputList<Inputs.TopicRuleKineseGetArgs>());
+            set => _kineses = value;
+        }
 
-        [Input("lambda")]
-        public Input<Inputs.TopicRuleLambdaGetArgs>? Lambda { get; set; }
+        [Input("lambdas")]
+        private InputList<Inputs.TopicRuleLambdaGetArgs>? _lambdas;
+        public InputList<Inputs.TopicRuleLambdaGetArgs> Lambdas
+        {
+            get => _lambdas ?? (_lambdas = new InputList<Inputs.TopicRuleLambdaGetArgs>());
+            set => _lambdas = value;
+        }
 
         /// <summary>
         /// The name of the rule.
@@ -526,14 +619,29 @@ namespace Pulumi.Aws.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("republish")]
-        public Input<Inputs.TopicRuleRepublishGetArgs>? Republish { get; set; }
+        [Input("republishes")]
+        private InputList<Inputs.TopicRuleRepublishGetArgs>? _republishes;
+        public InputList<Inputs.TopicRuleRepublishGetArgs> Republishes
+        {
+            get => _republishes ?? (_republishes = new InputList<Inputs.TopicRuleRepublishGetArgs>());
+            set => _republishes = value;
+        }
 
-        [Input("s3")]
-        public Input<Inputs.TopicRuleS3GetArgs>? S3 { get; set; }
+        [Input("s3s")]
+        private InputList<Inputs.TopicRuleS3GetArgs>? _s3s;
+        public InputList<Inputs.TopicRuleS3GetArgs> S3s
+        {
+            get => _s3s ?? (_s3s = new InputList<Inputs.TopicRuleS3GetArgs>());
+            set => _s3s = value;
+        }
 
         [Input("sns")]
-        public Input<Inputs.TopicRuleSnsGetArgs>? Sns { get; set; }
+        private InputList<Inputs.TopicRuleSnGetArgs>? _sns;
+        public InputList<Inputs.TopicRuleSnGetArgs> Sns
+        {
+            get => _sns ?? (_sns = new InputList<Inputs.TopicRuleSnGetArgs>());
+            set => _sns = value;
+        }
 
         /// <summary>
         /// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
@@ -548,7 +656,12 @@ namespace Pulumi.Aws.Iot
         public Input<string>? SqlVersion { get; set; }
 
         [Input("sqs")]
-        public Input<Inputs.TopicRuleSqsGetArgs>? Sqs { get; set; }
+        private InputList<Inputs.TopicRuleSqGetArgs>? _sqs;
+        public InputList<Inputs.TopicRuleSqGetArgs> Sqs
+        {
+            get => _sqs ?? (_sqs = new InputList<Inputs.TopicRuleSqGetArgs>());
+            set => _sqs = value;
+        }
 
         [Input("stepFunctions")]
         private InputList<Inputs.TopicRuleStepFunctionGetArgs>? _stepFunctions;

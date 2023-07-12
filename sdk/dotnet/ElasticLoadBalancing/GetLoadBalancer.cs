@@ -134,7 +134,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
-        public readonly Outputs.GetLoadBalancerAccessLogsResult AccessLogs;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerAccessLogResult> AccessLogs;
         public readonly string Arn;
         public readonly ImmutableArray<string> AvailabilityZones;
         public readonly bool ConnectionDraining;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         public readonly bool CrossZoneLoadBalancing;
         public readonly string DesyncMitigationMode;
         public readonly string DnsName;
-        public readonly Outputs.GetLoadBalancerHealthCheckResult HealthCheck;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerHealthCheckResult> HealthChecks;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
 
         [OutputConstructor]
         private GetLoadBalancerResult(
-            Outputs.GetLoadBalancerAccessLogsResult accessLogs,
+            ImmutableArray<Outputs.GetLoadBalancerAccessLogResult> accessLogs,
 
             string arn,
 
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
 
             string dnsName,
 
-            Outputs.GetLoadBalancerHealthCheckResult healthCheck,
+            ImmutableArray<Outputs.GetLoadBalancerHealthCheckResult> healthChecks,
 
             string id,
 
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
             CrossZoneLoadBalancing = crossZoneLoadBalancing;
             DesyncMitigationMode = desyncMitigationMode;
             DnsName = dnsName;
-            HealthCheck = healthCheck;
+            HealthChecks = healthChecks;
             Id = id;
             IdleTimeout = idleTimeout;
             Instances = instances;

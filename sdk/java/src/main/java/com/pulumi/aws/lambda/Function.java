@@ -368,14 +368,14 @@ public class Function extends com.pulumi.resources.CustomResource {
      * Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
      * 
      */
-    @Export(name="architectures", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> architectures;
+    @Export(name="architectures", refs={String.class}, tree="[0]")
+    private Output<String> architectures;
 
     /**
      * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
      * 
      */
-    public Output<List<String>> architectures() {
+    public Output<String> architectures() {
         return this.architectures;
     }
     /**

@@ -89,7 +89,7 @@ type LookupFileSystemResult struct {
 	// ARN for the KMS encryption key.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-	LifecyclePolicy GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicy"`
+	LifecyclePolicies []GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// File system performance mode.
 	PerformanceMode string `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system.
@@ -188,8 +188,8 @@ func (o LookupFileSystemResultOutput) KmsKeyId() pulumi.StringOutput {
 }
 
 // File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-func (o LookupFileSystemResultOutput) LifecyclePolicy() GetFileSystemLifecyclePolicyOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) GetFileSystemLifecyclePolicy { return v.LifecyclePolicy }).(GetFileSystemLifecyclePolicyOutput)
+func (o LookupFileSystemResultOutput) LifecyclePolicies() GetFileSystemLifecyclePolicyArrayOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) []GetFileSystemLifecyclePolicy { return v.LifecyclePolicies }).(GetFileSystemLifecyclePolicyArrayOutput)
 }
 
 // File system performance mode.

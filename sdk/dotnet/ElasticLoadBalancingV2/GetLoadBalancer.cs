@@ -162,7 +162,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     [OutputType]
     public sealed class GetLoadBalancerResult
     {
-        public readonly Outputs.GetLoadBalancerAccessLogsResult AccessLogs;
+        public readonly ImmutableArray<Outputs.GetLoadBalancerAccessLogResult> AccessLogs;
         public readonly string Arn;
         public readonly string ArnSuffix;
         public readonly string CustomerOwnedIpv4Pool;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
 
         [OutputConstructor]
         private GetLoadBalancerResult(
-            Outputs.GetLoadBalancerAccessLogsResult accessLogs,
+            ImmutableArray<Outputs.GetLoadBalancerAccessLogResult> accessLogs,
 
             string arn,
 

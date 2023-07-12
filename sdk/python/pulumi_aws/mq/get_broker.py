@@ -22,7 +22,7 @@ class GetBrokerResult:
     """
     A collection of values returned by getBroker.
     """
-    def __init__(__self__, arn=None, authentication_strategy=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, id=None, instances=None, ldap_server_metadatas=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, storage_type=None, subnet_ids=None, tags=None, users=None):
+    def __init__(__self__, arn=None, authentication_strategy=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configurations=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, id=None, instances=None, ldap_server_metadatas=None, logs=None, maintenance_window_start_times=None, publicly_accessible=None, security_groups=None, storage_type=None, subnet_ids=None, tags=None, users=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,9 +38,9 @@ class GetBrokerResult:
         if broker_name and not isinstance(broker_name, str):
             raise TypeError("Expected argument 'broker_name' to be a str")
         pulumi.set(__self__, "broker_name", broker_name)
-        if configuration and not isinstance(configuration, dict):
-            raise TypeError("Expected argument 'configuration' to be a dict")
-        pulumi.set(__self__, "configuration", configuration)
+        if configurations and not isinstance(configurations, list):
+            raise TypeError("Expected argument 'configurations' to be a list")
+        pulumi.set(__self__, "configurations", configurations)
         if deployment_mode and not isinstance(deployment_mode, str):
             raise TypeError("Expected argument 'deployment_mode' to be a str")
         pulumi.set(__self__, "deployment_mode", deployment_mode)
@@ -65,12 +65,12 @@ class GetBrokerResult:
         if ldap_server_metadatas and not isinstance(ldap_server_metadatas, list):
             raise TypeError("Expected argument 'ldap_server_metadatas' to be a list")
         pulumi.set(__self__, "ldap_server_metadatas", ldap_server_metadatas)
-        if logs and not isinstance(logs, dict):
-            raise TypeError("Expected argument 'logs' to be a dict")
+        if logs and not isinstance(logs, list):
+            raise TypeError("Expected argument 'logs' to be a list")
         pulumi.set(__self__, "logs", logs)
-        if maintenance_window_start_time and not isinstance(maintenance_window_start_time, dict):
-            raise TypeError("Expected argument 'maintenance_window_start_time' to be a dict")
-        pulumi.set(__self__, "maintenance_window_start_time", maintenance_window_start_time)
+        if maintenance_window_start_times and not isinstance(maintenance_window_start_times, list):
+            raise TypeError("Expected argument 'maintenance_window_start_times' to be a list")
+        pulumi.set(__self__, "maintenance_window_start_times", maintenance_window_start_times)
         if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError("Expected argument 'publicly_accessible' to be a bool")
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
@@ -117,8 +117,8 @@ class GetBrokerResult:
 
     @property
     @pulumi.getter
-    def configuration(self) -> 'outputs.GetBrokerConfigurationResult':
-        return pulumi.get(self, "configuration")
+    def configurations(self) -> Sequence['outputs.GetBrokerConfigurationResult']:
+        return pulumi.get(self, "configurations")
 
     @property
     @pulumi.getter(name="deploymentMode")
@@ -165,13 +165,13 @@ class GetBrokerResult:
 
     @property
     @pulumi.getter
-    def logs(self) -> 'outputs.GetBrokerLogsResult':
+    def logs(self) -> Sequence['outputs.GetBrokerLogResult']:
         return pulumi.get(self, "logs")
 
     @property
-    @pulumi.getter(name="maintenanceWindowStartTime")
-    def maintenance_window_start_time(self) -> 'outputs.GetBrokerMaintenanceWindowStartTimeResult':
-        return pulumi.get(self, "maintenance_window_start_time")
+    @pulumi.getter(name="maintenanceWindowStartTimes")
+    def maintenance_window_start_times(self) -> Sequence['outputs.GetBrokerMaintenanceWindowStartTimeResult']:
+        return pulumi.get(self, "maintenance_window_start_times")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
@@ -215,7 +215,7 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
             broker_id=self.broker_id,
             broker_name=self.broker_name,
-            configuration=self.configuration,
+            configurations=self.configurations,
             deployment_mode=self.deployment_mode,
             encryption_options=self.encryption_options,
             engine_type=self.engine_type,
@@ -225,7 +225,7 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             instances=self.instances,
             ldap_server_metadatas=self.ldap_server_metadatas,
             logs=self.logs,
-            maintenance_window_start_time=self.maintenance_window_start_time,
+            maintenance_window_start_times=self.maintenance_window_start_times,
             publicly_accessible=self.publicly_accessible,
             security_groups=self.security_groups,
             storage_type=self.storage_type,
@@ -275,7 +275,7 @@ def get_broker(broker_id: Optional[str] = None,
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
         broker_id=pulumi.get(__ret__, 'broker_id'),
         broker_name=pulumi.get(__ret__, 'broker_name'),
-        configuration=pulumi.get(__ret__, 'configuration'),
+        configurations=pulumi.get(__ret__, 'configurations'),
         deployment_mode=pulumi.get(__ret__, 'deployment_mode'),
         encryption_options=pulumi.get(__ret__, 'encryption_options'),
         engine_type=pulumi.get(__ret__, 'engine_type'),
@@ -285,7 +285,7 @@ def get_broker(broker_id: Optional[str] = None,
         instances=pulumi.get(__ret__, 'instances'),
         ldap_server_metadatas=pulumi.get(__ret__, 'ldap_server_metadatas'),
         logs=pulumi.get(__ret__, 'logs'),
-        maintenance_window_start_time=pulumi.get(__ret__, 'maintenance_window_start_time'),
+        maintenance_window_start_times=pulumi.get(__ret__, 'maintenance_window_start_times'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         storage_type=pulumi.get(__ret__, 'storage_type'),

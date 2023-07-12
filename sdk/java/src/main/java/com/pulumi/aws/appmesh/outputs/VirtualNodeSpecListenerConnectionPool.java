@@ -8,6 +8,7 @@ import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecListenerConnectionPoolHttp2
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecListenerConnectionPoolHttp;
 import com.pulumi.aws.appmesh.outputs.VirtualNodeSpecListenerConnectionPoolTcp;
 import com.pulumi.core.annotations.CustomType;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,17 +24,17 @@ public final class VirtualNodeSpecListenerConnectionPool {
      * @return Connection pool information for HTTP listeners.
      * 
      */
-    private @Nullable VirtualNodeSpecListenerConnectionPoolHttp http;
+    private @Nullable List<VirtualNodeSpecListenerConnectionPoolHttp> http;
     /**
      * @return Connection pool information for HTTP2 listeners.
      * 
      */
-    private @Nullable VirtualNodeSpecListenerConnectionPoolHttp2 http2;
+    private @Nullable List<VirtualNodeSpecListenerConnectionPoolHttp2> http2;
     /**
      * @return Connection pool information for TCP listeners.
      * 
      */
-    private @Nullable VirtualNodeSpecListenerConnectionPoolTcp tcp;
+    private @Nullable List<VirtualNodeSpecListenerConnectionPoolTcp> tcp;
 
     private VirtualNodeSpecListenerConnectionPool() {}
     /**
@@ -47,22 +48,22 @@ public final class VirtualNodeSpecListenerConnectionPool {
      * @return Connection pool information for HTTP listeners.
      * 
      */
-    public Optional<VirtualNodeSpecListenerConnectionPoolHttp> http() {
-        return Optional.ofNullable(this.http);
+    public List<VirtualNodeSpecListenerConnectionPoolHttp> http() {
+        return this.http == null ? List.of() : this.http;
     }
     /**
      * @return Connection pool information for HTTP2 listeners.
      * 
      */
-    public Optional<VirtualNodeSpecListenerConnectionPoolHttp2> http2() {
-        return Optional.ofNullable(this.http2);
+    public List<VirtualNodeSpecListenerConnectionPoolHttp2> http2() {
+        return this.http2 == null ? List.of() : this.http2;
     }
     /**
      * @return Connection pool information for TCP listeners.
      * 
      */
-    public Optional<VirtualNodeSpecListenerConnectionPoolTcp> tcp() {
-        return Optional.ofNullable(this.tcp);
+    public List<VirtualNodeSpecListenerConnectionPoolTcp> tcp() {
+        return this.tcp == null ? List.of() : this.tcp;
     }
 
     public static Builder builder() {
@@ -75,9 +76,9 @@ public final class VirtualNodeSpecListenerConnectionPool {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualNodeSpecListenerConnectionPoolGrpc grpc;
-        private @Nullable VirtualNodeSpecListenerConnectionPoolHttp http;
-        private @Nullable VirtualNodeSpecListenerConnectionPoolHttp2 http2;
-        private @Nullable VirtualNodeSpecListenerConnectionPoolTcp tcp;
+        private @Nullable List<VirtualNodeSpecListenerConnectionPoolHttp> http;
+        private @Nullable List<VirtualNodeSpecListenerConnectionPoolHttp2> http2;
+        private @Nullable List<VirtualNodeSpecListenerConnectionPoolTcp> tcp;
         public Builder() {}
         public Builder(VirtualNodeSpecListenerConnectionPool defaults) {
     	      Objects.requireNonNull(defaults);
@@ -93,19 +94,28 @@ public final class VirtualNodeSpecListenerConnectionPool {
             return this;
         }
         @CustomType.Setter
-        public Builder http(@Nullable VirtualNodeSpecListenerConnectionPoolHttp http) {
+        public Builder http(@Nullable List<VirtualNodeSpecListenerConnectionPoolHttp> http) {
             this.http = http;
             return this;
         }
+        public Builder http(VirtualNodeSpecListenerConnectionPoolHttp... http) {
+            return http(List.of(http));
+        }
         @CustomType.Setter
-        public Builder http2(@Nullable VirtualNodeSpecListenerConnectionPoolHttp2 http2) {
+        public Builder http2(@Nullable List<VirtualNodeSpecListenerConnectionPoolHttp2> http2) {
             this.http2 = http2;
             return this;
         }
+        public Builder http2(VirtualNodeSpecListenerConnectionPoolHttp2... http2) {
+            return http2(List.of(http2));
+        }
         @CustomType.Setter
-        public Builder tcp(@Nullable VirtualNodeSpecListenerConnectionPoolTcp tcp) {
+        public Builder tcp(@Nullable List<VirtualNodeSpecListenerConnectionPoolTcp> tcp) {
             this.tcp = tcp;
             return this;
+        }
+        public Builder tcp(VirtualNodeSpecListenerConnectionPoolTcp... tcp) {
+            return tcp(List.of(tcp));
         }
         public VirtualNodeSpecListenerConnectionPool build() {
             final var o = new VirtualNodeSpecListenerConnectionPool();

@@ -50,13 +50,13 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="certificateAuthority")
-    private @Nullable Output<ClusterCertificateAuthorityArgs> certificateAuthority;
+    private @Nullable Output<List<ClusterCertificateAuthorityArgs>> certificateAuthority;
 
     /**
      * @return Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    public Optional<Output<ClusterCertificateAuthorityArgs>> certificateAuthority() {
+    public Optional<Output<List<ClusterCertificateAuthorityArgs>>> certificateAuthority() {
         return Optional.ofNullable(this.certificateAuthority);
     }
 
@@ -396,7 +396,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder certificateAuthority(@Nullable Output<ClusterCertificateAuthorityArgs> certificateAuthority) {
+        public Builder certificateAuthority(@Nullable Output<List<ClusterCertificateAuthorityArgs>> certificateAuthority) {
             $.certificateAuthority = certificateAuthority;
             return this;
         }
@@ -407,8 +407,18 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder certificateAuthority(ClusterCertificateAuthorityArgs certificateAuthority) {
+        public Builder certificateAuthority(List<ClusterCertificateAuthorityArgs> certificateAuthority) {
             return certificateAuthority(Output.of(certificateAuthority));
+        }
+
+        /**
+         * @param certificateAuthority Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateAuthority(ClusterCertificateAuthorityArgs... certificateAuthority) {
+            return certificateAuthority(List.of(certificateAuthority));
         }
 
         /**

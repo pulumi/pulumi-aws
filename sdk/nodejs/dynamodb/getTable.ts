@@ -59,7 +59,7 @@ export interface GetTableResult {
     readonly id: string;
     readonly localSecondaryIndexes: outputs.dynamodb.GetTableLocalSecondaryIndex[];
     readonly name: string;
-    readonly pointInTimeRecovery: outputs.dynamodb.GetTablePointInTimeRecovery;
+    readonly pointInTimeRecoveries: outputs.dynamodb.GetTablePointInTimeRecovery[];
     readonly rangeKey: string;
     readonly readCapacity: number;
     readonly replicas: outputs.dynamodb.GetTableReplica[];
@@ -70,7 +70,7 @@ export interface GetTableResult {
     readonly streamViewType: string;
     readonly tableClass: string;
     readonly tags: {[key: string]: string};
-    readonly ttl: outputs.dynamodb.GetTableTtl;
+    readonly ttls: outputs.dynamodb.GetTableTtl[];
     readonly writeCapacity: number;
 }
 /**

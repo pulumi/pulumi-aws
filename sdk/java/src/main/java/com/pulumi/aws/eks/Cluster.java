@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         ctx.export(&#34;endpoint&#34;, example.endpoint());
- *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.certificateAuthority().applyValue(certificateAuthority -&gt; certificateAuthority.data()));
+ *         ctx.export(&#34;kubeconfig-certificate-authority-data&#34;, example.certificateAuthorities().applyValue(certificateAuthorities -&gt; certificateAuthorities[0].data()));
  *     }
  * }
  * ```
@@ -253,14 +253,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    @Export(name="certificateAuthority", refs={ClusterCertificateAuthority.class}, tree="[0]")
-    private Output<ClusterCertificateAuthority> certificateAuthority;
+    @Export(name="certificateAuthority", refs={List.class,ClusterCertificateAuthority.class}, tree="[0,1]")
+    private Output<List<ClusterCertificateAuthority>> certificateAuthority;
 
     /**
      * @return Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
      */
-    public Output<ClusterCertificateAuthority> certificateAuthority() {
+    public Output<List<ClusterCertificateAuthority>> certificateAuthority() {
         return this.certificateAuthority;
     }
     /**

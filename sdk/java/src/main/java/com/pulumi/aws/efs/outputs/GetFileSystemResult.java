@@ -9,6 +9,7 @@ import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -55,7 +56,7 @@ public final class GetFileSystemResult {
      * @return File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      * 
      */
-    private GetFileSystemLifecyclePolicy lifecyclePolicy;
+    private List<GetFileSystemLifecyclePolicy> lifecyclePolicies;
     /**
      * @return File system performance mode.
      * 
@@ -142,8 +143,8 @@ public final class GetFileSystemResult {
      * @return File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      * 
      */
-    public GetFileSystemLifecyclePolicy lifecyclePolicy() {
-        return this.lifecyclePolicy;
+    public List<GetFileSystemLifecyclePolicy> lifecyclePolicies() {
+        return this.lifecyclePolicies;
     }
     /**
      * @return File system performance mode.
@@ -199,7 +200,7 @@ public final class GetFileSystemResult {
         private String fileSystemId;
         private String id;
         private String kmsKeyId;
-        private GetFileSystemLifecyclePolicy lifecyclePolicy;
+        private List<GetFileSystemLifecyclePolicy> lifecyclePolicies;
         private String performanceMode;
         private Double provisionedThroughputInMibps;
         private Integer sizeInBytes;
@@ -217,7 +218,7 @@ public final class GetFileSystemResult {
     	      this.fileSystemId = defaults.fileSystemId;
     	      this.id = defaults.id;
     	      this.kmsKeyId = defaults.kmsKeyId;
-    	      this.lifecyclePolicy = defaults.lifecyclePolicy;
+    	      this.lifecyclePolicies = defaults.lifecyclePolicies;
     	      this.performanceMode = defaults.performanceMode;
     	      this.provisionedThroughputInMibps = defaults.provisionedThroughputInMibps;
     	      this.sizeInBytes = defaults.sizeInBytes;
@@ -271,9 +272,12 @@ public final class GetFileSystemResult {
             return this;
         }
         @CustomType.Setter
-        public Builder lifecyclePolicy(GetFileSystemLifecyclePolicy lifecyclePolicy) {
-            this.lifecyclePolicy = Objects.requireNonNull(lifecyclePolicy);
+        public Builder lifecyclePolicies(List<GetFileSystemLifecyclePolicy> lifecyclePolicies) {
+            this.lifecyclePolicies = Objects.requireNonNull(lifecyclePolicies);
             return this;
+        }
+        public Builder lifecyclePolicies(GetFileSystemLifecyclePolicy... lifecyclePolicies) {
+            return lifecyclePolicies(List.of(lifecyclePolicies));
         }
         @CustomType.Setter
         public Builder performanceMode(String performanceMode) {
@@ -311,7 +315,7 @@ public final class GetFileSystemResult {
             o.fileSystemId = fileSystemId;
             o.id = id;
             o.kmsKeyId = kmsKeyId;
-            o.lifecyclePolicy = lifecyclePolicy;
+            o.lifecyclePolicies = lifecyclePolicies;
             o.performanceMode = performanceMode;
             o.provisionedThroughputInMibps = provisionedThroughputInMibps;
             o.sizeInBytes = sizeInBytes;

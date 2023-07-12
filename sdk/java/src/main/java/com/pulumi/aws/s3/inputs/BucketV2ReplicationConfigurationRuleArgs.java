@@ -10,7 +10,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -39,30 +38,30 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
      * Specifies the destination for the rule (documented below).
      * 
      */
-    @Import(name="destinations", required=true)
-    private Output<List<BucketV2ReplicationConfigurationRuleDestinationArgs>> destinations;
+    @Import(name="destination", required=true)
+    private Output<BucketV2ReplicationConfigurationRuleDestinationArgs> destination;
 
     /**
      * @return Specifies the destination for the rule (documented below).
      * 
      */
-    public Output<List<BucketV2ReplicationConfigurationRuleDestinationArgs>> destinations() {
-        return this.destinations;
+    public Output<BucketV2ReplicationConfigurationRuleDestinationArgs> destination() {
+        return this.destination;
     }
 
     /**
      * Filter that identifies subset of objects to which the replication rule applies (documented below).
      * 
      */
-    @Import(name="filters")
-    private @Nullable Output<List<BucketV2ReplicationConfigurationRuleFilterArgs>> filters;
+    @Import(name="filter")
+    private @Nullable Output<BucketV2ReplicationConfigurationRuleFilterArgs> filter;
 
     /**
      * @return Filter that identifies subset of objects to which the replication rule applies (documented below).
      * 
      */
-    public Optional<Output<List<BucketV2ReplicationConfigurationRuleFilterArgs>>> filters() {
-        return Optional.ofNullable(this.filters);
+    public Optional<Output<BucketV2ReplicationConfigurationRuleFilterArgs>> filter() {
+        return Optional.ofNullable(this.filter);
     }
 
     /**
@@ -114,15 +113,15 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
      * Specifies special object selection criteria (documented below).
      * 
      */
-    @Import(name="sourceSelectionCriterias")
-    private @Nullable Output<List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs>> sourceSelectionCriterias;
+    @Import(name="sourceSelectionCriteria")
+    private @Nullable Output<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs> sourceSelectionCriteria;
 
     /**
      * @return Specifies special object selection criteria (documented below).
      * 
      */
-    public Optional<Output<List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs>>> sourceSelectionCriterias() {
-        return Optional.ofNullable(this.sourceSelectionCriterias);
+    public Optional<Output<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs>> sourceSelectionCriteria() {
+        return Optional.ofNullable(this.sourceSelectionCriteria);
     }
 
     /**
@@ -144,12 +143,12 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
 
     private BucketV2ReplicationConfigurationRuleArgs(BucketV2ReplicationConfigurationRuleArgs $) {
         this.deleteMarkerReplicationStatus = $.deleteMarkerReplicationStatus;
-        this.destinations = $.destinations;
-        this.filters = $.filters;
+        this.destination = $.destination;
+        this.filter = $.filter;
         this.id = $.id;
         this.prefix = $.prefix;
         this.priority = $.priority;
-        this.sourceSelectionCriterias = $.sourceSelectionCriterias;
+        this.sourceSelectionCriteria = $.sourceSelectionCriteria;
         this.status = $.status;
     }
 
@@ -193,65 +192,45 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param destinations Specifies the destination for the rule (documented below).
+         * @param destination Specifies the destination for the rule (documented below).
          * 
          * @return builder
          * 
          */
-        public Builder destinations(Output<List<BucketV2ReplicationConfigurationRuleDestinationArgs>> destinations) {
-            $.destinations = destinations;
+        public Builder destination(Output<BucketV2ReplicationConfigurationRuleDestinationArgs> destination) {
+            $.destination = destination;
             return this;
         }
 
         /**
-         * @param destinations Specifies the destination for the rule (documented below).
+         * @param destination Specifies the destination for the rule (documented below).
          * 
          * @return builder
          * 
          */
-        public Builder destinations(List<BucketV2ReplicationConfigurationRuleDestinationArgs> destinations) {
-            return destinations(Output.of(destinations));
+        public Builder destination(BucketV2ReplicationConfigurationRuleDestinationArgs destination) {
+            return destination(Output.of(destination));
         }
 
         /**
-         * @param destinations Specifies the destination for the rule (documented below).
+         * @param filter Filter that identifies subset of objects to which the replication rule applies (documented below).
          * 
          * @return builder
          * 
          */
-        public Builder destinations(BucketV2ReplicationConfigurationRuleDestinationArgs... destinations) {
-            return destinations(List.of(destinations));
-        }
-
-        /**
-         * @param filters Filter that identifies subset of objects to which the replication rule applies (documented below).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder filters(@Nullable Output<List<BucketV2ReplicationConfigurationRuleFilterArgs>> filters) {
-            $.filters = filters;
+        public Builder filter(@Nullable Output<BucketV2ReplicationConfigurationRuleFilterArgs> filter) {
+            $.filter = filter;
             return this;
         }
 
         /**
-         * @param filters Filter that identifies subset of objects to which the replication rule applies (documented below).
+         * @param filter Filter that identifies subset of objects to which the replication rule applies (documented below).
          * 
          * @return builder
          * 
          */
-        public Builder filters(List<BucketV2ReplicationConfigurationRuleFilterArgs> filters) {
-            return filters(Output.of(filters));
-        }
-
-        /**
-         * @param filters Filter that identifies subset of objects to which the replication rule applies (documented below).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder filters(BucketV2ReplicationConfigurationRuleFilterArgs... filters) {
-            return filters(List.of(filters));
+        public Builder filter(BucketV2ReplicationConfigurationRuleFilterArgs filter) {
+            return filter(Output.of(filter));
         }
 
         /**
@@ -318,34 +297,24 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param sourceSelectionCriterias Specifies special object selection criteria (documented below).
+         * @param sourceSelectionCriteria Specifies special object selection criteria (documented below).
          * 
          * @return builder
          * 
          */
-        public Builder sourceSelectionCriterias(@Nullable Output<List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs>> sourceSelectionCriterias) {
-            $.sourceSelectionCriterias = sourceSelectionCriterias;
+        public Builder sourceSelectionCriteria(@Nullable Output<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs> sourceSelectionCriteria) {
+            $.sourceSelectionCriteria = sourceSelectionCriteria;
             return this;
         }
 
         /**
-         * @param sourceSelectionCriterias Specifies special object selection criteria (documented below).
+         * @param sourceSelectionCriteria Specifies special object selection criteria (documented below).
          * 
          * @return builder
          * 
          */
-        public Builder sourceSelectionCriterias(List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs> sourceSelectionCriterias) {
-            return sourceSelectionCriterias(Output.of(sourceSelectionCriterias));
-        }
-
-        /**
-         * @param sourceSelectionCriterias Specifies special object selection criteria (documented below).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder sourceSelectionCriterias(BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs... sourceSelectionCriterias) {
-            return sourceSelectionCriterias(List.of(sourceSelectionCriterias));
+        public Builder sourceSelectionCriteria(BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs sourceSelectionCriteria) {
+            return sourceSelectionCriteria(Output.of(sourceSelectionCriteria));
         }
 
         /**
@@ -370,7 +339,7 @@ public final class BucketV2ReplicationConfigurationRuleArgs extends com.pulumi.r
         }
 
         public BucketV2ReplicationConfigurationRuleArgs build() {
-            $.destinations = Objects.requireNonNull($.destinations, "expected parameter 'destinations' to be non-null");
+            $.destination = Objects.requireNonNull($.destination, "expected parameter 'destination' to be non-null");
             $.status = Objects.requireNonNull($.status, "expected parameter 'status' to be non-null");
             return $;
         }

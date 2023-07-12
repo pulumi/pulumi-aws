@@ -172,8 +172,8 @@ namespace Pulumi.Aws.S3
         /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLoggingV2` instead.
         /// </summary>
-        [Output("loggings")]
-        public Output<ImmutableArray<Outputs.BucketV2Logging>> Loggings { get; private set; } = null!;
+        [Output("logging")]
+        public Output<Outputs.BucketV2Logging> Logging { get; private set; } = null!;
 
         /// <summary>
         /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
@@ -207,8 +207,8 @@ namespace Pulumi.Aws.S3
         /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketReplicationConfig` instead.
         /// </summary>
-        [Output("replicationConfigurations")]
-        public Output<ImmutableArray<Outputs.BucketV2ReplicationConfiguration>> ReplicationConfigurations { get; private set; } = null!;
+        [Output("replicationConfiguration")]
+        public Output<Outputs.BucketV2ReplicationConfiguration> ReplicationConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Specifies who should bear the cost of Amazon S3 data transfer.
@@ -225,8 +225,8 @@ namespace Pulumi.Aws.S3
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
         /// </summary>
-        [Output("serverSideEncryptionConfigurations")]
-        public Output<ImmutableArray<Outputs.BucketV2ServerSideEncryptionConfiguration>> ServerSideEncryptionConfigurations { get; private set; } = null!;
+        [Output("serverSideEncryptionConfiguration")]
+        public Output<Outputs.BucketV2ServerSideEncryptionConfiguration> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -245,8 +245,15 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
         /// </summary>
-        [Output("versionings")]
-        public Output<ImmutableArray<Outputs.BucketV2Versioning>> Versionings { get; private set; } = null!;
+        [Output("versioning")]
+        public Output<Outputs.BucketV2Versioning> Versioning { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+        /// Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
+        /// </summary>
+        [Output("website")]
+        public Output<Outputs.BucketV2Website> Website { get; private set; } = null!;
 
         /// <summary>
         /// (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
@@ -259,13 +266,6 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("websiteEndpoint")]
         public Output<string> WebsiteEndpoint { get; private set; } = null!;
-
-        /// <summary>
-        /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-        /// Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
-        /// </summary>
-        [Output("websites")]
-        public Output<ImmutableArray<Outputs.BucketV2Website>> Websites { get; private set; } = null!;
 
 
         /// <summary>
@@ -388,19 +388,12 @@ namespace Pulumi.Aws.S3
             set => _lifecycleRules = value;
         }
 
-        [Input("loggings")]
-        private InputList<Inputs.BucketV2LoggingArgs>? _loggings;
-
         /// <summary>
         /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLoggingV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_logging resource instead")]
-        public InputList<Inputs.BucketV2LoggingArgs> Loggings
-        {
-            get => _loggings ?? (_loggings = new InputList<Inputs.BucketV2LoggingArgs>());
-            set => _loggings = value;
-        }
+        [Input("logging")]
+        public Input<Inputs.BucketV2LoggingArgs>? Logging { get; set; }
 
         /// <summary>
         /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
@@ -424,19 +417,12 @@ namespace Pulumi.Aws.S3
         [Input("policy")]
         public Input<string>? Policy { get; set; }
 
-        [Input("replicationConfigurations")]
-        private InputList<Inputs.BucketV2ReplicationConfigurationArgs>? _replicationConfigurations;
-
         /// <summary>
         /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketReplicationConfig` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_replication_configuration resource instead")]
-        public InputList<Inputs.BucketV2ReplicationConfigurationArgs> ReplicationConfigurations
-        {
-            get => _replicationConfigurations ?? (_replicationConfigurations = new InputList<Inputs.BucketV2ReplicationConfigurationArgs>());
-            set => _replicationConfigurations = value;
-        }
+        [Input("replicationConfiguration")]
+        public Input<Inputs.BucketV2ReplicationConfigurationArgs>? ReplicationConfiguration { get; set; }
 
         /// <summary>
         /// Specifies who should bear the cost of Amazon S3 data transfer.
@@ -448,20 +434,13 @@ namespace Pulumi.Aws.S3
         [Input("requestPayer")]
         public Input<string>? RequestPayer { get; set; }
 
-        [Input("serverSideEncryptionConfigurations")]
-        private InputList<Inputs.BucketV2ServerSideEncryptionConfigurationArgs>? _serverSideEncryptionConfigurations;
-
         /// <summary>
         /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_server_side_encryption_configuration resource instead")]
-        public InputList<Inputs.BucketV2ServerSideEncryptionConfigurationArgs> ServerSideEncryptionConfigurations
-        {
-            get => _serverSideEncryptionConfigurations ?? (_serverSideEncryptionConfigurations = new InputList<Inputs.BucketV2ServerSideEncryptionConfigurationArgs>());
-            set => _serverSideEncryptionConfigurations = value;
-        }
+        [Input("serverSideEncryptionConfiguration")]
+        public Input<Inputs.BucketV2ServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -477,32 +456,18 @@ namespace Pulumi.Aws.S3
             set => _tags = value;
         }
 
-        [Input("versionings")]
-        private InputList<Inputs.BucketV2VersioningArgs>? _versionings;
-
         /// <summary>
         /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_versioning resource instead")]
-        public InputList<Inputs.BucketV2VersioningArgs> Versionings
-        {
-            get => _versionings ?? (_versionings = new InputList<Inputs.BucketV2VersioningArgs>());
-            set => _versionings = value;
-        }
-
-        [Input("websites")]
-        private InputList<Inputs.BucketV2WebsiteArgs>? _websites;
+        [Input("versioning")]
+        public Input<Inputs.BucketV2VersioningArgs>? Versioning { get; set; }
 
         /// <summary>
         /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_website_configuration resource instead")]
-        public InputList<Inputs.BucketV2WebsiteArgs> Websites
-        {
-            get => _websites ?? (_websites = new InputList<Inputs.BucketV2WebsiteArgs>());
-            set => _websites = value;
-        }
+        [Input("website")]
+        public Input<Inputs.BucketV2WebsiteArgs>? Website { get; set; }
 
         public BucketV2Args()
         {
@@ -607,19 +572,12 @@ namespace Pulumi.Aws.S3
             set => _lifecycleRules = value;
         }
 
-        [Input("loggings")]
-        private InputList<Inputs.BucketV2LoggingGetArgs>? _loggings;
-
         /// <summary>
         /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLoggingV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_logging resource instead")]
-        public InputList<Inputs.BucketV2LoggingGetArgs> Loggings
-        {
-            get => _loggings ?? (_loggings = new InputList<Inputs.BucketV2LoggingGetArgs>());
-            set => _loggings = value;
-        }
+        [Input("logging")]
+        public Input<Inputs.BucketV2LoggingGetArgs>? Logging { get; set; }
 
         /// <summary>
         /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
@@ -649,19 +607,12 @@ namespace Pulumi.Aws.S3
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        [Input("replicationConfigurations")]
-        private InputList<Inputs.BucketV2ReplicationConfigurationGetArgs>? _replicationConfigurations;
-
         /// <summary>
         /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketReplicationConfig` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_replication_configuration resource instead")]
-        public InputList<Inputs.BucketV2ReplicationConfigurationGetArgs> ReplicationConfigurations
-        {
-            get => _replicationConfigurations ?? (_replicationConfigurations = new InputList<Inputs.BucketV2ReplicationConfigurationGetArgs>());
-            set => _replicationConfigurations = value;
-        }
+        [Input("replicationConfiguration")]
+        public Input<Inputs.BucketV2ReplicationConfigurationGetArgs>? ReplicationConfiguration { get; set; }
 
         /// <summary>
         /// Specifies who should bear the cost of Amazon S3 data transfer.
@@ -673,20 +624,13 @@ namespace Pulumi.Aws.S3
         [Input("requestPayer")]
         public Input<string>? RequestPayer { get; set; }
 
-        [Input("serverSideEncryptionConfigurations")]
-        private InputList<Inputs.BucketV2ServerSideEncryptionConfigurationGetArgs>? _serverSideEncryptionConfigurations;
-
         /// <summary>
         /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_server_side_encryption_configuration resource instead")]
-        public InputList<Inputs.BucketV2ServerSideEncryptionConfigurationGetArgs> ServerSideEncryptionConfigurations
-        {
-            get => _serverSideEncryptionConfigurations ?? (_serverSideEncryptionConfigurations = new InputList<Inputs.BucketV2ServerSideEncryptionConfigurationGetArgs>());
-            set => _serverSideEncryptionConfigurations = value;
-        }
+        [Input("serverSideEncryptionConfiguration")]
+        public Input<Inputs.BucketV2ServerSideEncryptionConfigurationGetArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -714,18 +658,18 @@ namespace Pulumi.Aws.S3
             set => _tagsAll = value;
         }
 
-        [Input("versionings")]
-        private InputList<Inputs.BucketV2VersioningGetArgs>? _versionings;
-
         /// <summary>
         /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_versioning resource instead")]
-        public InputList<Inputs.BucketV2VersioningGetArgs> Versionings
-        {
-            get => _versionings ?? (_versionings = new InputList<Inputs.BucketV2VersioningGetArgs>());
-            set => _versionings = value;
-        }
+        [Input("versioning")]
+        public Input<Inputs.BucketV2VersioningGetArgs>? Versioning { get; set; }
+
+        /// <summary>
+        /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+        /// Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
+        /// </summary>
+        [Input("website")]
+        public Input<Inputs.BucketV2WebsiteGetArgs>? Website { get; set; }
 
         /// <summary>
         /// (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
@@ -738,20 +682,6 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("websiteEndpoint")]
         public Input<string>? WebsiteEndpoint { get; set; }
-
-        [Input("websites")]
-        private InputList<Inputs.BucketV2WebsiteGetArgs>? _websites;
-
-        /// <summary>
-        /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-        /// Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
-        /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_website_configuration resource instead")]
-        public InputList<Inputs.BucketV2WebsiteGetArgs> Websites
-        {
-            get => _websites ?? (_websites = new InputList<Inputs.BucketV2WebsiteGetArgs>());
-            set => _websites = value;
-        }
 
         public BucketV2State()
         {

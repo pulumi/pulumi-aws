@@ -35,13 +35,13 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="architectures")
-    private @Nullable Output<List<String>> architectures;
+    private @Nullable Output<String> architectures;
 
     /**
      * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
      * 
      */
-    public Optional<Output<List<String>>> architectures() {
+    public Optional<Output<String>> architectures() {
         return Optional.ofNullable(this.architectures);
     }
 
@@ -755,7 +755,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder architectures(@Nullable Output<List<String>> architectures) {
+        public Builder architectures(@Nullable Output<String> architectures) {
             $.architectures = architectures;
             return this;
         }
@@ -766,18 +766,8 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder architectures(List<String> architectures) {
+        public Builder architectures(String architectures) {
             return architectures(Output.of(architectures));
-        }
-
-        /**
-         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder architectures(String... architectures) {
-            return architectures(List.of(architectures));
         }
 
         /**

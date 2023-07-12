@@ -345,7 +345,7 @@ namespace Pulumi.Aws.Lambda
         /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         /// </summary>
         [Output("architectures")]
-        public Output<ImmutableArray<string>> Architectures { get; private set; } = null!;
+        public Output<string> Architectures { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
@@ -643,17 +643,11 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("architectures")]
-        private InputList<string>? _architectures;
-
         /// <summary>
         /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         /// </summary>
-        public InputList<string> Architectures
-        {
-            get => _architectures ?? (_architectures = new InputList<string>());
-            set => _architectures = value;
-        }
+        [Input("architectures")]
+        public Input<string>? Architectures { get; set; }
 
         /// <summary>
         /// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
@@ -870,17 +864,11 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class FunctionState : global::Pulumi.ResourceArgs
     {
-        [Input("architectures")]
-        private InputList<string>? _architectures;
-
         /// <summary>
         /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         /// </summary>
-        public InputList<string> Architectures
-        {
-            get => _architectures ?? (_architectures = new InputList<string>());
-            set => _architectures = value;
-        }
+        [Input("architectures")]
+        public Input<string>? Architectures { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.

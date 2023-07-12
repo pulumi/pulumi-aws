@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.alb.outputs;
 
-import com.pulumi.aws.alb.outputs.GetLoadBalancerAccessLogs;
+import com.pulumi.aws.alb.outputs.GetLoadBalancerAccessLog;
 import com.pulumi.aws.alb.outputs.GetLoadBalancerSubnetMapping;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -15,7 +15,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLoadBalancerResult {
-    private GetLoadBalancerAccessLogs accessLogs;
+    private List<GetLoadBalancerAccessLog> accessLogs;
     private String arn;
     private String arnSuffix;
     private String customerOwnedIpv4Pool;
@@ -48,7 +48,7 @@ public final class GetLoadBalancerResult {
     private String zoneId;
 
     private GetLoadBalancerResult() {}
-    public GetLoadBalancerAccessLogs accessLogs() {
+    public List<GetLoadBalancerAccessLog> accessLogs() {
         return this.accessLogs;
     }
     public String arn() {
@@ -143,7 +143,7 @@ public final class GetLoadBalancerResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private GetLoadBalancerAccessLogs accessLogs;
+        private List<GetLoadBalancerAccessLog> accessLogs;
         private String arn;
         private String arnSuffix;
         private String customerOwnedIpv4Pool;
@@ -203,9 +203,12 @@ public final class GetLoadBalancerResult {
         }
 
         @CustomType.Setter
-        public Builder accessLogs(GetLoadBalancerAccessLogs accessLogs) {
+        public Builder accessLogs(List<GetLoadBalancerAccessLog> accessLogs) {
             this.accessLogs = Objects.requireNonNull(accessLogs);
             return this;
+        }
+        public Builder accessLogs(GetLoadBalancerAccessLog... accessLogs) {
+            return accessLogs(List.of(accessLogs));
         }
         @CustomType.Setter
         public Builder arn(String arn) {

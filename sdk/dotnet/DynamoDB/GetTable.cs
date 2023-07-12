@@ -135,7 +135,7 @@ namespace Pulumi.Aws.DynamoDB
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetTableLocalSecondaryIndexResult> LocalSecondaryIndexes;
         public readonly string Name;
-        public readonly Outputs.GetTablePointInTimeRecoveryResult PointInTimeRecovery;
+        public readonly ImmutableArray<Outputs.GetTablePointInTimeRecoveryResult> PointInTimeRecoveries;
         public readonly string RangeKey;
         public readonly int ReadCapacity;
         public readonly ImmutableArray<Outputs.GetTableReplicaResult> Replicas;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.DynamoDB
         public readonly string StreamViewType;
         public readonly string TableClass;
         public readonly ImmutableDictionary<string, string> Tags;
-        public readonly Outputs.GetTableTtlResult Ttl;
+        public readonly ImmutableArray<Outputs.GetTableTtlResult> Ttls;
         public readonly int WriteCapacity;
 
         [OutputConstructor]
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.DynamoDB
 
             string name,
 
-            Outputs.GetTablePointInTimeRecoveryResult pointInTimeRecovery,
+            ImmutableArray<Outputs.GetTablePointInTimeRecoveryResult> pointInTimeRecoveries,
 
             string rangeKey,
 
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.DynamoDB
 
             ImmutableDictionary<string, string> tags,
 
-            Outputs.GetTableTtlResult ttl,
+            ImmutableArray<Outputs.GetTableTtlResult> ttls,
 
             int writeCapacity)
         {
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.DynamoDB
             Id = id;
             LocalSecondaryIndexes = localSecondaryIndexes;
             Name = name;
-            PointInTimeRecovery = pointInTimeRecovery;
+            PointInTimeRecoveries = pointInTimeRecoveries;
             RangeKey = rangeKey;
             ReadCapacity = readCapacity;
             Replicas = replicas;
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.DynamoDB
             StreamViewType = streamViewType;
             TableClass = tableClass;
             Tags = tags;
-            Ttl = ttl;
+            Ttls = ttls;
             WriteCapacity = writeCapacity;
         }
     }

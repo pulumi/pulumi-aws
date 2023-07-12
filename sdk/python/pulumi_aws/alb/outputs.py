@@ -48,7 +48,7 @@ __all__ = [
     'GetListenerDefaultActionForwardStickinessResult',
     'GetListenerDefaultActionForwardTargetGroupResult',
     'GetListenerDefaultActionRedirectResult',
-    'GetLoadBalancerAccessLogsResult',
+    'GetLoadBalancerAccessLogResult',
     'GetLoadBalancerSubnetMappingResult',
     'GetTargetGroupHealthCheckResult',
     'GetTargetGroupStickinessResult',
@@ -2465,7 +2465,7 @@ class GetListenerDefaultActionRedirectResult(dict):
 
 
 @pulumi.output_type
-class GetLoadBalancerAccessLogsResult(dict):
+class GetLoadBalancerAccessLogResult(dict):
     def __init__(__self__, *,
                  bucket: str,
                  enabled: bool,

@@ -15,7 +15,7 @@ __all__ = [
     'LoadBalancerListener',
     'LoadBalancerPolicyPolicyAttribute',
     'SslNegotiationPolicyAttribute',
-    'GetLoadBalancerAccessLogsResult',
+    'GetLoadBalancerAccessLogResult',
     'GetLoadBalancerHealthCheckResult',
     'GetLoadBalancerListenerResult',
 ]
@@ -319,7 +319,7 @@ class SslNegotiationPolicyAttribute(dict):
 
 
 @pulumi.output_type
-class GetLoadBalancerAccessLogsResult(dict):
+class GetLoadBalancerAccessLogResult(dict):
     def __init__(__self__, *,
                  bucket: str,
                  bucket_prefix: str,

@@ -91,7 +91,7 @@ type LookupClusterResult struct {
 	// Kubernetes server version for the cluster.
 	Version string `pulumi:"version"`
 	// Nested list containing VPC configuration for the cluster.
-	VpcConfig GetClusterVpcConfig `pulumi:"vpcConfig"`
+	VpcConfigs []GetClusterVpcConfig `pulumi:"vpcConfigs"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -214,8 +214,8 @@ func (o LookupClusterResultOutput) Version() pulumi.StringOutput {
 }
 
 // Nested list containing VPC configuration for the cluster.
-func (o LookupClusterResultOutput) VpcConfig() GetClusterVpcConfigOutput {
-	return o.ApplyT(func(v LookupClusterResult) GetClusterVpcConfig { return v.VpcConfig }).(GetClusterVpcConfigOutput)
+func (o LookupClusterResultOutput) VpcConfigs() GetClusterVpcConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterVpcConfig { return v.VpcConfigs }).(GetClusterVpcConfigArrayOutput)
 }
 
 func init() {

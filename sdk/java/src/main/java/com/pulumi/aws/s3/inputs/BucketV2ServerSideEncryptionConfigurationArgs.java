@@ -6,7 +6,6 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.BucketV2ServerSideEncryptionConfigurationRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
 import java.util.Objects;
 
 
@@ -18,21 +17,21 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
      * Single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    @Import(name="rules", required=true)
-    private Output<List<BucketV2ServerSideEncryptionConfigurationRuleArgs>> rules;
+    @Import(name="rule", required=true)
+    private Output<BucketV2ServerSideEncryptionConfigurationRuleArgs> rule;
 
     /**
      * @return Single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    public Output<List<BucketV2ServerSideEncryptionConfigurationRuleArgs>> rules() {
-        return this.rules;
+    public Output<BucketV2ServerSideEncryptionConfigurationRuleArgs> rule() {
+        return this.rule;
     }
 
     private BucketV2ServerSideEncryptionConfigurationArgs() {}
 
     private BucketV2ServerSideEncryptionConfigurationArgs(BucketV2ServerSideEncryptionConfigurationArgs $) {
-        this.rules = $.rules;
+        this.rule = $.rule;
     }
 
     public static Builder builder() {
@@ -54,38 +53,28 @@ public final class BucketV2ServerSideEncryptionConfigurationArgs extends com.pul
         }
 
         /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
+         * @param rule Single object for server-side encryption by default configuration. (documented below)
          * 
          * @return builder
          * 
          */
-        public Builder rules(Output<List<BucketV2ServerSideEncryptionConfigurationRuleArgs>> rules) {
-            $.rules = rules;
+        public Builder rule(Output<BucketV2ServerSideEncryptionConfigurationRuleArgs> rule) {
+            $.rule = rule;
             return this;
         }
 
         /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
+         * @param rule Single object for server-side encryption by default configuration. (documented below)
          * 
          * @return builder
          * 
          */
-        public Builder rules(List<BucketV2ServerSideEncryptionConfigurationRuleArgs> rules) {
-            return rules(Output.of(rules));
-        }
-
-        /**
-         * @param rules Single object for server-side encryption by default configuration. (documented below)
-         * 
-         * @return builder
-         * 
-         */
-        public Builder rules(BucketV2ServerSideEncryptionConfigurationRuleArgs... rules) {
-            return rules(List.of(rules));
+        public Builder rule(BucketV2ServerSideEncryptionConfigurationRuleArgs rule) {
+            return rule(Output.of(rule));
         }
 
         public BucketV2ServerSideEncryptionConfigurationArgs build() {
-            $.rules = Objects.requireNonNull($.rules, "expected parameter 'rules' to be non-null");
+            $.rule = Objects.requireNonNull($.rule, "expected parameter 'rule' to be non-null");
             return $;
         }
     }

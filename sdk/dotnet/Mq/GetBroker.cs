@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Mq
         public readonly bool AutoMinorVersionUpgrade;
         public readonly string BrokerId;
         public readonly string BrokerName;
-        public readonly Outputs.GetBrokerConfigurationResult Configuration;
+        public readonly ImmutableArray<Outputs.GetBrokerConfigurationResult> Configurations;
         public readonly string DeploymentMode;
         public readonly ImmutableArray<Outputs.GetBrokerEncryptionOptionResult> EncryptionOptions;
         public readonly string EngineType;
@@ -162,8 +162,8 @@ namespace Pulumi.Aws.Mq
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetBrokerInstanceResult> Instances;
         public readonly ImmutableArray<Outputs.GetBrokerLdapServerMetadataResult> LdapServerMetadatas;
-        public readonly Outputs.GetBrokerLogsResult Logs;
-        public readonly Outputs.GetBrokerMaintenanceWindowStartTimeResult MaintenanceWindowStartTime;
+        public readonly ImmutableArray<Outputs.GetBrokerLogResult> Logs;
+        public readonly ImmutableArray<Outputs.GetBrokerMaintenanceWindowStartTimeResult> MaintenanceWindowStartTimes;
         public readonly bool PubliclyAccessible;
         public readonly ImmutableArray<string> SecurityGroups;
         public readonly string StorageType;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Mq
 
             string brokerName,
 
-            Outputs.GetBrokerConfigurationResult configuration,
+            ImmutableArray<Outputs.GetBrokerConfigurationResult> configurations,
 
             string deploymentMode,
 
@@ -201,9 +201,9 @@ namespace Pulumi.Aws.Mq
 
             ImmutableArray<Outputs.GetBrokerLdapServerMetadataResult> ldapServerMetadatas,
 
-            Outputs.GetBrokerLogsResult logs,
+            ImmutableArray<Outputs.GetBrokerLogResult> logs,
 
-            Outputs.GetBrokerMaintenanceWindowStartTimeResult maintenanceWindowStartTime,
+            ImmutableArray<Outputs.GetBrokerMaintenanceWindowStartTimeResult> maintenanceWindowStartTimes,
 
             bool publiclyAccessible,
 
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Mq
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
             BrokerId = brokerId;
             BrokerName = brokerName;
-            Configuration = configuration;
+            Configurations = configurations;
             DeploymentMode = deploymentMode;
             EncryptionOptions = encryptionOptions;
             EngineType = engineType;
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Mq
             Instances = instances;
             LdapServerMetadatas = ldapServerMetadatas;
             Logs = logs;
-            MaintenanceWindowStartTime = maintenanceWindowStartTime;
+            MaintenanceWindowStartTimes = maintenanceWindowStartTimes;
             PubliclyAccessible = publiclyAccessible;
             SecurityGroups = securityGroups;
             StorageType = storageType;

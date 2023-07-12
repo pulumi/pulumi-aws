@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .name(main.domain())
  *             .type(&#34;A&#34;)
  *             .zoneId(exampleZone.applyValue(getZoneResult -&gt; getZoneResult.zoneId()))
- *             .aliases(RecordAliasArgs.builder()
+ *             .alias(RecordAliasArgs.builder()
  *                 .evaluateTargetHealth(false)
  *                 .name(main.cloudfrontDistribution())
  *                 .zoneId(main.cloudfrontDistributionZoneId())

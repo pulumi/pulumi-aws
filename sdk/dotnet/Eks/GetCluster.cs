@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Nested list containing VPC configuration for the cluster.
         /// </summary>
-        public readonly Outputs.GetClusterVpcConfigResult VpcConfig;
+        public readonly ImmutableArray<Outputs.GetClusterVpcConfigResult> VpcConfigs;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -237,7 +237,7 @@ namespace Pulumi.Aws.Eks
 
             string version,
 
-            Outputs.GetClusterVpcConfigResult vpcConfig)
+            ImmutableArray<Outputs.GetClusterVpcConfigResult> vpcConfigs)
         {
             Arn = arn;
             CertificateAuthorities = certificateAuthorities;
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.Eks
             Status = status;
             Tags = tags;
             Version = version;
-            VpcConfig = vpcConfig;
+            VpcConfigs = vpcConfigs;
         }
     }
 }

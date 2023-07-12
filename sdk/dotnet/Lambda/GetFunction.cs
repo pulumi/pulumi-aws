@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Configure the function's *dead letter queue*.
         /// </summary>
-        public readonly Outputs.GetFunctionDeadLetterConfigResult DeadLetterConfig;
+        public readonly ImmutableArray<Outputs.GetFunctionDeadLetterConfigResult> DeadLetterConfigs;
         /// <summary>
         /// Description of what your Lambda Function does.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Lambda environment's configuration settings.
         /// </summary>
-        public readonly Outputs.GetFunctionEnvironmentResult Environment;
+        public readonly ImmutableArray<Outputs.GetFunctionEnvironmentResult> Environments;
         /// <summary>
         /// Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
         /// </summary>
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Tracing settings of the function.
         /// </summary>
-        public readonly Outputs.GetFunctionTracingConfigResult TracingConfig;
+        public readonly ImmutableArray<Outputs.GetFunctionTracingConfigResult> TracingConfigs;
         /// <summary>
         /// The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
         /// </summary>
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// VPC configuration associated with your Lambda function.
         /// </summary>
-        public readonly Outputs.GetFunctionVpcConfigResult VpcConfig;
+        public readonly ImmutableArray<Outputs.GetFunctionVpcConfigResult> VpcConfigs;
 
         [OutputConstructor]
         private GetFunctionResult(
@@ -261,11 +261,11 @@ namespace Pulumi.Aws.Lambda
 
             string codeSigningConfigArn,
 
-            Outputs.GetFunctionDeadLetterConfigResult deadLetterConfig,
+            ImmutableArray<Outputs.GetFunctionDeadLetterConfigResult> deadLetterConfigs,
 
             string description,
 
-            Outputs.GetFunctionEnvironmentResult environment,
+            ImmutableArray<Outputs.GetFunctionEnvironmentResult> environments,
 
             ImmutableArray<Outputs.GetFunctionEphemeralStorageResult> ephemeralStorages,
 
@@ -313,18 +313,18 @@ namespace Pulumi.Aws.Lambda
 
             int timeout,
 
-            Outputs.GetFunctionTracingConfigResult tracingConfig,
+            ImmutableArray<Outputs.GetFunctionTracingConfigResult> tracingConfigs,
 
             string version,
 
-            Outputs.GetFunctionVpcConfigResult vpcConfig)
+            ImmutableArray<Outputs.GetFunctionVpcConfigResult> vpcConfigs)
         {
             Architectures = architectures;
             Arn = arn;
             CodeSigningConfigArn = codeSigningConfigArn;
-            DeadLetterConfig = deadLetterConfig;
+            DeadLetterConfigs = deadLetterConfigs;
             Description = description;
-            Environment = environment;
+            Environments = environments;
             EphemeralStorages = ephemeralStorages;
             FileSystemConfigs = fileSystemConfigs;
             FunctionName = functionName;
@@ -348,9 +348,9 @@ namespace Pulumi.Aws.Lambda
             SourceCodeSize = sourceCodeSize;
             Tags = tags;
             Timeout = timeout;
-            TracingConfig = tracingConfig;
+            TracingConfigs = tracingConfigs;
             Version = version;
-            VpcConfig = vpcConfig;
+            VpcConfigs = vpcConfigs;
         }
     }
 }

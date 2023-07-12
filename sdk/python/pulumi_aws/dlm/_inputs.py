@@ -37,7 +37,7 @@ class LifecyclePolicyPolicyDetailsArgs:
                  parameters: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgs']] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  resource_locations: Optional[pulumi.Input[str]] = None,
-                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_types: Optional[pulumi.Input[str]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]] = None,
                  target_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -46,7 +46,7 @@ class LifecyclePolicyPolicyDetailsArgs:
         :param pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgs'] parameters: A set of optional parameters for snapshot and AMI lifecycle policies. See the `parameters` configuration block.
         :param pulumi.Input[str] policy_type: The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
         :param pulumi.Input[str] resource_locations: The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
+        :param pulumi.Input[str] resource_types: A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]] schedules: See the `schedule` configuration block.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_tags: A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
                
@@ -131,14 +131,14 @@ class LifecyclePolicyPolicyDetailsArgs:
 
     @property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def resource_types(self) -> Optional[pulumi.Input[str]]:
         """
         A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def resource_types(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_types", value)
 
     @property

@@ -66,7 +66,7 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: outputs.alb.GetLoadBalancerAccessLogs;
+    readonly accessLogs: outputs.alb.GetLoadBalancerAccessLog[];
     readonly arn: string;
     readonly arnSuffix: string;
     readonly customerOwnedIpv4Pool: string;

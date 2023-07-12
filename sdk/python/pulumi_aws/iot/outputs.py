@@ -61,12 +61,12 @@ __all__ = [
     'TopicRuleIotAnalytic',
     'TopicRuleIotEvent',
     'TopicRuleKafka',
-    'TopicRuleKinesis',
+    'TopicRuleKinese',
     'TopicRuleLambda',
     'TopicRuleRepublish',
     'TopicRuleS3',
-    'TopicRuleSns',
-    'TopicRuleSqs',
+    'TopicRuleSn',
+    'TopicRuleSq',
     'TopicRuleStepFunction',
     'TopicRuleTimestream',
     'TopicRuleTimestreamDimension',
@@ -3308,7 +3308,7 @@ class TopicRuleKafka(dict):
 
 
 @pulumi.output_type
-class TopicRuleKinesis(dict):
+class TopicRuleKinese(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3320,14 +3320,14 @@ class TopicRuleKinesis(dict):
             suggest = "partition_key"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TopicRuleKinesis. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleKinese. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TopicRuleKinesis.__key_warning(key)
+        TopicRuleKinese.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TopicRuleKinesis.__key_warning(key)
+        TopicRuleKinese.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3540,7 +3540,7 @@ class TopicRuleS3(dict):
 
 
 @pulumi.output_type
-class TopicRuleSns(dict):
+class TopicRuleSn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3552,14 +3552,14 @@ class TopicRuleSns(dict):
             suggest = "message_format"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSns. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSn. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TopicRuleSns.__key_warning(key)
+        TopicRuleSn.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TopicRuleSns.__key_warning(key)
+        TopicRuleSn.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3602,7 +3602,7 @@ class TopicRuleSns(dict):
 
 
 @pulumi.output_type
-class TopicRuleSqs(dict):
+class TopicRuleSq(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3614,14 +3614,14 @@ class TopicRuleSqs(dict):
             suggest = "use_base64"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSqs. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSq. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TopicRuleSqs.__key_warning(key)
+        TopicRuleSq.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TopicRuleSqs.__key_warning(key)
+        TopicRuleSq.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

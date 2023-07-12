@@ -20,25 +20,25 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// <summary>
         /// Connection pool information for HTTP listeners.
         /// </summary>
-        public readonly Outputs.VirtualNodeSpecListenerConnectionPoolHttp? Http;
+        public readonly ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolHttp> Http;
         /// <summary>
         /// Connection pool information for HTTP2 listeners.
         /// </summary>
-        public readonly Outputs.VirtualNodeSpecListenerConnectionPoolHttp2? Http2;
+        public readonly ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolHttp2> Http2;
         /// <summary>
         /// Connection pool information for TCP listeners.
         /// </summary>
-        public readonly Outputs.VirtualNodeSpecListenerConnectionPoolTcp? Tcp;
+        public readonly ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolTcp> Tcp;
 
         [OutputConstructor]
         private VirtualNodeSpecListenerConnectionPool(
             Outputs.VirtualNodeSpecListenerConnectionPoolGrpc? grpc,
 
-            Outputs.VirtualNodeSpecListenerConnectionPoolHttp? http,
+            ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolHttp> http,
 
-            Outputs.VirtualNodeSpecListenerConnectionPoolHttp2? http2,
+            ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolHttp2> http2,
 
-            Outputs.VirtualNodeSpecListenerConnectionPoolTcp? tcp)
+            ImmutableArray<Outputs.VirtualNodeSpecListenerConnectionPoolTcp> tcp)
         {
             Grpc = grpc;
             Http = http;

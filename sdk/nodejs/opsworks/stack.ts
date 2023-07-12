@@ -92,7 +92,7 @@ export class Stack extends pulumi.CustomResource {
     /**
      * When `useCustomCookbooks` is set, provide this sub-object as described below.
      */
-    public readonly customCookbooksSources!: pulumi.Output<outputs.opsworks.StackCustomCookbooksSource[]>;
+    public readonly customCookbooksSource!: pulumi.Output<outputs.opsworks.StackCustomCookbooksSource>;
     /**
      * Custom JSON attributes to apply to the entire stack.
      */
@@ -186,7 +186,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["color"] = state ? state.color : undefined;
             resourceInputs["configurationManagerName"] = state ? state.configurationManagerName : undefined;
             resourceInputs["configurationManagerVersion"] = state ? state.configurationManagerVersion : undefined;
-            resourceInputs["customCookbooksSources"] = state ? state.customCookbooksSources : undefined;
+            resourceInputs["customCookbooksSource"] = state ? state.customCookbooksSource : undefined;
             resourceInputs["customJson"] = state ? state.customJson : undefined;
             resourceInputs["defaultAvailabilityZone"] = state ? state.defaultAvailabilityZone : undefined;
             resourceInputs["defaultInstanceProfileArn"] = state ? state.defaultInstanceProfileArn : undefined;
@@ -221,7 +221,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["color"] = args ? args.color : undefined;
             resourceInputs["configurationManagerName"] = args ? args.configurationManagerName : undefined;
             resourceInputs["configurationManagerVersion"] = args ? args.configurationManagerVersion : undefined;
-            resourceInputs["customCookbooksSources"] = args ? args.customCookbooksSources : undefined;
+            resourceInputs["customCookbooksSource"] = args ? args.customCookbooksSource : undefined;
             resourceInputs["customJson"] = args ? args.customJson : undefined;
             resourceInputs["defaultAvailabilityZone"] = args ? args.defaultAvailabilityZone : undefined;
             resourceInputs["defaultInstanceProfileArn"] = args ? args.defaultInstanceProfileArn : undefined;
@@ -275,7 +275,7 @@ export interface StackState {
     /**
      * When `useCustomCookbooks` is set, provide this sub-object as described below.
      */
-    customCookbooksSources?: pulumi.Input<pulumi.Input<inputs.opsworks.StackCustomCookbooksSource>[]>;
+    customCookbooksSource?: pulumi.Input<inputs.opsworks.StackCustomCookbooksSource>;
     /**
      * Custom JSON attributes to apply to the entire stack.
      */
@@ -378,7 +378,7 @@ export interface StackArgs {
     /**
      * When `useCustomCookbooks` is set, provide this sub-object as described below.
      */
-    customCookbooksSources?: pulumi.Input<pulumi.Input<inputs.opsworks.StackCustomCookbooksSource>[]>;
+    customCookbooksSource?: pulumi.Input<inputs.opsworks.StackCustomCookbooksSource>;
     /**
      * Custom JSON attributes to apply to the entire stack.
      */

@@ -12,17 +12,11 @@ namespace Pulumi.Aws.S3.Inputs
 
     public sealed class BucketV2ServerSideEncryptionConfigurationRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("applyServerSideEncryptionByDefaults", required: true)]
-        private InputList<Inputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs>? _applyServerSideEncryptionByDefaults;
-
         /// <summary>
         /// Single object for setting server-side encryption by default. (documented below)
         /// </summary>
-        public InputList<Inputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs> ApplyServerSideEncryptionByDefaults
-        {
-            get => _applyServerSideEncryptionByDefaults ?? (_applyServerSideEncryptionByDefaults = new InputList<Inputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs>());
-            set => _applyServerSideEncryptionByDefaults = value;
-        }
+        [Input("applyServerSideEncryptionByDefault", required: true)]
+        public Input<Inputs.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs> ApplyServerSideEncryptionByDefault { get; set; } = null!;
 
         /// <summary>
         /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.

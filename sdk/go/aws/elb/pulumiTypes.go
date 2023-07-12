@@ -769,71 +769,116 @@ func (o SslNegotiationPolicyAttributeArrayOutput) Index(i pulumi.IntInput) SslNe
 	}).(SslNegotiationPolicyAttributeOutput)
 }
 
-type GetLoadBalancerAccessLogs struct {
+type GetLoadBalancerAccessLog struct {
 	Bucket       string `pulumi:"bucket"`
 	BucketPrefix string `pulumi:"bucketPrefix"`
 	Enabled      bool   `pulumi:"enabled"`
 	Interval     int    `pulumi:"interval"`
 }
 
-// GetLoadBalancerAccessLogsInput is an input type that accepts GetLoadBalancerAccessLogsArgs and GetLoadBalancerAccessLogsOutput values.
-// You can construct a concrete instance of `GetLoadBalancerAccessLogsInput` via:
+// GetLoadBalancerAccessLogInput is an input type that accepts GetLoadBalancerAccessLogArgs and GetLoadBalancerAccessLogOutput values.
+// You can construct a concrete instance of `GetLoadBalancerAccessLogInput` via:
 //
-//	GetLoadBalancerAccessLogsArgs{...}
-type GetLoadBalancerAccessLogsInput interface {
+//	GetLoadBalancerAccessLogArgs{...}
+type GetLoadBalancerAccessLogInput interface {
 	pulumi.Input
 
-	ToGetLoadBalancerAccessLogsOutput() GetLoadBalancerAccessLogsOutput
-	ToGetLoadBalancerAccessLogsOutputWithContext(context.Context) GetLoadBalancerAccessLogsOutput
+	ToGetLoadBalancerAccessLogOutput() GetLoadBalancerAccessLogOutput
+	ToGetLoadBalancerAccessLogOutputWithContext(context.Context) GetLoadBalancerAccessLogOutput
 }
 
-type GetLoadBalancerAccessLogsArgs struct {
+type GetLoadBalancerAccessLogArgs struct {
 	Bucket       pulumi.StringInput `pulumi:"bucket"`
 	BucketPrefix pulumi.StringInput `pulumi:"bucketPrefix"`
 	Enabled      pulumi.BoolInput   `pulumi:"enabled"`
 	Interval     pulumi.IntInput    `pulumi:"interval"`
 }
 
-func (GetLoadBalancerAccessLogsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLoadBalancerAccessLogs)(nil)).Elem()
+func (GetLoadBalancerAccessLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerAccessLog)(nil)).Elem()
 }
 
-func (i GetLoadBalancerAccessLogsArgs) ToGetLoadBalancerAccessLogsOutput() GetLoadBalancerAccessLogsOutput {
-	return i.ToGetLoadBalancerAccessLogsOutputWithContext(context.Background())
+func (i GetLoadBalancerAccessLogArgs) ToGetLoadBalancerAccessLogOutput() GetLoadBalancerAccessLogOutput {
+	return i.ToGetLoadBalancerAccessLogOutputWithContext(context.Background())
 }
 
-func (i GetLoadBalancerAccessLogsArgs) ToGetLoadBalancerAccessLogsOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAccessLogsOutput)
+func (i GetLoadBalancerAccessLogArgs) ToGetLoadBalancerAccessLogOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAccessLogOutput)
 }
 
-type GetLoadBalancerAccessLogsOutput struct{ *pulumi.OutputState }
+// GetLoadBalancerAccessLogArrayInput is an input type that accepts GetLoadBalancerAccessLogArray and GetLoadBalancerAccessLogArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerAccessLogArrayInput` via:
+//
+//	GetLoadBalancerAccessLogArray{ GetLoadBalancerAccessLogArgs{...} }
+type GetLoadBalancerAccessLogArrayInput interface {
+	pulumi.Input
 
-func (GetLoadBalancerAccessLogsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLoadBalancerAccessLogs)(nil)).Elem()
+	ToGetLoadBalancerAccessLogArrayOutput() GetLoadBalancerAccessLogArrayOutput
+	ToGetLoadBalancerAccessLogArrayOutputWithContext(context.Context) GetLoadBalancerAccessLogArrayOutput
 }
 
-func (o GetLoadBalancerAccessLogsOutput) ToGetLoadBalancerAccessLogsOutput() GetLoadBalancerAccessLogsOutput {
+type GetLoadBalancerAccessLogArray []GetLoadBalancerAccessLogInput
+
+func (GetLoadBalancerAccessLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerAccessLog)(nil)).Elem()
+}
+
+func (i GetLoadBalancerAccessLogArray) ToGetLoadBalancerAccessLogArrayOutput() GetLoadBalancerAccessLogArrayOutput {
+	return i.ToGetLoadBalancerAccessLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerAccessLogArray) ToGetLoadBalancerAccessLogArrayOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAccessLogArrayOutput)
+}
+
+type GetLoadBalancerAccessLogOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerAccessLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerAccessLog)(nil)).Elem()
+}
+
+func (o GetLoadBalancerAccessLogOutput) ToGetLoadBalancerAccessLogOutput() GetLoadBalancerAccessLogOutput {
 	return o
 }
 
-func (o GetLoadBalancerAccessLogsOutput) ToGetLoadBalancerAccessLogsOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogsOutput {
+func (o GetLoadBalancerAccessLogOutput) ToGetLoadBalancerAccessLogOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogOutput {
 	return o
 }
 
-func (o GetLoadBalancerAccessLogsOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLoadBalancerAccessLogs) string { return v.Bucket }).(pulumi.StringOutput)
+func (o GetLoadBalancerAccessLogOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerAccessLog) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-func (o GetLoadBalancerAccessLogsOutput) BucketPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLoadBalancerAccessLogs) string { return v.BucketPrefix }).(pulumi.StringOutput)
+func (o GetLoadBalancerAccessLogOutput) BucketPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerAccessLog) string { return v.BucketPrefix }).(pulumi.StringOutput)
 }
 
-func (o GetLoadBalancerAccessLogsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLoadBalancerAccessLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetLoadBalancerAccessLogOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLoadBalancerAccessLog) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-func (o GetLoadBalancerAccessLogsOutput) Interval() pulumi.IntOutput {
-	return o.ApplyT(func(v GetLoadBalancerAccessLogs) int { return v.Interval }).(pulumi.IntOutput)
+func (o GetLoadBalancerAccessLogOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLoadBalancerAccessLog) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+type GetLoadBalancerAccessLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerAccessLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerAccessLog)(nil)).Elem()
+}
+
+func (o GetLoadBalancerAccessLogArrayOutput) ToGetLoadBalancerAccessLogArrayOutput() GetLoadBalancerAccessLogArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerAccessLogArrayOutput) ToGetLoadBalancerAccessLogArrayOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerAccessLogArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerAccessLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerAccessLog {
+		return vs[0].([]GetLoadBalancerAccessLog)[vs[1].(int)]
+	}).(GetLoadBalancerAccessLogOutput)
 }
 
 type GetLoadBalancerHealthCheck struct {
@@ -875,6 +920,31 @@ func (i GetLoadBalancerHealthCheckArgs) ToGetLoadBalancerHealthCheckOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerHealthCheckOutput)
 }
 
+// GetLoadBalancerHealthCheckArrayInput is an input type that accepts GetLoadBalancerHealthCheckArray and GetLoadBalancerHealthCheckArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerHealthCheckArrayInput` via:
+//
+//	GetLoadBalancerHealthCheckArray{ GetLoadBalancerHealthCheckArgs{...} }
+type GetLoadBalancerHealthCheckArrayInput interface {
+	pulumi.Input
+
+	ToGetLoadBalancerHealthCheckArrayOutput() GetLoadBalancerHealthCheckArrayOutput
+	ToGetLoadBalancerHealthCheckArrayOutputWithContext(context.Context) GetLoadBalancerHealthCheckArrayOutput
+}
+
+type GetLoadBalancerHealthCheckArray []GetLoadBalancerHealthCheckInput
+
+func (GetLoadBalancerHealthCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerHealthCheck)(nil)).Elem()
+}
+
+func (i GetLoadBalancerHealthCheckArray) ToGetLoadBalancerHealthCheckArrayOutput() GetLoadBalancerHealthCheckArrayOutput {
+	return i.ToGetLoadBalancerHealthCheckArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerHealthCheckArray) ToGetLoadBalancerHealthCheckArrayOutputWithContext(ctx context.Context) GetLoadBalancerHealthCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerHealthCheckArrayOutput)
+}
+
 type GetLoadBalancerHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (GetLoadBalancerHealthCheckOutput) ElementType() reflect.Type {
@@ -907,6 +977,26 @@ func (o GetLoadBalancerHealthCheckOutput) Timeout() pulumi.IntOutput {
 
 func (o GetLoadBalancerHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLoadBalancerHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+}
+
+type GetLoadBalancerHealthCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerHealthCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerHealthCheck)(nil)).Elem()
+}
+
+func (o GetLoadBalancerHealthCheckArrayOutput) ToGetLoadBalancerHealthCheckArrayOutput() GetLoadBalancerHealthCheckArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerHealthCheckArrayOutput) ToGetLoadBalancerHealthCheckArrayOutputWithContext(ctx context.Context) GetLoadBalancerHealthCheckArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerHealthCheckArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerHealthCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerHealthCheck {
+		return vs[0].([]GetLoadBalancerHealthCheck)[vs[1].(int)]
+	}).(GetLoadBalancerHealthCheckOutput)
 }
 
 type GetLoadBalancerListener struct {
@@ -1038,8 +1128,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPolicyPolicyAttributeArrayInput)(nil)).Elem(), LoadBalancerPolicyPolicyAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyAttributeInput)(nil)).Elem(), SslNegotiationPolicyAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyAttributeArrayInput)(nil)).Elem(), SslNegotiationPolicyAttributeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogInput)(nil)).Elem(), GetLoadBalancerAccessLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogArrayInput)(nil)).Elem(), GetLoadBalancerAccessLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerHealthCheckInput)(nil)).Elem(), GetLoadBalancerHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerHealthCheckArrayInput)(nil)).Elem(), GetLoadBalancerHealthCheckArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerListenerInput)(nil)).Elem(), GetLoadBalancerListenerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerListenerArrayInput)(nil)).Elem(), GetLoadBalancerListenerArray{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLogsOutput{})
@@ -1052,8 +1144,10 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancerPolicyPolicyAttributeArrayOutput{})
 	pulumi.RegisterOutputType(SslNegotiationPolicyAttributeOutput{})
 	pulumi.RegisterOutputType(SslNegotiationPolicyAttributeArrayOutput{})
-	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerAccessLogOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerAccessLogArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerHealthCheckOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerHealthCheckArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerListenerOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerListenerArrayOutput{})
 }

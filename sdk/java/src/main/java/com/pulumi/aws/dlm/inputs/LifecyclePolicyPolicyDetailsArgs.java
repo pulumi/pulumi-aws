@@ -101,13 +101,13 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
      * 
      */
     @Import(name="resourceTypes")
-    private @Nullable Output<List<String>> resourceTypes;
+    private @Nullable Output<String> resourceTypes;
 
     /**
      * @return A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
      * 
      */
-    public Optional<Output<List<String>>> resourceTypes() {
+    public Optional<Output<String>> resourceTypes() {
         return Optional.ofNullable(this.resourceTypes);
     }
 
@@ -287,7 +287,7 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder resourceTypes(@Nullable Output<List<String>> resourceTypes) {
+        public Builder resourceTypes(@Nullable Output<String> resourceTypes) {
             $.resourceTypes = resourceTypes;
             return this;
         }
@@ -298,18 +298,8 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder resourceTypes(List<String> resourceTypes) {
+        public Builder resourceTypes(String resourceTypes) {
             return resourceTypes(Output.of(resourceTypes));
-        }
-
-        /**
-         * @param resourceTypes A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceTypes(String... resourceTypes) {
-            return resourceTypes(List.of(resourceTypes));
         }
 
         /**

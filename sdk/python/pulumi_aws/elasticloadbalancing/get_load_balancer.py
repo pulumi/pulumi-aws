@@ -24,9 +24,9 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, desync_mitigation_mode=None, dns_name=None, health_check=None, id=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, security_groups=None, source_security_group=None, source_security_group_id=None, subnets=None, tags=None, zone_id=None):
-        if access_logs and not isinstance(access_logs, dict):
-            raise TypeError("Expected argument 'access_logs' to be a dict")
+    def __init__(__self__, access_logs=None, arn=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, desync_mitigation_mode=None, dns_name=None, health_checks=None, id=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, security_groups=None, source_security_group=None, source_security_group_id=None, subnets=None, tags=None, zone_id=None):
+        if access_logs and not isinstance(access_logs, list):
+            raise TypeError("Expected argument 'access_logs' to be a list")
         pulumi.set(__self__, "access_logs", access_logs)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -49,9 +49,9 @@ class GetLoadBalancerResult:
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
-        if health_check and not isinstance(health_check, dict):
-            raise TypeError("Expected argument 'health_check' to be a dict")
-        pulumi.set(__self__, "health_check", health_check)
+        if health_checks and not isinstance(health_checks, list):
+            raise TypeError("Expected argument 'health_checks' to be a list")
+        pulumi.set(__self__, "health_checks", health_checks)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -91,7 +91,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> 'outputs.GetLoadBalancerAccessLogsResult':
+    def access_logs(self) -> Sequence['outputs.GetLoadBalancerAccessLogResult']:
         return pulumi.get(self, "access_logs")
 
     @property
@@ -130,9 +130,9 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "dns_name")
 
     @property
-    @pulumi.getter(name="healthCheck")
-    def health_check(self) -> 'outputs.GetLoadBalancerHealthCheckResult':
-        return pulumi.get(self, "health_check")
+    @pulumi.getter(name="healthChecks")
+    def health_checks(self) -> Sequence['outputs.GetLoadBalancerHealthCheckResult']:
+        return pulumi.get(self, "health_checks")
 
     @property
     @pulumi.getter
@@ -212,7 +212,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             cross_zone_load_balancing=self.cross_zone_load_balancing,
             desync_mitigation_mode=self.desync_mitigation_mode,
             dns_name=self.dns_name,
-            health_check=self.health_check,
+            health_checks=self.health_checks,
             id=self.id,
             idle_timeout=self.idle_timeout,
             instances=self.instances,
@@ -271,7 +271,7 @@ def get_load_balancer(name: Optional[str] = None,
         cross_zone_load_balancing=pulumi.get(__ret__, 'cross_zone_load_balancing'),
         desync_mitigation_mode=pulumi.get(__ret__, 'desync_mitigation_mode'),
         dns_name=pulumi.get(__ret__, 'dns_name'),
-        health_check=pulumi.get(__ret__, 'health_check'),
+        health_checks=pulumi.get(__ret__, 'health_checks'),
         id=pulumi.get(__ret__, 'id'),
         idle_timeout=pulumi.get(__ret__, 'idle_timeout'),
         instances=pulumi.get(__ret__, 'instances'),

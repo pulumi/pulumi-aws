@@ -23,7 +23,7 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, attributes=None, billing_mode=None, deletion_protection_enabled=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, table_class=None, tags=None, ttl=None, write_capacity=None):
+    def __init__(__self__, arn=None, attributes=None, billing_mode=None, deletion_protection_enabled=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, point_in_time_recoveries=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, table_class=None, tags=None, ttls=None, write_capacity=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,9 +51,9 @@ class GetTableResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if point_in_time_recovery and not isinstance(point_in_time_recovery, dict):
-            raise TypeError("Expected argument 'point_in_time_recovery' to be a dict")
-        pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+        if point_in_time_recoveries and not isinstance(point_in_time_recoveries, list):
+            raise TypeError("Expected argument 'point_in_time_recoveries' to be a list")
+        pulumi.set(__self__, "point_in_time_recoveries", point_in_time_recoveries)
         if range_key and not isinstance(range_key, str):
             raise TypeError("Expected argument 'range_key' to be a str")
         pulumi.set(__self__, "range_key", range_key)
@@ -84,9 +84,9 @@ class GetTableResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if ttl and not isinstance(ttl, dict):
-            raise TypeError("Expected argument 'ttl' to be a dict")
-        pulumi.set(__self__, "ttl", ttl)
+        if ttls and not isinstance(ttls, list):
+            raise TypeError("Expected argument 'ttls' to be a list")
+        pulumi.set(__self__, "ttls", ttls)
         if write_capacity and not isinstance(write_capacity, int):
             raise TypeError("Expected argument 'write_capacity' to be a int")
         pulumi.set(__self__, "write_capacity", write_capacity)
@@ -140,9 +140,9 @@ class GetTableResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="pointInTimeRecovery")
-    def point_in_time_recovery(self) -> 'outputs.GetTablePointInTimeRecoveryResult':
-        return pulumi.get(self, "point_in_time_recovery")
+    @pulumi.getter(name="pointInTimeRecoveries")
+    def point_in_time_recoveries(self) -> Sequence['outputs.GetTablePointInTimeRecoveryResult']:
+        return pulumi.get(self, "point_in_time_recoveries")
 
     @property
     @pulumi.getter(name="rangeKey")
@@ -196,8 +196,8 @@ class GetTableResult:
 
     @property
     @pulumi.getter
-    def ttl(self) -> 'outputs.GetTableTtlResult':
-        return pulumi.get(self, "ttl")
+    def ttls(self) -> Sequence['outputs.GetTableTtlResult']:
+        return pulumi.get(self, "ttls")
 
     @property
     @pulumi.getter(name="writeCapacity")
@@ -220,7 +220,7 @@ class AwaitableGetTableResult(GetTableResult):
             id=self.id,
             local_secondary_indexes=self.local_secondary_indexes,
             name=self.name,
-            point_in_time_recovery=self.point_in_time_recovery,
+            point_in_time_recoveries=self.point_in_time_recoveries,
             range_key=self.range_key,
             read_capacity=self.read_capacity,
             replicas=self.replicas,
@@ -231,7 +231,7 @@ class AwaitableGetTableResult(GetTableResult):
             stream_view_type=self.stream_view_type,
             table_class=self.table_class,
             tags=self.tags,
-            ttl=self.ttl,
+            ttls=self.ttls,
             write_capacity=self.write_capacity)
 
 
@@ -271,7 +271,7 @@ def get_table(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         local_secondary_indexes=pulumi.get(__ret__, 'local_secondary_indexes'),
         name=pulumi.get(__ret__, 'name'),
-        point_in_time_recovery=pulumi.get(__ret__, 'point_in_time_recovery'),
+        point_in_time_recoveries=pulumi.get(__ret__, 'point_in_time_recoveries'),
         range_key=pulumi.get(__ret__, 'range_key'),
         read_capacity=pulumi.get(__ret__, 'read_capacity'),
         replicas=pulumi.get(__ret__, 'replicas'),
@@ -282,7 +282,7 @@ def get_table(name: Optional[str] = None,
         stream_view_type=pulumi.get(__ret__, 'stream_view_type'),
         table_class=pulumi.get(__ret__, 'table_class'),
         tags=pulumi.get(__ret__, 'tags'),
-        ttl=pulumi.get(__ret__, 'ttl'),
+        ttls=pulumi.get(__ret__, 'ttls'),
         write_capacity=pulumi.get(__ret__, 'write_capacity'))
 
 

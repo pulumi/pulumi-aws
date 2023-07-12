@@ -18,23 +18,41 @@ namespace Pulumi.Aws.AppMesh.Inputs
         [Input("grpc")]
         public Input<Inputs.VirtualNodeSpecListenerConnectionPoolGrpcArgs>? Grpc { get; set; }
 
+        [Input("http")]
+        private InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttpArgs>? _http;
+
         /// <summary>
         /// Connection pool information for HTTP listeners.
         /// </summary>
-        [Input("http")]
-        public Input<Inputs.VirtualNodeSpecListenerConnectionPoolHttpArgs>? Http { get; set; }
+        public InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttpArgs> Http
+        {
+            get => _http ?? (_http = new InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttpArgs>());
+            set => _http = value;
+        }
+
+        [Input("http2")]
+        private InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttp2Args>? _http2;
 
         /// <summary>
         /// Connection pool information for HTTP2 listeners.
         /// </summary>
-        [Input("http2")]
-        public Input<Inputs.VirtualNodeSpecListenerConnectionPoolHttp2Args>? Http2 { get; set; }
+        public InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttp2Args> Http2
+        {
+            get => _http2 ?? (_http2 = new InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttp2Args>());
+            set => _http2 = value;
+        }
+
+        [Input("tcp")]
+        private InputList<Inputs.VirtualNodeSpecListenerConnectionPoolTcpArgs>? _tcp;
 
         /// <summary>
         /// Connection pool information for TCP listeners.
         /// </summary>
-        [Input("tcp")]
-        public Input<Inputs.VirtualNodeSpecListenerConnectionPoolTcpArgs>? Tcp { get; set; }
+        public InputList<Inputs.VirtualNodeSpecListenerConnectionPoolTcpArgs> Tcp
+        {
+            get => _tcp ?? (_tcp = new InputList<Inputs.VirtualNodeSpecListenerConnectionPoolTcpArgs>());
+            set => _tcp = value;
+        }
 
         public VirtualNodeSpecListenerConnectionPoolArgs()
         {

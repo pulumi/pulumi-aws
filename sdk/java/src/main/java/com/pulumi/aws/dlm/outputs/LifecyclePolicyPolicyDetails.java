@@ -46,7 +46,7 @@ public final class LifecyclePolicyPolicyDetails {
      * @return A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
      * 
      */
-    private @Nullable List<String> resourceTypes;
+    private @Nullable String resourceTypes;
     /**
      * @return See the `schedule` configuration block.
      * 
@@ -100,8 +100,8 @@ public final class LifecyclePolicyPolicyDetails {
      * @return A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
      * 
      */
-    public List<String> resourceTypes() {
-        return this.resourceTypes == null ? List.of() : this.resourceTypes;
+    public Optional<String> resourceTypes() {
+        return Optional.ofNullable(this.resourceTypes);
     }
     /**
      * @return See the `schedule` configuration block.
@@ -134,7 +134,7 @@ public final class LifecyclePolicyPolicyDetails {
         private @Nullable LifecyclePolicyPolicyDetailsParameters parameters;
         private @Nullable String policyType;
         private @Nullable String resourceLocations;
-        private @Nullable List<String> resourceTypes;
+        private @Nullable String resourceTypes;
         private @Nullable List<LifecyclePolicyPolicyDetailsSchedule> schedules;
         private @Nullable Map<String,String> targetTags;
         public Builder() {}
@@ -176,12 +176,9 @@ public final class LifecyclePolicyPolicyDetails {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceTypes(@Nullable List<String> resourceTypes) {
+        public Builder resourceTypes(@Nullable String resourceTypes) {
             this.resourceTypes = resourceTypes;
             return this;
-        }
-        public Builder resourceTypes(String... resourceTypes) {
-            return resourceTypes(List.of(resourceTypes));
         }
         @CustomType.Setter
         public Builder schedules(@Nullable List<LifecyclePolicyPolicyDetailsSchedule> schedules) {

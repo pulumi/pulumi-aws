@@ -96,7 +96,7 @@ public final class GetClusterResult {
      * @return Nested list containing VPC configuration for the cluster.
      * 
      */
-    private GetClusterVpcConfig vpcConfig;
+    private List<GetClusterVpcConfig> vpcConfigs;
 
     private GetClusterResult() {}
     /**
@@ -211,8 +211,8 @@ public final class GetClusterResult {
      * @return Nested list containing VPC configuration for the cluster.
      * 
      */
-    public GetClusterVpcConfig vpcConfig() {
-        return this.vpcConfig;
+    public List<GetClusterVpcConfig> vpcConfigs() {
+        return this.vpcConfigs;
     }
 
     public static Builder builder() {
@@ -240,7 +240,7 @@ public final class GetClusterResult {
         private String status;
         private Map<String,String> tags;
         private String version;
-        private GetClusterVpcConfig vpcConfig;
+        private List<GetClusterVpcConfig> vpcConfigs;
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -260,7 +260,7 @@ public final class GetClusterResult {
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
     	      this.version = defaults.version;
-    	      this.vpcConfig = defaults.vpcConfig;
+    	      this.vpcConfigs = defaults.vpcConfigs;
         }
 
         @CustomType.Setter
@@ -359,9 +359,12 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
-        public Builder vpcConfig(GetClusterVpcConfig vpcConfig) {
-            this.vpcConfig = Objects.requireNonNull(vpcConfig);
+        public Builder vpcConfigs(List<GetClusterVpcConfig> vpcConfigs) {
+            this.vpcConfigs = Objects.requireNonNull(vpcConfigs);
             return this;
+        }
+        public Builder vpcConfigs(GetClusterVpcConfig... vpcConfigs) {
+            return vpcConfigs(List.of(vpcConfigs));
         }
         public GetClusterResult build() {
             final var o = new GetClusterResult();
@@ -381,7 +384,7 @@ public final class GetClusterResult {
             o.status = status;
             o.tags = tags;
             o.version = version;
-            o.vpcConfig = vpcConfig;
+            o.vpcConfigs = vpcConfigs;
             return o;
         }
     }

@@ -22,7 +22,7 @@ __all__ = [
     'GetBrokerEncryptionOptionResult',
     'GetBrokerInstanceResult',
     'GetBrokerLdapServerMetadataResult',
-    'GetBrokerLogsResult',
+    'GetBrokerLogResult',
     'GetBrokerMaintenanceWindowStartTimeResult',
     'GetBrokerUserResult',
     'GetInstanceTypeOfferingsBrokerInstanceOptionResult',
@@ -645,7 +645,7 @@ class GetBrokerLdapServerMetadataResult(dict):
 
 
 @pulumi.output_type
-class GetBrokerLogsResult(dict):
+class GetBrokerLogResult(dict):
     def __init__(__self__, *,
                  audit: bool,
                  general: bool):

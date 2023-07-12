@@ -18,7 +18,7 @@ __all__ = ['FunctionArgs', 'Function']
 class FunctionArgs:
     def __init__(__self__, *,
                  role: pulumi.Input[str],
-                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 architectures: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
                  dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
@@ -54,7 +54,7 @@ class FunctionArgs:
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
+        :param pulumi.Input[str] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: Configuration block. Detailed below.
@@ -172,14 +172,14 @@ class FunctionArgs:
 
     @property
     @pulumi.getter
-    def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def architectures(self) -> Optional[pulumi.Input[str]]:
         """
         Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         """
         return pulumi.get(self, "architectures")
 
     @architectures.setter
-    def architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def architectures(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "architectures", value)
 
     @property
@@ -552,7 +552,7 @@ class FunctionArgs:
 @pulumi.input_type
 class _FunctionState:
     def __init__(__self__, *,
-                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 architectures: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
@@ -596,7 +596,7 @@ class _FunctionState:
                  vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Function resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
+        :param pulumi.Input[str] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -736,14 +736,14 @@ class _FunctionState:
 
     @property
     @pulumi.getter
-    def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def architectures(self) -> Optional[pulumi.Input[str]]:
         """
         Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         """
         return pulumi.get(self, "architectures")
 
     @architectures.setter
-    def architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def architectures(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "architectures", value)
 
     @property
@@ -1254,7 +1254,7 @@ class Function(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 architectures: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
@@ -1468,7 +1468,7 @@ class Function(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
+        :param pulumi.Input[str] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: Configuration block. Detailed below.
@@ -1703,7 +1703,7 @@ class Function(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 architectures: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
@@ -1804,7 +1804,7 @@ class Function(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            architectures: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             code: Optional[pulumi.Input[pulumi.Archive]] = None,
             code_signing_config_arn: Optional[pulumi.Input[str]] = None,
@@ -1853,7 +1853,7 @@ class Function(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
+        :param pulumi.Input[str] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -1950,7 +1950,7 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def architectures(self) -> pulumi.Output[Sequence[str]]:
+    def architectures(self) -> pulumi.Output[str]:
         """
         Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         """

@@ -68,7 +68,7 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: outputs.elasticloadbalancingv2.GetLoadBalancerAccessLogs;
+    readonly accessLogs: outputs.elasticloadbalancingv2.GetLoadBalancerAccessLog[];
     readonly arn: string;
     readonly arnSuffix: string;
     readonly customerOwnedIpv4Pool: string;

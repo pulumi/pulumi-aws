@@ -56,7 +56,7 @@ type LookupApplicationArgs struct {
 
 // A collection of values returned by getApplication.
 type LookupApplicationResult struct {
-	AppversionLifecycle GetApplicationAppversionLifecycle `pulumi:"appversionLifecycle"`
+	AppversionLifecycles []GetApplicationAppversionLifecycle `pulumi:"appversionLifecycles"`
 	// ARN of the application.
 	Arn string `pulumi:"arn"`
 	// Short description of the application
@@ -104,8 +104,8 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
-func (o LookupApplicationResultOutput) AppversionLifecycle() GetApplicationAppversionLifecycleOutput {
-	return o.ApplyT(func(v LookupApplicationResult) GetApplicationAppversionLifecycle { return v.AppversionLifecycle }).(GetApplicationAppversionLifecycleOutput)
+func (o LookupApplicationResultOutput) AppversionLifecycles() GetApplicationAppversionLifecycleArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []GetApplicationAppversionLifecycle { return v.AppversionLifecycles }).(GetApplicationAppversionLifecycleArrayOutput)
 }
 
 // ARN of the application.

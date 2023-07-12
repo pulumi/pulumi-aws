@@ -69,7 +69,7 @@ type Stack struct {
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion pulumi.StringPtrOutput `pulumi:"configurationManagerVersion"`
 	// When `useCustomCookbooks` is set, provide this sub-object as described below.
-	CustomCookbooksSources StackCustomCookbooksSourceArrayOutput `pulumi:"customCookbooksSources"`
+	CustomCookbooksSource StackCustomCookbooksSourceOutput `pulumi:"customCookbooksSource"`
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson pulumi.StringPtrOutput `pulumi:"customJson"`
 	// Name of the availability zone where instances will be created by default.
@@ -161,7 +161,7 @@ type stackState struct {
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion *string `pulumi:"configurationManagerVersion"`
 	// When `useCustomCookbooks` is set, provide this sub-object as described below.
-	CustomCookbooksSources []StackCustomCookbooksSource `pulumi:"customCookbooksSources"`
+	CustomCookbooksSource *StackCustomCookbooksSource `pulumi:"customCookbooksSource"`
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson *string `pulumi:"customJson"`
 	// Name of the availability zone where instances will be created by default.
@@ -216,7 +216,7 @@ type StackState struct {
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion pulumi.StringPtrInput
 	// When `useCustomCookbooks` is set, provide this sub-object as described below.
-	CustomCookbooksSources StackCustomCookbooksSourceArrayInput
+	CustomCookbooksSource StackCustomCookbooksSourcePtrInput
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson pulumi.StringPtrInput
 	// Name of the availability zone where instances will be created by default.
@@ -274,7 +274,7 @@ type stackArgs struct {
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion *string `pulumi:"configurationManagerVersion"`
 	// When `useCustomCookbooks` is set, provide this sub-object as described below.
-	CustomCookbooksSources []StackCustomCookbooksSource `pulumi:"customCookbooksSources"`
+	CustomCookbooksSource *StackCustomCookbooksSource `pulumi:"customCookbooksSource"`
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson *string `pulumi:"customJson"`
 	// Name of the availability zone where instances will be created by default.
@@ -326,7 +326,7 @@ type StackArgs struct {
 	// Version of the configuration manager to use. Defaults to "11.4".
 	ConfigurationManagerVersion pulumi.StringPtrInput
 	// When `useCustomCookbooks` is set, provide this sub-object as described below.
-	CustomCookbooksSources StackCustomCookbooksSourceArrayInput
+	CustomCookbooksSource StackCustomCookbooksSourcePtrInput
 	// Custom JSON attributes to apply to the entire stack.
 	CustomJson pulumi.StringPtrInput
 	// Name of the availability zone where instances will be created by default.
@@ -482,8 +482,8 @@ func (o StackOutput) ConfigurationManagerVersion() pulumi.StringPtrOutput {
 }
 
 // When `useCustomCookbooks` is set, provide this sub-object as described below.
-func (o StackOutput) CustomCookbooksSources() StackCustomCookbooksSourceArrayOutput {
-	return o.ApplyT(func(v *Stack) StackCustomCookbooksSourceArrayOutput { return v.CustomCookbooksSources }).(StackCustomCookbooksSourceArrayOutput)
+func (o StackOutput) CustomCookbooksSource() StackCustomCookbooksSourceOutput {
+	return o.ApplyT(func(v *Stack) StackCustomCookbooksSourceOutput { return v.CustomCookbooksSource }).(StackCustomCookbooksSourceOutput)
 }
 
 // Custom JSON attributes to apply to the entire stack.

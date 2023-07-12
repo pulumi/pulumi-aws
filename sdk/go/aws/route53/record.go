@@ -66,10 +66,8 @@ import (
 //				Name:   pulumi.String("www"),
 //				Type:   pulumi.String("CNAME"),
 //				Ttl:    pulumi.Int(5),
-//				WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
-//					&route53.RecordWeightedRoutingPolicyArgs{
-//						Weight: pulumi.Int(10),
-//					},
+//				WeightedRoutingPolicy: &route53.RecordWeightedRoutingPolicyArgs{
+//					Weight: pulumi.Int(10),
 //				},
 //				SetIdentifier: pulumi.String("dev"),
 //				Records: pulumi.StringArray{
@@ -84,10 +82,8 @@ import (
 //				Name:   pulumi.String("www"),
 //				Type:   pulumi.String("CNAME"),
 //				Ttl:    pulumi.Int(5),
-//				WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
-//					&route53.RecordWeightedRoutingPolicyArgs{
-//						Weight: pulumi.Int(90),
-//					},
+//				WeightedRoutingPolicy: &route53.RecordWeightedRoutingPolicyArgs{
+//					Weight: pulumi.Int(90),
 //				},
 //				SetIdentifier: pulumi.String("live"),
 //				Records: pulumi.StringArray{
@@ -143,12 +139,10 @@ import (
 //				ZoneId: pulumi.Any(aws_route53_zone.Primary.Zone_id),
 //				Name:   pulumi.String("example.com"),
 //				Type:   pulumi.String("A"),
-//				Aliases: route53.RecordAliasArray{
-//					&route53.RecordAliasArgs{
-//						Name:                 main.DnsName,
-//						ZoneId:               main.ZoneId,
-//						EvaluateTargetHealth: pulumi.Bool(true),
-//					},
+//				Alias: &route53.RecordAliasArgs{
+//					Name:                 main.DnsName,
+//					ZoneId:               main.ZoneId,
+//					EvaluateTargetHealth: pulumi.Bool(true),
 //				},
 //			})
 //			if err != nil {
@@ -231,7 +225,7 @@ type Record struct {
 
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Documented below.
-	Aliases RecordAliasArrayOutput `pulumi:"aliases"`
+	Alias RecordAliasPtrOutput `pulumi:"alias"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	//
 	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
@@ -239,15 +233,15 @@ type Record struct {
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrOutput `pulumi:"cidrRoutingPolicy"`
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-	FailoverRoutingPolicies RecordFailoverRoutingPolicyArrayOutput `pulumi:"failoverRoutingPolicies"`
+	FailoverRoutingPolicy RecordFailoverRoutingPolicyPtrOutput `pulumi:"failoverRoutingPolicy"`
 	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-	GeolocationRoutingPolicies RecordGeolocationRoutingPolicyArrayOutput `pulumi:"geolocationRoutingPolicies"`
+	GeolocationRoutingPolicy RecordGeolocationRoutingPolicyPtrOutput `pulumi:"geolocationRoutingPolicy"`
 	// The health check the record should be associated with.
 	HealthCheckId pulumi.StringPtrOutput `pulumi:"healthCheckId"`
 	// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-	LatencyRoutingPolicies RecordLatencyRoutingPolicyArrayOutput `pulumi:"latencyRoutingPolicies"`
+	LatencyRoutingPolicy RecordLatencyRoutingPolicyPtrOutput `pulumi:"latencyRoutingPolicy"`
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy pulumi.BoolPtrOutput `pulumi:"multivalueAnswerRoutingPolicy"`
 	// The name of the record.
@@ -261,7 +255,7 @@ type Record struct {
 	// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-	WeightedRoutingPolicies RecordWeightedRoutingPolicyArrayOutput `pulumi:"weightedRoutingPolicies"`
+	WeightedRoutingPolicy RecordWeightedRoutingPolicyPtrOutput `pulumi:"weightedRoutingPolicy"`
 	// The ID of the hosted zone to contain this record.
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
@@ -306,7 +300,7 @@ func GetRecord(ctx *pulumi.Context,
 type recordState struct {
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Documented below.
-	Aliases []RecordAlias `pulumi:"aliases"`
+	Alias *RecordAlias `pulumi:"alias"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	//
 	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
@@ -314,15 +308,15 @@ type recordState struct {
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy *RecordCidrRoutingPolicy `pulumi:"cidrRoutingPolicy"`
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-	FailoverRoutingPolicies []RecordFailoverRoutingPolicy `pulumi:"failoverRoutingPolicies"`
+	FailoverRoutingPolicy *RecordFailoverRoutingPolicy `pulumi:"failoverRoutingPolicy"`
 	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
 	Fqdn *string `pulumi:"fqdn"`
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-	GeolocationRoutingPolicies []RecordGeolocationRoutingPolicy `pulumi:"geolocationRoutingPolicies"`
+	GeolocationRoutingPolicy *RecordGeolocationRoutingPolicy `pulumi:"geolocationRoutingPolicy"`
 	// The health check the record should be associated with.
 	HealthCheckId *string `pulumi:"healthCheckId"`
 	// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-	LatencyRoutingPolicies []RecordLatencyRoutingPolicy `pulumi:"latencyRoutingPolicies"`
+	LatencyRoutingPolicy *RecordLatencyRoutingPolicy `pulumi:"latencyRoutingPolicy"`
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy *bool `pulumi:"multivalueAnswerRoutingPolicy"`
 	// The name of the record.
@@ -336,7 +330,7 @@ type recordState struct {
 	// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
 	Type *string `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-	WeightedRoutingPolicies []RecordWeightedRoutingPolicy `pulumi:"weightedRoutingPolicies"`
+	WeightedRoutingPolicy *RecordWeightedRoutingPolicy `pulumi:"weightedRoutingPolicy"`
 	// The ID of the hosted zone to contain this record.
 	ZoneId *string `pulumi:"zoneId"`
 }
@@ -344,7 +338,7 @@ type recordState struct {
 type RecordState struct {
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Documented below.
-	Aliases RecordAliasArrayInput
+	Alias RecordAliasPtrInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	//
 	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
@@ -352,15 +346,15 @@ type RecordState struct {
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrInput
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-	FailoverRoutingPolicies RecordFailoverRoutingPolicyArrayInput
+	FailoverRoutingPolicy RecordFailoverRoutingPolicyPtrInput
 	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
 	Fqdn pulumi.StringPtrInput
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-	GeolocationRoutingPolicies RecordGeolocationRoutingPolicyArrayInput
+	GeolocationRoutingPolicy RecordGeolocationRoutingPolicyPtrInput
 	// The health check the record should be associated with.
 	HealthCheckId pulumi.StringPtrInput
 	// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-	LatencyRoutingPolicies RecordLatencyRoutingPolicyArrayInput
+	LatencyRoutingPolicy RecordLatencyRoutingPolicyPtrInput
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy pulumi.BoolPtrInput
 	// The name of the record.
@@ -374,7 +368,7 @@ type RecordState struct {
 	// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
 	Type pulumi.StringPtrInput
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-	WeightedRoutingPolicies RecordWeightedRoutingPolicyArrayInput
+	WeightedRoutingPolicy RecordWeightedRoutingPolicyPtrInput
 	// The ID of the hosted zone to contain this record.
 	ZoneId pulumi.StringPtrInput
 }
@@ -386,7 +380,7 @@ func (RecordState) ElementType() reflect.Type {
 type recordArgs struct {
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Documented below.
-	Aliases []RecordAlias `pulumi:"aliases"`
+	Alias *RecordAlias `pulumi:"alias"`
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	//
 	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
@@ -394,13 +388,13 @@ type recordArgs struct {
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy *RecordCidrRoutingPolicy `pulumi:"cidrRoutingPolicy"`
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-	FailoverRoutingPolicies []RecordFailoverRoutingPolicy `pulumi:"failoverRoutingPolicies"`
+	FailoverRoutingPolicy *RecordFailoverRoutingPolicy `pulumi:"failoverRoutingPolicy"`
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-	GeolocationRoutingPolicies []RecordGeolocationRoutingPolicy `pulumi:"geolocationRoutingPolicies"`
+	GeolocationRoutingPolicy *RecordGeolocationRoutingPolicy `pulumi:"geolocationRoutingPolicy"`
 	// The health check the record should be associated with.
 	HealthCheckId *string `pulumi:"healthCheckId"`
 	// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-	LatencyRoutingPolicies []RecordLatencyRoutingPolicy `pulumi:"latencyRoutingPolicies"`
+	LatencyRoutingPolicy *RecordLatencyRoutingPolicy `pulumi:"latencyRoutingPolicy"`
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy *bool `pulumi:"multivalueAnswerRoutingPolicy"`
 	// The name of the record.
@@ -414,7 +408,7 @@ type recordArgs struct {
 	// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
 	Type string `pulumi:"type"`
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-	WeightedRoutingPolicies []RecordWeightedRoutingPolicy `pulumi:"weightedRoutingPolicies"`
+	WeightedRoutingPolicy *RecordWeightedRoutingPolicy `pulumi:"weightedRoutingPolicy"`
 	// The ID of the hosted zone to contain this record.
 	ZoneId string `pulumi:"zoneId"`
 }
@@ -423,7 +417,7 @@ type recordArgs struct {
 type RecordArgs struct {
 	// An alias block. Conflicts with `ttl` & `records`.
 	// Documented below.
-	Aliases RecordAliasArrayInput
+	Alias RecordAliasPtrInput
 	// Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
 	//
 	// Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
@@ -431,13 +425,13 @@ type RecordArgs struct {
 	// A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrInput
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-	FailoverRoutingPolicies RecordFailoverRoutingPolicyArrayInput
+	FailoverRoutingPolicy RecordFailoverRoutingPolicyPtrInput
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-	GeolocationRoutingPolicies RecordGeolocationRoutingPolicyArrayInput
+	GeolocationRoutingPolicy RecordGeolocationRoutingPolicyPtrInput
 	// The health check the record should be associated with.
 	HealthCheckId pulumi.StringPtrInput
 	// A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-	LatencyRoutingPolicies RecordLatencyRoutingPolicyArrayInput
+	LatencyRoutingPolicy RecordLatencyRoutingPolicyPtrInput
 	// Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
 	MultivalueAnswerRoutingPolicy pulumi.BoolPtrInput
 	// The name of the record.
@@ -451,7 +445,7 @@ type RecordArgs struct {
 	// The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
 	Type pulumi.StringInput
 	// A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-	WeightedRoutingPolicies RecordWeightedRoutingPolicyArrayInput
+	WeightedRoutingPolicy RecordWeightedRoutingPolicyPtrInput
 	// The ID of the hosted zone to contain this record.
 	ZoneId pulumi.StringInput
 }
@@ -545,8 +539,8 @@ func (o RecordOutput) ToRecordOutputWithContext(ctx context.Context) RecordOutpu
 
 // An alias block. Conflicts with `ttl` & `records`.
 // Documented below.
-func (o RecordOutput) Aliases() RecordAliasArrayOutput {
-	return o.ApplyT(func(v *Record) RecordAliasArrayOutput { return v.Aliases }).(RecordAliasArrayOutput)
+func (o RecordOutput) Alias() RecordAliasPtrOutput {
+	return o.ApplyT(func(v *Record) RecordAliasPtrOutput { return v.Alias }).(RecordAliasPtrOutput)
 }
 
 // Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
@@ -562,8 +556,8 @@ func (o RecordOutput) CidrRoutingPolicy() RecordCidrRoutingPolicyPtrOutput {
 }
 
 // A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-func (o RecordOutput) FailoverRoutingPolicies() RecordFailoverRoutingPolicyArrayOutput {
-	return o.ApplyT(func(v *Record) RecordFailoverRoutingPolicyArrayOutput { return v.FailoverRoutingPolicies }).(RecordFailoverRoutingPolicyArrayOutput)
+func (o RecordOutput) FailoverRoutingPolicy() RecordFailoverRoutingPolicyPtrOutput {
+	return o.ApplyT(func(v *Record) RecordFailoverRoutingPolicyPtrOutput { return v.FailoverRoutingPolicy }).(RecordFailoverRoutingPolicyPtrOutput)
 }
 
 // [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
@@ -572,8 +566,8 @@ func (o RecordOutput) Fqdn() pulumi.StringOutput {
 }
 
 // A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-func (o RecordOutput) GeolocationRoutingPolicies() RecordGeolocationRoutingPolicyArrayOutput {
-	return o.ApplyT(func(v *Record) RecordGeolocationRoutingPolicyArrayOutput { return v.GeolocationRoutingPolicies }).(RecordGeolocationRoutingPolicyArrayOutput)
+func (o RecordOutput) GeolocationRoutingPolicy() RecordGeolocationRoutingPolicyPtrOutput {
+	return o.ApplyT(func(v *Record) RecordGeolocationRoutingPolicyPtrOutput { return v.GeolocationRoutingPolicy }).(RecordGeolocationRoutingPolicyPtrOutput)
 }
 
 // The health check the record should be associated with.
@@ -582,8 +576,8 @@ func (o RecordOutput) HealthCheckId() pulumi.StringPtrOutput {
 }
 
 // A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-func (o RecordOutput) LatencyRoutingPolicies() RecordLatencyRoutingPolicyArrayOutput {
-	return o.ApplyT(func(v *Record) RecordLatencyRoutingPolicyArrayOutput { return v.LatencyRoutingPolicies }).(RecordLatencyRoutingPolicyArrayOutput)
+func (o RecordOutput) LatencyRoutingPolicy() RecordLatencyRoutingPolicyPtrOutput {
+	return o.ApplyT(func(v *Record) RecordLatencyRoutingPolicyPtrOutput { return v.LatencyRoutingPolicy }).(RecordLatencyRoutingPolicyPtrOutput)
 }
 
 // Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
@@ -617,8 +611,8 @@ func (o RecordOutput) Type() pulumi.StringOutput {
 }
 
 // A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-func (o RecordOutput) WeightedRoutingPolicies() RecordWeightedRoutingPolicyArrayOutput {
-	return o.ApplyT(func(v *Record) RecordWeightedRoutingPolicyArrayOutput { return v.WeightedRoutingPolicies }).(RecordWeightedRoutingPolicyArrayOutput)
+func (o RecordOutput) WeightedRoutingPolicy() RecordWeightedRoutingPolicyPtrOutput {
+	return o.ApplyT(func(v *Record) RecordWeightedRoutingPolicyPtrOutput { return v.WeightedRoutingPolicy }).(RecordWeightedRoutingPolicyPtrOutput)
 }
 
 // The ID of the hosted zone to contain this record.

@@ -55,7 +55,7 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: outputs.elasticloadbalancing.GetLoadBalancerAccessLogs;
+    readonly accessLogs: outputs.elasticloadbalancing.GetLoadBalancerAccessLog[];
     readonly arn: string;
     readonly availabilityZones: string[];
     readonly connectionDraining: boolean;
@@ -63,7 +63,7 @@ export interface GetLoadBalancerResult {
     readonly crossZoneLoadBalancing: boolean;
     readonly desyncMitigationMode: string;
     readonly dnsName: string;
-    readonly healthCheck: outputs.elasticloadbalancing.GetLoadBalancerHealthCheck;
+    readonly healthChecks: outputs.elasticloadbalancing.GetLoadBalancerHealthCheck[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */

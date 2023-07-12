@@ -31,16 +31,16 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
      * Documented below.
      * 
      */
-    @Import(name="aliases")
-    private @Nullable Output<List<RecordAliasArgs>> aliases;
+    @Import(name="alias")
+    private @Nullable Output<RecordAliasArgs> alias;
 
     /**
      * @return An alias block. Conflicts with `ttl` &amp; `records`.
      * Documented below.
      * 
      */
-    public Optional<Output<List<RecordAliasArgs>>> aliases() {
-        return Optional.ofNullable(this.aliases);
+    public Optional<Output<RecordAliasArgs>> alias() {
+        return Optional.ofNullable(this.alias);
     }
 
     /**
@@ -81,15 +81,15 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      * 
      */
-    @Import(name="failoverRoutingPolicies")
-    private @Nullable Output<List<RecordFailoverRoutingPolicyArgs>> failoverRoutingPolicies;
+    @Import(name="failoverRoutingPolicy")
+    private @Nullable Output<RecordFailoverRoutingPolicyArgs> failoverRoutingPolicy;
 
     /**
      * @return A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public Optional<Output<List<RecordFailoverRoutingPolicyArgs>>> failoverRoutingPolicies() {
-        return Optional.ofNullable(this.failoverRoutingPolicies);
+    public Optional<Output<RecordFailoverRoutingPolicyArgs>> failoverRoutingPolicy() {
+        return Optional.ofNullable(this.failoverRoutingPolicy);
     }
 
     /**
@@ -111,15 +111,15 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      * 
      */
-    @Import(name="geolocationRoutingPolicies")
-    private @Nullable Output<List<RecordGeolocationRoutingPolicyArgs>> geolocationRoutingPolicies;
+    @Import(name="geolocationRoutingPolicy")
+    private @Nullable Output<RecordGeolocationRoutingPolicyArgs> geolocationRoutingPolicy;
 
     /**
      * @return A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public Optional<Output<List<RecordGeolocationRoutingPolicyArgs>>> geolocationRoutingPolicies() {
-        return Optional.ofNullable(this.geolocationRoutingPolicies);
+    public Optional<Output<RecordGeolocationRoutingPolicyArgs>> geolocationRoutingPolicy() {
+        return Optional.ofNullable(this.geolocationRoutingPolicy);
     }
 
     /**
@@ -141,15 +141,15 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      * 
      */
-    @Import(name="latencyRoutingPolicies")
-    private @Nullable Output<List<RecordLatencyRoutingPolicyArgs>> latencyRoutingPolicies;
+    @Import(name="latencyRoutingPolicy")
+    private @Nullable Output<RecordLatencyRoutingPolicyArgs> latencyRoutingPolicy;
 
     /**
      * @return A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public Optional<Output<List<RecordLatencyRoutingPolicyArgs>>> latencyRoutingPolicies() {
-        return Optional.ofNullable(this.latencyRoutingPolicies);
+    public Optional<Output<RecordLatencyRoutingPolicyArgs>> latencyRoutingPolicy() {
+        return Optional.ofNullable(this.latencyRoutingPolicy);
     }
 
     /**
@@ -246,15 +246,15 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      * 
      */
-    @Import(name="weightedRoutingPolicies")
-    private @Nullable Output<List<RecordWeightedRoutingPolicyArgs>> weightedRoutingPolicies;
+    @Import(name="weightedRoutingPolicy")
+    private @Nullable Output<RecordWeightedRoutingPolicyArgs> weightedRoutingPolicy;
 
     /**
      * @return A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      * 
      */
-    public Optional<Output<List<RecordWeightedRoutingPolicyArgs>>> weightedRoutingPolicies() {
-        return Optional.ofNullable(this.weightedRoutingPolicies);
+    public Optional<Output<RecordWeightedRoutingPolicyArgs>> weightedRoutingPolicy() {
+        return Optional.ofNullable(this.weightedRoutingPolicy);
     }
 
     /**
@@ -275,21 +275,21 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
     private RecordState() {}
 
     private RecordState(RecordState $) {
-        this.aliases = $.aliases;
+        this.alias = $.alias;
         this.allowOverwrite = $.allowOverwrite;
         this.cidrRoutingPolicy = $.cidrRoutingPolicy;
-        this.failoverRoutingPolicies = $.failoverRoutingPolicies;
+        this.failoverRoutingPolicy = $.failoverRoutingPolicy;
         this.fqdn = $.fqdn;
-        this.geolocationRoutingPolicies = $.geolocationRoutingPolicies;
+        this.geolocationRoutingPolicy = $.geolocationRoutingPolicy;
         this.healthCheckId = $.healthCheckId;
-        this.latencyRoutingPolicies = $.latencyRoutingPolicies;
+        this.latencyRoutingPolicy = $.latencyRoutingPolicy;
         this.multivalueAnswerRoutingPolicy = $.multivalueAnswerRoutingPolicy;
         this.name = $.name;
         this.records = $.records;
         this.setIdentifier = $.setIdentifier;
         this.ttl = $.ttl;
         this.type = $.type;
-        this.weightedRoutingPolicies = $.weightedRoutingPolicies;
+        this.weightedRoutingPolicy = $.weightedRoutingPolicy;
         this.zoneId = $.zoneId;
     }
 
@@ -312,37 +312,26 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aliases An alias block. Conflicts with `ttl` &amp; `records`.
+         * @param alias An alias block. Conflicts with `ttl` &amp; `records`.
          * Documented below.
          * 
          * @return builder
          * 
          */
-        public Builder aliases(@Nullable Output<List<RecordAliasArgs>> aliases) {
-            $.aliases = aliases;
+        public Builder alias(@Nullable Output<RecordAliasArgs> alias) {
+            $.alias = alias;
             return this;
         }
 
         /**
-         * @param aliases An alias block. Conflicts with `ttl` &amp; `records`.
+         * @param alias An alias block. Conflicts with `ttl` &amp; `records`.
          * Documented below.
          * 
          * @return builder
          * 
          */
-        public Builder aliases(List<RecordAliasArgs> aliases) {
-            return aliases(Output.of(aliases));
-        }
-
-        /**
-         * @param aliases An alias block. Conflicts with `ttl` &amp; `records`.
-         * Documented below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder aliases(RecordAliasArgs... aliases) {
-            return aliases(List.of(aliases));
+        public Builder alias(RecordAliasArgs alias) {
+            return alias(Output.of(alias));
         }
 
         /**
@@ -392,34 +381,24 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param failoverRoutingPolicies A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
+         * @param failoverRoutingPolicy A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
          * 
          * @return builder
          * 
          */
-        public Builder failoverRoutingPolicies(@Nullable Output<List<RecordFailoverRoutingPolicyArgs>> failoverRoutingPolicies) {
-            $.failoverRoutingPolicies = failoverRoutingPolicies;
+        public Builder failoverRoutingPolicy(@Nullable Output<RecordFailoverRoutingPolicyArgs> failoverRoutingPolicy) {
+            $.failoverRoutingPolicy = failoverRoutingPolicy;
             return this;
         }
 
         /**
-         * @param failoverRoutingPolicies A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
+         * @param failoverRoutingPolicy A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
          * 
          * @return builder
          * 
          */
-        public Builder failoverRoutingPolicies(List<RecordFailoverRoutingPolicyArgs> failoverRoutingPolicies) {
-            return failoverRoutingPolicies(Output.of(failoverRoutingPolicies));
-        }
-
-        /**
-         * @param failoverRoutingPolicies A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder failoverRoutingPolicies(RecordFailoverRoutingPolicyArgs... failoverRoutingPolicies) {
-            return failoverRoutingPolicies(List.of(failoverRoutingPolicies));
+        public Builder failoverRoutingPolicy(RecordFailoverRoutingPolicyArgs failoverRoutingPolicy) {
+            return failoverRoutingPolicy(Output.of(failoverRoutingPolicy));
         }
 
         /**
@@ -444,34 +423,24 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geolocationRoutingPolicies A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
+         * @param geolocationRoutingPolicy A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
          * 
          * @return builder
          * 
          */
-        public Builder geolocationRoutingPolicies(@Nullable Output<List<RecordGeolocationRoutingPolicyArgs>> geolocationRoutingPolicies) {
-            $.geolocationRoutingPolicies = geolocationRoutingPolicies;
+        public Builder geolocationRoutingPolicy(@Nullable Output<RecordGeolocationRoutingPolicyArgs> geolocationRoutingPolicy) {
+            $.geolocationRoutingPolicy = geolocationRoutingPolicy;
             return this;
         }
 
         /**
-         * @param geolocationRoutingPolicies A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
+         * @param geolocationRoutingPolicy A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
          * 
          * @return builder
          * 
          */
-        public Builder geolocationRoutingPolicies(List<RecordGeolocationRoutingPolicyArgs> geolocationRoutingPolicies) {
-            return geolocationRoutingPolicies(Output.of(geolocationRoutingPolicies));
-        }
-
-        /**
-         * @param geolocationRoutingPolicies A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder geolocationRoutingPolicies(RecordGeolocationRoutingPolicyArgs... geolocationRoutingPolicies) {
-            return geolocationRoutingPolicies(List.of(geolocationRoutingPolicies));
+        public Builder geolocationRoutingPolicy(RecordGeolocationRoutingPolicyArgs geolocationRoutingPolicy) {
+            return geolocationRoutingPolicy(Output.of(geolocationRoutingPolicy));
         }
 
         /**
@@ -496,34 +465,24 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param latencyRoutingPolicies A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
+         * @param latencyRoutingPolicy A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
          * 
          * @return builder
          * 
          */
-        public Builder latencyRoutingPolicies(@Nullable Output<List<RecordLatencyRoutingPolicyArgs>> latencyRoutingPolicies) {
-            $.latencyRoutingPolicies = latencyRoutingPolicies;
+        public Builder latencyRoutingPolicy(@Nullable Output<RecordLatencyRoutingPolicyArgs> latencyRoutingPolicy) {
+            $.latencyRoutingPolicy = latencyRoutingPolicy;
             return this;
         }
 
         /**
-         * @param latencyRoutingPolicies A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
+         * @param latencyRoutingPolicy A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
          * 
          * @return builder
          * 
          */
-        public Builder latencyRoutingPolicies(List<RecordLatencyRoutingPolicyArgs> latencyRoutingPolicies) {
-            return latencyRoutingPolicies(Output.of(latencyRoutingPolicies));
-        }
-
-        /**
-         * @param latencyRoutingPolicies A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder latencyRoutingPolicies(RecordLatencyRoutingPolicyArgs... latencyRoutingPolicies) {
-            return latencyRoutingPolicies(List.of(latencyRoutingPolicies));
+        public Builder latencyRoutingPolicy(RecordLatencyRoutingPolicyArgs latencyRoutingPolicy) {
+            return latencyRoutingPolicy(Output.of(latencyRoutingPolicy));
         }
 
         /**
@@ -683,34 +642,24 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weightedRoutingPolicies A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
+         * @param weightedRoutingPolicy A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
          * 
          * @return builder
          * 
          */
-        public Builder weightedRoutingPolicies(@Nullable Output<List<RecordWeightedRoutingPolicyArgs>> weightedRoutingPolicies) {
-            $.weightedRoutingPolicies = weightedRoutingPolicies;
+        public Builder weightedRoutingPolicy(@Nullable Output<RecordWeightedRoutingPolicyArgs> weightedRoutingPolicy) {
+            $.weightedRoutingPolicy = weightedRoutingPolicy;
             return this;
         }
 
         /**
-         * @param weightedRoutingPolicies A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
+         * @param weightedRoutingPolicy A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
          * 
          * @return builder
          * 
          */
-        public Builder weightedRoutingPolicies(List<RecordWeightedRoutingPolicyArgs> weightedRoutingPolicies) {
-            return weightedRoutingPolicies(Output.of(weightedRoutingPolicies));
-        }
-
-        /**
-         * @param weightedRoutingPolicies A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs... weightedRoutingPolicies) {
-            return weightedRoutingPolicies(List.of(weightedRoutingPolicies));
+        public Builder weightedRoutingPolicy(RecordWeightedRoutingPolicyArgs weightedRoutingPolicy) {
+            return weightedRoutingPolicy(Output.of(weightedRoutingPolicy));
         }
 
         /**

@@ -22,10 +22,10 @@ class GetApplicationResult:
     """
     A collection of values returned by getApplication.
     """
-    def __init__(__self__, appversion_lifecycle=None, arn=None, description=None, id=None, name=None):
-        if appversion_lifecycle and not isinstance(appversion_lifecycle, dict):
-            raise TypeError("Expected argument 'appversion_lifecycle' to be a dict")
-        pulumi.set(__self__, "appversion_lifecycle", appversion_lifecycle)
+    def __init__(__self__, appversion_lifecycles=None, arn=None, description=None, id=None, name=None):
+        if appversion_lifecycles and not isinstance(appversion_lifecycles, list):
+            raise TypeError("Expected argument 'appversion_lifecycles' to be a list")
+        pulumi.set(__self__, "appversion_lifecycles", appversion_lifecycles)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,9 +40,9 @@ class GetApplicationResult:
         pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter(name="appversionLifecycle")
-    def appversion_lifecycle(self) -> 'outputs.GetApplicationAppversionLifecycleResult':
-        return pulumi.get(self, "appversion_lifecycle")
+    @pulumi.getter(name="appversionLifecycles")
+    def appversion_lifecycles(self) -> Sequence['outputs.GetApplicationAppversionLifecycleResult']:
+        return pulumi.get(self, "appversion_lifecycles")
 
     @property
     @pulumi.getter
@@ -80,7 +80,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         if False:
             yield self
         return GetApplicationResult(
-            appversion_lifecycle=self.appversion_lifecycle,
+            appversion_lifecycles=self.appversion_lifecycles,
             arn=self.arn,
             description=self.description,
             id=self.id,
@@ -112,7 +112,7 @@ def get_application(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        appversion_lifecycle=pulumi.get(__ret__, 'appversion_lifecycle'),
+        appversion_lifecycles=pulumi.get(__ret__, 'appversion_lifecycles'),
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),

@@ -235,7 +235,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
      */
-    public readonly architectures!: pulumi.Output<string[]>;
+    public readonly architectures!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      */
@@ -524,7 +524,7 @@ export interface FunctionState {
     /**
      * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
      */
-    architectures?: pulumi.Input<pulumi.Input<string>[]>;
+    architectures?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      */
@@ -706,7 +706,7 @@ export interface FunctionArgs {
     /**
      * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
      */
-    architectures?: pulumi.Input<pulumi.Input<string>[]>;
+    architectures?: pulumi.Input<string>;
     /**
      * Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
      */

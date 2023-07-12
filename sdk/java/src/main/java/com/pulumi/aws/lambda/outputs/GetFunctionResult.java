@@ -39,7 +39,7 @@ public final class GetFunctionResult {
      * @return Configure the function&#39;s *dead letter queue*.
      * 
      */
-    private GetFunctionDeadLetterConfig deadLetterConfig;
+    private List<GetFunctionDeadLetterConfig> deadLetterConfigs;
     /**
      * @return Description of what your Lambda Function does.
      * 
@@ -49,7 +49,7 @@ public final class GetFunctionResult {
      * @return Lambda environment&#39;s configuration settings.
      * 
      */
-    private GetFunctionEnvironment environment;
+    private List<GetFunctionEnvironment> environments;
     /**
      * @return Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
      * 
@@ -157,7 +157,7 @@ public final class GetFunctionResult {
      * @return Tracing settings of the function.
      * 
      */
-    private GetFunctionTracingConfig tracingConfig;
+    private List<GetFunctionTracingConfig> tracingConfigs;
     /**
      * @return The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
      * 
@@ -167,7 +167,7 @@ public final class GetFunctionResult {
      * @return VPC configuration associated with your Lambda function.
      * 
      */
-    private GetFunctionVpcConfig vpcConfig;
+    private List<GetFunctionVpcConfig> vpcConfigs;
 
     private GetFunctionResult() {}
     /**
@@ -195,8 +195,8 @@ public final class GetFunctionResult {
      * @return Configure the function&#39;s *dead letter queue*.
      * 
      */
-    public GetFunctionDeadLetterConfig deadLetterConfig() {
-        return this.deadLetterConfig;
+    public List<GetFunctionDeadLetterConfig> deadLetterConfigs() {
+        return this.deadLetterConfigs;
     }
     /**
      * @return Description of what your Lambda Function does.
@@ -209,8 +209,8 @@ public final class GetFunctionResult {
      * @return Lambda environment&#39;s configuration settings.
      * 
      */
-    public GetFunctionEnvironment environment() {
-        return this.environment;
+    public List<GetFunctionEnvironment> environments() {
+        return this.environments;
     }
     /**
      * @return Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
@@ -365,8 +365,8 @@ public final class GetFunctionResult {
      * @return Tracing settings of the function.
      * 
      */
-    public GetFunctionTracingConfig tracingConfig() {
-        return this.tracingConfig;
+    public List<GetFunctionTracingConfig> tracingConfigs() {
+        return this.tracingConfigs;
     }
     /**
      * @return The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
@@ -379,8 +379,8 @@ public final class GetFunctionResult {
      * @return VPC configuration associated with your Lambda function.
      * 
      */
-    public GetFunctionVpcConfig vpcConfig() {
-        return this.vpcConfig;
+    public List<GetFunctionVpcConfig> vpcConfigs() {
+        return this.vpcConfigs;
     }
 
     public static Builder builder() {
@@ -395,9 +395,9 @@ public final class GetFunctionResult {
         private List<String> architectures;
         private String arn;
         private String codeSigningConfigArn;
-        private GetFunctionDeadLetterConfig deadLetterConfig;
+        private List<GetFunctionDeadLetterConfig> deadLetterConfigs;
         private String description;
-        private GetFunctionEnvironment environment;
+        private List<GetFunctionEnvironment> environments;
         private List<GetFunctionEphemeralStorage> ephemeralStorages;
         private List<GetFunctionFileSystemConfig> fileSystemConfigs;
         private String functionName;
@@ -421,18 +421,18 @@ public final class GetFunctionResult {
         private Integer sourceCodeSize;
         private Map<String,String> tags;
         private Integer timeout;
-        private GetFunctionTracingConfig tracingConfig;
+        private List<GetFunctionTracingConfig> tracingConfigs;
         private String version;
-        private GetFunctionVpcConfig vpcConfig;
+        private List<GetFunctionVpcConfig> vpcConfigs;
         public Builder() {}
         public Builder(GetFunctionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.architectures = defaults.architectures;
     	      this.arn = defaults.arn;
     	      this.codeSigningConfigArn = defaults.codeSigningConfigArn;
-    	      this.deadLetterConfig = defaults.deadLetterConfig;
+    	      this.deadLetterConfigs = defaults.deadLetterConfigs;
     	      this.description = defaults.description;
-    	      this.environment = defaults.environment;
+    	      this.environments = defaults.environments;
     	      this.ephemeralStorages = defaults.ephemeralStorages;
     	      this.fileSystemConfigs = defaults.fileSystemConfigs;
     	      this.functionName = defaults.functionName;
@@ -456,9 +456,9 @@ public final class GetFunctionResult {
     	      this.sourceCodeSize = defaults.sourceCodeSize;
     	      this.tags = defaults.tags;
     	      this.timeout = defaults.timeout;
-    	      this.tracingConfig = defaults.tracingConfig;
+    	      this.tracingConfigs = defaults.tracingConfigs;
     	      this.version = defaults.version;
-    	      this.vpcConfig = defaults.vpcConfig;
+    	      this.vpcConfigs = defaults.vpcConfigs;
         }
 
         @CustomType.Setter
@@ -480,9 +480,12 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder deadLetterConfig(GetFunctionDeadLetterConfig deadLetterConfig) {
-            this.deadLetterConfig = Objects.requireNonNull(deadLetterConfig);
+        public Builder deadLetterConfigs(List<GetFunctionDeadLetterConfig> deadLetterConfigs) {
+            this.deadLetterConfigs = Objects.requireNonNull(deadLetterConfigs);
             return this;
+        }
+        public Builder deadLetterConfigs(GetFunctionDeadLetterConfig... deadLetterConfigs) {
+            return deadLetterConfigs(List.of(deadLetterConfigs));
         }
         @CustomType.Setter
         public Builder description(String description) {
@@ -490,9 +493,12 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder environment(GetFunctionEnvironment environment) {
-            this.environment = Objects.requireNonNull(environment);
+        public Builder environments(List<GetFunctionEnvironment> environments) {
+            this.environments = Objects.requireNonNull(environments);
             return this;
+        }
+        public Builder environments(GetFunctionEnvironment... environments) {
+            return environments(List.of(environments));
         }
         @CustomType.Setter
         public Builder ephemeralStorages(List<GetFunctionEphemeralStorage> ephemeralStorages) {
@@ -619,9 +625,12 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tracingConfig(GetFunctionTracingConfig tracingConfig) {
-            this.tracingConfig = Objects.requireNonNull(tracingConfig);
+        public Builder tracingConfigs(List<GetFunctionTracingConfig> tracingConfigs) {
+            this.tracingConfigs = Objects.requireNonNull(tracingConfigs);
             return this;
+        }
+        public Builder tracingConfigs(GetFunctionTracingConfig... tracingConfigs) {
+            return tracingConfigs(List.of(tracingConfigs));
         }
         @CustomType.Setter
         public Builder version(String version) {
@@ -629,18 +638,21 @@ public final class GetFunctionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder vpcConfig(GetFunctionVpcConfig vpcConfig) {
-            this.vpcConfig = Objects.requireNonNull(vpcConfig);
+        public Builder vpcConfigs(List<GetFunctionVpcConfig> vpcConfigs) {
+            this.vpcConfigs = Objects.requireNonNull(vpcConfigs);
             return this;
+        }
+        public Builder vpcConfigs(GetFunctionVpcConfig... vpcConfigs) {
+            return vpcConfigs(List.of(vpcConfigs));
         }
         public GetFunctionResult build() {
             final var o = new GetFunctionResult();
             o.architectures = architectures;
             o.arn = arn;
             o.codeSigningConfigArn = codeSigningConfigArn;
-            o.deadLetterConfig = deadLetterConfig;
+            o.deadLetterConfigs = deadLetterConfigs;
             o.description = description;
-            o.environment = environment;
+            o.environments = environments;
             o.ephemeralStorages = ephemeralStorages;
             o.fileSystemConfigs = fileSystemConfigs;
             o.functionName = functionName;
@@ -664,9 +676,9 @@ public final class GetFunctionResult {
             o.sourceCodeSize = sourceCodeSize;
             o.tags = tags;
             o.timeout = timeout;
-            o.tracingConfig = tracingConfig;
+            o.tracingConfigs = tracingConfigs;
             o.version = version;
-            o.vpcConfig = vpcConfig;
+            o.vpcConfigs = vpcConfigs;
             return o;
         }
     }

@@ -38,9 +38,9 @@ import * as utilities from "../utilities";
  *     name: "www",
  *     type: "CNAME",
  *     ttl: 5,
- *     weightedRoutingPolicies: [{
+ *     weightedRoutingPolicy: {
  *         weight: 10,
- *     }],
+ *     },
  *     setIdentifier: "dev",
  *     records: ["dev.example.com"],
  * });
@@ -49,9 +49,9 @@ import * as utilities from "../utilities";
  *     name: "www",
  *     type: "CNAME",
  *     ttl: 5,
- *     weightedRoutingPolicies: [{
+ *     weightedRoutingPolicy: {
  *         weight: 90,
- *     }],
+ *     },
  *     setIdentifier: "live",
  *     records: ["live.example.com"],
  * });
@@ -81,11 +81,11 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "example.com",
  *     type: "A",
- *     aliases: [{
+ *     alias: {
  *         name: main.dnsName,
  *         zoneId: main.zoneId,
  *         evaluateTargetHealth: true,
- *     }],
+ *     },
  * });
  * ```
  * ### NS and SOA Record Management
@@ -158,7 +158,7 @@ export class Record extends pulumi.CustomResource {
      * An alias block. Conflicts with `ttl` & `records`.
      * Documented below.
      */
-    public readonly aliases!: pulumi.Output<outputs.route53.RecordAlias[] | undefined>;
+    public readonly alias!: pulumi.Output<outputs.route53.RecordAlias | undefined>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
      *
@@ -172,7 +172,7 @@ export class Record extends pulumi.CustomResource {
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
-    public readonly failoverRoutingPolicies!: pulumi.Output<outputs.route53.RecordFailoverRoutingPolicy[] | undefined>;
+    public readonly failoverRoutingPolicy!: pulumi.Output<outputs.route53.RecordFailoverRoutingPolicy | undefined>;
     /**
      * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
      */
@@ -180,7 +180,7 @@ export class Record extends pulumi.CustomResource {
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    public readonly geolocationRoutingPolicies!: pulumi.Output<outputs.route53.RecordGeolocationRoutingPolicy[] | undefined>;
+    public readonly geolocationRoutingPolicy!: pulumi.Output<outputs.route53.RecordGeolocationRoutingPolicy | undefined>;
     /**
      * The health check the record should be associated with.
      */
@@ -188,7 +188,7 @@ export class Record extends pulumi.CustomResource {
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      */
-    public readonly latencyRoutingPolicies!: pulumi.Output<outputs.route53.RecordLatencyRoutingPolicy[] | undefined>;
+    public readonly latencyRoutingPolicy!: pulumi.Output<outputs.route53.RecordLatencyRoutingPolicy | undefined>;
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
      */
@@ -216,7 +216,7 @@ export class Record extends pulumi.CustomResource {
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
-    public readonly weightedRoutingPolicies!: pulumi.Output<outputs.route53.RecordWeightedRoutingPolicy[] | undefined>;
+    public readonly weightedRoutingPolicy!: pulumi.Output<outputs.route53.RecordWeightedRoutingPolicy | undefined>;
     /**
      * The ID of the hosted zone to contain this record.
      */
@@ -235,21 +235,21 @@ export class Record extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RecordState | undefined;
-            resourceInputs["aliases"] = state ? state.aliases : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
             resourceInputs["allowOverwrite"] = state ? state.allowOverwrite : undefined;
             resourceInputs["cidrRoutingPolicy"] = state ? state.cidrRoutingPolicy : undefined;
-            resourceInputs["failoverRoutingPolicies"] = state ? state.failoverRoutingPolicies : undefined;
+            resourceInputs["failoverRoutingPolicy"] = state ? state.failoverRoutingPolicy : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["geolocationRoutingPolicies"] = state ? state.geolocationRoutingPolicies : undefined;
+            resourceInputs["geolocationRoutingPolicy"] = state ? state.geolocationRoutingPolicy : undefined;
             resourceInputs["healthCheckId"] = state ? state.healthCheckId : undefined;
-            resourceInputs["latencyRoutingPolicies"] = state ? state.latencyRoutingPolicies : undefined;
+            resourceInputs["latencyRoutingPolicy"] = state ? state.latencyRoutingPolicy : undefined;
             resourceInputs["multivalueAnswerRoutingPolicy"] = state ? state.multivalueAnswerRoutingPolicy : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["records"] = state ? state.records : undefined;
             resourceInputs["setIdentifier"] = state ? state.setIdentifier : undefined;
             resourceInputs["ttl"] = state ? state.ttl : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["weightedRoutingPolicies"] = state ? state.weightedRoutingPolicies : undefined;
+            resourceInputs["weightedRoutingPolicy"] = state ? state.weightedRoutingPolicy : undefined;
             resourceInputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as RecordArgs | undefined;
@@ -262,20 +262,20 @@ export class Record extends pulumi.CustomResource {
             if ((!args || args.zoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zoneId'");
             }
-            resourceInputs["aliases"] = args ? args.aliases : undefined;
+            resourceInputs["alias"] = args ? args.alias : undefined;
             resourceInputs["allowOverwrite"] = args ? args.allowOverwrite : undefined;
             resourceInputs["cidrRoutingPolicy"] = args ? args.cidrRoutingPolicy : undefined;
-            resourceInputs["failoverRoutingPolicies"] = args ? args.failoverRoutingPolicies : undefined;
-            resourceInputs["geolocationRoutingPolicies"] = args ? args.geolocationRoutingPolicies : undefined;
+            resourceInputs["failoverRoutingPolicy"] = args ? args.failoverRoutingPolicy : undefined;
+            resourceInputs["geolocationRoutingPolicy"] = args ? args.geolocationRoutingPolicy : undefined;
             resourceInputs["healthCheckId"] = args ? args.healthCheckId : undefined;
-            resourceInputs["latencyRoutingPolicies"] = args ? args.latencyRoutingPolicies : undefined;
+            resourceInputs["latencyRoutingPolicy"] = args ? args.latencyRoutingPolicy : undefined;
             resourceInputs["multivalueAnswerRoutingPolicy"] = args ? args.multivalueAnswerRoutingPolicy : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["records"] = args ? args.records : undefined;
             resourceInputs["setIdentifier"] = args ? args.setIdentifier : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["weightedRoutingPolicies"] = args ? args.weightedRoutingPolicies : undefined;
+            resourceInputs["weightedRoutingPolicy"] = args ? args.weightedRoutingPolicy : undefined;
             resourceInputs["zoneId"] = args ? args.zoneId : undefined;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
@@ -292,7 +292,7 @@ export interface RecordState {
      * An alias block. Conflicts with `ttl` & `records`.
      * Documented below.
      */
-    aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[]>;
+    alias?: pulumi.Input<inputs.route53.RecordAlias>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
      *
@@ -306,7 +306,7 @@ export interface RecordState {
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
-    failoverRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordFailoverRoutingPolicy>[]>;
+    failoverRoutingPolicy?: pulumi.Input<inputs.route53.RecordFailoverRoutingPolicy>;
     /**
      * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
      */
@@ -314,7 +314,7 @@ export interface RecordState {
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>[]>;
+    geolocationRoutingPolicy?: pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>;
     /**
      * The health check the record should be associated with.
      */
@@ -322,7 +322,7 @@ export interface RecordState {
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      */
-    latencyRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordLatencyRoutingPolicy>[]>;
+    latencyRoutingPolicy?: pulumi.Input<inputs.route53.RecordLatencyRoutingPolicy>;
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
      */
@@ -350,7 +350,7 @@ export interface RecordState {
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
-    weightedRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>[]>;
+    weightedRoutingPolicy?: pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>;
     /**
      * The ID of the hosted zone to contain this record.
      */
@@ -365,7 +365,7 @@ export interface RecordArgs {
      * An alias block. Conflicts with `ttl` & `records`.
      * Documented below.
      */
-    aliases?: pulumi.Input<pulumi.Input<inputs.route53.RecordAlias>[]>;
+    alias?: pulumi.Input<inputs.route53.RecordAlias>;
     /**
      * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
      *
@@ -379,11 +379,11 @@ export interface RecordArgs {
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      */
-    failoverRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordFailoverRoutingPolicy>[]>;
+    failoverRoutingPolicy?: pulumi.Input<inputs.route53.RecordFailoverRoutingPolicy>;
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      */
-    geolocationRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>[]>;
+    geolocationRoutingPolicy?: pulumi.Input<inputs.route53.RecordGeolocationRoutingPolicy>;
     /**
      * The health check the record should be associated with.
      */
@@ -391,7 +391,7 @@ export interface RecordArgs {
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      */
-    latencyRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordLatencyRoutingPolicy>[]>;
+    latencyRoutingPolicy?: pulumi.Input<inputs.route53.RecordLatencyRoutingPolicy>;
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
      */
@@ -419,7 +419,7 @@ export interface RecordArgs {
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      */
-    weightedRoutingPolicies?: pulumi.Input<pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>[]>;
+    weightedRoutingPolicy?: pulumi.Input<inputs.route53.RecordWeightedRoutingPolicy>;
     /**
      * The ID of the hosted zone to contain this record.
      */

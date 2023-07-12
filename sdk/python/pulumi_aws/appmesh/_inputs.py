@@ -4320,15 +4320,15 @@ class RouteSpecTcpRouteTimeoutIdleArgs:
 @pulumi.input_type
 class VirtualGatewaySpecArgs:
     def __init__(__self__, *,
-                 listener: pulumi.Input['VirtualGatewaySpecListenerArgs'],
+                 listeners: pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecListenerArgs']]],
                  backend_defaults: Optional[pulumi.Input['VirtualGatewaySpecBackendDefaultsArgs']] = None,
                  logging: Optional[pulumi.Input['VirtualGatewaySpecLoggingArgs']] = None):
         """
-        :param pulumi.Input['VirtualGatewaySpecListenerArgs'] listener: Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecListenerArgs']]] listeners: Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
         :param pulumi.Input['VirtualGatewaySpecBackendDefaultsArgs'] backend_defaults: Defaults for backends.
         :param pulumi.Input['VirtualGatewaySpecLoggingArgs'] logging: Inbound and outbound access logging information for the virtual gateway.
         """
-        pulumi.set(__self__, "listener", listener)
+        pulumi.set(__self__, "listeners", listeners)
         if backend_defaults is not None:
             pulumi.set(__self__, "backend_defaults", backend_defaults)
         if logging is not None:
@@ -4336,15 +4336,15 @@ class VirtualGatewaySpecArgs:
 
     @property
     @pulumi.getter
-    def listener(self) -> pulumi.Input['VirtualGatewaySpecListenerArgs']:
+    def listeners(self) -> pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecListenerArgs']]]:
         """
         Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
         """
-        return pulumi.get(self, "listener")
+        return pulumi.get(self, "listeners")
 
-    @listener.setter
-    def listener(self, value: pulumi.Input['VirtualGatewaySpecListenerArgs']):
-        pulumi.set(self, "listener", value)
+    @listeners.setter
+    def listeners(self, value: pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecListenerArgs']]]):
+        pulumi.set(self, "listeners", value)
 
     @property
     @pulumi.getter(name="backendDefaults")
@@ -5669,13 +5669,13 @@ class VirtualNodeSpecArgs:
     def __init__(__self__, *,
                  backend_defaults: Optional[pulumi.Input['VirtualNodeSpecBackendDefaultsArgs']] = None,
                  backends: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecBackendArgs']]]] = None,
-                 listener: Optional[pulumi.Input['VirtualNodeSpecListenerArgs']] = None,
+                 listener: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerArgs']]]] = None,
                  logging: Optional[pulumi.Input['VirtualNodeSpecLoggingArgs']] = None,
                  service_discovery: Optional[pulumi.Input['VirtualNodeSpecServiceDiscoveryArgs']] = None):
         """
         :param pulumi.Input['VirtualNodeSpecBackendDefaultsArgs'] backend_defaults: Defaults for backends.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecBackendArgs']]] backends: Backends to which the virtual node is expected to send outbound traffic.
-        :param pulumi.Input['VirtualNodeSpecListenerArgs'] listener: Listeners from which the virtual node is expected to receive inbound traffic.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerArgs']]] listener: Listeners from which the virtual node is expected to receive inbound traffic.
         :param pulumi.Input['VirtualNodeSpecLoggingArgs'] logging: Inbound and outbound access logging information for the virtual node.
         :param pulumi.Input['VirtualNodeSpecServiceDiscoveryArgs'] service_discovery: Service discovery information for the virtual node.
         """
@@ -5716,14 +5716,14 @@ class VirtualNodeSpecArgs:
 
     @property
     @pulumi.getter
-    def listener(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerArgs']]:
+    def listener(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerArgs']]]]:
         """
         Listeners from which the virtual node is expected to receive inbound traffic.
         """
         return pulumi.get(self, "listener")
 
     @listener.setter
-    def listener(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerArgs']]):
+    def listener(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerArgs']]]]):
         pulumi.set(self, "listener", value)
 
     @property
@@ -6728,14 +6728,14 @@ class VirtualNodeSpecListenerArgs:
 class VirtualNodeSpecListenerConnectionPoolArgs:
     def __init__(__self__, *,
                  grpc: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolGrpcArgs']] = None,
-                 http: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']] = None,
-                 http2: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']] = None,
-                 tcp: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']] = None):
+                 http: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]]] = None,
+                 http2: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]]] = None,
+                 tcp: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]]] = None):
         """
         :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolGrpcArgs'] grpc: Connection pool information for gRPC listeners.
-        :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs'] http: Connection pool information for HTTP listeners.
-        :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args'] http2: Connection pool information for HTTP2 listeners.
-        :param pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs'] tcp: Connection pool information for TCP listeners.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]] http: Connection pool information for HTTP listeners.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]] http2: Connection pool information for HTTP2 listeners.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]] tcp: Connection pool information for TCP listeners.
         """
         if grpc is not None:
             pulumi.set(__self__, "grpc", grpc)
@@ -6760,38 +6760,38 @@ class VirtualNodeSpecListenerConnectionPoolArgs:
 
     @property
     @pulumi.getter
-    def http(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]:
+    def http(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]]]:
         """
         Connection pool information for HTTP listeners.
         """
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]):
+    def http(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]]]):
         pulumi.set(self, "http", value)
 
     @property
     @pulumi.getter
-    def http2(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]:
+    def http2(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]]]:
         """
         Connection pool information for HTTP2 listeners.
         """
         return pulumi.get(self, "http2")
 
     @http2.setter
-    def http2(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]):
+    def http2(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]]]):
         pulumi.set(self, "http2", value)
 
     @property
     @pulumi.getter
-    def tcp(self) -> Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]:
+    def tcp(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]]]:
         """
         Connection pool information for TCP listeners.
         """
         return pulumi.get(self, "tcp")
 
     @tcp.setter
-    def tcp(self, value: Optional[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]):
+    def tcp(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]]]):
         pulumi.set(self, "tcp", value)
 
 
@@ -8332,26 +8332,26 @@ class VirtualNodeSpecServiceDiscoveryDnsArgs:
 @pulumi.input_type
 class VirtualRouterSpecArgs:
     def __init__(__self__, *,
-                 listener: Optional[pulumi.Input['VirtualRouterSpecListenerArgs']] = None):
+                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualRouterSpecListenerArgs']]]] = None):
         """
-        :param pulumi.Input['VirtualRouterSpecListenerArgs'] listener: Listeners that the virtual router is expected to receive inbound traffic from.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualRouterSpecListenerArgs']]] listeners: Listeners that the virtual router is expected to receive inbound traffic from.
                Currently only one listener is supported per virtual router.
         """
-        if listener is not None:
-            pulumi.set(__self__, "listener", listener)
+        if listeners is not None:
+            pulumi.set(__self__, "listeners", listeners)
 
     @property
     @pulumi.getter
-    def listener(self) -> Optional[pulumi.Input['VirtualRouterSpecListenerArgs']]:
+    def listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualRouterSpecListenerArgs']]]]:
         """
         Listeners that the virtual router is expected to receive inbound traffic from.
         Currently only one listener is supported per virtual router.
         """
-        return pulumi.get(self, "listener")
+        return pulumi.get(self, "listeners")
 
-    @listener.setter
-    def listener(self, value: Optional[pulumi.Input['VirtualRouterSpecListenerArgs']]):
-        pulumi.set(self, "listener", value)
+    @listeners.setter
+    def listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualRouterSpecListenerArgs']]]]):
+        pulumi.set(self, "listeners", value)
 
 
 @pulumi.input_type

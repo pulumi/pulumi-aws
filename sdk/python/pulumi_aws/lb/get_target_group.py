@@ -22,7 +22,7 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, load_balancing_cross_zone_enabled=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_checks=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, load_balancing_cross_zone_enabled=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickinesses=None, tags=None, target_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,9 +35,9 @@ class GetTargetGroupResult:
         if deregistration_delay and not isinstance(deregistration_delay, int):
             raise TypeError("Expected argument 'deregistration_delay' to be a int")
         pulumi.set(__self__, "deregistration_delay", deregistration_delay)
-        if health_check and not isinstance(health_check, dict):
-            raise TypeError("Expected argument 'health_check' to be a dict")
-        pulumi.set(__self__, "health_check", health_check)
+        if health_checks and not isinstance(health_checks, list):
+            raise TypeError("Expected argument 'health_checks' to be a list")
+        pulumi.set(__self__, "health_checks", health_checks)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -71,9 +71,9 @@ class GetTargetGroupResult:
         if slow_start and not isinstance(slow_start, int):
             raise TypeError("Expected argument 'slow_start' to be a int")
         pulumi.set(__self__, "slow_start", slow_start)
-        if stickiness and not isinstance(stickiness, dict):
-            raise TypeError("Expected argument 'stickiness' to be a dict")
-        pulumi.set(__self__, "stickiness", stickiness)
+        if stickinesses and not isinstance(stickinesses, list):
+            raise TypeError("Expected argument 'stickinesses' to be a list")
+        pulumi.set(__self__, "stickinesses", stickinesses)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -105,9 +105,9 @@ class GetTargetGroupResult:
         return pulumi.get(self, "deregistration_delay")
 
     @property
-    @pulumi.getter(name="healthCheck")
-    def health_check(self) -> 'outputs.GetTargetGroupHealthCheckResult':
-        return pulumi.get(self, "health_check")
+    @pulumi.getter(name="healthChecks")
+    def health_checks(self) -> Sequence['outputs.GetTargetGroupHealthCheckResult']:
+        return pulumi.get(self, "health_checks")
 
     @property
     @pulumi.getter
@@ -169,8 +169,8 @@ class GetTargetGroupResult:
 
     @property
     @pulumi.getter
-    def stickiness(self) -> 'outputs.GetTargetGroupStickinessResult':
-        return pulumi.get(self, "stickiness")
+    def stickinesses(self) -> Sequence['outputs.GetTargetGroupStickinessResult']:
+        return pulumi.get(self, "stickinesses")
 
     @property
     @pulumi.getter
@@ -198,7 +198,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             arn_suffix=self.arn_suffix,
             connection_termination=self.connection_termination,
             deregistration_delay=self.deregistration_delay,
-            health_check=self.health_check,
+            health_checks=self.health_checks,
             id=self.id,
             lambda_multi_value_headers_enabled=self.lambda_multi_value_headers_enabled,
             load_balancing_algorithm_type=self.load_balancing_algorithm_type,
@@ -210,7 +210,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             protocol_version=self.protocol_version,
             proxy_protocol_v2=self.proxy_protocol_v2,
             slow_start=self.slow_start,
-            stickiness=self.stickiness,
+            stickinesses=self.stickinesses,
             tags=self.tags,
             target_type=self.target_type,
             vpc_id=self.vpc_id)
@@ -265,7 +265,7 @@ def get_target_group(arn: Optional[str] = None,
         arn_suffix=pulumi.get(__ret__, 'arn_suffix'),
         connection_termination=pulumi.get(__ret__, 'connection_termination'),
         deregistration_delay=pulumi.get(__ret__, 'deregistration_delay'),
-        health_check=pulumi.get(__ret__, 'health_check'),
+        health_checks=pulumi.get(__ret__, 'health_checks'),
         id=pulumi.get(__ret__, 'id'),
         lambda_multi_value_headers_enabled=pulumi.get(__ret__, 'lambda_multi_value_headers_enabled'),
         load_balancing_algorithm_type=pulumi.get(__ret__, 'load_balancing_algorithm_type'),
@@ -277,7 +277,7 @@ def get_target_group(arn: Optional[str] = None,
         protocol_version=pulumi.get(__ret__, 'protocol_version'),
         proxy_protocol_v2=pulumi.get(__ret__, 'proxy_protocol_v2'),
         slow_start=pulumi.get(__ret__, 'slow_start'),
-        stickiness=pulumi.get(__ret__, 'stickiness'),
+        stickinesses=pulumi.get(__ret__, 'stickinesses'),
         tags=pulumi.get(__ret__, 'tags'),
         target_type=pulumi.get(__ret__, 'target_type'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))

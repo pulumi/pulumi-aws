@@ -5617,7 +5617,7 @@ export namespace appmesh {
         /**
          * Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
          */
-        listener: pulumi.Input<inputs.appmesh.VirtualGatewaySpecListener>;
+        listeners: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualGatewaySpecListener>[]>;
         /**
          * Inbound and outbound access logging information for the virtual gateway.
          */
@@ -6014,7 +6014,7 @@ export namespace appmesh {
         /**
          * Listeners from which the virtual node is expected to receive inbound traffic.
          */
-        listener?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListener>;
+        listener?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualNodeSpecListener>[]>;
         /**
          * Inbound and outbound access logging information for the virtual node.
          */
@@ -6317,15 +6317,15 @@ export namespace appmesh {
         /**
          * Connection pool information for HTTP listeners.
          */
-        http?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp>;
+        http?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp>[]>;
         /**
          * Connection pool information for HTTP2 listeners.
          */
-        http2?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp2>;
+        http2?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp2>[]>;
         /**
          * Connection pool information for TCP listeners.
          */
-        tcp?: pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerConnectionPoolTcp>;
+        tcp?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualNodeSpecListenerConnectionPoolTcp>[]>;
     }
 
     export interface VirtualNodeSpecListenerConnectionPoolGrpc {
@@ -6781,7 +6781,7 @@ export namespace appmesh {
          * Listeners that the virtual router is expected to receive inbound traffic from.
          * Currently only one listener is supported per virtual router.
          */
-        listener?: pulumi.Input<inputs.appmesh.VirtualRouterSpecListener>;
+        listeners?: pulumi.Input<pulumi.Input<inputs.appmesh.VirtualRouterSpecListener>[]>;
     }
 
     export interface VirtualRouterSpecListener {
@@ -9294,7 +9294,7 @@ export namespace batch {
         /**
          * Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
          */
-        ec2Configuration?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResourcesEc2Configuration>;
+        ec2Configurations?: pulumi.Input<pulumi.Input<inputs.batch.ComputeEnvironmentComputeResourcesEc2Configuration>[]>;
         /**
          * The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
@@ -16195,7 +16195,7 @@ export namespace dlm {
         /**
          * A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
          */
-        resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceTypes?: pulumi.Input<string>;
         /**
          * See the `schedule` configuration block.
          */
@@ -23110,7 +23110,7 @@ export namespace ecs {
         /**
          * The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
          */
-        clientAlias?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationServiceClientAlias>[]>;
+        clientAlias?: pulumi.Input<inputs.ecs.ServiceServiceConnectConfigurationServiceClientAlias>;
         /**
          * The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
          */
@@ -30480,7 +30480,7 @@ export namespace iot {
         topic: pulumi.Input<string>;
     }
 
-    export interface TopicRuleKinesis {
+    export interface TopicRuleKinese {
         /**
          * The partition key.
          */
@@ -30538,7 +30538,7 @@ export namespace iot {
         roleArn: pulumi.Input<string>;
     }
 
-    export interface TopicRuleSns {
+    export interface TopicRuleSn {
         /**
          * The message format of the message to publish. Accepted values are "JSON" and "RAW".
          */
@@ -30553,7 +30553,7 @@ export namespace iot {
         targetArn: pulumi.Input<string>;
     }
 
-    export interface TopicRuleSqs {
+    export interface TopicRuleSq {
         /**
          * The URL of the Amazon SQS queue.
          */
@@ -46924,7 +46924,7 @@ export namespace s3 {
         /**
          * Specifies a period in the object's expire. See Expiration below for details.
          */
-        expirations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2LifecycleRuleExpiration>[]>;
+        expiration?: pulumi.Input<inputs.s3.BucketV2LifecycleRuleExpiration>;
         /**
          * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
@@ -46932,7 +46932,7 @@ export namespace s3 {
         /**
          * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
          */
-        noncurrentVersionExpirations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2LifecycleRuleNoncurrentVersionExpiration>[]>;
+        noncurrentVersionExpiration?: pulumi.Input<inputs.s3.BucketV2LifecycleRuleNoncurrentVersionExpiration>;
         /**
          * Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
          */
@@ -47022,14 +47022,14 @@ export namespace s3 {
          *
          * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
          */
-        rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ObjectLockConfigurationRule>[]>;
+        rule?: pulumi.Input<inputs.s3.BucketV2ObjectLockConfigurationRule>;
     }
 
     export interface BucketV2ObjectLockConfigurationRule {
         /**
          * Default retention period that you want to apply to new objects placed in this bucket (documented below).
          */
-        defaultRetentions: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ObjectLockConfigurationRuleDefaultRetention>[]>;
+        defaultRetention: pulumi.Input<inputs.s3.BucketV2ObjectLockConfigurationRuleDefaultRetention>;
     }
 
     export interface BucketV2ObjectLockConfigurationRuleDefaultRetention {
@@ -47066,11 +47066,11 @@ export namespace s3 {
         /**
          * Specifies the destination for the rule (documented below).
          */
-        destinations: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestination>[]>;
+        destination: pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestination>;
         /**
          * Filter that identifies subset of objects to which the replication rule applies (documented below).
          */
-        filters?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleFilter>[]>;
+        filter?: pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleFilter>;
         /**
          * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
@@ -47086,7 +47086,7 @@ export namespace s3 {
         /**
          * Specifies special object selection criteria (documented below).
          */
-        sourceSelectionCriterias?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria>[]>;
+        sourceSelectionCriteria?: pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria>;
         /**
          * Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
          */
@@ -47097,7 +47097,7 @@ export namespace s3 {
         /**
          * Specifies the overrides to use for object owners on replication. Must be used in conjunction with `accountId` owner override configuration.
          */
-        accessControlTranslations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation>[]>;
+        accessControlTranslation?: pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation>;
         /**
          * Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
          */
@@ -47109,7 +47109,7 @@ export namespace s3 {
         /**
          * Enables replication metrics (required for S3 RTC) (documented below).
          */
-        metrics?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestinationMetric>[]>;
+        metrics?: pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestinationMetrics>;
         /**
          * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
          * `sseKmsEncryptedObjects` source selection criteria.
@@ -47118,7 +47118,7 @@ export namespace s3 {
         /**
          * Enables S3 Replication Time Control (S3 RTC) (documented below).
          */
-        replicationTimes?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTime>[]>;
+        replicationTime?: pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTime>;
         /**
          * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
          */
@@ -47129,7 +47129,7 @@ export namespace s3 {
         owner: pulumi.Input<string>;
     }
 
-    export interface BucketV2ReplicationConfigurationRuleDestinationMetric {
+    export interface BucketV2ReplicationConfigurationRuleDestinationMetrics {
         /**
          * Threshold within which objects are to be replicated. The only valid value is `15`.
          */
@@ -47168,10 +47168,10 @@ export namespace s3 {
          * Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
          * in `destination` must be specified as well.
          */
-        sseKmsEncryptedObjects?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject>[]>;
+        sseKmsEncryptedObjects?: pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects>;
     }
 
-    export interface BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject {
+    export interface BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects {
         /**
          * Boolean which indicates if this criteria is enabled.
          */
@@ -47182,14 +47182,14 @@ export namespace s3 {
         /**
          * Single object for server-side encryption by default configuration. (documented below)
          */
-        rules: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfigurationRule>[]>;
+        rule: pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfigurationRule>;
     }
 
     export interface BucketV2ServerSideEncryptionConfigurationRule {
         /**
          * Single object for setting server-side encryption by default. (documented below)
          */
-        applyServerSideEncryptionByDefaults: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault>[]>;
+        applyServerSideEncryptionByDefault: pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault>;
         /**
          * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
          */

@@ -1470,6 +1470,31 @@ func (i GetTablePointInTimeRecoveryArgs) ToGetTablePointInTimeRecoveryOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetTablePointInTimeRecoveryOutput)
 }
 
+// GetTablePointInTimeRecoveryArrayInput is an input type that accepts GetTablePointInTimeRecoveryArray and GetTablePointInTimeRecoveryArrayOutput values.
+// You can construct a concrete instance of `GetTablePointInTimeRecoveryArrayInput` via:
+//
+//	GetTablePointInTimeRecoveryArray{ GetTablePointInTimeRecoveryArgs{...} }
+type GetTablePointInTimeRecoveryArrayInput interface {
+	pulumi.Input
+
+	ToGetTablePointInTimeRecoveryArrayOutput() GetTablePointInTimeRecoveryArrayOutput
+	ToGetTablePointInTimeRecoveryArrayOutputWithContext(context.Context) GetTablePointInTimeRecoveryArrayOutput
+}
+
+type GetTablePointInTimeRecoveryArray []GetTablePointInTimeRecoveryInput
+
+func (GetTablePointInTimeRecoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTablePointInTimeRecovery)(nil)).Elem()
+}
+
+func (i GetTablePointInTimeRecoveryArray) ToGetTablePointInTimeRecoveryArrayOutput() GetTablePointInTimeRecoveryArrayOutput {
+	return i.ToGetTablePointInTimeRecoveryArrayOutputWithContext(context.Background())
+}
+
+func (i GetTablePointInTimeRecoveryArray) ToGetTablePointInTimeRecoveryArrayOutputWithContext(ctx context.Context) GetTablePointInTimeRecoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTablePointInTimeRecoveryArrayOutput)
+}
+
 type GetTablePointInTimeRecoveryOutput struct{ *pulumi.OutputState }
 
 func (GetTablePointInTimeRecoveryOutput) ElementType() reflect.Type {
@@ -1486,6 +1511,26 @@ func (o GetTablePointInTimeRecoveryOutput) ToGetTablePointInTimeRecoveryOutputWi
 
 func (o GetTablePointInTimeRecoveryOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTablePointInTimeRecovery) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetTablePointInTimeRecoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTablePointInTimeRecoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTablePointInTimeRecovery)(nil)).Elem()
+}
+
+func (o GetTablePointInTimeRecoveryArrayOutput) ToGetTablePointInTimeRecoveryArrayOutput() GetTablePointInTimeRecoveryArrayOutput {
+	return o
+}
+
+func (o GetTablePointInTimeRecoveryArrayOutput) ToGetTablePointInTimeRecoveryArrayOutputWithContext(ctx context.Context) GetTablePointInTimeRecoveryArrayOutput {
+	return o
+}
+
+func (o GetTablePointInTimeRecoveryArrayOutput) Index(i pulumi.IntInput) GetTablePointInTimeRecoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTablePointInTimeRecovery {
+		return vs[0].([]GetTablePointInTimeRecovery)[vs[1].(int)]
+	}).(GetTablePointInTimeRecoveryOutput)
 }
 
 type GetTableReplicaType struct {
@@ -1769,6 +1814,31 @@ func (i GetTableTtlArgs) ToGetTableTtlOutputWithContext(ctx context.Context) Get
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableTtlOutput)
 }
 
+// GetTableTtlArrayInput is an input type that accepts GetTableTtlArray and GetTableTtlArrayOutput values.
+// You can construct a concrete instance of `GetTableTtlArrayInput` via:
+//
+//	GetTableTtlArray{ GetTableTtlArgs{...} }
+type GetTableTtlArrayInput interface {
+	pulumi.Input
+
+	ToGetTableTtlArrayOutput() GetTableTtlArrayOutput
+	ToGetTableTtlArrayOutputWithContext(context.Context) GetTableTtlArrayOutput
+}
+
+type GetTableTtlArray []GetTableTtlInput
+
+func (GetTableTtlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableTtl)(nil)).Elem()
+}
+
+func (i GetTableTtlArray) ToGetTableTtlArrayOutput() GetTableTtlArrayOutput {
+	return i.ToGetTableTtlArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableTtlArray) ToGetTableTtlArrayOutputWithContext(ctx context.Context) GetTableTtlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableTtlArrayOutput)
+}
+
 type GetTableTtlOutput struct{ *pulumi.OutputState }
 
 func (GetTableTtlOutput) ElementType() reflect.Type {
@@ -1789,6 +1859,26 @@ func (o GetTableTtlOutput) AttributeName() pulumi.StringOutput {
 
 func (o GetTableTtlOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTableTtl) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetTableTtlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableTtlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableTtl)(nil)).Elem()
+}
+
+func (o GetTableTtlArrayOutput) ToGetTableTtlArrayOutput() GetTableTtlArrayOutput {
+	return o
+}
+
+func (o GetTableTtlArrayOutput) ToGetTableTtlArrayOutputWithContext(ctx context.Context) GetTableTtlArrayOutput {
+	return o
+}
+
+func (o GetTableTtlArrayOutput) Index(i pulumi.IntInput) GetTableTtlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableTtl {
+		return vs[0].([]GetTableTtl)[vs[1].(int)]
+	}).(GetTableTtlOutput)
 }
 
 func init() {
@@ -1815,11 +1905,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableLocalSecondaryIndexInput)(nil)).Elem(), GetTableLocalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableLocalSecondaryIndexArrayInput)(nil)).Elem(), GetTableLocalSecondaryIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTablePointInTimeRecoveryInput)(nil)).Elem(), GetTablePointInTimeRecoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTablePointInTimeRecoveryArrayInput)(nil)).Elem(), GetTablePointInTimeRecoveryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableReplicaTypeInput)(nil)).Elem(), GetTableReplicaTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableReplicaTypeArrayInput)(nil)).Elem(), GetTableReplicaTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableServerSideEncryptionInput)(nil)).Elem(), GetTableServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableServerSideEncryptionPtrInput)(nil)).Elem(), GetTableServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableTtlInput)(nil)).Elem(), GetTableTtlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableTtlArrayInput)(nil)).Elem(), GetTableTtlArray{})
 	pulumi.RegisterOutputType(GlobalTableReplicaOutput{})
 	pulumi.RegisterOutputType(GlobalTableReplicaArrayOutput{})
 	pulumi.RegisterOutputType(TableAttributeOutput{})
@@ -1843,9 +1935,11 @@ func init() {
 	pulumi.RegisterOutputType(GetTableLocalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(GetTableLocalSecondaryIndexArrayOutput{})
 	pulumi.RegisterOutputType(GetTablePointInTimeRecoveryOutput{})
+	pulumi.RegisterOutputType(GetTablePointInTimeRecoveryArrayOutput{})
 	pulumi.RegisterOutputType(GetTableReplicaTypeOutput{})
 	pulumi.RegisterOutputType(GetTableReplicaTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetTableServerSideEncryptionOutput{})
 	pulumi.RegisterOutputType(GetTableServerSideEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(GetTableTtlOutput{})
+	pulumi.RegisterOutputType(GetTableTtlArrayOutput{})
 }

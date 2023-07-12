@@ -62,7 +62,7 @@ export interface GetBrokerResult {
     readonly autoMinorVersionUpgrade: boolean;
     readonly brokerId: string;
     readonly brokerName: string;
-    readonly configuration: outputs.mq.GetBrokerConfiguration;
+    readonly configurations: outputs.mq.GetBrokerConfiguration[];
     readonly deploymentMode: string;
     readonly encryptionOptions: outputs.mq.GetBrokerEncryptionOption[];
     readonly engineType: string;
@@ -74,8 +74,8 @@ export interface GetBrokerResult {
     readonly id: string;
     readonly instances: outputs.mq.GetBrokerInstance[];
     readonly ldapServerMetadatas: outputs.mq.GetBrokerLdapServerMetadata[];
-    readonly logs: outputs.mq.GetBrokerLogs;
-    readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
+    readonly logs: outputs.mq.GetBrokerLog[];
+    readonly maintenanceWindowStartTimes: outputs.mq.GetBrokerMaintenanceWindowStartTime[];
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];
     readonly storageType: string;

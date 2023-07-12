@@ -9,6 +9,7 @@ import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerConnectionPoolHttpAr
 import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerConnectionPoolTcpArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -38,13 +39,13 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
      * 
      */
     @Import(name="http")
-    private @Nullable Output<VirtualNodeSpecListenerConnectionPoolHttpArgs> http;
+    private @Nullable Output<List<VirtualNodeSpecListenerConnectionPoolHttpArgs>> http;
 
     /**
      * @return Connection pool information for HTTP listeners.
      * 
      */
-    public Optional<Output<VirtualNodeSpecListenerConnectionPoolHttpArgs>> http() {
+    public Optional<Output<List<VirtualNodeSpecListenerConnectionPoolHttpArgs>>> http() {
         return Optional.ofNullable(this.http);
     }
 
@@ -53,13 +54,13 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
      * 
      */
     @Import(name="http2")
-    private @Nullable Output<VirtualNodeSpecListenerConnectionPoolHttp2Args> http2;
+    private @Nullable Output<List<VirtualNodeSpecListenerConnectionPoolHttp2Args>> http2;
 
     /**
      * @return Connection pool information for HTTP2 listeners.
      * 
      */
-    public Optional<Output<VirtualNodeSpecListenerConnectionPoolHttp2Args>> http2() {
+    public Optional<Output<List<VirtualNodeSpecListenerConnectionPoolHttp2Args>>> http2() {
         return Optional.ofNullable(this.http2);
     }
 
@@ -68,13 +69,13 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
      * 
      */
     @Import(name="tcp")
-    private @Nullable Output<VirtualNodeSpecListenerConnectionPoolTcpArgs> tcp;
+    private @Nullable Output<List<VirtualNodeSpecListenerConnectionPoolTcpArgs>> tcp;
 
     /**
      * @return Connection pool information for TCP listeners.
      * 
      */
-    public Optional<Output<VirtualNodeSpecListenerConnectionPoolTcpArgs>> tcp() {
+    public Optional<Output<List<VirtualNodeSpecListenerConnectionPoolTcpArgs>>> tcp() {
         return Optional.ofNullable(this.tcp);
     }
 
@@ -132,7 +133,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder http(@Nullable Output<VirtualNodeSpecListenerConnectionPoolHttpArgs> http) {
+        public Builder http(@Nullable Output<List<VirtualNodeSpecListenerConnectionPoolHttpArgs>> http) {
             $.http = http;
             return this;
         }
@@ -143,8 +144,18 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder http(VirtualNodeSpecListenerConnectionPoolHttpArgs http) {
+        public Builder http(List<VirtualNodeSpecListenerConnectionPoolHttpArgs> http) {
             return http(Output.of(http));
+        }
+
+        /**
+         * @param http Connection pool information for HTTP listeners.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder http(VirtualNodeSpecListenerConnectionPoolHttpArgs... http) {
+            return http(List.of(http));
         }
 
         /**
@@ -153,7 +164,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder http2(@Nullable Output<VirtualNodeSpecListenerConnectionPoolHttp2Args> http2) {
+        public Builder http2(@Nullable Output<List<VirtualNodeSpecListenerConnectionPoolHttp2Args>> http2) {
             $.http2 = http2;
             return this;
         }
@@ -164,8 +175,18 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder http2(VirtualNodeSpecListenerConnectionPoolHttp2Args http2) {
+        public Builder http2(List<VirtualNodeSpecListenerConnectionPoolHttp2Args> http2) {
             return http2(Output.of(http2));
+        }
+
+        /**
+         * @param http2 Connection pool information for HTTP2 listeners.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder http2(VirtualNodeSpecListenerConnectionPoolHttp2Args... http2) {
+            return http2(List.of(http2));
         }
 
         /**
@@ -174,7 +195,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder tcp(@Nullable Output<VirtualNodeSpecListenerConnectionPoolTcpArgs> tcp) {
+        public Builder tcp(@Nullable Output<List<VirtualNodeSpecListenerConnectionPoolTcpArgs>> tcp) {
             $.tcp = tcp;
             return this;
         }
@@ -185,8 +206,18 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder tcp(VirtualNodeSpecListenerConnectionPoolTcpArgs tcp) {
+        public Builder tcp(List<VirtualNodeSpecListenerConnectionPoolTcpArgs> tcp) {
             return tcp(Output.of(tcp));
+        }
+
+        /**
+         * @param tcp Connection pool information for TCP listeners.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcp(VirtualNodeSpecListenerConnectionPoolTcpArgs... tcp) {
+            return tcp(List.of(tcp));
         }
 
         public VirtualNodeSpecListenerConnectionPoolArgs build() {

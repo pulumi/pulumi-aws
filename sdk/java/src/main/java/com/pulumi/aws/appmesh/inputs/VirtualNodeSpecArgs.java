@@ -55,13 +55,13 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
      * 
      */
     @Import(name="listener")
-    private @Nullable Output<VirtualNodeSpecListenerArgs> listener;
+    private @Nullable Output<List<VirtualNodeSpecListenerArgs>> listener;
 
     /**
      * @return Listeners from which the virtual node is expected to receive inbound traffic.
      * 
      */
-    public Optional<Output<VirtualNodeSpecListenerArgs>> listener() {
+    public Optional<Output<List<VirtualNodeSpecListenerArgs>>> listener() {
         return Optional.ofNullable(this.listener);
     }
 
@@ -181,7 +181,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder listener(@Nullable Output<VirtualNodeSpecListenerArgs> listener) {
+        public Builder listener(@Nullable Output<List<VirtualNodeSpecListenerArgs>> listener) {
             $.listener = listener;
             return this;
         }
@@ -192,8 +192,18 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder listener(VirtualNodeSpecListenerArgs listener) {
+        public Builder listener(List<VirtualNodeSpecListenerArgs> listener) {
             return listener(Output.of(listener));
+        }
+
+        /**
+         * @param listener Listeners from which the virtual node is expected to receive inbound traffic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder listener(VirtualNodeSpecListenerArgs... listener) {
+            return listener(List.of(listener));
         }
 
         /**

@@ -22,7 +22,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, certificate_authorities=None, cluster_id=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_config=None):
+    def __init__(__self__, arn=None, certificate_authorities=None, cluster_id=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, role_arn=None, status=None, tags=None, version=None, vpc_configs=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -71,9 +71,9 @@ class GetClusterResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
-        if vpc_config and not isinstance(vpc_config, dict):
-            raise TypeError("Expected argument 'vpc_config' to be a dict")
-        pulumi.set(__self__, "vpc_config", vpc_config)
+        if vpc_configs and not isinstance(vpc_configs, list):
+            raise TypeError("Expected argument 'vpc_configs' to be a list")
+        pulumi.set(__self__, "vpc_configs", vpc_configs)
 
     @property
     @pulumi.getter
@@ -201,12 +201,12 @@ class GetClusterResult:
         return pulumi.get(self, "version")
 
     @property
-    @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> 'outputs.GetClusterVpcConfigResult':
+    @pulumi.getter(name="vpcConfigs")
+    def vpc_configs(self) -> Sequence['outputs.GetClusterVpcConfigResult']:
         """
         Nested list containing VPC configuration for the cluster.
         """
-        return pulumi.get(self, "vpc_config")
+        return pulumi.get(self, "vpc_configs")
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -231,7 +231,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             status=self.status,
             tags=self.tags,
             version=self.version,
-            vpc_config=self.vpc_config)
+            vpc_configs=self.vpc_configs)
 
 
 def get_cluster(name: Optional[str] = None,
@@ -279,7 +279,7 @@ def get_cluster(name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'),
-        vpc_config=pulumi.get(__ret__, 'vpc_config'))
+        vpc_configs=pulumi.get(__ret__, 'vpc_configs'))
 
 
 @_utilities.lift_output_func(get_cluster)

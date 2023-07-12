@@ -42,17 +42,11 @@ namespace Pulumi.Aws.Dlm.Inputs
         [Input("resourceLocations")]
         public Input<string>? ResourceLocations { get; set; }
 
-        [Input("resourceTypes")]
-        private InputList<string>? _resourceTypes;
-
         /// <summary>
         /// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
         /// </summary>
-        public InputList<string> ResourceTypes
-        {
-            get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
-            set => _resourceTypes = value;
-        }
+        [Input("resourceTypes")]
+        public Input<string>? ResourceTypes { get; set; }
 
         [Input("schedules")]
         private InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleArgs>? _schedules;

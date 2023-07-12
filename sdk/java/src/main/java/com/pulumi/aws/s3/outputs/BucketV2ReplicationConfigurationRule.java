@@ -9,7 +9,6 @@ import com.pulumi.aws.s3.outputs.BucketV2ReplicationConfigurationRuleSourceSelec
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -25,12 +24,12 @@ public final class BucketV2ReplicationConfigurationRule {
      * @return Specifies the destination for the rule (documented below).
      * 
      */
-    private List<BucketV2ReplicationConfigurationRuleDestination> destinations;
+    private BucketV2ReplicationConfigurationRuleDestination destination;
     /**
      * @return Filter that identifies subset of objects to which the replication rule applies (documented below).
      * 
      */
-    private @Nullable List<BucketV2ReplicationConfigurationRuleFilter> filters;
+    private @Nullable BucketV2ReplicationConfigurationRuleFilter filter;
     /**
      * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
      * 
@@ -50,7 +49,7 @@ public final class BucketV2ReplicationConfigurationRule {
      * @return Specifies special object selection criteria (documented below).
      * 
      */
-    private @Nullable List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias;
+    private @Nullable BucketV2ReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria;
     /**
      * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
      * 
@@ -69,15 +68,15 @@ public final class BucketV2ReplicationConfigurationRule {
      * @return Specifies the destination for the rule (documented below).
      * 
      */
-    public List<BucketV2ReplicationConfigurationRuleDestination> destinations() {
-        return this.destinations;
+    public BucketV2ReplicationConfigurationRuleDestination destination() {
+        return this.destination;
     }
     /**
      * @return Filter that identifies subset of objects to which the replication rule applies (documented below).
      * 
      */
-    public List<BucketV2ReplicationConfigurationRuleFilter> filters() {
-        return this.filters == null ? List.of() : this.filters;
+    public Optional<BucketV2ReplicationConfigurationRuleFilter> filter() {
+        return Optional.ofNullable(this.filter);
     }
     /**
      * @return Unique identifier for the rule. Must be less than or equal to 255 characters in length.
@@ -104,8 +103,8 @@ public final class BucketV2ReplicationConfigurationRule {
      * @return Specifies special object selection criteria (documented below).
      * 
      */
-    public List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias() {
-        return this.sourceSelectionCriterias == null ? List.of() : this.sourceSelectionCriterias;
+    public Optional<BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriteria() {
+        return Optional.ofNullable(this.sourceSelectionCriteria);
     }
     /**
      * @return Status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
@@ -125,23 +124,23 @@ public final class BucketV2ReplicationConfigurationRule {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String deleteMarkerReplicationStatus;
-        private List<BucketV2ReplicationConfigurationRuleDestination> destinations;
-        private @Nullable List<BucketV2ReplicationConfigurationRuleFilter> filters;
+        private BucketV2ReplicationConfigurationRuleDestination destination;
+        private @Nullable BucketV2ReplicationConfigurationRuleFilter filter;
         private @Nullable String id;
         private @Nullable String prefix;
         private @Nullable Integer priority;
-        private @Nullable List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias;
+        private @Nullable BucketV2ReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria;
         private String status;
         public Builder() {}
         public Builder(BucketV2ReplicationConfigurationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteMarkerReplicationStatus = defaults.deleteMarkerReplicationStatus;
-    	      this.destinations = defaults.destinations;
-    	      this.filters = defaults.filters;
+    	      this.destination = defaults.destination;
+    	      this.filter = defaults.filter;
     	      this.id = defaults.id;
     	      this.prefix = defaults.prefix;
     	      this.priority = defaults.priority;
-    	      this.sourceSelectionCriterias = defaults.sourceSelectionCriterias;
+    	      this.sourceSelectionCriteria = defaults.sourceSelectionCriteria;
     	      this.status = defaults.status;
         }
 
@@ -151,20 +150,14 @@ public final class BucketV2ReplicationConfigurationRule {
             return this;
         }
         @CustomType.Setter
-        public Builder destinations(List<BucketV2ReplicationConfigurationRuleDestination> destinations) {
-            this.destinations = Objects.requireNonNull(destinations);
+        public Builder destination(BucketV2ReplicationConfigurationRuleDestination destination) {
+            this.destination = Objects.requireNonNull(destination);
             return this;
-        }
-        public Builder destinations(BucketV2ReplicationConfigurationRuleDestination... destinations) {
-            return destinations(List.of(destinations));
         }
         @CustomType.Setter
-        public Builder filters(@Nullable List<BucketV2ReplicationConfigurationRuleFilter> filters) {
-            this.filters = filters;
+        public Builder filter(@Nullable BucketV2ReplicationConfigurationRuleFilter filter) {
+            this.filter = filter;
             return this;
-        }
-        public Builder filters(BucketV2ReplicationConfigurationRuleFilter... filters) {
-            return filters(List.of(filters));
         }
         @CustomType.Setter
         public Builder id(@Nullable String id) {
@@ -182,12 +175,9 @@ public final class BucketV2ReplicationConfigurationRule {
             return this;
         }
         @CustomType.Setter
-        public Builder sourceSelectionCriterias(@Nullable List<BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias) {
-            this.sourceSelectionCriterias = sourceSelectionCriterias;
+        public Builder sourceSelectionCriteria(@Nullable BucketV2ReplicationConfigurationRuleSourceSelectionCriteria sourceSelectionCriteria) {
+            this.sourceSelectionCriteria = sourceSelectionCriteria;
             return this;
-        }
-        public Builder sourceSelectionCriterias(BucketV2ReplicationConfigurationRuleSourceSelectionCriteria... sourceSelectionCriterias) {
-            return sourceSelectionCriterias(List.of(sourceSelectionCriterias));
         }
         @CustomType.Setter
         public Builder status(String status) {
@@ -197,12 +187,12 @@ public final class BucketV2ReplicationConfigurationRule {
         public BucketV2ReplicationConfigurationRule build() {
             final var o = new BucketV2ReplicationConfigurationRule();
             o.deleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
-            o.destinations = destinations;
-            o.filters = filters;
+            o.destination = destination;
+            o.filter = filter;
             o.id = id;
             o.prefix = prefix;
             o.priority = priority;
-            o.sourceSelectionCriterias = sourceSelectionCriterias;
+            o.sourceSelectionCriteria = sourceSelectionCriteria;
             o.status = status;
             return o;
         }

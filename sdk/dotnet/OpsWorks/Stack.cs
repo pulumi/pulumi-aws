@@ -89,8 +89,8 @@ namespace Pulumi.Aws.OpsWorks
         /// <summary>
         /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
         /// </summary>
-        [Output("customCookbooksSources")]
-        public Output<ImmutableArray<Outputs.StackCustomCookbooksSource>> CustomCookbooksSources { get; private set; } = null!;
+        [Output("customCookbooksSource")]
+        public Output<Outputs.StackCustomCookbooksSource> CustomCookbooksSource { get; private set; } = null!;
 
         /// <summary>
         /// Custom JSON attributes to apply to the entire stack.
@@ -277,17 +277,11 @@ namespace Pulumi.Aws.OpsWorks
         [Input("configurationManagerVersion")]
         public Input<string>? ConfigurationManagerVersion { get; set; }
 
-        [Input("customCookbooksSources")]
-        private InputList<Inputs.StackCustomCookbooksSourceArgs>? _customCookbooksSources;
-
         /// <summary>
         /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
         /// </summary>
-        public InputList<Inputs.StackCustomCookbooksSourceArgs> CustomCookbooksSources
-        {
-            get => _customCookbooksSources ?? (_customCookbooksSources = new InputList<Inputs.StackCustomCookbooksSourceArgs>());
-            set => _customCookbooksSources = value;
-        }
+        [Input("customCookbooksSource")]
+        public Input<Inputs.StackCustomCookbooksSourceArgs>? CustomCookbooksSource { get; set; }
 
         /// <summary>
         /// Custom JSON attributes to apply to the entire stack.
@@ -436,17 +430,11 @@ namespace Pulumi.Aws.OpsWorks
         [Input("configurationManagerVersion")]
         public Input<string>? ConfigurationManagerVersion { get; set; }
 
-        [Input("customCookbooksSources")]
-        private InputList<Inputs.StackCustomCookbooksSourceGetArgs>? _customCookbooksSources;
-
         /// <summary>
         /// When `use_custom_cookbooks` is set, provide this sub-object as described below.
         /// </summary>
-        public InputList<Inputs.StackCustomCookbooksSourceGetArgs> CustomCookbooksSources
-        {
-            get => _customCookbooksSources ?? (_customCookbooksSources = new InputList<Inputs.StackCustomCookbooksSourceGetArgs>());
-            set => _customCookbooksSources = value;
-        }
+        [Input("customCookbooksSource")]
+        public Input<Inputs.StackCustomCookbooksSourceGetArgs>? CustomCookbooksSource { get; set; }
 
         /// <summary>
         /// Custom JSON attributes to apply to the entire stack.

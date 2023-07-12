@@ -6,7 +6,6 @@ package com.pulumi.aws.s3.inputs;
 import com.pulumi.aws.s3.inputs.BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
 import java.util.Objects;
 
 
@@ -18,21 +17,21 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
      * Default retention period that you want to apply to new objects placed in this bucket (documented below).
      * 
      */
-    @Import(name="defaultRetentions", required=true)
-    private Output<List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions;
+    @Import(name="defaultRetention", required=true)
+    private Output<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetention;
 
     /**
      * @return Default retention period that you want to apply to new objects placed in this bucket (documented below).
      * 
      */
-    public Output<List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions() {
-        return this.defaultRetentions;
+    public Output<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetention() {
+        return this.defaultRetention;
     }
 
     private BucketV2ObjectLockConfigurationRuleArgs() {}
 
     private BucketV2ObjectLockConfigurationRuleArgs(BucketV2ObjectLockConfigurationRuleArgs $) {
-        this.defaultRetentions = $.defaultRetentions;
+        this.defaultRetention = $.defaultRetention;
     }
 
     public static Builder builder() {
@@ -54,38 +53,28 @@ public final class BucketV2ObjectLockConfigurationRuleArgs extends com.pulumi.re
         }
 
         /**
-         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * @param defaultRetention Default retention period that you want to apply to new objects placed in this bucket (documented below).
          * 
          * @return builder
          * 
          */
-        public Builder defaultRetentions(Output<List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions) {
-            $.defaultRetentions = defaultRetentions;
+        public Builder defaultRetention(Output<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetention) {
+            $.defaultRetention = defaultRetention;
             return this;
         }
 
         /**
-         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
+         * @param defaultRetention Default retention period that you want to apply to new objects placed in this bucket (documented below).
          * 
          * @return builder
          * 
          */
-        public Builder defaultRetentions(List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetentions) {
-            return defaultRetentions(Output.of(defaultRetentions));
-        }
-
-        /**
-         * @param defaultRetentions Default retention period that you want to apply to new objects placed in this bucket (documented below).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder defaultRetentions(BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs... defaultRetentions) {
-            return defaultRetentions(List.of(defaultRetentions));
+        public Builder defaultRetention(BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs defaultRetention) {
+            return defaultRetention(Output.of(defaultRetention));
         }
 
         public BucketV2ObjectLockConfigurationRuleArgs build() {
-            $.defaultRetentions = Objects.requireNonNull($.defaultRetentions, "expected parameter 'defaultRetentions' to be non-null");
+            $.defaultRetention = Objects.requireNonNull($.defaultRetention, "expected parameter 'defaultRetention' to be non-null");
             return $;
         }
     }

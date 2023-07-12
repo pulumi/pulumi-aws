@@ -361,7 +361,7 @@ type Function struct {
 	pulumi.CustomResourceState
 
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
-	Architectures pulumi.StringArrayOutput `pulumi:"architectures"`
+	Architectures pulumi.StringOutput `pulumi:"architectures"`
 	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
@@ -487,7 +487,7 @@ func GetFunction(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Function resources.
 type functionState struct {
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
-	Architectures []string `pulumi:"architectures"`
+	Architectures *string `pulumi:"architectures"`
 	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn *string `pulumi:"arn"`
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
@@ -582,7 +582,7 @@ type functionState struct {
 
 type FunctionState struct {
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
-	Architectures pulumi.StringArrayInput
+	Architectures pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn pulumi.StringPtrInput
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
@@ -681,7 +681,7 @@ func (FunctionState) ElementType() reflect.Type {
 
 type functionArgs struct {
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
-	Architectures []string `pulumi:"architectures"`
+	Architectures *string `pulumi:"architectures"`
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.Archive `pulumi:"code"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -755,7 +755,7 @@ type functionArgs struct {
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
 	// Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
-	Architectures pulumi.StringArrayInput
+	Architectures pulumi.StringPtrInput
 	// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `imageUri`, or `s3Bucket` must be specified.
 	Code pulumi.ArchiveInput
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -914,8 +914,8 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 }
 
 // Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
-func (o FunctionOutput) Architectures() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.Architectures }).(pulumi.StringArrayOutput)
+func (o FunctionOutput) Architectures() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Architectures }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.

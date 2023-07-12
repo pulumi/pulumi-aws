@@ -5,7 +5,6 @@ package com.pulumi.aws.s3.outputs;
 
 import com.pulumi.aws.s3.outputs.BucketV2ServerSideEncryptionConfigurationRule;
 import com.pulumi.core.annotations.CustomType;
-import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -14,15 +13,15 @@ public final class BucketV2ServerSideEncryptionConfiguration {
      * @return Single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    private List<BucketV2ServerSideEncryptionConfigurationRule> rules;
+    private BucketV2ServerSideEncryptionConfigurationRule rule;
 
     private BucketV2ServerSideEncryptionConfiguration() {}
     /**
      * @return Single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    public List<BucketV2ServerSideEncryptionConfigurationRule> rules() {
-        return this.rules;
+    public BucketV2ServerSideEncryptionConfigurationRule rule() {
+        return this.rule;
     }
 
     public static Builder builder() {
@@ -34,24 +33,21 @@ public final class BucketV2ServerSideEncryptionConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<BucketV2ServerSideEncryptionConfigurationRule> rules;
+        private BucketV2ServerSideEncryptionConfigurationRule rule;
         public Builder() {}
         public Builder(BucketV2ServerSideEncryptionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.rules = defaults.rules;
+    	      this.rule = defaults.rule;
         }
 
         @CustomType.Setter
-        public Builder rules(List<BucketV2ServerSideEncryptionConfigurationRule> rules) {
-            this.rules = Objects.requireNonNull(rules);
+        public Builder rule(BucketV2ServerSideEncryptionConfigurationRule rule) {
+            this.rule = Objects.requireNonNull(rule);
             return this;
-        }
-        public Builder rules(BucketV2ServerSideEncryptionConfigurationRule... rules) {
-            return rules(List.of(rules));
         }
         public BucketV2ServerSideEncryptionConfiguration build() {
             final var o = new BucketV2ServerSideEncryptionConfiguration();
-            o.rules = rules;
+            o.rule = rule;
             return o;
         }
     }

@@ -24,7 +24,7 @@ class StackArgs:
                  color: Optional[pulumi.Input[str]] = None,
                  configuration_manager_name: Optional[pulumi.Input[str]] = None,
                  configuration_manager_version: Optional[pulumi.Input[str]] = None,
-                 custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]] = None,
+                 custom_cookbooks_source: Optional[pulumi.Input['StackCustomCookbooksSourceArgs']] = None,
                  custom_json: Optional[pulumi.Input[str]] = None,
                  default_availability_zone: Optional[pulumi.Input[str]] = None,
                  default_os: Optional[pulumi.Input[str]] = None,
@@ -48,7 +48,7 @@ class StackArgs:
         :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
         :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
         :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
-        :param pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        :param pulumi.Input['StackCustomCookbooksSourceArgs'] custom_cookbooks_source: When `use_custom_cookbooks` is set, provide this sub-object as described below.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
         :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
                Cannot be set when `vpc_id` is set.
@@ -80,8 +80,8 @@ class StackArgs:
             pulumi.set(__self__, "configuration_manager_name", configuration_manager_name)
         if configuration_manager_version is not None:
             pulumi.set(__self__, "configuration_manager_version", configuration_manager_version)
-        if custom_cookbooks_sources is not None:
-            pulumi.set(__self__, "custom_cookbooks_sources", custom_cookbooks_sources)
+        if custom_cookbooks_source is not None:
+            pulumi.set(__self__, "custom_cookbooks_source", custom_cookbooks_source)
         if custom_json is not None:
             pulumi.set(__self__, "custom_json", custom_json)
         if default_availability_zone is not None:
@@ -206,16 +206,16 @@ class StackArgs:
         pulumi.set(self, "configuration_manager_version", value)
 
     @property
-    @pulumi.getter(name="customCookbooksSources")
-    def custom_cookbooks_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]]:
+    @pulumi.getter(name="customCookbooksSource")
+    def custom_cookbooks_source(self) -> Optional[pulumi.Input['StackCustomCookbooksSourceArgs']]:
         """
         When `use_custom_cookbooks` is set, provide this sub-object as described below.
         """
-        return pulumi.get(self, "custom_cookbooks_sources")
+        return pulumi.get(self, "custom_cookbooks_source")
 
-    @custom_cookbooks_sources.setter
-    def custom_cookbooks_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]]):
-        pulumi.set(self, "custom_cookbooks_sources", value)
+    @custom_cookbooks_source.setter
+    def custom_cookbooks_source(self, value: Optional[pulumi.Input['StackCustomCookbooksSourceArgs']]):
+        pulumi.set(self, "custom_cookbooks_source", value)
 
     @property
     @pulumi.getter(name="customJson")
@@ -387,7 +387,7 @@ class _StackState:
                  color: Optional[pulumi.Input[str]] = None,
                  configuration_manager_name: Optional[pulumi.Input[str]] = None,
                  configuration_manager_version: Optional[pulumi.Input[str]] = None,
-                 custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]] = None,
+                 custom_cookbooks_source: Optional[pulumi.Input['StackCustomCookbooksSourceArgs']] = None,
                  custom_json: Optional[pulumi.Input[str]] = None,
                  default_availability_zone: Optional[pulumi.Input[str]] = None,
                  default_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -413,7 +413,7 @@ class _StackState:
         :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
         :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
         :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
-        :param pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        :param pulumi.Input['StackCustomCookbooksSourceArgs'] custom_cookbooks_source: When `use_custom_cookbooks` is set, provide this sub-object as described below.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
         :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
                Cannot be set when `vpc_id` is set.
@@ -448,8 +448,8 @@ class _StackState:
             pulumi.set(__self__, "configuration_manager_name", configuration_manager_name)
         if configuration_manager_version is not None:
             pulumi.set(__self__, "configuration_manager_version", configuration_manager_version)
-        if custom_cookbooks_sources is not None:
-            pulumi.set(__self__, "custom_cookbooks_sources", custom_cookbooks_sources)
+        if custom_cookbooks_source is not None:
+            pulumi.set(__self__, "custom_cookbooks_source", custom_cookbooks_source)
         if custom_json is not None:
             pulumi.set(__self__, "custom_json", custom_json)
         if default_availability_zone is not None:
@@ -557,16 +557,16 @@ class _StackState:
         pulumi.set(self, "configuration_manager_version", value)
 
     @property
-    @pulumi.getter(name="customCookbooksSources")
-    def custom_cookbooks_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]]:
+    @pulumi.getter(name="customCookbooksSource")
+    def custom_cookbooks_source(self) -> Optional[pulumi.Input['StackCustomCookbooksSourceArgs']]:
         """
         When `use_custom_cookbooks` is set, provide this sub-object as described below.
         """
-        return pulumi.get(self, "custom_cookbooks_sources")
+        return pulumi.get(self, "custom_cookbooks_source")
 
-    @custom_cookbooks_sources.setter
-    def custom_cookbooks_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackCustomCookbooksSourceArgs']]]]):
-        pulumi.set(self, "custom_cookbooks_sources", value)
+    @custom_cookbooks_source.setter
+    def custom_cookbooks_source(self, value: Optional[pulumi.Input['StackCustomCookbooksSourceArgs']]):
+        pulumi.set(self, "custom_cookbooks_source", value)
 
     @property
     @pulumi.getter(name="customJson")
@@ -796,7 +796,7 @@ class Stack(pulumi.CustomResource):
                  color: Optional[pulumi.Input[str]] = None,
                  configuration_manager_name: Optional[pulumi.Input[str]] = None,
                  configuration_manager_version: Optional[pulumi.Input[str]] = None,
-                 custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]]] = None,
+                 custom_cookbooks_source: Optional[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]] = None,
                  custom_json: Optional[pulumi.Input[str]] = None,
                  default_availability_zone: Optional[pulumi.Input[str]] = None,
                  default_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -853,7 +853,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
         :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
         :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        :param pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']] custom_cookbooks_source: When `use_custom_cookbooks` is set, provide this sub-object as described below.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
         :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
                Cannot be set when `vpc_id` is set.
@@ -933,7 +933,7 @@ class Stack(pulumi.CustomResource):
                  color: Optional[pulumi.Input[str]] = None,
                  configuration_manager_name: Optional[pulumi.Input[str]] = None,
                  configuration_manager_version: Optional[pulumi.Input[str]] = None,
-                 custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]]] = None,
+                 custom_cookbooks_source: Optional[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]] = None,
                  custom_json: Optional[pulumi.Input[str]] = None,
                  default_availability_zone: Optional[pulumi.Input[str]] = None,
                  default_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -964,7 +964,7 @@ class Stack(pulumi.CustomResource):
             __props__.__dict__["color"] = color
             __props__.__dict__["configuration_manager_name"] = configuration_manager_name
             __props__.__dict__["configuration_manager_version"] = configuration_manager_version
-            __props__.__dict__["custom_cookbooks_sources"] = custom_cookbooks_sources
+            __props__.__dict__["custom_cookbooks_source"] = custom_cookbooks_source
             __props__.__dict__["custom_json"] = custom_json
             __props__.__dict__["default_availability_zone"] = default_availability_zone
             if default_instance_profile_arn is None and not opts.urn:
@@ -1006,7 +1006,7 @@ class Stack(pulumi.CustomResource):
             color: Optional[pulumi.Input[str]] = None,
             configuration_manager_name: Optional[pulumi.Input[str]] = None,
             configuration_manager_version: Optional[pulumi.Input[str]] = None,
-            custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]]] = None,
+            custom_cookbooks_source: Optional[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]] = None,
             custom_json: Optional[pulumi.Input[str]] = None,
             default_availability_zone: Optional[pulumi.Input[str]] = None,
             default_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -1037,7 +1037,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
         :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
         :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        :param pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']] custom_cookbooks_source: When `use_custom_cookbooks` is set, provide this sub-object as described below.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
         :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
                Cannot be set when `vpc_id` is set.
@@ -1070,7 +1070,7 @@ class Stack(pulumi.CustomResource):
         __props__.__dict__["color"] = color
         __props__.__dict__["configuration_manager_name"] = configuration_manager_name
         __props__.__dict__["configuration_manager_version"] = configuration_manager_version
-        __props__.__dict__["custom_cookbooks_sources"] = custom_cookbooks_sources
+        __props__.__dict__["custom_cookbooks_source"] = custom_cookbooks_source
         __props__.__dict__["custom_json"] = custom_json
         __props__.__dict__["default_availability_zone"] = default_availability_zone
         __props__.__dict__["default_instance_profile_arn"] = default_instance_profile_arn
@@ -1137,12 +1137,12 @@ class Stack(pulumi.CustomResource):
         return pulumi.get(self, "configuration_manager_version")
 
     @property
-    @pulumi.getter(name="customCookbooksSources")
-    def custom_cookbooks_sources(self) -> pulumi.Output[Sequence['outputs.StackCustomCookbooksSource']]:
+    @pulumi.getter(name="customCookbooksSource")
+    def custom_cookbooks_source(self) -> pulumi.Output['outputs.StackCustomCookbooksSource']:
         """
         When `use_custom_cookbooks` is set, provide this sub-object as described below.
         """
-        return pulumi.get(self, "custom_cookbooks_sources")
+        return pulumi.get(self, "custom_cookbooks_source")
 
     @property
     @pulumi.getter(name="customJson")

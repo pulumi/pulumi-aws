@@ -33,7 +33,7 @@ public final class GetTableResult {
     private String id;
     private List<GetTableLocalSecondaryIndex> localSecondaryIndexes;
     private String name;
-    private GetTablePointInTimeRecovery pointInTimeRecovery;
+    private List<GetTablePointInTimeRecovery> pointInTimeRecoveries;
     private String rangeKey;
     private Integer readCapacity;
     private List<GetTableReplica> replicas;
@@ -44,7 +44,7 @@ public final class GetTableResult {
     private String streamViewType;
     private String tableClass;
     private Map<String,String> tags;
-    private GetTableTtl ttl;
+    private List<GetTableTtl> ttls;
     private Integer writeCapacity;
 
     private GetTableResult() {}
@@ -79,8 +79,8 @@ public final class GetTableResult {
     public String name() {
         return this.name;
     }
-    public GetTablePointInTimeRecovery pointInTimeRecovery() {
-        return this.pointInTimeRecovery;
+    public List<GetTablePointInTimeRecovery> pointInTimeRecoveries() {
+        return this.pointInTimeRecoveries;
     }
     public String rangeKey() {
         return this.rangeKey;
@@ -112,8 +112,8 @@ public final class GetTableResult {
     public Map<String,String> tags() {
         return this.tags;
     }
-    public GetTableTtl ttl() {
-        return this.ttl;
+    public List<GetTableTtl> ttls() {
+        return this.ttls;
     }
     public Integer writeCapacity() {
         return this.writeCapacity;
@@ -137,7 +137,7 @@ public final class GetTableResult {
         private String id;
         private List<GetTableLocalSecondaryIndex> localSecondaryIndexes;
         private String name;
-        private GetTablePointInTimeRecovery pointInTimeRecovery;
+        private List<GetTablePointInTimeRecovery> pointInTimeRecoveries;
         private String rangeKey;
         private Integer readCapacity;
         private List<GetTableReplica> replicas;
@@ -148,7 +148,7 @@ public final class GetTableResult {
         private String streamViewType;
         private String tableClass;
         private Map<String,String> tags;
-        private GetTableTtl ttl;
+        private List<GetTableTtl> ttls;
         private Integer writeCapacity;
         public Builder() {}
         public Builder(GetTableResult defaults) {
@@ -162,7 +162,7 @@ public final class GetTableResult {
     	      this.id = defaults.id;
     	      this.localSecondaryIndexes = defaults.localSecondaryIndexes;
     	      this.name = defaults.name;
-    	      this.pointInTimeRecovery = defaults.pointInTimeRecovery;
+    	      this.pointInTimeRecoveries = defaults.pointInTimeRecoveries;
     	      this.rangeKey = defaults.rangeKey;
     	      this.readCapacity = defaults.readCapacity;
     	      this.replicas = defaults.replicas;
@@ -173,7 +173,7 @@ public final class GetTableResult {
     	      this.streamViewType = defaults.streamViewType;
     	      this.tableClass = defaults.tableClass;
     	      this.tags = defaults.tags;
-    	      this.ttl = defaults.ttl;
+    	      this.ttls = defaults.ttls;
     	      this.writeCapacity = defaults.writeCapacity;
         }
 
@@ -232,9 +232,12 @@ public final class GetTableResult {
             return this;
         }
         @CustomType.Setter
-        public Builder pointInTimeRecovery(GetTablePointInTimeRecovery pointInTimeRecovery) {
-            this.pointInTimeRecovery = Objects.requireNonNull(pointInTimeRecovery);
+        public Builder pointInTimeRecoveries(List<GetTablePointInTimeRecovery> pointInTimeRecoveries) {
+            this.pointInTimeRecoveries = Objects.requireNonNull(pointInTimeRecoveries);
             return this;
+        }
+        public Builder pointInTimeRecoveries(GetTablePointInTimeRecovery... pointInTimeRecoveries) {
+            return pointInTimeRecoveries(List.of(pointInTimeRecoveries));
         }
         @CustomType.Setter
         public Builder rangeKey(String rangeKey) {
@@ -290,9 +293,12 @@ public final class GetTableResult {
             return this;
         }
         @CustomType.Setter
-        public Builder ttl(GetTableTtl ttl) {
-            this.ttl = Objects.requireNonNull(ttl);
+        public Builder ttls(List<GetTableTtl> ttls) {
+            this.ttls = Objects.requireNonNull(ttls);
             return this;
+        }
+        public Builder ttls(GetTableTtl... ttls) {
+            return ttls(List.of(ttls));
         }
         @CustomType.Setter
         public Builder writeCapacity(Integer writeCapacity) {
@@ -310,7 +316,7 @@ public final class GetTableResult {
             o.id = id;
             o.localSecondaryIndexes = localSecondaryIndexes;
             o.name = name;
-            o.pointInTimeRecovery = pointInTimeRecovery;
+            o.pointInTimeRecoveries = pointInTimeRecoveries;
             o.rangeKey = rangeKey;
             o.readCapacity = readCapacity;
             o.replicas = replicas;
@@ -321,7 +327,7 @@ public final class GetTableResult {
             o.streamViewType = streamViewType;
             o.tableClass = tableClass;
             o.tags = tags;
-            o.ttl = ttl;
+            o.ttls = ttls;
             o.writeCapacity = writeCapacity;
             return o;
         }

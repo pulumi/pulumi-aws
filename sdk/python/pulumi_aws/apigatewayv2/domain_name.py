@@ -252,11 +252,11 @@ class DomainName(pulumi.CustomResource):
             name=example_domain_name.domain_name,
             type="A",
             zone_id=aws_route53_zone["example"]["zone_id"],
-            aliases=[aws.route53.RecordAliasArgs(
+            alias=aws.route53.RecordAliasArgs(
                 name=example_domain_name.domain_name_configuration.target_domain_name,
                 zone_id=example_domain_name.domain_name_configuration.hosted_zone_id,
                 evaluate_target_health=False,
-            )])
+            ))
         ```
 
         ## Import
@@ -319,11 +319,11 @@ class DomainName(pulumi.CustomResource):
             name=example_domain_name.domain_name,
             type="A",
             zone_id=aws_route53_zone["example"]["zone_id"],
-            aliases=[aws.route53.RecordAliasArgs(
+            alias=aws.route53.RecordAliasArgs(
                 name=example_domain_name.domain_name_configuration.target_domain_name,
                 zone_id=example_domain_name.domain_name_configuration.hosted_zone_id,
                 evaluate_target_health=False,
-            )])
+            ))
         ```
 
         ## Import

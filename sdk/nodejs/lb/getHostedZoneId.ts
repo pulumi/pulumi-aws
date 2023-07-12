@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "example.com",
  *     type: "A",
- *     aliases: [{
+ *     alias: {
  *         name: aws_lb.main.dns_name,
  *         zoneId: main.then(main => main.id),
  *         evaluateTargetHealth: true,
- *     }],
+ *     },
  * });
  * ```
  */
@@ -76,11 +76,11 @@ export interface GetHostedZoneIdResult {
  *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "example.com",
  *     type: "A",
- *     aliases: [{
+ *     alias: {
  *         name: aws_lb.main.dns_name,
  *         zoneId: main.then(main => main.id),
  *         evaluateTargetHealth: true,
- *     }],
+ *     },
  * });
  * ```
  */

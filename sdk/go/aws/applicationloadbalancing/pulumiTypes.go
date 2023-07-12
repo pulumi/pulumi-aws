@@ -6097,65 +6097,110 @@ func (o GetListenerDefaultActionRedirectArrayOutput) Index(i pulumi.IntInput) Ge
 	}).(GetListenerDefaultActionRedirectOutput)
 }
 
-type GetLoadBalancerAccessLogs struct {
+type GetLoadBalancerAccessLog struct {
 	Bucket  string `pulumi:"bucket"`
 	Enabled bool   `pulumi:"enabled"`
 	Prefix  string `pulumi:"prefix"`
 }
 
-// GetLoadBalancerAccessLogsInput is an input type that accepts GetLoadBalancerAccessLogsArgs and GetLoadBalancerAccessLogsOutput values.
-// You can construct a concrete instance of `GetLoadBalancerAccessLogsInput` via:
+// GetLoadBalancerAccessLogInput is an input type that accepts GetLoadBalancerAccessLogArgs and GetLoadBalancerAccessLogOutput values.
+// You can construct a concrete instance of `GetLoadBalancerAccessLogInput` via:
 //
-//	GetLoadBalancerAccessLogsArgs{...}
-type GetLoadBalancerAccessLogsInput interface {
+//	GetLoadBalancerAccessLogArgs{...}
+type GetLoadBalancerAccessLogInput interface {
 	pulumi.Input
 
-	ToGetLoadBalancerAccessLogsOutput() GetLoadBalancerAccessLogsOutput
-	ToGetLoadBalancerAccessLogsOutputWithContext(context.Context) GetLoadBalancerAccessLogsOutput
+	ToGetLoadBalancerAccessLogOutput() GetLoadBalancerAccessLogOutput
+	ToGetLoadBalancerAccessLogOutputWithContext(context.Context) GetLoadBalancerAccessLogOutput
 }
 
-type GetLoadBalancerAccessLogsArgs struct {
+type GetLoadBalancerAccessLogArgs struct {
 	Bucket  pulumi.StringInput `pulumi:"bucket"`
 	Enabled pulumi.BoolInput   `pulumi:"enabled"`
 	Prefix  pulumi.StringInput `pulumi:"prefix"`
 }
 
-func (GetLoadBalancerAccessLogsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLoadBalancerAccessLogs)(nil)).Elem()
+func (GetLoadBalancerAccessLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerAccessLog)(nil)).Elem()
 }
 
-func (i GetLoadBalancerAccessLogsArgs) ToGetLoadBalancerAccessLogsOutput() GetLoadBalancerAccessLogsOutput {
-	return i.ToGetLoadBalancerAccessLogsOutputWithContext(context.Background())
+func (i GetLoadBalancerAccessLogArgs) ToGetLoadBalancerAccessLogOutput() GetLoadBalancerAccessLogOutput {
+	return i.ToGetLoadBalancerAccessLogOutputWithContext(context.Background())
 }
 
-func (i GetLoadBalancerAccessLogsArgs) ToGetLoadBalancerAccessLogsOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAccessLogsOutput)
+func (i GetLoadBalancerAccessLogArgs) ToGetLoadBalancerAccessLogOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAccessLogOutput)
 }
 
-type GetLoadBalancerAccessLogsOutput struct{ *pulumi.OutputState }
+// GetLoadBalancerAccessLogArrayInput is an input type that accepts GetLoadBalancerAccessLogArray and GetLoadBalancerAccessLogArrayOutput values.
+// You can construct a concrete instance of `GetLoadBalancerAccessLogArrayInput` via:
+//
+//	GetLoadBalancerAccessLogArray{ GetLoadBalancerAccessLogArgs{...} }
+type GetLoadBalancerAccessLogArrayInput interface {
+	pulumi.Input
 
-func (GetLoadBalancerAccessLogsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLoadBalancerAccessLogs)(nil)).Elem()
+	ToGetLoadBalancerAccessLogArrayOutput() GetLoadBalancerAccessLogArrayOutput
+	ToGetLoadBalancerAccessLogArrayOutputWithContext(context.Context) GetLoadBalancerAccessLogArrayOutput
 }
 
-func (o GetLoadBalancerAccessLogsOutput) ToGetLoadBalancerAccessLogsOutput() GetLoadBalancerAccessLogsOutput {
+type GetLoadBalancerAccessLogArray []GetLoadBalancerAccessLogInput
+
+func (GetLoadBalancerAccessLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerAccessLog)(nil)).Elem()
+}
+
+func (i GetLoadBalancerAccessLogArray) ToGetLoadBalancerAccessLogArrayOutput() GetLoadBalancerAccessLogArrayOutput {
+	return i.ToGetLoadBalancerAccessLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetLoadBalancerAccessLogArray) ToGetLoadBalancerAccessLogArrayOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAccessLogArrayOutput)
+}
+
+type GetLoadBalancerAccessLogOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerAccessLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLoadBalancerAccessLog)(nil)).Elem()
+}
+
+func (o GetLoadBalancerAccessLogOutput) ToGetLoadBalancerAccessLogOutput() GetLoadBalancerAccessLogOutput {
 	return o
 }
 
-func (o GetLoadBalancerAccessLogsOutput) ToGetLoadBalancerAccessLogsOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogsOutput {
+func (o GetLoadBalancerAccessLogOutput) ToGetLoadBalancerAccessLogOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogOutput {
 	return o
 }
 
-func (o GetLoadBalancerAccessLogsOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLoadBalancerAccessLogs) string { return v.Bucket }).(pulumi.StringOutput)
+func (o GetLoadBalancerAccessLogOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerAccessLog) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-func (o GetLoadBalancerAccessLogsOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLoadBalancerAccessLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
+func (o GetLoadBalancerAccessLogOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLoadBalancerAccessLog) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-func (o GetLoadBalancerAccessLogsOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLoadBalancerAccessLogs) string { return v.Prefix }).(pulumi.StringOutput)
+func (o GetLoadBalancerAccessLogOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLoadBalancerAccessLog) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+type GetLoadBalancerAccessLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLoadBalancerAccessLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLoadBalancerAccessLog)(nil)).Elem()
+}
+
+func (o GetLoadBalancerAccessLogArrayOutput) ToGetLoadBalancerAccessLogArrayOutput() GetLoadBalancerAccessLogArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerAccessLogArrayOutput) ToGetLoadBalancerAccessLogArrayOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogArrayOutput {
+	return o
+}
+
+func (o GetLoadBalancerAccessLogArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerAccessLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLoadBalancerAccessLog {
+		return vs[0].([]GetLoadBalancerAccessLog)[vs[1].(int)]
+	}).(GetLoadBalancerAccessLogOutput)
 }
 
 type GetLoadBalancerSubnetMapping struct {
@@ -6323,6 +6368,31 @@ func (i GetTargetGroupHealthCheckArgs) ToGetTargetGroupHealthCheckOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupHealthCheckOutput)
 }
 
+// GetTargetGroupHealthCheckArrayInput is an input type that accepts GetTargetGroupHealthCheckArray and GetTargetGroupHealthCheckArrayOutput values.
+// You can construct a concrete instance of `GetTargetGroupHealthCheckArrayInput` via:
+//
+//	GetTargetGroupHealthCheckArray{ GetTargetGroupHealthCheckArgs{...} }
+type GetTargetGroupHealthCheckArrayInput interface {
+	pulumi.Input
+
+	ToGetTargetGroupHealthCheckArrayOutput() GetTargetGroupHealthCheckArrayOutput
+	ToGetTargetGroupHealthCheckArrayOutputWithContext(context.Context) GetTargetGroupHealthCheckArrayOutput
+}
+
+type GetTargetGroupHealthCheckArray []GetTargetGroupHealthCheckInput
+
+func (GetTargetGroupHealthCheckArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTargetGroupHealthCheck)(nil)).Elem()
+}
+
+func (i GetTargetGroupHealthCheckArray) ToGetTargetGroupHealthCheckArrayOutput() GetTargetGroupHealthCheckArrayOutput {
+	return i.ToGetTargetGroupHealthCheckArrayOutputWithContext(context.Background())
+}
+
+func (i GetTargetGroupHealthCheckArray) ToGetTargetGroupHealthCheckArrayOutputWithContext(ctx context.Context) GetTargetGroupHealthCheckArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupHealthCheckArrayOutput)
+}
+
 type GetTargetGroupHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (GetTargetGroupHealthCheckOutput) ElementType() reflect.Type {
@@ -6373,6 +6443,26 @@ func (o GetTargetGroupHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTargetGroupHealthCheck) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
 }
 
+type GetTargetGroupHealthCheckArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTargetGroupHealthCheckArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTargetGroupHealthCheck)(nil)).Elem()
+}
+
+func (o GetTargetGroupHealthCheckArrayOutput) ToGetTargetGroupHealthCheckArrayOutput() GetTargetGroupHealthCheckArrayOutput {
+	return o
+}
+
+func (o GetTargetGroupHealthCheckArrayOutput) ToGetTargetGroupHealthCheckArrayOutputWithContext(ctx context.Context) GetTargetGroupHealthCheckArrayOutput {
+	return o
+}
+
+func (o GetTargetGroupHealthCheckArrayOutput) Index(i pulumi.IntInput) GetTargetGroupHealthCheckOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTargetGroupHealthCheck {
+		return vs[0].([]GetTargetGroupHealthCheck)[vs[1].(int)]
+	}).(GetTargetGroupHealthCheckOutput)
+}
+
 type GetTargetGroupStickiness struct {
 	CookieDuration int    `pulumi:"cookieDuration"`
 	CookieName     string `pulumi:"cookieName"`
@@ -6410,6 +6500,31 @@ func (i GetTargetGroupStickinessArgs) ToGetTargetGroupStickinessOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupStickinessOutput)
 }
 
+// GetTargetGroupStickinessArrayInput is an input type that accepts GetTargetGroupStickinessArray and GetTargetGroupStickinessArrayOutput values.
+// You can construct a concrete instance of `GetTargetGroupStickinessArrayInput` via:
+//
+//	GetTargetGroupStickinessArray{ GetTargetGroupStickinessArgs{...} }
+type GetTargetGroupStickinessArrayInput interface {
+	pulumi.Input
+
+	ToGetTargetGroupStickinessArrayOutput() GetTargetGroupStickinessArrayOutput
+	ToGetTargetGroupStickinessArrayOutputWithContext(context.Context) GetTargetGroupStickinessArrayOutput
+}
+
+type GetTargetGroupStickinessArray []GetTargetGroupStickinessInput
+
+func (GetTargetGroupStickinessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTargetGroupStickiness)(nil)).Elem()
+}
+
+func (i GetTargetGroupStickinessArray) ToGetTargetGroupStickinessArrayOutput() GetTargetGroupStickinessArrayOutput {
+	return i.ToGetTargetGroupStickinessArrayOutputWithContext(context.Background())
+}
+
+func (i GetTargetGroupStickinessArray) ToGetTargetGroupStickinessArrayOutputWithContext(ctx context.Context) GetTargetGroupStickinessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupStickinessArrayOutput)
+}
+
 type GetTargetGroupStickinessOutput struct{ *pulumi.OutputState }
 
 func (GetTargetGroupStickinessOutput) ElementType() reflect.Type {
@@ -6438,6 +6553,26 @@ func (o GetTargetGroupStickinessOutput) Enabled() pulumi.BoolOutput {
 
 func (o GetTargetGroupStickinessOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTargetGroupStickiness) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetTargetGroupStickinessArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTargetGroupStickinessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTargetGroupStickiness)(nil)).Elem()
+}
+
+func (o GetTargetGroupStickinessArrayOutput) ToGetTargetGroupStickinessArrayOutput() GetTargetGroupStickinessArrayOutput {
+	return o
+}
+
+func (o GetTargetGroupStickinessArrayOutput) ToGetTargetGroupStickinessArrayOutputWithContext(ctx context.Context) GetTargetGroupStickinessArrayOutput {
+	return o
+}
+
+func (o GetTargetGroupStickinessArrayOutput) Index(i pulumi.IntInput) GetTargetGroupStickinessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTargetGroupStickiness {
+		return vs[0].([]GetTargetGroupStickiness)[vs[1].(int)]
+	}).(GetTargetGroupStickinessOutput)
 }
 
 func init() {
@@ -6513,11 +6648,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroupArrayInput)(nil)).Elem(), GetListenerDefaultActionForwardTargetGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectInput)(nil)).Elem(), GetListenerDefaultActionRedirectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectArrayInput)(nil)).Elem(), GetListenerDefaultActionRedirectArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogInput)(nil)).Elem(), GetLoadBalancerAccessLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogArrayInput)(nil)).Elem(), GetLoadBalancerAccessLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingArrayInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupHealthCheckInput)(nil)).Elem(), GetTargetGroupHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupHealthCheckArrayInput)(nil)).Elem(), GetTargetGroupHealthCheckArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupStickinessInput)(nil)).Elem(), GetTargetGroupStickinessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupStickinessArrayInput)(nil)).Elem(), GetTargetGroupStickinessArray{})
 	pulumi.RegisterOutputType(ListenerDefaultActionOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionArrayOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionAuthenticateCognitoOutput{})
@@ -6590,9 +6728,12 @@ func init() {
 	pulumi.RegisterOutputType(GetListenerDefaultActionForwardTargetGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectOutput{})
 	pulumi.RegisterOutputType(GetListenerDefaultActionRedirectArrayOutput{})
-	pulumi.RegisterOutputType(GetLoadBalancerAccessLogsOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerAccessLogOutput{})
+	pulumi.RegisterOutputType(GetLoadBalancerAccessLogArrayOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(GetLoadBalancerSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetTargetGroupHealthCheckOutput{})
+	pulumi.RegisterOutputType(GetTargetGroupHealthCheckArrayOutput{})
 	pulumi.RegisterOutputType(GetTargetGroupStickinessOutput{})
+	pulumi.RegisterOutputType(GetTargetGroupStickinessArrayOutput{})
 }

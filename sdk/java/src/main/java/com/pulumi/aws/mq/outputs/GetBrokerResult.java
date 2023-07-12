@@ -7,7 +7,7 @@ import com.pulumi.aws.mq.outputs.GetBrokerConfiguration;
 import com.pulumi.aws.mq.outputs.GetBrokerEncryptionOption;
 import com.pulumi.aws.mq.outputs.GetBrokerInstance;
 import com.pulumi.aws.mq.outputs.GetBrokerLdapServerMetadata;
-import com.pulumi.aws.mq.outputs.GetBrokerLogs;
+import com.pulumi.aws.mq.outputs.GetBrokerLog;
 import com.pulumi.aws.mq.outputs.GetBrokerMaintenanceWindowStartTime;
 import com.pulumi.aws.mq.outputs.GetBrokerUser;
 import com.pulumi.core.annotations.CustomType;
@@ -24,7 +24,7 @@ public final class GetBrokerResult {
     private Boolean autoMinorVersionUpgrade;
     private String brokerId;
     private String brokerName;
-    private GetBrokerConfiguration configuration;
+    private List<GetBrokerConfiguration> configurations;
     private String deploymentMode;
     private List<GetBrokerEncryptionOption> encryptionOptions;
     private String engineType;
@@ -37,8 +37,8 @@ public final class GetBrokerResult {
     private String id;
     private List<GetBrokerInstance> instances;
     private List<GetBrokerLdapServerMetadata> ldapServerMetadatas;
-    private GetBrokerLogs logs;
-    private GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime;
+    private List<GetBrokerLog> logs;
+    private List<GetBrokerMaintenanceWindowStartTime> maintenanceWindowStartTimes;
     private Boolean publiclyAccessible;
     private List<String> securityGroups;
     private String storageType;
@@ -62,8 +62,8 @@ public final class GetBrokerResult {
     public String brokerName() {
         return this.brokerName;
     }
-    public GetBrokerConfiguration configuration() {
-        return this.configuration;
+    public List<GetBrokerConfiguration> configurations() {
+        return this.configurations;
     }
     public String deploymentMode() {
         return this.deploymentMode;
@@ -93,11 +93,11 @@ public final class GetBrokerResult {
     public List<GetBrokerLdapServerMetadata> ldapServerMetadatas() {
         return this.ldapServerMetadatas;
     }
-    public GetBrokerLogs logs() {
+    public List<GetBrokerLog> logs() {
         return this.logs;
     }
-    public GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime() {
-        return this.maintenanceWindowStartTime;
+    public List<GetBrokerMaintenanceWindowStartTime> maintenanceWindowStartTimes() {
+        return this.maintenanceWindowStartTimes;
     }
     public Boolean publiclyAccessible() {
         return this.publiclyAccessible;
@@ -132,7 +132,7 @@ public final class GetBrokerResult {
         private Boolean autoMinorVersionUpgrade;
         private String brokerId;
         private String brokerName;
-        private GetBrokerConfiguration configuration;
+        private List<GetBrokerConfiguration> configurations;
         private String deploymentMode;
         private List<GetBrokerEncryptionOption> encryptionOptions;
         private String engineType;
@@ -141,8 +141,8 @@ public final class GetBrokerResult {
         private String id;
         private List<GetBrokerInstance> instances;
         private List<GetBrokerLdapServerMetadata> ldapServerMetadatas;
-        private GetBrokerLogs logs;
-        private GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime;
+        private List<GetBrokerLog> logs;
+        private List<GetBrokerMaintenanceWindowStartTime> maintenanceWindowStartTimes;
         private Boolean publiclyAccessible;
         private List<String> securityGroups;
         private String storageType;
@@ -157,7 +157,7 @@ public final class GetBrokerResult {
     	      this.autoMinorVersionUpgrade = defaults.autoMinorVersionUpgrade;
     	      this.brokerId = defaults.brokerId;
     	      this.brokerName = defaults.brokerName;
-    	      this.configuration = defaults.configuration;
+    	      this.configurations = defaults.configurations;
     	      this.deploymentMode = defaults.deploymentMode;
     	      this.encryptionOptions = defaults.encryptionOptions;
     	      this.engineType = defaults.engineType;
@@ -167,7 +167,7 @@ public final class GetBrokerResult {
     	      this.instances = defaults.instances;
     	      this.ldapServerMetadatas = defaults.ldapServerMetadatas;
     	      this.logs = defaults.logs;
-    	      this.maintenanceWindowStartTime = defaults.maintenanceWindowStartTime;
+    	      this.maintenanceWindowStartTimes = defaults.maintenanceWindowStartTimes;
     	      this.publiclyAccessible = defaults.publiclyAccessible;
     	      this.securityGroups = defaults.securityGroups;
     	      this.storageType = defaults.storageType;
@@ -202,9 +202,12 @@ public final class GetBrokerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder configuration(GetBrokerConfiguration configuration) {
-            this.configuration = Objects.requireNonNull(configuration);
+        public Builder configurations(List<GetBrokerConfiguration> configurations) {
+            this.configurations = Objects.requireNonNull(configurations);
             return this;
+        }
+        public Builder configurations(GetBrokerConfiguration... configurations) {
+            return configurations(List.of(configurations));
         }
         @CustomType.Setter
         public Builder deploymentMode(String deploymentMode) {
@@ -256,14 +259,20 @@ public final class GetBrokerResult {
             return ldapServerMetadatas(List.of(ldapServerMetadatas));
         }
         @CustomType.Setter
-        public Builder logs(GetBrokerLogs logs) {
+        public Builder logs(List<GetBrokerLog> logs) {
             this.logs = Objects.requireNonNull(logs);
             return this;
         }
+        public Builder logs(GetBrokerLog... logs) {
+            return logs(List.of(logs));
+        }
         @CustomType.Setter
-        public Builder maintenanceWindowStartTime(GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime) {
-            this.maintenanceWindowStartTime = Objects.requireNonNull(maintenanceWindowStartTime);
+        public Builder maintenanceWindowStartTimes(List<GetBrokerMaintenanceWindowStartTime> maintenanceWindowStartTimes) {
+            this.maintenanceWindowStartTimes = Objects.requireNonNull(maintenanceWindowStartTimes);
             return this;
+        }
+        public Builder maintenanceWindowStartTimes(GetBrokerMaintenanceWindowStartTime... maintenanceWindowStartTimes) {
+            return maintenanceWindowStartTimes(List.of(maintenanceWindowStartTimes));
         }
         @CustomType.Setter
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
@@ -311,7 +320,7 @@ public final class GetBrokerResult {
             o.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
             o.brokerId = brokerId;
             o.brokerName = brokerName;
-            o.configuration = configuration;
+            o.configurations = configurations;
             o.deploymentMode = deploymentMode;
             o.encryptionOptions = encryptionOptions;
             o.engineType = engineType;
@@ -321,7 +330,7 @@ public final class GetBrokerResult {
             o.instances = instances;
             o.ldapServerMetadatas = ldapServerMetadatas;
             o.logs = logs;
-            o.maintenanceWindowStartTime = maintenanceWindowStartTime;
+            o.maintenanceWindowStartTimes = maintenanceWindowStartTimes;
             o.publiclyAccessible = publiclyAccessible;
             o.securityGroups = securityGroups;
             o.storageType = storageType;

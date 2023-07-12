@@ -47,11 +47,9 @@ import (
 //				ZoneId: *pulumi.String(testZone.Id),
 //				Name:   pulumi.String("bucket"),
 //				Type:   pulumi.String("A"),
-//				Aliases: route53.RecordAliasArray{
-//					&route53.RecordAliasArgs{
-//						Name:   *pulumi.String(selected.WebsiteDomain),
-//						ZoneId: *pulumi.String(selected.HostedZoneId),
-//					},
+//				Alias: &route53.RecordAliasArgs{
+//					Name:   *pulumi.String(selected.WebsiteDomain),
+//					ZoneId: *pulumi.String(selected.HostedZoneId),
 //				},
 //			})
 //			if err != nil {

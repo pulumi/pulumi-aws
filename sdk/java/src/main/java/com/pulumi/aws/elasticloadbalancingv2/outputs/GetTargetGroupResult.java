@@ -9,6 +9,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -18,7 +19,7 @@ public final class GetTargetGroupResult {
     private String arnSuffix;
     private Boolean connectionTermination;
     private Integer deregistrationDelay;
-    private GetTargetGroupHealthCheck healthCheck;
+    private List<GetTargetGroupHealthCheck> healthChecks;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -34,7 +35,7 @@ public final class GetTargetGroupResult {
     private String protocolVersion;
     private Boolean proxyProtocolV2;
     private Integer slowStart;
-    private GetTargetGroupStickiness stickiness;
+    private List<GetTargetGroupStickiness> stickinesses;
     private Map<String,String> tags;
     private String targetType;
     private String vpcId;
@@ -52,8 +53,8 @@ public final class GetTargetGroupResult {
     public Integer deregistrationDelay() {
         return this.deregistrationDelay;
     }
-    public GetTargetGroupHealthCheck healthCheck() {
-        return this.healthCheck;
+    public List<GetTargetGroupHealthCheck> healthChecks() {
+        return this.healthChecks;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -92,8 +93,8 @@ public final class GetTargetGroupResult {
     public Integer slowStart() {
         return this.slowStart;
     }
-    public GetTargetGroupStickiness stickiness() {
-        return this.stickiness;
+    public List<GetTargetGroupStickiness> stickinesses() {
+        return this.stickinesses;
     }
     public Map<String,String> tags() {
         return this.tags;
@@ -118,7 +119,7 @@ public final class GetTargetGroupResult {
         private String arnSuffix;
         private Boolean connectionTermination;
         private Integer deregistrationDelay;
-        private GetTargetGroupHealthCheck healthCheck;
+        private List<GetTargetGroupHealthCheck> healthChecks;
         private String id;
         private Boolean lambdaMultiValueHeadersEnabled;
         private String loadBalancingAlgorithmType;
@@ -130,7 +131,7 @@ public final class GetTargetGroupResult {
         private String protocolVersion;
         private Boolean proxyProtocolV2;
         private Integer slowStart;
-        private GetTargetGroupStickiness stickiness;
+        private List<GetTargetGroupStickiness> stickinesses;
         private Map<String,String> tags;
         private String targetType;
         private String vpcId;
@@ -141,7 +142,7 @@ public final class GetTargetGroupResult {
     	      this.arnSuffix = defaults.arnSuffix;
     	      this.connectionTermination = defaults.connectionTermination;
     	      this.deregistrationDelay = defaults.deregistrationDelay;
-    	      this.healthCheck = defaults.healthCheck;
+    	      this.healthChecks = defaults.healthChecks;
     	      this.id = defaults.id;
     	      this.lambdaMultiValueHeadersEnabled = defaults.lambdaMultiValueHeadersEnabled;
     	      this.loadBalancingAlgorithmType = defaults.loadBalancingAlgorithmType;
@@ -153,7 +154,7 @@ public final class GetTargetGroupResult {
     	      this.protocolVersion = defaults.protocolVersion;
     	      this.proxyProtocolV2 = defaults.proxyProtocolV2;
     	      this.slowStart = defaults.slowStart;
-    	      this.stickiness = defaults.stickiness;
+    	      this.stickinesses = defaults.stickinesses;
     	      this.tags = defaults.tags;
     	      this.targetType = defaults.targetType;
     	      this.vpcId = defaults.vpcId;
@@ -180,9 +181,12 @@ public final class GetTargetGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder healthCheck(GetTargetGroupHealthCheck healthCheck) {
-            this.healthCheck = Objects.requireNonNull(healthCheck);
+        public Builder healthChecks(List<GetTargetGroupHealthCheck> healthChecks) {
+            this.healthChecks = Objects.requireNonNull(healthChecks);
             return this;
+        }
+        public Builder healthChecks(GetTargetGroupHealthCheck... healthChecks) {
+            return healthChecks(List.of(healthChecks));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -240,9 +244,12 @@ public final class GetTargetGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder stickiness(GetTargetGroupStickiness stickiness) {
-            this.stickiness = Objects.requireNonNull(stickiness);
+        public Builder stickinesses(List<GetTargetGroupStickiness> stickinesses) {
+            this.stickinesses = Objects.requireNonNull(stickinesses);
             return this;
+        }
+        public Builder stickinesses(GetTargetGroupStickiness... stickinesses) {
+            return stickinesses(List.of(stickinesses));
         }
         @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
@@ -265,7 +272,7 @@ public final class GetTargetGroupResult {
             o.arnSuffix = arnSuffix;
             o.connectionTermination = connectionTermination;
             o.deregistrationDelay = deregistrationDelay;
-            o.healthCheck = healthCheck;
+            o.healthChecks = healthChecks;
             o.id = id;
             o.lambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
             o.loadBalancingAlgorithmType = loadBalancingAlgorithmType;
@@ -277,7 +284,7 @@ public final class GetTargetGroupResult {
             o.protocolVersion = protocolVersion;
             o.proxyProtocolV2 = proxyProtocolV2;
             o.slowStart = slowStart;
-            o.stickiness = stickiness;
+            o.stickinesses = stickinesses;
             o.tags = tags;
             o.targetType = targetType;
             o.vpcId = vpcId;

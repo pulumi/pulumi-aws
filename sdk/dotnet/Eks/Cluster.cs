@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Eks
     ///     return new Dictionary&lt;string, object?&gt;
     ///     {
     ///         ["endpoint"] = example.Endpoint,
-    ///         ["kubeconfig-certificate-authority-data"] = example.CertificateAuthority.Apply(certificateAuthority =&gt; certificateAuthority.Data),
+    ///         ["kubeconfig-certificate-authority-data"] = example.CertificateAuthorities.Apply(certificateAuthorities =&gt; certificateAuthorities[0].Data),
     ///     };
     /// });
     /// ```
@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Eks
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
         [Output("certificateAuthority")]
-        public Output<Outputs.ClusterCertificateAuthority> CertificateAuthority { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ClusterCertificateAuthority>> CertificateAuthority { get; private set; } = null!;
 
         /// <summary>
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -459,11 +459,17 @@ namespace Pulumi.Aws.Eks
             set => _certificateAuthorities = value;
         }
 
+        [Input("certificateAuthority")]
+        private InputList<Inputs.ClusterCertificateAuthorityGetArgs>? _certificateAuthority;
+
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
-        [Input("certificateAuthority")]
-        public Input<Inputs.ClusterCertificateAuthorityGetArgs>? CertificateAuthority { get; set; }
+        public InputList<Inputs.ClusterCertificateAuthorityGetArgs> CertificateAuthority
+        {
+            get => _certificateAuthority ?? (_certificateAuthority = new InputList<Inputs.ClusterCertificateAuthorityGetArgs>());
+            set => _certificateAuthority = value;
+        }
 
         /// <summary>
         /// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.

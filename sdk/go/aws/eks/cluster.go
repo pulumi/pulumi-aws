@@ -44,8 +44,8 @@ import (
 //				return err
 //			}
 //			ctx.Export("endpoint", example.Endpoint)
-//			ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthority.ApplyT(func(certificateAuthority eks.ClusterCertificateAuthority) (*string, error) {
-//				return &certificateAuthority.Data, nil
+//			ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthorities.ApplyT(func(certificateAuthorities []eks.ClusterCertificateAuthority) (*string, error) {
+//				return &certificateAuthorities[0].Data, nil
 //			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})
@@ -222,7 +222,7 @@ type Cluster struct {
 	Arn                    pulumi.StringOutput                    `pulumi:"arn"`
 	CertificateAuthorities ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthority ClusterCertificateAuthorityOutput `pulumi:"certificateAuthority"`
+	CertificateAuthority ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthority"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
@@ -300,7 +300,7 @@ type clusterState struct {
 	Arn                    *string                       `pulumi:"arn"`
 	CertificateAuthorities []ClusterCertificateAuthority `pulumi:"certificateAuthorities"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthority *ClusterCertificateAuthority `pulumi:"certificateAuthority"`
+	CertificateAuthority []ClusterCertificateAuthority `pulumi:"certificateAuthority"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 	ClusterId *string `pulumi:"clusterId"`
 	// Unix epoch timestamp in seconds for when the cluster was created.
@@ -344,7 +344,7 @@ type ClusterState struct {
 	Arn                    pulumi.StringPtrInput
 	CertificateAuthorities ClusterCertificateAuthorityArrayInput
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-	CertificateAuthority ClusterCertificateAuthorityPtrInput
+	CertificateAuthority ClusterCertificateAuthorityArrayInput
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
 	ClusterId pulumi.StringPtrInput
 	// Unix epoch timestamp in seconds for when the cluster was created.
@@ -533,8 +533,8 @@ func (o ClusterOutput) CertificateAuthorities() ClusterCertificateAuthorityArray
 }
 
 // Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
-func (o ClusterOutput) CertificateAuthority() ClusterCertificateAuthorityOutput {
-	return o.ApplyT(func(v *Cluster) ClusterCertificateAuthorityOutput { return v.CertificateAuthority }).(ClusterCertificateAuthorityOutput)
+func (o ClusterOutput) CertificateAuthority() ClusterCertificateAuthorityArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterCertificateAuthorityArrayOutput { return v.CertificateAuthority }).(ClusterCertificateAuthorityArrayOutput)
 }
 
 // The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.

@@ -600,6 +600,31 @@ func (i GetApplicationAppversionLifecycleArgs) ToGetApplicationAppversionLifecyc
 	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationAppversionLifecycleOutput)
 }
 
+// GetApplicationAppversionLifecycleArrayInput is an input type that accepts GetApplicationAppversionLifecycleArray and GetApplicationAppversionLifecycleArrayOutput values.
+// You can construct a concrete instance of `GetApplicationAppversionLifecycleArrayInput` via:
+//
+//	GetApplicationAppversionLifecycleArray{ GetApplicationAppversionLifecycleArgs{...} }
+type GetApplicationAppversionLifecycleArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationAppversionLifecycleArrayOutput() GetApplicationAppversionLifecycleArrayOutput
+	ToGetApplicationAppversionLifecycleArrayOutputWithContext(context.Context) GetApplicationAppversionLifecycleArrayOutput
+}
+
+type GetApplicationAppversionLifecycleArray []GetApplicationAppversionLifecycleInput
+
+func (GetApplicationAppversionLifecycleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationAppversionLifecycle)(nil)).Elem()
+}
+
+func (i GetApplicationAppversionLifecycleArray) ToGetApplicationAppversionLifecycleArrayOutput() GetApplicationAppversionLifecycleArrayOutput {
+	return i.ToGetApplicationAppversionLifecycleArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationAppversionLifecycleArray) ToGetApplicationAppversionLifecycleArrayOutputWithContext(ctx context.Context) GetApplicationAppversionLifecycleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationAppversionLifecycleArrayOutput)
+}
+
 type GetApplicationAppversionLifecycleOutput struct{ *pulumi.OutputState }
 
 func (GetApplicationAppversionLifecycleOutput) ElementType() reflect.Type {
@@ -634,6 +659,26 @@ func (o GetApplicationAppversionLifecycleOutput) ServiceRole() pulumi.StringOutp
 	return o.ApplyT(func(v GetApplicationAppversionLifecycle) string { return v.ServiceRole }).(pulumi.StringOutput)
 }
 
+type GetApplicationAppversionLifecycleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationAppversionLifecycleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationAppversionLifecycle)(nil)).Elem()
+}
+
+func (o GetApplicationAppversionLifecycleArrayOutput) ToGetApplicationAppversionLifecycleArrayOutput() GetApplicationAppversionLifecycleArrayOutput {
+	return o
+}
+
+func (o GetApplicationAppversionLifecycleArrayOutput) ToGetApplicationAppversionLifecycleArrayOutputWithContext(ctx context.Context) GetApplicationAppversionLifecycleArrayOutput {
+	return o
+}
+
+func (o GetApplicationAppversionLifecycleArrayOutput) Index(i pulumi.IntInput) GetApplicationAppversionLifecycleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationAppversionLifecycle {
+		return vs[0].([]GetApplicationAppversionLifecycle)[vs[1].(int)]
+	}).(GetApplicationAppversionLifecycleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppversionLifecycleInput)(nil)).Elem(), ApplicationAppversionLifecycleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppversionLifecyclePtrInput)(nil)).Elem(), ApplicationAppversionLifecycleArgs{})
@@ -644,6 +689,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSettingInput)(nil)).Elem(), EnvironmentSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSettingArrayInput)(nil)).Elem(), EnvironmentSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationAppversionLifecycleInput)(nil)).Elem(), GetApplicationAppversionLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationAppversionLifecycleArrayInput)(nil)).Elem(), GetApplicationAppversionLifecycleArray{})
 	pulumi.RegisterOutputType(ApplicationAppversionLifecycleOutput{})
 	pulumi.RegisterOutputType(ApplicationAppversionLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationTemplateSettingOutput{})
@@ -653,4 +699,5 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentSettingOutput{})
 	pulumi.RegisterOutputType(EnvironmentSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationAppversionLifecycleOutput{})
+	pulumi.RegisterOutputType(GetApplicationAppversionLifecycleArrayOutput{})
 }

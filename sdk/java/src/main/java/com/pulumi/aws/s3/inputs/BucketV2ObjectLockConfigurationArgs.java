@@ -7,7 +7,6 @@ import com.pulumi.aws.s3.inputs.BucketV2ObjectLockConfigurationRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -48,8 +47,8 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_object_lock_configuration resource instead */
-    @Import(name="rules")
-    private @Nullable Output<List<BucketV2ObjectLockConfigurationRuleArgs>> rules;
+    @Import(name="rule")
+    private @Nullable Output<BucketV2ObjectLockConfigurationRuleArgs> rule;
 
     /**
      * @return Object Lock rule in place for this bucket (documented below).
@@ -59,15 +58,15 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_object_lock_configuration resource instead */
-    public Optional<Output<List<BucketV2ObjectLockConfigurationRuleArgs>>> rules() {
-        return Optional.ofNullable(this.rules);
+    public Optional<Output<BucketV2ObjectLockConfigurationRuleArgs>> rule() {
+        return Optional.ofNullable(this.rule);
     }
 
     private BucketV2ObjectLockConfigurationArgs() {}
 
     private BucketV2ObjectLockConfigurationArgs(BucketV2ObjectLockConfigurationArgs $) {
         this.objectLockEnabled = $.objectLockEnabled;
-        this.rules = $.rules;
+        this.rule = $.rule;
     }
 
     public static Builder builder() {
@@ -118,7 +117,7 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param rules Object Lock rule in place for this bucket (documented below).
+         * @param rule Object Lock rule in place for this bucket (documented below).
          * 
          * @return builder
          * 
@@ -127,13 +126,13 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_object_lock_configuration resource instead */
-        public Builder rules(@Nullable Output<List<BucketV2ObjectLockConfigurationRuleArgs>> rules) {
-            $.rules = rules;
+        public Builder rule(@Nullable Output<BucketV2ObjectLockConfigurationRuleArgs> rule) {
+            $.rule = rule;
             return this;
         }
 
         /**
-         * @param rules Object Lock rule in place for this bucket (documented below).
+         * @param rule Object Lock rule in place for this bucket (documented below).
          * 
          * @return builder
          * 
@@ -142,22 +141,8 @@ public final class BucketV2ObjectLockConfigurationArgs extends com.pulumi.resour
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_object_lock_configuration resource instead */
-        public Builder rules(List<BucketV2ObjectLockConfigurationRuleArgs> rules) {
-            return rules(Output.of(rules));
-        }
-
-        /**
-         * @param rules Object Lock rule in place for this bucket (documented below).
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_s3_bucket_object_lock_configuration resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_s3_bucket_object_lock_configuration resource instead */
-        public Builder rules(BucketV2ObjectLockConfigurationRuleArgs... rules) {
-            return rules(List.of(rules));
+        public Builder rule(BucketV2ObjectLockConfigurationRuleArgs rule) {
+            return rule(Output.of(rule));
         }
 
         public BucketV2ObjectLockConfigurationArgs build() {

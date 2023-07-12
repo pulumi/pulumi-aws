@@ -11523,29 +11523,45 @@ func (i StackCustomCookbooksSourceArgs) ToStackCustomCookbooksSourceOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StackCustomCookbooksSourceOutput)
 }
 
-// StackCustomCookbooksSourceArrayInput is an input type that accepts StackCustomCookbooksSourceArray and StackCustomCookbooksSourceArrayOutput values.
-// You can construct a concrete instance of `StackCustomCookbooksSourceArrayInput` via:
+func (i StackCustomCookbooksSourceArgs) ToStackCustomCookbooksSourcePtrOutput() StackCustomCookbooksSourcePtrOutput {
+	return i.ToStackCustomCookbooksSourcePtrOutputWithContext(context.Background())
+}
+
+func (i StackCustomCookbooksSourceArgs) ToStackCustomCookbooksSourcePtrOutputWithContext(ctx context.Context) StackCustomCookbooksSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackCustomCookbooksSourceOutput).ToStackCustomCookbooksSourcePtrOutputWithContext(ctx)
+}
+
+// StackCustomCookbooksSourcePtrInput is an input type that accepts StackCustomCookbooksSourceArgs, StackCustomCookbooksSourcePtr and StackCustomCookbooksSourcePtrOutput values.
+// You can construct a concrete instance of `StackCustomCookbooksSourcePtrInput` via:
 //
-//	StackCustomCookbooksSourceArray{ StackCustomCookbooksSourceArgs{...} }
-type StackCustomCookbooksSourceArrayInput interface {
+//	        StackCustomCookbooksSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackCustomCookbooksSourcePtrInput interface {
 	pulumi.Input
 
-	ToStackCustomCookbooksSourceArrayOutput() StackCustomCookbooksSourceArrayOutput
-	ToStackCustomCookbooksSourceArrayOutputWithContext(context.Context) StackCustomCookbooksSourceArrayOutput
+	ToStackCustomCookbooksSourcePtrOutput() StackCustomCookbooksSourcePtrOutput
+	ToStackCustomCookbooksSourcePtrOutputWithContext(context.Context) StackCustomCookbooksSourcePtrOutput
 }
 
-type StackCustomCookbooksSourceArray []StackCustomCookbooksSourceInput
+type stackCustomCookbooksSourcePtrType StackCustomCookbooksSourceArgs
 
-func (StackCustomCookbooksSourceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StackCustomCookbooksSource)(nil)).Elem()
+func StackCustomCookbooksSourcePtr(v *StackCustomCookbooksSourceArgs) StackCustomCookbooksSourcePtrInput {
+	return (*stackCustomCookbooksSourcePtrType)(v)
 }
 
-func (i StackCustomCookbooksSourceArray) ToStackCustomCookbooksSourceArrayOutput() StackCustomCookbooksSourceArrayOutput {
-	return i.ToStackCustomCookbooksSourceArrayOutputWithContext(context.Background())
+func (*stackCustomCookbooksSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackCustomCookbooksSource)(nil)).Elem()
 }
 
-func (i StackCustomCookbooksSourceArray) ToStackCustomCookbooksSourceArrayOutputWithContext(ctx context.Context) StackCustomCookbooksSourceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StackCustomCookbooksSourceArrayOutput)
+func (i *stackCustomCookbooksSourcePtrType) ToStackCustomCookbooksSourcePtrOutput() StackCustomCookbooksSourcePtrOutput {
+	return i.ToStackCustomCookbooksSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *stackCustomCookbooksSourcePtrType) ToStackCustomCookbooksSourcePtrOutputWithContext(ctx context.Context) StackCustomCookbooksSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackCustomCookbooksSourcePtrOutput)
 }
 
 type StackCustomCookbooksSourceOutput struct{ *pulumi.OutputState }
@@ -11560,6 +11576,16 @@ func (o StackCustomCookbooksSourceOutput) ToStackCustomCookbooksSourceOutput() S
 
 func (o StackCustomCookbooksSourceOutput) ToStackCustomCookbooksSourceOutputWithContext(ctx context.Context) StackCustomCookbooksSourceOutput {
 	return o
+}
+
+func (o StackCustomCookbooksSourceOutput) ToStackCustomCookbooksSourcePtrOutput() StackCustomCookbooksSourcePtrOutput {
+	return o.ToStackCustomCookbooksSourcePtrOutputWithContext(context.Background())
+}
+
+func (o StackCustomCookbooksSourceOutput) ToStackCustomCookbooksSourcePtrOutputWithContext(ctx context.Context) StackCustomCookbooksSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackCustomCookbooksSource) *StackCustomCookbooksSource {
+		return &v
+	}).(StackCustomCookbooksSourcePtrOutput)
 }
 
 // Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
@@ -11592,24 +11618,88 @@ func (o StackCustomCookbooksSourceOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackCustomCookbooksSource) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type StackCustomCookbooksSourceArrayOutput struct{ *pulumi.OutputState }
+type StackCustomCookbooksSourcePtrOutput struct{ *pulumi.OutputState }
 
-func (StackCustomCookbooksSourceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StackCustomCookbooksSource)(nil)).Elem()
+func (StackCustomCookbooksSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackCustomCookbooksSource)(nil)).Elem()
 }
 
-func (o StackCustomCookbooksSourceArrayOutput) ToStackCustomCookbooksSourceArrayOutput() StackCustomCookbooksSourceArrayOutput {
+func (o StackCustomCookbooksSourcePtrOutput) ToStackCustomCookbooksSourcePtrOutput() StackCustomCookbooksSourcePtrOutput {
 	return o
 }
 
-func (o StackCustomCookbooksSourceArrayOutput) ToStackCustomCookbooksSourceArrayOutputWithContext(ctx context.Context) StackCustomCookbooksSourceArrayOutput {
+func (o StackCustomCookbooksSourcePtrOutput) ToStackCustomCookbooksSourcePtrOutputWithContext(ctx context.Context) StackCustomCookbooksSourcePtrOutput {
 	return o
 }
 
-func (o StackCustomCookbooksSourceArrayOutput) Index(i pulumi.IntInput) StackCustomCookbooksSourceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackCustomCookbooksSource {
-		return vs[0].([]StackCustomCookbooksSource)[vs[1].(int)]
+func (o StackCustomCookbooksSourcePtrOutput) Elem() StackCustomCookbooksSourceOutput {
+	return o.ApplyT(func(v *StackCustomCookbooksSource) StackCustomCookbooksSource {
+		if v != nil {
+			return *v
+		}
+		var ret StackCustomCookbooksSource
+		return ret
 	}).(StackCustomCookbooksSourceOutput)
+}
+
+// Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+func (o StackCustomCookbooksSourcePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackCustomCookbooksSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// For sources that are version-aware, the revision to use.
+func (o StackCustomCookbooksSourcePtrOutput) Revision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackCustomCookbooksSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Revision
+	}).(pulumi.StringPtrOutput)
+}
+
+// SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+func (o StackCustomCookbooksSourcePtrOutput) SshKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackCustomCookbooksSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SshKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of source to use. For example, "archive".
+func (o StackCustomCookbooksSourcePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackCustomCookbooksSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL where the cookbooks resource can be found.
+func (o StackCustomCookbooksSourcePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackCustomCookbooksSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username to use when authenticating to the source.
+func (o StackCustomCookbooksSourcePtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackCustomCookbooksSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
 }
 
 type StaticWebLayerCloudwatchConfiguration struct {
@@ -12811,7 +12901,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingUpscalingInput)(nil)).Elem(), RailsAppLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerLoadBasedAutoScalingUpscalingPtrInput)(nil)).Elem(), RailsAppLayerLoadBasedAutoScalingUpscalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackCustomCookbooksSourceInput)(nil)).Elem(), StackCustomCookbooksSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StackCustomCookbooksSourceArrayInput)(nil)).Elem(), StackCustomCookbooksSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackCustomCookbooksSourcePtrInput)(nil)).Elem(), StackCustomCookbooksSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerCloudwatchConfigurationInput)(nil)).Elem(), StaticWebLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerCloudwatchConfigurationPtrInput)(nil)).Elem(), StaticWebLayerCloudwatchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerCloudwatchConfigurationLogStreamInput)(nil)).Elem(), StaticWebLayerCloudwatchConfigurationLogStreamArgs{})
@@ -12957,7 +13047,7 @@ func init() {
 	pulumi.RegisterOutputType(RailsAppLayerLoadBasedAutoScalingUpscalingOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerLoadBasedAutoScalingUpscalingPtrOutput{})
 	pulumi.RegisterOutputType(StackCustomCookbooksSourceOutput{})
-	pulumi.RegisterOutputType(StackCustomCookbooksSourceArrayOutput{})
+	pulumi.RegisterOutputType(StackCustomCookbooksSourcePtrOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerCloudwatchConfigurationOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerCloudwatchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerCloudwatchConfigurationLogStreamOutput{})

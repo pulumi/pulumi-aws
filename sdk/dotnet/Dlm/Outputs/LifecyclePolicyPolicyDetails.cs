@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// <summary>
         /// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
         /// </summary>
-        public readonly ImmutableArray<string> ResourceTypes;
+        public readonly string? ResourceTypes;
         /// <summary>
         /// See the `schedule` configuration block.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Dlm.Outputs
 
             string? resourceLocations,
 
-            ImmutableArray<string> resourceTypes,
+            string? resourceTypes,
 
             ImmutableArray<Outputs.LifecyclePolicyPolicyDetailsSchedule> schedules,
 

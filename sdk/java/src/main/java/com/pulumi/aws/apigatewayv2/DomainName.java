@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *             .name(exampleDomainName.domainName())
  *             .type(&#34;A&#34;)
  *             .zoneId(aws_route53_zone.example().zone_id())
- *             .aliases(RecordAliasArgs.builder()
+ *             .alias(RecordAliasArgs.builder()
  *                 .name(exampleDomainName.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.targetDomainName()))
  *                 .zoneId(exampleDomainName.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.hostedZoneId()))
  *                 .evaluateTargetHealth(false)

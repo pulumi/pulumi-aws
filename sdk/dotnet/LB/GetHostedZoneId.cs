@@ -33,14 +33,11 @@ namespace Pulumi.Aws.LB
         ///         ZoneId = aws_route53_zone.Primary.Zone_id,
         ///         Name = "example.com",
         ///         Type = "A",
-        ///         Aliases = new[]
+        ///         Alias = new Aws.Route53.Inputs.RecordAliasArgs
         ///         {
-        ///             new Aws.Route53.Inputs.RecordAliasArgs
-        ///             {
-        ///                 Name = aws_lb.Main.Dns_name,
-        ///                 ZoneId = main.Apply(getHostedZoneIdResult =&gt; getHostedZoneIdResult.Id),
-        ///                 EvaluateTargetHealth = true,
-        ///             },
+        ///             Name = aws_lb.Main.Dns_name,
+        ///             ZoneId = main.Apply(getHostedZoneIdResult =&gt; getHostedZoneIdResult.Id),
+        ///             EvaluateTargetHealth = true,
         ///         },
         ///     });
         /// 
@@ -74,14 +71,11 @@ namespace Pulumi.Aws.LB
         ///         ZoneId = aws_route53_zone.Primary.Zone_id,
         ///         Name = "example.com",
         ///         Type = "A",
-        ///         Aliases = new[]
+        ///         Alias = new Aws.Route53.Inputs.RecordAliasArgs
         ///         {
-        ///             new Aws.Route53.Inputs.RecordAliasArgs
-        ///             {
-        ///                 Name = aws_lb.Main.Dns_name,
-        ///                 ZoneId = main.Apply(getHostedZoneIdResult =&gt; getHostedZoneIdResult.Id),
-        ///                 EvaluateTargetHealth = true,
-        ///             },
+        ///             Name = aws_lb.Main.Dns_name,
+        ///             ZoneId = main.Apply(getHostedZoneIdResult =&gt; getHostedZoneIdResult.Id),
+        ///             EvaluateTargetHealth = true,
         ///         },
         ///     });
         /// 

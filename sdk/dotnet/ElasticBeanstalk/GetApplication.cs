@@ -111,7 +111,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     [OutputType]
     public sealed class GetApplicationResult
     {
-        public readonly Outputs.GetApplicationAppversionLifecycleResult AppversionLifecycle;
+        public readonly ImmutableArray<Outputs.GetApplicationAppversionLifecycleResult> AppversionLifecycles;
         /// <summary>
         /// ARN of the application.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         [OutputConstructor]
         private GetApplicationResult(
-            Outputs.GetApplicationAppversionLifecycleResult appversionLifecycle,
+            ImmutableArray<Outputs.GetApplicationAppversionLifecycleResult> appversionLifecycles,
 
             string arn,
 
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
             string name)
         {
-            AppversionLifecycle = appversionLifecycle;
+            AppversionLifecycles = appversionLifecycles;
             Arn = arn;
             Description = description;
             Id = id;

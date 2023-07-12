@@ -22,7 +22,7 @@ type LifecyclePolicyPolicyDetails struct {
 	// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
 	ResourceLocations *string `pulumi:"resourceLocations"`
 	// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
-	ResourceTypes []string `pulumi:"resourceTypes"`
+	ResourceTypes *string `pulumi:"resourceTypes"`
 	// See the `schedule` configuration block.
 	Schedules []LifecyclePolicyPolicyDetailsSchedule `pulumi:"schedules"`
 	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
@@ -54,7 +54,7 @@ type LifecyclePolicyPolicyDetailsArgs struct {
 	// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
 	ResourceLocations pulumi.StringPtrInput `pulumi:"resourceLocations"`
 	// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
-	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	ResourceTypes pulumi.StringPtrInput `pulumi:"resourceTypes"`
 	// See the `schedule` configuration block.
 	Schedules LifecyclePolicyPolicyDetailsScheduleArrayInput `pulumi:"schedules"`
 	// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
@@ -166,8 +166,8 @@ func (o LifecyclePolicyPolicyDetailsOutput) ResourceLocations() pulumi.StringPtr
 }
 
 // A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
-func (o LifecyclePolicyPolicyDetailsOutput) ResourceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+func (o LifecyclePolicyPolicyDetailsOutput) ResourceTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *string { return v.ResourceTypes }).(pulumi.StringPtrOutput)
 }
 
 // See the `schedule` configuration block.
@@ -257,13 +257,13 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceLocations() pulumi.String
 }
 
 // A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
-func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) []string {
+func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *string {
 		if v == nil {
 			return nil
 		}
 		return v.ResourceTypes
-	}).(pulumi.StringArrayOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // See the `schedule` configuration block.

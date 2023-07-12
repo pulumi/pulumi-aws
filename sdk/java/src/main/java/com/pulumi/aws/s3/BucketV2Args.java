@@ -200,8 +200,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_logging resource instead */
-    @Import(name="loggings")
-    private @Nullable Output<List<BucketV2LoggingArgs>> loggings;
+    @Import(name="logging")
+    private @Nullable Output<BucketV2LoggingArgs> logging;
 
     /**
      * @return Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -212,8 +212,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_logging resource instead */
-    public Optional<Output<List<BucketV2LoggingArgs>>> loggings() {
-        return Optional.ofNullable(this.loggings);
+    public Optional<Output<BucketV2LoggingArgs>> logging() {
+        return Optional.ofNullable(this.logging);
     }
 
     /**
@@ -294,8 +294,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
-    @Import(name="replicationConfigurations")
-    private @Nullable Output<List<BucketV2ReplicationConfigurationArgs>> replicationConfigurations;
+    @Import(name="replicationConfiguration")
+    private @Nullable Output<BucketV2ReplicationConfigurationArgs> replicationConfiguration;
 
     /**
      * @return Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -306,8 +306,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
-    public Optional<Output<List<BucketV2ReplicationConfigurationArgs>>> replicationConfigurations() {
-        return Optional.ofNullable(this.replicationConfigurations);
+    public Optional<Output<BucketV2ReplicationConfigurationArgs>> replicationConfiguration() {
+        return Optional.ofNullable(this.replicationConfiguration);
     }
 
     /**
@@ -351,8 +351,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
-    @Import(name="serverSideEncryptionConfigurations")
-    private @Nullable Output<List<BucketV2ServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfigurations;
+    @Import(name="serverSideEncryptionConfiguration")
+    private @Nullable Output<BucketV2ServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration;
 
     /**
      * @return Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
@@ -364,8 +364,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
-    public Optional<Output<List<BucketV2ServerSideEncryptionConfigurationArgs>>> serverSideEncryptionConfigurations() {
-        return Optional.ofNullable(this.serverSideEncryptionConfigurations);
+    public Optional<Output<BucketV2ServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfiguration() {
+        return Optional.ofNullable(this.serverSideEncryptionConfiguration);
     }
 
     /**
@@ -395,8 +395,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
-    @Import(name="versionings")
-    private @Nullable Output<List<BucketV2VersioningArgs>> versionings;
+    @Import(name="versioning")
+    private @Nullable Output<BucketV2VersioningArgs> versioning;
 
     /**
      * @return Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
@@ -406,8 +406,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
-    public Optional<Output<List<BucketV2VersioningArgs>>> versionings() {
-        return Optional.ofNullable(this.versionings);
+    public Optional<Output<BucketV2VersioningArgs>> versioning() {
+        return Optional.ofNullable(this.versioning);
     }
 
     /**
@@ -419,8 +419,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
-    @Import(name="websites")
-    private @Nullable Output<List<BucketV2WebsiteArgs>> websites;
+    @Import(name="website")
+    private @Nullable Output<BucketV2WebsiteArgs> website;
 
     /**
      * @return Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
@@ -431,8 +431,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
-    public Optional<Output<List<BucketV2WebsiteArgs>>> websites() {
-        return Optional.ofNullable(this.websites);
+    public Optional<Output<BucketV2WebsiteArgs>> website() {
+        return Optional.ofNullable(this.website);
     }
 
     private BucketV2Args() {}
@@ -446,16 +446,16 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
         this.forceDestroy = $.forceDestroy;
         this.grants = $.grants;
         this.lifecycleRules = $.lifecycleRules;
-        this.loggings = $.loggings;
+        this.logging = $.logging;
         this.objectLockConfiguration = $.objectLockConfiguration;
         this.objectLockEnabled = $.objectLockEnabled;
         this.policy = $.policy;
-        this.replicationConfigurations = $.replicationConfigurations;
+        this.replicationConfiguration = $.replicationConfiguration;
         this.requestPayer = $.requestPayer;
-        this.serverSideEncryptionConfigurations = $.serverSideEncryptionConfigurations;
+        this.serverSideEncryptionConfiguration = $.serverSideEncryptionConfiguration;
         this.tags = $.tags;
-        this.versionings = $.versionings;
-        this.websites = $.websites;
+        this.versioning = $.versioning;
+        this.website = $.website;
     }
 
     public static Builder builder() {
@@ -732,7 +732,7 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggings Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
+         * @param logging Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketLoggingV2` instead.
          * 
          * @return builder
@@ -742,13 +742,13 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_logging resource instead */
-        public Builder loggings(@Nullable Output<List<BucketV2LoggingArgs>> loggings) {
-            $.loggings = loggings;
+        public Builder logging(@Nullable Output<BucketV2LoggingArgs> logging) {
+            $.logging = logging;
             return this;
         }
 
         /**
-         * @param loggings Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
+         * @param logging Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketLoggingV2` instead.
          * 
          * @return builder
@@ -758,23 +758,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_logging resource instead */
-        public Builder loggings(List<BucketV2LoggingArgs> loggings) {
-            return loggings(Output.of(loggings));
-        }
-
-        /**
-         * @param loggings Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
-         * Use the resource `aws.s3.BucketLoggingV2` instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_s3_bucket_logging resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_s3_bucket_logging resource instead */
-        public Builder loggings(BucketV2LoggingArgs... loggings) {
-            return loggings(List.of(loggings));
+        public Builder logging(BucketV2LoggingArgs logging) {
+            return logging(Output.of(logging));
         }
 
         /**
@@ -865,7 +850,7 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicationConfigurations Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
+         * @param replicationConfiguration Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketReplicationConfig` instead.
          * 
          * @return builder
@@ -875,13 +860,13 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
-        public Builder replicationConfigurations(@Nullable Output<List<BucketV2ReplicationConfigurationArgs>> replicationConfigurations) {
-            $.replicationConfigurations = replicationConfigurations;
+        public Builder replicationConfiguration(@Nullable Output<BucketV2ReplicationConfigurationArgs> replicationConfiguration) {
+            $.replicationConfiguration = replicationConfiguration;
             return this;
         }
 
         /**
-         * @param replicationConfigurations Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
+         * @param replicationConfiguration Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketReplicationConfig` instead.
          * 
          * @return builder
@@ -891,23 +876,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
-        public Builder replicationConfigurations(List<BucketV2ReplicationConfigurationArgs> replicationConfigurations) {
-            return replicationConfigurations(Output.of(replicationConfigurations));
-        }
-
-        /**
-         * @param replicationConfigurations Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
-         * Use the resource `aws.s3.BucketReplicationConfig` instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_s3_bucket_replication_configuration resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
-        public Builder replicationConfigurations(BucketV2ReplicationConfigurationArgs... replicationConfigurations) {
-            return replicationConfigurations(List.of(replicationConfigurations));
+        public Builder replicationConfiguration(BucketV2ReplicationConfigurationArgs replicationConfiguration) {
+            return replicationConfiguration(Output.of(replicationConfiguration));
         }
 
         /**
@@ -948,7 +918,7 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryptionConfigurations Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
+         * @param serverSideEncryptionConfiguration Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
          * The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
          * 
@@ -959,13 +929,13 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
-        public Builder serverSideEncryptionConfigurations(@Nullable Output<List<BucketV2ServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfigurations) {
-            $.serverSideEncryptionConfigurations = serverSideEncryptionConfigurations;
+        public Builder serverSideEncryptionConfiguration(@Nullable Output<BucketV2ServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration) {
+            $.serverSideEncryptionConfiguration = serverSideEncryptionConfiguration;
             return this;
         }
 
         /**
-         * @param serverSideEncryptionConfigurations Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
+         * @param serverSideEncryptionConfiguration Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
          * The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
          * 
@@ -976,24 +946,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
-        public Builder serverSideEncryptionConfigurations(List<BucketV2ServerSideEncryptionConfigurationArgs> serverSideEncryptionConfigurations) {
-            return serverSideEncryptionConfigurations(Output.of(serverSideEncryptionConfigurations));
-        }
-
-        /**
-         * @param serverSideEncryptionConfigurations Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
-         * The provider will only perform drift detection if a configuration value is provided.
-         * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_s3_bucket_server_side_encryption_configuration resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
-        public Builder serverSideEncryptionConfigurations(BucketV2ServerSideEncryptionConfigurationArgs... serverSideEncryptionConfigurations) {
-            return serverSideEncryptionConfigurations(List.of(serverSideEncryptionConfigurations));
+        public Builder serverSideEncryptionConfiguration(BucketV2ServerSideEncryptionConfigurationArgs serverSideEncryptionConfiguration) {
+            return serverSideEncryptionConfiguration(Output.of(serverSideEncryptionConfiguration));
         }
 
         /**
@@ -1022,7 +976,7 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionings Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
+         * @param versioning Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
          * 
          * @return builder
          * 
@@ -1031,13 +985,13 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
-        public Builder versionings(@Nullable Output<List<BucketV2VersioningArgs>> versionings) {
-            $.versionings = versionings;
+        public Builder versioning(@Nullable Output<BucketV2VersioningArgs> versioning) {
+            $.versioning = versioning;
             return this;
         }
 
         /**
-         * @param versionings Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
+         * @param versioning Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
          * 
          * @return builder
          * 
@@ -1046,26 +1000,12 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
-        public Builder versionings(List<BucketV2VersioningArgs> versionings) {
-            return versionings(Output.of(versionings));
+        public Builder versioning(BucketV2VersioningArgs versioning) {
+            return versioning(Output.of(versioning));
         }
 
         /**
-         * @param versionings Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_s3_bucket_versioning resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
-        public Builder versionings(BucketV2VersioningArgs... versionings) {
-            return versionings(List.of(versionings));
-        }
-
-        /**
-         * @param websites Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+         * @param website Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
          * 
          * @return builder
@@ -1075,13 +1015,13 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
-        public Builder websites(@Nullable Output<List<BucketV2WebsiteArgs>> websites) {
-            $.websites = websites;
+        public Builder website(@Nullable Output<BucketV2WebsiteArgs> website) {
+            $.website = website;
             return this;
         }
 
         /**
-         * @param websites Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+         * @param website Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
          * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
          * 
          * @return builder
@@ -1091,23 +1031,8 @@ public final class BucketV2Args extends com.pulumi.resources.ResourceArgs {
          * 
          */
         @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
-        public Builder websites(List<BucketV2WebsiteArgs> websites) {
-            return websites(Output.of(websites));
-        }
-
-        /**
-         * @param websites Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-         * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use the aws_s3_bucket_website_configuration resource instead
-         * 
-         */
-        @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
-        public Builder websites(BucketV2WebsiteArgs... websites) {
-            return websites(List.of(websites));
+        public Builder website(BucketV2WebsiteArgs website) {
+            return website(Output.of(website));
         }
 
         public BucketV2Args build() {

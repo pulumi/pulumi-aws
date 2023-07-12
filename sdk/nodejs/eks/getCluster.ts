@@ -119,7 +119,7 @@ export interface GetClusterResult {
     /**
      * Nested list containing VPC configuration for the cluster.
      */
-    readonly vpcConfig: outputs.eks.GetClusterVpcConfig;
+    readonly vpcConfigs: outputs.eks.GetClusterVpcConfig[];
 }
 /**
  * Retrieve information about an EKS Cluster.

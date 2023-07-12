@@ -30,7 +30,7 @@ public final class VirtualNodeSpec {
      * @return Listeners from which the virtual node is expected to receive inbound traffic.
      * 
      */
-    private @Nullable VirtualNodeSpecListener listener;
+    private @Nullable List<VirtualNodeSpecListener> listener;
     /**
      * @return Inbound and outbound access logging information for the virtual node.
      * 
@@ -61,8 +61,8 @@ public final class VirtualNodeSpec {
      * @return Listeners from which the virtual node is expected to receive inbound traffic.
      * 
      */
-    public Optional<VirtualNodeSpecListener> listener() {
-        return Optional.ofNullable(this.listener);
+    public List<VirtualNodeSpecListener> listener() {
+        return this.listener == null ? List.of() : this.listener;
     }
     /**
      * @return Inbound and outbound access logging information for the virtual node.
@@ -90,7 +90,7 @@ public final class VirtualNodeSpec {
     public static final class Builder {
         private @Nullable VirtualNodeSpecBackendDefaults backendDefaults;
         private @Nullable List<VirtualNodeSpecBackend> backends;
-        private @Nullable VirtualNodeSpecListener listener;
+        private @Nullable List<VirtualNodeSpecListener> listener;
         private @Nullable VirtualNodeSpecLogging logging;
         private @Nullable VirtualNodeSpecServiceDiscovery serviceDiscovery;
         public Builder() {}
@@ -117,9 +117,12 @@ public final class VirtualNodeSpec {
             return backends(List.of(backends));
         }
         @CustomType.Setter
-        public Builder listener(@Nullable VirtualNodeSpecListener listener) {
+        public Builder listener(@Nullable List<VirtualNodeSpecListener> listener) {
             this.listener = listener;
             return this;
+        }
+        public Builder listener(VirtualNodeSpecListener... listener) {
+            return listener(List.of(listener));
         }
         @CustomType.Setter
         public Builder logging(@Nullable VirtualNodeSpecLogging logging) {

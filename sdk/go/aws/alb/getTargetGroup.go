@@ -77,27 +77,27 @@ type LookupTargetGroupArgs struct {
 
 // A collection of values returned by getTargetGroup.
 type LookupTargetGroupResult struct {
-	Arn                   string                    `pulumi:"arn"`
-	ArnSuffix             string                    `pulumi:"arnSuffix"`
-	ConnectionTermination bool                      `pulumi:"connectionTermination"`
-	DeregistrationDelay   int                       `pulumi:"deregistrationDelay"`
-	HealthCheck           GetTargetGroupHealthCheck `pulumi:"healthCheck"`
+	Arn                   string                      `pulumi:"arn"`
+	ArnSuffix             string                      `pulumi:"arnSuffix"`
+	ConnectionTermination bool                        `pulumi:"connectionTermination"`
+	DeregistrationDelay   int                         `pulumi:"deregistrationDelay"`
+	HealthChecks          []GetTargetGroupHealthCheck `pulumi:"healthChecks"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                             string                   `pulumi:"id"`
-	LambdaMultiValueHeadersEnabled bool                     `pulumi:"lambdaMultiValueHeadersEnabled"`
-	LoadBalancingAlgorithmType     string                   `pulumi:"loadBalancingAlgorithmType"`
-	LoadBalancingCrossZoneEnabled  string                   `pulumi:"loadBalancingCrossZoneEnabled"`
-	Name                           string                   `pulumi:"name"`
-	Port                           int                      `pulumi:"port"`
-	PreserveClientIp               string                   `pulumi:"preserveClientIp"`
-	Protocol                       string                   `pulumi:"protocol"`
-	ProtocolVersion                string                   `pulumi:"protocolVersion"`
-	ProxyProtocolV2                bool                     `pulumi:"proxyProtocolV2"`
-	SlowStart                      int                      `pulumi:"slowStart"`
-	Stickiness                     GetTargetGroupStickiness `pulumi:"stickiness"`
-	Tags                           map[string]string        `pulumi:"tags"`
-	TargetType                     string                   `pulumi:"targetType"`
-	VpcId                          string                   `pulumi:"vpcId"`
+	Id                             string                     `pulumi:"id"`
+	LambdaMultiValueHeadersEnabled bool                       `pulumi:"lambdaMultiValueHeadersEnabled"`
+	LoadBalancingAlgorithmType     string                     `pulumi:"loadBalancingAlgorithmType"`
+	LoadBalancingCrossZoneEnabled  string                     `pulumi:"loadBalancingCrossZoneEnabled"`
+	Name                           string                     `pulumi:"name"`
+	Port                           int                        `pulumi:"port"`
+	PreserveClientIp               string                     `pulumi:"preserveClientIp"`
+	Protocol                       string                     `pulumi:"protocol"`
+	ProtocolVersion                string                     `pulumi:"protocolVersion"`
+	ProxyProtocolV2                bool                       `pulumi:"proxyProtocolV2"`
+	SlowStart                      int                        `pulumi:"slowStart"`
+	Stickinesses                   []GetTargetGroupStickiness `pulumi:"stickinesses"`
+	Tags                           map[string]string          `pulumi:"tags"`
+	TargetType                     string                     `pulumi:"targetType"`
+	VpcId                          string                     `pulumi:"vpcId"`
 }
 
 func LookupTargetGroupOutput(ctx *pulumi.Context, args LookupTargetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupTargetGroupResultOutput {
@@ -160,8 +160,8 @@ func (o LookupTargetGroupResultOutput) DeregistrationDelay() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) int { return v.DeregistrationDelay }).(pulumi.IntOutput)
 }
 
-func (o LookupTargetGroupResultOutput) HealthCheck() GetTargetGroupHealthCheckOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) GetTargetGroupHealthCheck { return v.HealthCheck }).(GetTargetGroupHealthCheckOutput)
+func (o LookupTargetGroupResultOutput) HealthChecks() GetTargetGroupHealthCheckArrayOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) []GetTargetGroupHealthCheck { return v.HealthChecks }).(GetTargetGroupHealthCheckArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -209,8 +209,8 @@ func (o LookupTargetGroupResultOutput) SlowStart() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) int { return v.SlowStart }).(pulumi.IntOutput)
 }
 
-func (o LookupTargetGroupResultOutput) Stickiness() GetTargetGroupStickinessOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) GetTargetGroupStickiness { return v.Stickiness }).(GetTargetGroupStickinessOutput)
+func (o LookupTargetGroupResultOutput) Stickinesses() GetTargetGroupStickinessArrayOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) []GetTargetGroupStickiness { return v.Stickinesses }).(GetTargetGroupStickinessArrayOutput)
 }
 
 func (o LookupTargetGroupResultOutput) Tags() pulumi.StringMapOutput {

@@ -22,7 +22,7 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_configs=None, description=None, environments=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualified_invoke_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_configs=None, version=None, vpc_configs=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -32,15 +32,15 @@ class GetFunctionResult:
         if code_signing_config_arn and not isinstance(code_signing_config_arn, str):
             raise TypeError("Expected argument 'code_signing_config_arn' to be a str")
         pulumi.set(__self__, "code_signing_config_arn", code_signing_config_arn)
-        if dead_letter_config and not isinstance(dead_letter_config, dict):
-            raise TypeError("Expected argument 'dead_letter_config' to be a dict")
-        pulumi.set(__self__, "dead_letter_config", dead_letter_config)
+        if dead_letter_configs and not isinstance(dead_letter_configs, list):
+            raise TypeError("Expected argument 'dead_letter_configs' to be a list")
+        pulumi.set(__self__, "dead_letter_configs", dead_letter_configs)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if environment and not isinstance(environment, dict):
-            raise TypeError("Expected argument 'environment' to be a dict")
-        pulumi.set(__self__, "environment", environment)
+        if environments and not isinstance(environments, list):
+            raise TypeError("Expected argument 'environments' to be a list")
+        pulumi.set(__self__, "environments", environments)
         if ephemeral_storages and not isinstance(ephemeral_storages, list):
             raise TypeError("Expected argument 'ephemeral_storages' to be a list")
         pulumi.set(__self__, "ephemeral_storages", ephemeral_storages)
@@ -110,15 +110,15 @@ class GetFunctionResult:
         if timeout and not isinstance(timeout, int):
             raise TypeError("Expected argument 'timeout' to be a int")
         pulumi.set(__self__, "timeout", timeout)
-        if tracing_config and not isinstance(tracing_config, dict):
-            raise TypeError("Expected argument 'tracing_config' to be a dict")
-        pulumi.set(__self__, "tracing_config", tracing_config)
+        if tracing_configs and not isinstance(tracing_configs, list):
+            raise TypeError("Expected argument 'tracing_configs' to be a list")
+        pulumi.set(__self__, "tracing_configs", tracing_configs)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
-        if vpc_config and not isinstance(vpc_config, dict):
-            raise TypeError("Expected argument 'vpc_config' to be a dict")
-        pulumi.set(__self__, "vpc_config", vpc_config)
+        if vpc_configs and not isinstance(vpc_configs, list):
+            raise TypeError("Expected argument 'vpc_configs' to be a list")
+        pulumi.set(__self__, "vpc_configs", vpc_configs)
 
     @property
     @pulumi.getter
@@ -145,12 +145,12 @@ class GetFunctionResult:
         return pulumi.get(self, "code_signing_config_arn")
 
     @property
-    @pulumi.getter(name="deadLetterConfig")
-    def dead_letter_config(self) -> 'outputs.GetFunctionDeadLetterConfigResult':
+    @pulumi.getter(name="deadLetterConfigs")
+    def dead_letter_configs(self) -> Sequence['outputs.GetFunctionDeadLetterConfigResult']:
         """
         Configure the function's *dead letter queue*.
         """
-        return pulumi.get(self, "dead_letter_config")
+        return pulumi.get(self, "dead_letter_configs")
 
     @property
     @pulumi.getter
@@ -162,11 +162,11 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def environment(self) -> 'outputs.GetFunctionEnvironmentResult':
+    def environments(self) -> Sequence['outputs.GetFunctionEnvironmentResult']:
         """
         Lambda environment's configuration settings.
         """
-        return pulumi.get(self, "environment")
+        return pulumi.get(self, "environments")
 
     @property
     @pulumi.getter(name="ephemeralStorages")
@@ -344,12 +344,12 @@ class GetFunctionResult:
         return pulumi.get(self, "timeout")
 
     @property
-    @pulumi.getter(name="tracingConfig")
-    def tracing_config(self) -> 'outputs.GetFunctionTracingConfigResult':
+    @pulumi.getter(name="tracingConfigs")
+    def tracing_configs(self) -> Sequence['outputs.GetFunctionTracingConfigResult']:
         """
         Tracing settings of the function.
         """
-        return pulumi.get(self, "tracing_config")
+        return pulumi.get(self, "tracing_configs")
 
     @property
     @pulumi.getter
@@ -360,12 +360,12 @@ class GetFunctionResult:
         return pulumi.get(self, "version")
 
     @property
-    @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> 'outputs.GetFunctionVpcConfigResult':
+    @pulumi.getter(name="vpcConfigs")
+    def vpc_configs(self) -> Sequence['outputs.GetFunctionVpcConfigResult']:
         """
         VPC configuration associated with your Lambda function.
         """
-        return pulumi.get(self, "vpc_config")
+        return pulumi.get(self, "vpc_configs")
 
 
 class AwaitableGetFunctionResult(GetFunctionResult):
@@ -377,9 +377,9 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             architectures=self.architectures,
             arn=self.arn,
             code_signing_config_arn=self.code_signing_config_arn,
-            dead_letter_config=self.dead_letter_config,
+            dead_letter_configs=self.dead_letter_configs,
             description=self.description,
-            environment=self.environment,
+            environments=self.environments,
             ephemeral_storages=self.ephemeral_storages,
             file_system_configs=self.file_system_configs,
             function_name=self.function_name,
@@ -403,9 +403,9 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             source_code_size=self.source_code_size,
             tags=self.tags,
             timeout=self.timeout,
-            tracing_config=self.tracing_config,
+            tracing_configs=self.tracing_configs,
             version=self.version,
-            vpc_config=self.vpc_config)
+            vpc_configs=self.vpc_configs)
 
 
 def get_function(function_name: Optional[str] = None,
@@ -441,9 +441,9 @@ def get_function(function_name: Optional[str] = None,
         architectures=pulumi.get(__ret__, 'architectures'),
         arn=pulumi.get(__ret__, 'arn'),
         code_signing_config_arn=pulumi.get(__ret__, 'code_signing_config_arn'),
-        dead_letter_config=pulumi.get(__ret__, 'dead_letter_config'),
+        dead_letter_configs=pulumi.get(__ret__, 'dead_letter_configs'),
         description=pulumi.get(__ret__, 'description'),
-        environment=pulumi.get(__ret__, 'environment'),
+        environments=pulumi.get(__ret__, 'environments'),
         ephemeral_storages=pulumi.get(__ret__, 'ephemeral_storages'),
         file_system_configs=pulumi.get(__ret__, 'file_system_configs'),
         function_name=pulumi.get(__ret__, 'function_name'),
@@ -467,9 +467,9 @@ def get_function(function_name: Optional[str] = None,
         source_code_size=pulumi.get(__ret__, 'source_code_size'),
         tags=pulumi.get(__ret__, 'tags'),
         timeout=pulumi.get(__ret__, 'timeout'),
-        tracing_config=pulumi.get(__ret__, 'tracing_config'),
+        tracing_configs=pulumi.get(__ret__, 'tracing_configs'),
         version=pulumi.get(__ret__, 'version'),
-        vpc_config=pulumi.get(__ret__, 'vpc_config'))
+        vpc_configs=pulumi.get(__ret__, 'vpc_configs'))
 
 
 @_utilities.lift_output_func(get_function)

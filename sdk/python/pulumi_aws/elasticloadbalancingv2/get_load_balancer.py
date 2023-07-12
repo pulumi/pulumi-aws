@@ -25,8 +25,8 @@ class GetLoadBalancerResult:
     A collection of values returned by getLoadBalancer.
     """
     def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
-        if access_logs and not isinstance(access_logs, dict):
-            raise TypeError("Expected argument 'access_logs' to be a dict")
+        if access_logs and not isinstance(access_logs, list):
+            raise TypeError("Expected argument 'access_logs' to be a list")
         pulumi.set(__self__, "access_logs", access_logs)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
@@ -109,7 +109,7 @@ class GetLoadBalancerResult:
 
     @property
     @pulumi.getter(name="accessLogs")
-    def access_logs(self) -> 'outputs.GetLoadBalancerAccessLogsResult':
+    def access_logs(self) -> Sequence['outputs.GetLoadBalancerAccessLogResult']:
         return pulumi.get(self, "access_logs")
 
     @property

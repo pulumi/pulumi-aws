@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.elasticloadbalancing.outputs;
 
-import com.pulumi.aws.elasticloadbalancing.outputs.GetLoadBalancerAccessLogs;
+import com.pulumi.aws.elasticloadbalancing.outputs.GetLoadBalancerAccessLog;
 import com.pulumi.aws.elasticloadbalancing.outputs.GetLoadBalancerHealthCheck;
 import com.pulumi.aws.elasticloadbalancing.outputs.GetLoadBalancerListener;
 import com.pulumi.core.annotations.CustomType;
@@ -16,7 +16,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLoadBalancerResult {
-    private GetLoadBalancerAccessLogs accessLogs;
+    private List<GetLoadBalancerAccessLog> accessLogs;
     private String arn;
     private List<String> availabilityZones;
     private Boolean connectionDraining;
@@ -24,7 +24,7 @@ public final class GetLoadBalancerResult {
     private Boolean crossZoneLoadBalancing;
     private String desyncMitigationMode;
     private String dnsName;
-    private GetLoadBalancerHealthCheck healthCheck;
+    private List<GetLoadBalancerHealthCheck> healthChecks;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -43,7 +43,7 @@ public final class GetLoadBalancerResult {
     private String zoneId;
 
     private GetLoadBalancerResult() {}
-    public GetLoadBalancerAccessLogs accessLogs() {
+    public List<GetLoadBalancerAccessLog> accessLogs() {
         return this.accessLogs;
     }
     public String arn() {
@@ -67,8 +67,8 @@ public final class GetLoadBalancerResult {
     public String dnsName() {
         return this.dnsName;
     }
-    public GetLoadBalancerHealthCheck healthCheck() {
-        return this.healthCheck;
+    public List<GetLoadBalancerHealthCheck> healthChecks() {
+        return this.healthChecks;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -120,7 +120,7 @@ public final class GetLoadBalancerResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private GetLoadBalancerAccessLogs accessLogs;
+        private List<GetLoadBalancerAccessLog> accessLogs;
         private String arn;
         private List<String> availabilityZones;
         private Boolean connectionDraining;
@@ -128,7 +128,7 @@ public final class GetLoadBalancerResult {
         private Boolean crossZoneLoadBalancing;
         private String desyncMitigationMode;
         private String dnsName;
-        private GetLoadBalancerHealthCheck healthCheck;
+        private List<GetLoadBalancerHealthCheck> healthChecks;
         private String id;
         private Integer idleTimeout;
         private List<String> instances;
@@ -152,7 +152,7 @@ public final class GetLoadBalancerResult {
     	      this.crossZoneLoadBalancing = defaults.crossZoneLoadBalancing;
     	      this.desyncMitigationMode = defaults.desyncMitigationMode;
     	      this.dnsName = defaults.dnsName;
-    	      this.healthCheck = defaults.healthCheck;
+    	      this.healthChecks = defaults.healthChecks;
     	      this.id = defaults.id;
     	      this.idleTimeout = defaults.idleTimeout;
     	      this.instances = defaults.instances;
@@ -168,9 +168,12 @@ public final class GetLoadBalancerResult {
         }
 
         @CustomType.Setter
-        public Builder accessLogs(GetLoadBalancerAccessLogs accessLogs) {
+        public Builder accessLogs(List<GetLoadBalancerAccessLog> accessLogs) {
             this.accessLogs = Objects.requireNonNull(accessLogs);
             return this;
+        }
+        public Builder accessLogs(GetLoadBalancerAccessLog... accessLogs) {
+            return accessLogs(List.of(accessLogs));
         }
         @CustomType.Setter
         public Builder arn(String arn) {
@@ -211,9 +214,12 @@ public final class GetLoadBalancerResult {
             return this;
         }
         @CustomType.Setter
-        public Builder healthCheck(GetLoadBalancerHealthCheck healthCheck) {
-            this.healthCheck = Objects.requireNonNull(healthCheck);
+        public Builder healthChecks(List<GetLoadBalancerHealthCheck> healthChecks) {
+            this.healthChecks = Objects.requireNonNull(healthChecks);
             return this;
+        }
+        public Builder healthChecks(GetLoadBalancerHealthCheck... healthChecks) {
+            return healthChecks(List.of(healthChecks));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -297,7 +303,7 @@ public final class GetLoadBalancerResult {
             o.crossZoneLoadBalancing = crossZoneLoadBalancing;
             o.desyncMitigationMode = desyncMitigationMode;
             o.dnsName = dnsName;
-            o.healthCheck = healthCheck;
+            o.healthChecks = healthChecks;
             o.id = id;
             o.idleTimeout = idleTimeout;
             o.instances = instances;

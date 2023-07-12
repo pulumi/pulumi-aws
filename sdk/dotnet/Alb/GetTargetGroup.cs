@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Alb
         public readonly string ArnSuffix;
         public readonly bool ConnectionTermination;
         public readonly int DeregistrationDelay;
-        public readonly Outputs.GetTargetGroupHealthCheckResult HealthCheck;
+        public readonly ImmutableArray<Outputs.GetTargetGroupHealthCheckResult> HealthChecks;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Alb
         public readonly string ProtocolVersion;
         public readonly bool ProxyProtocolV2;
         public readonly int SlowStart;
-        public readonly Outputs.GetTargetGroupStickinessResult Stickiness;
+        public readonly ImmutableArray<Outputs.GetTargetGroupStickinessResult> Stickinesses;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string TargetType;
         public readonly string VpcId;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Alb
 
             int deregistrationDelay,
 
-            Outputs.GetTargetGroupHealthCheckResult healthCheck,
+            ImmutableArray<Outputs.GetTargetGroupHealthCheckResult> healthChecks,
 
             string id,
 
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Alb
 
             int slowStart,
 
-            Outputs.GetTargetGroupStickinessResult stickiness,
+            ImmutableArray<Outputs.GetTargetGroupStickinessResult> stickinesses,
 
             ImmutableDictionary<string, string> tags,
 
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Alb
             ArnSuffix = arnSuffix;
             ConnectionTermination = connectionTermination;
             DeregistrationDelay = deregistrationDelay;
-            HealthCheck = healthCheck;
+            HealthChecks = healthChecks;
             Id = id;
             LambdaMultiValueHeadersEnabled = lambdaMultiValueHeadersEnabled;
             LoadBalancingAlgorithmType = loadBalancingAlgorithmType;
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Alb
             ProtocolVersion = protocolVersion;
             ProxyProtocolV2 = proxyProtocolV2;
             SlowStart = slowStart;
-            Stickiness = stickiness;
+            Stickinesses = stickinesses;
             Tags = tags;
             TargetType = targetType;
             VpcId = vpcId;

@@ -184,7 +184,7 @@ class _ClusterState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]] = None,
-                 certificate_authority: Optional[pulumi.Input['ClusterCertificateAuthorityArgs']] = None,
+                 certificate_authority: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -205,7 +205,7 @@ class _ClusterState:
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] arn: ARN of the cluster.
-        :param pulumi.Input['ClusterCertificateAuthorityArgs'] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -290,14 +290,14 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="certificateAuthority")
-    def certificate_authority(self) -> Optional[pulumi.Input['ClusterCertificateAuthorityArgs']]:
+    def certificate_authority(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]]:
         """
         Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         """
         return pulumi.get(self, "certificate_authority")
 
     @certificate_authority.setter
-    def certificate_authority(self, value: Optional[pulumi.Input['ClusterCertificateAuthorityArgs']]):
+    def certificate_authority(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]]):
         pulumi.set(self, "certificate_authority", value)
 
     @property
@@ -544,7 +544,7 @@ class Cluster(pulumi.CustomResource):
                     aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
                 ]))
         pulumi.export("endpoint", example.endpoint)
-        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
+        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
         ```
         ### Example IAM Role for EKS Cluster
 
@@ -667,7 +667,7 @@ class Cluster(pulumi.CustomResource):
                     aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
                 ]))
         pulumi.export("endpoint", example.endpoint)
-        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
+        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authorities[0].data)
         ```
         ### Example IAM Role for EKS Cluster
 
@@ -817,7 +817,7 @@ class Cluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']]]]] = None,
-            certificate_authority: Optional[pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']]] = None,
+            certificate_authority: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']]]]] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -843,7 +843,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']]]] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -905,7 +905,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certificateAuthority")
-    def certificate_authority(self) -> pulumi.Output['outputs.ClusterCertificateAuthority']:
+    def certificate_authority(self) -> pulumi.Output[Sequence['outputs.ClusterCertificateAuthority']]:
         """
         Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         """

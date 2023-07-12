@@ -69,15 +69,15 @@ type LookupLoadBalancerArgs struct {
 
 // A collection of values returned by getLoadBalancer.
 type LookupLoadBalancerResult struct {
-	AccessLogs                GetLoadBalancerAccessLogs  `pulumi:"accessLogs"`
-	Arn                       string                     `pulumi:"arn"`
-	AvailabilityZones         []string                   `pulumi:"availabilityZones"`
-	ConnectionDraining        bool                       `pulumi:"connectionDraining"`
-	ConnectionDrainingTimeout int                        `pulumi:"connectionDrainingTimeout"`
-	CrossZoneLoadBalancing    bool                       `pulumi:"crossZoneLoadBalancing"`
-	DesyncMitigationMode      string                     `pulumi:"desyncMitigationMode"`
-	DnsName                   string                     `pulumi:"dnsName"`
-	HealthCheck               GetLoadBalancerHealthCheck `pulumi:"healthCheck"`
+	AccessLogs                []GetLoadBalancerAccessLog   `pulumi:"accessLogs"`
+	Arn                       string                       `pulumi:"arn"`
+	AvailabilityZones         []string                     `pulumi:"availabilityZones"`
+	ConnectionDraining        bool                         `pulumi:"connectionDraining"`
+	ConnectionDrainingTimeout int                          `pulumi:"connectionDrainingTimeout"`
+	CrossZoneLoadBalancing    bool                         `pulumi:"crossZoneLoadBalancing"`
+	DesyncMitigationMode      string                       `pulumi:"desyncMitigationMode"`
+	DnsName                   string                       `pulumi:"dnsName"`
+	HealthChecks              []GetLoadBalancerHealthCheck `pulumi:"healthChecks"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                    string                    `pulumi:"id"`
 	IdleTimeout           int                       `pulumi:"idleTimeout"`
@@ -132,8 +132,8 @@ func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutputWithCont
 	return o
 }
 
-func (o LookupLoadBalancerResultOutput) AccessLogs() GetLoadBalancerAccessLogsOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) GetLoadBalancerAccessLogs { return v.AccessLogs }).(GetLoadBalancerAccessLogsOutput)
+func (o LookupLoadBalancerResultOutput) AccessLogs() GetLoadBalancerAccessLogArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []GetLoadBalancerAccessLog { return v.AccessLogs }).(GetLoadBalancerAccessLogArrayOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) Arn() pulumi.StringOutput {
@@ -164,8 +164,8 @@ func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
-func (o LookupLoadBalancerResultOutput) HealthCheck() GetLoadBalancerHealthCheckOutput {
-	return o.ApplyT(func(v LookupLoadBalancerResult) GetLoadBalancerHealthCheck { return v.HealthCheck }).(GetLoadBalancerHealthCheckOutput)
+func (o LookupLoadBalancerResultOutput) HealthChecks() GetLoadBalancerHealthCheckArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []GetLoadBalancerHealthCheck { return v.HealthChecks }).(GetLoadBalancerHealthCheckArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -30,11 +30,17 @@ namespace Pulumi.Aws.AppMesh.Inputs
             set => _backends = value;
         }
 
+        [Input("listener")]
+        private InputList<Inputs.VirtualNodeSpecListenerGetArgs>? _listener;
+
         /// <summary>
         /// Listeners from which the virtual node is expected to receive inbound traffic.
         /// </summary>
-        [Input("listener")]
-        public Input<Inputs.VirtualNodeSpecListenerGetArgs>? Listener { get; set; }
+        public InputList<Inputs.VirtualNodeSpecListenerGetArgs> Listener
+        {
+            get => _listener ?? (_listener = new InputList<Inputs.VirtualNodeSpecListenerGetArgs>());
+            set => _listener = value;
+        }
 
         /// <summary>
         /// Inbound and outbound access logging information for the virtual node.

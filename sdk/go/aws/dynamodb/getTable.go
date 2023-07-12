@@ -66,7 +66,7 @@ type LookupTableResult struct {
 	Id                    string                        `pulumi:"id"`
 	LocalSecondaryIndexes []GetTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	Name                  string                        `pulumi:"name"`
-	PointInTimeRecovery   GetTablePointInTimeRecovery   `pulumi:"pointInTimeRecovery"`
+	PointInTimeRecoveries []GetTablePointInTimeRecovery `pulumi:"pointInTimeRecoveries"`
 	RangeKey              string                        `pulumi:"rangeKey"`
 	ReadCapacity          int                           `pulumi:"readCapacity"`
 	Replicas              []GetTableReplicaType         `pulumi:"replicas"`
@@ -77,7 +77,7 @@ type LookupTableResult struct {
 	StreamViewType        string                        `pulumi:"streamViewType"`
 	TableClass            string                        `pulumi:"tableClass"`
 	Tags                  map[string]string             `pulumi:"tags"`
-	Ttl                   GetTableTtl                   `pulumi:"ttl"`
+	Ttls                  []GetTableTtl                 `pulumi:"ttls"`
 	WriteCapacity         int                           `pulumi:"writeCapacity"`
 }
 
@@ -158,8 +158,8 @@ func (o LookupTableResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupTableResultOutput) PointInTimeRecovery() GetTablePointInTimeRecoveryOutput {
-	return o.ApplyT(func(v LookupTableResult) GetTablePointInTimeRecovery { return v.PointInTimeRecovery }).(GetTablePointInTimeRecoveryOutput)
+func (o LookupTableResultOutput) PointInTimeRecoveries() GetTablePointInTimeRecoveryArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []GetTablePointInTimeRecovery { return v.PointInTimeRecoveries }).(GetTablePointInTimeRecoveryArrayOutput)
 }
 
 func (o LookupTableResultOutput) RangeKey() pulumi.StringOutput {
@@ -202,8 +202,8 @@ func (o LookupTableResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupTableResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-func (o LookupTableResultOutput) Ttl() GetTableTtlOutput {
-	return o.ApplyT(func(v LookupTableResult) GetTableTtl { return v.Ttl }).(GetTableTtlOutput)
+func (o LookupTableResultOutput) Ttls() GetTableTtlArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []GetTableTtl { return v.Ttls }).(GetTableTtlArrayOutput)
 }
 
 func (o LookupTableResultOutput) WriteCapacity() pulumi.IntOutput {

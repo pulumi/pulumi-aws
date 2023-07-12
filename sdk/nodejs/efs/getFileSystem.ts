@@ -94,7 +94,7 @@ export interface GetFileSystemResult {
     /**
      * File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
      */
-    readonly lifecyclePolicy: outputs.efs.GetFileSystemLifecyclePolicy;
+    readonly lifecyclePolicies: outputs.efs.GetFileSystemLifecyclePolicy[];
     /**
      * File system performance mode.
      */

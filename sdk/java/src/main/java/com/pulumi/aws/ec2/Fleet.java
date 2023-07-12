@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
- *             .launchTemplateConfig(FleetLaunchTemplateConfigArgs.builder()
+ *             .launchTemplateConfigs(FleetLaunchTemplateConfigArgs.builder()
  *                 .launchTemplateSpecification(FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs.builder()
  *                     .launchTemplateId(aws_launch_template.example().id())
  *                     .version(aws_launch_template.example().latest_version())
@@ -181,15 +181,15 @@ public class Fleet extends com.pulumi.resources.CustomResource {
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      * 
      */
-    @Export(name="launchTemplateConfig", refs={FleetLaunchTemplateConfig.class}, tree="[0]")
-    private Output<FleetLaunchTemplateConfig> launchTemplateConfig;
+    @Export(name="launchTemplateConfigs", refs={List.class,FleetLaunchTemplateConfig.class}, tree="[0,1]")
+    private Output<List<FleetLaunchTemplateConfig>> launchTemplateConfigs;
 
     /**
      * @return Nested argument containing EC2 Launch Template configurations. Defined below.
      * 
      */
-    public Output<FleetLaunchTemplateConfig> launchTemplateConfig() {
-        return this.launchTemplateConfig;
+    public Output<List<FleetLaunchTemplateConfig>> launchTemplateConfigs() {
+        return this.launchTemplateConfigs;
     }
     /**
      * Nested argument containing On-Demand configurations. Defined below.

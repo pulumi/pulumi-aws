@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     });
  *     return {
  *         endpoint: example.endpoint,
- *         "kubeconfig-certificate-authority-data": example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data),
+ *         "kubeconfig-certificate-authority-data": example.certificateAuthorities.apply(certificateAuthorities => certificateAuthorities[0].data),
  *     };
  * }
  * ```
@@ -156,7 +156,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority>;
+    public /*out*/ readonly certificateAuthority!: pulumi.Output<outputs.eks.ClusterCertificateAuthority[]>;
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */
@@ -305,7 +305,7 @@ export interface ClusterState {
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority>;
+    certificateAuthority?: pulumi.Input<pulumi.Input<inputs.eks.ClusterCertificateAuthority>[]>;
     /**
      * The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
      */

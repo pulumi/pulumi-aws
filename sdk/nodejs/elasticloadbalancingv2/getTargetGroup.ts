@@ -72,7 +72,7 @@ export interface GetTargetGroupResult {
     readonly arnSuffix: string;
     readonly connectionTermination: boolean;
     readonly deregistrationDelay: number;
-    readonly healthCheck: outputs.elasticloadbalancingv2.GetTargetGroupHealthCheck;
+    readonly healthChecks: outputs.elasticloadbalancingv2.GetTargetGroupHealthCheck[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -87,7 +87,7 @@ export interface GetTargetGroupResult {
     readonly protocolVersion: string;
     readonly proxyProtocolV2: boolean;
     readonly slowStart: number;
-    readonly stickiness: outputs.elasticloadbalancingv2.GetTargetGroupStickiness;
+    readonly stickinesses: outputs.elasticloadbalancingv2.GetTargetGroupStickiness[];
     readonly tags: {[key: string]: string};
     readonly targetType: string;
     readonly vpcId: string;

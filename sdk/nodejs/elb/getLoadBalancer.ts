@@ -53,7 +53,7 @@ export interface GetLoadBalancerArgs {
  * A collection of values returned by getLoadBalancer.
  */
 export interface GetLoadBalancerResult {
-    readonly accessLogs: outputs.elb.GetLoadBalancerAccessLogs;
+    readonly accessLogs: outputs.elb.GetLoadBalancerAccessLog[];
     readonly arn: string;
     readonly availabilityZones: string[];
     readonly connectionDraining: boolean;
@@ -61,7 +61,7 @@ export interface GetLoadBalancerResult {
     readonly crossZoneLoadBalancing: boolean;
     readonly desyncMitigationMode: string;
     readonly dnsName: string;
-    readonly healthCheck: outputs.elb.GetLoadBalancerHealthCheck;
+    readonly healthChecks: outputs.elb.GetLoadBalancerHealthCheck[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */

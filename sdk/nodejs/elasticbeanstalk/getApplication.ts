@@ -45,7 +45,7 @@ export interface GetApplicationArgs {
  * A collection of values returned by getApplication.
  */
 export interface GetApplicationResult {
-    readonly appversionLifecycle: outputs.elasticbeanstalk.GetApplicationAppversionLifecycle;
+    readonly appversionLifecycles: outputs.elasticbeanstalk.GetApplicationAppversionLifecycle[];
     /**
      * ARN of the application.
      */

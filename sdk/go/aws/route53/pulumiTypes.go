@@ -51,29 +51,45 @@ func (i RecordAliasArgs) ToRecordAliasOutputWithContext(ctx context.Context) Rec
 	return pulumi.ToOutputWithContext(ctx, i).(RecordAliasOutput)
 }
 
-// RecordAliasArrayInput is an input type that accepts RecordAliasArray and RecordAliasArrayOutput values.
-// You can construct a concrete instance of `RecordAliasArrayInput` via:
+func (i RecordAliasArgs) ToRecordAliasPtrOutput() RecordAliasPtrOutput {
+	return i.ToRecordAliasPtrOutputWithContext(context.Background())
+}
+
+func (i RecordAliasArgs) ToRecordAliasPtrOutputWithContext(ctx context.Context) RecordAliasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordAliasOutput).ToRecordAliasPtrOutputWithContext(ctx)
+}
+
+// RecordAliasPtrInput is an input type that accepts RecordAliasArgs, RecordAliasPtr and RecordAliasPtrOutput values.
+// You can construct a concrete instance of `RecordAliasPtrInput` via:
 //
-//	RecordAliasArray{ RecordAliasArgs{...} }
-type RecordAliasArrayInput interface {
+//	        RecordAliasArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordAliasPtrInput interface {
 	pulumi.Input
 
-	ToRecordAliasArrayOutput() RecordAliasArrayOutput
-	ToRecordAliasArrayOutputWithContext(context.Context) RecordAliasArrayOutput
+	ToRecordAliasPtrOutput() RecordAliasPtrOutput
+	ToRecordAliasPtrOutputWithContext(context.Context) RecordAliasPtrOutput
 }
 
-type RecordAliasArray []RecordAliasInput
+type recordAliasPtrType RecordAliasArgs
 
-func (RecordAliasArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecordAlias)(nil)).Elem()
+func RecordAliasPtr(v *RecordAliasArgs) RecordAliasPtrInput {
+	return (*recordAliasPtrType)(v)
 }
 
-func (i RecordAliasArray) ToRecordAliasArrayOutput() RecordAliasArrayOutput {
-	return i.ToRecordAliasArrayOutputWithContext(context.Background())
+func (*recordAliasPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordAlias)(nil)).Elem()
 }
 
-func (i RecordAliasArray) ToRecordAliasArrayOutputWithContext(ctx context.Context) RecordAliasArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordAliasArrayOutput)
+func (i *recordAliasPtrType) ToRecordAliasPtrOutput() RecordAliasPtrOutput {
+	return i.ToRecordAliasPtrOutputWithContext(context.Background())
+}
+
+func (i *recordAliasPtrType) ToRecordAliasPtrOutputWithContext(ctx context.Context) RecordAliasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordAliasPtrOutput)
 }
 
 type RecordAliasOutput struct{ *pulumi.OutputState }
@@ -88,6 +104,16 @@ func (o RecordAliasOutput) ToRecordAliasOutput() RecordAliasOutput {
 
 func (o RecordAliasOutput) ToRecordAliasOutputWithContext(ctx context.Context) RecordAliasOutput {
 	return o
+}
+
+func (o RecordAliasOutput) ToRecordAliasPtrOutput() RecordAliasPtrOutput {
+	return o.ToRecordAliasPtrOutputWithContext(context.Background())
+}
+
+func (o RecordAliasOutput) ToRecordAliasPtrOutputWithContext(ctx context.Context) RecordAliasPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordAlias) *RecordAlias {
+		return &v
+	}).(RecordAliasPtrOutput)
 }
 
 // Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
@@ -105,24 +131,58 @@ func (o RecordAliasOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordAlias) string { return v.ZoneId }).(pulumi.StringOutput)
 }
 
-type RecordAliasArrayOutput struct{ *pulumi.OutputState }
+type RecordAliasPtrOutput struct{ *pulumi.OutputState }
 
-func (RecordAliasArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecordAlias)(nil)).Elem()
+func (RecordAliasPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordAlias)(nil)).Elem()
 }
 
-func (o RecordAliasArrayOutput) ToRecordAliasArrayOutput() RecordAliasArrayOutput {
+func (o RecordAliasPtrOutput) ToRecordAliasPtrOutput() RecordAliasPtrOutput {
 	return o
 }
 
-func (o RecordAliasArrayOutput) ToRecordAliasArrayOutputWithContext(ctx context.Context) RecordAliasArrayOutput {
+func (o RecordAliasPtrOutput) ToRecordAliasPtrOutputWithContext(ctx context.Context) RecordAliasPtrOutput {
 	return o
 }
 
-func (o RecordAliasArrayOutput) Index(i pulumi.IntInput) RecordAliasOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordAlias {
-		return vs[0].([]RecordAlias)[vs[1].(int)]
+func (o RecordAliasPtrOutput) Elem() RecordAliasOutput {
+	return o.ApplyT(func(v *RecordAlias) RecordAlias {
+		if v != nil {
+			return *v
+		}
+		var ret RecordAlias
+		return ret
 	}).(RecordAliasOutput)
+}
+
+// Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
+func (o RecordAliasPtrOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RecordAlias) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.EvaluateTargetHealth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+func (o RecordAliasPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordAlias) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+func (o RecordAliasPtrOutput) ZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordAlias) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ZoneId
+	}).(pulumi.StringPtrOutput)
 }
 
 type RecordCidrRoutingPolicy struct {
@@ -314,29 +374,45 @@ func (i RecordFailoverRoutingPolicyArgs) ToRecordFailoverRoutingPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RecordFailoverRoutingPolicyOutput)
 }
 
-// RecordFailoverRoutingPolicyArrayInput is an input type that accepts RecordFailoverRoutingPolicyArray and RecordFailoverRoutingPolicyArrayOutput values.
-// You can construct a concrete instance of `RecordFailoverRoutingPolicyArrayInput` via:
+func (i RecordFailoverRoutingPolicyArgs) ToRecordFailoverRoutingPolicyPtrOutput() RecordFailoverRoutingPolicyPtrOutput {
+	return i.ToRecordFailoverRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RecordFailoverRoutingPolicyArgs) ToRecordFailoverRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordFailoverRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordFailoverRoutingPolicyOutput).ToRecordFailoverRoutingPolicyPtrOutputWithContext(ctx)
+}
+
+// RecordFailoverRoutingPolicyPtrInput is an input type that accepts RecordFailoverRoutingPolicyArgs, RecordFailoverRoutingPolicyPtr and RecordFailoverRoutingPolicyPtrOutput values.
+// You can construct a concrete instance of `RecordFailoverRoutingPolicyPtrInput` via:
 //
-//	RecordFailoverRoutingPolicyArray{ RecordFailoverRoutingPolicyArgs{...} }
-type RecordFailoverRoutingPolicyArrayInput interface {
+//	        RecordFailoverRoutingPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordFailoverRoutingPolicyPtrInput interface {
 	pulumi.Input
 
-	ToRecordFailoverRoutingPolicyArrayOutput() RecordFailoverRoutingPolicyArrayOutput
-	ToRecordFailoverRoutingPolicyArrayOutputWithContext(context.Context) RecordFailoverRoutingPolicyArrayOutput
+	ToRecordFailoverRoutingPolicyPtrOutput() RecordFailoverRoutingPolicyPtrOutput
+	ToRecordFailoverRoutingPolicyPtrOutputWithContext(context.Context) RecordFailoverRoutingPolicyPtrOutput
 }
 
-type RecordFailoverRoutingPolicyArray []RecordFailoverRoutingPolicyInput
+type recordFailoverRoutingPolicyPtrType RecordFailoverRoutingPolicyArgs
 
-func (RecordFailoverRoutingPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecordFailoverRoutingPolicy)(nil)).Elem()
+func RecordFailoverRoutingPolicyPtr(v *RecordFailoverRoutingPolicyArgs) RecordFailoverRoutingPolicyPtrInput {
+	return (*recordFailoverRoutingPolicyPtrType)(v)
 }
 
-func (i RecordFailoverRoutingPolicyArray) ToRecordFailoverRoutingPolicyArrayOutput() RecordFailoverRoutingPolicyArrayOutput {
-	return i.ToRecordFailoverRoutingPolicyArrayOutputWithContext(context.Background())
+func (*recordFailoverRoutingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordFailoverRoutingPolicy)(nil)).Elem()
 }
 
-func (i RecordFailoverRoutingPolicyArray) ToRecordFailoverRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordFailoverRoutingPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordFailoverRoutingPolicyArrayOutput)
+func (i *recordFailoverRoutingPolicyPtrType) ToRecordFailoverRoutingPolicyPtrOutput() RecordFailoverRoutingPolicyPtrOutput {
+	return i.ToRecordFailoverRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *recordFailoverRoutingPolicyPtrType) ToRecordFailoverRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordFailoverRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordFailoverRoutingPolicyPtrOutput)
 }
 
 type RecordFailoverRoutingPolicyOutput struct{ *pulumi.OutputState }
@@ -353,29 +429,53 @@ func (o RecordFailoverRoutingPolicyOutput) ToRecordFailoverRoutingPolicyOutputWi
 	return o
 }
 
+func (o RecordFailoverRoutingPolicyOutput) ToRecordFailoverRoutingPolicyPtrOutput() RecordFailoverRoutingPolicyPtrOutput {
+	return o.ToRecordFailoverRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RecordFailoverRoutingPolicyOutput) ToRecordFailoverRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordFailoverRoutingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordFailoverRoutingPolicy) *RecordFailoverRoutingPolicy {
+		return &v
+	}).(RecordFailoverRoutingPolicyPtrOutput)
+}
+
 // `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
 func (o RecordFailoverRoutingPolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordFailoverRoutingPolicy) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type RecordFailoverRoutingPolicyArrayOutput struct{ *pulumi.OutputState }
+type RecordFailoverRoutingPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (RecordFailoverRoutingPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecordFailoverRoutingPolicy)(nil)).Elem()
+func (RecordFailoverRoutingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordFailoverRoutingPolicy)(nil)).Elem()
 }
 
-func (o RecordFailoverRoutingPolicyArrayOutput) ToRecordFailoverRoutingPolicyArrayOutput() RecordFailoverRoutingPolicyArrayOutput {
+func (o RecordFailoverRoutingPolicyPtrOutput) ToRecordFailoverRoutingPolicyPtrOutput() RecordFailoverRoutingPolicyPtrOutput {
 	return o
 }
 
-func (o RecordFailoverRoutingPolicyArrayOutput) ToRecordFailoverRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordFailoverRoutingPolicyArrayOutput {
+func (o RecordFailoverRoutingPolicyPtrOutput) ToRecordFailoverRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordFailoverRoutingPolicyPtrOutput {
 	return o
 }
 
-func (o RecordFailoverRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordFailoverRoutingPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordFailoverRoutingPolicy {
-		return vs[0].([]RecordFailoverRoutingPolicy)[vs[1].(int)]
+func (o RecordFailoverRoutingPolicyPtrOutput) Elem() RecordFailoverRoutingPolicyOutput {
+	return o.ApplyT(func(v *RecordFailoverRoutingPolicy) RecordFailoverRoutingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RecordFailoverRoutingPolicy
+		return ret
 	}).(RecordFailoverRoutingPolicyOutput)
+}
+
+// `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+func (o RecordFailoverRoutingPolicyPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordFailoverRoutingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
 }
 
 type RecordGeolocationRoutingPolicy struct {
@@ -419,29 +519,45 @@ func (i RecordGeolocationRoutingPolicyArgs) ToRecordGeolocationRoutingPolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RecordGeolocationRoutingPolicyOutput)
 }
 
-// RecordGeolocationRoutingPolicyArrayInput is an input type that accepts RecordGeolocationRoutingPolicyArray and RecordGeolocationRoutingPolicyArrayOutput values.
-// You can construct a concrete instance of `RecordGeolocationRoutingPolicyArrayInput` via:
+func (i RecordGeolocationRoutingPolicyArgs) ToRecordGeolocationRoutingPolicyPtrOutput() RecordGeolocationRoutingPolicyPtrOutput {
+	return i.ToRecordGeolocationRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RecordGeolocationRoutingPolicyArgs) ToRecordGeolocationRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordGeolocationRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordGeolocationRoutingPolicyOutput).ToRecordGeolocationRoutingPolicyPtrOutputWithContext(ctx)
+}
+
+// RecordGeolocationRoutingPolicyPtrInput is an input type that accepts RecordGeolocationRoutingPolicyArgs, RecordGeolocationRoutingPolicyPtr and RecordGeolocationRoutingPolicyPtrOutput values.
+// You can construct a concrete instance of `RecordGeolocationRoutingPolicyPtrInput` via:
 //
-//	RecordGeolocationRoutingPolicyArray{ RecordGeolocationRoutingPolicyArgs{...} }
-type RecordGeolocationRoutingPolicyArrayInput interface {
+//	        RecordGeolocationRoutingPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordGeolocationRoutingPolicyPtrInput interface {
 	pulumi.Input
 
-	ToRecordGeolocationRoutingPolicyArrayOutput() RecordGeolocationRoutingPolicyArrayOutput
-	ToRecordGeolocationRoutingPolicyArrayOutputWithContext(context.Context) RecordGeolocationRoutingPolicyArrayOutput
+	ToRecordGeolocationRoutingPolicyPtrOutput() RecordGeolocationRoutingPolicyPtrOutput
+	ToRecordGeolocationRoutingPolicyPtrOutputWithContext(context.Context) RecordGeolocationRoutingPolicyPtrOutput
 }
 
-type RecordGeolocationRoutingPolicyArray []RecordGeolocationRoutingPolicyInput
+type recordGeolocationRoutingPolicyPtrType RecordGeolocationRoutingPolicyArgs
 
-func (RecordGeolocationRoutingPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecordGeolocationRoutingPolicy)(nil)).Elem()
+func RecordGeolocationRoutingPolicyPtr(v *RecordGeolocationRoutingPolicyArgs) RecordGeolocationRoutingPolicyPtrInput {
+	return (*recordGeolocationRoutingPolicyPtrType)(v)
 }
 
-func (i RecordGeolocationRoutingPolicyArray) ToRecordGeolocationRoutingPolicyArrayOutput() RecordGeolocationRoutingPolicyArrayOutput {
-	return i.ToRecordGeolocationRoutingPolicyArrayOutputWithContext(context.Background())
+func (*recordGeolocationRoutingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordGeolocationRoutingPolicy)(nil)).Elem()
 }
 
-func (i RecordGeolocationRoutingPolicyArray) ToRecordGeolocationRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordGeolocationRoutingPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordGeolocationRoutingPolicyArrayOutput)
+func (i *recordGeolocationRoutingPolicyPtrType) ToRecordGeolocationRoutingPolicyPtrOutput() RecordGeolocationRoutingPolicyPtrOutput {
+	return i.ToRecordGeolocationRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *recordGeolocationRoutingPolicyPtrType) ToRecordGeolocationRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordGeolocationRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordGeolocationRoutingPolicyPtrOutput)
 }
 
 type RecordGeolocationRoutingPolicyOutput struct{ *pulumi.OutputState }
@@ -456,6 +572,16 @@ func (o RecordGeolocationRoutingPolicyOutput) ToRecordGeolocationRoutingPolicyOu
 
 func (o RecordGeolocationRoutingPolicyOutput) ToRecordGeolocationRoutingPolicyOutputWithContext(ctx context.Context) RecordGeolocationRoutingPolicyOutput {
 	return o
+}
+
+func (o RecordGeolocationRoutingPolicyOutput) ToRecordGeolocationRoutingPolicyPtrOutput() RecordGeolocationRoutingPolicyPtrOutput {
+	return o.ToRecordGeolocationRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RecordGeolocationRoutingPolicyOutput) ToRecordGeolocationRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordGeolocationRoutingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordGeolocationRoutingPolicy) *RecordGeolocationRoutingPolicy {
+		return &v
+	}).(RecordGeolocationRoutingPolicyPtrOutput)
 }
 
 // A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
@@ -473,24 +599,58 @@ func (o RecordGeolocationRoutingPolicyOutput) Subdivision() pulumi.StringPtrOutp
 	return o.ApplyT(func(v RecordGeolocationRoutingPolicy) *string { return v.Subdivision }).(pulumi.StringPtrOutput)
 }
 
-type RecordGeolocationRoutingPolicyArrayOutput struct{ *pulumi.OutputState }
+type RecordGeolocationRoutingPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (RecordGeolocationRoutingPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecordGeolocationRoutingPolicy)(nil)).Elem()
+func (RecordGeolocationRoutingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordGeolocationRoutingPolicy)(nil)).Elem()
 }
 
-func (o RecordGeolocationRoutingPolicyArrayOutput) ToRecordGeolocationRoutingPolicyArrayOutput() RecordGeolocationRoutingPolicyArrayOutput {
+func (o RecordGeolocationRoutingPolicyPtrOutput) ToRecordGeolocationRoutingPolicyPtrOutput() RecordGeolocationRoutingPolicyPtrOutput {
 	return o
 }
 
-func (o RecordGeolocationRoutingPolicyArrayOutput) ToRecordGeolocationRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordGeolocationRoutingPolicyArrayOutput {
+func (o RecordGeolocationRoutingPolicyPtrOutput) ToRecordGeolocationRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordGeolocationRoutingPolicyPtrOutput {
 	return o
 }
 
-func (o RecordGeolocationRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordGeolocationRoutingPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordGeolocationRoutingPolicy {
-		return vs[0].([]RecordGeolocationRoutingPolicy)[vs[1].(int)]
+func (o RecordGeolocationRoutingPolicyPtrOutput) Elem() RecordGeolocationRoutingPolicyOutput {
+	return o.ApplyT(func(v *RecordGeolocationRoutingPolicy) RecordGeolocationRoutingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RecordGeolocationRoutingPolicy
+		return ret
 	}).(RecordGeolocationRoutingPolicyOutput)
+}
+
+// A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
+func (o RecordGeolocationRoutingPolicyPtrOutput) Continent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordGeolocationRoutingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Continent
+	}).(pulumi.StringPtrOutput)
+}
+
+// A two-character country code or `*` to indicate a default resource record set.
+func (o RecordGeolocationRoutingPolicyPtrOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordGeolocationRoutingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Country
+	}).(pulumi.StringPtrOutput)
+}
+
+// A subdivision code for a country.
+func (o RecordGeolocationRoutingPolicyPtrOutput) Subdivision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordGeolocationRoutingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subdivision
+	}).(pulumi.StringPtrOutput)
 }
 
 type RecordLatencyRoutingPolicy struct {
@@ -526,29 +686,45 @@ func (i RecordLatencyRoutingPolicyArgs) ToRecordLatencyRoutingPolicyOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RecordLatencyRoutingPolicyOutput)
 }
 
-// RecordLatencyRoutingPolicyArrayInput is an input type that accepts RecordLatencyRoutingPolicyArray and RecordLatencyRoutingPolicyArrayOutput values.
-// You can construct a concrete instance of `RecordLatencyRoutingPolicyArrayInput` via:
+func (i RecordLatencyRoutingPolicyArgs) ToRecordLatencyRoutingPolicyPtrOutput() RecordLatencyRoutingPolicyPtrOutput {
+	return i.ToRecordLatencyRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RecordLatencyRoutingPolicyArgs) ToRecordLatencyRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordLatencyRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordLatencyRoutingPolicyOutput).ToRecordLatencyRoutingPolicyPtrOutputWithContext(ctx)
+}
+
+// RecordLatencyRoutingPolicyPtrInput is an input type that accepts RecordLatencyRoutingPolicyArgs, RecordLatencyRoutingPolicyPtr and RecordLatencyRoutingPolicyPtrOutput values.
+// You can construct a concrete instance of `RecordLatencyRoutingPolicyPtrInput` via:
 //
-//	RecordLatencyRoutingPolicyArray{ RecordLatencyRoutingPolicyArgs{...} }
-type RecordLatencyRoutingPolicyArrayInput interface {
+//	        RecordLatencyRoutingPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordLatencyRoutingPolicyPtrInput interface {
 	pulumi.Input
 
-	ToRecordLatencyRoutingPolicyArrayOutput() RecordLatencyRoutingPolicyArrayOutput
-	ToRecordLatencyRoutingPolicyArrayOutputWithContext(context.Context) RecordLatencyRoutingPolicyArrayOutput
+	ToRecordLatencyRoutingPolicyPtrOutput() RecordLatencyRoutingPolicyPtrOutput
+	ToRecordLatencyRoutingPolicyPtrOutputWithContext(context.Context) RecordLatencyRoutingPolicyPtrOutput
 }
 
-type RecordLatencyRoutingPolicyArray []RecordLatencyRoutingPolicyInput
+type recordLatencyRoutingPolicyPtrType RecordLatencyRoutingPolicyArgs
 
-func (RecordLatencyRoutingPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecordLatencyRoutingPolicy)(nil)).Elem()
+func RecordLatencyRoutingPolicyPtr(v *RecordLatencyRoutingPolicyArgs) RecordLatencyRoutingPolicyPtrInput {
+	return (*recordLatencyRoutingPolicyPtrType)(v)
 }
 
-func (i RecordLatencyRoutingPolicyArray) ToRecordLatencyRoutingPolicyArrayOutput() RecordLatencyRoutingPolicyArrayOutput {
-	return i.ToRecordLatencyRoutingPolicyArrayOutputWithContext(context.Background())
+func (*recordLatencyRoutingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordLatencyRoutingPolicy)(nil)).Elem()
 }
 
-func (i RecordLatencyRoutingPolicyArray) ToRecordLatencyRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordLatencyRoutingPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordLatencyRoutingPolicyArrayOutput)
+func (i *recordLatencyRoutingPolicyPtrType) ToRecordLatencyRoutingPolicyPtrOutput() RecordLatencyRoutingPolicyPtrOutput {
+	return i.ToRecordLatencyRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *recordLatencyRoutingPolicyPtrType) ToRecordLatencyRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordLatencyRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordLatencyRoutingPolicyPtrOutput)
 }
 
 type RecordLatencyRoutingPolicyOutput struct{ *pulumi.OutputState }
@@ -565,29 +741,53 @@ func (o RecordLatencyRoutingPolicyOutput) ToRecordLatencyRoutingPolicyOutputWith
 	return o
 }
 
+func (o RecordLatencyRoutingPolicyOutput) ToRecordLatencyRoutingPolicyPtrOutput() RecordLatencyRoutingPolicyPtrOutput {
+	return o.ToRecordLatencyRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RecordLatencyRoutingPolicyOutput) ToRecordLatencyRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordLatencyRoutingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordLatencyRoutingPolicy) *RecordLatencyRoutingPolicy {
+		return &v
+	}).(RecordLatencyRoutingPolicyPtrOutput)
+}
+
 // An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
 func (o RecordLatencyRoutingPolicyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordLatencyRoutingPolicy) string { return v.Region }).(pulumi.StringOutput)
 }
 
-type RecordLatencyRoutingPolicyArrayOutput struct{ *pulumi.OutputState }
+type RecordLatencyRoutingPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (RecordLatencyRoutingPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecordLatencyRoutingPolicy)(nil)).Elem()
+func (RecordLatencyRoutingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordLatencyRoutingPolicy)(nil)).Elem()
 }
 
-func (o RecordLatencyRoutingPolicyArrayOutput) ToRecordLatencyRoutingPolicyArrayOutput() RecordLatencyRoutingPolicyArrayOutput {
+func (o RecordLatencyRoutingPolicyPtrOutput) ToRecordLatencyRoutingPolicyPtrOutput() RecordLatencyRoutingPolicyPtrOutput {
 	return o
 }
 
-func (o RecordLatencyRoutingPolicyArrayOutput) ToRecordLatencyRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordLatencyRoutingPolicyArrayOutput {
+func (o RecordLatencyRoutingPolicyPtrOutput) ToRecordLatencyRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordLatencyRoutingPolicyPtrOutput {
 	return o
 }
 
-func (o RecordLatencyRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordLatencyRoutingPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordLatencyRoutingPolicy {
-		return vs[0].([]RecordLatencyRoutingPolicy)[vs[1].(int)]
+func (o RecordLatencyRoutingPolicyPtrOutput) Elem() RecordLatencyRoutingPolicyOutput {
+	return o.ApplyT(func(v *RecordLatencyRoutingPolicy) RecordLatencyRoutingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RecordLatencyRoutingPolicy
+		return ret
 	}).(RecordLatencyRoutingPolicyOutput)
+}
+
+// An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
+func (o RecordLatencyRoutingPolicyPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordLatencyRoutingPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
 }
 
 type RecordWeightedRoutingPolicy struct {
@@ -623,29 +823,45 @@ func (i RecordWeightedRoutingPolicyArgs) ToRecordWeightedRoutingPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RecordWeightedRoutingPolicyOutput)
 }
 
-// RecordWeightedRoutingPolicyArrayInput is an input type that accepts RecordWeightedRoutingPolicyArray and RecordWeightedRoutingPolicyArrayOutput values.
-// You can construct a concrete instance of `RecordWeightedRoutingPolicyArrayInput` via:
+func (i RecordWeightedRoutingPolicyArgs) ToRecordWeightedRoutingPolicyPtrOutput() RecordWeightedRoutingPolicyPtrOutput {
+	return i.ToRecordWeightedRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i RecordWeightedRoutingPolicyArgs) ToRecordWeightedRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordWeightedRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordWeightedRoutingPolicyOutput).ToRecordWeightedRoutingPolicyPtrOutputWithContext(ctx)
+}
+
+// RecordWeightedRoutingPolicyPtrInput is an input type that accepts RecordWeightedRoutingPolicyArgs, RecordWeightedRoutingPolicyPtr and RecordWeightedRoutingPolicyPtrOutput values.
+// You can construct a concrete instance of `RecordWeightedRoutingPolicyPtrInput` via:
 //
-//	RecordWeightedRoutingPolicyArray{ RecordWeightedRoutingPolicyArgs{...} }
-type RecordWeightedRoutingPolicyArrayInput interface {
+//	        RecordWeightedRoutingPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordWeightedRoutingPolicyPtrInput interface {
 	pulumi.Input
 
-	ToRecordWeightedRoutingPolicyArrayOutput() RecordWeightedRoutingPolicyArrayOutput
-	ToRecordWeightedRoutingPolicyArrayOutputWithContext(context.Context) RecordWeightedRoutingPolicyArrayOutput
+	ToRecordWeightedRoutingPolicyPtrOutput() RecordWeightedRoutingPolicyPtrOutput
+	ToRecordWeightedRoutingPolicyPtrOutputWithContext(context.Context) RecordWeightedRoutingPolicyPtrOutput
 }
 
-type RecordWeightedRoutingPolicyArray []RecordWeightedRoutingPolicyInput
+type recordWeightedRoutingPolicyPtrType RecordWeightedRoutingPolicyArgs
 
-func (RecordWeightedRoutingPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecordWeightedRoutingPolicy)(nil)).Elem()
+func RecordWeightedRoutingPolicyPtr(v *RecordWeightedRoutingPolicyArgs) RecordWeightedRoutingPolicyPtrInput {
+	return (*recordWeightedRoutingPolicyPtrType)(v)
 }
 
-func (i RecordWeightedRoutingPolicyArray) ToRecordWeightedRoutingPolicyArrayOutput() RecordWeightedRoutingPolicyArrayOutput {
-	return i.ToRecordWeightedRoutingPolicyArrayOutputWithContext(context.Background())
+func (*recordWeightedRoutingPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordWeightedRoutingPolicy)(nil)).Elem()
 }
 
-func (i RecordWeightedRoutingPolicyArray) ToRecordWeightedRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordWeightedRoutingPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordWeightedRoutingPolicyArrayOutput)
+func (i *recordWeightedRoutingPolicyPtrType) ToRecordWeightedRoutingPolicyPtrOutput() RecordWeightedRoutingPolicyPtrOutput {
+	return i.ToRecordWeightedRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *recordWeightedRoutingPolicyPtrType) ToRecordWeightedRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordWeightedRoutingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordWeightedRoutingPolicyPtrOutput)
 }
 
 type RecordWeightedRoutingPolicyOutput struct{ *pulumi.OutputState }
@@ -662,29 +878,53 @@ func (o RecordWeightedRoutingPolicyOutput) ToRecordWeightedRoutingPolicyOutputWi
 	return o
 }
 
+func (o RecordWeightedRoutingPolicyOutput) ToRecordWeightedRoutingPolicyPtrOutput() RecordWeightedRoutingPolicyPtrOutput {
+	return o.ToRecordWeightedRoutingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o RecordWeightedRoutingPolicyOutput) ToRecordWeightedRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordWeightedRoutingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordWeightedRoutingPolicy) *RecordWeightedRoutingPolicy {
+		return &v
+	}).(RecordWeightedRoutingPolicyPtrOutput)
+}
+
 // A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
 func (o RecordWeightedRoutingPolicyOutput) Weight() pulumi.IntOutput {
 	return o.ApplyT(func(v RecordWeightedRoutingPolicy) int { return v.Weight }).(pulumi.IntOutput)
 }
 
-type RecordWeightedRoutingPolicyArrayOutput struct{ *pulumi.OutputState }
+type RecordWeightedRoutingPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (RecordWeightedRoutingPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecordWeightedRoutingPolicy)(nil)).Elem()
+func (RecordWeightedRoutingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordWeightedRoutingPolicy)(nil)).Elem()
 }
 
-func (o RecordWeightedRoutingPolicyArrayOutput) ToRecordWeightedRoutingPolicyArrayOutput() RecordWeightedRoutingPolicyArrayOutput {
+func (o RecordWeightedRoutingPolicyPtrOutput) ToRecordWeightedRoutingPolicyPtrOutput() RecordWeightedRoutingPolicyPtrOutput {
 	return o
 }
 
-func (o RecordWeightedRoutingPolicyArrayOutput) ToRecordWeightedRoutingPolicyArrayOutputWithContext(ctx context.Context) RecordWeightedRoutingPolicyArrayOutput {
+func (o RecordWeightedRoutingPolicyPtrOutput) ToRecordWeightedRoutingPolicyPtrOutputWithContext(ctx context.Context) RecordWeightedRoutingPolicyPtrOutput {
 	return o
 }
 
-func (o RecordWeightedRoutingPolicyArrayOutput) Index(i pulumi.IntInput) RecordWeightedRoutingPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordWeightedRoutingPolicy {
-		return vs[0].([]RecordWeightedRoutingPolicy)[vs[1].(int)]
+func (o RecordWeightedRoutingPolicyPtrOutput) Elem() RecordWeightedRoutingPolicyOutput {
+	return o.ApplyT(func(v *RecordWeightedRoutingPolicy) RecordWeightedRoutingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RecordWeightedRoutingPolicy
+		return ret
 	}).(RecordWeightedRoutingPolicyOutput)
+}
+
+// A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
+func (o RecordWeightedRoutingPolicyPtrOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RecordWeightedRoutingPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Weight
+	}).(pulumi.IntPtrOutput)
 }
 
 type ResolverEndpointIpAddress struct {
@@ -2645,17 +2885,17 @@ func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) RuleReference() pulumi.S
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordAliasInput)(nil)).Elem(), RecordAliasArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecordAliasArrayInput)(nil)).Elem(), RecordAliasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordAliasPtrInput)(nil)).Elem(), RecordAliasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordCidrRoutingPolicyInput)(nil)).Elem(), RecordCidrRoutingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordCidrRoutingPolicyPtrInput)(nil)).Elem(), RecordCidrRoutingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordFailoverRoutingPolicyInput)(nil)).Elem(), RecordFailoverRoutingPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecordFailoverRoutingPolicyArrayInput)(nil)).Elem(), RecordFailoverRoutingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordFailoverRoutingPolicyPtrInput)(nil)).Elem(), RecordFailoverRoutingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordGeolocationRoutingPolicyInput)(nil)).Elem(), RecordGeolocationRoutingPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecordGeolocationRoutingPolicyArrayInput)(nil)).Elem(), RecordGeolocationRoutingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordGeolocationRoutingPolicyPtrInput)(nil)).Elem(), RecordGeolocationRoutingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordLatencyRoutingPolicyInput)(nil)).Elem(), RecordLatencyRoutingPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecordLatencyRoutingPolicyArrayInput)(nil)).Elem(), RecordLatencyRoutingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordLatencyRoutingPolicyPtrInput)(nil)).Elem(), RecordLatencyRoutingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordWeightedRoutingPolicyInput)(nil)).Elem(), RecordWeightedRoutingPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecordWeightedRoutingPolicyArrayInput)(nil)).Elem(), RecordWeightedRoutingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordWeightedRoutingPolicyPtrInput)(nil)).Elem(), RecordWeightedRoutingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressInput)(nil)).Elem(), ResolverEndpointIpAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressArrayInput)(nil)).Elem(), ResolverEndpointIpAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetIpInput)(nil)).Elem(), ResolverRuleTargetIpArgs{})
@@ -2685,17 +2925,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleSecondaryInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleSecondaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleSecondaryPtrInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleSecondaryArgs{})
 	pulumi.RegisterOutputType(RecordAliasOutput{})
-	pulumi.RegisterOutputType(RecordAliasArrayOutput{})
+	pulumi.RegisterOutputType(RecordAliasPtrOutput{})
 	pulumi.RegisterOutputType(RecordCidrRoutingPolicyOutput{})
 	pulumi.RegisterOutputType(RecordCidrRoutingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RecordFailoverRoutingPolicyOutput{})
-	pulumi.RegisterOutputType(RecordFailoverRoutingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(RecordFailoverRoutingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RecordGeolocationRoutingPolicyOutput{})
-	pulumi.RegisterOutputType(RecordGeolocationRoutingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(RecordGeolocationRoutingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RecordLatencyRoutingPolicyOutput{})
-	pulumi.RegisterOutputType(RecordLatencyRoutingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(RecordLatencyRoutingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RecordWeightedRoutingPolicyOutput{})
-	pulumi.RegisterOutputType(RecordWeightedRoutingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(RecordWeightedRoutingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointIpAddressOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointIpAddressArrayOutput{})
 	pulumi.RegisterOutputType(ResolverRuleTargetIpOutput{})

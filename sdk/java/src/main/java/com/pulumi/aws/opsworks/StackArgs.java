@@ -8,7 +8,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -98,15 +97,15 @@ public final class StackArgs extends com.pulumi.resources.ResourceArgs {
      * When `use_custom_cookbooks` is set, provide this sub-object as described below.
      * 
      */
-    @Import(name="customCookbooksSources")
-    private @Nullable Output<List<StackCustomCookbooksSourceArgs>> customCookbooksSources;
+    @Import(name="customCookbooksSource")
+    private @Nullable Output<StackCustomCookbooksSourceArgs> customCookbooksSource;
 
     /**
      * @return When `use_custom_cookbooks` is set, provide this sub-object as described below.
      * 
      */
-    public Optional<Output<List<StackCustomCookbooksSourceArgs>>> customCookbooksSources() {
-        return Optional.ofNullable(this.customCookbooksSources);
+    public Optional<Output<StackCustomCookbooksSourceArgs>> customCookbooksSource() {
+        return Optional.ofNullable(this.customCookbooksSource);
     }
 
     /**
@@ -365,7 +364,7 @@ public final class StackArgs extends com.pulumi.resources.ResourceArgs {
         this.color = $.color;
         this.configurationManagerName = $.configurationManagerName;
         this.configurationManagerVersion = $.configurationManagerVersion;
-        this.customCookbooksSources = $.customCookbooksSources;
+        this.customCookbooksSource = $.customCookbooksSource;
         this.customJson = $.customJson;
         this.defaultAvailabilityZone = $.defaultAvailabilityZone;
         this.defaultInstanceProfileArn = $.defaultInstanceProfileArn;
@@ -508,34 +507,24 @@ public final class StackArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customCookbooksSources When `use_custom_cookbooks` is set, provide this sub-object as described below.
+         * @param customCookbooksSource When `use_custom_cookbooks` is set, provide this sub-object as described below.
          * 
          * @return builder
          * 
          */
-        public Builder customCookbooksSources(@Nullable Output<List<StackCustomCookbooksSourceArgs>> customCookbooksSources) {
-            $.customCookbooksSources = customCookbooksSources;
+        public Builder customCookbooksSource(@Nullable Output<StackCustomCookbooksSourceArgs> customCookbooksSource) {
+            $.customCookbooksSource = customCookbooksSource;
             return this;
         }
 
         /**
-         * @param customCookbooksSources When `use_custom_cookbooks` is set, provide this sub-object as described below.
+         * @param customCookbooksSource When `use_custom_cookbooks` is set, provide this sub-object as described below.
          * 
          * @return builder
          * 
          */
-        public Builder customCookbooksSources(List<StackCustomCookbooksSourceArgs> customCookbooksSources) {
-            return customCookbooksSources(Output.of(customCookbooksSources));
-        }
-
-        /**
-         * @param customCookbooksSources When `use_custom_cookbooks` is set, provide this sub-object as described below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder customCookbooksSources(StackCustomCookbooksSourceArgs... customCookbooksSources) {
-            return customCookbooksSources(List.of(customCookbooksSources));
+        public Builder customCookbooksSource(StackCustomCookbooksSourceArgs customCookbooksSource) {
+            return customCookbooksSource(Output.of(customCookbooksSource));
         }
 
         /**

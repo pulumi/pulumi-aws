@@ -324,16 +324,16 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_logging resource instead */
-    @Export(name="loggings", refs={List.class,BucketV2Logging.class}, tree="[0,1]")
-    private Output<List<BucketV2Logging>> loggings;
+    @Export(name="logging", refs={BucketV2Logging.class}, tree="[0]")
+    private Output<BucketV2Logging> logging;
 
     /**
      * @return Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketLoggingV2` instead.
      * 
      */
-    public Output<List<BucketV2Logging>> loggings() {
-        return this.loggings;
+    public Output<BucketV2Logging> logging() {
+        return this.logging;
     }
     /**
      * Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
@@ -416,16 +416,16 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
-    @Export(name="replicationConfigurations", refs={List.class,BucketV2ReplicationConfiguration.class}, tree="[0,1]")
-    private Output<List<BucketV2ReplicationConfiguration>> replicationConfigurations;
+    @Export(name="replicationConfiguration", refs={BucketV2ReplicationConfiguration.class}, tree="[0]")
+    private Output<BucketV2ReplicationConfiguration> replicationConfiguration;
 
     /**
      * @return Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
      * Use the resource `aws.s3.BucketReplicationConfig` instead.
      * 
      */
-    public Output<List<BucketV2ReplicationConfiguration>> replicationConfigurations() {
-        return this.replicationConfigurations;
+    public Output<BucketV2ReplicationConfiguration> replicationConfiguration() {
+        return this.replicationConfiguration;
     }
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
@@ -463,8 +463,8 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
-    @Export(name="serverSideEncryptionConfigurations", refs={List.class,BucketV2ServerSideEncryptionConfiguration.class}, tree="[0,1]")
-    private Output<List<BucketV2ServerSideEncryptionConfiguration>> serverSideEncryptionConfigurations;
+    @Export(name="serverSideEncryptionConfiguration", refs={BucketV2ServerSideEncryptionConfiguration.class}, tree="[0]")
+    private Output<BucketV2ServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
     /**
      * @return Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
@@ -472,8 +472,8 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
      * 
      */
-    public Output<List<BucketV2ServerSideEncryptionConfiguration>> serverSideEncryptionConfigurations() {
-        return this.serverSideEncryptionConfigurations;
+    public Output<BucketV2ServerSideEncryptionConfiguration> serverSideEncryptionConfiguration() {
+        return this.serverSideEncryptionConfiguration;
     }
     /**
      * Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -515,15 +515,35 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * 
      */
     @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
-    @Export(name="versionings", refs={List.class,BucketV2Versioning.class}, tree="[0,1]")
-    private Output<List<BucketV2Versioning>> versionings;
+    @Export(name="versioning", refs={BucketV2Versioning.class}, tree="[0]")
+    private Output<BucketV2Versioning> versioning;
 
     /**
      * @return Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      * 
      */
-    public Output<List<BucketV2Versioning>> versionings() {
-        return this.versionings;
+    public Output<BucketV2Versioning> versioning() {
+        return this.versioning;
+    }
+    /**
+     * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
+     * 
+     * @deprecated
+     * Use the aws_s3_bucket_website_configuration resource instead
+     * 
+     */
+    @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
+    @Export(name="website", refs={BucketV2Website.class}, tree="[0]")
+    private Output<BucketV2Website> website;
+
+    /**
+     * @return Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
+     * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
+     * 
+     */
+    public Output<BucketV2Website> website() {
+        return this.website;
     }
     /**
      * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
@@ -560,26 +580,6 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      */
     public Output<String> websiteEndpoint() {
         return this.websiteEndpoint;
-    }
-    /**
-     * Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
-     * 
-     * @deprecated
-     * Use the aws_s3_bucket_website_configuration resource instead
-     * 
-     */
-    @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
-    @Export(name="websites", refs={List.class,BucketV2Website.class}, tree="[0,1]")
-    private Output<List<BucketV2Website>> websites;
-
-    /**
-     * @return Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
-     * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
-     * 
-     */
-    public Output<List<BucketV2Website>> websites() {
-        return this.websites;
     }
 
     /**
