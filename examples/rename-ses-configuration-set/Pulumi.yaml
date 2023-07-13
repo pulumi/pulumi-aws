@@ -1,3 +1,0 @@
-name: rename-ses-configuration-set
-runtime: nodejs
-description: Test to ensure that the renaming of SES Configuration Set uses the correct aliases
