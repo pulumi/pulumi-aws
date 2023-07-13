@@ -6,7 +6,6 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .event_data_store import *
-from .get_function import *
 from .get_service_account import *
 from .trail import *
 from ._inputs import *

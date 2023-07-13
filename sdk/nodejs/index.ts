@@ -6,25 +6,10 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./arn";
-export { GetAmiArgs, GetAmiResult, GetAmiOutputArgs } from "./getAmi";
-export const getAmi: typeof import("./getAmi").getAmi = null as any;
-export const getAmiOutput: typeof import("./getAmi").getAmiOutput = null as any;
-utilities.lazyLoad(exports, ["getAmi","getAmiOutput"], () => require("./getAmi"));
-
-export { GetAmiIdsArgs, GetAmiIdsResult, GetAmiIdsOutputArgs } from "./getAmiIds";
-export const getAmiIds: typeof import("./getAmiIds").getAmiIds = null as any;
-export const getAmiIdsOutput: typeof import("./getAmiIds").getAmiIdsOutput = null as any;
-utilities.lazyLoad(exports, ["getAmiIds","getAmiIdsOutput"], () => require("./getAmiIds"));
-
 export { GetArnArgs, GetArnResult, GetArnOutputArgs } from "./getArn";
 export const getArn: typeof import("./getArn").getArn = null as any;
 export const getArnOutput: typeof import("./getArn").getArnOutput = null as any;
 utilities.lazyLoad(exports, ["getArn","getArnOutput"], () => require("./getArn"));
-
-export { GetAutoscalingGroupsArgs, GetAutoscalingGroupsResult, GetAutoscalingGroupsOutputArgs } from "./getAutoscalingGroups";
-export const getAutoscalingGroups: typeof import("./getAutoscalingGroups").getAutoscalingGroups = null as any;
-export const getAutoscalingGroupsOutput: typeof import("./getAutoscalingGroups").getAutoscalingGroupsOutput = null as any;
-utilities.lazyLoad(exports, ["getAutoscalingGroups","getAutoscalingGroupsOutput"], () => require("./getAutoscalingGroups"));
 
 export { GetAvailabilityZoneArgs, GetAvailabilityZoneResult, GetAvailabilityZoneOutputArgs } from "./getAvailabilityZone";
 export const getAvailabilityZone: typeof import("./getAvailabilityZone").getAvailabilityZone = null as any;
@@ -46,19 +31,10 @@ export const getCallerIdentity: typeof import("./getCallerIdentity").getCallerId
 export const getCallerIdentityOutput: typeof import("./getCallerIdentity").getCallerIdentityOutput = null as any;
 utilities.lazyLoad(exports, ["getCallerIdentity","getCallerIdentityOutput"], () => require("./getCallerIdentity"));
 
-export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
-export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;
-utilities.lazyLoad(exports, ["getCanonicalUserId"], () => require("./getCanonicalUserId"));
-
 export { GetDefaultTagsArgs, GetDefaultTagsResult, GetDefaultTagsOutputArgs } from "./getDefaultTags";
 export const getDefaultTags: typeof import("./getDefaultTags").getDefaultTags = null as any;
 export const getDefaultTagsOutput: typeof import("./getDefaultTags").getDefaultTagsOutput = null as any;
 utilities.lazyLoad(exports, ["getDefaultTags","getDefaultTagsOutput"], () => require("./getDefaultTags"));
-
-export { GetElasticIpArgs, GetElasticIpResult, GetElasticIpOutputArgs } from "./getElasticIp";
-export const getElasticIp: typeof import("./getElasticIp").getElasticIp = null as any;
-export const getElasticIpOutput: typeof import("./getElasticIp").getElasticIpOutput = null as any;
-utilities.lazyLoad(exports, ["getElasticIp","getElasticIpOutput"], () => require("./getElasticIp"));
 
 export { GetIpRangesArgs, GetIpRangesResult, GetIpRangesOutputArgs } from "./getIpRanges";
 export const getIpRanges: typeof import("./getIpRanges").getIpRanges = null as any;
@@ -69,11 +45,6 @@ export { GetPartitionArgs, GetPartitionResult, GetPartitionOutputArgs } from "./
 export const getPartition: typeof import("./getPartition").getPartition = null as any;
 export const getPartitionOutput: typeof import("./getPartition").getPartitionOutput = null as any;
 utilities.lazyLoad(exports, ["getPartition","getPartitionOutput"], () => require("./getPartition"));
-
-export { GetPrefixListArgs, GetPrefixListResult, GetPrefixListOutputArgs } from "./getPrefixList";
-export const getPrefixList: typeof import("./getPrefixList").getPrefixList = null as any;
-export const getPrefixListOutput: typeof import("./getPrefixList").getPrefixListOutput = null as any;
-utilities.lazyLoad(exports, ["getPrefixList","getPrefixListOutput"], () => require("./getPrefixList"));
 
 export { GetRegionArgs, GetRegionResult, GetRegionOutputArgs } from "./getRegion";
 export const getRegion: typeof import("./getRegion").getRegion = null as any;
@@ -179,8 +150,6 @@ import * as efs from "./efs";
 import * as eks from "./eks";
 import * as elasticache from "./elasticache";
 import * as elasticbeanstalk from "./elasticbeanstalk";
-import * as elasticloadbalancing from "./elasticloadbalancing";
-import * as elasticloadbalancingv2 from "./elasticloadbalancingv2";
 import * as elasticsearch from "./elasticsearch";
 import * as elastictranscoder from "./elastictranscoder";
 import * as elb from "./elb";
@@ -375,8 +344,6 @@ export {
     eks,
     elasticache,
     elasticbeanstalk,
-    elasticloadbalancing,
-    elasticloadbalancingv2,
     elasticsearch,
     elastictranscoder,
     elb,
