@@ -5,14 +5,18 @@
 package examples
 
 import (
+	"bytes"
 	"encoding/json"
+	"io"
 	"os"
 	"path/filepath"
 	"testing"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
+	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -67,13 +71,40 @@ func TestAccExpress(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccBucketWithS3State(t *testing.T) {
-	t.Skip("STACK72: temporary skipping the test while we work out the reason why the times are crazy")
+func TestAccBucket(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "bucket"),
-			RunUpdateTest: true,
-			CloudURL:      "s3://ci-remote-state-bucket",
+			Dir: filepath.Join(getCwd(t), "bucket"),
+			ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
+				bucketName, ok := info.Outputs["bucketName"].(string)
+				assert.True(t, ok)
+
+				sess := getAwsSession(t)
+				s3client := s3.New(sess)
+				_, err := s3client.PutObject(&s3.PutObjectInput{
+					Bucket: aws.String(bucketName),
+					Key:    aws.String("foo.txt"),
+					Body:   bytes.NewReader([]byte("Hello, world!")),
+				})
+				assert.NoError(t, err)
+
+				// Wait for the new object to be written
+				time.Sleep(5 * time.Second)
+
+				getOut, err := s3client.GetObject(&s3.GetObjectInput{
+					Bucket: aws.String(bucketName),
+					Key:    aws.String("lastPutFile.json"),
+				})
+				assert.NoError(t, err)
+				body, err := io.ReadAll(getOut.Body)
+				assert.NoError(t, err)
+
+				var data map[string]interface{}
+				err = json.Unmarshal(body, &data)
+				assert.NoError(t, err)
+
+				assert.Equal(t, "foo.txt", data["key"].(string))
+			},
 		})
 
 	integration.ProgramTest(t, &test)
@@ -240,7 +271,6 @@ func TestAccLambdaLayer(t *testing.T) {
 }
 
 func TestAccLambdaContainerImages(t *testing.T) {
-	t.Skip("Temporarily skipped due to issues with docker image builds")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			RunUpdateTest: false, // new feature!
