@@ -16,7 +16,7 @@ __all__ = ['FleetArgs', 'Fleet']
 @pulumi.input_type
 class FleetArgs:
     def __init__(__self__, *,
-                 launch_template_config: pulumi.Input['FleetLaunchTemplateConfigArgs'],
+                 launch_template_configs: pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]],
                  target_capacity_specification: pulumi.Input['FleetTargetCapacitySpecificationArgs'],
                  context: Optional[pulumi.Input[str]] = None,
                  excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class FleetArgs:
                  valid_until: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Fleet resource.
-        :param pulumi.Input['FleetLaunchTemplateConfigArgs'] launch_template_config: Nested argument containing EC2 Launch Template configurations. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
         :param pulumi.Input['FleetTargetCapacitySpecificationArgs'] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[str] excess_capacity_termination_policy: Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
@@ -53,7 +53,7 @@ class FleetArgs:
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         :param pulumi.Input[str] valid_until: The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
         """
-        pulumi.set(__self__, "launch_template_config", launch_template_config)
+        pulumi.set(__self__, "launch_template_configs", launch_template_configs)
         pulumi.set(__self__, "target_capacity_specification", target_capacity_specification)
         if context is not None:
             pulumi.set(__self__, "context", context)
@@ -87,16 +87,16 @@ class FleetArgs:
             pulumi.set(__self__, "valid_until", valid_until)
 
     @property
-    @pulumi.getter(name="launchTemplateConfig")
-    def launch_template_config(self) -> pulumi.Input['FleetLaunchTemplateConfigArgs']:
+    @pulumi.getter(name="launchTemplateConfigs")
+    def launch_template_configs(self) -> pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]:
         """
         Nested argument containing EC2 Launch Template configurations. Defined below.
         """
-        return pulumi.get(self, "launch_template_config")
+        return pulumi.get(self, "launch_template_configs")
 
-    @launch_template_config.setter
-    def launch_template_config(self, value: pulumi.Input['FleetLaunchTemplateConfigArgs']):
-        pulumi.set(self, "launch_template_config", value)
+    @launch_template_configs.setter
+    def launch_template_configs(self, value: pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]):
+        pulumi.set(self, "launch_template_configs", value)
 
     @property
     @pulumi.getter(name="targetCapacitySpecification")
@@ -301,7 +301,7 @@ class _FleetState:
                  fleet_state: Optional[pulumi.Input[str]] = None,
                  fulfilled_capacity: Optional[pulumi.Input[float]] = None,
                  fulfilled_on_demand_capacity: Optional[pulumi.Input[float]] = None,
-                 launch_template_config: Optional[pulumi.Input['FleetLaunchTemplateConfigArgs']] = None,
+                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]] = None,
                  on_demand_options: Optional[pulumi.Input['FleetOnDemandOptionsArgs']] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_options: Optional[pulumi.Input['FleetSpotOptionsArgs']] = None,
@@ -322,7 +322,7 @@ class _FleetState:
         :param pulumi.Input[str] fleet_state: The state of the EC2 Fleet.
         :param pulumi.Input[float] fulfilled_capacity: The number of units fulfilled by this request compared to the set target capacity.
         :param pulumi.Input[float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        :param pulumi.Input['FleetLaunchTemplateConfigArgs'] launch_template_config: Nested argument containing EC2 Launch Template configurations. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
         :param pulumi.Input['FleetOnDemandOptionsArgs'] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         :param pulumi.Input['FleetSpotOptionsArgs'] spot_options: Nested argument containing Spot configurations. Defined below.
@@ -349,8 +349,8 @@ class _FleetState:
             pulumi.set(__self__, "fulfilled_capacity", fulfilled_capacity)
         if fulfilled_on_demand_capacity is not None:
             pulumi.set(__self__, "fulfilled_on_demand_capacity", fulfilled_on_demand_capacity)
-        if launch_template_config is not None:
-            pulumi.set(__self__, "launch_template_config", launch_template_config)
+        if launch_template_configs is not None:
+            pulumi.set(__self__, "launch_template_configs", launch_template_configs)
         if on_demand_options is not None:
             pulumi.set(__self__, "on_demand_options", on_demand_options)
         if replace_unhealthy_instances is not None:
@@ -459,16 +459,16 @@ class _FleetState:
         pulumi.set(self, "fulfilled_on_demand_capacity", value)
 
     @property
-    @pulumi.getter(name="launchTemplateConfig")
-    def launch_template_config(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigArgs']]:
+    @pulumi.getter(name="launchTemplateConfigs")
+    def launch_template_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]]:
         """
         Nested argument containing EC2 Launch Template configurations. Defined below.
         """
-        return pulumi.get(self, "launch_template_config")
+        return pulumi.get(self, "launch_template_configs")
 
-    @launch_template_config.setter
-    def launch_template_config(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigArgs']]):
-        pulumi.set(self, "launch_template_config", value)
+    @launch_template_configs.setter
+    def launch_template_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigArgs']]]]):
+        pulumi.set(self, "launch_template_configs", value)
 
     @property
     @pulumi.getter(name="onDemandOptions")
@@ -614,7 +614,7 @@ class Fleet(pulumi.CustomResource):
                  fleet_state: Optional[pulumi.Input[str]] = None,
                  fulfilled_capacity: Optional[pulumi.Input[float]] = None,
                  fulfilled_on_demand_capacity: Optional[pulumi.Input[float]] = None,
-                 launch_template_config: Optional[pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']]] = None,
+                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']]]]] = None,
                  on_demand_options: Optional[pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_options: Optional[pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']]] = None,
@@ -636,12 +636,12 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.Fleet("example",
-            launch_template_config=aws.ec2.FleetLaunchTemplateConfigArgs(
+            launch_template_configs=[aws.ec2.FleetLaunchTemplateConfigArgs(
                 launch_template_specification=aws.ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs(
                     launch_template_id=aws_launch_template["example"]["id"],
                     version=aws_launch_template["example"]["latest_version"],
                 ),
-            ),
+            )],
             target_capacity_specification=aws.ec2.FleetTargetCapacitySpecificationArgs(
                 default_target_capacity_type="spot",
                 total_target_capacity=5,
@@ -664,7 +664,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] fleet_state: The state of the EC2 Fleet.
         :param pulumi.Input[float] fulfilled_capacity: The number of units fulfilled by this request compared to the set target capacity.
         :param pulumi.Input[float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        :param pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']] launch_template_config: Nested argument containing EC2 Launch Template configurations. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']]]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
         :param pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         :param pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']] spot_options: Nested argument containing Spot configurations. Defined below.
@@ -692,12 +692,12 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.Fleet("example",
-            launch_template_config=aws.ec2.FleetLaunchTemplateConfigArgs(
+            launch_template_configs=[aws.ec2.FleetLaunchTemplateConfigArgs(
                 launch_template_specification=aws.ec2.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs(
                     launch_template_id=aws_launch_template["example"]["id"],
                     version=aws_launch_template["example"]["latest_version"],
                 ),
-            ),
+            )],
             target_capacity_specification=aws.ec2.FleetTargetCapacitySpecificationArgs(
                 default_target_capacity_type="spot",
                 total_target_capacity=5,
@@ -733,7 +733,7 @@ class Fleet(pulumi.CustomResource):
                  fleet_state: Optional[pulumi.Input[str]] = None,
                  fulfilled_capacity: Optional[pulumi.Input[float]] = None,
                  fulfilled_on_demand_capacity: Optional[pulumi.Input[float]] = None,
-                 launch_template_config: Optional[pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']]] = None,
+                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']]]]] = None,
                  on_demand_options: Optional[pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_options: Optional[pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']]] = None,
@@ -759,9 +759,9 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["fleet_state"] = fleet_state
             __props__.__dict__["fulfilled_capacity"] = fulfilled_capacity
             __props__.__dict__["fulfilled_on_demand_capacity"] = fulfilled_on_demand_capacity
-            if launch_template_config is None and not opts.urn:
-                raise TypeError("Missing required property 'launch_template_config'")
-            __props__.__dict__["launch_template_config"] = launch_template_config
+            if launch_template_configs is None and not opts.urn:
+                raise TypeError("Missing required property 'launch_template_configs'")
+            __props__.__dict__["launch_template_configs"] = launch_template_configs
             __props__.__dict__["on_demand_options"] = on_demand_options
             __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
             __props__.__dict__["spot_options"] = spot_options
@@ -793,7 +793,7 @@ class Fleet(pulumi.CustomResource):
             fleet_state: Optional[pulumi.Input[str]] = None,
             fulfilled_capacity: Optional[pulumi.Input[float]] = None,
             fulfilled_on_demand_capacity: Optional[pulumi.Input[float]] = None,
-            launch_template_config: Optional[pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']]] = None,
+            launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']]]]] = None,
             on_demand_options: Optional[pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']]] = None,
             replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
             spot_options: Optional[pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']]] = None,
@@ -819,7 +819,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] fleet_state: The state of the EC2 Fleet.
         :param pulumi.Input[float] fulfilled_capacity: The number of units fulfilled by this request compared to the set target capacity.
         :param pulumi.Input[float] fulfilled_on_demand_capacity: The number of units fulfilled by this request compared to the set target On-Demand capacity.
-        :param pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']] launch_template_config: Nested argument containing EC2 Launch Template configurations. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLaunchTemplateConfigArgs']]]] launch_template_configs: Nested argument containing EC2 Launch Template configurations. Defined below.
         :param pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         :param pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']] spot_options: Nested argument containing Spot configurations. Defined below.
@@ -843,7 +843,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["fleet_state"] = fleet_state
         __props__.__dict__["fulfilled_capacity"] = fulfilled_capacity
         __props__.__dict__["fulfilled_on_demand_capacity"] = fulfilled_on_demand_capacity
-        __props__.__dict__["launch_template_config"] = launch_template_config
+        __props__.__dict__["launch_template_configs"] = launch_template_configs
         __props__.__dict__["on_demand_options"] = on_demand_options
         __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
         __props__.__dict__["spot_options"] = spot_options
@@ -914,12 +914,12 @@ class Fleet(pulumi.CustomResource):
         return pulumi.get(self, "fulfilled_on_demand_capacity")
 
     @property
-    @pulumi.getter(name="launchTemplateConfig")
-    def launch_template_config(self) -> pulumi.Output['outputs.FleetLaunchTemplateConfig']:
+    @pulumi.getter(name="launchTemplateConfigs")
+    def launch_template_configs(self) -> pulumi.Output[Sequence['outputs.FleetLaunchTemplateConfig']]:
         """
         Nested argument containing EC2 Launch Template configurations. Defined below.
         """
-        return pulumi.get(self, "launch_template_config")
+        return pulumi.get(self, "launch_template_configs")
 
     @property
     @pulumi.getter(name="onDemandOptions")

@@ -11,32 +11,32 @@ namespace Pulumi.Aws.Iot.Outputs
 {
 
     [OutputType]
-    public sealed class TopicRuleSns
+    public sealed class TopicRuleKinese
     {
         /// <summary>
-        /// The message format of the message to publish. Accepted values are "JSON" and "RAW".
+        /// The partition key.
         /// </summary>
-        public readonly string? MessageFormat;
+        public readonly string? PartitionKey;
         /// <summary>
-        /// The ARN of the IAM role that grants access.
+        /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// The ARN of the SNS topic.
+        /// The name of the Amazon Kinesis stream.
         /// </summary>
-        public readonly string TargetArn;
+        public readonly string StreamName;
 
         [OutputConstructor]
-        private TopicRuleSns(
-            string? messageFormat,
+        private TopicRuleKinese(
+            string? partitionKey,
 
             string roleArn,
 
-            string targetArn)
+            string streamName)
         {
-            MessageFormat = messageFormat;
+            PartitionKey = partitionKey;
             RoleArn = roleArn;
-            TargetArn = targetArn;
+            StreamName = streamName;
         }
     }
 }

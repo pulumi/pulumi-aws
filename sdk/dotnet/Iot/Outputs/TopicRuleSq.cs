@@ -7,32 +7,36 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Iot.Inputs
+namespace Pulumi.Aws.Iot.Outputs
 {
 
-    public sealed class TopicRuleSqsGetArgs : global::Pulumi.ResourceArgs
+    [OutputType]
+    public sealed class TopicRuleSq
     {
         /// <summary>
         /// The URL of the Amazon SQS queue.
         /// </summary>
-        [Input("queueUrl", required: true)]
-        public Input<string> QueueUrl { get; set; } = null!;
-
+        public readonly string QueueUrl;
         /// <summary>
         /// The ARN of the IAM role that grants access.
         /// </summary>
-        [Input("roleArn", required: true)]
-        public Input<string> RoleArn { get; set; } = null!;
-
+        public readonly string RoleArn;
         /// <summary>
         /// Specifies whether to use Base64 encoding.
         /// </summary>
-        [Input("useBase64", required: true)]
-        public Input<bool> UseBase64 { get; set; } = null!;
+        public readonly bool UseBase64;
 
-        public TopicRuleSqsGetArgs()
+        [OutputConstructor]
+        private TopicRuleSq(
+            string queueUrl,
+
+            string roleArn,
+
+            bool useBase64)
         {
+            QueueUrl = queueUrl;
+            RoleArn = roleArn;
+            UseBase64 = useBase64;
         }
-        public static new TopicRuleSqsGetArgs Empty => new TopicRuleSqsGetArgs();
     }
 }

@@ -1710,45 +1710,29 @@ func (i TopicRuleCloudwatchAlarmArgs) ToTopicRuleCloudwatchAlarmOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchAlarmOutput)
 }
 
-func (i TopicRuleCloudwatchAlarmArgs) ToTopicRuleCloudwatchAlarmPtrOutput() TopicRuleCloudwatchAlarmPtrOutput {
-	return i.ToTopicRuleCloudwatchAlarmPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleCloudwatchAlarmArgs) ToTopicRuleCloudwatchAlarmPtrOutputWithContext(ctx context.Context) TopicRuleCloudwatchAlarmPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchAlarmOutput).ToTopicRuleCloudwatchAlarmPtrOutputWithContext(ctx)
-}
-
-// TopicRuleCloudwatchAlarmPtrInput is an input type that accepts TopicRuleCloudwatchAlarmArgs, TopicRuleCloudwatchAlarmPtr and TopicRuleCloudwatchAlarmPtrOutput values.
-// You can construct a concrete instance of `TopicRuleCloudwatchAlarmPtrInput` via:
+// TopicRuleCloudwatchAlarmArrayInput is an input type that accepts TopicRuleCloudwatchAlarmArray and TopicRuleCloudwatchAlarmArrayOutput values.
+// You can construct a concrete instance of `TopicRuleCloudwatchAlarmArrayInput` via:
 //
-//	        TopicRuleCloudwatchAlarmArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleCloudwatchAlarmPtrInput interface {
+//	TopicRuleCloudwatchAlarmArray{ TopicRuleCloudwatchAlarmArgs{...} }
+type TopicRuleCloudwatchAlarmArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleCloudwatchAlarmPtrOutput() TopicRuleCloudwatchAlarmPtrOutput
-	ToTopicRuleCloudwatchAlarmPtrOutputWithContext(context.Context) TopicRuleCloudwatchAlarmPtrOutput
+	ToTopicRuleCloudwatchAlarmArrayOutput() TopicRuleCloudwatchAlarmArrayOutput
+	ToTopicRuleCloudwatchAlarmArrayOutputWithContext(context.Context) TopicRuleCloudwatchAlarmArrayOutput
 }
 
-type topicRuleCloudwatchAlarmPtrType TopicRuleCloudwatchAlarmArgs
+type TopicRuleCloudwatchAlarmArray []TopicRuleCloudwatchAlarmInput
 
-func TopicRuleCloudwatchAlarmPtr(v *TopicRuleCloudwatchAlarmArgs) TopicRuleCloudwatchAlarmPtrInput {
-	return (*topicRuleCloudwatchAlarmPtrType)(v)
+func (TopicRuleCloudwatchAlarmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleCloudwatchAlarm)(nil)).Elem()
 }
 
-func (*topicRuleCloudwatchAlarmPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleCloudwatchAlarm)(nil)).Elem()
+func (i TopicRuleCloudwatchAlarmArray) ToTopicRuleCloudwatchAlarmArrayOutput() TopicRuleCloudwatchAlarmArrayOutput {
+	return i.ToTopicRuleCloudwatchAlarmArrayOutputWithContext(context.Background())
 }
 
-func (i *topicRuleCloudwatchAlarmPtrType) ToTopicRuleCloudwatchAlarmPtrOutput() TopicRuleCloudwatchAlarmPtrOutput {
-	return i.ToTopicRuleCloudwatchAlarmPtrOutputWithContext(context.Background())
-}
-
-func (i *topicRuleCloudwatchAlarmPtrType) ToTopicRuleCloudwatchAlarmPtrOutputWithContext(ctx context.Context) TopicRuleCloudwatchAlarmPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchAlarmPtrOutput)
+func (i TopicRuleCloudwatchAlarmArray) ToTopicRuleCloudwatchAlarmArrayOutputWithContext(ctx context.Context) TopicRuleCloudwatchAlarmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchAlarmArrayOutput)
 }
 
 type TopicRuleCloudwatchAlarmOutput struct{ *pulumi.OutputState }
@@ -1763,16 +1747,6 @@ func (o TopicRuleCloudwatchAlarmOutput) ToTopicRuleCloudwatchAlarmOutput() Topic
 
 func (o TopicRuleCloudwatchAlarmOutput) ToTopicRuleCloudwatchAlarmOutputWithContext(ctx context.Context) TopicRuleCloudwatchAlarmOutput {
 	return o
-}
-
-func (o TopicRuleCloudwatchAlarmOutput) ToTopicRuleCloudwatchAlarmPtrOutput() TopicRuleCloudwatchAlarmPtrOutput {
-	return o.ToTopicRuleCloudwatchAlarmPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleCloudwatchAlarmOutput) ToTopicRuleCloudwatchAlarmPtrOutputWithContext(ctx context.Context) TopicRuleCloudwatchAlarmPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleCloudwatchAlarm) *TopicRuleCloudwatchAlarm {
-		return &v
-	}).(TopicRuleCloudwatchAlarmPtrOutput)
 }
 
 // The CloudWatch alarm name.
@@ -1795,68 +1769,24 @@ func (o TopicRuleCloudwatchAlarmOutput) StateValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarm) string { return v.StateValue }).(pulumi.StringOutput)
 }
 
-type TopicRuleCloudwatchAlarmPtrOutput struct{ *pulumi.OutputState }
+type TopicRuleCloudwatchAlarmArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleCloudwatchAlarmPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleCloudwatchAlarm)(nil)).Elem()
+func (TopicRuleCloudwatchAlarmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleCloudwatchAlarm)(nil)).Elem()
 }
 
-func (o TopicRuleCloudwatchAlarmPtrOutput) ToTopicRuleCloudwatchAlarmPtrOutput() TopicRuleCloudwatchAlarmPtrOutput {
+func (o TopicRuleCloudwatchAlarmArrayOutput) ToTopicRuleCloudwatchAlarmArrayOutput() TopicRuleCloudwatchAlarmArrayOutput {
 	return o
 }
 
-func (o TopicRuleCloudwatchAlarmPtrOutput) ToTopicRuleCloudwatchAlarmPtrOutputWithContext(ctx context.Context) TopicRuleCloudwatchAlarmPtrOutput {
+func (o TopicRuleCloudwatchAlarmArrayOutput) ToTopicRuleCloudwatchAlarmArrayOutputWithContext(ctx context.Context) TopicRuleCloudwatchAlarmArrayOutput {
 	return o
 }
 
-func (o TopicRuleCloudwatchAlarmPtrOutput) Elem() TopicRuleCloudwatchAlarmOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) TopicRuleCloudwatchAlarm {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleCloudwatchAlarm
-		return ret
+func (o TopicRuleCloudwatchAlarmArrayOutput) Index(i pulumi.IntInput) TopicRuleCloudwatchAlarmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleCloudwatchAlarm {
+		return vs[0].([]TopicRuleCloudwatchAlarm)[vs[1].(int)]
 	}).(TopicRuleCloudwatchAlarmOutput)
-}
-
-// The CloudWatch alarm name.
-func (o TopicRuleCloudwatchAlarmPtrOutput) AlarmName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AlarmName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The IAM role ARN that allows access to the CloudWatch alarm.
-func (o TopicRuleCloudwatchAlarmPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The reason for the alarm change.
-func (o TopicRuleCloudwatchAlarmPtrOutput) StateReason() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StateReason
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-func (o TopicRuleCloudwatchAlarmPtrOutput) StateValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StateValue
-	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleCloudwatchLog struct {
@@ -2018,45 +1948,29 @@ func (i TopicRuleCloudwatchMetricArgs) ToTopicRuleCloudwatchMetricOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchMetricOutput)
 }
 
-func (i TopicRuleCloudwatchMetricArgs) ToTopicRuleCloudwatchMetricPtrOutput() TopicRuleCloudwatchMetricPtrOutput {
-	return i.ToTopicRuleCloudwatchMetricPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleCloudwatchMetricArgs) ToTopicRuleCloudwatchMetricPtrOutputWithContext(ctx context.Context) TopicRuleCloudwatchMetricPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchMetricOutput).ToTopicRuleCloudwatchMetricPtrOutputWithContext(ctx)
-}
-
-// TopicRuleCloudwatchMetricPtrInput is an input type that accepts TopicRuleCloudwatchMetricArgs, TopicRuleCloudwatchMetricPtr and TopicRuleCloudwatchMetricPtrOutput values.
-// You can construct a concrete instance of `TopicRuleCloudwatchMetricPtrInput` via:
+// TopicRuleCloudwatchMetricArrayInput is an input type that accepts TopicRuleCloudwatchMetricArray and TopicRuleCloudwatchMetricArrayOutput values.
+// You can construct a concrete instance of `TopicRuleCloudwatchMetricArrayInput` via:
 //
-//	        TopicRuleCloudwatchMetricArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleCloudwatchMetricPtrInput interface {
+//	TopicRuleCloudwatchMetricArray{ TopicRuleCloudwatchMetricArgs{...} }
+type TopicRuleCloudwatchMetricArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleCloudwatchMetricPtrOutput() TopicRuleCloudwatchMetricPtrOutput
-	ToTopicRuleCloudwatchMetricPtrOutputWithContext(context.Context) TopicRuleCloudwatchMetricPtrOutput
+	ToTopicRuleCloudwatchMetricArrayOutput() TopicRuleCloudwatchMetricArrayOutput
+	ToTopicRuleCloudwatchMetricArrayOutputWithContext(context.Context) TopicRuleCloudwatchMetricArrayOutput
 }
 
-type topicRuleCloudwatchMetricPtrType TopicRuleCloudwatchMetricArgs
+type TopicRuleCloudwatchMetricArray []TopicRuleCloudwatchMetricInput
 
-func TopicRuleCloudwatchMetricPtr(v *TopicRuleCloudwatchMetricArgs) TopicRuleCloudwatchMetricPtrInput {
-	return (*topicRuleCloudwatchMetricPtrType)(v)
+func (TopicRuleCloudwatchMetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleCloudwatchMetric)(nil)).Elem()
 }
 
-func (*topicRuleCloudwatchMetricPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleCloudwatchMetric)(nil)).Elem()
+func (i TopicRuleCloudwatchMetricArray) ToTopicRuleCloudwatchMetricArrayOutput() TopicRuleCloudwatchMetricArrayOutput {
+	return i.ToTopicRuleCloudwatchMetricArrayOutputWithContext(context.Background())
 }
 
-func (i *topicRuleCloudwatchMetricPtrType) ToTopicRuleCloudwatchMetricPtrOutput() TopicRuleCloudwatchMetricPtrOutput {
-	return i.ToTopicRuleCloudwatchMetricPtrOutputWithContext(context.Background())
-}
-
-func (i *topicRuleCloudwatchMetricPtrType) ToTopicRuleCloudwatchMetricPtrOutputWithContext(ctx context.Context) TopicRuleCloudwatchMetricPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchMetricPtrOutput)
+func (i TopicRuleCloudwatchMetricArray) ToTopicRuleCloudwatchMetricArrayOutputWithContext(ctx context.Context) TopicRuleCloudwatchMetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchMetricArrayOutput)
 }
 
 type TopicRuleCloudwatchMetricOutput struct{ *pulumi.OutputState }
@@ -2071,16 +1985,6 @@ func (o TopicRuleCloudwatchMetricOutput) ToTopicRuleCloudwatchMetricOutput() Top
 
 func (o TopicRuleCloudwatchMetricOutput) ToTopicRuleCloudwatchMetricOutputWithContext(ctx context.Context) TopicRuleCloudwatchMetricOutput {
 	return o
-}
-
-func (o TopicRuleCloudwatchMetricOutput) ToTopicRuleCloudwatchMetricPtrOutput() TopicRuleCloudwatchMetricPtrOutput {
-	return o.ToTopicRuleCloudwatchMetricPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleCloudwatchMetricOutput) ToTopicRuleCloudwatchMetricPtrOutputWithContext(ctx context.Context) TopicRuleCloudwatchMetricPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleCloudwatchMetric) *TopicRuleCloudwatchMetric {
-		return &v
-	}).(TopicRuleCloudwatchMetricPtrOutput)
 }
 
 // The CloudWatch metric name.
@@ -2113,88 +2017,24 @@ func (o TopicRuleCloudwatchMetricOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetric) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-type TopicRuleCloudwatchMetricPtrOutput struct{ *pulumi.OutputState }
+type TopicRuleCloudwatchMetricArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleCloudwatchMetricPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleCloudwatchMetric)(nil)).Elem()
+func (TopicRuleCloudwatchMetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleCloudwatchMetric)(nil)).Elem()
 }
 
-func (o TopicRuleCloudwatchMetricPtrOutput) ToTopicRuleCloudwatchMetricPtrOutput() TopicRuleCloudwatchMetricPtrOutput {
+func (o TopicRuleCloudwatchMetricArrayOutput) ToTopicRuleCloudwatchMetricArrayOutput() TopicRuleCloudwatchMetricArrayOutput {
 	return o
 }
 
-func (o TopicRuleCloudwatchMetricPtrOutput) ToTopicRuleCloudwatchMetricPtrOutputWithContext(ctx context.Context) TopicRuleCloudwatchMetricPtrOutput {
+func (o TopicRuleCloudwatchMetricArrayOutput) ToTopicRuleCloudwatchMetricArrayOutputWithContext(ctx context.Context) TopicRuleCloudwatchMetricArrayOutput {
 	return o
 }
 
-func (o TopicRuleCloudwatchMetricPtrOutput) Elem() TopicRuleCloudwatchMetricOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) TopicRuleCloudwatchMetric {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleCloudwatchMetric
-		return ret
+func (o TopicRuleCloudwatchMetricArrayOutput) Index(i pulumi.IntInput) TopicRuleCloudwatchMetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleCloudwatchMetric {
+		return vs[0].([]TopicRuleCloudwatchMetric)[vs[1].(int)]
 	}).(TopicRuleCloudwatchMetricOutput)
-}
-
-// The CloudWatch metric name.
-func (o TopicRuleCloudwatchMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MetricName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The CloudWatch metric namespace name.
-func (o TopicRuleCloudwatchMetricPtrOutput) MetricNamespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MetricNamespace
-	}).(pulumi.StringPtrOutput)
-}
-
-// An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-func (o TopicRuleCloudwatchMetricPtrOutput) MetricTimestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MetricTimestamp
-	}).(pulumi.StringPtrOutput)
-}
-
-// The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-func (o TopicRuleCloudwatchMetricPtrOutput) MetricUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MetricUnit
-	}).(pulumi.StringPtrOutput)
-}
-
-// The CloudWatch metric value.
-func (o TopicRuleCloudwatchMetricPtrOutput) MetricValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MetricValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// The IAM role ARN that allows access to the CloudWatch metric.
-func (o TopicRuleCloudwatchMetricPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleDestinationVpcConfiguration struct {
@@ -2460,45 +2300,29 @@ func (i TopicRuleDynamodbArgs) ToTopicRuleDynamodbOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamodbOutput)
 }
 
-func (i TopicRuleDynamodbArgs) ToTopicRuleDynamodbPtrOutput() TopicRuleDynamodbPtrOutput {
-	return i.ToTopicRuleDynamodbPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleDynamodbArgs) ToTopicRuleDynamodbPtrOutputWithContext(ctx context.Context) TopicRuleDynamodbPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamodbOutput).ToTopicRuleDynamodbPtrOutputWithContext(ctx)
-}
-
-// TopicRuleDynamodbPtrInput is an input type that accepts TopicRuleDynamodbArgs, TopicRuleDynamodbPtr and TopicRuleDynamodbPtrOutput values.
-// You can construct a concrete instance of `TopicRuleDynamodbPtrInput` via:
+// TopicRuleDynamodbArrayInput is an input type that accepts TopicRuleDynamodbArray and TopicRuleDynamodbArrayOutput values.
+// You can construct a concrete instance of `TopicRuleDynamodbArrayInput` via:
 //
-//	        TopicRuleDynamodbArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleDynamodbPtrInput interface {
+//	TopicRuleDynamodbArray{ TopicRuleDynamodbArgs{...} }
+type TopicRuleDynamodbArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleDynamodbPtrOutput() TopicRuleDynamodbPtrOutput
-	ToTopicRuleDynamodbPtrOutputWithContext(context.Context) TopicRuleDynamodbPtrOutput
+	ToTopicRuleDynamodbArrayOutput() TopicRuleDynamodbArrayOutput
+	ToTopicRuleDynamodbArrayOutputWithContext(context.Context) TopicRuleDynamodbArrayOutput
 }
 
-type topicRuleDynamodbPtrType TopicRuleDynamodbArgs
+type TopicRuleDynamodbArray []TopicRuleDynamodbInput
 
-func TopicRuleDynamodbPtr(v *TopicRuleDynamodbArgs) TopicRuleDynamodbPtrInput {
-	return (*topicRuleDynamodbPtrType)(v)
+func (TopicRuleDynamodbArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleDynamodb)(nil)).Elem()
 }
 
-func (*topicRuleDynamodbPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleDynamodb)(nil)).Elem()
+func (i TopicRuleDynamodbArray) ToTopicRuleDynamodbArrayOutput() TopicRuleDynamodbArrayOutput {
+	return i.ToTopicRuleDynamodbArrayOutputWithContext(context.Background())
 }
 
-func (i *topicRuleDynamodbPtrType) ToTopicRuleDynamodbPtrOutput() TopicRuleDynamodbPtrOutput {
-	return i.ToTopicRuleDynamodbPtrOutputWithContext(context.Background())
-}
-
-func (i *topicRuleDynamodbPtrType) ToTopicRuleDynamodbPtrOutputWithContext(ctx context.Context) TopicRuleDynamodbPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamodbPtrOutput)
+func (i TopicRuleDynamodbArray) ToTopicRuleDynamodbArrayOutputWithContext(ctx context.Context) TopicRuleDynamodbArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamodbArrayOutput)
 }
 
 type TopicRuleDynamodbOutput struct{ *pulumi.OutputState }
@@ -2513,16 +2337,6 @@ func (o TopicRuleDynamodbOutput) ToTopicRuleDynamodbOutput() TopicRuleDynamodbOu
 
 func (o TopicRuleDynamodbOutput) ToTopicRuleDynamodbOutputWithContext(ctx context.Context) TopicRuleDynamodbOutput {
 	return o
-}
-
-func (o TopicRuleDynamodbOutput) ToTopicRuleDynamodbPtrOutput() TopicRuleDynamodbPtrOutput {
-	return o.ToTopicRuleDynamodbPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleDynamodbOutput) ToTopicRuleDynamodbPtrOutputWithContext(ctx context.Context) TopicRuleDynamodbPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleDynamodb) *TopicRuleDynamodb {
-		return &v
-	}).(TopicRuleDynamodbPtrOutput)
 }
 
 // The hash key name.
@@ -2575,128 +2389,24 @@ func (o TopicRuleDynamodbOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamodb) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-type TopicRuleDynamodbPtrOutput struct{ *pulumi.OutputState }
+type TopicRuleDynamodbArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleDynamodbPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleDynamodb)(nil)).Elem()
+func (TopicRuleDynamodbArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleDynamodb)(nil)).Elem()
 }
 
-func (o TopicRuleDynamodbPtrOutput) ToTopicRuleDynamodbPtrOutput() TopicRuleDynamodbPtrOutput {
+func (o TopicRuleDynamodbArrayOutput) ToTopicRuleDynamodbArrayOutput() TopicRuleDynamodbArrayOutput {
 	return o
 }
 
-func (o TopicRuleDynamodbPtrOutput) ToTopicRuleDynamodbPtrOutputWithContext(ctx context.Context) TopicRuleDynamodbPtrOutput {
+func (o TopicRuleDynamodbArrayOutput) ToTopicRuleDynamodbArrayOutputWithContext(ctx context.Context) TopicRuleDynamodbArrayOutput {
 	return o
 }
 
-func (o TopicRuleDynamodbPtrOutput) Elem() TopicRuleDynamodbOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) TopicRuleDynamodb {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleDynamodb
-		return ret
+func (o TopicRuleDynamodbArrayOutput) Index(i pulumi.IntInput) TopicRuleDynamodbOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleDynamodb {
+		return vs[0].([]TopicRuleDynamodb)[vs[1].(int)]
 	}).(TopicRuleDynamodbOutput)
-}
-
-// The hash key name.
-func (o TopicRuleDynamodbPtrOutput) HashKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HashKeyField
-	}).(pulumi.StringPtrOutput)
-}
-
-// The hash key type. Valid values are "STRING" or "NUMBER".
-func (o TopicRuleDynamodbPtrOutput) HashKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HashKeyType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The hash key value.
-func (o TopicRuleDynamodbPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HashKeyValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
-func (o TopicRuleDynamodbPtrOutput) Operation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Operation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The action payload.
-func (o TopicRuleDynamodbPtrOutput) PayloadField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PayloadField
-	}).(pulumi.StringPtrOutput)
-}
-
-// The range key name.
-func (o TopicRuleDynamodbPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyField
-	}).(pulumi.StringPtrOutput)
-}
-
-// The range key type. Valid values are "STRING" or "NUMBER".
-func (o TopicRuleDynamodbPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The range key value.
-func (o TopicRuleDynamodbPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RangeKeyValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ARN of the IAM role that grants access to the DynamoDB table.
-func (o TopicRuleDynamodbPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the DynamoDB table.
-func (o TopicRuleDynamodbPtrOutput) TableName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TableName
-	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleDynamodbv2 struct {
@@ -2999,45 +2709,29 @@ func (i TopicRuleElasticsearchArgs) ToTopicRuleElasticsearchOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleElasticsearchOutput)
 }
 
-func (i TopicRuleElasticsearchArgs) ToTopicRuleElasticsearchPtrOutput() TopicRuleElasticsearchPtrOutput {
-	return i.ToTopicRuleElasticsearchPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleElasticsearchArgs) ToTopicRuleElasticsearchPtrOutputWithContext(ctx context.Context) TopicRuleElasticsearchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleElasticsearchOutput).ToTopicRuleElasticsearchPtrOutputWithContext(ctx)
-}
-
-// TopicRuleElasticsearchPtrInput is an input type that accepts TopicRuleElasticsearchArgs, TopicRuleElasticsearchPtr and TopicRuleElasticsearchPtrOutput values.
-// You can construct a concrete instance of `TopicRuleElasticsearchPtrInput` via:
+// TopicRuleElasticsearchArrayInput is an input type that accepts TopicRuleElasticsearchArray and TopicRuleElasticsearchArrayOutput values.
+// You can construct a concrete instance of `TopicRuleElasticsearchArrayInput` via:
 //
-//	        TopicRuleElasticsearchArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleElasticsearchPtrInput interface {
+//	TopicRuleElasticsearchArray{ TopicRuleElasticsearchArgs{...} }
+type TopicRuleElasticsearchArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleElasticsearchPtrOutput() TopicRuleElasticsearchPtrOutput
-	ToTopicRuleElasticsearchPtrOutputWithContext(context.Context) TopicRuleElasticsearchPtrOutput
+	ToTopicRuleElasticsearchArrayOutput() TopicRuleElasticsearchArrayOutput
+	ToTopicRuleElasticsearchArrayOutputWithContext(context.Context) TopicRuleElasticsearchArrayOutput
 }
 
-type topicRuleElasticsearchPtrType TopicRuleElasticsearchArgs
+type TopicRuleElasticsearchArray []TopicRuleElasticsearchInput
 
-func TopicRuleElasticsearchPtr(v *TopicRuleElasticsearchArgs) TopicRuleElasticsearchPtrInput {
-	return (*topicRuleElasticsearchPtrType)(v)
+func (TopicRuleElasticsearchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleElasticsearch)(nil)).Elem()
 }
 
-func (*topicRuleElasticsearchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleElasticsearch)(nil)).Elem()
+func (i TopicRuleElasticsearchArray) ToTopicRuleElasticsearchArrayOutput() TopicRuleElasticsearchArrayOutput {
+	return i.ToTopicRuleElasticsearchArrayOutputWithContext(context.Background())
 }
 
-func (i *topicRuleElasticsearchPtrType) ToTopicRuleElasticsearchPtrOutput() TopicRuleElasticsearchPtrOutput {
-	return i.ToTopicRuleElasticsearchPtrOutputWithContext(context.Background())
-}
-
-func (i *topicRuleElasticsearchPtrType) ToTopicRuleElasticsearchPtrOutputWithContext(ctx context.Context) TopicRuleElasticsearchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleElasticsearchPtrOutput)
+func (i TopicRuleElasticsearchArray) ToTopicRuleElasticsearchArrayOutputWithContext(ctx context.Context) TopicRuleElasticsearchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleElasticsearchArrayOutput)
 }
 
 type TopicRuleElasticsearchOutput struct{ *pulumi.OutputState }
@@ -3052,16 +2746,6 @@ func (o TopicRuleElasticsearchOutput) ToTopicRuleElasticsearchOutput() TopicRule
 
 func (o TopicRuleElasticsearchOutput) ToTopicRuleElasticsearchOutputWithContext(ctx context.Context) TopicRuleElasticsearchOutput {
 	return o
-}
-
-func (o TopicRuleElasticsearchOutput) ToTopicRuleElasticsearchPtrOutput() TopicRuleElasticsearchPtrOutput {
-	return o.ToTopicRuleElasticsearchPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleElasticsearchOutput) ToTopicRuleElasticsearchPtrOutputWithContext(ctx context.Context) TopicRuleElasticsearchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleElasticsearch) *TopicRuleElasticsearch {
-		return &v
-	}).(TopicRuleElasticsearchPtrOutput)
 }
 
 // The endpoint of your Elasticsearch domain.
@@ -3089,78 +2773,24 @@ func (o TopicRuleElasticsearchOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearch) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type TopicRuleElasticsearchPtrOutput struct{ *pulumi.OutputState }
+type TopicRuleElasticsearchArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleElasticsearchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleElasticsearch)(nil)).Elem()
+func (TopicRuleElasticsearchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleElasticsearch)(nil)).Elem()
 }
 
-func (o TopicRuleElasticsearchPtrOutput) ToTopicRuleElasticsearchPtrOutput() TopicRuleElasticsearchPtrOutput {
+func (o TopicRuleElasticsearchArrayOutput) ToTopicRuleElasticsearchArrayOutput() TopicRuleElasticsearchArrayOutput {
 	return o
 }
 
-func (o TopicRuleElasticsearchPtrOutput) ToTopicRuleElasticsearchPtrOutputWithContext(ctx context.Context) TopicRuleElasticsearchPtrOutput {
+func (o TopicRuleElasticsearchArrayOutput) ToTopicRuleElasticsearchArrayOutputWithContext(ctx context.Context) TopicRuleElasticsearchArrayOutput {
 	return o
 }
 
-func (o TopicRuleElasticsearchPtrOutput) Elem() TopicRuleElasticsearchOutput {
-	return o.ApplyT(func(v *TopicRuleElasticsearch) TopicRuleElasticsearch {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleElasticsearch
-		return ret
+func (o TopicRuleElasticsearchArrayOutput) Index(i pulumi.IntInput) TopicRuleElasticsearchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleElasticsearch {
+		return vs[0].([]TopicRuleElasticsearch)[vs[1].(int)]
 	}).(TopicRuleElasticsearchOutput)
-}
-
-// The endpoint of your Elasticsearch domain.
-func (o TopicRuleElasticsearchPtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Endpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique identifier for the document you are storing.
-func (o TopicRuleElasticsearchPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Elasticsearch index where you want to store your data.
-func (o TopicRuleElasticsearchPtrOutput) Index() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Index
-	}).(pulumi.StringPtrOutput)
-}
-
-// The IAM role ARN that has access to Elasticsearch.
-func (o TopicRuleElasticsearchPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of document you are storing.
-func (o TopicRuleElasticsearchPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleElasticsearch) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleErrorAction struct {
@@ -7761,45 +7391,29 @@ func (i TopicRuleFirehoseArgs) ToTopicRuleFirehoseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleFirehoseOutput)
 }
 
-func (i TopicRuleFirehoseArgs) ToTopicRuleFirehosePtrOutput() TopicRuleFirehosePtrOutput {
-	return i.ToTopicRuleFirehosePtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleFirehoseArgs) ToTopicRuleFirehosePtrOutputWithContext(ctx context.Context) TopicRuleFirehosePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleFirehoseOutput).ToTopicRuleFirehosePtrOutputWithContext(ctx)
-}
-
-// TopicRuleFirehosePtrInput is an input type that accepts TopicRuleFirehoseArgs, TopicRuleFirehosePtr and TopicRuleFirehosePtrOutput values.
-// You can construct a concrete instance of `TopicRuleFirehosePtrInput` via:
+// TopicRuleFirehoseArrayInput is an input type that accepts TopicRuleFirehoseArray and TopicRuleFirehoseArrayOutput values.
+// You can construct a concrete instance of `TopicRuleFirehoseArrayInput` via:
 //
-//	        TopicRuleFirehoseArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleFirehosePtrInput interface {
+//	TopicRuleFirehoseArray{ TopicRuleFirehoseArgs{...} }
+type TopicRuleFirehoseArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleFirehosePtrOutput() TopicRuleFirehosePtrOutput
-	ToTopicRuleFirehosePtrOutputWithContext(context.Context) TopicRuleFirehosePtrOutput
+	ToTopicRuleFirehoseArrayOutput() TopicRuleFirehoseArrayOutput
+	ToTopicRuleFirehoseArrayOutputWithContext(context.Context) TopicRuleFirehoseArrayOutput
 }
 
-type topicRuleFirehosePtrType TopicRuleFirehoseArgs
+type TopicRuleFirehoseArray []TopicRuleFirehoseInput
 
-func TopicRuleFirehosePtr(v *TopicRuleFirehoseArgs) TopicRuleFirehosePtrInput {
-	return (*topicRuleFirehosePtrType)(v)
+func (TopicRuleFirehoseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleFirehose)(nil)).Elem()
 }
 
-func (*topicRuleFirehosePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleFirehose)(nil)).Elem()
+func (i TopicRuleFirehoseArray) ToTopicRuleFirehoseArrayOutput() TopicRuleFirehoseArrayOutput {
+	return i.ToTopicRuleFirehoseArrayOutputWithContext(context.Background())
 }
 
-func (i *topicRuleFirehosePtrType) ToTopicRuleFirehosePtrOutput() TopicRuleFirehosePtrOutput {
-	return i.ToTopicRuleFirehosePtrOutputWithContext(context.Background())
-}
-
-func (i *topicRuleFirehosePtrType) ToTopicRuleFirehosePtrOutputWithContext(ctx context.Context) TopicRuleFirehosePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleFirehosePtrOutput)
+func (i TopicRuleFirehoseArray) ToTopicRuleFirehoseArrayOutputWithContext(ctx context.Context) TopicRuleFirehoseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleFirehoseArrayOutput)
 }
 
 type TopicRuleFirehoseOutput struct{ *pulumi.OutputState }
@@ -7814,16 +7428,6 @@ func (o TopicRuleFirehoseOutput) ToTopicRuleFirehoseOutput() TopicRuleFirehoseOu
 
 func (o TopicRuleFirehoseOutput) ToTopicRuleFirehoseOutputWithContext(ctx context.Context) TopicRuleFirehoseOutput {
 	return o
-}
-
-func (o TopicRuleFirehoseOutput) ToTopicRuleFirehosePtrOutput() TopicRuleFirehosePtrOutput {
-	return o.ToTopicRuleFirehosePtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleFirehoseOutput) ToTopicRuleFirehosePtrOutputWithContext(ctx context.Context) TopicRuleFirehosePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleFirehose) *TopicRuleFirehose {
-		return &v
-	}).(TopicRuleFirehosePtrOutput)
 }
 
 // The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
@@ -7846,68 +7450,24 @@ func (o TopicRuleFirehoseOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleFirehose) *string { return v.Separator }).(pulumi.StringPtrOutput)
 }
 
-type TopicRuleFirehosePtrOutput struct{ *pulumi.OutputState }
+type TopicRuleFirehoseArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleFirehosePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleFirehose)(nil)).Elem()
+func (TopicRuleFirehoseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleFirehose)(nil)).Elem()
 }
 
-func (o TopicRuleFirehosePtrOutput) ToTopicRuleFirehosePtrOutput() TopicRuleFirehosePtrOutput {
+func (o TopicRuleFirehoseArrayOutput) ToTopicRuleFirehoseArrayOutput() TopicRuleFirehoseArrayOutput {
 	return o
 }
 
-func (o TopicRuleFirehosePtrOutput) ToTopicRuleFirehosePtrOutputWithContext(ctx context.Context) TopicRuleFirehosePtrOutput {
+func (o TopicRuleFirehoseArrayOutput) ToTopicRuleFirehoseArrayOutputWithContext(ctx context.Context) TopicRuleFirehoseArrayOutput {
 	return o
 }
 
-func (o TopicRuleFirehosePtrOutput) Elem() TopicRuleFirehoseOutput {
-	return o.ApplyT(func(v *TopicRuleFirehose) TopicRuleFirehose {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleFirehose
-		return ret
+func (o TopicRuleFirehoseArrayOutput) Index(i pulumi.IntInput) TopicRuleFirehoseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleFirehose {
+		return vs[0].([]TopicRuleFirehose)[vs[1].(int)]
 	}).(TopicRuleFirehoseOutput)
-}
-
-// The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
-func (o TopicRuleFirehosePtrOutput) BatchMode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TopicRuleFirehose) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.BatchMode
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The delivery stream name.
-func (o TopicRuleFirehosePtrOutput) DeliveryStreamName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleFirehose) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DeliveryStreamName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-func (o TopicRuleFirehosePtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleFirehose) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-func (o TopicRuleFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleFirehose) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Separator
-	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleHttp struct {
@@ -8503,7 +8063,7 @@ func (o TopicRuleKafkaArrayOutput) Index(i pulumi.IntInput) TopicRuleKafkaOutput
 	}).(TopicRuleKafkaOutput)
 }
 
-type TopicRuleKinesis struct {
+type TopicRuleKinese struct {
 	// The partition key.
 	PartitionKey *string `pulumi:"partitionKey"`
 	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
@@ -8512,18 +8072,18 @@ type TopicRuleKinesis struct {
 	StreamName string `pulumi:"streamName"`
 }
 
-// TopicRuleKinesisInput is an input type that accepts TopicRuleKinesisArgs and TopicRuleKinesisOutput values.
-// You can construct a concrete instance of `TopicRuleKinesisInput` via:
+// TopicRuleKineseInput is an input type that accepts TopicRuleKineseArgs and TopicRuleKineseOutput values.
+// You can construct a concrete instance of `TopicRuleKineseInput` via:
 //
-//	TopicRuleKinesisArgs{...}
-type TopicRuleKinesisInput interface {
+//	TopicRuleKineseArgs{...}
+type TopicRuleKineseInput interface {
 	pulumi.Input
 
-	ToTopicRuleKinesisOutput() TopicRuleKinesisOutput
-	ToTopicRuleKinesisOutputWithContext(context.Context) TopicRuleKinesisOutput
+	ToTopicRuleKineseOutput() TopicRuleKineseOutput
+	ToTopicRuleKineseOutputWithContext(context.Context) TopicRuleKineseOutput
 }
 
-type TopicRuleKinesisArgs struct {
+type TopicRuleKineseArgs struct {
 	// The partition key.
 	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
 	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
@@ -8532,150 +8092,90 @@ type TopicRuleKinesisArgs struct {
 	StreamName pulumi.StringInput `pulumi:"streamName"`
 }
 
-func (TopicRuleKinesisArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleKinesis)(nil)).Elem()
+func (TopicRuleKineseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleKinese)(nil)).Elem()
 }
 
-func (i TopicRuleKinesisArgs) ToTopicRuleKinesisOutput() TopicRuleKinesisOutput {
-	return i.ToTopicRuleKinesisOutputWithContext(context.Background())
+func (i TopicRuleKineseArgs) ToTopicRuleKineseOutput() TopicRuleKineseOutput {
+	return i.ToTopicRuleKineseOutputWithContext(context.Background())
 }
 
-func (i TopicRuleKinesisArgs) ToTopicRuleKinesisOutputWithContext(ctx context.Context) TopicRuleKinesisOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKinesisOutput)
+func (i TopicRuleKineseArgs) ToTopicRuleKineseOutputWithContext(ctx context.Context) TopicRuleKineseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKineseOutput)
 }
 
-func (i TopicRuleKinesisArgs) ToTopicRuleKinesisPtrOutput() TopicRuleKinesisPtrOutput {
-	return i.ToTopicRuleKinesisPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleKinesisArgs) ToTopicRuleKinesisPtrOutputWithContext(ctx context.Context) TopicRuleKinesisPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKinesisOutput).ToTopicRuleKinesisPtrOutputWithContext(ctx)
-}
-
-// TopicRuleKinesisPtrInput is an input type that accepts TopicRuleKinesisArgs, TopicRuleKinesisPtr and TopicRuleKinesisPtrOutput values.
-// You can construct a concrete instance of `TopicRuleKinesisPtrInput` via:
+// TopicRuleKineseArrayInput is an input type that accepts TopicRuleKineseArray and TopicRuleKineseArrayOutput values.
+// You can construct a concrete instance of `TopicRuleKineseArrayInput` via:
 //
-//	        TopicRuleKinesisArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleKinesisPtrInput interface {
+//	TopicRuleKineseArray{ TopicRuleKineseArgs{...} }
+type TopicRuleKineseArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleKinesisPtrOutput() TopicRuleKinesisPtrOutput
-	ToTopicRuleKinesisPtrOutputWithContext(context.Context) TopicRuleKinesisPtrOutput
+	ToTopicRuleKineseArrayOutput() TopicRuleKineseArrayOutput
+	ToTopicRuleKineseArrayOutputWithContext(context.Context) TopicRuleKineseArrayOutput
 }
 
-type topicRuleKinesisPtrType TopicRuleKinesisArgs
+type TopicRuleKineseArray []TopicRuleKineseInput
 
-func TopicRuleKinesisPtr(v *TopicRuleKinesisArgs) TopicRuleKinesisPtrInput {
-	return (*topicRuleKinesisPtrType)(v)
+func (TopicRuleKineseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleKinese)(nil)).Elem()
 }
 
-func (*topicRuleKinesisPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleKinesis)(nil)).Elem()
+func (i TopicRuleKineseArray) ToTopicRuleKineseArrayOutput() TopicRuleKineseArrayOutput {
+	return i.ToTopicRuleKineseArrayOutputWithContext(context.Background())
 }
 
-func (i *topicRuleKinesisPtrType) ToTopicRuleKinesisPtrOutput() TopicRuleKinesisPtrOutput {
-	return i.ToTopicRuleKinesisPtrOutputWithContext(context.Background())
+func (i TopicRuleKineseArray) ToTopicRuleKineseArrayOutputWithContext(ctx context.Context) TopicRuleKineseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKineseArrayOutput)
 }
 
-func (i *topicRuleKinesisPtrType) ToTopicRuleKinesisPtrOutputWithContext(ctx context.Context) TopicRuleKinesisPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKinesisPtrOutput)
+type TopicRuleKineseOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleKineseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleKinese)(nil)).Elem()
 }
 
-type TopicRuleKinesisOutput struct{ *pulumi.OutputState }
-
-func (TopicRuleKinesisOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleKinesis)(nil)).Elem()
-}
-
-func (o TopicRuleKinesisOutput) ToTopicRuleKinesisOutput() TopicRuleKinesisOutput {
+func (o TopicRuleKineseOutput) ToTopicRuleKineseOutput() TopicRuleKineseOutput {
 	return o
 }
 
-func (o TopicRuleKinesisOutput) ToTopicRuleKinesisOutputWithContext(ctx context.Context) TopicRuleKinesisOutput {
+func (o TopicRuleKineseOutput) ToTopicRuleKineseOutputWithContext(ctx context.Context) TopicRuleKineseOutput {
 	return o
-}
-
-func (o TopicRuleKinesisOutput) ToTopicRuleKinesisPtrOutput() TopicRuleKinesisPtrOutput {
-	return o.ToTopicRuleKinesisPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleKinesisOutput) ToTopicRuleKinesisPtrOutputWithContext(ctx context.Context) TopicRuleKinesisPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleKinesis) *TopicRuleKinesis {
-		return &v
-	}).(TopicRuleKinesisPtrOutput)
 }
 
 // The partition key.
-func (o TopicRuleKinesisOutput) PartitionKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleKinesis) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
+func (o TopicRuleKineseOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleKinese) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-func (o TopicRuleKinesisOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleKinesis) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleKineseOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleKinese) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // The name of the Amazon Kinesis stream.
-func (o TopicRuleKinesisOutput) StreamName() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleKinesis) string { return v.StreamName }).(pulumi.StringOutput)
+func (o TopicRuleKineseOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleKinese) string { return v.StreamName }).(pulumi.StringOutput)
 }
 
-type TopicRuleKinesisPtrOutput struct{ *pulumi.OutputState }
+type TopicRuleKineseArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleKinesisPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleKinesis)(nil)).Elem()
+func (TopicRuleKineseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleKinese)(nil)).Elem()
 }
 
-func (o TopicRuleKinesisPtrOutput) ToTopicRuleKinesisPtrOutput() TopicRuleKinesisPtrOutput {
+func (o TopicRuleKineseArrayOutput) ToTopicRuleKineseArrayOutput() TopicRuleKineseArrayOutput {
 	return o
 }
 
-func (o TopicRuleKinesisPtrOutput) ToTopicRuleKinesisPtrOutputWithContext(ctx context.Context) TopicRuleKinesisPtrOutput {
+func (o TopicRuleKineseArrayOutput) ToTopicRuleKineseArrayOutputWithContext(ctx context.Context) TopicRuleKineseArrayOutput {
 	return o
 }
 
-func (o TopicRuleKinesisPtrOutput) Elem() TopicRuleKinesisOutput {
-	return o.ApplyT(func(v *TopicRuleKinesis) TopicRuleKinesis {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleKinesis
-		return ret
-	}).(TopicRuleKinesisOutput)
-}
-
-// The partition key.
-func (o TopicRuleKinesisPtrOutput) PartitionKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleKinesis) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PartitionKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-func (o TopicRuleKinesisPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleKinesis) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the Amazon Kinesis stream.
-func (o TopicRuleKinesisPtrOutput) StreamName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleKinesis) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StreamName
-	}).(pulumi.StringPtrOutput)
+func (o TopicRuleKineseArrayOutput) Index(i pulumi.IntInput) TopicRuleKineseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleKinese {
+		return vs[0].([]TopicRuleKinese)[vs[1].(int)]
+	}).(TopicRuleKineseOutput)
 }
 
 type TopicRuleLambda struct {
@@ -8711,45 +8211,29 @@ func (i TopicRuleLambdaArgs) ToTopicRuleLambdaOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleLambdaOutput)
 }
 
-func (i TopicRuleLambdaArgs) ToTopicRuleLambdaPtrOutput() TopicRuleLambdaPtrOutput {
-	return i.ToTopicRuleLambdaPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleLambdaArgs) ToTopicRuleLambdaPtrOutputWithContext(ctx context.Context) TopicRuleLambdaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleLambdaOutput).ToTopicRuleLambdaPtrOutputWithContext(ctx)
-}
-
-// TopicRuleLambdaPtrInput is an input type that accepts TopicRuleLambdaArgs, TopicRuleLambdaPtr and TopicRuleLambdaPtrOutput values.
-// You can construct a concrete instance of `TopicRuleLambdaPtrInput` via:
+// TopicRuleLambdaArrayInput is an input type that accepts TopicRuleLambdaArray and TopicRuleLambdaArrayOutput values.
+// You can construct a concrete instance of `TopicRuleLambdaArrayInput` via:
 //
-//	        TopicRuleLambdaArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleLambdaPtrInput interface {
+//	TopicRuleLambdaArray{ TopicRuleLambdaArgs{...} }
+type TopicRuleLambdaArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleLambdaPtrOutput() TopicRuleLambdaPtrOutput
-	ToTopicRuleLambdaPtrOutputWithContext(context.Context) TopicRuleLambdaPtrOutput
+	ToTopicRuleLambdaArrayOutput() TopicRuleLambdaArrayOutput
+	ToTopicRuleLambdaArrayOutputWithContext(context.Context) TopicRuleLambdaArrayOutput
 }
 
-type topicRuleLambdaPtrType TopicRuleLambdaArgs
+type TopicRuleLambdaArray []TopicRuleLambdaInput
 
-func TopicRuleLambdaPtr(v *TopicRuleLambdaArgs) TopicRuleLambdaPtrInput {
-	return (*topicRuleLambdaPtrType)(v)
+func (TopicRuleLambdaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleLambda)(nil)).Elem()
 }
 
-func (*topicRuleLambdaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleLambda)(nil)).Elem()
+func (i TopicRuleLambdaArray) ToTopicRuleLambdaArrayOutput() TopicRuleLambdaArrayOutput {
+	return i.ToTopicRuleLambdaArrayOutputWithContext(context.Background())
 }
 
-func (i *topicRuleLambdaPtrType) ToTopicRuleLambdaPtrOutput() TopicRuleLambdaPtrOutput {
-	return i.ToTopicRuleLambdaPtrOutputWithContext(context.Background())
-}
-
-func (i *topicRuleLambdaPtrType) ToTopicRuleLambdaPtrOutputWithContext(ctx context.Context) TopicRuleLambdaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleLambdaPtrOutput)
+func (i TopicRuleLambdaArray) ToTopicRuleLambdaArrayOutputWithContext(ctx context.Context) TopicRuleLambdaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleLambdaArrayOutput)
 }
 
 type TopicRuleLambdaOutput struct{ *pulumi.OutputState }
@@ -8766,53 +8250,29 @@ func (o TopicRuleLambdaOutput) ToTopicRuleLambdaOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o TopicRuleLambdaOutput) ToTopicRuleLambdaPtrOutput() TopicRuleLambdaPtrOutput {
-	return o.ToTopicRuleLambdaPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleLambdaOutput) ToTopicRuleLambdaPtrOutputWithContext(ctx context.Context) TopicRuleLambdaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleLambda) *TopicRuleLambda {
-		return &v
-	}).(TopicRuleLambdaPtrOutput)
-}
-
 // The ARN of the Lambda function.
 func (o TopicRuleLambdaOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleLambda) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
 
-type TopicRuleLambdaPtrOutput struct{ *pulumi.OutputState }
+type TopicRuleLambdaArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleLambdaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleLambda)(nil)).Elem()
+func (TopicRuleLambdaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleLambda)(nil)).Elem()
 }
 
-func (o TopicRuleLambdaPtrOutput) ToTopicRuleLambdaPtrOutput() TopicRuleLambdaPtrOutput {
+func (o TopicRuleLambdaArrayOutput) ToTopicRuleLambdaArrayOutput() TopicRuleLambdaArrayOutput {
 	return o
 }
 
-func (o TopicRuleLambdaPtrOutput) ToTopicRuleLambdaPtrOutputWithContext(ctx context.Context) TopicRuleLambdaPtrOutput {
+func (o TopicRuleLambdaArrayOutput) ToTopicRuleLambdaArrayOutputWithContext(ctx context.Context) TopicRuleLambdaArrayOutput {
 	return o
 }
 
-func (o TopicRuleLambdaPtrOutput) Elem() TopicRuleLambdaOutput {
-	return o.ApplyT(func(v *TopicRuleLambda) TopicRuleLambda {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleLambda
-		return ret
+func (o TopicRuleLambdaArrayOutput) Index(i pulumi.IntInput) TopicRuleLambdaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleLambda {
+		return vs[0].([]TopicRuleLambda)[vs[1].(int)]
 	}).(TopicRuleLambdaOutput)
-}
-
-// The ARN of the Lambda function.
-func (o TopicRuleLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleLambda) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FunctionArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleRepublish struct {
@@ -8860,45 +8320,29 @@ func (i TopicRuleRepublishArgs) ToTopicRuleRepublishOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleRepublishOutput)
 }
 
-func (i TopicRuleRepublishArgs) ToTopicRuleRepublishPtrOutput() TopicRuleRepublishPtrOutput {
-	return i.ToTopicRuleRepublishPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleRepublishArgs) ToTopicRuleRepublishPtrOutputWithContext(ctx context.Context) TopicRuleRepublishPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleRepublishOutput).ToTopicRuleRepublishPtrOutputWithContext(ctx)
-}
-
-// TopicRuleRepublishPtrInput is an input type that accepts TopicRuleRepublishArgs, TopicRuleRepublishPtr and TopicRuleRepublishPtrOutput values.
-// You can construct a concrete instance of `TopicRuleRepublishPtrInput` via:
+// TopicRuleRepublishArrayInput is an input type that accepts TopicRuleRepublishArray and TopicRuleRepublishArrayOutput values.
+// You can construct a concrete instance of `TopicRuleRepublishArrayInput` via:
 //
-//	        TopicRuleRepublishArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleRepublishPtrInput interface {
+//	TopicRuleRepublishArray{ TopicRuleRepublishArgs{...} }
+type TopicRuleRepublishArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleRepublishPtrOutput() TopicRuleRepublishPtrOutput
-	ToTopicRuleRepublishPtrOutputWithContext(context.Context) TopicRuleRepublishPtrOutput
+	ToTopicRuleRepublishArrayOutput() TopicRuleRepublishArrayOutput
+	ToTopicRuleRepublishArrayOutputWithContext(context.Context) TopicRuleRepublishArrayOutput
 }
 
-type topicRuleRepublishPtrType TopicRuleRepublishArgs
+type TopicRuleRepublishArray []TopicRuleRepublishInput
 
-func TopicRuleRepublishPtr(v *TopicRuleRepublishArgs) TopicRuleRepublishPtrInput {
-	return (*topicRuleRepublishPtrType)(v)
+func (TopicRuleRepublishArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleRepublish)(nil)).Elem()
 }
 
-func (*topicRuleRepublishPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleRepublish)(nil)).Elem()
+func (i TopicRuleRepublishArray) ToTopicRuleRepublishArrayOutput() TopicRuleRepublishArrayOutput {
+	return i.ToTopicRuleRepublishArrayOutputWithContext(context.Background())
 }
 
-func (i *topicRuleRepublishPtrType) ToTopicRuleRepublishPtrOutput() TopicRuleRepublishPtrOutput {
-	return i.ToTopicRuleRepublishPtrOutputWithContext(context.Background())
-}
-
-func (i *topicRuleRepublishPtrType) ToTopicRuleRepublishPtrOutputWithContext(ctx context.Context) TopicRuleRepublishPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleRepublishPtrOutput)
+func (i TopicRuleRepublishArray) ToTopicRuleRepublishArrayOutputWithContext(ctx context.Context) TopicRuleRepublishArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleRepublishArrayOutput)
 }
 
 type TopicRuleRepublishOutput struct{ *pulumi.OutputState }
@@ -8913,16 +8357,6 @@ func (o TopicRuleRepublishOutput) ToTopicRuleRepublishOutput() TopicRuleRepublis
 
 func (o TopicRuleRepublishOutput) ToTopicRuleRepublishOutputWithContext(ctx context.Context) TopicRuleRepublishOutput {
 	return o
-}
-
-func (o TopicRuleRepublishOutput) ToTopicRuleRepublishPtrOutput() TopicRuleRepublishPtrOutput {
-	return o.ToTopicRuleRepublishPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleRepublishOutput) ToTopicRuleRepublishPtrOutputWithContext(ctx context.Context) TopicRuleRepublishPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleRepublish) *TopicRuleRepublish {
-		return &v
-	}).(TopicRuleRepublishPtrOutput)
 }
 
 // The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
@@ -8942,60 +8376,24 @@ func (o TopicRuleRepublishOutput) Topic() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleRepublish) string { return v.Topic }).(pulumi.StringOutput)
 }
 
-type TopicRuleRepublishPtrOutput struct{ *pulumi.OutputState }
+type TopicRuleRepublishArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleRepublishPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleRepublish)(nil)).Elem()
+func (TopicRuleRepublishArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleRepublish)(nil)).Elem()
 }
 
-func (o TopicRuleRepublishPtrOutput) ToTopicRuleRepublishPtrOutput() TopicRuleRepublishPtrOutput {
+func (o TopicRuleRepublishArrayOutput) ToTopicRuleRepublishArrayOutput() TopicRuleRepublishArrayOutput {
 	return o
 }
 
-func (o TopicRuleRepublishPtrOutput) ToTopicRuleRepublishPtrOutputWithContext(ctx context.Context) TopicRuleRepublishPtrOutput {
+func (o TopicRuleRepublishArrayOutput) ToTopicRuleRepublishArrayOutputWithContext(ctx context.Context) TopicRuleRepublishArrayOutput {
 	return o
 }
 
-func (o TopicRuleRepublishPtrOutput) Elem() TopicRuleRepublishOutput {
-	return o.ApplyT(func(v *TopicRuleRepublish) TopicRuleRepublish {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleRepublish
-		return ret
+func (o TopicRuleRepublishArrayOutput) Index(i pulumi.IntInput) TopicRuleRepublishOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleRepublish {
+		return vs[0].([]TopicRuleRepublish)[vs[1].(int)]
 	}).(TopicRuleRepublishOutput)
-}
-
-// The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-//
-// The `s3` object takes the following arguments:
-func (o TopicRuleRepublishPtrOutput) Qos() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TopicRuleRepublish) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Qos
-	}).(pulumi.IntPtrOutput)
-}
-
-// The ARN of the IAM role that grants access.
-func (o TopicRuleRepublishPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleRepublish) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the MQTT topic the message should be republished to.
-func (o TopicRuleRepublishPtrOutput) Topic() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleRepublish) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Topic
-	}).(pulumi.StringPtrOutput)
 }
 
 type TopicRuleS3 struct {
@@ -9043,45 +8441,29 @@ func (i TopicRuleS3Args) ToTopicRuleS3OutputWithContext(ctx context.Context) Top
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleS3Output)
 }
 
-func (i TopicRuleS3Args) ToTopicRuleS3PtrOutput() TopicRuleS3PtrOutput {
-	return i.ToTopicRuleS3PtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleS3Args) ToTopicRuleS3PtrOutputWithContext(ctx context.Context) TopicRuleS3PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleS3Output).ToTopicRuleS3PtrOutputWithContext(ctx)
-}
-
-// TopicRuleS3PtrInput is an input type that accepts TopicRuleS3Args, TopicRuleS3Ptr and TopicRuleS3PtrOutput values.
-// You can construct a concrete instance of `TopicRuleS3PtrInput` via:
+// TopicRuleS3ArrayInput is an input type that accepts TopicRuleS3Array and TopicRuleS3ArrayOutput values.
+// You can construct a concrete instance of `TopicRuleS3ArrayInput` via:
 //
-//	        TopicRuleS3Args{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleS3PtrInput interface {
+//	TopicRuleS3Array{ TopicRuleS3Args{...} }
+type TopicRuleS3ArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleS3PtrOutput() TopicRuleS3PtrOutput
-	ToTopicRuleS3PtrOutputWithContext(context.Context) TopicRuleS3PtrOutput
+	ToTopicRuleS3ArrayOutput() TopicRuleS3ArrayOutput
+	ToTopicRuleS3ArrayOutputWithContext(context.Context) TopicRuleS3ArrayOutput
 }
 
-type topicRuleS3PtrType TopicRuleS3Args
+type TopicRuleS3Array []TopicRuleS3Input
 
-func TopicRuleS3Ptr(v *TopicRuleS3Args) TopicRuleS3PtrInput {
-	return (*topicRuleS3PtrType)(v)
+func (TopicRuleS3Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleS3)(nil)).Elem()
 }
 
-func (*topicRuleS3PtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleS3)(nil)).Elem()
+func (i TopicRuleS3Array) ToTopicRuleS3ArrayOutput() TopicRuleS3ArrayOutput {
+	return i.ToTopicRuleS3ArrayOutputWithContext(context.Background())
 }
 
-func (i *topicRuleS3PtrType) ToTopicRuleS3PtrOutput() TopicRuleS3PtrOutput {
-	return i.ToTopicRuleS3PtrOutputWithContext(context.Background())
-}
-
-func (i *topicRuleS3PtrType) ToTopicRuleS3PtrOutputWithContext(ctx context.Context) TopicRuleS3PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleS3PtrOutput)
+func (i TopicRuleS3Array) ToTopicRuleS3ArrayOutputWithContext(ctx context.Context) TopicRuleS3ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleS3ArrayOutput)
 }
 
 type TopicRuleS3Output struct{ *pulumi.OutputState }
@@ -9096,16 +8478,6 @@ func (o TopicRuleS3Output) ToTopicRuleS3Output() TopicRuleS3Output {
 
 func (o TopicRuleS3Output) ToTopicRuleS3OutputWithContext(ctx context.Context) TopicRuleS3Output {
 	return o
-}
-
-func (o TopicRuleS3Output) ToTopicRuleS3PtrOutput() TopicRuleS3PtrOutput {
-	return o.ToTopicRuleS3PtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleS3Output) ToTopicRuleS3PtrOutputWithContext(ctx context.Context) TopicRuleS3PtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleS3) *TopicRuleS3 {
-		return &v
-	}).(TopicRuleS3PtrOutput)
 }
 
 // The Amazon S3 bucket name.
@@ -9128,71 +8500,27 @@ func (o TopicRuleS3Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-type TopicRuleS3PtrOutput struct{ *pulumi.OutputState }
+type TopicRuleS3ArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleS3PtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleS3)(nil)).Elem()
+func (TopicRuleS3ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleS3)(nil)).Elem()
 }
 
-func (o TopicRuleS3PtrOutput) ToTopicRuleS3PtrOutput() TopicRuleS3PtrOutput {
+func (o TopicRuleS3ArrayOutput) ToTopicRuleS3ArrayOutput() TopicRuleS3ArrayOutput {
 	return o
 }
 
-func (o TopicRuleS3PtrOutput) ToTopicRuleS3PtrOutputWithContext(ctx context.Context) TopicRuleS3PtrOutput {
+func (o TopicRuleS3ArrayOutput) ToTopicRuleS3ArrayOutputWithContext(ctx context.Context) TopicRuleS3ArrayOutput {
 	return o
 }
 
-func (o TopicRuleS3PtrOutput) Elem() TopicRuleS3Output {
-	return o.ApplyT(func(v *TopicRuleS3) TopicRuleS3 {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleS3
-		return ret
+func (o TopicRuleS3ArrayOutput) Index(i pulumi.IntInput) TopicRuleS3Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleS3 {
+		return vs[0].([]TopicRuleS3)[vs[1].(int)]
 	}).(TopicRuleS3Output)
 }
 
-// The Amazon S3 bucket name.
-func (o TopicRuleS3PtrOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleS3) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BucketName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-func (o TopicRuleS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleS3) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CannedAcl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the HTTP header.
-func (o TopicRuleS3PtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleS3) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Key
-	}).(pulumi.StringPtrOutput)
-}
-
-// The IAM role ARN that allows access to the CloudWatch alarm.
-func (o TopicRuleS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleS3) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-type TopicRuleSns struct {
+type TopicRuleSn struct {
 	// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 	MessageFormat *string `pulumi:"messageFormat"`
 	// The ARN of the IAM role that grants access.
@@ -9201,18 +8529,18 @@ type TopicRuleSns struct {
 	TargetArn string `pulumi:"targetArn"`
 }
 
-// TopicRuleSnsInput is an input type that accepts TopicRuleSnsArgs and TopicRuleSnsOutput values.
-// You can construct a concrete instance of `TopicRuleSnsInput` via:
+// TopicRuleSnInput is an input type that accepts TopicRuleSnArgs and TopicRuleSnOutput values.
+// You can construct a concrete instance of `TopicRuleSnInput` via:
 //
-//	TopicRuleSnsArgs{...}
-type TopicRuleSnsInput interface {
+//	TopicRuleSnArgs{...}
+type TopicRuleSnInput interface {
 	pulumi.Input
 
-	ToTopicRuleSnsOutput() TopicRuleSnsOutput
-	ToTopicRuleSnsOutputWithContext(context.Context) TopicRuleSnsOutput
+	ToTopicRuleSnOutput() TopicRuleSnOutput
+	ToTopicRuleSnOutputWithContext(context.Context) TopicRuleSnOutput
 }
 
-type TopicRuleSnsArgs struct {
+type TopicRuleSnArgs struct {
 	// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
 	// The ARN of the IAM role that grants access.
@@ -9221,153 +8549,93 @@ type TopicRuleSnsArgs struct {
 	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
-func (TopicRuleSnsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleSns)(nil)).Elem()
+func (TopicRuleSnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleSn)(nil)).Elem()
 }
 
-func (i TopicRuleSnsArgs) ToTopicRuleSnsOutput() TopicRuleSnsOutput {
-	return i.ToTopicRuleSnsOutputWithContext(context.Background())
+func (i TopicRuleSnArgs) ToTopicRuleSnOutput() TopicRuleSnOutput {
+	return i.ToTopicRuleSnOutputWithContext(context.Background())
 }
 
-func (i TopicRuleSnsArgs) ToTopicRuleSnsOutputWithContext(ctx context.Context) TopicRuleSnsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSnsOutput)
+func (i TopicRuleSnArgs) ToTopicRuleSnOutputWithContext(ctx context.Context) TopicRuleSnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSnOutput)
 }
 
-func (i TopicRuleSnsArgs) ToTopicRuleSnsPtrOutput() TopicRuleSnsPtrOutput {
-	return i.ToTopicRuleSnsPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleSnsArgs) ToTopicRuleSnsPtrOutputWithContext(ctx context.Context) TopicRuleSnsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSnsOutput).ToTopicRuleSnsPtrOutputWithContext(ctx)
-}
-
-// TopicRuleSnsPtrInput is an input type that accepts TopicRuleSnsArgs, TopicRuleSnsPtr and TopicRuleSnsPtrOutput values.
-// You can construct a concrete instance of `TopicRuleSnsPtrInput` via:
+// TopicRuleSnArrayInput is an input type that accepts TopicRuleSnArray and TopicRuleSnArrayOutput values.
+// You can construct a concrete instance of `TopicRuleSnArrayInput` via:
 //
-//	        TopicRuleSnsArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleSnsPtrInput interface {
+//	TopicRuleSnArray{ TopicRuleSnArgs{...} }
+type TopicRuleSnArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleSnsPtrOutput() TopicRuleSnsPtrOutput
-	ToTopicRuleSnsPtrOutputWithContext(context.Context) TopicRuleSnsPtrOutput
+	ToTopicRuleSnArrayOutput() TopicRuleSnArrayOutput
+	ToTopicRuleSnArrayOutputWithContext(context.Context) TopicRuleSnArrayOutput
 }
 
-type topicRuleSnsPtrType TopicRuleSnsArgs
+type TopicRuleSnArray []TopicRuleSnInput
 
-func TopicRuleSnsPtr(v *TopicRuleSnsArgs) TopicRuleSnsPtrInput {
-	return (*topicRuleSnsPtrType)(v)
+func (TopicRuleSnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleSn)(nil)).Elem()
 }
 
-func (*topicRuleSnsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleSns)(nil)).Elem()
+func (i TopicRuleSnArray) ToTopicRuleSnArrayOutput() TopicRuleSnArrayOutput {
+	return i.ToTopicRuleSnArrayOutputWithContext(context.Background())
 }
 
-func (i *topicRuleSnsPtrType) ToTopicRuleSnsPtrOutput() TopicRuleSnsPtrOutput {
-	return i.ToTopicRuleSnsPtrOutputWithContext(context.Background())
+func (i TopicRuleSnArray) ToTopicRuleSnArrayOutputWithContext(ctx context.Context) TopicRuleSnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSnArrayOutput)
 }
 
-func (i *topicRuleSnsPtrType) ToTopicRuleSnsPtrOutputWithContext(ctx context.Context) TopicRuleSnsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSnsPtrOutput)
+type TopicRuleSnOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleSnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleSn)(nil)).Elem()
 }
 
-type TopicRuleSnsOutput struct{ *pulumi.OutputState }
-
-func (TopicRuleSnsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleSns)(nil)).Elem()
-}
-
-func (o TopicRuleSnsOutput) ToTopicRuleSnsOutput() TopicRuleSnsOutput {
+func (o TopicRuleSnOutput) ToTopicRuleSnOutput() TopicRuleSnOutput {
 	return o
 }
 
-func (o TopicRuleSnsOutput) ToTopicRuleSnsOutputWithContext(ctx context.Context) TopicRuleSnsOutput {
+func (o TopicRuleSnOutput) ToTopicRuleSnOutputWithContext(ctx context.Context) TopicRuleSnOutput {
 	return o
-}
-
-func (o TopicRuleSnsOutput) ToTopicRuleSnsPtrOutput() TopicRuleSnsPtrOutput {
-	return o.ToTopicRuleSnsPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleSnsOutput) ToTopicRuleSnsPtrOutputWithContext(ctx context.Context) TopicRuleSnsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleSns) *TopicRuleSns {
-		return &v
-	}).(TopicRuleSnsPtrOutput)
 }
 
 // The message format of the message to publish. Accepted values are "JSON" and "RAW".
-func (o TopicRuleSnsOutput) MessageFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleSns) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
+func (o TopicRuleSnOutput) MessageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleSn) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM role that grants access.
-func (o TopicRuleSnsOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSns) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleSnOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleSn) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // The ARN of the SNS topic.
-func (o TopicRuleSnsOutput) TargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSns) string { return v.TargetArn }).(pulumi.StringOutput)
+func (o TopicRuleSnOutput) TargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleSn) string { return v.TargetArn }).(pulumi.StringOutput)
 }
 
-type TopicRuleSnsPtrOutput struct{ *pulumi.OutputState }
+type TopicRuleSnArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleSnsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleSns)(nil)).Elem()
+func (TopicRuleSnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleSn)(nil)).Elem()
 }
 
-func (o TopicRuleSnsPtrOutput) ToTopicRuleSnsPtrOutput() TopicRuleSnsPtrOutput {
+func (o TopicRuleSnArrayOutput) ToTopicRuleSnArrayOutput() TopicRuleSnArrayOutput {
 	return o
 }
 
-func (o TopicRuleSnsPtrOutput) ToTopicRuleSnsPtrOutputWithContext(ctx context.Context) TopicRuleSnsPtrOutput {
+func (o TopicRuleSnArrayOutput) ToTopicRuleSnArrayOutputWithContext(ctx context.Context) TopicRuleSnArrayOutput {
 	return o
 }
 
-func (o TopicRuleSnsPtrOutput) Elem() TopicRuleSnsOutput {
-	return o.ApplyT(func(v *TopicRuleSns) TopicRuleSns {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleSns
-		return ret
-	}).(TopicRuleSnsOutput)
+func (o TopicRuleSnArrayOutput) Index(i pulumi.IntInput) TopicRuleSnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleSn {
+		return vs[0].([]TopicRuleSn)[vs[1].(int)]
+	}).(TopicRuleSnOutput)
 }
 
-// The message format of the message to publish. Accepted values are "JSON" and "RAW".
-func (o TopicRuleSnsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleSns) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MessageFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ARN of the IAM role that grants access.
-func (o TopicRuleSnsPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleSns) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ARN of the SNS topic.
-func (o TopicRuleSnsPtrOutput) TargetArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleSns) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetArn
-	}).(pulumi.StringPtrOutput)
-}
-
-type TopicRuleSqs struct {
+type TopicRuleSq struct {
 	// The URL of the Amazon SQS queue.
 	QueueUrl string `pulumi:"queueUrl"`
 	// The ARN of the IAM role that grants access.
@@ -9376,18 +8644,18 @@ type TopicRuleSqs struct {
 	UseBase64 bool `pulumi:"useBase64"`
 }
 
-// TopicRuleSqsInput is an input type that accepts TopicRuleSqsArgs and TopicRuleSqsOutput values.
-// You can construct a concrete instance of `TopicRuleSqsInput` via:
+// TopicRuleSqInput is an input type that accepts TopicRuleSqArgs and TopicRuleSqOutput values.
+// You can construct a concrete instance of `TopicRuleSqInput` via:
 //
-//	TopicRuleSqsArgs{...}
-type TopicRuleSqsInput interface {
+//	TopicRuleSqArgs{...}
+type TopicRuleSqInput interface {
 	pulumi.Input
 
-	ToTopicRuleSqsOutput() TopicRuleSqsOutput
-	ToTopicRuleSqsOutputWithContext(context.Context) TopicRuleSqsOutput
+	ToTopicRuleSqOutput() TopicRuleSqOutput
+	ToTopicRuleSqOutputWithContext(context.Context) TopicRuleSqOutput
 }
 
-type TopicRuleSqsArgs struct {
+type TopicRuleSqArgs struct {
 	// The URL of the Amazon SQS queue.
 	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
 	// The ARN of the IAM role that grants access.
@@ -9396,150 +8664,90 @@ type TopicRuleSqsArgs struct {
 	UseBase64 pulumi.BoolInput `pulumi:"useBase64"`
 }
 
-func (TopicRuleSqsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleSqs)(nil)).Elem()
+func (TopicRuleSqArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleSq)(nil)).Elem()
 }
 
-func (i TopicRuleSqsArgs) ToTopicRuleSqsOutput() TopicRuleSqsOutput {
-	return i.ToTopicRuleSqsOutputWithContext(context.Background())
+func (i TopicRuleSqArgs) ToTopicRuleSqOutput() TopicRuleSqOutput {
+	return i.ToTopicRuleSqOutputWithContext(context.Background())
 }
 
-func (i TopicRuleSqsArgs) ToTopicRuleSqsOutputWithContext(ctx context.Context) TopicRuleSqsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSqsOutput)
+func (i TopicRuleSqArgs) ToTopicRuleSqOutputWithContext(ctx context.Context) TopicRuleSqOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSqOutput)
 }
 
-func (i TopicRuleSqsArgs) ToTopicRuleSqsPtrOutput() TopicRuleSqsPtrOutput {
-	return i.ToTopicRuleSqsPtrOutputWithContext(context.Background())
-}
-
-func (i TopicRuleSqsArgs) ToTopicRuleSqsPtrOutputWithContext(ctx context.Context) TopicRuleSqsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSqsOutput).ToTopicRuleSqsPtrOutputWithContext(ctx)
-}
-
-// TopicRuleSqsPtrInput is an input type that accepts TopicRuleSqsArgs, TopicRuleSqsPtr and TopicRuleSqsPtrOutput values.
-// You can construct a concrete instance of `TopicRuleSqsPtrInput` via:
+// TopicRuleSqArrayInput is an input type that accepts TopicRuleSqArray and TopicRuleSqArrayOutput values.
+// You can construct a concrete instance of `TopicRuleSqArrayInput` via:
 //
-//	        TopicRuleSqsArgs{...}
-//
-//	or:
-//
-//	        nil
-type TopicRuleSqsPtrInput interface {
+//	TopicRuleSqArray{ TopicRuleSqArgs{...} }
+type TopicRuleSqArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleSqsPtrOutput() TopicRuleSqsPtrOutput
-	ToTopicRuleSqsPtrOutputWithContext(context.Context) TopicRuleSqsPtrOutput
+	ToTopicRuleSqArrayOutput() TopicRuleSqArrayOutput
+	ToTopicRuleSqArrayOutputWithContext(context.Context) TopicRuleSqArrayOutput
 }
 
-type topicRuleSqsPtrType TopicRuleSqsArgs
+type TopicRuleSqArray []TopicRuleSqInput
 
-func TopicRuleSqsPtr(v *TopicRuleSqsArgs) TopicRuleSqsPtrInput {
-	return (*topicRuleSqsPtrType)(v)
+func (TopicRuleSqArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleSq)(nil)).Elem()
 }
 
-func (*topicRuleSqsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleSqs)(nil)).Elem()
+func (i TopicRuleSqArray) ToTopicRuleSqArrayOutput() TopicRuleSqArrayOutput {
+	return i.ToTopicRuleSqArrayOutputWithContext(context.Background())
 }
 
-func (i *topicRuleSqsPtrType) ToTopicRuleSqsPtrOutput() TopicRuleSqsPtrOutput {
-	return i.ToTopicRuleSqsPtrOutputWithContext(context.Background())
+func (i TopicRuleSqArray) ToTopicRuleSqArrayOutputWithContext(ctx context.Context) TopicRuleSqArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSqArrayOutput)
 }
 
-func (i *topicRuleSqsPtrType) ToTopicRuleSqsPtrOutputWithContext(ctx context.Context) TopicRuleSqsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSqsPtrOutput)
+type TopicRuleSqOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleSqOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleSq)(nil)).Elem()
 }
 
-type TopicRuleSqsOutput struct{ *pulumi.OutputState }
-
-func (TopicRuleSqsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleSqs)(nil)).Elem()
-}
-
-func (o TopicRuleSqsOutput) ToTopicRuleSqsOutput() TopicRuleSqsOutput {
+func (o TopicRuleSqOutput) ToTopicRuleSqOutput() TopicRuleSqOutput {
 	return o
 }
 
-func (o TopicRuleSqsOutput) ToTopicRuleSqsOutputWithContext(ctx context.Context) TopicRuleSqsOutput {
+func (o TopicRuleSqOutput) ToTopicRuleSqOutputWithContext(ctx context.Context) TopicRuleSqOutput {
 	return o
-}
-
-func (o TopicRuleSqsOutput) ToTopicRuleSqsPtrOutput() TopicRuleSqsPtrOutput {
-	return o.ToTopicRuleSqsPtrOutputWithContext(context.Background())
-}
-
-func (o TopicRuleSqsOutput) ToTopicRuleSqsPtrOutputWithContext(ctx context.Context) TopicRuleSqsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleSqs) *TopicRuleSqs {
-		return &v
-	}).(TopicRuleSqsPtrOutput)
 }
 
 // The URL of the Amazon SQS queue.
-func (o TopicRuleSqsOutput) QueueUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSqs) string { return v.QueueUrl }).(pulumi.StringOutput)
+func (o TopicRuleSqOutput) QueueUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleSq) string { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
 // The ARN of the IAM role that grants access.
-func (o TopicRuleSqsOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSqs) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleSqOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleSq) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // Specifies whether to use Base64 encoding.
-func (o TopicRuleSqsOutput) UseBase64() pulumi.BoolOutput {
-	return o.ApplyT(func(v TopicRuleSqs) bool { return v.UseBase64 }).(pulumi.BoolOutput)
+func (o TopicRuleSqOutput) UseBase64() pulumi.BoolOutput {
+	return o.ApplyT(func(v TopicRuleSq) bool { return v.UseBase64 }).(pulumi.BoolOutput)
 }
 
-type TopicRuleSqsPtrOutput struct{ *pulumi.OutputState }
+type TopicRuleSqArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleSqsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TopicRuleSqs)(nil)).Elem()
+func (TopicRuleSqArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleSq)(nil)).Elem()
 }
 
-func (o TopicRuleSqsPtrOutput) ToTopicRuleSqsPtrOutput() TopicRuleSqsPtrOutput {
+func (o TopicRuleSqArrayOutput) ToTopicRuleSqArrayOutput() TopicRuleSqArrayOutput {
 	return o
 }
 
-func (o TopicRuleSqsPtrOutput) ToTopicRuleSqsPtrOutputWithContext(ctx context.Context) TopicRuleSqsPtrOutput {
+func (o TopicRuleSqArrayOutput) ToTopicRuleSqArrayOutputWithContext(ctx context.Context) TopicRuleSqArrayOutput {
 	return o
 }
 
-func (o TopicRuleSqsPtrOutput) Elem() TopicRuleSqsOutput {
-	return o.ApplyT(func(v *TopicRuleSqs) TopicRuleSqs {
-		if v != nil {
-			return *v
-		}
-		var ret TopicRuleSqs
-		return ret
-	}).(TopicRuleSqsOutput)
-}
-
-// The URL of the Amazon SQS queue.
-func (o TopicRuleSqsPtrOutput) QueueUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleSqs) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.QueueUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ARN of the IAM role that grants access.
-func (o TopicRuleSqsPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TopicRuleSqs) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether to use Base64 encoding.
-func (o TopicRuleSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TopicRuleSqs) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.UseBase64
-	}).(pulumi.BoolPtrOutput)
+func (o TopicRuleSqArrayOutput) Index(i pulumi.IntInput) TopicRuleSqOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleSq {
+		return vs[0].([]TopicRuleSq)[vs[1].(int)]
+	}).(TopicRuleSqOutput)
 }
 
 type TopicRuleStepFunction struct {
@@ -10078,21 +9286,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropertiesInput)(nil)).Elem(), ThingTypePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropertiesPtrInput)(nil)).Elem(), ThingTypePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchAlarmInput)(nil)).Elem(), TopicRuleCloudwatchAlarmArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchAlarmPtrInput)(nil)).Elem(), TopicRuleCloudwatchAlarmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchAlarmArrayInput)(nil)).Elem(), TopicRuleCloudwatchAlarmArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchLogInput)(nil)).Elem(), TopicRuleCloudwatchLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchLogArrayInput)(nil)).Elem(), TopicRuleCloudwatchLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchMetricInput)(nil)).Elem(), TopicRuleCloudwatchMetricArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchMetricPtrInput)(nil)).Elem(), TopicRuleCloudwatchMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchMetricArrayInput)(nil)).Elem(), TopicRuleCloudwatchMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationVpcConfigurationInput)(nil)).Elem(), TopicRuleDestinationVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationVpcConfigurationPtrInput)(nil)).Elem(), TopicRuleDestinationVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamodbInput)(nil)).Elem(), TopicRuleDynamodbArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamodbPtrInput)(nil)).Elem(), TopicRuleDynamodbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamodbArrayInput)(nil)).Elem(), TopicRuleDynamodbArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamodbv2Input)(nil)).Elem(), TopicRuleDynamodbv2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamodbv2ArrayInput)(nil)).Elem(), TopicRuleDynamodbv2Array{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamodbv2PutItemInput)(nil)).Elem(), TopicRuleDynamodbv2PutItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamodbv2PutItemPtrInput)(nil)).Elem(), TopicRuleDynamodbv2PutItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleElasticsearchInput)(nil)).Elem(), TopicRuleElasticsearchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleElasticsearchPtrInput)(nil)).Elem(), TopicRuleElasticsearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleElasticsearchArrayInput)(nil)).Elem(), TopicRuleElasticsearchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionInput)(nil)).Elem(), TopicRuleErrorActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionPtrInput)(nil)).Elem(), TopicRuleErrorActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionCloudwatchAlarmInput)(nil)).Elem(), TopicRuleErrorActionCloudwatchAlarmArgs{})
@@ -10142,7 +9350,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionTimestreamTimestampInput)(nil)).Elem(), TopicRuleErrorActionTimestreamTimestampArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionTimestreamTimestampPtrInput)(nil)).Elem(), TopicRuleErrorActionTimestreamTimestampArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleFirehoseInput)(nil)).Elem(), TopicRuleFirehoseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleFirehosePtrInput)(nil)).Elem(), TopicRuleFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleFirehoseArrayInput)(nil)).Elem(), TopicRuleFirehoseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleHttpInput)(nil)).Elem(), TopicRuleHttpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleHttpArrayInput)(nil)).Elem(), TopicRuleHttpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleHttpHttpHeaderInput)(nil)).Elem(), TopicRuleHttpHttpHeaderArgs{})
@@ -10153,18 +9361,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleIotEventArrayInput)(nil)).Elem(), TopicRuleIotEventArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaInput)(nil)).Elem(), TopicRuleKafkaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaArrayInput)(nil)).Elem(), TopicRuleKafkaArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKinesisInput)(nil)).Elem(), TopicRuleKinesisArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKinesisPtrInput)(nil)).Elem(), TopicRuleKinesisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKineseInput)(nil)).Elem(), TopicRuleKineseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKineseArrayInput)(nil)).Elem(), TopicRuleKineseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLambdaInput)(nil)).Elem(), TopicRuleLambdaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLambdaPtrInput)(nil)).Elem(), TopicRuleLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLambdaArrayInput)(nil)).Elem(), TopicRuleLambdaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleRepublishInput)(nil)).Elem(), TopicRuleRepublishArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleRepublishPtrInput)(nil)).Elem(), TopicRuleRepublishArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleRepublishArrayInput)(nil)).Elem(), TopicRuleRepublishArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleS3Input)(nil)).Elem(), TopicRuleS3Args{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleS3PtrInput)(nil)).Elem(), TopicRuleS3Args{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSnsInput)(nil)).Elem(), TopicRuleSnsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSnsPtrInput)(nil)).Elem(), TopicRuleSnsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSqsInput)(nil)).Elem(), TopicRuleSqsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSqsPtrInput)(nil)).Elem(), TopicRuleSqsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleS3ArrayInput)(nil)).Elem(), TopicRuleS3Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSnInput)(nil)).Elem(), TopicRuleSnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSnArrayInput)(nil)).Elem(), TopicRuleSnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSqInput)(nil)).Elem(), TopicRuleSqArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSqArrayInput)(nil)).Elem(), TopicRuleSqArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleStepFunctionInput)(nil)).Elem(), TopicRuleStepFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleStepFunctionArrayInput)(nil)).Elem(), TopicRuleStepFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamInput)(nil)).Elem(), TopicRuleTimestreamArgs{})
@@ -10198,21 +9406,21 @@ func init() {
 	pulumi.RegisterOutputType(ThingTypePropertiesOutput{})
 	pulumi.RegisterOutputType(ThingTypePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchAlarmOutput{})
-	pulumi.RegisterOutputType(TopicRuleCloudwatchAlarmPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleCloudwatchAlarmArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchLogOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchLogArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchMetricOutput{})
-	pulumi.RegisterOutputType(TopicRuleCloudwatchMetricPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleCloudwatchMetricArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleDestinationVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(TopicRuleDestinationVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamodbOutput{})
-	pulumi.RegisterOutputType(TopicRuleDynamodbPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleDynamodbArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamodbv2Output{})
 	pulumi.RegisterOutputType(TopicRuleDynamodbv2ArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamodbv2PutItemOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamodbv2PutItemPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleElasticsearchOutput{})
-	pulumi.RegisterOutputType(TopicRuleElasticsearchPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleElasticsearchArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionCloudwatchAlarmOutput{})
@@ -10262,7 +9470,7 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleErrorActionTimestreamTimestampOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionTimestreamTimestampPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleFirehoseOutput{})
-	pulumi.RegisterOutputType(TopicRuleFirehosePtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleFirehoseArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleHttpOutput{})
 	pulumi.RegisterOutputType(TopicRuleHttpArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleHttpHttpHeaderOutput{})
@@ -10273,18 +9481,18 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleIotEventArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleKafkaOutput{})
 	pulumi.RegisterOutputType(TopicRuleKafkaArrayOutput{})
-	pulumi.RegisterOutputType(TopicRuleKinesisOutput{})
-	pulumi.RegisterOutputType(TopicRuleKinesisPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleKineseOutput{})
+	pulumi.RegisterOutputType(TopicRuleKineseArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleLambdaOutput{})
-	pulumi.RegisterOutputType(TopicRuleLambdaPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleLambdaArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleRepublishOutput{})
-	pulumi.RegisterOutputType(TopicRuleRepublishPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleRepublishArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleS3Output{})
-	pulumi.RegisterOutputType(TopicRuleS3PtrOutput{})
-	pulumi.RegisterOutputType(TopicRuleSnsOutput{})
-	pulumi.RegisterOutputType(TopicRuleSnsPtrOutput{})
-	pulumi.RegisterOutputType(TopicRuleSqsOutput{})
-	pulumi.RegisterOutputType(TopicRuleSqsPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleS3ArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleSnOutput{})
+	pulumi.RegisterOutputType(TopicRuleSnArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleSqOutput{})
+	pulumi.RegisterOutputType(TopicRuleSqArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleStepFunctionOutput{})
 	pulumi.RegisterOutputType(TopicRuleStepFunctionArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamOutput{})

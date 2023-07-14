@@ -9,7 +9,7 @@ import java.lang.String;
 import java.util.Objects;
 
 @CustomType
-public final class TopicRuleSqs {
+public final class TopicRuleSq {
     /**
      * @return The URL of the Amazon SQS queue.
      * 
@@ -26,7 +26,7 @@ public final class TopicRuleSqs {
      */
     private Boolean useBase64;
 
-    private TopicRuleSqs() {}
+    private TopicRuleSq() {}
     /**
      * @return The URL of the Amazon SQS queue.
      * 
@@ -53,7 +53,7 @@ public final class TopicRuleSqs {
         return new Builder();
     }
 
-    public static Builder builder(TopicRuleSqs defaults) {
+    public static Builder builder(TopicRuleSq defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -62,7 +62,7 @@ public final class TopicRuleSqs {
         private String roleArn;
         private Boolean useBase64;
         public Builder() {}
-        public Builder(TopicRuleSqs defaults) {
+        public Builder(TopicRuleSq defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.queueUrl = defaults.queueUrl;
     	      this.roleArn = defaults.roleArn;
@@ -84,8 +84,8 @@ public final class TopicRuleSqs {
             this.useBase64 = Objects.requireNonNull(useBase64);
             return this;
         }
-        public TopicRuleSqs build() {
-            final var o = new TopicRuleSqs();
+        public TopicRuleSq build() {
+            final var o = new TopicRuleSq();
             o.queueUrl = queueUrl;
             o.roleArn = roleArn;
             o.useBase64 = useBase64;

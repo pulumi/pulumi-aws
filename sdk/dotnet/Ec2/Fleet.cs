@@ -24,12 +24,15 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.Fleet("example", new()
     ///     {
-    ///         LaunchTemplateConfig = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigArgs
+    ///         LaunchTemplateConfigs = new[]
     ///         {
-    ///             LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///             new Aws.Ec2.Inputs.FleetLaunchTemplateConfigArgs
     ///             {
-    ///                 LaunchTemplateId = aws_launch_template.Example.Id,
-    ///                 Version = aws_launch_template.Example.Latest_version,
+    ///                 LaunchTemplateSpecification = new Aws.Ec2.Inputs.FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs
+    ///                 {
+    ///                     LaunchTemplateId = aws_launch_template.Example.Id,
+    ///                     Version = aws_launch_template.Example.Latest_version,
+    ///                 },
     ///             },
     ///         },
     ///         TargetCapacitySpecification = new Aws.Ec2.Inputs.FleetTargetCapacitySpecificationArgs
@@ -98,8 +101,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
         /// </summary>
-        [Output("launchTemplateConfig")]
-        public Output<Outputs.FleetLaunchTemplateConfig> LaunchTemplateConfig { get; private set; } = null!;
+        [Output("launchTemplateConfigs")]
+        public Output<ImmutableArray<Outputs.FleetLaunchTemplateConfig>> LaunchTemplateConfigs { get; private set; } = null!;
 
         /// <summary>
         /// Nested argument containing On-Demand configurations. Defined below.
@@ -255,11 +258,17 @@ namespace Pulumi.Aws.Ec2
         [Input("fulfilledOnDemandCapacity")]
         public Input<double>? FulfilledOnDemandCapacity { get; set; }
 
+        [Input("launchTemplateConfigs", required: true)]
+        private InputList<Inputs.FleetLaunchTemplateConfigArgs>? _launchTemplateConfigs;
+
         /// <summary>
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
         /// </summary>
-        [Input("launchTemplateConfig", required: true)]
-        public Input<Inputs.FleetLaunchTemplateConfigArgs> LaunchTemplateConfig { get; set; } = null!;
+        public InputList<Inputs.FleetLaunchTemplateConfigArgs> LaunchTemplateConfigs
+        {
+            get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.FleetLaunchTemplateConfigArgs>());
+            set => _launchTemplateConfigs = value;
+        }
 
         /// <summary>
         /// Nested argument containing On-Demand configurations. Defined below.
@@ -383,11 +392,17 @@ namespace Pulumi.Aws.Ec2
         [Input("fulfilledOnDemandCapacity")]
         public Input<double>? FulfilledOnDemandCapacity { get; set; }
 
+        [Input("launchTemplateConfigs")]
+        private InputList<Inputs.FleetLaunchTemplateConfigGetArgs>? _launchTemplateConfigs;
+
         /// <summary>
         /// Nested argument containing EC2 Launch Template configurations. Defined below.
         /// </summary>
-        [Input("launchTemplateConfig")]
-        public Input<Inputs.FleetLaunchTemplateConfigGetArgs>? LaunchTemplateConfig { get; set; }
+        public InputList<Inputs.FleetLaunchTemplateConfigGetArgs> LaunchTemplateConfigs
+        {
+            get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.FleetLaunchTemplateConfigGetArgs>());
+            set => _launchTemplateConfigs = value;
+        }
 
         /// <summary>
         /// Nested argument containing On-Demand configurations. Defined below.

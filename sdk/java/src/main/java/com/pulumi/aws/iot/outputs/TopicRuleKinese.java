@@ -10,7 +10,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class TopicRuleKinesis {
+public final class TopicRuleKinese {
     /**
      * @return The partition key.
      * 
@@ -27,7 +27,7 @@ public final class TopicRuleKinesis {
      */
     private String streamName;
 
-    private TopicRuleKinesis() {}
+    private TopicRuleKinese() {}
     /**
      * @return The partition key.
      * 
@@ -54,7 +54,7 @@ public final class TopicRuleKinesis {
         return new Builder();
     }
 
-    public static Builder builder(TopicRuleKinesis defaults) {
+    public static Builder builder(TopicRuleKinese defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -63,7 +63,7 @@ public final class TopicRuleKinesis {
         private String roleArn;
         private String streamName;
         public Builder() {}
-        public Builder(TopicRuleKinesis defaults) {
+        public Builder(TopicRuleKinese defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.partitionKey = defaults.partitionKey;
     	      this.roleArn = defaults.roleArn;
@@ -85,8 +85,8 @@ public final class TopicRuleKinesis {
             this.streamName = Objects.requireNonNull(streamName);
             return this;
         }
-        public TopicRuleKinesis build() {
-            final var o = new TopicRuleKinesis();
+        public TopicRuleKinese build() {
+            final var o = new TopicRuleKinese();
             o.partitionKey = partitionKey;
             o.roleArn = roleArn;
             o.streamName = streamName;

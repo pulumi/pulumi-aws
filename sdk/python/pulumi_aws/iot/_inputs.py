@@ -60,12 +60,12 @@ __all__ = [
     'TopicRuleIotAnalyticArgs',
     'TopicRuleIotEventArgs',
     'TopicRuleKafkaArgs',
-    'TopicRuleKinesisArgs',
+    'TopicRuleKineseArgs',
     'TopicRuleLambdaArgs',
     'TopicRuleRepublishArgs',
     'TopicRuleS3Args',
-    'TopicRuleSnsArgs',
-    'TopicRuleSqsArgs',
+    'TopicRuleSnArgs',
+    'TopicRuleSqArgs',
     'TopicRuleStepFunctionArgs',
     'TopicRuleTimestreamArgs',
     'TopicRuleTimestreamDimensionArgs',
@@ -3170,7 +3170,7 @@ class TopicRuleKafkaArgs:
 
 
 @pulumi.input_type
-class TopicRuleKinesisArgs:
+class TopicRuleKineseArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  stream_name: pulumi.Input[str],
@@ -3370,7 +3370,7 @@ class TopicRuleS3Args:
 
 
 @pulumi.input_type
-class TopicRuleSnsArgs:
+class TopicRuleSnArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  target_arn: pulumi.Input[str],
@@ -3423,7 +3423,7 @@ class TopicRuleSnsArgs:
 
 
 @pulumi.input_type
-class TopicRuleSqsArgs:
+class TopicRuleSqArgs:
     def __init__(__self__, *,
                  queue_url: pulumi.Input[str],
                  role_arn: pulumi.Input[str],

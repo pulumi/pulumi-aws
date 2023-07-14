@@ -10,29 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleKinesisArgs : global::Pulumi.ResourceArgs
+    public sealed class TopicRuleSqGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The partition key.
+        /// The URL of the Amazon SQS queue.
         /// </summary>
-        [Input("partitionKey")]
-        public Input<string>? PartitionKey { get; set; }
+        [Input("queueUrl", required: true)]
+        public Input<string> QueueUrl { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+        /// The ARN of the IAM role that grants access.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Amazon Kinesis stream.
+        /// Specifies whether to use Base64 encoding.
         /// </summary>
-        [Input("streamName", required: true)]
-        public Input<string> StreamName { get; set; } = null!;
+        [Input("useBase64", required: true)]
+        public Input<bool> UseBase64 { get; set; } = null!;
 
-        public TopicRuleKinesisArgs()
+        public TopicRuleSqGetArgs()
         {
         }
-        public static new TopicRuleKinesisArgs Empty => new TopicRuleKinesisArgs();
+        public static new TopicRuleSqGetArgs Empty => new TopicRuleSqGetArgs();
     }
 }

@@ -11,9 +11,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class TopicRuleKinesisArgs extends com.pulumi.resources.ResourceArgs {
+public final class TopicRuleKineseArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final TopicRuleKinesisArgs Empty = new TopicRuleKinesisArgs();
+    public static final TopicRuleKineseArgs Empty = new TopicRuleKineseArgs();
 
     /**
      * The partition key.
@@ -60,9 +60,9 @@ public final class TopicRuleKinesisArgs extends com.pulumi.resources.ResourceArg
         return this.streamName;
     }
 
-    private TopicRuleKinesisArgs() {}
+    private TopicRuleKineseArgs() {}
 
-    private TopicRuleKinesisArgs(TopicRuleKinesisArgs $) {
+    private TopicRuleKineseArgs(TopicRuleKineseArgs $) {
         this.partitionKey = $.partitionKey;
         this.roleArn = $.roleArn;
         this.streamName = $.streamName;
@@ -71,19 +71,19 @@ public final class TopicRuleKinesisArgs extends com.pulumi.resources.ResourceArg
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(TopicRuleKinesisArgs defaults) {
+    public static Builder builder(TopicRuleKineseArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private TopicRuleKinesisArgs $;
+        private TopicRuleKineseArgs $;
 
         public Builder() {
-            $ = new TopicRuleKinesisArgs();
+            $ = new TopicRuleKineseArgs();
         }
 
-        public Builder(TopicRuleKinesisArgs defaults) {
-            $ = new TopicRuleKinesisArgs(Objects.requireNonNull(defaults));
+        public Builder(TopicRuleKineseArgs defaults) {
+            $ = new TopicRuleKineseArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -149,7 +149,7 @@ public final class TopicRuleKinesisArgs extends com.pulumi.resources.ResourceArg
             return streamName(Output.of(streamName));
         }
 
-        public TopicRuleKinesisArgs build() {
+        public TopicRuleKineseArgs build() {
             $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
             $.streamName = Objects.requireNonNull($.streamName, "expected parameter 'streamName' to be non-null");
             return $;

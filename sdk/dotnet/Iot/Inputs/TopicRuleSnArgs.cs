@@ -10,29 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleKinesisGetArgs : global::Pulumi.ResourceArgs
+    public sealed class TopicRuleSnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The partition key.
+        /// The message format of the message to publish. Accepted values are "JSON" and "RAW".
         /// </summary>
-        [Input("partitionKey")]
-        public Input<string>? PartitionKey { get; set; }
+        [Input("messageFormat")]
+        public Input<string>? MessageFormat { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+        /// The ARN of the IAM role that grants access.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Amazon Kinesis stream.
+        /// The ARN of the SNS topic.
         /// </summary>
-        [Input("streamName", required: true)]
-        public Input<string> StreamName { get; set; } = null!;
+        [Input("targetArn", required: true)]
+        public Input<string> TargetArn { get; set; } = null!;
 
-        public TopicRuleKinesisGetArgs()
+        public TopicRuleSnArgs()
         {
         }
-        public static new TopicRuleKinesisGetArgs Empty => new TopicRuleKinesisGetArgs();
+        public static new TopicRuleSnArgs Empty => new TopicRuleSnArgs();
     }
 }

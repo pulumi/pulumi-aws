@@ -5761,7 +5761,7 @@ export namespace appmesh {
         /**
          * Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
          */
-        listener: outputs.appmesh.VirtualGatewaySpecListener;
+        listeners: outputs.appmesh.VirtualGatewaySpecListener[];
         /**
          * Inbound and outbound access logging information for the virtual gateway.
          */
@@ -6158,7 +6158,7 @@ export namespace appmesh {
         /**
          * Listeners from which the virtual node is expected to receive inbound traffic.
          */
-        listener?: outputs.appmesh.VirtualNodeSpecListener;
+        listeners?: outputs.appmesh.VirtualNodeSpecListener[];
         /**
          * Inbound and outbound access logging information for the virtual node.
          */
@@ -6459,17 +6459,17 @@ export namespace appmesh {
          */
         grpc?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolGrpc;
         /**
-         * Connection pool information for HTTP listeners.
-         */
-        http?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp;
-        /**
          * Connection pool information for HTTP2 listeners.
          */
-        http2?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp2;
+        http2s?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp2[];
+        /**
+         * Connection pool information for HTTP listeners.
+         */
+        https?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolHttp[];
         /**
          * Connection pool information for TCP listeners.
          */
-        tcp?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolTcp;
+        tcps?: outputs.appmesh.VirtualNodeSpecListenerConnectionPoolTcp[];
     }
 
     export interface VirtualNodeSpecListenerConnectionPoolGrpc {
@@ -6925,7 +6925,7 @@ export namespace appmesh {
          * Listeners that the virtual router is expected to receive inbound traffic from.
          * Currently only one listener is supported per virtual router.
          */
-        listener?: outputs.appmesh.VirtualRouterSpecListener;
+        listeners?: outputs.appmesh.VirtualRouterSpecListener[];
     }
 
     export interface VirtualRouterSpecListener {
@@ -9841,7 +9841,7 @@ export namespace batch {
         /**
          * Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
          */
-        ec2Configuration: outputs.batch.ComputeEnvironmentComputeResourcesEc2Configuration;
+        ec2Configurations: outputs.batch.ComputeEnvironmentComputeResourcesEc2Configuration[];
         /**
          * The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
@@ -33842,7 +33842,7 @@ export namespace iot {
         topic: string;
     }
 
-    export interface TopicRuleKinesis {
+    export interface TopicRuleKinese {
         /**
          * The partition key.
          */
@@ -33900,7 +33900,7 @@ export namespace iot {
         roleArn: string;
     }
 
-    export interface TopicRuleSns {
+    export interface TopicRuleSn {
         /**
          * The message format of the message to publish. Accepted values are "JSON" and "RAW".
          */
@@ -33915,7 +33915,7 @@ export namespace iot {
         targetArn: string;
     }
 
-    export interface TopicRuleSqs {
+    export interface TopicRuleSq {
         /**
          * The URL of the Amazon SQS queue.
          */
