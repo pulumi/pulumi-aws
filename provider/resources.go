@@ -764,77 +764,13 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_appsync_type":                        {Tok: awsResource(appsyncMod, "Type")},
 
 			// AppMesh
-			"aws_appmesh_mesh":  {Tok: awsResource(appmeshMod, "Mesh")},
-			"aws_appmesh_route": {Tok: awsResource(appmeshMod, "Route")},
-			"aws_appmesh_virtual_node": {
-				Tok: awsResource(appmeshMod, "VirtualNode"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"spec": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"listener": {
-									MaxItemsOne: tfbridge.True(),
-									Name:        "listener",
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"connection_pool": {
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"http": {
-															MaxItemsOne: tfbridge.True(),
-															Name:        "http",
-														},
-														"http2": {
-															MaxItemsOne: tfbridge.True(),
-															Name:        "http2",
-														},
-														"tcp": {
-															MaxItemsOne: tfbridge.True(),
-															Name:        "tcp",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-				},
-			},
-			"aws_appmesh_virtual_router": {
-				Tok: awsResource(appmeshMod, "VirtualRouter"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"spec": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"listener": {
-									MaxItemsOne: tfbridge.True(),
-									Name:        "listener",
-								},
-							},
-						},
-					},
-				},
-			},
+			"aws_appmesh_mesh":            {Tok: awsResource(appmeshMod, "Mesh")},
+			"aws_appmesh_route":           {Tok: awsResource(appmeshMod, "Route")},
+			"aws_appmesh_virtual_node":    {Tok: awsResource(appmeshMod, "VirtualNode")},
+			"aws_appmesh_virtual_router":  {Tok: awsResource(appmeshMod, "VirtualRouter")},
 			"aws_appmesh_virtual_service": {Tok: awsResource(appmeshMod, "VirtualService")},
 			"aws_appmesh_gateway_route":   {Tok: awsResource(appmeshMod, "GatewayRoute")},
-			"aws_appmesh_virtual_gateway": {
-				Tok: awsResource(appmeshMod, "VirtualGateway"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"spec": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"listener": {
-									MaxItemsOne: tfbridge.True(),
-									Name:        "listener",
-								},
-							},
-						},
-					},
-				},
-			},
+			"aws_appmesh_virtual_gateway": {Tok: awsResource(appmeshMod, "VirtualGateway")},
 			// API Gateway
 			"aws_api_gateway_account": {Tok: awsResource(apigatewayMod, "Account")},
 			"aws_api_gateway_api_key": {
@@ -1130,25 +1066,10 @@ func Provider() *tfbridge.ProviderInfo {
 				},
 			},
 			// Batch
-			"aws_batch_compute_environment": {
-				Tok: awsResource(batchMod, "ComputeEnvironment"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Introduced in https://github.com/hashicorp/terraform-provider-aws/pull/27207/files
-					"compute_resources": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"ec2_configuration": {
-									Name:        "ec2Configuration",
-									MaxItemsOne: tfbridge.True(),
-								},
-							},
-						},
-					},
-				},
-			},
-			"aws_batch_job_definition":    {Tok: awsResource(batchMod, "JobDefinition")},
-			"aws_batch_job_queue":         {Tok: awsResource(batchMod, "JobQueue")},
-			"aws_batch_scheduling_policy": {Tok: awsResource(batchMod, "SchedulingPolicy")},
+			"aws_batch_compute_environment": {Tok: awsResource(batchMod, "ComputeEnvironment")},
+			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
+			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
+			"aws_batch_scheduling_policy":   {Tok: awsResource(batchMod, "SchedulingPolicy")},
 			// Budgets
 			"aws_budgets_budget": {
 				Tok: awsResource(budgetsMod, "Budget"),
@@ -1788,9 +1709,6 @@ func Provider() *tfbridge.ProviderInfo {
 					"fleet_state": {
 						CSharpName: "State",
 					},
-					"launch_template_config": {
-						MaxItemsOne: tfbridge.True(),
-					},
 				},
 			},
 			"aws_route_table_association": {Tok: awsResource(ec2Mod, "RouteTableAssociation")},
@@ -2050,6 +1968,10 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_eks_cluster": {
 				Tok: awsResource(eksMod, "Cluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					// TODO: This will be set correctly in v5.8.0.
+					// After we upgrade, removing this will be a no-op
+					// and the stickiness will be enforced with
+					// [prov.MustApplyAutoAliasing].
 					"certificate_authority": {
 						MaxItemsOne: ref(true),
 					},
@@ -2482,17 +2404,6 @@ func Provider() *tfbridge.ProviderInfo {
 						tfbridge.AutoNameOptions{
 							Separator: "_",
 						}),
-					"cloudwatch_alarm":  {Name: "cloudwatchAlarm", MaxItemsOne: ref(true)},
-					"cloudwatch_metric": {Name: "cloudwatchMetric", MaxItemsOne: ref(true)},
-					"dynamodb":          {Name: "dynamodb", MaxItemsOne: ref(true)},
-					"elasticsearch":     {Name: "elasticsearch", MaxItemsOne: ref(true)},
-					"firehose":          {Name: "firehose", MaxItemsOne: ref(true)},
-					"kinesis":           {Name: "kinesis", MaxItemsOne: ref(true)},
-					"lambda":            {Name: "lambda", MaxItemsOne: ref(true)},
-					"republish":         {Name: "republish", MaxItemsOne: ref(true)},
-					"s3":                {Name: "s3", MaxItemsOne: ref(true)},
-					"sns":               {Name: "sns", MaxItemsOne: ref(true)},
-					"sqs":               {Name: "sqs", MaxItemsOne: ref(true)},
 				},
 			},
 			"aws_iot_thing_group":            {Tok: awsResource(iotMod, "ThingGroup")},
@@ -6089,12 +6000,12 @@ func Provider() *tfbridge.ProviderInfo {
 					// Override default pluralization ("indices") to match AWS APIs
 					"global_secondary_index": {Name: "globalSecondaryIndexes"},
 					"local_secondary_index":  {Name: "localSecondaryIndexes"},
-					"ttl": {
-						MaxItemsOne: ref(true),
-					},
-					"point_in_time_recovery": {
-						MaxItemsOne: ref(true),
-					},
+					// These are one field per table in the AWS API,
+					// so we enforce that at the Pulumi API as
+					// well. See
+					// https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/time-to-live-ttl-how-to.html
+					"ttl":                    {MaxItemsOne: ref(true)},
+					"point_in_time_recovery": {MaxItemsOne: ref(true)},
 				},
 			},
 			"aws_dynamodb_table_item": {Tok: awsDataSource(dynamodbMod, "getTableItem")},
@@ -6215,9 +6126,10 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_elastic_beanstalk_application": {
 				Tok: awsDataSource(elasticbeanstalkMod, "getApplication"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"appversion_lifecycle": {
-						MaxItemsOne: ref(true),
-					},
+					// This attribute is flattened upstream, so we
+					// only show one item in the Pulumi
+					// API. https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/elasticbeanstalk/application_data_source.go#L73
+					"appversion_lifecycle": {MaxItemsOne: ref(true)},
 				},
 			},
 
@@ -6227,12 +6139,12 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_elb": {
 				Tok: awsDataSource(elbMod, "getLoadBalancer"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"access_logs": {
-						MaxItemsOne: ref(true),
-					},
-					"health_check": {
-						MaxItemsOne: ref(true),
-					},
+					// This attribute is flattened upstream:
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elb/load_balancer_data_source.go#L302.
+					"access_logs": {MaxItemsOne: ref(true)},
+					// This attribute is flattened upstream:
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elb/load_balancer_data_source.go#L327
+					"health_check": {MaxItemsOne: ref(true)},
 				},
 			},
 
@@ -6268,9 +6180,12 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_efs_file_system": {
 				Tok: awsDataSource(efsMod, "getFileSystem"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"lifecycle_policy": {
-						MaxItemsOne: ref(true),
-					},
+					// Removing `MaxItems: 1`, Seems to be a hedge
+					// against the future, but does not become present
+					// in the TF API. See
+					// https://github.com/hashicorp/terraform-provider-aws/commit/362c03ec27e839a571de312060e87657d617038b
+					// for details.
+					"lifecycle_policy": {MaxItemsOne: ref(true)},
 				},
 			},
 			"aws_efs_mount_target":  {Tok: awsDataSource(efsMod, "getMountTarget")},
@@ -6280,9 +6195,10 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_eks_cluster": {
 				Tok: awsDataSource(eksMod, "getCluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"vpc_config": {
-						MaxItemsOne: ref(true),
-					},
+					// This attribute is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/eks/cluster_data_source.go#L231
+					// for details.
+					"vpc_config": {MaxItemsOne: ref(true)},
 				},
 			},
 			"aws_eks_cluster_auth":  {Tok: awsDataSource(eksMod, "getClusterAuth")},
@@ -6325,18 +6241,18 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_lambda_function": {
 				Tok: awsDataSource(lambdaMod, "getFunction"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"dead_letter_config": {
-						MaxItemsOne: ref(true),
-					},
-					"vpc_config": {
-						MaxItemsOne: ref(true),
-					},
-					"environment": {
-						MaxItemsOne: ref(true),
-					},
-					"tracing_config": {
-						MaxItemsOne: ref(true),
-					},
+					// This item is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L263-L273
+					"dead_letter_config": {MaxItemsOne: ref(true)},
+					// This item is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L321-L323
+					"vpc_config": {MaxItemsOne: ref(true)},
+					// This item is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L275-L277
+					"environment": {MaxItemsOne: ref(true)},
+					// This item is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/71ac1fa8dd1c0aea46877437921d7443edbe0aa7/internal/service/lambda/function_data_source.go#L313-L319
+					"tracing_config": {MaxItemsOne: ref(true)},
 				},
 			},
 			"aws_lambda_functions":           {Tok: awsDataSource(lambdaMod, "getFunctions")},
@@ -6357,12 +6273,13 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_mq_broker": {
 				Tok: awsDataSource(mqMod, "getBroker"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"configuration": {
-						MaxItemsOne: ref(true),
-					},
-					"maintenance_window_start_time": {
-						MaxItemsOne: ref(true),
-					},
+					// This attribute is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/mq/broker_data_source.go#L315-L317
+					"configuration": {MaxItemsOne: ref(true)},
+					// This attribute is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/mq/broker_data_source.go#L336-L338.
+					"maintenance_window_start_time": {MaxItemsOne: ref(true)},
+					// This attribute is flattened upstream.
 					"logs": {
 						MaxItemsOne: ref(true),
 						Elem: &tfbridge.SchemaInfo{
@@ -6690,9 +6607,9 @@ func Provider() *tfbridge.ProviderInfo {
 				Tok:  awsDataSource(albMod, "getLoadBalancer"),
 				Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"access_logs": {
-						MaxItemsOne: ref(true),
-					},
+					// This attribute is flattened upstream. See
+					// https://github.com/hashicorp/terraform-provider-aws/blob/c14a7fe82ab84aaa9db676c9ee4242e20fb33145/internal/service/elbv2/load_balancer_data_source.go#L319
+					"access_logs": {MaxItemsOne: ref(true)},
 				},
 			},
 			"aws_alb_listener": {
@@ -6703,12 +6620,8 @@ func Provider() *tfbridge.ProviderInfo {
 				Tok:  awsDataSource(albMod, "getTargetGroup"),
 				Docs: &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"health_check": {
-						MaxItemsOne: ref(true),
-					},
-					"stickiness": {
-						MaxItemsOne: ref(true),
-					},
+					"health_check": {MaxItemsOne: ref(true)},
+					"stickiness":   {MaxItemsOne: ref(true)},
 				},
 			},
 
