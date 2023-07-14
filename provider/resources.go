@@ -471,10 +471,7 @@ func awsResource(mod string, res string) tokens.Type {
 	return awsTypeDefaultFile(mod, res)
 }
 
-// boolRef returns a reference to the bool argument.
-func boolRef(b bool) *bool {
-	return &b
-}
+func ref[T any](value T) *T { return &value }
 
 // stringValue gets a string value from a property map if present, else ""
 func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) string {
@@ -527,10 +524,6 @@ func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []str
 		}
 	}
 	return vals
-}
-
-func stringRef(s string) *string {
-	return &s
 }
 
 // preConfigureCallback validates that AWS credentials can be successfully discovered. This emulates the credentials
@@ -2005,7 +1998,7 @@ func Provider() *tfbridge.ProviderInfo {
 						// Even though only one is currently supported, the AWS API is designed to support multiple, so
 						// force this to project as an array (and assign a plural name).
 						Name:        "loadBalancers",
-						MaxItemsOne: boolRef(false),
+						MaxItemsOne: ref(false),
 					},
 					"service_connect_configuration": {
 						Elem: &tfbridge.SchemaInfo{
@@ -2058,7 +2051,7 @@ func Provider() *tfbridge.ProviderInfo {
 				Tok: awsResource(eksMod, "Cluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"certificate_authority": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 				},
 			},
@@ -2489,17 +2482,17 @@ func Provider() *tfbridge.ProviderInfo {
 						tfbridge.AutoNameOptions{
 							Separator: "_",
 						}),
-					"cloudwatch_alarm":  {Name: "cloudwatchAlarm", MaxItemsOne: boolRef(true)},
-					"cloudwatch_metric": {Name: "cloudwatchMetric", MaxItemsOne: boolRef(true)},
-					"dynamodb":          {Name: "dynamodb", MaxItemsOne: boolRef(true)},
-					"elasticsearch":     {Name: "elasticsearch", MaxItemsOne: boolRef(true)},
-					"firehose":          {Name: "firehose", MaxItemsOne: boolRef(true)},
-					"kinesis":           {Name: "kinesis", MaxItemsOne: boolRef(true)},
-					"lambda":            {Name: "lambda", MaxItemsOne: boolRef(true)},
-					"republish":         {Name: "republish", MaxItemsOne: boolRef(true)},
-					"s3":                {Name: "s3", MaxItemsOne: boolRef(true)},
-					"sns":               {Name: "sns", MaxItemsOne: boolRef(true)},
-					"sqs":               {Name: "sqs", MaxItemsOne: boolRef(true)},
+					"cloudwatch_alarm":  {Name: "cloudwatchAlarm", MaxItemsOne: ref(true)},
+					"cloudwatch_metric": {Name: "cloudwatchMetric", MaxItemsOne: ref(true)},
+					"dynamodb":          {Name: "dynamodb", MaxItemsOne: ref(true)},
+					"elasticsearch":     {Name: "elasticsearch", MaxItemsOne: ref(true)},
+					"firehose":          {Name: "firehose", MaxItemsOne: ref(true)},
+					"kinesis":           {Name: "kinesis", MaxItemsOne: ref(true)},
+					"lambda":            {Name: "lambda", MaxItemsOne: ref(true)},
+					"republish":         {Name: "republish", MaxItemsOne: ref(true)},
+					"s3":                {Name: "s3", MaxItemsOne: ref(true)},
+					"sns":               {Name: "sns", MaxItemsOne: ref(true)},
+					"sqs":               {Name: "sqs", MaxItemsOne: ref(true)},
 				},
 			},
 			"aws_iot_thing_group":            {Tok: awsResource(iotMod, "ThingGroup")},
@@ -3335,7 +3328,7 @@ func Provider() *tfbridge.ProviderInfo {
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
-						Type: stringRef("aws:s3/bucket:Bucket"),
+						Type: ref("aws:s3/bucket:Bucket"),
 					},
 				},
 			},
@@ -3387,7 +3380,7 @@ func Provider() *tfbridge.ProviderInfo {
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
-						Type: stringRef("aws:s3/BucketObject:BucketObject"),
+						Type: ref("aws:s3/BucketObject:BucketObject"),
 					},
 				},
 			},
@@ -6097,10 +6090,10 @@ func Provider() *tfbridge.ProviderInfo {
 					"global_secondary_index": {Name: "globalSecondaryIndexes"},
 					"local_secondary_index":  {Name: "localSecondaryIndexes"},
 					"ttl": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 					"point_in_time_recovery": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 				},
 			},
@@ -6129,11 +6122,11 @@ func Provider() *tfbridge.ProviderInfo {
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"associate_public_ip_address": {
 									Type:           "boolean",
-									MarkAsOptional: boolRef(true),
+									MarkAsOptional: ref(true),
 								},
 								"delete_on_termination": {
 									Type:           "boolean",
-									MarkAsOptional: boolRef(true),
+									MarkAsOptional: ref(true),
 								},
 							},
 						},
@@ -6255,7 +6248,7 @@ func Provider() *tfbridge.ProviderInfo {
 				Tok: awsDataSource(efsMod, "getFileSystem"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"lifecycle_policy": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 				},
 			},
@@ -6267,7 +6260,7 @@ func Provider() *tfbridge.ProviderInfo {
 				Tok: awsDataSource(eksMod, "getCluster"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"vpc_config": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 				},
 			},
@@ -6312,16 +6305,16 @@ func Provider() *tfbridge.ProviderInfo {
 				Tok: awsDataSource(lambdaMod, "getFunction"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"dead_letter_config": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 					"vpc_config": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 					"environment": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 					"tracing_config": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 				},
 			},
@@ -6344,13 +6337,13 @@ func Provider() *tfbridge.ProviderInfo {
 				Tok: awsDataSource(mqMod, "getBroker"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"configuration": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 					"maintenance_window_start_time": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 					},
 					"logs": {
-						MaxItemsOne: boolRef(true),
+						MaxItemsOne: ref(true),
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
 								"audit": {
