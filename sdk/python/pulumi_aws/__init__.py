@@ -6,20 +6,14 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_ami import *
-from .get_ami_ids import *
 from .get_arn import *
-from .get_autoscaling_groups import *
 from .get_availability_zone import *
 from .get_availability_zones import *
 from .get_billing_service_account import *
 from .get_caller_identity import *
-from .get_canonical_user_id import *
 from .get_default_tags import *
-from .get_elastic_ip import *
 from .get_ip_ranges import *
 from .get_partition import *
-from .get_prefix_list import *
 from .get_region import *
 from .get_regions import *
 from .get_service import *
@@ -57,8 +51,6 @@ if typing.TYPE_CHECKING:
     appintegrations = __appintegrations
     import pulumi_aws.applicationinsights as __applicationinsights
     applicationinsights = __applicationinsights
-    import pulumi_aws.applicationloadbalancing as __applicationloadbalancing
-    applicationloadbalancing = __applicationloadbalancing
     import pulumi_aws.appmesh as __appmesh
     appmesh = __appmesh
     import pulumi_aws.apprunner as __apprunner
@@ -181,10 +173,6 @@ if typing.TYPE_CHECKING:
     elasticache = __elasticache
     import pulumi_aws.elasticbeanstalk as __elasticbeanstalk
     elasticbeanstalk = __elasticbeanstalk
-    import pulumi_aws.elasticloadbalancing as __elasticloadbalancing
-    elasticloadbalancing = __elasticloadbalancing
-    import pulumi_aws.elasticloadbalancingv2 as __elasticloadbalancingv2
-    elasticloadbalancingv2 = __elasticloadbalancingv2
     import pulumi_aws.elasticsearch as __elasticsearch
     elasticsearch = __elasticsearch
     import pulumi_aws.elastictranscoder as __elastictranscoder
@@ -428,7 +416,6 @@ else:
     appflow = _utilities.lazy_import('pulumi_aws.appflow')
     appintegrations = _utilities.lazy_import('pulumi_aws.appintegrations')
     applicationinsights = _utilities.lazy_import('pulumi_aws.applicationinsights')
-    applicationloadbalancing = _utilities.lazy_import('pulumi_aws.applicationloadbalancing')
     appmesh = _utilities.lazy_import('pulumi_aws.appmesh')
     apprunner = _utilities.lazy_import('pulumi_aws.apprunner')
     appstream = _utilities.lazy_import('pulumi_aws.appstream')
@@ -490,8 +477,6 @@ else:
     eks = _utilities.lazy_import('pulumi_aws.eks')
     elasticache = _utilities.lazy_import('pulumi_aws.elasticache')
     elasticbeanstalk = _utilities.lazy_import('pulumi_aws.elasticbeanstalk')
-    elasticloadbalancing = _utilities.lazy_import('pulumi_aws.elasticloadbalancing')
-    elasticloadbalancingv2 = _utilities.lazy_import('pulumi_aws.elasticloadbalancingv2')
     elasticsearch = _utilities.lazy_import('pulumi_aws.elasticsearch')
     elastictranscoder = _utilities.lazy_import('pulumi_aws.elastictranscoder')
     elb = _utilities.lazy_import('pulumi_aws.elb')
@@ -1224,54 +1209,6 @@ _utilities.register(
   "fqn": "pulumi_aws.applicationinsights",
   "classes": {
    "aws:applicationinsights/application:Application": "Application"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "applicationloadbalancing/listener",
-  "fqn": "pulumi_aws.applicationloadbalancing",
-  "classes": {
-   "aws:applicationloadbalancing/listener:Listener": "Listener"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "applicationloadbalancing/listenerCertificate",
-  "fqn": "pulumi_aws.applicationloadbalancing",
-  "classes": {
-   "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate": "ListenerCertificate"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "applicationloadbalancing/listenerRule",
-  "fqn": "pulumi_aws.applicationloadbalancing",
-  "classes": {
-   "aws:applicationloadbalancing/listenerRule:ListenerRule": "ListenerRule"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "applicationloadbalancing/loadBalancer",
-  "fqn": "pulumi_aws.applicationloadbalancing",
-  "classes": {
-   "aws:applicationloadbalancing/loadBalancer:LoadBalancer": "LoadBalancer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "applicationloadbalancing/targetGroup",
-  "fqn": "pulumi_aws.applicationloadbalancing",
-  "classes": {
-   "aws:applicationloadbalancing/targetGroup:TargetGroup": "TargetGroup"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "applicationloadbalancing/targetGroupAttachment",
-  "fqn": "pulumi_aws.applicationloadbalancing",
-  "classes": {
-   "aws:applicationloadbalancing/targetGroupAttachment:TargetGroupAttachment": "TargetGroupAttachment"
   }
  },
  {
@@ -4036,14 +3973,6 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "ec2/transitGatewayPeeringAttachmentAccepter",
-  "fqn": "pulumi_aws.ec2",
-  "classes": {
-   "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter": "TransitGatewayPeeringAttachmentAccepter"
-  }
- },
- {
-  "pkg": "aws",
   "mod": "ec2/volumeAttachment",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -4800,118 +4729,6 @@ _utilities.register(
   "fqn": "pulumi_aws.elasticbeanstalk",
   "classes": {
    "aws:elasticbeanstalk/environment:Environment": "Environment"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancing/appCookieStickinessPolicy",
-  "fqn": "pulumi_aws.elasticloadbalancing",
-  "classes": {
-   "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy": "AppCookieStickinessPolicy"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancing/attachment",
-  "fqn": "pulumi_aws.elasticloadbalancing",
-  "classes": {
-   "aws:elasticloadbalancing/attachment:Attachment": "Attachment"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancing/listenerPolicy",
-  "fqn": "pulumi_aws.elasticloadbalancing",
-  "classes": {
-   "aws:elasticloadbalancing/listenerPolicy:ListenerPolicy": "ListenerPolicy"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancing/loadBalancer",
-  "fqn": "pulumi_aws.elasticloadbalancing",
-  "classes": {
-   "aws:elasticloadbalancing/loadBalancer:LoadBalancer": "LoadBalancer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancing/loadBalancerBackendServerPolicy",
-  "fqn": "pulumi_aws.elasticloadbalancing",
-  "classes": {
-   "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy": "LoadBalancerBackendServerPolicy"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancing/loadBalancerCookieStickinessPolicy",
-  "fqn": "pulumi_aws.elasticloadbalancing",
-  "classes": {
-   "aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy": "LoadBalancerCookieStickinessPolicy"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancing/loadBalancerPolicy",
-  "fqn": "pulumi_aws.elasticloadbalancing",
-  "classes": {
-   "aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy": "LoadBalancerPolicy"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancing/sslNegotiationPolicy",
-  "fqn": "pulumi_aws.elasticloadbalancing",
-  "classes": {
-   "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy": "SslNegotiationPolicy"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancingv2/listener",
-  "fqn": "pulumi_aws.elasticloadbalancingv2",
-  "classes": {
-   "aws:elasticloadbalancingv2/listener:Listener": "Listener"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancingv2/listenerCertificate",
-  "fqn": "pulumi_aws.elasticloadbalancingv2",
-  "classes": {
-   "aws:elasticloadbalancingv2/listenerCertificate:ListenerCertificate": "ListenerCertificate"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancingv2/listenerRule",
-  "fqn": "pulumi_aws.elasticloadbalancingv2",
-  "classes": {
-   "aws:elasticloadbalancingv2/listenerRule:ListenerRule": "ListenerRule"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancingv2/loadBalancer",
-  "fqn": "pulumi_aws.elasticloadbalancingv2",
-  "classes": {
-   "aws:elasticloadbalancingv2/loadBalancer:LoadBalancer": "LoadBalancer"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancingv2/targetGroup",
-  "fqn": "pulumi_aws.elasticloadbalancingv2",
-  "classes": {
-   "aws:elasticloadbalancingv2/targetGroup:TargetGroup": "TargetGroup"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "elasticloadbalancingv2/targetGroupAttachment",
-  "fqn": "pulumi_aws.elasticloadbalancingv2",
-  "classes": {
-   "aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment": "TargetGroupAttachment"
   }
  },
  {
@@ -9504,14 +9321,6 @@ _utilities.register(
   "fqn": "pulumi_aws.ses",
   "classes": {
    "aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet": "ActiveReceiptRuleSet"
-  }
- },
- {
-  "pkg": "aws",
-  "mod": "ses/confgurationSet",
-  "fqn": "pulumi_aws.ses",
-  "classes": {
-   "aws:ses/confgurationSet:ConfgurationSet": "ConfgurationSet"
   }
  },
  {

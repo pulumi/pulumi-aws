@@ -1,3 +1,0 @@
-name: alb-legacy
-runtime: nodejs
-description: Back compat test to ensure that applicationloadbalancing can still be used.

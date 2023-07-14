@@ -300,33 +300,6 @@ func TestAccEcr(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccAlbLegacy(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "alb-legacy"),
-			// RunUpdateTest: true,
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccAlbNew(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "alb-new"),
-			// RunUpdateTest: true,
-			EditDirs: []integration.EditDir{
-				{
-					Dir:             "step2",
-					Additive:        true,
-					ExpectNoChanges: true,
-				},
-			},
-		})
-
-	integration.ProgramTest(t, &test)
-}
-
 func TestAccDeleteBeforeCreate(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -361,22 +334,6 @@ func TestAccIgnoreChanges(t *testing.T) {
 						assert.Equal(t, "foo", info.Deployment.Resources[2].Inputs["bucketPrefix"])
 						assert.Equal(t, "foo", info.Deployment.Resources[2].Outputs["bucketPrefix"])
 					},
-				},
-			}})
-
-	integration.ProgramTest(t, &test)
-}
-
-func TestAccRenameSesConfiguration(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "rename-ses-configuration-set"),
-			RunUpdateTest: true,
-			EditDirs: []integration.EditDir{
-				{
-					Dir:             "step2",
-					Additive:        true,
-					ExpectNoChanges: true,
 				},
 			}})
 

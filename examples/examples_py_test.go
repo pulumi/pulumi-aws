@@ -1,4 +1,5 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+//go:build python || all
 // +build python all
 
 package examples
@@ -28,48 +29,6 @@ func TestAccWebserverPy(t *testing.T) {
 			test := getPythonBaseOptions(t).
 				With(integration.ProgramTestOptions{
 					Dir: filepath.Join(getCwd(t), dir),
-				})
-
-			integration.ProgramTest(t, &test)
-		})
-	}
-}
-
-func TestAccAlbLegacyPy(t *testing.T) {
-	for _, dir := range []string{"alb-legacy-py", "alb-legacy-py-old"} {
-		t.Run(dir, func(t *testing.T) {
-			test := getPythonBaseOptions(t).
-				With(integration.ProgramTestOptions{
-					Dir:           filepath.Join(getCwd(t), dir),
-					RunUpdateTest: true,
-					EditDirs: []integration.EditDir{
-						{
-							Dir:             "step2",
-							Additive:        true,
-							ExpectNoChanges: true,
-						},
-					},
-				})
-
-			integration.ProgramTest(t, &test)
-		})
-	}
-}
-
-func TestAccAlbNewPy(t *testing.T) {
-	for _, dir := range []string{"alb-new-py", "alb-new-py-old"} {
-		t.Run(dir, func(t *testing.T) {
-			test := getPythonBaseOptions(t).
-				With(integration.ProgramTestOptions{
-					Dir:           filepath.Join(getCwd(t), dir),
-					RunUpdateTest: true,
-					EditDirs: []integration.EditDir{
-						{
-							Dir:             "step2",
-							Additive:        true,
-							ExpectNoChanges: true,
-						},
-					},
 				})
 
 			integration.ProgramTest(t, &test)

@@ -126,7 +126,6 @@ from .traffic_mirror_filter import *
 from .traffic_mirror_filter_rule import *
 from .traffic_mirror_session import *
 from .traffic_mirror_target import *
-from .transit_gateway_peering_attachment_accepter import *
 from .volume_attachment import *
 from .vpc import *
 from .vpc_dhcp_options import *
