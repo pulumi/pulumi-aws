@@ -143,12 +143,12 @@ type TopicRule struct {
 	IotAnalytics TopicRuleIotAnalyticArrayOutput `pulumi:"iotAnalytics"`
 	IotEvents    TopicRuleIotEventArrayOutput    `pulumi:"iotEvents"`
 	Kafkas       TopicRuleKafkaArrayOutput       `pulumi:"kafkas"`
-	Kineses      TopicRuleKineseArrayOutput      `pulumi:"kineses"`
+	Kineses      TopicRuleKinesisArrayOutput     `pulumi:"kineses"`
 	Lambdas      TopicRuleLambdaArrayOutput      `pulumi:"lambdas"`
 	// The name of the rule.
 	Name        pulumi.StringOutput           `pulumi:"name"`
 	Republishes TopicRuleRepublishArrayOutput `pulumi:"republishes"`
-	S3s         TopicRuleS3ArrayOutput        `pulumi:"s3s"`
+	S3Buckets   TopicRuleS3ArrayOutput        `pulumi:"s3Buckets"`
 	Sns         TopicRuleSnArrayOutput        `pulumi:"sns"`
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql pulumi.StringOutput `pulumi:"sql"`
@@ -220,12 +220,12 @@ type topicRuleState struct {
 	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
 	IotEvents    []TopicRuleIotEvent    `pulumi:"iotEvents"`
 	Kafkas       []TopicRuleKafka       `pulumi:"kafkas"`
-	Kineses      []TopicRuleKinese      `pulumi:"kineses"`
+	Kineses      []TopicRuleKinesis     `pulumi:"kineses"`
 	Lambdas      []TopicRuleLambda      `pulumi:"lambdas"`
 	// The name of the rule.
 	Name        *string              `pulumi:"name"`
 	Republishes []TopicRuleRepublish `pulumi:"republishes"`
-	S3s         []TopicRuleS3        `pulumi:"s3s"`
+	S3Buckets   []TopicRuleS3        `pulumi:"s3Buckets"`
 	Sns         []TopicRuleSn        `pulumi:"sns"`
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql *string `pulumi:"sql"`
@@ -260,12 +260,12 @@ type TopicRuleState struct {
 	IotAnalytics TopicRuleIotAnalyticArrayInput
 	IotEvents    TopicRuleIotEventArrayInput
 	Kafkas       TopicRuleKafkaArrayInput
-	Kineses      TopicRuleKineseArrayInput
+	Kineses      TopicRuleKinesisArrayInput
 	Lambdas      TopicRuleLambdaArrayInput
 	// The name of the rule.
 	Name        pulumi.StringPtrInput
 	Republishes TopicRuleRepublishArrayInput
-	S3s         TopicRuleS3ArrayInput
+	S3Buckets   TopicRuleS3ArrayInput
 	Sns         TopicRuleSnArrayInput
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql pulumi.StringPtrInput
@@ -302,12 +302,12 @@ type topicRuleArgs struct {
 	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
 	IotEvents    []TopicRuleIotEvent    `pulumi:"iotEvents"`
 	Kafkas       []TopicRuleKafka       `pulumi:"kafkas"`
-	Kineses      []TopicRuleKinese      `pulumi:"kineses"`
+	Kineses      []TopicRuleKinesis     `pulumi:"kineses"`
 	Lambdas      []TopicRuleLambda      `pulumi:"lambdas"`
 	// The name of the rule.
 	Name        *string              `pulumi:"name"`
 	Republishes []TopicRuleRepublish `pulumi:"republishes"`
-	S3s         []TopicRuleS3        `pulumi:"s3s"`
+	S3Buckets   []TopicRuleS3        `pulumi:"s3Buckets"`
 	Sns         []TopicRuleSn        `pulumi:"sns"`
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql string `pulumi:"sql"`
@@ -339,12 +339,12 @@ type TopicRuleArgs struct {
 	IotAnalytics TopicRuleIotAnalyticArrayInput
 	IotEvents    TopicRuleIotEventArrayInput
 	Kafkas       TopicRuleKafkaArrayInput
-	Kineses      TopicRuleKineseArrayInput
+	Kineses      TopicRuleKinesisArrayInput
 	Lambdas      TopicRuleLambdaArrayInput
 	// The name of the rule.
 	Name        pulumi.StringPtrInput
 	Republishes TopicRuleRepublishArrayInput
-	S3s         TopicRuleS3ArrayInput
+	S3Buckets   TopicRuleS3ArrayInput
 	Sns         TopicRuleSnArrayInput
 	// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
 	Sql pulumi.StringInput
@@ -508,8 +508,8 @@ func (o TopicRuleOutput) Kafkas() TopicRuleKafkaArrayOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRuleKafkaArrayOutput { return v.Kafkas }).(TopicRuleKafkaArrayOutput)
 }
 
-func (o TopicRuleOutput) Kineses() TopicRuleKineseArrayOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleKineseArrayOutput { return v.Kineses }).(TopicRuleKineseArrayOutput)
+func (o TopicRuleOutput) Kineses() TopicRuleKinesisArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleKinesisArrayOutput { return v.Kineses }).(TopicRuleKinesisArrayOutput)
 }
 
 func (o TopicRuleOutput) Lambdas() TopicRuleLambdaArrayOutput {
@@ -525,8 +525,8 @@ func (o TopicRuleOutput) Republishes() TopicRuleRepublishArrayOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRuleRepublishArrayOutput { return v.Republishes }).(TopicRuleRepublishArrayOutput)
 }
 
-func (o TopicRuleOutput) S3s() TopicRuleS3ArrayOutput {
-	return o.ApplyT(func(v *TopicRule) TopicRuleS3ArrayOutput { return v.S3s }).(TopicRuleS3ArrayOutput)
+func (o TopicRuleOutput) S3Buckets() TopicRuleS3ArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleS3ArrayOutput { return v.S3Buckets }).(TopicRuleS3ArrayOutput)
 }
 
 func (o TopicRuleOutput) Sns() TopicRuleSnArrayOutput {

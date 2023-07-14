@@ -29125,7 +29125,7 @@ export namespace iot {
         topic: pulumi.Input<string>;
     }
 
-    export interface TopicRuleKinese {
+    export interface TopicRuleKinesis {
         /**
          * The partition key.
          */

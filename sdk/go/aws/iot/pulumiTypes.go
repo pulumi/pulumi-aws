@@ -8063,7 +8063,7 @@ func (o TopicRuleKafkaArrayOutput) Index(i pulumi.IntInput) TopicRuleKafkaOutput
 	}).(TopicRuleKafkaOutput)
 }
 
-type TopicRuleKinese struct {
+type TopicRuleKinesis struct {
 	// The partition key.
 	PartitionKey *string `pulumi:"partitionKey"`
 	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
@@ -8072,18 +8072,18 @@ type TopicRuleKinese struct {
 	StreamName string `pulumi:"streamName"`
 }
 
-// TopicRuleKineseInput is an input type that accepts TopicRuleKineseArgs and TopicRuleKineseOutput values.
-// You can construct a concrete instance of `TopicRuleKineseInput` via:
+// TopicRuleKinesisInput is an input type that accepts TopicRuleKinesisArgs and TopicRuleKinesisOutput values.
+// You can construct a concrete instance of `TopicRuleKinesisInput` via:
 //
-//	TopicRuleKineseArgs{...}
-type TopicRuleKineseInput interface {
+//	TopicRuleKinesisArgs{...}
+type TopicRuleKinesisInput interface {
 	pulumi.Input
 
-	ToTopicRuleKineseOutput() TopicRuleKineseOutput
-	ToTopicRuleKineseOutputWithContext(context.Context) TopicRuleKineseOutput
+	ToTopicRuleKinesisOutput() TopicRuleKinesisOutput
+	ToTopicRuleKinesisOutputWithContext(context.Context) TopicRuleKinesisOutput
 }
 
-type TopicRuleKineseArgs struct {
+type TopicRuleKinesisArgs struct {
 	// The partition key.
 	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
 	// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
@@ -8092,90 +8092,90 @@ type TopicRuleKineseArgs struct {
 	StreamName pulumi.StringInput `pulumi:"streamName"`
 }
 
-func (TopicRuleKineseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleKinese)(nil)).Elem()
+func (TopicRuleKinesisArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleKinesis)(nil)).Elem()
 }
 
-func (i TopicRuleKineseArgs) ToTopicRuleKineseOutput() TopicRuleKineseOutput {
-	return i.ToTopicRuleKineseOutputWithContext(context.Background())
+func (i TopicRuleKinesisArgs) ToTopicRuleKinesisOutput() TopicRuleKinesisOutput {
+	return i.ToTopicRuleKinesisOutputWithContext(context.Background())
 }
 
-func (i TopicRuleKineseArgs) ToTopicRuleKineseOutputWithContext(ctx context.Context) TopicRuleKineseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKineseOutput)
+func (i TopicRuleKinesisArgs) ToTopicRuleKinesisOutputWithContext(ctx context.Context) TopicRuleKinesisOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKinesisOutput)
 }
 
-// TopicRuleKineseArrayInput is an input type that accepts TopicRuleKineseArray and TopicRuleKineseArrayOutput values.
-// You can construct a concrete instance of `TopicRuleKineseArrayInput` via:
+// TopicRuleKinesisArrayInput is an input type that accepts TopicRuleKinesisArray and TopicRuleKinesisArrayOutput values.
+// You can construct a concrete instance of `TopicRuleKinesisArrayInput` via:
 //
-//	TopicRuleKineseArray{ TopicRuleKineseArgs{...} }
-type TopicRuleKineseArrayInput interface {
+//	TopicRuleKinesisArray{ TopicRuleKinesisArgs{...} }
+type TopicRuleKinesisArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleKineseArrayOutput() TopicRuleKineseArrayOutput
-	ToTopicRuleKineseArrayOutputWithContext(context.Context) TopicRuleKineseArrayOutput
+	ToTopicRuleKinesisArrayOutput() TopicRuleKinesisArrayOutput
+	ToTopicRuleKinesisArrayOutputWithContext(context.Context) TopicRuleKinesisArrayOutput
 }
 
-type TopicRuleKineseArray []TopicRuleKineseInput
+type TopicRuleKinesisArray []TopicRuleKinesisInput
 
-func (TopicRuleKineseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TopicRuleKinese)(nil)).Elem()
+func (TopicRuleKinesisArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleKinesis)(nil)).Elem()
 }
 
-func (i TopicRuleKineseArray) ToTopicRuleKineseArrayOutput() TopicRuleKineseArrayOutput {
-	return i.ToTopicRuleKineseArrayOutputWithContext(context.Background())
+func (i TopicRuleKinesisArray) ToTopicRuleKinesisArrayOutput() TopicRuleKinesisArrayOutput {
+	return i.ToTopicRuleKinesisArrayOutputWithContext(context.Background())
 }
 
-func (i TopicRuleKineseArray) ToTopicRuleKineseArrayOutputWithContext(ctx context.Context) TopicRuleKineseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKineseArrayOutput)
+func (i TopicRuleKinesisArray) ToTopicRuleKinesisArrayOutputWithContext(ctx context.Context) TopicRuleKinesisArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKinesisArrayOutput)
 }
 
-type TopicRuleKineseOutput struct{ *pulumi.OutputState }
+type TopicRuleKinesisOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleKineseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleKinese)(nil)).Elem()
+func (TopicRuleKinesisOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleKinesis)(nil)).Elem()
 }
 
-func (o TopicRuleKineseOutput) ToTopicRuleKineseOutput() TopicRuleKineseOutput {
+func (o TopicRuleKinesisOutput) ToTopicRuleKinesisOutput() TopicRuleKinesisOutput {
 	return o
 }
 
-func (o TopicRuleKineseOutput) ToTopicRuleKineseOutputWithContext(ctx context.Context) TopicRuleKineseOutput {
+func (o TopicRuleKinesisOutput) ToTopicRuleKinesisOutputWithContext(ctx context.Context) TopicRuleKinesisOutput {
 	return o
 }
 
 // The partition key.
-func (o TopicRuleKineseOutput) PartitionKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleKinese) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
+func (o TopicRuleKinesisOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleKinesis) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-func (o TopicRuleKineseOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleKinese) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleKinesisOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleKinesis) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // The name of the Amazon Kinesis stream.
-func (o TopicRuleKineseOutput) StreamName() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleKinese) string { return v.StreamName }).(pulumi.StringOutput)
+func (o TopicRuleKinesisOutput) StreamName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleKinesis) string { return v.StreamName }).(pulumi.StringOutput)
 }
 
-type TopicRuleKineseArrayOutput struct{ *pulumi.OutputState }
+type TopicRuleKinesisArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleKineseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TopicRuleKinese)(nil)).Elem()
+func (TopicRuleKinesisArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleKinesis)(nil)).Elem()
 }
 
-func (o TopicRuleKineseArrayOutput) ToTopicRuleKineseArrayOutput() TopicRuleKineseArrayOutput {
+func (o TopicRuleKinesisArrayOutput) ToTopicRuleKinesisArrayOutput() TopicRuleKinesisArrayOutput {
 	return o
 }
 
-func (o TopicRuleKineseArrayOutput) ToTopicRuleKineseArrayOutputWithContext(ctx context.Context) TopicRuleKineseArrayOutput {
+func (o TopicRuleKinesisArrayOutput) ToTopicRuleKinesisArrayOutputWithContext(ctx context.Context) TopicRuleKinesisArrayOutput {
 	return o
 }
 
-func (o TopicRuleKineseArrayOutput) Index(i pulumi.IntInput) TopicRuleKineseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleKinese {
-		return vs[0].([]TopicRuleKinese)[vs[1].(int)]
-	}).(TopicRuleKineseOutput)
+func (o TopicRuleKinesisArrayOutput) Index(i pulumi.IntInput) TopicRuleKinesisOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleKinesis {
+		return vs[0].([]TopicRuleKinesis)[vs[1].(int)]
+	}).(TopicRuleKinesisOutput)
 }
 
 type TopicRuleLambda struct {
@@ -9361,8 +9361,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleIotEventArrayInput)(nil)).Elem(), TopicRuleIotEventArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaInput)(nil)).Elem(), TopicRuleKafkaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaArrayInput)(nil)).Elem(), TopicRuleKafkaArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKineseInput)(nil)).Elem(), TopicRuleKineseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKineseArrayInput)(nil)).Elem(), TopicRuleKineseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKinesisInput)(nil)).Elem(), TopicRuleKinesisArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKinesisArrayInput)(nil)).Elem(), TopicRuleKinesisArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLambdaInput)(nil)).Elem(), TopicRuleLambdaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLambdaArrayInput)(nil)).Elem(), TopicRuleLambdaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleRepublishInput)(nil)).Elem(), TopicRuleRepublishArgs{})
@@ -9481,8 +9481,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleIotEventArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleKafkaOutput{})
 	pulumi.RegisterOutputType(TopicRuleKafkaArrayOutput{})
-	pulumi.RegisterOutputType(TopicRuleKineseOutput{})
-	pulumi.RegisterOutputType(TopicRuleKineseArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleKinesisOutput{})
+	pulumi.RegisterOutputType(TopicRuleKinesisArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleLambdaOutput{})
 	pulumi.RegisterOutputType(TopicRuleLambdaArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleRepublishOutput{})

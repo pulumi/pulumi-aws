@@ -121,14 +121,14 @@ export class TopicRule extends pulumi.CustomResource {
     public readonly iotAnalytics!: pulumi.Output<outputs.iot.TopicRuleIotAnalytic[] | undefined>;
     public readonly iotEvents!: pulumi.Output<outputs.iot.TopicRuleIotEvent[] | undefined>;
     public readonly kafkas!: pulumi.Output<outputs.iot.TopicRuleKafka[] | undefined>;
-    public readonly kineses!: pulumi.Output<outputs.iot.TopicRuleKinese[] | undefined>;
+    public readonly kineses!: pulumi.Output<outputs.iot.TopicRuleKinesis[] | undefined>;
     public readonly lambdas!: pulumi.Output<outputs.iot.TopicRuleLambda[] | undefined>;
     /**
      * The name of the rule.
      */
     public readonly name!: pulumi.Output<string>;
     public readonly republishes!: pulumi.Output<outputs.iot.TopicRuleRepublish[] | undefined>;
-    public readonly s3s!: pulumi.Output<outputs.iot.TopicRuleS3[] | undefined>;
+    public readonly s3Buckets!: pulumi.Output<outputs.iot.TopicRuleS3[] | undefined>;
     public readonly sns!: pulumi.Output<outputs.iot.TopicRuleSn[] | undefined>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
@@ -182,7 +182,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["lambdas"] = state ? state.lambdas : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["republishes"] = state ? state.republishes : undefined;
-            resourceInputs["s3s"] = state ? state.s3s : undefined;
+            resourceInputs["s3Buckets"] = state ? state.s3Buckets : undefined;
             resourceInputs["sns"] = state ? state.sns : undefined;
             resourceInputs["sql"] = state ? state.sql : undefined;
             resourceInputs["sqlVersion"] = state ? state.sqlVersion : undefined;
@@ -220,7 +220,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["lambdas"] = args ? args.lambdas : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["republishes"] = args ? args.republishes : undefined;
-            resourceInputs["s3s"] = args ? args.s3s : undefined;
+            resourceInputs["s3Buckets"] = args ? args.s3Buckets : undefined;
             resourceInputs["sns"] = args ? args.sns : undefined;
             resourceInputs["sql"] = args ? args.sql : undefined;
             resourceInputs["sqlVersion"] = args ? args.sqlVersion : undefined;
@@ -267,14 +267,14 @@ export interface TopicRuleState {
     iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
     iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
     kafkas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKafka>[]>;
-    kineses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKinese>[]>;
+    kineses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKinesis>[]>;
     lambdas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleLambda>[]>;
     /**
      * The name of the rule.
      */
     name?: pulumi.Input<string>;
     republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[]>;
-    s3s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
+    s3Buckets?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
     sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSn>[]>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
@@ -324,14 +324,14 @@ export interface TopicRuleArgs {
     iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
     iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
     kafkas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKafka>[]>;
-    kineses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKinese>[]>;
+    kineses?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKinesis>[]>;
     lambdas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleLambda>[]>;
     /**
      * The name of the rule.
      */
     name?: pulumi.Input<string>;
     republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[]>;
-    s3s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
+    s3Buckets?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
     sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSn>[]>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.

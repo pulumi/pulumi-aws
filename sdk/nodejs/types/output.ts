@@ -33842,7 +33842,7 @@ export namespace iot {
         topic: string;
     }
 
-    export interface TopicRuleKinese {
+    export interface TopicRuleKinesis {
         /**
          * The partition key.
          */

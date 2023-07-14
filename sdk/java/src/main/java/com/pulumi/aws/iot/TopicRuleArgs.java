@@ -15,7 +15,7 @@ import com.pulumi.aws.iot.inputs.TopicRuleHttpArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleIotAnalyticArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleIotEventArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleKafkaArgs;
-import com.pulumi.aws.iot.inputs.TopicRuleKineseArgs;
+import com.pulumi.aws.iot.inputs.TopicRuleKinesisArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleLambdaArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleRepublishArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleS3Args;
@@ -161,9 +161,9 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     @Import(name="kineses")
-    private @Nullable Output<List<TopicRuleKineseArgs>> kineses;
+    private @Nullable Output<List<TopicRuleKinesisArgs>> kineses;
 
-    public Optional<Output<List<TopicRuleKineseArgs>>> kineses() {
+    public Optional<Output<List<TopicRuleKinesisArgs>>> kineses() {
         return Optional.ofNullable(this.kineses);
     }
 
@@ -196,11 +196,11 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.republishes);
     }
 
-    @Import(name="s3s")
-    private @Nullable Output<List<TopicRuleS3Args>> s3s;
+    @Import(name="s3Buckets")
+    private @Nullable Output<List<TopicRuleS3Args>> s3Buckets;
 
-    public Optional<Output<List<TopicRuleS3Args>>> s3s() {
-        return Optional.ofNullable(this.s3s);
+    public Optional<Output<List<TopicRuleS3Args>>> s3Buckets() {
+        return Optional.ofNullable(this.s3Buckets);
     }
 
     @Import(name="sns")
@@ -297,7 +297,7 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.lambdas = $.lambdas;
         this.name = $.name;
         this.republishes = $.republishes;
-        this.s3s = $.s3s;
+        this.s3Buckets = $.s3Buckets;
         this.sns = $.sns;
         this.sql = $.sql;
         this.sqlVersion = $.sqlVersion;
@@ -531,16 +531,16 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
             return kafkas(List.of(kafkas));
         }
 
-        public Builder kineses(@Nullable Output<List<TopicRuleKineseArgs>> kineses) {
+        public Builder kineses(@Nullable Output<List<TopicRuleKinesisArgs>> kineses) {
             $.kineses = kineses;
             return this;
         }
 
-        public Builder kineses(List<TopicRuleKineseArgs> kineses) {
+        public Builder kineses(List<TopicRuleKinesisArgs> kineses) {
             return kineses(Output.of(kineses));
         }
 
-        public Builder kineses(TopicRuleKineseArgs... kineses) {
+        public Builder kineses(TopicRuleKinesisArgs... kineses) {
             return kineses(List.of(kineses));
         }
 
@@ -591,17 +591,17 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
             return republishes(List.of(republishes));
         }
 
-        public Builder s3s(@Nullable Output<List<TopicRuleS3Args>> s3s) {
-            $.s3s = s3s;
+        public Builder s3Buckets(@Nullable Output<List<TopicRuleS3Args>> s3Buckets) {
+            $.s3Buckets = s3Buckets;
             return this;
         }
 
-        public Builder s3s(List<TopicRuleS3Args> s3s) {
-            return s3s(Output.of(s3s));
+        public Builder s3Buckets(List<TopicRuleS3Args> s3Buckets) {
+            return s3Buckets(Output.of(s3Buckets));
         }
 
-        public Builder s3s(TopicRuleS3Args... s3s) {
-            return s3s(List.of(s3s));
+        public Builder s3Buckets(TopicRuleS3Args... s3Buckets) {
+            return s3Buckets(List.of(s3Buckets));
         }
 
         public Builder sns(@Nullable Output<List<TopicRuleSnArgs>> sns) {

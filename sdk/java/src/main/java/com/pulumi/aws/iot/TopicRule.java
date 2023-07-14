@@ -18,7 +18,7 @@ import com.pulumi.aws.iot.outputs.TopicRuleHttp;
 import com.pulumi.aws.iot.outputs.TopicRuleIotAnalytic;
 import com.pulumi.aws.iot.outputs.TopicRuleIotEvent;
 import com.pulumi.aws.iot.outputs.TopicRuleKafka;
-import com.pulumi.aws.iot.outputs.TopicRuleKinese;
+import com.pulumi.aws.iot.outputs.TopicRuleKinesis;
 import com.pulumi.aws.iot.outputs.TopicRuleLambda;
 import com.pulumi.aws.iot.outputs.TopicRuleRepublish;
 import com.pulumi.aws.iot.outputs.TopicRuleS3;
@@ -258,10 +258,10 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleKafka>>> kafkas() {
         return Codegen.optional(this.kafkas);
     }
-    @Export(name="kineses", refs={List.class,TopicRuleKinese.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<TopicRuleKinese>> kineses;
+    @Export(name="kineses", refs={List.class,TopicRuleKinesis.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleKinesis>> kineses;
 
-    public Output<Optional<List<TopicRuleKinese>>> kineses() {
+    public Output<Optional<List<TopicRuleKinesis>>> kineses() {
         return Codegen.optional(this.kineses);
     }
     @Export(name="lambdas", refs={List.class,TopicRuleLambda.class}, tree="[0,1]")
@@ -290,11 +290,11 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleRepublish>>> republishes() {
         return Codegen.optional(this.republishes);
     }
-    @Export(name="s3s", refs={List.class,TopicRuleS3.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<TopicRuleS3>> s3s;
+    @Export(name="s3Buckets", refs={List.class,TopicRuleS3.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleS3>> s3Buckets;
 
-    public Output<Optional<List<TopicRuleS3>>> s3s() {
-        return Codegen.optional(this.s3s);
+    public Output<Optional<List<TopicRuleS3>>> s3Buckets() {
+        return Codegen.optional(this.s3Buckets);
     }
     @Export(name="sns", refs={List.class,TopicRuleSn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TopicRuleSn>> sns;

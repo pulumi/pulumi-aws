@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Iot
         public Output<ImmutableArray<Outputs.TopicRuleKafka>> Kafkas { get; private set; } = null!;
 
         [Output("kineses")]
-        public Output<ImmutableArray<Outputs.TopicRuleKinese>> Kineses { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TopicRuleKinesis>> Kineses { get; private set; } = null!;
 
         [Output("lambdas")]
         public Output<ImmutableArray<Outputs.TopicRuleLambda>> Lambdas { get; private set; } = null!;
@@ -192,8 +192,8 @@ namespace Pulumi.Aws.Iot
         [Output("republishes")]
         public Output<ImmutableArray<Outputs.TopicRuleRepublish>> Republishes { get; private set; } = null!;
 
-        [Output("s3s")]
-        public Output<ImmutableArray<Outputs.TopicRuleS3>> S3s { get; private set; } = null!;
+        [Output("s3Buckets")]
+        public Output<ImmutableArray<Outputs.TopicRuleS3>> S3Buckets { get; private set; } = null!;
 
         [Output("sns")]
         public Output<ImmutableArray<Outputs.TopicRuleSn>> Sns { get; private set; } = null!;
@@ -384,10 +384,10 @@ namespace Pulumi.Aws.Iot
         }
 
         [Input("kineses")]
-        private InputList<Inputs.TopicRuleKineseArgs>? _kineses;
-        public InputList<Inputs.TopicRuleKineseArgs> Kineses
+        private InputList<Inputs.TopicRuleKinesisArgs>? _kineses;
+        public InputList<Inputs.TopicRuleKinesisArgs> Kineses
         {
-            get => _kineses ?? (_kineses = new InputList<Inputs.TopicRuleKineseArgs>());
+            get => _kineses ?? (_kineses = new InputList<Inputs.TopicRuleKinesisArgs>());
             set => _kineses = value;
         }
 
@@ -413,12 +413,12 @@ namespace Pulumi.Aws.Iot
             set => _republishes = value;
         }
 
-        [Input("s3s")]
-        private InputList<Inputs.TopicRuleS3Args>? _s3s;
-        public InputList<Inputs.TopicRuleS3Args> S3s
+        [Input("s3Buckets")]
+        private InputList<Inputs.TopicRuleS3Args>? _s3Buckets;
+        public InputList<Inputs.TopicRuleS3Args> S3Buckets
         {
-            get => _s3s ?? (_s3s = new InputList<Inputs.TopicRuleS3Args>());
-            set => _s3s = value;
+            get => _s3Buckets ?? (_s3Buckets = new InputList<Inputs.TopicRuleS3Args>());
+            set => _s3Buckets = value;
         }
 
         [Input("sns")]
@@ -598,10 +598,10 @@ namespace Pulumi.Aws.Iot
         }
 
         [Input("kineses")]
-        private InputList<Inputs.TopicRuleKineseGetArgs>? _kineses;
-        public InputList<Inputs.TopicRuleKineseGetArgs> Kineses
+        private InputList<Inputs.TopicRuleKinesisGetArgs>? _kineses;
+        public InputList<Inputs.TopicRuleKinesisGetArgs> Kineses
         {
-            get => _kineses ?? (_kineses = new InputList<Inputs.TopicRuleKineseGetArgs>());
+            get => _kineses ?? (_kineses = new InputList<Inputs.TopicRuleKinesisGetArgs>());
             set => _kineses = value;
         }
 
@@ -627,12 +627,12 @@ namespace Pulumi.Aws.Iot
             set => _republishes = value;
         }
 
-        [Input("s3s")]
-        private InputList<Inputs.TopicRuleS3GetArgs>? _s3s;
-        public InputList<Inputs.TopicRuleS3GetArgs> S3s
+        [Input("s3Buckets")]
+        private InputList<Inputs.TopicRuleS3GetArgs>? _s3Buckets;
+        public InputList<Inputs.TopicRuleS3GetArgs> S3Buckets
         {
-            get => _s3s ?? (_s3s = new InputList<Inputs.TopicRuleS3GetArgs>());
-            set => _s3s = value;
+            get => _s3Buckets ?? (_s3Buckets = new InputList<Inputs.TopicRuleS3GetArgs>());
+            set => _s3Buckets = value;
         }
 
         [Input("sns")]

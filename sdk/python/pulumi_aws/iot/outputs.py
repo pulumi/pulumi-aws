@@ -61,7 +61,7 @@ __all__ = [
     'TopicRuleIotAnalytic',
     'TopicRuleIotEvent',
     'TopicRuleKafka',
-    'TopicRuleKinese',
+    'TopicRuleKinesis',
     'TopicRuleLambda',
     'TopicRuleRepublish',
     'TopicRuleS3',
@@ -3308,7 +3308,7 @@ class TopicRuleKafka(dict):
 
 
 @pulumi.output_type
-class TopicRuleKinese(dict):
+class TopicRuleKinesis(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3320,14 +3320,14 @@ class TopicRuleKinese(dict):
             suggest = "partition_key"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TopicRuleKinese. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleKinesis. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TopicRuleKinese.__key_warning(key)
+        TopicRuleKinesis.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TopicRuleKinese.__key_warning(key)
+        TopicRuleKinesis.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

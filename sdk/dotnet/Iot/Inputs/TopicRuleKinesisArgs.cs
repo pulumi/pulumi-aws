@@ -7,36 +7,32 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Iot.Outputs
+namespace Pulumi.Aws.Iot.Inputs
 {
 
-    [OutputType]
-    public sealed class TopicRuleKinese
+    public sealed class TopicRuleKinesisArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The partition key.
         /// </summary>
-        public readonly string? PartitionKey;
+        [Input("partitionKey")]
+        public Input<string>? PartitionKey { get; set; }
+
         /// <summary>
         /// The ARN of the IAM role that grants access to the Amazon Kinesis stream.
         /// </summary>
-        public readonly string RoleArn;
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
+
         /// <summary>
         /// The name of the Amazon Kinesis stream.
         /// </summary>
-        public readonly string StreamName;
+        [Input("streamName", required: true)]
+        public Input<string> StreamName { get; set; } = null!;
 
-        [OutputConstructor]
-        private TopicRuleKinese(
-            string? partitionKey,
-
-            string roleArn,
-
-            string streamName)
+        public TopicRuleKinesisArgs()
         {
-            PartitionKey = partitionKey;
-            RoleArn = roleArn;
-            StreamName = streamName;
         }
+        public static new TopicRuleKinesisArgs Empty => new TopicRuleKinesisArgs();
     }
 }

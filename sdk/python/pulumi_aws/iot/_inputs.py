@@ -60,7 +60,7 @@ __all__ = [
     'TopicRuleIotAnalyticArgs',
     'TopicRuleIotEventArgs',
     'TopicRuleKafkaArgs',
-    'TopicRuleKineseArgs',
+    'TopicRuleKinesisArgs',
     'TopicRuleLambdaArgs',
     'TopicRuleRepublishArgs',
     'TopicRuleS3Args',
@@ -3170,7 +3170,7 @@ class TopicRuleKafkaArgs:
 
 
 @pulumi.input_type
-class TopicRuleKineseArgs:
+class TopicRuleKinesisArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  stream_name: pulumi.Input[str],

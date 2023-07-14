@@ -32,11 +32,11 @@ class TopicRuleArgs:
                  iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]] = None,
                  iot_events: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]] = None,
                  kafkas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]] = None,
-                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKineseArgs']]]] = None,
+                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]] = None,
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
-                 s3s: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
+                 s3_buckets: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
                  sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnArgs']]]] = None,
                  sqs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqArgs']]]] = None,
                  step_functions: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]] = None,
@@ -89,8 +89,8 @@ class TopicRuleArgs:
             pulumi.set(__self__, "name", name)
         if republishes is not None:
             pulumi.set(__self__, "republishes", republishes)
-        if s3s is not None:
-            pulumi.set(__self__, "s3s", s3s)
+        if s3_buckets is not None:
+            pulumi.set(__self__, "s3_buckets", s3_buckets)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
         if sqs is not None:
@@ -263,11 +263,11 @@ class TopicRuleArgs:
 
     @property
     @pulumi.getter
-    def kineses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKineseArgs']]]]:
+    def kineses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]:
         return pulumi.get(self, "kineses")
 
     @kineses.setter
-    def kineses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKineseArgs']]]]):
+    def kineses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]):
         pulumi.set(self, "kineses", value)
 
     @property
@@ -301,13 +301,13 @@ class TopicRuleArgs:
         pulumi.set(self, "republishes", value)
 
     @property
-    @pulumi.getter
-    def s3s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
-        return pulumi.get(self, "s3s")
+    @pulumi.getter(name="s3Buckets")
+    def s3_buckets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
+        return pulumi.get(self, "s3_buckets")
 
-    @s3s.setter
-    def s3s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
-        pulumi.set(self, "s3s", value)
+    @s3_buckets.setter
+    def s3_buckets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
+        pulumi.set(self, "s3_buckets", value)
 
     @property
     @pulumi.getter
@@ -376,11 +376,11 @@ class _TopicRuleState:
                  iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotAnalyticArgs']]]] = None,
                  iot_events: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleIotEventArgs']]]] = None,
                  kafkas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaArgs']]]] = None,
-                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKineseArgs']]]] = None,
+                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]] = None,
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
-                 s3s: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
+                 s3_buckets: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
                  sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnArgs']]]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  sql_version: Optional[pulumi.Input[str]] = None,
@@ -439,8 +439,8 @@ class _TopicRuleState:
             pulumi.set(__self__, "name", name)
         if republishes is not None:
             pulumi.set(__self__, "republishes", republishes)
-        if s3s is not None:
-            pulumi.set(__self__, "s3s", s3s)
+        if s3_buckets is not None:
+            pulumi.set(__self__, "s3_buckets", s3_buckets)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
         if sql is not None:
@@ -607,11 +607,11 @@ class _TopicRuleState:
 
     @property
     @pulumi.getter
-    def kineses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKineseArgs']]]]:
+    def kineses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]:
         return pulumi.get(self, "kineses")
 
     @kineses.setter
-    def kineses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKineseArgs']]]]):
+    def kineses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKinesisArgs']]]]):
         pulumi.set(self, "kineses", value)
 
     @property
@@ -645,13 +645,13 @@ class _TopicRuleState:
         pulumi.set(self, "republishes", value)
 
     @property
-    @pulumi.getter
-    def s3s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
-        return pulumi.get(self, "s3s")
+    @pulumi.getter(name="s3Buckets")
+    def s3_buckets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
+        return pulumi.get(self, "s3_buckets")
 
-    @s3s.setter
-    def s3s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
-        pulumi.set(self, "s3s", value)
+    @s3_buckets.setter
+    def s3_buckets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
+        pulumi.set(self, "s3_buckets", value)
 
     @property
     @pulumi.getter
@@ -757,11 +757,11 @@ class TopicRule(pulumi.CustomResource):
                  iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleIotAnalyticArgs']]]]] = None,
                  iot_events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleIotEventArgs']]]]] = None,
                  kafkas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleKafkaArgs']]]]] = None,
-                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleKineseArgs']]]]] = None,
+                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleKinesisArgs']]]]] = None,
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleLambdaArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleRepublishArgs']]]]] = None,
-                 s3s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
+                 s3_buckets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
                  sns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSnArgs']]]]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  sql_version: Optional[pulumi.Input[str]] = None,
@@ -921,11 +921,11 @@ class TopicRule(pulumi.CustomResource):
                  iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleIotAnalyticArgs']]]]] = None,
                  iot_events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleIotEventArgs']]]]] = None,
                  kafkas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleKafkaArgs']]]]] = None,
-                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleKineseArgs']]]]] = None,
+                 kineses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleKinesisArgs']]]]] = None,
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleLambdaArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleRepublishArgs']]]]] = None,
-                 s3s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
+                 s3_buckets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
                  sns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSnArgs']]]]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  sql_version: Optional[pulumi.Input[str]] = None,
@@ -962,7 +962,7 @@ class TopicRule(pulumi.CustomResource):
             __props__.__dict__["lambdas"] = lambdas
             __props__.__dict__["name"] = name
             __props__.__dict__["republishes"] = republishes
-            __props__.__dict__["s3s"] = s3s
+            __props__.__dict__["s3_buckets"] = s3_buckets
             __props__.__dict__["sns"] = sns
             if sql is None and not opts.urn:
                 raise TypeError("Missing required property 'sql'")
@@ -1001,11 +1001,11 @@ class TopicRule(pulumi.CustomResource):
             iot_analytics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleIotAnalyticArgs']]]]] = None,
             iot_events: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleIotEventArgs']]]]] = None,
             kafkas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleKafkaArgs']]]]] = None,
-            kineses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleKineseArgs']]]]] = None,
+            kineses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleKinesisArgs']]]]] = None,
             lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleLambdaArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             republishes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleRepublishArgs']]]]] = None,
-            s3s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
+            s3_buckets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
             sns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSnArgs']]]]] = None,
             sql: Optional[pulumi.Input[str]] = None,
             sql_version: Optional[pulumi.Input[str]] = None,
@@ -1054,7 +1054,7 @@ class TopicRule(pulumi.CustomResource):
         __props__.__dict__["lambdas"] = lambdas
         __props__.__dict__["name"] = name
         __props__.__dict__["republishes"] = republishes
-        __props__.__dict__["s3s"] = s3s
+        __props__.__dict__["s3_buckets"] = s3_buckets
         __props__.__dict__["sns"] = sns
         __props__.__dict__["sql"] = sql
         __props__.__dict__["sql_version"] = sql_version
@@ -1154,7 +1154,7 @@ class TopicRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kineses(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleKinese']]]:
+    def kineses(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleKinesis']]]:
         return pulumi.get(self, "kineses")
 
     @property
@@ -1176,9 +1176,9 @@ class TopicRule(pulumi.CustomResource):
         return pulumi.get(self, "republishes")
 
     @property
-    @pulumi.getter
-    def s3s(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleS3']]]:
-        return pulumi.get(self, "s3s")
+    @pulumi.getter(name="s3Buckets")
+    def s3_buckets(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleS3']]]:
+        return pulumi.get(self, "s3_buckets")
 
     @property
     @pulumi.getter

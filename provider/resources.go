@@ -2404,6 +2404,30 @@ func Provider() *tfbridge.ProviderInfo {
 						tfbridge.AutoNameOptions{
 							Separator: "_",
 						}),
+					"kinesis": {Elem: &tfbridge.SchemaInfo{
+						NestedType: "TopicRuleKinesis",
+					}},
+					"s3": {
+						// Fix pluralization: `s3s` is confusing, so we hardcode `s3`.
+						Name: "s3",
+						// To minimize the diff, we instruct the nested type to revert
+						// to it's prior name.
+						Elem: &tfbridge.SchemaInfo{NestedType: "TopicRuleS3"},
+					},
+					"sns": {
+
+						// Singularization converts `sns` to `sn`, which is wrong.
+						Elem: &tfbridge.SchemaInfo{NestedType: "TopicRuleSns"},
+					},
+					"sqs": {
+						// Singularization converts `sqs` to `sq`, which is wrong.
+						Elem: &tfbridge.SchemaInfo{NestedType: "TopicRuleSqs"},
+					},
+					"elasticsearch": {
+						// The service is called "ElasticSearch", so pluralizing it to
+						// "elasticsearches" doesn't really make sense.
+						Name: "elasticsearch",
+					},
 				},
 			},
 			"aws_iot_thing_group":            {Tok: awsResource(iotMod, "ThingGroup")},
