@@ -1219,6 +1219,10 @@
   ],
   "website/docs/r/iam_virtual_mfa_device.html.markdown": [
     {
+      "old": "~> **Note:** A virtual MFA device cannot be directly associated with an IAM User from Terraform.",
+      "new": "~> **Note:** A virtual MFA device cannot be directly associated with an IAM User from the provider."
+    },
+    {
       "old": "~> **Note:** All attributes will be stored in the raw state as plain-text.\nRead more about sensitive data in state.\n"
     }
   ],
@@ -2106,6 +2110,10 @@
     {
       "old": "Terraform does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don't need to. In addition, when the `aws_security_group` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within Terraform, the associated resource (_e.g._, `aws_instance`) does not receive an error when the `aws_security_group` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association).",
       "new": "The provider does not model bi-directional dependencies like this, but, even if it did, simply knowing the dependency situation would not be enough to solve it. For example, some resources must always have an associated security group while others don't need to. In addition, when the `aws_security_group` resource attempts to recreate, it receives a dependent object error, which does not provide information on whether the dependent object is a security group rule or, for example, an associated EC2 instance. Within the provider, the associated resource (_e.g._, `aws_instance`) does not receive an error when the `aws_security_group` is trying to recreate even though that is where changes to the associated resource would need to take place (_e.g._, removing the security group association)."
+    },
+    {
+      "old": "The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause Terraform to destroy the managed rules. To subsequently remove all managed ingress and egress rules:",
+      "new": "The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:"
     }
   ],
   "website/docs/r/securityhub_standards_control.markdown": [

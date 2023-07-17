@@ -1,4 +1,4 @@
-From 04932864378c110262fa459eaa9cdb450afb7aaf Mon Sep 17 00:00:00 2001
+From 025d06c1f77c80e5942f5231764faf7cc215ee71 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:05:11 +0000
 Subject: [PATCH 03/28] Add S3 legacy bucket to resources
@@ -41,7 +41,7 @@ https://github.com/hashicorp/terraform-provider-aws/pull/29717.
  create mode 100644 website/docs/r/s3_bucket_legacy.html.markdown
 
 diff --git a/go.mod b/go.mod
-index 2df25b2a62..229d63f08d 100644
+index a69dcbdf60..d70c607c3e 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -61,6 +61,7 @@ require (
@@ -53,7 +53,7 @@ index 2df25b2a62..229d63f08d 100644
  	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.32
  	github.com/hashicorp/awspolicyequivalence v1.6.0
 diff --git a/go.sum b/go.sum
-index 27d2ecf8c6..daf2e2b98a 100644
+index 4621a3ddb5..88a7b2c431 100644
 --- a/go.sum
 +++ b/go.sum
 @@ -15,6 +15,7 @@ github.com/apparentlymart/go-textseg/v13 v13.0.0 h1:Y+KvPE1NYz0xl601PVImeQfFyEy6
@@ -61,8 +61,8 @@ index 27d2ecf8c6..daf2e2b98a 100644
  github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310 h1:BUAU3CGlLvorLI26FmByPp2eC2qla6E1Tw+scpcg/to=
  github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
 +github.com/aws/aws-sdk-go v1.31.9/go.mod h1:5zCpMtNQVjRREroY7sYe8lOMRSxkhG6MZveU8YkpAk0=
- github.com/aws/aws-sdk-go v1.44.297 h1:uL4EV0gQxotQVYegIoBqK079328MOJqgG95daFYSkAM=
- github.com/aws/aws-sdk-go v1.44.297/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8Phjh7fkwI=
+ github.com/aws/aws-sdk-go v1.44.299 h1:HVD9lU4CAFHGxleMJp95FV/sRhtg7P4miHD1v88JAQk=
+ github.com/aws/aws-sdk-go v1.44.299/go.mod h1:aVsgQcEevwlmQ7qHE9I3h+dtQgpqhFB+i8Phjh7fkwI=
  github.com/aws/aws-sdk-go-v2 v1.18.1 h1:+tefE750oAb7ZQGzla6bLkOwfcQCEtC5y2RqoqCeqKo=
 @@ -173,6 +174,7 @@ github.com/fatih/color v1.15.0/go.mod h1:0h5ZqXfHYED7Bhv2ZJamyIOUej9KtShiJESRwBD
  github.com/go-git/gcfg v1.5.0 h1:Q5ViNfGF8zFgyJWPqYwA7qGFoMTEiBmdlkcfRmpIMa4=
