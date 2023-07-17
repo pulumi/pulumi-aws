@@ -63,6 +63,7 @@ type LookupParameterResult struct {
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id             string `pulumi:"id"`
+	InsecureValue  string `pulumi:"insecureValue"`
 	Name           string `pulumi:"name"`
 	Type           string `pulumi:"type"`
 	Value          string `pulumi:"value"`
@@ -119,6 +120,10 @@ func (o LookupParameterResultOutput) Arn() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupParameterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupParameterResultOutput) InsecureValue() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupParameterResult) string { return v.InsecureValue }).(pulumi.StringOutput)
 }
 
 func (o LookupParameterResultOutput) Name() pulumi.StringOutput {

@@ -152,6 +152,27 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// 
     /// You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
+    /// ### Removing All Ingress and Egress Rules
+    /// 
+    /// The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ec2.SecurityGroup("example", new()
+    ///     {
+    ///         VpcId = aws_vpc.Example.Id,
+    ///         Ingress = new[] {},
+    ///         Egress = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Recreating a Security Group
     /// 
     /// A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.

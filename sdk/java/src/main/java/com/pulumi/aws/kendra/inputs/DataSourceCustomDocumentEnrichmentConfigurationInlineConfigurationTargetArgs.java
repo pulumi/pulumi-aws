@@ -33,16 +33,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
     }
 
     /**
-     * The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;.
-     * See Document Attribute Value.
+     * The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
      * 
      */
     @Import(name="targetDocumentAttributeValue")
     private @Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs> targetDocumentAttributeValue;
 
     /**
-     * @return The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;.
-     * See Document Attribute Value.
+     * @return The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
      * 
      */
     public Optional<Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs>> targetDocumentAttributeValue() {
@@ -112,8 +110,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
         }
 
         /**
-         * @param targetDocumentAttributeValue The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;.
-         * See Document Attribute Value.
+         * @param targetDocumentAttributeValue The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
          * 
          * @return builder
          * 
@@ -124,8 +121,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
         }
 
         /**
-         * @param targetDocumentAttributeValue The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;.
-         * See Document Attribute Value.
+         * @param targetDocumentAttributeValue The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
          * 
          * @return builder
          * 

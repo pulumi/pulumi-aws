@@ -47,6 +47,12 @@ namespace Pulumi.Aws.Mq.Inputs
         }
 
         /// <summary>
+        /// Whether to set set replication user. Defaults to `false`.
+        /// </summary>
+        [Input("replicationUser")]
+        public Input<bool>? ReplicationUser { get; set; }
+
+        /// <summary>
         /// Username of the user.
         /// 
         /// &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.

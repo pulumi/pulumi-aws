@@ -8,6 +8,10 @@ import * as utilities from "../utilities";
  * Provides an IAM Virtual MFA Device.
  *
  * > **Note:** All attributes will be stored in the raw state as plain-text.
+ * **Note:** A virtual MFA device cannot be directly associated with an IAM User from the provider.
+ *   To associate the virtual MFA device with a user and enable it, use the code returned in either `base32StringSeed` or `qrCodePng` to generate TOTP authentication codes.
+ *   The authentication codes can then be used with the AWS CLI command [`aws iam enable-mfa-device`](https://docs.aws.amazon.com/cli/latest/reference/iam/enable-mfa-device.html) or the AWS API call [`EnableMFADevice`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html).
+ *
  * ## Example Usage
  *
  * **Using certs on file:**
@@ -64,11 +68,15 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
      */
     public /*out*/ readonly base32StringSeed!: pulumi.Output<string>;
     /**
+     * The date and time when the virtual MFA device was enabled.
+     */
+    public /*out*/ readonly enableDate!: pulumi.Output<string>;
+    /**
      * The path for the virtual MFA device.
      */
     public readonly path!: pulumi.Output<string | undefined>;
     /**
-     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      */
     public /*out*/ readonly qrCodePng!: pulumi.Output<string>;
     /**
@@ -79,6 +87,10 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The associated IAM User name if the virtual MFA device is enabled.
+     */
+    public /*out*/ readonly userName!: pulumi.Output<string>;
     /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      */
@@ -99,10 +111,12 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
             const state = argsOrState as VirtualMfaDeviceState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["base32StringSeed"] = state ? state.base32StringSeed : undefined;
+            resourceInputs["enableDate"] = state ? state.enableDate : undefined;
             resourceInputs["path"] = state ? state.path : undefined;
             resourceInputs["qrCodePng"] = state ? state.qrCodePng : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
             resourceInputs["virtualMfaDeviceName"] = state ? state.virtualMfaDeviceName : undefined;
         } else {
             const args = argsOrState as VirtualMfaDeviceArgs | undefined;
@@ -114,8 +128,10 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
             resourceInputs["virtualMfaDeviceName"] = args ? args.virtualMfaDeviceName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["base32StringSeed"] = undefined /*out*/;
+            resourceInputs["enableDate"] = undefined /*out*/;
             resourceInputs["qrCodePng"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualMfaDevice.__pulumiType, name, resourceInputs, opts);
@@ -135,11 +151,15 @@ export interface VirtualMfaDeviceState {
      */
     base32StringSeed?: pulumi.Input<string>;
     /**
+     * The date and time when the virtual MFA device was enabled.
+     */
+    enableDate?: pulumi.Input<string>;
+    /**
      * The path for the virtual MFA device.
      */
     path?: pulumi.Input<string>;
     /**
-     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      */
     qrCodePng?: pulumi.Input<string>;
     /**
@@ -150,6 +170,10 @@ export interface VirtualMfaDeviceState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The associated IAM User name if the virtual MFA device is enabled.
+     */
+    userName?: pulumi.Input<string>;
     /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      */

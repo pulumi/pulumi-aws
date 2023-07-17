@@ -16,14 +16,14 @@ public final class DataSourceOpensearchserviceConfigArgs extends com.pulumi.reso
     public static final DataSourceOpensearchserviceConfigArgs Empty = new DataSourceOpensearchserviceConfigArgs();
 
     /**
-     * HTTP endpoint of the OpenSearch domain.
+     * HTTP endpoint of the Elasticsearch domain.
      * 
      */
     @Import(name="endpoint", required=true)
     private Output<String> endpoint;
 
     /**
-     * @return HTTP endpoint of the OpenSearch domain.
+     * @return HTTP endpoint of the Elasticsearch domain.
      * 
      */
     public Output<String> endpoint() {
@@ -31,14 +31,14 @@ public final class DataSourceOpensearchserviceConfigArgs extends com.pulumi.reso
     }
 
     /**
-     * AWS region of the OpenSearch domain. Defaults to current region.
+     * AWS region of the DynamoDB table. Defaults to current region.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS region of the OpenSearch domain. Defaults to current region.
+     * @return AWS region of the DynamoDB table. Defaults to current region.
      * 
      */
     public Optional<Output<String>> region() {
@@ -71,7 +71,7 @@ public final class DataSourceOpensearchserviceConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param endpoint HTTP endpoint of the OpenSearch domain.
+         * @param endpoint HTTP endpoint of the Elasticsearch domain.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DataSourceOpensearchserviceConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param endpoint HTTP endpoint of the OpenSearch domain.
+         * @param endpoint HTTP endpoint of the Elasticsearch domain.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DataSourceOpensearchserviceConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param region AWS region of the OpenSearch domain. Defaults to current region.
+         * @param region AWS region of the DynamoDB table. Defaults to current region.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DataSourceOpensearchserviceConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param region AWS region of the OpenSearch domain. Defaults to current region.
+         * @param region AWS region of the DynamoDB table. Defaults to current region.
          * 
          * @return builder
          * 

@@ -484,9 +484,6 @@ namespace Pulumi.Aws.Rds
         [Output("multiAz")]
         public Output<bool> MultiAz { get; private set; } = null!;
 
-        /// <summary>
-        /// The database name.
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -1007,9 +1004,6 @@ namespace Pulumi.Aws.Rds
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
 
-        /// <summary>
-        /// The database name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -1549,9 +1543,6 @@ namespace Pulumi.Aws.Rds
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
 
-        /// <summary>
-        /// The database name.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

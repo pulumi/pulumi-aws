@@ -7390,6 +7390,9 @@ export namespace appstream {
 
 export namespace appsync {
     export interface DataSourceDynamodbConfig {
+        /**
+         * The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+         */
         deltaSyncConfig?: outputs.appsync.DataSourceDynamodbConfigDeltaSyncConfig;
         /**
          * AWS region of the DynamoDB table. Defaults to current region.
@@ -7403,12 +7406,24 @@ export namespace appsync {
          * Set to `true` to use Amazon Cognito credentials with this data source.
          */
         useCallerCredentials?: boolean;
+        /**
+         * Detects Conflict Detection and Resolution with this data source.
+         */
         versioned?: boolean;
     }
 
     export interface DataSourceDynamodbConfigDeltaSyncConfig {
+        /**
+         * The number of minutes that an Item is stored in the data source.
+         */
         baseTableTtl?: number;
+        /**
+         * The table name.
+         */
         deltaSyncTableName: string;
+        /**
+         * The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+         */
         deltaSyncTableTtl?: number;
     }
 
@@ -7472,11 +7487,11 @@ export namespace appsync {
 
     export interface DataSourceOpensearchserviceConfig {
         /**
-         * HTTP endpoint of the OpenSearch domain.
+         * HTTP endpoint of the Elasticsearch domain.
          */
         endpoint: string;
         /**
-         * AWS region of the OpenSearch domain. Defaults to current region.
+         * AWS region of the DynamoDB table. Defaults to current region.
          */
         region: string;
     }
@@ -29385,9 +29400,35 @@ export namespace fms {
          */
         managedServiceData?: string;
         /**
+         * Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+         */
+        policyOption?: outputs.fms.PolicySecurityServicePolicyDataPolicyOption;
+        /**
          * The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
          */
         type: string;
+    }
+
+    export interface PolicySecurityServicePolicyDataPolicyOption {
+        /**
+         * Defines the deployment model to use for the firewall policy. Documented below.
+         */
+        networkFirewallPolicy?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy;
+        thirdPartyFirewallPolicy?: outputs.fms.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy;
+    }
+
+    export interface PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy {
+        /**
+         * Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+         */
+        firewallDeploymentModel?: string;
+    }
+
+    export interface PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy {
+        /**
+         * Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+         */
+        firewallDeploymentModel?: string;
     }
 
 }
@@ -34255,7 +34296,7 @@ export namespace kendra {
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration {
         /**
-         * Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+         * Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
          */
         condition?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition;
         /**
@@ -34274,7 +34315,7 @@ export namespace kendra {
          */
         conditionDocumentAttributeKey: string;
         /**
-         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          */
         conditionOnValue?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue;
         /**
@@ -34305,8 +34346,7 @@ export namespace kendra {
          */
         targetDocumentAttributeKey?: string;
         /**
-         * The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-         * See Document Attribute Value.
+         * The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
          */
         targetDocumentAttributeValue?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue;
         /**
@@ -34333,7 +34373,7 @@ export namespace kendra {
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
         /**
-         * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+         * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
          */
         invocationCondition?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition;
         /**
@@ -34352,7 +34392,7 @@ export namespace kendra {
          */
         conditionDocumentAttributeKey: string;
         /**
-         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          */
         conditionOnValue?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue;
         /**
@@ -34379,7 +34419,7 @@ export namespace kendra {
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration {
         /**
-         * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+         * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
          */
         invocationCondition?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition;
         /**
@@ -34398,7 +34438,7 @@ export namespace kendra {
          */
         conditionDocumentAttributeKey: string;
         /**
-         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          */
         conditionOnValue?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue;
         /**
@@ -42401,6 +42441,10 @@ export namespace mq {
          * Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
          */
         password: string;
+        /**
+         * Whether to set set replication user. Defaults to `false`.
+         */
+        replicationUser?: boolean;
         /**
          * Username of the user.
          *

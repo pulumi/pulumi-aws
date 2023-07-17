@@ -13,6 +13,9 @@ __all__ = [
     'PolicyExcludeMapArgs',
     'PolicyIncludeMapArgs',
     'PolicySecurityServicePolicyDataArgs',
+    'PolicySecurityServicePolicyDataPolicyOptionArgs',
+    'PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs',
+    'PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs',
 ]
 
 @pulumi.input_type
@@ -105,14 +108,18 @@ class PolicyIncludeMapArgs:
 class PolicySecurityServicePolicyDataArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 managed_service_data: Optional[pulumi.Input[str]] = None):
+                 managed_service_data: Optional[pulumi.Input[str]] = None,
+                 policy_option: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs']] = None):
         """
         :param pulumi.Input[str] type: The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
         :param pulumi.Input[str] managed_service_data: Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
+        :param pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs'] policy_option: Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
         """
         pulumi.set(__self__, "type", type)
         if managed_service_data is not None:
             pulumi.set(__self__, "managed_service_data", managed_service_data)
+        if policy_option is not None:
+            pulumi.set(__self__, "policy_option", policy_option)
 
     @property
     @pulumi.getter
@@ -137,5 +144,98 @@ class PolicySecurityServicePolicyDataArgs:
     @managed_service_data.setter
     def managed_service_data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "managed_service_data", value)
+
+    @property
+    @pulumi.getter(name="policyOption")
+    def policy_option(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs']]:
+        """
+        Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+        """
+        return pulumi.get(self, "policy_option")
+
+    @policy_option.setter
+    def policy_option(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs']]):
+        pulumi.set(self, "policy_option", value)
+
+
+@pulumi.input_type
+class PolicySecurityServicePolicyDataPolicyOptionArgs:
+    def __init__(__self__, *,
+                 network_firewall_policy: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']] = None,
+                 third_party_firewall_policy: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']] = None):
+        """
+        :param pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs'] network_firewall_policy: Defines the deployment model to use for the firewall policy. Documented below.
+        """
+        if network_firewall_policy is not None:
+            pulumi.set(__self__, "network_firewall_policy", network_firewall_policy)
+        if third_party_firewall_policy is not None:
+            pulumi.set(__self__, "third_party_firewall_policy", third_party_firewall_policy)
+
+    @property
+    @pulumi.getter(name="networkFirewallPolicy")
+    def network_firewall_policy(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']]:
+        """
+        Defines the deployment model to use for the firewall policy. Documented below.
+        """
+        return pulumi.get(self, "network_firewall_policy")
+
+    @network_firewall_policy.setter
+    def network_firewall_policy(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']]):
+        pulumi.set(self, "network_firewall_policy", value)
+
+    @property
+    @pulumi.getter(name="thirdPartyFirewallPolicy")
+    def third_party_firewall_policy(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']]:
+        return pulumi.get(self, "third_party_firewall_policy")
+
+    @third_party_firewall_policy.setter
+    def third_party_firewall_policy(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']]):
+        pulumi.set(self, "third_party_firewall_policy", value)
+
+
+@pulumi.input_type
+class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs:
+    def __init__(__self__, *,
+                 firewall_deployment_model: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] firewall_deployment_model: Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+        """
+        if firewall_deployment_model is not None:
+            pulumi.set(__self__, "firewall_deployment_model", firewall_deployment_model)
+
+    @property
+    @pulumi.getter(name="firewallDeploymentModel")
+    def firewall_deployment_model(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+        """
+        return pulumi.get(self, "firewall_deployment_model")
+
+    @firewall_deployment_model.setter
+    def firewall_deployment_model(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_deployment_model", value)
+
+
+@pulumi.input_type
+class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs:
+    def __init__(__self__, *,
+                 firewall_deployment_model: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] firewall_deployment_model: Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+        """
+        if firewall_deployment_model is not None:
+            pulumi.set(__self__, "firewall_deployment_model", firewall_deployment_model)
+
+    @property
+    @pulumi.getter(name="firewallDeploymentModel")
+    def firewall_deployment_model(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+        """
+        return pulumi.get(self, "firewall_deployment_model")
+
+    @firewall_deployment_model.setter
+    def firewall_deployment_model(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_deployment_model", value)
 
 

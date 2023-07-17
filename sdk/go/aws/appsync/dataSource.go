@@ -134,19 +134,19 @@ type DataSource struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the data source.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// DynamoDB settings. See below
+	// DynamoDB settings. See DynamoDB Config
 	DynamodbConfig DataSourceDynamodbConfigPtrOutput `pulumi:"dynamodbConfig"`
-	// Amazon Elasticsearch settings. See below
+	// Amazon Elasticsearch settings. See ElasticSearch Config
 	ElasticsearchConfig DataSourceElasticsearchConfigPtrOutput `pulumi:"elasticsearchConfig"`
-	// AWS EventBridge settings. See below
+	// AWS EventBridge settings. See Event Bridge Config
 	EventBridgeConfig DataSourceEventBridgeConfigPtrOutput `pulumi:"eventBridgeConfig"`
-	// HTTP settings. See below
+	// HTTP settings. See HTTP Config
 	HttpConfig DataSourceHttpConfigPtrOutput `pulumi:"httpConfig"`
-	// AWS Lambda settings. See below
+	// AWS Lambda settings. See Lambda Config
 	LambdaConfig DataSourceLambdaConfigPtrOutput `pulumi:"lambdaConfig"`
 	// User-supplied name for the data source.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Amazon OpenSearch Service settings. See below
+	// Amazon OpenSearch Service settings. See OpenSearch Service Config
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrOutput `pulumi:"opensearchserviceConfig"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
@@ -197,19 +197,19 @@ type dataSourceState struct {
 	Arn *string `pulumi:"arn"`
 	// Description of the data source.
 	Description *string `pulumi:"description"`
-	// DynamoDB settings. See below
+	// DynamoDB settings. See DynamoDB Config
 	DynamodbConfig *DataSourceDynamodbConfig `pulumi:"dynamodbConfig"`
-	// Amazon Elasticsearch settings. See below
+	// Amazon Elasticsearch settings. See ElasticSearch Config
 	ElasticsearchConfig *DataSourceElasticsearchConfig `pulumi:"elasticsearchConfig"`
-	// AWS EventBridge settings. See below
+	// AWS EventBridge settings. See Event Bridge Config
 	EventBridgeConfig *DataSourceEventBridgeConfig `pulumi:"eventBridgeConfig"`
-	// HTTP settings. See below
+	// HTTP settings. See HTTP Config
 	HttpConfig *DataSourceHttpConfig `pulumi:"httpConfig"`
-	// AWS Lambda settings. See below
+	// AWS Lambda settings. See Lambda Config
 	LambdaConfig *DataSourceLambdaConfig `pulumi:"lambdaConfig"`
 	// User-supplied name for the data source.
 	Name *string `pulumi:"name"`
-	// Amazon OpenSearch Service settings. See below
+	// Amazon OpenSearch Service settings. See OpenSearch Service Config
 	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
@@ -226,19 +226,19 @@ type DataSourceState struct {
 	Arn pulumi.StringPtrInput
 	// Description of the data source.
 	Description pulumi.StringPtrInput
-	// DynamoDB settings. See below
+	// DynamoDB settings. See DynamoDB Config
 	DynamodbConfig DataSourceDynamodbConfigPtrInput
-	// Amazon Elasticsearch settings. See below
+	// Amazon Elasticsearch settings. See ElasticSearch Config
 	ElasticsearchConfig DataSourceElasticsearchConfigPtrInput
-	// AWS EventBridge settings. See below
+	// AWS EventBridge settings. See Event Bridge Config
 	EventBridgeConfig DataSourceEventBridgeConfigPtrInput
-	// HTTP settings. See below
+	// HTTP settings. See HTTP Config
 	HttpConfig DataSourceHttpConfigPtrInput
-	// AWS Lambda settings. See below
+	// AWS Lambda settings. See Lambda Config
 	LambdaConfig DataSourceLambdaConfigPtrInput
 	// User-supplied name for the data source.
 	Name pulumi.StringPtrInput
-	// Amazon OpenSearch Service settings. See below
+	// Amazon OpenSearch Service settings. See OpenSearch Service Config
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
@@ -257,19 +257,19 @@ type dataSourceArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// Description of the data source.
 	Description *string `pulumi:"description"`
-	// DynamoDB settings. See below
+	// DynamoDB settings. See DynamoDB Config
 	DynamodbConfig *DataSourceDynamodbConfig `pulumi:"dynamodbConfig"`
-	// Amazon Elasticsearch settings. See below
+	// Amazon Elasticsearch settings. See ElasticSearch Config
 	ElasticsearchConfig *DataSourceElasticsearchConfig `pulumi:"elasticsearchConfig"`
-	// AWS EventBridge settings. See below
+	// AWS EventBridge settings. See Event Bridge Config
 	EventBridgeConfig *DataSourceEventBridgeConfig `pulumi:"eventBridgeConfig"`
-	// HTTP settings. See below
+	// HTTP settings. See HTTP Config
 	HttpConfig *DataSourceHttpConfig `pulumi:"httpConfig"`
-	// AWS Lambda settings. See below
+	// AWS Lambda settings. See Lambda Config
 	LambdaConfig *DataSourceLambdaConfig `pulumi:"lambdaConfig"`
 	// User-supplied name for the data source.
 	Name *string `pulumi:"name"`
-	// Amazon OpenSearch Service settings. See below
+	// Amazon OpenSearch Service settings. See OpenSearch Service Config
 	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
@@ -285,19 +285,19 @@ type DataSourceArgs struct {
 	ApiId pulumi.StringInput
 	// Description of the data source.
 	Description pulumi.StringPtrInput
-	// DynamoDB settings. See below
+	// DynamoDB settings. See DynamoDB Config
 	DynamodbConfig DataSourceDynamodbConfigPtrInput
-	// Amazon Elasticsearch settings. See below
+	// Amazon Elasticsearch settings. See ElasticSearch Config
 	ElasticsearchConfig DataSourceElasticsearchConfigPtrInput
-	// AWS EventBridge settings. See below
+	// AWS EventBridge settings. See Event Bridge Config
 	EventBridgeConfig DataSourceEventBridgeConfigPtrInput
-	// HTTP settings. See below
+	// HTTP settings. See HTTP Config
 	HttpConfig DataSourceHttpConfigPtrInput
-	// AWS Lambda settings. See below
+	// AWS Lambda settings. See Lambda Config
 	LambdaConfig DataSourceLambdaConfigPtrInput
 	// User-supplied name for the data source.
 	Name pulumi.StringPtrInput
-	// Amazon OpenSearch Service settings. See below
+	// Amazon OpenSearch Service settings. See OpenSearch Service Config
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
@@ -409,27 +409,27 @@ func (o DataSourceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// DynamoDB settings. See below
+// DynamoDB settings. See DynamoDB Config
 func (o DataSourceOutput) DynamodbConfig() DataSourceDynamodbConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceDynamodbConfigPtrOutput { return v.DynamodbConfig }).(DataSourceDynamodbConfigPtrOutput)
 }
 
-// Amazon Elasticsearch settings. See below
+// Amazon Elasticsearch settings. See ElasticSearch Config
 func (o DataSourceOutput) ElasticsearchConfig() DataSourceElasticsearchConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceElasticsearchConfigPtrOutput { return v.ElasticsearchConfig }).(DataSourceElasticsearchConfigPtrOutput)
 }
 
-// AWS EventBridge settings. See below
+// AWS EventBridge settings. See Event Bridge Config
 func (o DataSourceOutput) EventBridgeConfig() DataSourceEventBridgeConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceEventBridgeConfigPtrOutput { return v.EventBridgeConfig }).(DataSourceEventBridgeConfigPtrOutput)
 }
 
-// HTTP settings. See below
+// HTTP settings. See HTTP Config
 func (o DataSourceOutput) HttpConfig() DataSourceHttpConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceHttpConfigPtrOutput { return v.HttpConfig }).(DataSourceHttpConfigPtrOutput)
 }
 
-// AWS Lambda settings. See below
+// AWS Lambda settings. See Lambda Config
 func (o DataSourceOutput) LambdaConfig() DataSourceLambdaConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceLambdaConfigPtrOutput { return v.LambdaConfig }).(DataSourceLambdaConfigPtrOutput)
 }
@@ -439,7 +439,7 @@ func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Amazon OpenSearch Service settings. See below
+// Amazon OpenSearch Service settings. See OpenSearch Service Config
 func (o DataSourceOutput) OpensearchserviceConfig() DataSourceOpensearchserviceConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceOpensearchserviceConfigPtrOutput { return v.OpensearchserviceConfig }).(DataSourceOpensearchserviceConfigPtrOutput)
 }

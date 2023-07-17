@@ -63,6 +63,21 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to set set replication user. Defaults to `false`.
+     * 
+     */
+    @Import(name="replicationUser")
+    private @Nullable Output<Boolean> replicationUser;
+
+    /**
+     * @return Whether to set set replication user. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> replicationUser() {
+        return Optional.ofNullable(this.replicationUser);
+    }
+
+    /**
      * Username of the user.
      * 
      * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
@@ -87,6 +102,7 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
         this.consoleAccess = $.consoleAccess;
         this.groups = $.groups;
         this.password = $.password;
+        this.replicationUser = $.replicationUser;
         this.username = $.username;
     }
 
@@ -179,6 +195,27 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param replicationUser Whether to set set replication user. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicationUser(@Nullable Output<Boolean> replicationUser) {
+            $.replicationUser = replicationUser;
+            return this;
+        }
+
+        /**
+         * @param replicationUser Whether to set set replication user. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replicationUser(Boolean replicationUser) {
+            return replicationUser(Output.of(replicationUser));
         }
 
         /**

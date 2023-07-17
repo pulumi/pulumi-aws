@@ -134,6 +134,133 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
+    /// ### Extended S3 Destination with dynamic partitioning
+    /// 
+    /// These examples use built-in Firehose functionality, rather than requiring a lambda.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extendedS3Stream", new()
+    ///     {
+    ///         Destination = "extended_s3",
+    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
+    ///         {
+    ///             RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///             BufferingSize = 64,
+    ///             DynamicPartitioningConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
+    ///             Prefix = "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
+    ///             ErrorOutputPrefix = "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
+    ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Processors = new[]
+    ///                 {
+    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
+    ///                     {
+    ///                         Type = "RecordDeAggregation",
+    ///                         Parameters = new[]
+    ///                         {
+    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                             {
+    ///                                 ParameterName = "SubRecordType",
+    ///                                 ParameterValue = "JSON",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
+    ///                     {
+    ///                         Type = "AppendDelimiterToRecord",
+    ///                     },
+    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
+    ///                     {
+    ///                         Type = "MetadataExtraction",
+    ///                         Parameters = new[]
+    ///                         {
+    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                             {
+    ///                                 ParameterName = "JsonParsingEngine",
+    ///                                 ParameterValue = "JQ-1.6",
+    ///                             },
+    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                             {
+    ///                                 ParameterName = "MetadataExtractionQuery",
+    ///                                 ParameterValue = "{customer_id:.customer_id}",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameter_value`.
+    /// 
+    /// The following example adds the Dynamic Partitioning Keys: `store_id` and `customer_id` to the S3 prefix.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extendedS3Stream", new()
+    ///     {
+    ///         Destination = "extended_s3",
+    ///         ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
+    ///         {
+    ///             RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///             BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///             BufferingSize = 64,
+    ///             DynamicPartitioningConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
+    ///             Prefix = "data/store_id=!{partitionKeyFromQuery:store_id}/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
+    ///             ErrorOutputPrefix = "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
+    ///             ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Processors = new[]
+    ///                 {
+    ///                     new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
+    ///                     {
+    ///                         Type = "MetadataExtraction",
+    ///                         Parameters = new[]
+    ///                         {
+    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                             {
+    ///                                 ParameterName = "JsonParsingEngine",
+    ///                                 ParameterValue = "JQ-1.6",
+    ///                             },
+    ///                             new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                             {
+    ///                                 ParameterName = "MetadataExtractionQuery",
+    ///                                 ParameterValue = "{store_id:.store_id,customer_id:.customer_id}",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Redshift Destination
     /// 
     /// ```csharp

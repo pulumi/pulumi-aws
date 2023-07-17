@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Fms.Outputs
         /// </summary>
         public readonly string? ManagedServiceData;
         /// <summary>
+        /// Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+        /// </summary>
+        public readonly Outputs.PolicySecurityServicePolicyDataPolicyOption? PolicyOption;
+        /// <summary>
         /// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
         /// </summary>
         public readonly string Type;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Fms.Outputs
         private PolicySecurityServicePolicyData(
             string? managedServiceData,
 
+            Outputs.PolicySecurityServicePolicyDataPolicyOption? policyOption,
+
             string type)
         {
             ManagedServiceData = managedServiceData;
+            PolicyOption = policyOption;
             Type = type;
         }
     }

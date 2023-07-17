@@ -11,6 +11,7 @@ import (
 )
 
 type DataSourceDynamodbConfig struct {
+	// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
 	DeltaSyncConfig *DataSourceDynamodbConfigDeltaSyncConfig `pulumi:"deltaSyncConfig"`
 	// AWS region of the DynamoDB table. Defaults to current region.
 	Region *string `pulumi:"region"`
@@ -18,7 +19,8 @@ type DataSourceDynamodbConfig struct {
 	TableName string `pulumi:"tableName"`
 	// Set to `true` to use Amazon Cognito credentials with this data source.
 	UseCallerCredentials *bool `pulumi:"useCallerCredentials"`
-	Versioned            *bool `pulumi:"versioned"`
+	// Detects Conflict Detection and Resolution with this data source.
+	Versioned *bool `pulumi:"versioned"`
 }
 
 // DataSourceDynamodbConfigInput is an input type that accepts DataSourceDynamodbConfigArgs and DataSourceDynamodbConfigOutput values.
@@ -33,6 +35,7 @@ type DataSourceDynamodbConfigInput interface {
 }
 
 type DataSourceDynamodbConfigArgs struct {
+	// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
 	DeltaSyncConfig DataSourceDynamodbConfigDeltaSyncConfigPtrInput `pulumi:"deltaSyncConfig"`
 	// AWS region of the DynamoDB table. Defaults to current region.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -40,7 +43,8 @@ type DataSourceDynamodbConfigArgs struct {
 	TableName pulumi.StringInput `pulumi:"tableName"`
 	// Set to `true` to use Amazon Cognito credentials with this data source.
 	UseCallerCredentials pulumi.BoolPtrInput `pulumi:"useCallerCredentials"`
-	Versioned            pulumi.BoolPtrInput `pulumi:"versioned"`
+	// Detects Conflict Detection and Resolution with this data source.
+	Versioned pulumi.BoolPtrInput `pulumi:"versioned"`
 }
 
 func (DataSourceDynamodbConfigArgs) ElementType() reflect.Type {
@@ -120,6 +124,7 @@ func (o DataSourceDynamodbConfigOutput) ToDataSourceDynamodbConfigPtrOutputWithC
 	}).(DataSourceDynamodbConfigPtrOutput)
 }
 
+// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
 func (o DataSourceDynamodbConfigOutput) DeltaSyncConfig() DataSourceDynamodbConfigDeltaSyncConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *DataSourceDynamodbConfigDeltaSyncConfig { return v.DeltaSyncConfig }).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
@@ -139,6 +144,7 @@ func (o DataSourceDynamodbConfigOutput) UseCallerCredentials() pulumi.BoolPtrOut
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *bool { return v.UseCallerCredentials }).(pulumi.BoolPtrOutput)
 }
 
+// Detects Conflict Detection and Resolution with this data source.
 func (o DataSourceDynamodbConfigOutput) Versioned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *bool { return v.Versioned }).(pulumi.BoolPtrOutput)
 }
@@ -167,6 +173,7 @@ func (o DataSourceDynamodbConfigPtrOutput) Elem() DataSourceDynamodbConfigOutput
 	}).(DataSourceDynamodbConfigOutput)
 }
 
+// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
 func (o DataSourceDynamodbConfigPtrOutput) DeltaSyncConfig() DataSourceDynamodbConfigDeltaSyncConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *DataSourceDynamodbConfigDeltaSyncConfig {
 		if v == nil {
@@ -206,6 +213,7 @@ func (o DataSourceDynamodbConfigPtrOutput) UseCallerCredentials() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Detects Conflict Detection and Resolution with this data source.
 func (o DataSourceDynamodbConfigPtrOutput) Versioned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *bool {
 		if v == nil {
@@ -216,9 +224,12 @@ func (o DataSourceDynamodbConfigPtrOutput) Versioned() pulumi.BoolPtrOutput {
 }
 
 type DataSourceDynamodbConfigDeltaSyncConfig struct {
-	BaseTableTtl       *int   `pulumi:"baseTableTtl"`
+	// The number of minutes that an Item is stored in the data source.
+	BaseTableTtl *int `pulumi:"baseTableTtl"`
+	// The table name.
 	DeltaSyncTableName string `pulumi:"deltaSyncTableName"`
-	DeltaSyncTableTtl  *int   `pulumi:"deltaSyncTableTtl"`
+	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+	DeltaSyncTableTtl *int `pulumi:"deltaSyncTableTtl"`
 }
 
 // DataSourceDynamodbConfigDeltaSyncConfigInput is an input type that accepts DataSourceDynamodbConfigDeltaSyncConfigArgs and DataSourceDynamodbConfigDeltaSyncConfigOutput values.
@@ -233,9 +244,12 @@ type DataSourceDynamodbConfigDeltaSyncConfigInput interface {
 }
 
 type DataSourceDynamodbConfigDeltaSyncConfigArgs struct {
-	BaseTableTtl       pulumi.IntPtrInput `pulumi:"baseTableTtl"`
+	// The number of minutes that an Item is stored in the data source.
+	BaseTableTtl pulumi.IntPtrInput `pulumi:"baseTableTtl"`
+	// The table name.
 	DeltaSyncTableName pulumi.StringInput `pulumi:"deltaSyncTableName"`
-	DeltaSyncTableTtl  pulumi.IntPtrInput `pulumi:"deltaSyncTableTtl"`
+	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+	DeltaSyncTableTtl pulumi.IntPtrInput `pulumi:"deltaSyncTableTtl"`
 }
 
 func (DataSourceDynamodbConfigDeltaSyncConfigArgs) ElementType() reflect.Type {
@@ -315,14 +329,17 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) ToDataSourceDynamodbConfi
 	}).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
 
+// The number of minutes that an Item is stored in the data source.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) BaseTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) *int { return v.BaseTableTtl }).(pulumi.IntPtrOutput)
 }
 
+// The table name.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) DeltaSyncTableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) string { return v.DeltaSyncTableName }).(pulumi.StringOutput)
 }
 
+// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
 func (o DataSourceDynamodbConfigDeltaSyncConfigOutput) DeltaSyncTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfigDeltaSyncConfig) *int { return v.DeltaSyncTableTtl }).(pulumi.IntPtrOutput)
 }
@@ -351,6 +368,7 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) Elem() DataSourceDynam
 	}).(DataSourceDynamodbConfigDeltaSyncConfigOutput)
 }
 
+// The number of minutes that an Item is stored in the data source.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) BaseTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *int {
 		if v == nil {
@@ -360,6 +378,7 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) BaseTableTtl() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The table name.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *string {
 		if v == nil {
@@ -369,6 +388,7 @@ func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableName() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
 func (o DataSourceDynamodbConfigDeltaSyncConfigPtrOutput) DeltaSyncTableTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfigDeltaSyncConfig) *int {
 		if v == nil {
@@ -1279,9 +1299,9 @@ func (o DataSourceLambdaConfigPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 }
 
 type DataSourceOpensearchserviceConfig struct {
-	// HTTP endpoint of the OpenSearch domain.
+	// HTTP endpoint of the Elasticsearch domain.
 	Endpoint string `pulumi:"endpoint"`
-	// AWS region of the OpenSearch domain. Defaults to current region.
+	// AWS region of the DynamoDB table. Defaults to current region.
 	Region *string `pulumi:"region"`
 }
 
@@ -1297,9 +1317,9 @@ type DataSourceOpensearchserviceConfigInput interface {
 }
 
 type DataSourceOpensearchserviceConfigArgs struct {
-	// HTTP endpoint of the OpenSearch domain.
+	// HTTP endpoint of the Elasticsearch domain.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// AWS region of the OpenSearch domain. Defaults to current region.
+	// AWS region of the DynamoDB table. Defaults to current region.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -1380,12 +1400,12 @@ func (o DataSourceOpensearchserviceConfigOutput) ToDataSourceOpensearchserviceCo
 	}).(DataSourceOpensearchserviceConfigPtrOutput)
 }
 
-// HTTP endpoint of the OpenSearch domain.
+// HTTP endpoint of the Elasticsearch domain.
 func (o DataSourceOpensearchserviceConfigOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// AWS region of the OpenSearch domain. Defaults to current region.
+// AWS region of the DynamoDB table. Defaults to current region.
 func (o DataSourceOpensearchserviceConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -1414,7 +1434,7 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Elem() DataSourceOpensearchs
 	}).(DataSourceOpensearchserviceConfigOutput)
 }
 
-// HTTP endpoint of the OpenSearch domain.
+// HTTP endpoint of the Elasticsearch domain.
 func (o DataSourceOpensearchserviceConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
 		if v == nil {
@@ -1424,7 +1444,7 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Endpoint() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// AWS region of the OpenSearch domain. Defaults to current region.
+// AWS region of the DynamoDB table. Defaults to current region.
 func (o DataSourceOpensearchserviceConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
 		if v == nil {

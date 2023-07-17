@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create an AWS Firewall Manager policy. You need to be using AWS organizations and have enabled the Firewall Manager administrator account.
  *
+ * > **NOTE:** Due to limitations with testing, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
+ *
  * ## Example Usage
  *
  * ```typescript

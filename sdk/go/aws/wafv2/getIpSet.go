@@ -57,7 +57,7 @@ type LookupIpSetArgs struct {
 
 // A collection of values returned by getIpSet.
 type LookupIpSetResult struct {
-	// An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+	// An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
 	Addresses []string `pulumi:"addresses"`
 	// ARN of the entity.
 	Arn string `pulumi:"arn"`
@@ -111,7 +111,7 @@ func (o LookupIpSetResultOutput) ToLookupIpSetResultOutputWithContext(ctx contex
 	return o
 }
 
-// An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+// An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
 func (o LookupIpSetResultOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupIpSetResult) []string { return v.Addresses }).(pulumi.StringArrayOutput)
 }

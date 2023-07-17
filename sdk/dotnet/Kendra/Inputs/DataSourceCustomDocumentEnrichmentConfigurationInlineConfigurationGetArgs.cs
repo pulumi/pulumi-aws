@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kendra.Inputs
     public sealed class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+        /// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
         /// </summary>
         [Input("condition")]
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionGetArgs>? Condition { get; set; }

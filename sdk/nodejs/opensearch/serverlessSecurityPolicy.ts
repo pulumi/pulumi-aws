@@ -5,10 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS OpenSearch Serverless Security Policy.
+ * Resource for managing an AWS OpenSearch Serverless Security Policy. See AWS documentation for [encryption policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies) and [network policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies).
  *
  * ## Example Usage
- * ### Basic Usage
+ *
+ * ### Encryption Security Policy
+ * ### Applies to a single collection
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -17,16 +19,57 @@ import * as utilities from "../utilities";
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
  *     name: "example",
  *     type: "encryption",
+ *     description: "encryption security policy for example-collection",
  *     policy: JSON.stringify({
  *         Rules: [{
- *             Resource: ["collection/example"],
+ *             Resource: ["collection/example-collection"],
  *             ResourceType: "collection",
  *         }],
  *         AWSOwnedKey: true,
  *     }),
  * });
  * ```
- * ### Network
+ * ### Applies to multiple collections
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
+ *     type: "encryption",
+ *     description: "encryption security policy for collections that begin with \"example\"",
+ *     policy: JSON.stringify({
+ *         Rules: [{
+ *             Resource: ["collection/example*"],
+ *             ResourceType: "collection",
+ *         }],
+ *         AWSOwnedKey: true,
+ *     }),
+ * });
+ * ```
+ * ### Using a customer managed key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
+ *     type: "encryption",
+ *     description: "encryption security policy using customer KMS key",
+ *     policy: JSON.stringify({
+ *         Rules: [{
+ *             Resource: ["collection/customer-managed-key-collection"],
+ *             ResourceType: "collection",
+ *         }],
+ *         AWSOwnedKey: false,
+ *         KmsARN: "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
+ *     }),
+ * });
+ * ```
+ * ### Network Security Policy
+ * ### Allow public access to the collection endpoint and the Dashboards endpoint
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -35,14 +78,85 @@ import * as utilities from "../utilities";
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
  *     name: "example",
  *     type: "network",
+ *     description: "Public access",
  *     policy: JSON.stringify([{
- *         Description: "Public access fo example collection",
- *         Rules: [{
- *             ResourceType: "collection",
- *             Resource: ["collection/example*"],
- *         }],
+ *         Description: "Public access to collection and Dashboards endpoint for example collection",
+ *         Rules: [
+ *             {
+ *                 ResourceType: "collection",
+ *                 Resource: ["collection/example-collection"],
+ *             },
+ *             {
+ *                 ResourceType: "dashboard",
+ *                 Resource: ["collection/example-collection"],
+ *             },
+ *         ],
  *         AllowFromPublic: true,
  *     }]),
+ * });
+ * ```
+ * ### Allow VPC access to the collection endpoint and the Dashboards endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
+ *     type: "network",
+ *     description: "VPC access",
+ *     policy: JSON.stringify([{
+ *         Description: "VPC access to collection and Dashboards endpoint for example collection",
+ *         Rules: [
+ *             {
+ *                 ResourceType: "collection",
+ *                 Resource: ["collection/example-collection"],
+ *             },
+ *             {
+ *                 ResourceType: "dashboard",
+ *                 Resource: ["collection/example-collection"],
+ *             },
+ *         ],
+ *         AllowFromPublic: false,
+ *         SourceVPCEs: ["vpce-050f79086ee71ac05"],
+ *     }]),
+ * });
+ * ```
+ * ### Mixed access for different collections
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
+ *     name: "example",
+ *     type: "network",
+ *     description: "Mixed access for marketing and sales",
+ *     policy: JSON.stringify([
+ *         {
+ *             Description: "Marketing access",
+ *             Rules: [
+ *                 {
+ *                     ResourceType: "collection",
+ *                     Resource: ["collection/marketing*"],
+ *                 },
+ *                 {
+ *                     ResourceType: "dashboard",
+ *                     Resource: ["collection/marketing*"],
+ *                 },
+ *             ],
+ *             AllowFromPublic: false,
+ *             SourceVPCEs: ["vpce-050f79086ee71ac05"],
+ *         },
+ *         {
+ *             Description: "Sales access",
+ *             Rules: [{
+ *                 ResourceType: "collection",
+ *                 Resource: ["collection/finance"],
+ *             }],
+ *             AllowFromPublic: true,
+ *         },
+ *     ]),
  * });
  * ```
  *

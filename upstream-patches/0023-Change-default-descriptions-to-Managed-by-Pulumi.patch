@@ -1,4 +1,4 @@
-From a5526bf6b1cc510696d64531ef8c7112c539c5e2 Mon Sep 17 00:00:00 2001
+From abbfafd2cd16ec43f54e860e578e7ddee6c816ad Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
 Subject: [PATCH 23/28] Change default descriptions to "Managed by Pulumi"

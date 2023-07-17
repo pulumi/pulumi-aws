@@ -86,6 +86,20 @@ import * as utilities from "../utilities";
  * ```
  *
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
+ * ### Removing All Ingress and Egress Rules
+ *
+ * The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.SecurityGroup("example", {
+ *     vpcId: aws_vpc.example.id,
+ *     ingress: [],
+ *     egress: [],
+ * });
+ * ```
  * ### Recreating a Security Group
  *
  * A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `namePrefix`, or `vpcId` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.

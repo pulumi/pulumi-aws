@@ -48,7 +48,7 @@ class GetIpSetResult:
     @pulumi.getter
     def addresses(self) -> Sequence[str]:
         """
-        An array of strings that specify one or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
+        An array of strings that specifies zero or more IP addresses or blocks of IP addresses in Classless Inter-Domain Routing (CIDR) notation.
         """
         return pulumi.get(self, "addresses")
 

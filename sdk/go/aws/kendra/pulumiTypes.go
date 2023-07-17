@@ -2072,7 +2072,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPtrOutput) RoleArn() pulu
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration struct {
-	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
 	Condition *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition `pulumi:"condition"`
 	// `TRUE` to delete content if the condition used for the target attribute is met.
 	DocumentContentDeletion *bool `pulumi:"documentContentDeletion"`
@@ -2092,7 +2092,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationInput int
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs struct {
-	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
 	Condition DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrInput `pulumi:"condition"`
 	// `TRUE` to delete content if the condition used for the target attribute is met.
 	DocumentContentDeletion pulumi.BoolPtrInput `pulumi:"documentContentDeletion"`
@@ -2151,7 +2151,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput
 	return o
 }
 
-// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationOutput) Condition() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition {
 		return v.Condition
@@ -2195,7 +2195,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrayO
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator string `pulumi:"operator"`
@@ -2215,7 +2215,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -2305,7 +2305,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(pulumi.StringOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
 		return v.ConditionOnValue
@@ -2353,7 +2353,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
 		if v == nil {
@@ -2574,8 +2574,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondit
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget struct {
 	// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
 	TargetDocumentAttributeKey *string `pulumi:"targetDocumentAttributeKey"`
-	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-	// See Document Attribute Value.
+	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
 	TargetDocumentAttributeValue *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue `pulumi:"targetDocumentAttributeValue"`
 	// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
 	TargetDocumentAttributeValueDeletion *bool `pulumi:"targetDocumentAttributeValueDeletion"`
@@ -2595,8 +2594,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetInp
 type DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs struct {
 	// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
 	TargetDocumentAttributeKey pulumi.StringPtrInput `pulumi:"targetDocumentAttributeKey"`
-	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-	// See Document Attribute Value.
+	// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
 	TargetDocumentAttributeValue DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrInput `pulumi:"targetDocumentAttributeValue"`
 	// `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
 	TargetDocumentAttributeValueDeletion pulumi.BoolPtrInput `pulumi:"targetDocumentAttributeValueDeletion"`
@@ -2686,8 +2684,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-// See Document Attribute Value.
+// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetOutput) TargetDocumentAttributeValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
 		return v.TargetDocumentAttributeValue
@@ -2735,8 +2732,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 	}).(pulumi.StringPtrOutput)
 }
 
-// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-// See Document Attribute Value.
+// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetPtrOutput) TargetDocumentAttributeValue() DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget) *DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
 		if v == nil {
@@ -2955,7 +2951,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition `pulumi:"invocationCondition"`
 	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn string `pulumi:"lambdaArn"`
@@ -2975,7 +2971,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurat
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrInput `pulumi:"invocationCondition"`
 	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
@@ -3060,7 +3056,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
 		return v.InvocationCondition
@@ -3105,7 +3101,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationPtrOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
 		if v == nil {
@@ -3138,7 +3134,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator string `pulumi:"operator"`
@@ -3158,7 +3154,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurat
 type DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -3248,7 +3244,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(pulumi.StringOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
 		return v.ConditionOnValue
@@ -3296,7 +3292,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
 		if v == nil {
@@ -3515,7 +3511,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigu
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition `pulumi:"invocationCondition"`
 	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn string `pulumi:"lambdaArn"`
@@ -3535,7 +3531,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurati
 }
 
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs struct {
-	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+	// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 	InvocationCondition DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrInput `pulumi:"invocationCondition"`
 	// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
@@ -3620,7 +3616,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
 		return v.InvocationCondition
@@ -3665,7 +3661,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationOutput)
 }
 
-// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+// A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationPtrOutput) InvocationCondition() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
 		if v == nil {
@@ -3698,7 +3694,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey string `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator string `pulumi:"operator"`
@@ -3718,7 +3714,7 @@ type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurati
 type DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs struct {
 	// The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
 	ConditionDocumentAttributeKey pulumi.StringInput `pulumi:"conditionDocumentAttributeKey"`
-	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+	// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 	ConditionOnValue DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrInput `pulumi:"conditionOnValue"`
 	// The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -3808,7 +3804,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(pulumi.StringOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
 		return v.ConditionOnValue
@@ -3856,7 +3852,7 @@ func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigur
 	}).(pulumi.StringPtrOutput)
 }
 
-// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
 func (o DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionPtrOutput) ConditionOnValue() DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValuePtrOutput {
 	return o.ApplyT(func(v *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition) *DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
 		if v == nil {

@@ -202,7 +202,6 @@ import javax.annotation.Nullable;
  * Multiple Dynamic Partitioning Keys (maximum of 50) can be added by comma separating the `parameter_value`.
  * 
  * The following example adds the Dynamic Partitioning Keys: `store_id` and `customer_id` to the S3 prefix.
- * 
  * ```java
  * package generated_program;
  * 
@@ -232,7 +231,7 @@ import javax.annotation.Nullable;
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(aws_iam_role.firehose_role().arn())
  *                 .bucketArn(aws_s3_bucket.bucket().arn())
- *                 .bufferSize(64)
+ *                 .bufferingSize(64)
  *                 .dynamicPartitioningConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs.builder()
  *                     .enabled(&#34;true&#34;)
  *                     .build())
