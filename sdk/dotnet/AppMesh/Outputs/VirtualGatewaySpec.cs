@@ -20,7 +20,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// <summary>
         /// Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
         /// </summary>
-        public readonly Outputs.VirtualGatewaySpecListener Listener;
+        public readonly ImmutableArray<Outputs.VirtualGatewaySpecListener> Listeners;
         /// <summary>
         /// Inbound and outbound access logging information for the virtual gateway.
         /// </summary>
@@ -30,12 +30,12 @@ namespace Pulumi.Aws.AppMesh.Outputs
         private VirtualGatewaySpec(
             Outputs.VirtualGatewaySpecBackendDefaults? backendDefaults,
 
-            Outputs.VirtualGatewaySpecListener listener,
+            ImmutableArray<Outputs.VirtualGatewaySpecListener> listeners,
 
             Outputs.VirtualGatewaySpecLogging? logging)
         {
             BackendDefaults = backendDefaults;
-            Listener = listener;
+            Listeners = listeners;
             Logging = logging;
         }
     }

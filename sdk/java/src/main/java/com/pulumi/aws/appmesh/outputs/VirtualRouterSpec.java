@@ -5,8 +5,8 @@ package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.VirtualRouterSpecListener;
 import com.pulumi.core.annotations.CustomType;
+import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,7 +16,7 @@ public final class VirtualRouterSpec {
      * Currently only one listener is supported per virtual router.
      * 
      */
-    private @Nullable VirtualRouterSpecListener listener;
+    private @Nullable List<VirtualRouterSpecListener> listeners;
 
     private VirtualRouterSpec() {}
     /**
@@ -24,8 +24,8 @@ public final class VirtualRouterSpec {
      * Currently only one listener is supported per virtual router.
      * 
      */
-    public Optional<VirtualRouterSpecListener> listener() {
-        return Optional.ofNullable(this.listener);
+    public List<VirtualRouterSpecListener> listeners() {
+        return this.listeners == null ? List.of() : this.listeners;
     }
 
     public static Builder builder() {
@@ -37,21 +37,24 @@ public final class VirtualRouterSpec {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable VirtualRouterSpecListener listener;
+        private @Nullable List<VirtualRouterSpecListener> listeners;
         public Builder() {}
         public Builder(VirtualRouterSpec defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.listener = defaults.listener;
+    	      this.listeners = defaults.listeners;
         }
 
         @CustomType.Setter
-        public Builder listener(@Nullable VirtualRouterSpecListener listener) {
-            this.listener = listener;
+        public Builder listeners(@Nullable List<VirtualRouterSpecListener> listeners) {
+            this.listeners = listeners;
             return this;
+        }
+        public Builder listeners(VirtualRouterSpecListener... listeners) {
+            return listeners(List.of(listeners));
         }
         public VirtualRouterSpec build() {
             final var o = new VirtualRouterSpec();
-            o.listener = listener;
+            o.listeners = listeners;
             return o;
         }
     }

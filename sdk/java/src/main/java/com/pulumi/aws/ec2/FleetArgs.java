@@ -118,15 +118,15 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      * 
      */
-    @Import(name="launchTemplateConfig", required=true)
-    private Output<FleetLaunchTemplateConfigArgs> launchTemplateConfig;
+    @Import(name="launchTemplateConfigs", required=true)
+    private Output<List<FleetLaunchTemplateConfigArgs>> launchTemplateConfigs;
 
     /**
      * @return Nested argument containing EC2 Launch Template configurations. Defined below.
      * 
      */
-    public Output<FleetLaunchTemplateConfigArgs> launchTemplateConfig() {
-        return this.launchTemplateConfig;
+    public Output<List<FleetLaunchTemplateConfigArgs>> launchTemplateConfigs() {
+        return this.launchTemplateConfigs;
     }
 
     /**
@@ -288,7 +288,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         this.fleetState = $.fleetState;
         this.fulfilledCapacity = $.fulfilledCapacity;
         this.fulfilledOnDemandCapacity = $.fulfilledOnDemandCapacity;
-        this.launchTemplateConfig = $.launchTemplateConfig;
+        this.launchTemplateConfigs = $.launchTemplateConfigs;
         this.onDemandOptions = $.onDemandOptions;
         this.replaceUnhealthyInstances = $.replaceUnhealthyInstances;
         this.spotOptions = $.spotOptions;
@@ -456,24 +456,34 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param launchTemplateConfig Nested argument containing EC2 Launch Template configurations. Defined below.
+         * @param launchTemplateConfigs Nested argument containing EC2 Launch Template configurations. Defined below.
          * 
          * @return builder
          * 
          */
-        public Builder launchTemplateConfig(Output<FleetLaunchTemplateConfigArgs> launchTemplateConfig) {
-            $.launchTemplateConfig = launchTemplateConfig;
+        public Builder launchTemplateConfigs(Output<List<FleetLaunchTemplateConfigArgs>> launchTemplateConfigs) {
+            $.launchTemplateConfigs = launchTemplateConfigs;
             return this;
         }
 
         /**
-         * @param launchTemplateConfig Nested argument containing EC2 Launch Template configurations. Defined below.
+         * @param launchTemplateConfigs Nested argument containing EC2 Launch Template configurations. Defined below.
          * 
          * @return builder
          * 
          */
-        public Builder launchTemplateConfig(FleetLaunchTemplateConfigArgs launchTemplateConfig) {
-            return launchTemplateConfig(Output.of(launchTemplateConfig));
+        public Builder launchTemplateConfigs(List<FleetLaunchTemplateConfigArgs> launchTemplateConfigs) {
+            return launchTemplateConfigs(Output.of(launchTemplateConfigs));
+        }
+
+        /**
+         * @param launchTemplateConfigs Nested argument containing EC2 Launch Template configurations. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder launchTemplateConfigs(FleetLaunchTemplateConfigArgs... launchTemplateConfigs) {
+            return launchTemplateConfigs(List.of(launchTemplateConfigs));
         }
 
         /**
@@ -687,7 +697,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FleetArgs build() {
-            $.launchTemplateConfig = Objects.requireNonNull($.launchTemplateConfig, "expected parameter 'launchTemplateConfig' to be non-null");
+            $.launchTemplateConfigs = Objects.requireNonNull($.launchTemplateConfigs, "expected parameter 'launchTemplateConfigs' to be non-null");
             $.targetCapacitySpecification = Objects.requireNonNull($.targetCapacitySpecification, "expected parameter 'targetCapacitySpecification' to be non-null");
             return $;
         }

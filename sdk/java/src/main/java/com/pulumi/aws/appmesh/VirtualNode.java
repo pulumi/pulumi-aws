@@ -41,8 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
  * import java.util.List;
@@ -66,7 +64,7 @@ import javax.annotation.Nullable;
  *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
  *                         .build())
  *                     .build())
- *                 .listener(VirtualNodeSpecListenerArgs.builder()
+ *                 .listeners(VirtualNodeSpecListenerArgs.builder()
  *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
  *                         .port(8080)
  *                         .protocol(&#34;http&#34;)
@@ -94,8 +92,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs;
  * import java.util.List;
@@ -121,7 +117,7 @@ import javax.annotation.Nullable;
  *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
  *                         .build())
  *                     .build())
- *                 .listener(VirtualNodeSpecListenerArgs.builder()
+ *                 .listeners(VirtualNodeSpecListenerArgs.builder()
  *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
  *                         .port(8080)
  *                         .protocol(&#34;http&#34;)
@@ -150,9 +146,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerHealthCheckArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
  * import java.util.List;
@@ -176,7 +169,7 @@ import javax.annotation.Nullable;
  *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
  *                         .build())
  *                     .build())
- *                 .listener(VirtualNodeSpecListenerArgs.builder()
+ *                 .listeners(VirtualNodeSpecListenerArgs.builder()
  *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
  *                         .port(8080)
  *                         .protocol(&#34;http&#34;)
@@ -211,8 +204,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingArgs;
@@ -239,7 +230,7 @@ import javax.annotation.Nullable;
  *                         .virtualServiceName(&#34;servicea.simpleapp.local&#34;)
  *                         .build())
  *                     .build())
- *                 .listener(VirtualNodeSpecListenerArgs.builder()
+ *                 .listeners(VirtualNodeSpecListenerArgs.builder()
  *                     .portMapping(VirtualNodeSpecListenerPortMappingArgs.builder()
  *                         .port(8080)
  *                         .protocol(&#34;http&#34;)
