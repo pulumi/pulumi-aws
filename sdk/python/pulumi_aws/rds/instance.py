@@ -165,7 +165,6 @@ class InstanceArgs:
                Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] multi_az: Specifies if the RDS instance is multi-AZ
-        :param pulumi.Input[str] name: The database name.
         :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
@@ -839,9 +838,6 @@ class InstanceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The database name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1328,7 +1324,6 @@ class _InstanceState:
                Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] multi_az: Specifies if the RDS instance is multi-AZ
-        :param pulumi.Input[str] name: The database name.
         :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
@@ -2126,9 +2121,6 @@ class _InstanceState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The database name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2761,7 +2753,6 @@ class Instance(pulumi.CustomResource):
                Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] multi_az: Specifies if the RDS instance is multi-AZ
-        :param pulumi.Input[str] name: The database name.
         :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
@@ -3287,7 +3278,6 @@ class Instance(pulumi.CustomResource):
                Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] multi_az: Specifies if the RDS instance is multi-AZ
-        :param pulumi.Input[str] name: The database name.
         :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] network_type: The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
@@ -3837,9 +3827,6 @@ class Instance(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The database name.
-        """
         return pulumi.get(self, "name")
 
     @property

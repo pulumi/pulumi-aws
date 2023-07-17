@@ -71,8 +71,10 @@ class DataSourceDynamodbConfig(dict):
                  versioned: Optional[bool] = None):
         """
         :param str table_name: Name of the DynamoDB table.
+        :param 'DataSourceDynamodbConfigDeltaSyncConfigArgs' delta_sync_config: The DeltaSyncConfig for a versioned data source. See Delta Sync Config
         :param str region: AWS region of the DynamoDB table. Defaults to current region.
         :param bool use_caller_credentials: Set to `true` to use Amazon Cognito credentials with this data source.
+        :param bool versioned: Detects Conflict Detection and Resolution with this data source.
         """
         pulumi.set(__self__, "table_name", table_name)
         if delta_sync_config is not None:
@@ -95,6 +97,9 @@ class DataSourceDynamodbConfig(dict):
     @property
     @pulumi.getter(name="deltaSyncConfig")
     def delta_sync_config(self) -> Optional['outputs.DataSourceDynamodbConfigDeltaSyncConfig']:
+        """
+        The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+        """
         return pulumi.get(self, "delta_sync_config")
 
     @property
@@ -116,6 +121,9 @@ class DataSourceDynamodbConfig(dict):
     @property
     @pulumi.getter
     def versioned(self) -> Optional[bool]:
+        """
+        Detects Conflict Detection and Resolution with this data source.
+        """
         return pulumi.get(self, "versioned")
 
 
@@ -146,6 +154,11 @@ class DataSourceDynamodbConfigDeltaSyncConfig(dict):
                  delta_sync_table_name: str,
                  base_table_ttl: Optional[int] = None,
                  delta_sync_table_ttl: Optional[int] = None):
+        """
+        :param str delta_sync_table_name: The table name.
+        :param int base_table_ttl: The number of minutes that an Item is stored in the data source.
+        :param int delta_sync_table_ttl: The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        """
         pulumi.set(__self__, "delta_sync_table_name", delta_sync_table_name)
         if base_table_ttl is not None:
             pulumi.set(__self__, "base_table_ttl", base_table_ttl)
@@ -155,16 +168,25 @@ class DataSourceDynamodbConfigDeltaSyncConfig(dict):
     @property
     @pulumi.getter(name="deltaSyncTableName")
     def delta_sync_table_name(self) -> str:
+        """
+        The table name.
+        """
         return pulumi.get(self, "delta_sync_table_name")
 
     @property
     @pulumi.getter(name="baseTableTtl")
     def base_table_ttl(self) -> Optional[int]:
+        """
+        The number of minutes that an Item is stored in the data source.
+        """
         return pulumi.get(self, "base_table_ttl")
 
     @property
     @pulumi.getter(name="deltaSyncTableTtl")
     def delta_sync_table_ttl(self) -> Optional[int]:
+        """
+        The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        """
         return pulumi.get(self, "delta_sync_table_ttl")
 
 
@@ -421,8 +443,8 @@ class DataSourceOpensearchserviceConfig(dict):
                  endpoint: str,
                  region: Optional[str] = None):
         """
-        :param str endpoint: HTTP endpoint of the OpenSearch domain.
-        :param str region: AWS region of the OpenSearch domain. Defaults to current region.
+        :param str endpoint: HTTP endpoint of the Elasticsearch domain.
+        :param str region: AWS region of the DynamoDB table. Defaults to current region.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
@@ -432,7 +454,7 @@ class DataSourceOpensearchserviceConfig(dict):
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        HTTP endpoint of the OpenSearch domain.
+        HTTP endpoint of the Elasticsearch domain.
         """
         return pulumi.get(self, "endpoint")
 
@@ -440,7 +462,7 @@ class DataSourceOpensearchserviceConfig(dict):
     @pulumi.getter
     def region(self) -> Optional[str]:
         """
-        AWS region of the OpenSearch domain. Defaults to current region.
+        AWS region of the DynamoDB table. Defaults to current region.
         """
         return pulumi.get(self, "region")
 

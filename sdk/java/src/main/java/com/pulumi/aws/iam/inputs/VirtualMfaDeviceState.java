@@ -47,6 +47,21 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The date and time when the virtual MFA device was enabled.
+     * 
+     */
+    @Import(name="enableDate")
+    private @Nullable Output<String> enableDate;
+
+    /**
+     * @return The date and time when the virtual MFA device was enabled.
+     * 
+     */
+    public Optional<Output<String>> enableDate() {
+        return Optional.ofNullable(this.enableDate);
+    }
+
+    /**
      * The path for the virtual MFA device.
      * 
      */
@@ -62,14 +77,14 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+     * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      * 
      */
     @Import(name="qrCodePng")
     private @Nullable Output<String> qrCodePng;
 
     /**
-     * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+     * @return A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      * 
      */
     public Optional<Output<String>> qrCodePng() {
@@ -107,6 +122,21 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The associated IAM User name if the virtual MFA device is enabled.
+     * 
+     */
+    @Import(name="userName")
+    private @Nullable Output<String> userName;
+
+    /**
+     * @return The associated IAM User name if the virtual MFA device is enabled.
+     * 
+     */
+    public Optional<Output<String>> userName() {
+        return Optional.ofNullable(this.userName);
+    }
+
+    /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
@@ -126,10 +156,12 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
     private VirtualMfaDeviceState(VirtualMfaDeviceState $) {
         this.arn = $.arn;
         this.base32StringSeed = $.base32StringSeed;
+        this.enableDate = $.enableDate;
         this.path = $.path;
         this.qrCodePng = $.qrCodePng;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.userName = $.userName;
         this.virtualMfaDeviceName = $.virtualMfaDeviceName;
     }
 
@@ -194,6 +226,27 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param enableDate The date and time when the virtual MFA device was enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableDate(@Nullable Output<String> enableDate) {
+            $.enableDate = enableDate;
+            return this;
+        }
+
+        /**
+         * @param enableDate The date and time when the virtual MFA device was enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableDate(String enableDate) {
+            return enableDate(Output.of(enableDate));
+        }
+
+        /**
          * @param path The path for the virtual MFA device.
          * 
          * @return builder
@@ -215,7 +268,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param qrCodePng A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+         * @param qrCodePng A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
          * 
          * @return builder
          * 
@@ -226,7 +279,7 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param qrCodePng A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID otherwise), and Base32String is the seed in base32 format.
+         * @param qrCodePng A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
          * 
          * @return builder
          * 
@@ -275,6 +328,27 @@ public final class VirtualMfaDeviceState extends com.pulumi.resources.ResourceAr
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param userName The associated IAM User name if the virtual MFA device is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userName(@Nullable Output<String> userName) {
+            $.userName = userName;
+            return this;
+        }
+
+        /**
+         * @param userName The associated IAM User name if the virtual MFA device is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userName(String userName) {
+            return userName(Output.of(userName));
         }
 
         /**

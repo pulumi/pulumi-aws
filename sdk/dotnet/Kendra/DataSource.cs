@@ -84,11 +84,53 @@ namespace Pulumi.Aws.Kendra
     ///         {
     ///             S3Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationS3ConfigurationArgs
     ///             {
+    ///                 BucketName = aws_s3_bucket.Example.Id,
     ///                 AccessControlListConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs
     ///                 {
     ///                     KeyPath = $"s3://{aws_s3_bucket.Example.Id}/path-1",
     ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Documents Metadata Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Kendra.DataSource("example", new()
+    ///     {
+    ///         IndexId = aws_kendra_index.Example.Id,
+    ///         Type = "S3",
+    ///         RoleArn = aws_iam_role.Example.Arn,
+    ///         Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationArgs
+    ///         {
+    ///             S3Configuration = new Aws.Kendra.Inputs.DataSourceConfigurationS3ConfigurationArgs
+    ///             {
     ///                 BucketName = aws_s3_bucket.Example.Id,
+    ///                 ExclusionPatterns = new[]
+    ///                 {
+    ///                     "example",
+    ///                 },
+    ///                 InclusionPatterns = new[]
+    ///                 {
+    ///                     "hello",
+    ///                 },
+    ///                 InclusionPrefixes = new[]
+    ///                 {
+    ///                     "world",
+    ///                 },
+    ///                 DocumentsMetadataConfiguration = new Aws.Kendra.Inputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs
+    ///                 {
+    ///                     S3Prefix = "example",
+    ///                 },
     ///             },
     ///         },
     ///     });
@@ -472,7 +514,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.DataSourceConfiguration?> Configuration { get; private set; } = null!;
@@ -508,7 +550,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> ErrorMessage { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the index for your Amazon Kendra data_source.
+        /// The identifier of the index for your Amazon Kendra data source.
         /// </summary>
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
@@ -520,7 +562,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> LanguageCode { get; private set; } = null!;
 
         /// <summary>
-        /// A name for your Data Source connector.
+        /// A name for your data source connector.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -616,7 +658,7 @@ namespace Pulumi.Aws.Kendra
     public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.DataSourceConfigurationArgs>? Configuration { get; set; }
@@ -634,7 +676,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The identifier of the index for your Amazon Kendra data_source.
+        /// The identifier of the index for your Amazon Kendra data source.
         /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
@@ -646,7 +688,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? LanguageCode { get; set; }
 
         /// <summary>
-        /// A name for your Data Source connector.
+        /// A name for your data source connector.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -698,7 +740,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
+        /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.DataSourceConfigurationGetArgs>? Configuration { get; set; }
@@ -734,7 +776,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? ErrorMessage { get; set; }
 
         /// <summary>
-        /// The identifier of the index for your Amazon Kendra data_source.
+        /// The identifier of the index for your Amazon Kendra data source.
         /// </summary>
         [Input("indexId")]
         public Input<string>? IndexId { get; set; }
@@ -746,7 +788,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? LanguageCode { get; set; }
 
         /// <summary>
-        /// A name for your Data Source connector.
+        /// A name for your data source connector.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

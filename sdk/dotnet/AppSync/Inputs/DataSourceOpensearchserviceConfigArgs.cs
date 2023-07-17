@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppSync.Inputs
     public sealed class DataSourceOpensearchserviceConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// HTTP endpoint of the OpenSearch domain.
+        /// HTTP endpoint of the Elasticsearch domain.
         /// </summary>
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
 
         /// <summary>
-        /// AWS region of the OpenSearch domain. Defaults to current region.
+        /// AWS region of the DynamoDB table. Defaults to current region.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

@@ -18,14 +18,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
     public static final DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs Empty = new DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs();
 
     /**
-     * Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+     * Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
      * 
      */
     @Import(name="condition")
     private @Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs> condition;
 
     /**
-     * @return Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+     * @return Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
      * 
      */
     public Optional<Output<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs>> condition() {
@@ -89,7 +89,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
         }
 
         /**
-         * @param condition Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+         * @param condition Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
         }
 
         /**
-         * @param condition Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+         * @param condition Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
          * 
          * @return builder
          * 

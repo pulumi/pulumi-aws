@@ -29,6 +29,11 @@ public final class BrokerUser {
      */
     private String password;
     /**
+     * @return Whether to set set replication user. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean replicationUser;
+    /**
      * @return Username of the user.
      * 
      * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
@@ -59,6 +64,13 @@ public final class BrokerUser {
         return this.password;
     }
     /**
+     * @return Whether to set set replication user. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> replicationUser() {
+        return Optional.ofNullable(this.replicationUser);
+    }
+    /**
      * @return Username of the user.
      * 
      * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
@@ -80,6 +92,7 @@ public final class BrokerUser {
         private @Nullable Boolean consoleAccess;
         private @Nullable List<String> groups;
         private String password;
+        private @Nullable Boolean replicationUser;
         private String username;
         public Builder() {}
         public Builder(BrokerUser defaults) {
@@ -87,6 +100,7 @@ public final class BrokerUser {
     	      this.consoleAccess = defaults.consoleAccess;
     	      this.groups = defaults.groups;
     	      this.password = defaults.password;
+    	      this.replicationUser = defaults.replicationUser;
     	      this.username = defaults.username;
         }
 
@@ -109,6 +123,11 @@ public final class BrokerUser {
             return this;
         }
         @CustomType.Setter
+        public Builder replicationUser(@Nullable Boolean replicationUser) {
+            this.replicationUser = replicationUser;
+            return this;
+        }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
@@ -118,6 +137,7 @@ public final class BrokerUser {
             o.consoleAccess = consoleAccess;
             o.groups = groups;
             o.password = password;
+            o.replicationUser = replicationUser;
             o.username = username;
             return o;
         }

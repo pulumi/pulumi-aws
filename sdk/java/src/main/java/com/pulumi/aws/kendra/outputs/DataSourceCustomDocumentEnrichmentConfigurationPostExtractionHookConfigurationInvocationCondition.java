@@ -18,7 +18,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
      */
     private String conditionDocumentAttributeKey;
     /**
-     * @return The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+     * @return The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
      * 
      */
     private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue conditionOnValue;
@@ -37,7 +37,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         return this.conditionDocumentAttributeKey;
     }
     /**
-     * @return The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+     * @return The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
      * 
      */
     public Optional<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue> conditionOnValue() {

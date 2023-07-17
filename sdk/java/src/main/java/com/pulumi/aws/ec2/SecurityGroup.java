@@ -161,6 +161,39 @@ import javax.annotation.Nullable;
  * ```
  * 
  * You can also find a specific Prefix List using the `aws.ec2.getPrefixList` data source.
+ * ### Removing All Ingress and Egress Rules
+ * 
+ * The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new SecurityGroup(&#34;example&#34;, SecurityGroupArgs.builder()        
+ *             .vpcId(aws_vpc.example().id())
+ *             .ingress()
+ *             .egress()
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Recreating a Security Group
  * 
  * A simple security group `name` change &#34;forces new&#34; the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `name_prefix`, or `vpc_id` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.

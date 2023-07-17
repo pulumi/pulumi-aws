@@ -49,8 +49,10 @@ class DataSourceDynamodbConfigArgs:
                  versioned: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] table_name: Name of the DynamoDB table.
+        :param pulumi.Input['DataSourceDynamodbConfigDeltaSyncConfigArgs'] delta_sync_config: The DeltaSyncConfig for a versioned data source. See Delta Sync Config
         :param pulumi.Input[str] region: AWS region of the DynamoDB table. Defaults to current region.
         :param pulumi.Input[bool] use_caller_credentials: Set to `true` to use Amazon Cognito credentials with this data source.
+        :param pulumi.Input[bool] versioned: Detects Conflict Detection and Resolution with this data source.
         """
         pulumi.set(__self__, "table_name", table_name)
         if delta_sync_config is not None:
@@ -77,6 +79,9 @@ class DataSourceDynamodbConfigArgs:
     @property
     @pulumi.getter(name="deltaSyncConfig")
     def delta_sync_config(self) -> Optional[pulumi.Input['DataSourceDynamodbConfigDeltaSyncConfigArgs']]:
+        """
+        The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+        """
         return pulumi.get(self, "delta_sync_config")
 
     @delta_sync_config.setter
@@ -110,6 +115,9 @@ class DataSourceDynamodbConfigArgs:
     @property
     @pulumi.getter
     def versioned(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Detects Conflict Detection and Resolution with this data source.
+        """
         return pulumi.get(self, "versioned")
 
     @versioned.setter
@@ -123,6 +131,11 @@ class DataSourceDynamodbConfigDeltaSyncConfigArgs:
                  delta_sync_table_name: pulumi.Input[str],
                  base_table_ttl: Optional[pulumi.Input[int]] = None,
                  delta_sync_table_ttl: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] delta_sync_table_name: The table name.
+        :param pulumi.Input[int] base_table_ttl: The number of minutes that an Item is stored in the data source.
+        :param pulumi.Input[int] delta_sync_table_ttl: The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        """
         pulumi.set(__self__, "delta_sync_table_name", delta_sync_table_name)
         if base_table_ttl is not None:
             pulumi.set(__self__, "base_table_ttl", base_table_ttl)
@@ -132,6 +145,9 @@ class DataSourceDynamodbConfigDeltaSyncConfigArgs:
     @property
     @pulumi.getter(name="deltaSyncTableName")
     def delta_sync_table_name(self) -> pulumi.Input[str]:
+        """
+        The table name.
+        """
         return pulumi.get(self, "delta_sync_table_name")
 
     @delta_sync_table_name.setter
@@ -141,6 +157,9 @@ class DataSourceDynamodbConfigDeltaSyncConfigArgs:
     @property
     @pulumi.getter(name="baseTableTtl")
     def base_table_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of minutes that an Item is stored in the data source.
+        """
         return pulumi.get(self, "base_table_ttl")
 
     @base_table_ttl.setter
@@ -150,6 +169,9 @@ class DataSourceDynamodbConfigDeltaSyncConfigArgs:
     @property
     @pulumi.getter(name="deltaSyncTableTtl")
     def delta_sync_table_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        """
         return pulumi.get(self, "delta_sync_table_ttl")
 
     @delta_sync_table_ttl.setter
@@ -361,8 +383,8 @@ class DataSourceOpensearchserviceConfigArgs:
                  endpoint: pulumi.Input[str],
                  region: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] endpoint: HTTP endpoint of the OpenSearch domain.
-        :param pulumi.Input[str] region: AWS region of the OpenSearch domain. Defaults to current region.
+        :param pulumi.Input[str] endpoint: HTTP endpoint of the Elasticsearch domain.
+        :param pulumi.Input[str] region: AWS region of the DynamoDB table. Defaults to current region.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
@@ -372,7 +394,7 @@ class DataSourceOpensearchserviceConfigArgs:
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
         """
-        HTTP endpoint of the OpenSearch domain.
+        HTTP endpoint of the Elasticsearch domain.
         """
         return pulumi.get(self, "endpoint")
 
@@ -384,7 +406,7 @@ class DataSourceOpensearchserviceConfigArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
         """
-        AWS region of the OpenSearch domain. Defaults to current region.
+        AWS region of the DynamoDB table. Defaults to current region.
         """
         return pulumi.get(self, "region")
 

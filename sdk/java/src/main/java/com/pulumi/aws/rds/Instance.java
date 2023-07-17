@@ -1034,17 +1034,9 @@ public class Instance extends com.pulumi.resources.CustomResource {
     public Output<Boolean> multiAz() {
         return this.multiAz;
     }
-    /**
-     * The database name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The database name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

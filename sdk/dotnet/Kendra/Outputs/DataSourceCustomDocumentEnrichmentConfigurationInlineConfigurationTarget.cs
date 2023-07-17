@@ -18,8 +18,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly string? TargetDocumentAttributeKey;
         /// <summary>
-        /// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-        /// See Document Attribute Value.
+        /// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
         /// </summary>
         public readonly Outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue? TargetDocumentAttributeValue;
         /// <summary>

@@ -160,6 +160,35 @@ import (
 // ```
 //
 // You can also find a specific Prefix List using the `ec2.getPrefixList` data source.
+// ### Removing All Ingress and Egress Rules
+//
+// The `ingress` and `egress` arguments are processed in attributes-as-blocks mode. Due to this, removing these arguments from the configuration will **not** cause the provider to destroy the managed rules. To subsequently remove all managed ingress and egress rules:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				VpcId:   pulumi.Any(aws_vpc.Example.Id),
+//				Ingress: ec2.SecurityGroupIngressArray{},
+//				Egress:  ec2.SecurityGroupEgressArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Recreating a Security Group
 //
 // A simple security group `name` change "forces new" the security group--the provider destroys the security group and creates a new one. (Likewise, `description`, `namePrefix`, or `vpcId` [cannot be changed](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-security-groups.html#creating-security-group).) Attempting to recreate the security group leads to a variety of complications depending on how it is used.

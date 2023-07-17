@@ -20,7 +20,7 @@ class StandardsControlArgs:
         """
         The set of arguments for constructing a StandardsControl resource.
         :param pulumi.Input[str] control_status: The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
-        :param pulumi.Input[str] standards_control_arn: The standards control ARN.
+        :param pulumi.Input[str] standards_control_arn: The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         :param pulumi.Input[str] disabled_reason: A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
         """
         pulumi.set(__self__, "control_status", control_status)
@@ -44,7 +44,7 @@ class StandardsControlArgs:
     @pulumi.getter(name="standardsControlArn")
     def standards_control_arn(self) -> pulumi.Input[str]:
         """
-        The standards control ARN.
+        The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         """
         return pulumi.get(self, "standards_control_arn")
 
@@ -88,7 +88,7 @@ class _StandardsControlState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] related_requirements: The list of requirements that are related to this control.
         :param pulumi.Input[str] remediation_url: A link to remediation information for the control in the Security Hub user documentation.
         :param pulumi.Input[str] severity_rating: The severity of findings generated from this security standard control.
-        :param pulumi.Input[str] standards_control_arn: The standards control ARN.
+        :param pulumi.Input[str] standards_control_arn: The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         :param pulumi.Input[str] title: The standard control title.
         """
         if control_id is not None:
@@ -212,7 +212,7 @@ class _StandardsControlState:
     @pulumi.getter(name="standardsControlArn")
     def standards_control_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The standards control ARN.
+        The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         """
         return pulumi.get(self, "standards_control_arn")
 
@@ -269,7 +269,7 @@ class StandardsControl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] control_status: The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
         :param pulumi.Input[str] disabled_reason: A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
-        :param pulumi.Input[str] standards_control_arn: The standards control ARN.
+        :param pulumi.Input[str] standards_control_arn: The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         """
         ...
     @overload
@@ -376,7 +376,7 @@ class StandardsControl(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] related_requirements: The list of requirements that are related to this control.
         :param pulumi.Input[str] remediation_url: A link to remediation information for the control in the Security Hub user documentation.
         :param pulumi.Input[str] severity_rating: The severity of findings generated from this security standard control.
-        :param pulumi.Input[str] standards_control_arn: The standards control ARN.
+        :param pulumi.Input[str] standards_control_arn: The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         :param pulumi.Input[str] title: The standard control title.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -463,7 +463,7 @@ class StandardsControl(pulumi.CustomResource):
     @pulumi.getter(name="standardsControlArn")
     def standards_control_arn(self) -> pulumi.Output[str]:
         """
-        The standards control ARN.
+        The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         """
         return pulumi.get(self, "standards_control_arn")
 

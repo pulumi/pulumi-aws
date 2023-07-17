@@ -108,23 +108,23 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * DynamoDB settings. See below
+     * DynamoDB settings. See DynamoDB Config
      */
     public readonly dynamodbConfig!: pulumi.Output<outputs.appsync.DataSourceDynamodbConfig | undefined>;
     /**
-     * Amazon Elasticsearch settings. See below
+     * Amazon Elasticsearch settings. See ElasticSearch Config
      */
     public readonly elasticsearchConfig!: pulumi.Output<outputs.appsync.DataSourceElasticsearchConfig | undefined>;
     /**
-     * AWS EventBridge settings. See below
+     * AWS EventBridge settings. See Event Bridge Config
      */
     public readonly eventBridgeConfig!: pulumi.Output<outputs.appsync.DataSourceEventBridgeConfig | undefined>;
     /**
-     * HTTP settings. See below
+     * HTTP settings. See HTTP Config
      */
     public readonly httpConfig!: pulumi.Output<outputs.appsync.DataSourceHttpConfig | undefined>;
     /**
-     * AWS Lambda settings. See below
+     * AWS Lambda settings. See Lambda Config
      */
     public readonly lambdaConfig!: pulumi.Output<outputs.appsync.DataSourceLambdaConfig | undefined>;
     /**
@@ -132,7 +132,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Amazon OpenSearch Service settings. See below
+     * Amazon OpenSearch Service settings. See OpenSearch Service Config
      */
     public readonly opensearchserviceConfig!: pulumi.Output<outputs.appsync.DataSourceOpensearchserviceConfig | undefined>;
     /**
@@ -218,23 +218,23 @@ export interface DataSourceState {
      */
     description?: pulumi.Input<string>;
     /**
-     * DynamoDB settings. See below
+     * DynamoDB settings. See DynamoDB Config
      */
     dynamodbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamodbConfig>;
     /**
-     * Amazon Elasticsearch settings. See below
+     * Amazon Elasticsearch settings. See ElasticSearch Config
      */
     elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfig>;
     /**
-     * AWS EventBridge settings. See below
+     * AWS EventBridge settings. See Event Bridge Config
      */
     eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfig>;
     /**
-     * HTTP settings. See below
+     * HTTP settings. See HTTP Config
      */
     httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfig>;
     /**
-     * AWS Lambda settings. See below
+     * AWS Lambda settings. See Lambda Config
      */
     lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig>;
     /**
@@ -242,7 +242,7 @@ export interface DataSourceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Amazon OpenSearch Service settings. See below
+     * Amazon OpenSearch Service settings. See OpenSearch Service Config
      */
     opensearchserviceConfig?: pulumi.Input<inputs.appsync.DataSourceOpensearchserviceConfig>;
     /**
@@ -272,23 +272,23 @@ export interface DataSourceArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * DynamoDB settings. See below
+     * DynamoDB settings. See DynamoDB Config
      */
     dynamodbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamodbConfig>;
     /**
-     * Amazon Elasticsearch settings. See below
+     * Amazon Elasticsearch settings. See ElasticSearch Config
      */
     elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfig>;
     /**
-     * AWS EventBridge settings. See below
+     * AWS EventBridge settings. See Event Bridge Config
      */
     eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfig>;
     /**
-     * HTTP settings. See below
+     * HTTP settings. See HTTP Config
      */
     httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfig>;
     /**
-     * AWS Lambda settings. See below
+     * AWS Lambda settings. See Lambda Config
      */
     lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfig>;
     /**
@@ -296,7 +296,7 @@ export interface DataSourceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Amazon OpenSearch Service settings. See below
+     * Amazon OpenSearch Service settings. See OpenSearch Service Config
      */
     opensearchserviceConfig?: pulumi.Input<inputs.appsync.DataSourceOpensearchserviceConfig>;
     /**

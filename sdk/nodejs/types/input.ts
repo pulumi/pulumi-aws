@@ -6569,6 +6569,9 @@ export namespace appstream {
 
 export namespace appsync {
     export interface DataSourceDynamodbConfig {
+        /**
+         * The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+         */
         deltaSyncConfig?: pulumi.Input<inputs.appsync.DataSourceDynamodbConfigDeltaSyncConfig>;
         /**
          * AWS region of the DynamoDB table. Defaults to current region.
@@ -6582,12 +6585,24 @@ export namespace appsync {
          * Set to `true` to use Amazon Cognito credentials with this data source.
          */
         useCallerCredentials?: pulumi.Input<boolean>;
+        /**
+         * Detects Conflict Detection and Resolution with this data source.
+         */
         versioned?: pulumi.Input<boolean>;
     }
 
     export interface DataSourceDynamodbConfigDeltaSyncConfig {
+        /**
+         * The number of minutes that an Item is stored in the data source.
+         */
         baseTableTtl?: pulumi.Input<number>;
+        /**
+         * The table name.
+         */
         deltaSyncTableName: pulumi.Input<string>;
+        /**
+         * The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+         */
         deltaSyncTableTtl?: pulumi.Input<number>;
     }
 
@@ -6651,11 +6666,11 @@ export namespace appsync {
 
     export interface DataSourceOpensearchserviceConfig {
         /**
-         * HTTP endpoint of the OpenSearch domain.
+         * HTTP endpoint of the Elasticsearch domain.
          */
         endpoint: pulumi.Input<string>;
         /**
-         * AWS region of the OpenSearch domain. Defaults to current region.
+         * AWS region of the DynamoDB table. Defaults to current region.
          */
         region?: pulumi.Input<string>;
     }
@@ -25282,9 +25297,35 @@ export namespace fms {
          */
         managedServiceData?: pulumi.Input<string>;
         /**
+         * Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+         */
+        policyOption?: pulumi.Input<inputs.fms.PolicySecurityServicePolicyDataPolicyOption>;
+        /**
          * The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface PolicySecurityServicePolicyDataPolicyOption {
+        /**
+         * Defines the deployment model to use for the firewall policy. Documented below.
+         */
+        networkFirewallPolicy?: pulumi.Input<inputs.fms.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy>;
+        thirdPartyFirewallPolicy?: pulumi.Input<inputs.fms.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy>;
+    }
+
+    export interface PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy {
+        /**
+         * Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+         */
+        firewallDeploymentModel?: pulumi.Input<string>;
+    }
+
+    export interface PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy {
+        /**
+         * Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+         */
+        firewallDeploymentModel?: pulumi.Input<string>;
     }
 }
 
@@ -29535,7 +29576,7 @@ export namespace kendra {
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration {
         /**
-         * Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See Document Attribute Condition.
+         * Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
          */
         condition?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition>;
         /**
@@ -29554,7 +29595,7 @@ export namespace kendra {
          */
         conditionDocumentAttributeKey: pulumi.Input<string>;
         /**
-         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          */
         conditionOnValue?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue>;
         /**
@@ -29585,8 +29626,7 @@ export namespace kendra {
          */
         targetDocumentAttributeKey?: pulumi.Input<string>;
         /**
-         * The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'.
-         * See Document Attribute Value.
+         * The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
          */
         targetDocumentAttributeValue?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue>;
         /**
@@ -29613,7 +29653,7 @@ export namespace kendra {
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
         /**
-         * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+         * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
          */
         invocationCondition?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition>;
         /**
@@ -29632,7 +29672,7 @@ export namespace kendra {
          */
         conditionDocumentAttributeKey: pulumi.Input<string>;
         /**
-         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          */
         conditionOnValue?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue>;
         /**
@@ -29659,7 +29699,7 @@ export namespace kendra {
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration {
         /**
-         * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See Document Attribute Condition.
+         * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
          */
         invocationCondition?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition>;
         /**
@@ -29678,7 +29718,7 @@ export namespace kendra {
          */
         conditionDocumentAttributeKey: pulumi.Input<string>;
         /**
-         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          */
         conditionOnValue?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue>;
         /**
@@ -37141,6 +37181,10 @@ export namespace mq {
          * Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
          */
         password: pulumi.Input<string>;
+        /**
+         * Whether to set set replication user. Defaults to `false`.
+         */
+        replicationUser?: pulumi.Input<boolean>;
         /**
          * Username of the user.
          *

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         public Input<string> ConditionDocumentAttributeKey { get; set; } = null!;
 
         /// <summary>
-        /// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See Document Attribute Value.
+        /// The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         /// </summary>
         [Input("conditionOnValue")]
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueGetArgs>? ConditionOnValue { get; set; }

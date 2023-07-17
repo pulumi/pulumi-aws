@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.fms.outputs;
 
+import com.pulumi.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOption;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -17,6 +18,11 @@ public final class PolicySecurityServicePolicyData {
      */
     private @Nullable String managedServiceData;
     /**
+     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+     * 
+     */
+    private @Nullable PolicySecurityServicePolicyDataPolicyOption policyOption;
+    /**
      * @return The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
      * 
      */
@@ -29,6 +35,13 @@ public final class PolicySecurityServicePolicyData {
      */
     public Optional<String> managedServiceData() {
         return Optional.ofNullable(this.managedServiceData);
+    }
+    /**
+     * @return Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+     * 
+     */
+    public Optional<PolicySecurityServicePolicyDataPolicyOption> policyOption() {
+        return Optional.ofNullable(this.policyOption);
     }
     /**
      * @return The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
@@ -48,17 +61,24 @@ public final class PolicySecurityServicePolicyData {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String managedServiceData;
+        private @Nullable PolicySecurityServicePolicyDataPolicyOption policyOption;
         private String type;
         public Builder() {}
         public Builder(PolicySecurityServicePolicyData defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.managedServiceData = defaults.managedServiceData;
+    	      this.policyOption = defaults.policyOption;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
         public Builder managedServiceData(@Nullable String managedServiceData) {
             this.managedServiceData = managedServiceData;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder policyOption(@Nullable PolicySecurityServicePolicyDataPolicyOption policyOption) {
+            this.policyOption = policyOption;
             return this;
         }
         @CustomType.Setter
@@ -69,6 +89,7 @@ public final class PolicySecurityServicePolicyData {
         public PolicySecurityServicePolicyData build() {
             final var o = new PolicySecurityServicePolicyData();
             o.managedServiceData = managedServiceData;
+            o.policyOption = policyOption;
             o.type = type;
             return o;
         }

@@ -798,17 +798,9 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.multiAz);
     }
 
-    /**
-     * The database name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The database name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -2461,23 +2453,11 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
             return multiAz(Output.of(multiAz));
         }
 
-        /**
-         * @param name The database name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The database name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

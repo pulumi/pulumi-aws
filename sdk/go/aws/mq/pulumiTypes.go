@@ -1093,6 +1093,8 @@ type BrokerUser struct {
 	Groups []string `pulumi:"groups"`
 	// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 	Password string `pulumi:"password"`
+	// Whether to set set replication user. Defaults to `false`.
+	ReplicationUser *bool `pulumi:"replicationUser"`
 	// Username of the user.
 	//
 	// > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
@@ -1117,6 +1119,8 @@ type BrokerUserArgs struct {
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
 	// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 	Password pulumi.StringInput `pulumi:"password"`
+	// Whether to set set replication user. Defaults to `false`.
+	ReplicationUser pulumi.BoolPtrInput `pulumi:"replicationUser"`
 	// Username of the user.
 	//
 	// > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
@@ -1187,6 +1191,11 @@ func (o BrokerUserOutput) Groups() pulumi.StringArrayOutput {
 // Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
 func (o BrokerUserOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerUser) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Whether to set set replication user. Defaults to `false`.
+func (o BrokerUserOutput) ReplicationUser() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BrokerUser) *bool { return v.ReplicationUser }).(pulumi.BoolPtrOutput)
 }
 
 // Username of the user.
