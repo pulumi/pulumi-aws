@@ -131,8 +131,22 @@ tfgen: install_plugins patch_upstream
 	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
 
+.PHONY: bin/pulumi-java-gen
 bin/pulumi-java-gen:
-	pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java
+# If $@ is already downloaded and then version doesn't match, we remove the old version.
+	@if [ -f $@ ]; then \
+		if [ $$($@ version) != $(JAVA_GEN_VERSION) ]; then \
+			echo "$@ version mismatch... redownloading"; \
+			rm $@; \
+		fi \
+	fi
+# We download the correct version when $@ is not present. That means either that
+# 1. $@ never existed, or
+# 2. $@ had the wrong version, and so was deleted.
+	@if ! [ -f $@ ]; then \
+		echo "Downloading $@ at version $(JAVA_GEN_VERSION)"; \
+		pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java; \
+	fi
 
 init_upstream:
 	@if [ ! -f "upstream/.git" ]; then \
