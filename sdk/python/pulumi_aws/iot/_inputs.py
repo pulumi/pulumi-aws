@@ -64,8 +64,8 @@ __all__ = [
     'TopicRuleLambdaArgs',
     'TopicRuleRepublishArgs',
     'TopicRuleS3Args',
-    'TopicRuleSnArgs',
-    'TopicRuleSqArgs',
+    'TopicRuleSnsArgs',
+    'TopicRuleSqsArgs',
     'TopicRuleStepFunctionArgs',
     'TopicRuleTimestreamArgs',
     'TopicRuleTimestreamDimensionArgs',
@@ -3370,7 +3370,7 @@ class TopicRuleS3Args:
 
 
 @pulumi.input_type
-class TopicRuleSnArgs:
+class TopicRuleSnsArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  target_arn: pulumi.Input[str],
@@ -3423,7 +3423,7 @@ class TopicRuleSnArgs:
 
 
 @pulumi.input_type
-class TopicRuleSqArgs:
+class TopicRuleSqsArgs:
     def __init__(__self__, *,
                  queue_url: pulumi.Input[str],
                  role_arn: pulumi.Input[str],

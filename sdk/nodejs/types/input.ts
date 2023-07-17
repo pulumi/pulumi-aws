@@ -29183,7 +29183,7 @@ export namespace iot {
         roleArn: pulumi.Input<string>;
     }
 
-    export interface TopicRuleSn {
+    export interface TopicRuleSns {
         /**
          * The message format of the message to publish. Accepted values are "JSON" and "RAW".
          */
@@ -29198,7 +29198,7 @@ export namespace iot {
         targetArn: pulumi.Input<string>;
     }
 
-    export interface TopicRuleSq {
+    export interface TopicRuleSqs {
         /**
          * The URL of the Amazon SQS queue.
          */

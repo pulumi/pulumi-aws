@@ -65,8 +65,8 @@ __all__ = [
     'TopicRuleLambda',
     'TopicRuleRepublish',
     'TopicRuleS3',
-    'TopicRuleSn',
-    'TopicRuleSq',
+    'TopicRuleSns',
+    'TopicRuleSqs',
     'TopicRuleStepFunction',
     'TopicRuleTimestream',
     'TopicRuleTimestreamDimension',
@@ -3540,7 +3540,7 @@ class TopicRuleS3(dict):
 
 
 @pulumi.output_type
-class TopicRuleSn(dict):
+class TopicRuleSns(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3552,14 +3552,14 @@ class TopicRuleSn(dict):
             suggest = "message_format"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSn. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSns. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TopicRuleSn.__key_warning(key)
+        TopicRuleSns.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TopicRuleSn.__key_warning(key)
+        TopicRuleSns.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3602,7 +3602,7 @@ class TopicRuleSn(dict):
 
 
 @pulumi.output_type
-class TopicRuleSq(dict):
+class TopicRuleSqs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3614,14 +3614,14 @@ class TopicRuleSq(dict):
             suggest = "use_base64"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSq. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleSqs. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        TopicRuleSq.__key_warning(key)
+        TopicRuleSqs.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        TopicRuleSq.__key_warning(key)
+        TopicRuleSqs.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

@@ -10,7 +10,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class TopicRuleSn {
+public final class TopicRuleSns {
     /**
      * @return The message format of the message to publish. Accepted values are &#34;JSON&#34; and &#34;RAW&#34;.
      * 
@@ -27,7 +27,7 @@ public final class TopicRuleSn {
      */
     private String targetArn;
 
-    private TopicRuleSn() {}
+    private TopicRuleSns() {}
     /**
      * @return The message format of the message to publish. Accepted values are &#34;JSON&#34; and &#34;RAW&#34;.
      * 
@@ -54,7 +54,7 @@ public final class TopicRuleSn {
         return new Builder();
     }
 
-    public static Builder builder(TopicRuleSn defaults) {
+    public static Builder builder(TopicRuleSns defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -63,7 +63,7 @@ public final class TopicRuleSn {
         private String roleArn;
         private String targetArn;
         public Builder() {}
-        public Builder(TopicRuleSn defaults) {
+        public Builder(TopicRuleSns defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.messageFormat = defaults.messageFormat;
     	      this.roleArn = defaults.roleArn;
@@ -85,8 +85,8 @@ public final class TopicRuleSn {
             this.targetArn = Objects.requireNonNull(targetArn);
             return this;
         }
-        public TopicRuleSn build() {
-            final var o = new TopicRuleSn();
+        public TopicRuleSns build() {
+            final var o = new TopicRuleSns();
             o.messageFormat = messageFormat;
             o.roleArn = roleArn;
             o.targetArn = targetArn;

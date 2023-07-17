@@ -11,32 +11,32 @@ namespace Pulumi.Aws.Iot.Outputs
 {
 
     [OutputType]
-    public sealed class TopicRuleSq
+    public sealed class TopicRuleSns
     {
         /// <summary>
-        /// The URL of the Amazon SQS queue.
+        /// The message format of the message to publish. Accepted values are "JSON" and "RAW".
         /// </summary>
-        public readonly string QueueUrl;
+        public readonly string? MessageFormat;
         /// <summary>
         /// The ARN of the IAM role that grants access.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Specifies whether to use Base64 encoding.
+        /// The ARN of the SNS topic.
         /// </summary>
-        public readonly bool UseBase64;
+        public readonly string TargetArn;
 
         [OutputConstructor]
-        private TopicRuleSq(
-            string queueUrl,
+        private TopicRuleSns(
+            string? messageFormat,
 
             string roleArn,
 
-            bool useBase64)
+            string targetArn)
         {
-            QueueUrl = queueUrl;
+            MessageFormat = messageFormat;
             RoleArn = roleArn;
-            UseBase64 = useBase64;
+            TargetArn = targetArn;
         }
     }
 }

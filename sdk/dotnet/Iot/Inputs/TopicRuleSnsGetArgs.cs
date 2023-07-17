@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iot.Inputs
 {
 
-    public sealed class TopicRuleSnGetArgs : global::Pulumi.ResourceArgs
+    public sealed class TopicRuleSnsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message format of the message to publish. Accepted values are "JSON" and "RAW".
@@ -30,9 +30,9 @@ namespace Pulumi.Aws.Iot.Inputs
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
 
-        public TopicRuleSnGetArgs()
+        public TopicRuleSnsGetArgs()
         {
         }
-        public static new TopicRuleSnGetArgs Empty => new TopicRuleSnGetArgs();
+        public static new TopicRuleSnsGetArgs Empty => new TopicRuleSnsGetArgs();
     }
 }

@@ -11,9 +11,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class TopicRuleSnArgs extends com.pulumi.resources.ResourceArgs {
+public final class TopicRuleSnsArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final TopicRuleSnArgs Empty = new TopicRuleSnArgs();
+    public static final TopicRuleSnsArgs Empty = new TopicRuleSnsArgs();
 
     /**
      * The message format of the message to publish. Accepted values are &#34;JSON&#34; and &#34;RAW&#34;.
@@ -60,9 +60,9 @@ public final class TopicRuleSnArgs extends com.pulumi.resources.ResourceArgs {
         return this.targetArn;
     }
 
-    private TopicRuleSnArgs() {}
+    private TopicRuleSnsArgs() {}
 
-    private TopicRuleSnArgs(TopicRuleSnArgs $) {
+    private TopicRuleSnsArgs(TopicRuleSnsArgs $) {
         this.messageFormat = $.messageFormat;
         this.roleArn = $.roleArn;
         this.targetArn = $.targetArn;
@@ -71,19 +71,19 @@ public final class TopicRuleSnArgs extends com.pulumi.resources.ResourceArgs {
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(TopicRuleSnArgs defaults) {
+    public static Builder builder(TopicRuleSnsArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private TopicRuleSnArgs $;
+        private TopicRuleSnsArgs $;
 
         public Builder() {
-            $ = new TopicRuleSnArgs();
+            $ = new TopicRuleSnsArgs();
         }
 
-        public Builder(TopicRuleSnArgs defaults) {
-            $ = new TopicRuleSnArgs(Objects.requireNonNull(defaults));
+        public Builder(TopicRuleSnsArgs defaults) {
+            $ = new TopicRuleSnsArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -149,7 +149,7 @@ public final class TopicRuleSnArgs extends com.pulumi.resources.ResourceArgs {
             return targetArn(Output.of(targetArn));
         }
 
-        public TopicRuleSnArgs build() {
+        public TopicRuleSnsArgs build() {
             $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
             $.targetArn = Objects.requireNonNull($.targetArn, "expected parameter 'targetArn' to be non-null");
             return $;

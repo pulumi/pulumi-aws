@@ -19,8 +19,8 @@ import com.pulumi.aws.iot.inputs.TopicRuleKinesisArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleLambdaArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleRepublishArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleS3Args;
-import com.pulumi.aws.iot.inputs.TopicRuleSnArgs;
-import com.pulumi.aws.iot.inputs.TopicRuleSqArgs;
+import com.pulumi.aws.iot.inputs.TopicRuleSnsArgs;
+import com.pulumi.aws.iot.inputs.TopicRuleSqsArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleStepFunctionArgs;
 import com.pulumi.aws.iot.inputs.TopicRuleTimestreamArgs;
 import com.pulumi.core.Output;
@@ -88,11 +88,11 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.dynamodbv2s);
     }
 
-    @Import(name="elasticsearches")
-    private @Nullable Output<List<TopicRuleElasticsearchArgs>> elasticsearches;
+    @Import(name="elasticsearch")
+    private @Nullable Output<List<TopicRuleElasticsearchArgs>> elasticsearch;
 
-    public Optional<Output<List<TopicRuleElasticsearchArgs>>> elasticsearches() {
-        return Optional.ofNullable(this.elasticsearches);
+    public Optional<Output<List<TopicRuleElasticsearchArgs>>> elasticsearch() {
+        return Optional.ofNullable(this.elasticsearch);
     }
 
     /**
@@ -196,17 +196,17 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.republishes);
     }
 
-    @Import(name="s3Buckets")
-    private @Nullable Output<List<TopicRuleS3Args>> s3Buckets;
+    @Import(name="s3")
+    private @Nullable Output<List<TopicRuleS3Args>> s3;
 
-    public Optional<Output<List<TopicRuleS3Args>>> s3Buckets() {
-        return Optional.ofNullable(this.s3Buckets);
+    public Optional<Output<List<TopicRuleS3Args>>> s3() {
+        return Optional.ofNullable(this.s3);
     }
 
     @Import(name="sns")
-    private @Nullable Output<List<TopicRuleSnArgs>> sns;
+    private @Nullable Output<List<TopicRuleSnsArgs>> sns;
 
-    public Optional<Output<List<TopicRuleSnArgs>>> sns() {
+    public Optional<Output<List<TopicRuleSnsArgs>>> sns() {
         return Optional.ofNullable(this.sns);
     }
 
@@ -241,9 +241,9 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     @Import(name="sqs")
-    private @Nullable Output<List<TopicRuleSqArgs>> sqs;
+    private @Nullable Output<List<TopicRuleSqsArgs>> sqs;
 
-    public Optional<Output<List<TopicRuleSqArgs>>> sqs() {
+    public Optional<Output<List<TopicRuleSqsArgs>>> sqs() {
         return Optional.ofNullable(this.sqs);
     }
 
@@ -285,7 +285,7 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.dynamodbs = $.dynamodbs;
         this.dynamodbv2s = $.dynamodbv2s;
-        this.elasticsearches = $.elasticsearches;
+        this.elasticsearch = $.elasticsearch;
         this.enabled = $.enabled;
         this.errorAction = $.errorAction;
         this.firehoses = $.firehoses;
@@ -297,7 +297,7 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         this.lambdas = $.lambdas;
         this.name = $.name;
         this.republishes = $.republishes;
-        this.s3Buckets = $.s3Buckets;
+        this.s3 = $.s3;
         this.sns = $.sns;
         this.sql = $.sql;
         this.sqlVersion = $.sqlVersion;
@@ -411,17 +411,17 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
             return dynamodbv2s(List.of(dynamodbv2s));
         }
 
-        public Builder elasticsearches(@Nullable Output<List<TopicRuleElasticsearchArgs>> elasticsearches) {
-            $.elasticsearches = elasticsearches;
+        public Builder elasticsearch(@Nullable Output<List<TopicRuleElasticsearchArgs>> elasticsearch) {
+            $.elasticsearch = elasticsearch;
             return this;
         }
 
-        public Builder elasticsearches(List<TopicRuleElasticsearchArgs> elasticsearches) {
-            return elasticsearches(Output.of(elasticsearches));
+        public Builder elasticsearch(List<TopicRuleElasticsearchArgs> elasticsearch) {
+            return elasticsearch(Output.of(elasticsearch));
         }
 
-        public Builder elasticsearches(TopicRuleElasticsearchArgs... elasticsearches) {
-            return elasticsearches(List.of(elasticsearches));
+        public Builder elasticsearch(TopicRuleElasticsearchArgs... elasticsearch) {
+            return elasticsearch(List.of(elasticsearch));
         }
 
         /**
@@ -591,29 +591,29 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
             return republishes(List.of(republishes));
         }
 
-        public Builder s3Buckets(@Nullable Output<List<TopicRuleS3Args>> s3Buckets) {
-            $.s3Buckets = s3Buckets;
+        public Builder s3(@Nullable Output<List<TopicRuleS3Args>> s3) {
+            $.s3 = s3;
             return this;
         }
 
-        public Builder s3Buckets(List<TopicRuleS3Args> s3Buckets) {
-            return s3Buckets(Output.of(s3Buckets));
+        public Builder s3(List<TopicRuleS3Args> s3) {
+            return s3(Output.of(s3));
         }
 
-        public Builder s3Buckets(TopicRuleS3Args... s3Buckets) {
-            return s3Buckets(List.of(s3Buckets));
+        public Builder s3(TopicRuleS3Args... s3) {
+            return s3(List.of(s3));
         }
 
-        public Builder sns(@Nullable Output<List<TopicRuleSnArgs>> sns) {
+        public Builder sns(@Nullable Output<List<TopicRuleSnsArgs>> sns) {
             $.sns = sns;
             return this;
         }
 
-        public Builder sns(List<TopicRuleSnArgs> sns) {
+        public Builder sns(List<TopicRuleSnsArgs> sns) {
             return sns(Output.of(sns));
         }
 
-        public Builder sns(TopicRuleSnArgs... sns) {
+        public Builder sns(TopicRuleSnsArgs... sns) {
             return sns(List.of(sns));
         }
 
@@ -659,16 +659,16 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
             return sqlVersion(Output.of(sqlVersion));
         }
 
-        public Builder sqs(@Nullable Output<List<TopicRuleSqArgs>> sqs) {
+        public Builder sqs(@Nullable Output<List<TopicRuleSqsArgs>> sqs) {
             $.sqs = sqs;
             return this;
         }
 
-        public Builder sqs(List<TopicRuleSqArgs> sqs) {
+        public Builder sqs(List<TopicRuleSqsArgs> sqs) {
             return sqs(Output.of(sqs));
         }
 
-        public Builder sqs(TopicRuleSqArgs... sqs) {
+        public Builder sqs(TopicRuleSqsArgs... sqs) {
             return sqs(List.of(sqs));
         }
 

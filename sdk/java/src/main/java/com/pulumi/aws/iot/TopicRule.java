@@ -22,8 +22,8 @@ import com.pulumi.aws.iot.outputs.TopicRuleKinesis;
 import com.pulumi.aws.iot.outputs.TopicRuleLambda;
 import com.pulumi.aws.iot.outputs.TopicRuleRepublish;
 import com.pulumi.aws.iot.outputs.TopicRuleS3;
-import com.pulumi.aws.iot.outputs.TopicRuleSn;
-import com.pulumi.aws.iot.outputs.TopicRuleSq;
+import com.pulumi.aws.iot.outputs.TopicRuleSns;
+import com.pulumi.aws.iot.outputs.TopicRuleSqs;
 import com.pulumi.aws.iot.outputs.TopicRuleStepFunction;
 import com.pulumi.aws.iot.outputs.TopicRuleTimestream;
 import com.pulumi.core.Output;
@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iot.TopicRule;
  * import com.pulumi.aws.iot.TopicRuleArgs;
- * import com.pulumi.aws.iot.inputs.TopicRuleSnArgs;
+ * import com.pulumi.aws.iot.inputs.TopicRuleSnsArgs;
  * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionArgs;
  * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionSnsArgs;
  * import com.pulumi.aws.iam.RolePolicy;
@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .sql(&#34;SELECT * FROM &#39;topic/test&#39;&#34;)
  *             .sqlVersion(&#34;2016-03-23&#34;)
- *             .sns(TopicRuleSnArgs.builder()
+ *             .sns(TopicRuleSnsArgs.builder()
  *                 .messageFormat(&#34;RAW&#34;)
  *                 .roleArn(role.arn())
  *                 .targetArn(mytopic.arn())
@@ -194,11 +194,11 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleDynamodbv2>>> dynamodbv2s() {
         return Codegen.optional(this.dynamodbv2s);
     }
-    @Export(name="elasticsearches", refs={List.class,TopicRuleElasticsearch.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<TopicRuleElasticsearch>> elasticsearches;
+    @Export(name="elasticsearch", refs={List.class,TopicRuleElasticsearch.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleElasticsearch>> elasticsearch;
 
-    public Output<Optional<List<TopicRuleElasticsearch>>> elasticsearches() {
-        return Codegen.optional(this.elasticsearches);
+    public Output<Optional<List<TopicRuleElasticsearch>>> elasticsearch() {
+        return Codegen.optional(this.elasticsearch);
     }
     /**
      * Specifies whether the rule is enabled.
@@ -290,16 +290,16 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<TopicRuleRepublish>>> republishes() {
         return Codegen.optional(this.republishes);
     }
-    @Export(name="s3Buckets", refs={List.class,TopicRuleS3.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<TopicRuleS3>> s3Buckets;
+    @Export(name="s3", refs={List.class,TopicRuleS3.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleS3>> s3;
 
-    public Output<Optional<List<TopicRuleS3>>> s3Buckets() {
-        return Codegen.optional(this.s3Buckets);
+    public Output<Optional<List<TopicRuleS3>>> s3() {
+        return Codegen.optional(this.s3);
     }
-    @Export(name="sns", refs={List.class,TopicRuleSn.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<TopicRuleSn>> sns;
+    @Export(name="sns", refs={List.class,TopicRuleSns.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleSns>> sns;
 
-    public Output<Optional<List<TopicRuleSn>>> sns() {
+    public Output<Optional<List<TopicRuleSns>>> sns() {
         return Codegen.optional(this.sns);
     }
     /**
@@ -330,10 +330,10 @@ public class TopicRule extends com.pulumi.resources.CustomResource {
     public Output<String> sqlVersion() {
         return this.sqlVersion;
     }
-    @Export(name="sqs", refs={List.class,TopicRuleSq.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<TopicRuleSq>> sqs;
+    @Export(name="sqs", refs={List.class,TopicRuleSqs.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<TopicRuleSqs>> sqs;
 
-    public Output<Optional<List<TopicRuleSq>>> sqs() {
+    public Output<Optional<List<TopicRuleSqs>>> sqs() {
         return Codegen.optional(this.sqs);
     }
     @Export(name="stepFunctions", refs={List.class,TopicRuleStepFunction.class}, tree="[0,1]")

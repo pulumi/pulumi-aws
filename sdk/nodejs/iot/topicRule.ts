@@ -107,7 +107,7 @@ export class TopicRule extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly dynamodbs!: pulumi.Output<outputs.iot.TopicRuleDynamodb[] | undefined>;
     public readonly dynamodbv2s!: pulumi.Output<outputs.iot.TopicRuleDynamodbv2[] | undefined>;
-    public readonly elasticsearches!: pulumi.Output<outputs.iot.TopicRuleElasticsearch[] | undefined>;
+    public readonly elasticsearch!: pulumi.Output<outputs.iot.TopicRuleElasticsearch[] | undefined>;
     /**
      * Specifies whether the rule is enabled.
      */
@@ -128,8 +128,8 @@ export class TopicRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     public readonly republishes!: pulumi.Output<outputs.iot.TopicRuleRepublish[] | undefined>;
-    public readonly s3Buckets!: pulumi.Output<outputs.iot.TopicRuleS3[] | undefined>;
-    public readonly sns!: pulumi.Output<outputs.iot.TopicRuleSn[] | undefined>;
+    public readonly s3!: pulumi.Output<outputs.iot.TopicRuleS3[] | undefined>;
+    public readonly sns!: pulumi.Output<outputs.iot.TopicRuleSns[] | undefined>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      */
@@ -138,7 +138,7 @@ export class TopicRule extends pulumi.CustomResource {
      * The version of the SQL rules engine to use when evaluating the rule.
      */
     public readonly sqlVersion!: pulumi.Output<string>;
-    public readonly sqs!: pulumi.Output<outputs.iot.TopicRuleSq[] | undefined>;
+    public readonly sqs!: pulumi.Output<outputs.iot.TopicRuleSqs[] | undefined>;
     public readonly stepFunctions!: pulumi.Output<outputs.iot.TopicRuleStepFunction[] | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -170,7 +170,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["dynamodbs"] = state ? state.dynamodbs : undefined;
             resourceInputs["dynamodbv2s"] = state ? state.dynamodbv2s : undefined;
-            resourceInputs["elasticsearches"] = state ? state.elasticsearches : undefined;
+            resourceInputs["elasticsearch"] = state ? state.elasticsearch : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["errorAction"] = state ? state.errorAction : undefined;
             resourceInputs["firehoses"] = state ? state.firehoses : undefined;
@@ -182,7 +182,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["lambdas"] = state ? state.lambdas : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["republishes"] = state ? state.republishes : undefined;
-            resourceInputs["s3Buckets"] = state ? state.s3Buckets : undefined;
+            resourceInputs["s3"] = state ? state.s3 : undefined;
             resourceInputs["sns"] = state ? state.sns : undefined;
             resourceInputs["sql"] = state ? state.sql : undefined;
             resourceInputs["sqlVersion"] = state ? state.sqlVersion : undefined;
@@ -208,7 +208,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dynamodbs"] = args ? args.dynamodbs : undefined;
             resourceInputs["dynamodbv2s"] = args ? args.dynamodbv2s : undefined;
-            resourceInputs["elasticsearches"] = args ? args.elasticsearches : undefined;
+            resourceInputs["elasticsearch"] = args ? args.elasticsearch : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["errorAction"] = args ? args.errorAction : undefined;
             resourceInputs["firehoses"] = args ? args.firehoses : undefined;
@@ -220,7 +220,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["lambdas"] = args ? args.lambdas : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["republishes"] = args ? args.republishes : undefined;
-            resourceInputs["s3Buckets"] = args ? args.s3Buckets : undefined;
+            resourceInputs["s3"] = args ? args.s3 : undefined;
             resourceInputs["sns"] = args ? args.sns : undefined;
             resourceInputs["sql"] = args ? args.sql : undefined;
             resourceInputs["sqlVersion"] = args ? args.sqlVersion : undefined;
@@ -253,7 +253,7 @@ export interface TopicRuleState {
     description?: pulumi.Input<string>;
     dynamodbs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodb>[]>;
     dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
-    elasticsearches?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleElasticsearch>[]>;
+    elasticsearch?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleElasticsearch>[]>;
     /**
      * Specifies whether the rule is enabled.
      */
@@ -274,8 +274,8 @@ export interface TopicRuleState {
      */
     name?: pulumi.Input<string>;
     republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[]>;
-    s3Buckets?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
-    sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSn>[]>;
+    s3?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
+    sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSns>[]>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      */
@@ -284,7 +284,7 @@ export interface TopicRuleState {
      * The version of the SQL rules engine to use when evaluating the rule.
      */
     sqlVersion?: pulumi.Input<string>;
-    sqs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSq>[]>;
+    sqs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSqs>[]>;
     stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -310,7 +310,7 @@ export interface TopicRuleArgs {
     description?: pulumi.Input<string>;
     dynamodbs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodb>[]>;
     dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
-    elasticsearches?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleElasticsearch>[]>;
+    elasticsearch?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleElasticsearch>[]>;
     /**
      * Specifies whether the rule is enabled.
      */
@@ -331,8 +331,8 @@ export interface TopicRuleArgs {
      */
     name?: pulumi.Input<string>;
     republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[]>;
-    s3Buckets?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
-    sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSn>[]>;
+    s3?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
+    sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSns>[]>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      */
@@ -341,7 +341,7 @@ export interface TopicRuleArgs {
      * The version of the SQL rules engine to use when evaluating the rule.
      */
     sqlVersion: pulumi.Input<string>;
-    sqs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSq>[]>;
+    sqs?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSqs>[]>;
     stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -33900,7 +33900,7 @@ export namespace iot {
         roleArn: string;
     }
 
-    export interface TopicRuleSn {
+    export interface TopicRuleSns {
         /**
          * The message format of the message to publish. Accepted values are "JSON" and "RAW".
          */
@@ -33915,7 +33915,7 @@ export namespace iot {
         targetArn: string;
     }
 
-    export interface TopicRuleSq {
+    export interface TopicRuleSqs {
         /**
          * The URL of the Amazon SQS queue.
          */

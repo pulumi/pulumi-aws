@@ -10,9 +10,9 @@ import java.lang.String;
 import java.util.Objects;
 
 
-public final class TopicRuleSqArgs extends com.pulumi.resources.ResourceArgs {
+public final class TopicRuleSqsArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final TopicRuleSqArgs Empty = new TopicRuleSqArgs();
+    public static final TopicRuleSqsArgs Empty = new TopicRuleSqsArgs();
 
     /**
      * The URL of the Amazon SQS queue.
@@ -59,9 +59,9 @@ public final class TopicRuleSqArgs extends com.pulumi.resources.ResourceArgs {
         return this.useBase64;
     }
 
-    private TopicRuleSqArgs() {}
+    private TopicRuleSqsArgs() {}
 
-    private TopicRuleSqArgs(TopicRuleSqArgs $) {
+    private TopicRuleSqsArgs(TopicRuleSqsArgs $) {
         this.queueUrl = $.queueUrl;
         this.roleArn = $.roleArn;
         this.useBase64 = $.useBase64;
@@ -70,19 +70,19 @@ public final class TopicRuleSqArgs extends com.pulumi.resources.ResourceArgs {
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(TopicRuleSqArgs defaults) {
+    public static Builder builder(TopicRuleSqsArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private TopicRuleSqArgs $;
+        private TopicRuleSqsArgs $;
 
         public Builder() {
-            $ = new TopicRuleSqArgs();
+            $ = new TopicRuleSqsArgs();
         }
 
-        public Builder(TopicRuleSqArgs defaults) {
-            $ = new TopicRuleSqArgs(Objects.requireNonNull(defaults));
+        public Builder(TopicRuleSqsArgs defaults) {
+            $ = new TopicRuleSqsArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -148,7 +148,7 @@ public final class TopicRuleSqArgs extends com.pulumi.resources.ResourceArgs {
             return useBase64(Output.of(useBase64));
         }
 
-        public TopicRuleSqArgs build() {
+        public TopicRuleSqsArgs build() {
             $.queueUrl = Objects.requireNonNull($.queueUrl, "expected parameter 'queueUrl' to be non-null");
             $.roleArn = Objects.requireNonNull($.roleArn, "expected parameter 'roleArn' to be non-null");
             $.useBase64 = Objects.requireNonNull($.useBase64, "expected parameter 'useBase64' to be non-null");

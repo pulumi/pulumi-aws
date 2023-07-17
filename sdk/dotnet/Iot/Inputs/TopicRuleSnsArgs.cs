@@ -7,36 +7,32 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Aws.Iot.Outputs
+namespace Pulumi.Aws.Iot.Inputs
 {
 
-    [OutputType]
-    public sealed class TopicRuleSn
+    public sealed class TopicRuleSnsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The message format of the message to publish. Accepted values are "JSON" and "RAW".
         /// </summary>
-        public readonly string? MessageFormat;
+        [Input("messageFormat")]
+        public Input<string>? MessageFormat { get; set; }
+
         /// <summary>
         /// The ARN of the IAM role that grants access.
         /// </summary>
-        public readonly string RoleArn;
+        [Input("roleArn", required: true)]
+        public Input<string> RoleArn { get; set; } = null!;
+
         /// <summary>
         /// The ARN of the SNS topic.
         /// </summary>
-        public readonly string TargetArn;
+        [Input("targetArn", required: true)]
+        public Input<string> TargetArn { get; set; } = null!;
 
-        [OutputConstructor]
-        private TopicRuleSn(
-            string? messageFormat,
-
-            string roleArn,
-
-            string targetArn)
+        public TopicRuleSnsArgs()
         {
-            MessageFormat = messageFormat;
-            RoleArn = roleArn;
-            TargetArn = targetArn;
         }
+        public static new TopicRuleSnsArgs Empty => new TopicRuleSnsArgs();
     }
 }

@@ -25,7 +25,7 @@ class TopicRuleArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]] = None,
                  dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]] = None,
-                 elasticsearches: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]] = None,
+                 elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]] = None,
                  error_action: Optional[pulumi.Input['TopicRuleErrorActionArgs']] = None,
                  firehoses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]] = None,
                  https: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpArgs']]]] = None,
@@ -36,9 +36,9 @@ class TopicRuleArgs:
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
-                 s3_buckets: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
-                 sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnArgs']]]] = None,
-                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqArgs']]]] = None,
+                 s3: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
+                 sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]] = None,
+                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]] = None,
                  step_functions: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timestreams: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamArgs']]]] = None):
@@ -67,8 +67,8 @@ class TopicRuleArgs:
             pulumi.set(__self__, "dynamodbs", dynamodbs)
         if dynamodbv2s is not None:
             pulumi.set(__self__, "dynamodbv2s", dynamodbv2s)
-        if elasticsearches is not None:
-            pulumi.set(__self__, "elasticsearches", elasticsearches)
+        if elasticsearch is not None:
+            pulumi.set(__self__, "elasticsearch", elasticsearch)
         if error_action is not None:
             pulumi.set(__self__, "error_action", error_action)
         if firehoses is not None:
@@ -89,8 +89,8 @@ class TopicRuleArgs:
             pulumi.set(__self__, "name", name)
         if republishes is not None:
             pulumi.set(__self__, "republishes", republishes)
-        if s3_buckets is not None:
-            pulumi.set(__self__, "s3_buckets", s3_buckets)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
         if sqs is not None:
@@ -197,12 +197,12 @@ class TopicRuleArgs:
 
     @property
     @pulumi.getter
-    def elasticsearches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]:
-        return pulumi.get(self, "elasticsearches")
+    def elasticsearch(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]:
+        return pulumi.get(self, "elasticsearch")
 
-    @elasticsearches.setter
-    def elasticsearches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]):
-        pulumi.set(self, "elasticsearches", value)
+    @elasticsearch.setter
+    def elasticsearch(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]):
+        pulumi.set(self, "elasticsearch", value)
 
     @property
     @pulumi.getter(name="errorAction")
@@ -301,30 +301,30 @@ class TopicRuleArgs:
         pulumi.set(self, "republishes", value)
 
     @property
-    @pulumi.getter(name="s3Buckets")
-    def s3_buckets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
-        return pulumi.get(self, "s3_buckets")
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
+        return pulumi.get(self, "s3")
 
-    @s3_buckets.setter
-    def s3_buckets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
-        pulumi.set(self, "s3_buckets", value)
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
+        pulumi.set(self, "s3", value)
 
     @property
     @pulumi.getter
-    def sns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnArgs']]]]:
+    def sns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]:
         return pulumi.get(self, "sns")
 
     @sns.setter
-    def sns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnArgs']]]]):
+    def sns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]):
         pulumi.set(self, "sns", value)
 
     @property
     @pulumi.getter
-    def sqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqArgs']]]]:
+    def sqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]:
         return pulumi.get(self, "sqs")
 
     @sqs.setter
-    def sqs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqArgs']]]]):
+    def sqs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]):
         pulumi.set(self, "sqs", value)
 
     @property
@@ -368,7 +368,7 @@ class _TopicRuleState:
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbArgs']]]] = None,
                  dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleDynamodbv2Args']]]] = None,
-                 elasticsearches: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]] = None,
+                 elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  error_action: Optional[pulumi.Input['TopicRuleErrorActionArgs']] = None,
                  firehoses: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleFirehoseArgs']]]] = None,
@@ -380,11 +380,11 @@ class _TopicRuleState:
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleLambdaArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleRepublishArgs']]]] = None,
-                 s3_buckets: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
-                 sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnArgs']]]] = None,
+                 s3: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]] = None,
+                 sns: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  sql_version: Optional[pulumi.Input[str]] = None,
-                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqArgs']]]] = None,
+                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]] = None,
                  step_functions: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleStepFunctionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -415,8 +415,8 @@ class _TopicRuleState:
             pulumi.set(__self__, "dynamodbs", dynamodbs)
         if dynamodbv2s is not None:
             pulumi.set(__self__, "dynamodbv2s", dynamodbv2s)
-        if elasticsearches is not None:
-            pulumi.set(__self__, "elasticsearches", elasticsearches)
+        if elasticsearch is not None:
+            pulumi.set(__self__, "elasticsearch", elasticsearch)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if error_action is not None:
@@ -439,8 +439,8 @@ class _TopicRuleState:
             pulumi.set(__self__, "name", name)
         if republishes is not None:
             pulumi.set(__self__, "republishes", republishes)
-        if s3_buckets is not None:
-            pulumi.set(__self__, "s3_buckets", s3_buckets)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
         if sql is not None:
@@ -529,12 +529,12 @@ class _TopicRuleState:
 
     @property
     @pulumi.getter
-    def elasticsearches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]:
-        return pulumi.get(self, "elasticsearches")
+    def elasticsearch(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]:
+        return pulumi.get(self, "elasticsearch")
 
-    @elasticsearches.setter
-    def elasticsearches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]):
-        pulumi.set(self, "elasticsearches", value)
+    @elasticsearch.setter
+    def elasticsearch(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleElasticsearchArgs']]]]):
+        pulumi.set(self, "elasticsearch", value)
 
     @property
     @pulumi.getter
@@ -645,21 +645,21 @@ class _TopicRuleState:
         pulumi.set(self, "republishes", value)
 
     @property
-    @pulumi.getter(name="s3Buckets")
-    def s3_buckets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
-        return pulumi.get(self, "s3_buckets")
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]:
+        return pulumi.get(self, "s3")
 
-    @s3_buckets.setter
-    def s3_buckets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
-        pulumi.set(self, "s3_buckets", value)
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleS3Args']]]]):
+        pulumi.set(self, "s3", value)
 
     @property
     @pulumi.getter
-    def sns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnArgs']]]]:
+    def sns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]:
         return pulumi.get(self, "sns")
 
     @sns.setter
-    def sns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnArgs']]]]):
+    def sns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSnsArgs']]]]):
         pulumi.set(self, "sns", value)
 
     @property
@@ -688,11 +688,11 @@ class _TopicRuleState:
 
     @property
     @pulumi.getter
-    def sqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqArgs']]]]:
+    def sqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]:
         return pulumi.get(self, "sqs")
 
     @sqs.setter
-    def sqs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqArgs']]]]):
+    def sqs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleSqsArgs']]]]):
         pulumi.set(self, "sqs", value)
 
     @property
@@ -749,7 +749,7 @@ class TopicRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleDynamodbArgs']]]]] = None,
                  dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleDynamodbv2Args']]]]] = None,
-                 elasticsearches: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleElasticsearchArgs']]]]] = None,
+                 elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleElasticsearchArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  error_action: Optional[pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']]] = None,
                  firehoses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleFirehoseArgs']]]]] = None,
@@ -761,11 +761,11 @@ class TopicRule(pulumi.CustomResource):
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleLambdaArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleRepublishArgs']]]]] = None,
-                 s3_buckets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
-                 sns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSnArgs']]]]] = None,
+                 s3: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
+                 sns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSnsArgs']]]]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  sql_version: Optional[pulumi.Input[str]] = None,
-                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSqArgs']]]]] = None,
+                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSqsArgs']]]]] = None,
                  step_functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleStepFunctionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timestreams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleTimestreamArgs']]]]] = None,
@@ -793,7 +793,7 @@ class TopicRule(pulumi.CustomResource):
             enabled=True,
             sql="SELECT * FROM 'topic/test'",
             sql_version="2016-03-23",
-            sns=[aws.iot.TopicRuleSnArgs(
+            sns=[aws.iot.TopicRuleSnsArgs(
                 message_format="RAW",
                 role_arn=role.arn,
                 target_arn=mytopic.arn,
@@ -862,7 +862,7 @@ class TopicRule(pulumi.CustomResource):
             enabled=True,
             sql="SELECT * FROM 'topic/test'",
             sql_version="2016-03-23",
-            sns=[aws.iot.TopicRuleSnArgs(
+            sns=[aws.iot.TopicRuleSnsArgs(
                 message_format="RAW",
                 role_arn=role.arn,
                 target_arn=mytopic.arn,
@@ -913,7 +913,7 @@ class TopicRule(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleDynamodbArgs']]]]] = None,
                  dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleDynamodbv2Args']]]]] = None,
-                 elasticsearches: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleElasticsearchArgs']]]]] = None,
+                 elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleElasticsearchArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  error_action: Optional[pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']]] = None,
                  firehoses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleFirehoseArgs']]]]] = None,
@@ -925,11 +925,11 @@ class TopicRule(pulumi.CustomResource):
                  lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleLambdaArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  republishes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleRepublishArgs']]]]] = None,
-                 s3_buckets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
-                 sns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSnArgs']]]]] = None,
+                 s3: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
+                 sns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSnsArgs']]]]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  sql_version: Optional[pulumi.Input[str]] = None,
-                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSqArgs']]]]] = None,
+                 sqs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSqsArgs']]]]] = None,
                  step_functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleStepFunctionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timestreams: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleTimestreamArgs']]]]] = None,
@@ -948,7 +948,7 @@ class TopicRule(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["dynamodbs"] = dynamodbs
             __props__.__dict__["dynamodbv2s"] = dynamodbv2s
-            __props__.__dict__["elasticsearches"] = elasticsearches
+            __props__.__dict__["elasticsearch"] = elasticsearch
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
@@ -962,7 +962,7 @@ class TopicRule(pulumi.CustomResource):
             __props__.__dict__["lambdas"] = lambdas
             __props__.__dict__["name"] = name
             __props__.__dict__["republishes"] = republishes
-            __props__.__dict__["s3_buckets"] = s3_buckets
+            __props__.__dict__["s3"] = s3
             __props__.__dict__["sns"] = sns
             if sql is None and not opts.urn:
                 raise TypeError("Missing required property 'sql'")
@@ -993,7 +993,7 @@ class TopicRule(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             dynamodbs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleDynamodbArgs']]]]] = None,
             dynamodbv2s: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleDynamodbv2Args']]]]] = None,
-            elasticsearches: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleElasticsearchArgs']]]]] = None,
+            elasticsearch: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleElasticsearchArgs']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             error_action: Optional[pulumi.Input[pulumi.InputType['TopicRuleErrorActionArgs']]] = None,
             firehoses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleFirehoseArgs']]]]] = None,
@@ -1005,11 +1005,11 @@ class TopicRule(pulumi.CustomResource):
             lambdas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleLambdaArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             republishes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleRepublishArgs']]]]] = None,
-            s3_buckets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
-            sns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSnArgs']]]]] = None,
+            s3: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleS3Args']]]]] = None,
+            sns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSnsArgs']]]]] = None,
             sql: Optional[pulumi.Input[str]] = None,
             sql_version: Optional[pulumi.Input[str]] = None,
-            sqs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSqArgs']]]]] = None,
+            sqs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleSqsArgs']]]]] = None,
             step_functions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicRuleStepFunctionArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1042,7 +1042,7 @@ class TopicRule(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["dynamodbs"] = dynamodbs
         __props__.__dict__["dynamodbv2s"] = dynamodbv2s
-        __props__.__dict__["elasticsearches"] = elasticsearches
+        __props__.__dict__["elasticsearch"] = elasticsearch
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["error_action"] = error_action
         __props__.__dict__["firehoses"] = firehoses
@@ -1054,7 +1054,7 @@ class TopicRule(pulumi.CustomResource):
         __props__.__dict__["lambdas"] = lambdas
         __props__.__dict__["name"] = name
         __props__.__dict__["republishes"] = republishes
-        __props__.__dict__["s3_buckets"] = s3_buckets
+        __props__.__dict__["s3"] = s3
         __props__.__dict__["sns"] = sns
         __props__.__dict__["sql"] = sql
         __props__.__dict__["sql_version"] = sql_version
@@ -1108,8 +1108,8 @@ class TopicRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def elasticsearches(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleElasticsearch']]]:
-        return pulumi.get(self, "elasticsearches")
+    def elasticsearch(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleElasticsearch']]]:
+        return pulumi.get(self, "elasticsearch")
 
     @property
     @pulumi.getter
@@ -1176,13 +1176,13 @@ class TopicRule(pulumi.CustomResource):
         return pulumi.get(self, "republishes")
 
     @property
-    @pulumi.getter(name="s3Buckets")
-    def s3_buckets(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleS3']]]:
-        return pulumi.get(self, "s3_buckets")
+    @pulumi.getter
+    def s3(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleS3']]]:
+        return pulumi.get(self, "s3")
 
     @property
     @pulumi.getter
-    def sns(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleSn']]]:
+    def sns(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleSns']]]:
         return pulumi.get(self, "sns")
 
     @property
@@ -1203,7 +1203,7 @@ class TopicRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sqs(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleSq']]]:
+    def sqs(self) -> pulumi.Output[Optional[Sequence['outputs.TopicRuleSqs']]]:
         return pulumi.get(self, "sqs")
 
     @property

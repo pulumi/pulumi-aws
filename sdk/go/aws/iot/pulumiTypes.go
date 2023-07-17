@@ -8520,7 +8520,7 @@ func (o TopicRuleS3ArrayOutput) Index(i pulumi.IntInput) TopicRuleS3Output {
 	}).(TopicRuleS3Output)
 }
 
-type TopicRuleSn struct {
+type TopicRuleSns struct {
 	// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 	MessageFormat *string `pulumi:"messageFormat"`
 	// The ARN of the IAM role that grants access.
@@ -8529,18 +8529,18 @@ type TopicRuleSn struct {
 	TargetArn string `pulumi:"targetArn"`
 }
 
-// TopicRuleSnInput is an input type that accepts TopicRuleSnArgs and TopicRuleSnOutput values.
-// You can construct a concrete instance of `TopicRuleSnInput` via:
+// TopicRuleSnsInput is an input type that accepts TopicRuleSnsArgs and TopicRuleSnsOutput values.
+// You can construct a concrete instance of `TopicRuleSnsInput` via:
 //
-//	TopicRuleSnArgs{...}
-type TopicRuleSnInput interface {
+//	TopicRuleSnsArgs{...}
+type TopicRuleSnsInput interface {
 	pulumi.Input
 
-	ToTopicRuleSnOutput() TopicRuleSnOutput
-	ToTopicRuleSnOutputWithContext(context.Context) TopicRuleSnOutput
+	ToTopicRuleSnsOutput() TopicRuleSnsOutput
+	ToTopicRuleSnsOutputWithContext(context.Context) TopicRuleSnsOutput
 }
 
-type TopicRuleSnArgs struct {
+type TopicRuleSnsArgs struct {
 	// The message format of the message to publish. Accepted values are "JSON" and "RAW".
 	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
 	// The ARN of the IAM role that grants access.
@@ -8549,93 +8549,93 @@ type TopicRuleSnArgs struct {
 	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
-func (TopicRuleSnArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleSn)(nil)).Elem()
+func (TopicRuleSnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleSns)(nil)).Elem()
 }
 
-func (i TopicRuleSnArgs) ToTopicRuleSnOutput() TopicRuleSnOutput {
-	return i.ToTopicRuleSnOutputWithContext(context.Background())
+func (i TopicRuleSnsArgs) ToTopicRuleSnsOutput() TopicRuleSnsOutput {
+	return i.ToTopicRuleSnsOutputWithContext(context.Background())
 }
 
-func (i TopicRuleSnArgs) ToTopicRuleSnOutputWithContext(ctx context.Context) TopicRuleSnOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSnOutput)
+func (i TopicRuleSnsArgs) ToTopicRuleSnsOutputWithContext(ctx context.Context) TopicRuleSnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSnsOutput)
 }
 
-// TopicRuleSnArrayInput is an input type that accepts TopicRuleSnArray and TopicRuleSnArrayOutput values.
-// You can construct a concrete instance of `TopicRuleSnArrayInput` via:
+// TopicRuleSnsArrayInput is an input type that accepts TopicRuleSnsArray and TopicRuleSnsArrayOutput values.
+// You can construct a concrete instance of `TopicRuleSnsArrayInput` via:
 //
-//	TopicRuleSnArray{ TopicRuleSnArgs{...} }
-type TopicRuleSnArrayInput interface {
+//	TopicRuleSnsArray{ TopicRuleSnsArgs{...} }
+type TopicRuleSnsArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleSnArrayOutput() TopicRuleSnArrayOutput
-	ToTopicRuleSnArrayOutputWithContext(context.Context) TopicRuleSnArrayOutput
+	ToTopicRuleSnsArrayOutput() TopicRuleSnsArrayOutput
+	ToTopicRuleSnsArrayOutputWithContext(context.Context) TopicRuleSnsArrayOutput
 }
 
-type TopicRuleSnArray []TopicRuleSnInput
+type TopicRuleSnsArray []TopicRuleSnsInput
 
-func (TopicRuleSnArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TopicRuleSn)(nil)).Elem()
+func (TopicRuleSnsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleSns)(nil)).Elem()
 }
 
-func (i TopicRuleSnArray) ToTopicRuleSnArrayOutput() TopicRuleSnArrayOutput {
-	return i.ToTopicRuleSnArrayOutputWithContext(context.Background())
+func (i TopicRuleSnsArray) ToTopicRuleSnsArrayOutput() TopicRuleSnsArrayOutput {
+	return i.ToTopicRuleSnsArrayOutputWithContext(context.Background())
 }
 
-func (i TopicRuleSnArray) ToTopicRuleSnArrayOutputWithContext(ctx context.Context) TopicRuleSnArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSnArrayOutput)
+func (i TopicRuleSnsArray) ToTopicRuleSnsArrayOutputWithContext(ctx context.Context) TopicRuleSnsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSnsArrayOutput)
 }
 
-type TopicRuleSnOutput struct{ *pulumi.OutputState }
+type TopicRuleSnsOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleSnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleSn)(nil)).Elem()
+func (TopicRuleSnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleSns)(nil)).Elem()
 }
 
-func (o TopicRuleSnOutput) ToTopicRuleSnOutput() TopicRuleSnOutput {
+func (o TopicRuleSnsOutput) ToTopicRuleSnsOutput() TopicRuleSnsOutput {
 	return o
 }
 
-func (o TopicRuleSnOutput) ToTopicRuleSnOutputWithContext(ctx context.Context) TopicRuleSnOutput {
+func (o TopicRuleSnsOutput) ToTopicRuleSnsOutputWithContext(ctx context.Context) TopicRuleSnsOutput {
 	return o
 }
 
 // The message format of the message to publish. Accepted values are "JSON" and "RAW".
-func (o TopicRuleSnOutput) MessageFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TopicRuleSn) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
+func (o TopicRuleSnsOutput) MessageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleSns) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the IAM role that grants access.
-func (o TopicRuleSnOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSn) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleSnsOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleSns) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // The ARN of the SNS topic.
-func (o TopicRuleSnOutput) TargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSn) string { return v.TargetArn }).(pulumi.StringOutput)
+func (o TopicRuleSnsOutput) TargetArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleSns) string { return v.TargetArn }).(pulumi.StringOutput)
 }
 
-type TopicRuleSnArrayOutput struct{ *pulumi.OutputState }
+type TopicRuleSnsArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleSnArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TopicRuleSn)(nil)).Elem()
+func (TopicRuleSnsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleSns)(nil)).Elem()
 }
 
-func (o TopicRuleSnArrayOutput) ToTopicRuleSnArrayOutput() TopicRuleSnArrayOutput {
+func (o TopicRuleSnsArrayOutput) ToTopicRuleSnsArrayOutput() TopicRuleSnsArrayOutput {
 	return o
 }
 
-func (o TopicRuleSnArrayOutput) ToTopicRuleSnArrayOutputWithContext(ctx context.Context) TopicRuleSnArrayOutput {
+func (o TopicRuleSnsArrayOutput) ToTopicRuleSnsArrayOutputWithContext(ctx context.Context) TopicRuleSnsArrayOutput {
 	return o
 }
 
-func (o TopicRuleSnArrayOutput) Index(i pulumi.IntInput) TopicRuleSnOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleSn {
-		return vs[0].([]TopicRuleSn)[vs[1].(int)]
-	}).(TopicRuleSnOutput)
+func (o TopicRuleSnsArrayOutput) Index(i pulumi.IntInput) TopicRuleSnsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleSns {
+		return vs[0].([]TopicRuleSns)[vs[1].(int)]
+	}).(TopicRuleSnsOutput)
 }
 
-type TopicRuleSq struct {
+type TopicRuleSqs struct {
 	// The URL of the Amazon SQS queue.
 	QueueUrl string `pulumi:"queueUrl"`
 	// The ARN of the IAM role that grants access.
@@ -8644,18 +8644,18 @@ type TopicRuleSq struct {
 	UseBase64 bool `pulumi:"useBase64"`
 }
 
-// TopicRuleSqInput is an input type that accepts TopicRuleSqArgs and TopicRuleSqOutput values.
-// You can construct a concrete instance of `TopicRuleSqInput` via:
+// TopicRuleSqsInput is an input type that accepts TopicRuleSqsArgs and TopicRuleSqsOutput values.
+// You can construct a concrete instance of `TopicRuleSqsInput` via:
 //
-//	TopicRuleSqArgs{...}
-type TopicRuleSqInput interface {
+//	TopicRuleSqsArgs{...}
+type TopicRuleSqsInput interface {
 	pulumi.Input
 
-	ToTopicRuleSqOutput() TopicRuleSqOutput
-	ToTopicRuleSqOutputWithContext(context.Context) TopicRuleSqOutput
+	ToTopicRuleSqsOutput() TopicRuleSqsOutput
+	ToTopicRuleSqsOutputWithContext(context.Context) TopicRuleSqsOutput
 }
 
-type TopicRuleSqArgs struct {
+type TopicRuleSqsArgs struct {
 	// The URL of the Amazon SQS queue.
 	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
 	// The ARN of the IAM role that grants access.
@@ -8664,90 +8664,90 @@ type TopicRuleSqArgs struct {
 	UseBase64 pulumi.BoolInput `pulumi:"useBase64"`
 }
 
-func (TopicRuleSqArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleSq)(nil)).Elem()
+func (TopicRuleSqsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleSqs)(nil)).Elem()
 }
 
-func (i TopicRuleSqArgs) ToTopicRuleSqOutput() TopicRuleSqOutput {
-	return i.ToTopicRuleSqOutputWithContext(context.Background())
+func (i TopicRuleSqsArgs) ToTopicRuleSqsOutput() TopicRuleSqsOutput {
+	return i.ToTopicRuleSqsOutputWithContext(context.Background())
 }
 
-func (i TopicRuleSqArgs) ToTopicRuleSqOutputWithContext(ctx context.Context) TopicRuleSqOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSqOutput)
+func (i TopicRuleSqsArgs) ToTopicRuleSqsOutputWithContext(ctx context.Context) TopicRuleSqsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSqsOutput)
 }
 
-// TopicRuleSqArrayInput is an input type that accepts TopicRuleSqArray and TopicRuleSqArrayOutput values.
-// You can construct a concrete instance of `TopicRuleSqArrayInput` via:
+// TopicRuleSqsArrayInput is an input type that accepts TopicRuleSqsArray and TopicRuleSqsArrayOutput values.
+// You can construct a concrete instance of `TopicRuleSqsArrayInput` via:
 //
-//	TopicRuleSqArray{ TopicRuleSqArgs{...} }
-type TopicRuleSqArrayInput interface {
+//	TopicRuleSqsArray{ TopicRuleSqsArgs{...} }
+type TopicRuleSqsArrayInput interface {
 	pulumi.Input
 
-	ToTopicRuleSqArrayOutput() TopicRuleSqArrayOutput
-	ToTopicRuleSqArrayOutputWithContext(context.Context) TopicRuleSqArrayOutput
+	ToTopicRuleSqsArrayOutput() TopicRuleSqsArrayOutput
+	ToTopicRuleSqsArrayOutputWithContext(context.Context) TopicRuleSqsArrayOutput
 }
 
-type TopicRuleSqArray []TopicRuleSqInput
+type TopicRuleSqsArray []TopicRuleSqsInput
 
-func (TopicRuleSqArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TopicRuleSq)(nil)).Elem()
+func (TopicRuleSqsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleSqs)(nil)).Elem()
 }
 
-func (i TopicRuleSqArray) ToTopicRuleSqArrayOutput() TopicRuleSqArrayOutput {
-	return i.ToTopicRuleSqArrayOutputWithContext(context.Background())
+func (i TopicRuleSqsArray) ToTopicRuleSqsArrayOutput() TopicRuleSqsArrayOutput {
+	return i.ToTopicRuleSqsArrayOutputWithContext(context.Background())
 }
 
-func (i TopicRuleSqArray) ToTopicRuleSqArrayOutputWithContext(ctx context.Context) TopicRuleSqArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSqArrayOutput)
+func (i TopicRuleSqsArray) ToTopicRuleSqsArrayOutputWithContext(ctx context.Context) TopicRuleSqsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSqsArrayOutput)
 }
 
-type TopicRuleSqOutput struct{ *pulumi.OutputState }
+type TopicRuleSqsOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleSqOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicRuleSq)(nil)).Elem()
+func (TopicRuleSqsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleSqs)(nil)).Elem()
 }
 
-func (o TopicRuleSqOutput) ToTopicRuleSqOutput() TopicRuleSqOutput {
+func (o TopicRuleSqsOutput) ToTopicRuleSqsOutput() TopicRuleSqsOutput {
 	return o
 }
 
-func (o TopicRuleSqOutput) ToTopicRuleSqOutputWithContext(ctx context.Context) TopicRuleSqOutput {
+func (o TopicRuleSqsOutput) ToTopicRuleSqsOutputWithContext(ctx context.Context) TopicRuleSqsOutput {
 	return o
 }
 
 // The URL of the Amazon SQS queue.
-func (o TopicRuleSqOutput) QueueUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSq) string { return v.QueueUrl }).(pulumi.StringOutput)
+func (o TopicRuleSqsOutput) QueueUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleSqs) string { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
 // The ARN of the IAM role that grants access.
-func (o TopicRuleSqOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicRuleSq) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o TopicRuleSqsOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleSqs) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 // Specifies whether to use Base64 encoding.
-func (o TopicRuleSqOutput) UseBase64() pulumi.BoolOutput {
-	return o.ApplyT(func(v TopicRuleSq) bool { return v.UseBase64 }).(pulumi.BoolOutput)
+func (o TopicRuleSqsOutput) UseBase64() pulumi.BoolOutput {
+	return o.ApplyT(func(v TopicRuleSqs) bool { return v.UseBase64 }).(pulumi.BoolOutput)
 }
 
-type TopicRuleSqArrayOutput struct{ *pulumi.OutputState }
+type TopicRuleSqsArrayOutput struct{ *pulumi.OutputState }
 
-func (TopicRuleSqArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TopicRuleSq)(nil)).Elem()
+func (TopicRuleSqsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleSqs)(nil)).Elem()
 }
 
-func (o TopicRuleSqArrayOutput) ToTopicRuleSqArrayOutput() TopicRuleSqArrayOutput {
+func (o TopicRuleSqsArrayOutput) ToTopicRuleSqsArrayOutput() TopicRuleSqsArrayOutput {
 	return o
 }
 
-func (o TopicRuleSqArrayOutput) ToTopicRuleSqArrayOutputWithContext(ctx context.Context) TopicRuleSqArrayOutput {
+func (o TopicRuleSqsArrayOutput) ToTopicRuleSqsArrayOutputWithContext(ctx context.Context) TopicRuleSqsArrayOutput {
 	return o
 }
 
-func (o TopicRuleSqArrayOutput) Index(i pulumi.IntInput) TopicRuleSqOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleSq {
-		return vs[0].([]TopicRuleSq)[vs[1].(int)]
-	}).(TopicRuleSqOutput)
+func (o TopicRuleSqsArrayOutput) Index(i pulumi.IntInput) TopicRuleSqsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleSqs {
+		return vs[0].([]TopicRuleSqs)[vs[1].(int)]
+	}).(TopicRuleSqsOutput)
 }
 
 type TopicRuleStepFunction struct {
@@ -9369,10 +9369,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleRepublishArrayInput)(nil)).Elem(), TopicRuleRepublishArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleS3Input)(nil)).Elem(), TopicRuleS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleS3ArrayInput)(nil)).Elem(), TopicRuleS3Array{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSnInput)(nil)).Elem(), TopicRuleSnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSnArrayInput)(nil)).Elem(), TopicRuleSnArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSqInput)(nil)).Elem(), TopicRuleSqArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSqArrayInput)(nil)).Elem(), TopicRuleSqArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSnsInput)(nil)).Elem(), TopicRuleSnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSnsArrayInput)(nil)).Elem(), TopicRuleSnsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSqsInput)(nil)).Elem(), TopicRuleSqsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSqsArrayInput)(nil)).Elem(), TopicRuleSqsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleStepFunctionInput)(nil)).Elem(), TopicRuleStepFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleStepFunctionArrayInput)(nil)).Elem(), TopicRuleStepFunctionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamInput)(nil)).Elem(), TopicRuleTimestreamArgs{})
@@ -9489,10 +9489,10 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleRepublishArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleS3Output{})
 	pulumi.RegisterOutputType(TopicRuleS3ArrayOutput{})
-	pulumi.RegisterOutputType(TopicRuleSnOutput{})
-	pulumi.RegisterOutputType(TopicRuleSnArrayOutput{})
-	pulumi.RegisterOutputType(TopicRuleSqOutput{})
-	pulumi.RegisterOutputType(TopicRuleSqArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleSnsOutput{})
+	pulumi.RegisterOutputType(TopicRuleSnsArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleSqsOutput{})
+	pulumi.RegisterOutputType(TopicRuleSqsArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleStepFunctionOutput{})
 	pulumi.RegisterOutputType(TopicRuleStepFunctionArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamOutput{})
