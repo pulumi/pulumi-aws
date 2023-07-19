@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetDelegatedServices(ctx *pulumi.Context, args *GetDelegatedServicesArgs, opts ...pulumi.InvokeOption) (*GetDelegatedServicesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDelegatedServicesResult
 	err := ctx.Invoke("aws:organizations/getDelegatedServices:getDelegatedServices", args, &rv, opts...)
 	if err != nil {

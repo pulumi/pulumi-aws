@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ import (
 //
 // ```
 func GetComponents(ctx *pulumi.Context, args *GetComponentsArgs, opts ...pulumi.InvokeOption) (*GetComponentsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetComponentsResult
 	err := ctx.Invoke("aws:imagebuilder/getComponents:getComponents", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -183,6 +184,7 @@ func NewScheduledAction(ctx *pulumi.Context,
 	if args.TargetAction == nil {
 		return nil, errors.New("invalid value for required argument 'TargetAction'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScheduledAction
 	err := ctx.RegisterResource("aws:redshift/scheduledAction:ScheduledAction", name, args, &resource, opts...)
 	if err != nil {

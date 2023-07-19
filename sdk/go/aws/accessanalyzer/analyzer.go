@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -113,6 +114,7 @@ func NewAnalyzer(ctx *pulumi.Context,
 	if args.AnalyzerName == nil {
 		return nil, errors.New("invalid value for required argument 'AnalyzerName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Analyzer
 	err := ctx.RegisterResource("aws:accessanalyzer/analyzer:Analyzer", name, args, &resource, opts...)
 	if err != nil {

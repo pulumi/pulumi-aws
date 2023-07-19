@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ import (
 //
 // ```
 func LookupAccelerator(ctx *pulumi.Context, args *LookupAcceleratorArgs, opts ...pulumi.InvokeOption) (*LookupAcceleratorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAcceleratorResult
 	err := ctx.Invoke("aws:globalaccelerator/getAccelerator:getAccelerator", args, &rv, opts...)
 	if err != nil {

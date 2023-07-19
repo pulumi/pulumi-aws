@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -88,6 +89,7 @@ func NewInvitationAccepter(ctx *pulumi.Context,
 	if args.AdministratorAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AdministratorAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InvitationAccepter
 	err := ctx.RegisterResource("aws:macie2/invitationAccepter:InvitationAccepter", name, args, &resource, opts...)
 	if err != nil {

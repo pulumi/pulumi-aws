@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -109,6 +110,7 @@ func NewMultiplexProgram(ctx *pulumi.Context,
 	if args.ProgramName == nil {
 		return nil, errors.New("invalid value for required argument 'ProgramName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MultiplexProgram
 	err := ctx.RegisterResource("aws:medialive/multiplexProgram:MultiplexProgram", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -112,6 +113,7 @@ func NewBucketCorsConfigurationV2(ctx *pulumi.Context,
 	if args.CorsRules == nil {
 		return nil, errors.New("invalid value for required argument 'CorsRules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketCorsConfigurationV2
 	err := ctx.RegisterResource("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2", name, args, &resource, opts...)
 	if err != nil {

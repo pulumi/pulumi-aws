@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupCostCategory(ctx *pulumi.Context, args *LookupCostCategoryArgs, opts ...pulumi.InvokeOption) (*LookupCostCategoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCostCategoryResult
 	err := ctx.Invoke("aws:costexplorer/getCostCategory:getCostCategory", args, &rv, opts...)
 	if err != nil {

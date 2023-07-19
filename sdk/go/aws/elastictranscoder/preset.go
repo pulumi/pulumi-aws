@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -137,6 +138,7 @@ func NewPreset(ctx *pulumi.Context,
 	if args.Container == nil {
 		return nil, errors.New("invalid value for required argument 'Container'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Preset
 	err := ctx.RegisterResource("aws:elastictranscoder/preset:Preset", name, args, &resource, opts...)
 	if err != nil {

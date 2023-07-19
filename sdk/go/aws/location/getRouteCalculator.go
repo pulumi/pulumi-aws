@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetRouteCalculator(ctx *pulumi.Context, args *GetRouteCalculatorArgs, opts ...pulumi.InvokeOption) (*GetRouteCalculatorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteCalculatorResult
 	err := ctx.Invoke("aws:location/getRouteCalculator:getRouteCalculator", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,6 +80,7 @@ func NewLedger(ctx *pulumi.Context,
 	if args.PermissionsMode == nil {
 		return nil, errors.New("invalid value for required argument 'PermissionsMode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Ledger
 	err := ctx.RegisterResource("aws:qldb/ledger:Ledger", name, args, &resource, opts...)
 	if err != nil {

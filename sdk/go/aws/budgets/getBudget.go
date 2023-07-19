@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupBudget(ctx *pulumi.Context, args *LookupBudgetArgs, opts ...pulumi.InvokeOption) (*LookupBudgetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBudgetResult
 	err := ctx.Invoke("aws:budgets/getBudget:getBudget", args, &rv, opts...)
 	if err != nil {

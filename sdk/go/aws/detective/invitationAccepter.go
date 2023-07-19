@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,6 +81,7 @@ func NewInvitationAccepter(ctx *pulumi.Context,
 	if args.GraphArn == nil {
 		return nil, errors.New("invalid value for required argument 'GraphArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InvitationAccepter
 	err := ctx.RegisterResource("aws:detective/invitationAccepter:InvitationAccepter", name, args, &resource, opts...)
 	if err != nil {

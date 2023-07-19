@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ import (
 //
 // ```
 func GetSdk(ctx *pulumi.Context, args *GetSdkArgs, opts ...pulumi.InvokeOption) (*GetSdkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSdkResult
 	err := ctx.Invoke("aws:apigateway/getSdk:getSdk", args, &rv, opts...)
 	if err != nil {

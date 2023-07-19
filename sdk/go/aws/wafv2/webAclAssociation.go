@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -155,6 +156,7 @@ func NewWebAclAssociation(ctx *pulumi.Context,
 	if args.WebAclArn == nil {
 		return nil, errors.New("invalid value for required argument 'WebAclArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebAclAssociation
 	err := ctx.RegisterResource("aws:wafv2/webAclAssociation:WebAclAssociation", name, args, &resource, opts...)
 	if err != nil {

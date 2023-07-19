@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -98,6 +99,7 @@ func NewDisk(ctx *pulumi.Context,
 	if args.SizeInGb == nil {
 		return nil, errors.New("invalid value for required argument 'SizeInGb'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Disk
 	err := ctx.RegisterResource("aws:lightsail/disk:Disk", name, args, &resource, opts...)
 	if err != nil {

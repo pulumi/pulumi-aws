@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewSizeConstraintSet(ctx *pulumi.Context,
 		args = &SizeConstraintSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SizeConstraintSet
 	err := ctx.RegisterResource("aws:wafregional/sizeConstraintSet:SizeConstraintSet", name, args, &resource, opts...)
 	if err != nil {

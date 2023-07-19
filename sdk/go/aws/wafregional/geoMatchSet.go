@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,6 +73,7 @@ func NewGeoMatchSet(ctx *pulumi.Context,
 		args = &GeoMatchSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GeoMatchSet
 	err := ctx.RegisterResource("aws:wafregional/geoMatchSet:GeoMatchSet", name, args, &resource, opts...)
 	if err != nil {

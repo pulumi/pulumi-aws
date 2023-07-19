@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -274,6 +275,7 @@ func NewCluster(ctx *pulumi.Context,
 	if args.VpcConfig == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cluster
 	err := ctx.RegisterResource("aws:eks/cluster:Cluster", name, args, &resource, opts...)
 	if err != nil {

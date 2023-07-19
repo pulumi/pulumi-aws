@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -76,6 +77,7 @@ func NewPullThroughCacheRule(ctx *pulumi.Context,
 	if args.UpstreamRegistryUrl == nil {
 		return nil, errors.New("invalid value for required argument 'UpstreamRegistryUrl'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PullThroughCacheRule
 	err := ctx.RegisterResource("aws:ecr/pullThroughCacheRule:PullThroughCacheRule", name, args, &resource, opts...)
 	if err != nil {

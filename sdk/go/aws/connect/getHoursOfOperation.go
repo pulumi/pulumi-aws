@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,6 +69,7 @@ import (
 //
 // ```
 func LookupHoursOfOperation(ctx *pulumi.Context, args *LookupHoursOfOperationArgs, opts ...pulumi.InvokeOption) (*LookupHoursOfOperationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHoursOfOperationResult
 	err := ctx.Invoke("aws:connect/getHoursOfOperation:getHoursOfOperation", args, &rv, opts...)
 	if err != nil {

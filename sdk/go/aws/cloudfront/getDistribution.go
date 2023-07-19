@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupDistribution(ctx *pulumi.Context, args *LookupDistributionArgs, opts ...pulumi.InvokeOption) (*LookupDistributionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDistributionResult
 	err := ctx.Invoke("aws:cloudfront/getDistribution:getDistribution", args, &rv, opts...)
 	if err != nil {

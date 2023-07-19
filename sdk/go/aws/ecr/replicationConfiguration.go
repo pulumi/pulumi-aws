@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -184,6 +185,7 @@ func NewReplicationConfiguration(ctx *pulumi.Context,
 		args = &ReplicationConfigurationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationConfiguration
 	err := ctx.RegisterResource("aws:ecr/replicationConfiguration:ReplicationConfiguration", name, args, &resource, opts...)
 	if err != nil {

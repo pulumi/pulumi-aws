@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -106,6 +107,7 @@ func NewAnalysis(ctx *pulumi.Context,
 	if args.AnalysisId == nil {
 		return nil, errors.New("invalid value for required argument 'AnalysisId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Analysis
 	err := ctx.RegisterResource("aws:quicksight/analysis:Analysis", name, args, &resource, opts...)
 	if err != nil {

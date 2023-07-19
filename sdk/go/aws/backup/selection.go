@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -272,6 +273,7 @@ func NewSelection(ctx *pulumi.Context,
 	if args.PlanId == nil {
 		return nil, errors.New("invalid value for required argument 'PlanId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Selection
 	err := ctx.RegisterResource("aws:backup/selection:Selection", name, args, &resource, opts...)
 	if err != nil {

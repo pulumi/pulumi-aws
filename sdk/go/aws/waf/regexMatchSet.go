@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -83,6 +84,7 @@ func NewRegexMatchSet(ctx *pulumi.Context,
 		args = &RegexMatchSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegexMatchSet
 	err := ctx.RegisterResource("aws:waf/regexMatchSet:RegexMatchSet", name, args, &resource, opts...)
 	if err != nil {

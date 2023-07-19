@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -222,6 +223,7 @@ func NewConfigurationSetEventDestination(ctx *pulumi.Context,
 	if args.EventDestinationName == nil {
 		return nil, errors.New("invalid value for required argument 'EventDestinationName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfigurationSetEventDestination
 	err := ctx.RegisterResource("aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination", name, args, &resource, opts...)
 	if err != nil {

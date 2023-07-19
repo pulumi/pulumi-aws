@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupWebAcl(ctx *pulumi.Context, args *LookupWebAclArgs, opts ...pulumi.InvokeOption) (*LookupWebAclResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWebAclResult
 	err := ctx.Invoke("aws:waf/getWebAcl:getWebAcl", args, &rv, opts...)
 	if err != nil {

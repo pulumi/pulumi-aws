@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -123,6 +124,7 @@ func NewProtectionHealthCheckAssociation(ctx *pulumi.Context,
 	if args.ShieldProtectionId == nil {
 		return nil, errors.New("invalid value for required argument 'ShieldProtectionId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProtectionHealthCheckAssociation
 	err := ctx.RegisterResource("aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation", name, args, &resource, opts...)
 	if err != nil {

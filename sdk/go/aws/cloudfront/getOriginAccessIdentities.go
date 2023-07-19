@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,6 +68,7 @@ import (
 //
 // ```
 func GetOriginAccessIdentities(ctx *pulumi.Context, args *GetOriginAccessIdentitiesArgs, opts ...pulumi.InvokeOption) (*GetOriginAccessIdentitiesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOriginAccessIdentitiesResult
 	err := ctx.Invoke("aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities", args, &rv, opts...)
 	if err != nil {

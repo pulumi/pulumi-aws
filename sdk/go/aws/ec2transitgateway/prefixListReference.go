@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ func NewPrefixListReference(ctx *pulumi.Context,
 	if args.TransitGatewayRouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayRouteTableId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PrefixListReference
 	err := ctx.RegisterResource("aws:ec2transitgateway/prefixListReference:PrefixListReference", name, args, &resource, opts...)
 	if err != nil {

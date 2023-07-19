@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -116,6 +117,7 @@ func NewHaproxyLayer(ctx *pulumi.Context,
 	if args.StatsPassword == nil {
 		return nil, errors.New("invalid value for required argument 'StatsPassword'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HaproxyLayer
 	err := ctx.RegisterResource("aws:opsworks/haproxyLayer:HaproxyLayer", name, args, &resource, opts...)
 	if err != nil {

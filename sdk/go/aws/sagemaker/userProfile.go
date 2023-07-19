@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -86,6 +87,7 @@ func NewUserProfile(ctx *pulumi.Context,
 	if args.UserProfileName == nil {
 		return nil, errors.New("invalid value for required argument 'UserProfileName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserProfile
 	err := ctx.RegisterResource("aws:sagemaker/userProfile:UserProfile", name, args, &resource, opts...)
 	if err != nil {

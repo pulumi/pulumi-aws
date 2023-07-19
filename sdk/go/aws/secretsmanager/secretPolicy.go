@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -106,6 +107,7 @@ func NewSecretPolicy(ctx *pulumi.Context,
 	if args.SecretArn == nil {
 		return nil, errors.New("invalid value for required argument 'SecretArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecretPolicy
 	err := ctx.RegisterResource("aws:secretsmanager/secretPolicy:SecretPolicy", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,6 +80,7 @@ func NewConnectAttachment(ctx *pulumi.Context,
 	if args.TransportAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransportAttachmentId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectAttachment
 	err := ctx.RegisterResource("aws:networkmanager/connectAttachment:ConnectAttachment", name, args, &resource, opts...)
 	if err != nil {

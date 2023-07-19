@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -194,6 +195,7 @@ func NewUserPool(ctx *pulumi.Context,
 		args = &UserPoolArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserPool
 	err := ctx.RegisterResource("aws:cognito/userPool:UserPool", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,6 +76,7 @@ func NewTrafficMirrorFilter(ctx *pulumi.Context,
 		args = &TrafficMirrorFilterArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficMirrorFilter
 	err := ctx.RegisterResource("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter", name, args, &resource, opts...)
 	if err != nil {

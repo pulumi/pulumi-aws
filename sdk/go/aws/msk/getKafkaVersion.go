@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,6 +49,7 @@ import (
 //
 // ```
 func GetKafkaVersion(ctx *pulumi.Context, args *GetKafkaVersionArgs, opts ...pulumi.InvokeOption) (*GetKafkaVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetKafkaVersionResult
 	err := ctx.Invoke("aws:msk/getKafkaVersion:getKafkaVersion", args, &rv, opts...)
 	if err != nil {

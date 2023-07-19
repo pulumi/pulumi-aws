@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type HostVpcConfiguration struct {
 	// ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -84,6 +85,7 @@ func NewFrameworkShare(ctx *pulumi.Context,
 	if args.FrameworkId == nil {
 		return nil, errors.New("invalid value for required argument 'FrameworkId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FrameworkShare
 	err := ctx.RegisterResource("aws:auditmanager/frameworkShare:FrameworkShare", name, args, &resource, opts...)
 	if err != nil {

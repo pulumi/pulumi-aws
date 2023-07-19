@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -165,6 +166,7 @@ func NewClassifier(ctx *pulumi.Context,
 		args = &ClassifierArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Classifier
 	err := ctx.RegisterResource("aws:glue/classifier:Classifier", name, args, &resource, opts...)
 	if err != nil {

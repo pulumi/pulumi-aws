@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,6 +15,7 @@ import (
 //
 // ## Example Usage
 func GetPoliciesForTarget(ctx *pulumi.Context, args *GetPoliciesForTargetArgs, opts ...pulumi.InvokeOption) (*GetPoliciesForTargetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPoliciesForTargetResult
 	err := ctx.Invoke("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args, &rv, opts...)
 	if err != nil {

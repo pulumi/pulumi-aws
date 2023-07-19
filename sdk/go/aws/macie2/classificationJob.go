@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -111,6 +112,7 @@ func NewClassificationJob(ctx *pulumi.Context,
 	if args.S3JobDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'S3JobDefinition'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClassificationJob
 	err := ctx.RegisterResource("aws:macie2/classificationJob:ClassificationJob", name, args, &resource, opts...)
 	if err != nil {

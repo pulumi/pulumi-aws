@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -376,6 +377,7 @@ func NewRole(ctx *pulumi.Context,
 	if args.AssumeRolePolicy == nil {
 		return nil, errors.New("invalid value for required argument 'AssumeRolePolicy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Role
 	err := ctx.RegisterResource("aws:iam/role:Role", name, args, &resource, opts...)
 	if err != nil {

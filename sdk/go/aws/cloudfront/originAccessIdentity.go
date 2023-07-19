@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -180,6 +181,7 @@ func NewOriginAccessIdentity(ctx *pulumi.Context,
 		args = &OriginAccessIdentityArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OriginAccessIdentity
 	err := ctx.RegisterResource("aws:cloudfront/originAccessIdentity:OriginAccessIdentity", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -125,6 +126,7 @@ func NewReplicationConfiguration(ctx *pulumi.Context,
 	if args.SourceFileSystemId == nil {
 		return nil, errors.New("invalid value for required argument 'SourceFileSystemId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationConfiguration
 	err := ctx.RegisterResource("aws:efs/replicationConfiguration:ReplicationConfiguration", name, args, &resource, opts...)
 	if err != nil {

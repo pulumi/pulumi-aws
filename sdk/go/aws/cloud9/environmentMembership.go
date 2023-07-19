@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -90,6 +91,7 @@ func NewEnvironmentMembership(ctx *pulumi.Context,
 	if args.UserArn == nil {
 		return nil, errors.New("invalid value for required argument 'UserArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EnvironmentMembership
 	err := ctx.RegisterResource("aws:cloud9/environmentMembership:EnvironmentMembership", name, args, &resource, opts...)
 	if err != nil {

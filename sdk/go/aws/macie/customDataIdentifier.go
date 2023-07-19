@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -95,6 +96,7 @@ func NewCustomDataIdentifier(ctx *pulumi.Context,
 		args = &CustomDataIdentifierArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomDataIdentifier
 	err := ctx.RegisterResource("aws:macie/customDataIdentifier:CustomDataIdentifier", name, args, &resource, opts...)
 	if err != nil {

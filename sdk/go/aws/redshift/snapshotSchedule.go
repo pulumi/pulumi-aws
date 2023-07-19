@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -81,6 +82,7 @@ func NewSnapshotSchedule(ctx *pulumi.Context,
 	if args.Definitions == nil {
 		return nil, errors.New("invalid value for required argument 'Definitions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SnapshotSchedule
 	err := ctx.RegisterResource("aws:redshift/snapshotSchedule:SnapshotSchedule", name, args, &resource, opts...)
 	if err != nil {

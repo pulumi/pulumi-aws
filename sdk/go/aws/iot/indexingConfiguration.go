@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -76,6 +77,7 @@ func NewIndexingConfiguration(ctx *pulumi.Context,
 		args = &IndexingConfigurationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource IndexingConfiguration
 	err := ctx.RegisterResource("aws:iot/indexingConfiguration:IndexingConfiguration", name, args, &resource, opts...)
 	if err != nil {

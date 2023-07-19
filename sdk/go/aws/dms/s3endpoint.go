@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -264,6 +265,7 @@ func NewS3Endpoint(ctx *pulumi.Context,
 	if args.ServiceAccessRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceAccessRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource S3Endpoint
 	err := ctx.RegisterResource("aws:dms/s3Endpoint:S3Endpoint", name, args, &resource, opts...)
 	if err != nil {

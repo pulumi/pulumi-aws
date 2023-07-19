@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ import (
 //
 // ```
 func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.InvokeOption) (*GetControlsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetControlsResult
 	err := ctx.Invoke("aws:controltower/getControls:getControls", args, &rv, opts...)
 	if err != nil {

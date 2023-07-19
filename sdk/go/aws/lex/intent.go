@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -95,6 +96,7 @@ func NewIntent(ctx *pulumi.Context,
 	if args.FulfillmentActivity == nil {
 		return nil, errors.New("invalid value for required argument 'FulfillmentActivity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Intent
 	err := ctx.RegisterResource("aws:lex/intent:Intent", name, args, &resource, opts...)
 	if err != nil {

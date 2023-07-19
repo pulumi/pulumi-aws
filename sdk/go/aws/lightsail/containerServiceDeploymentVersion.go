@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -108,6 +109,7 @@ func NewContainerServiceDeploymentVersion(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContainerServiceDeploymentVersion
 	err := ctx.RegisterResource("aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion", name, args, &resource, opts...)
 	if err != nil {

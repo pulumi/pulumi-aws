@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -110,6 +111,7 @@ func NewProxyDefaultTargetGroup(ctx *pulumi.Context,
 	if args.DbProxyName == nil {
 		return nil, errors.New("invalid value for required argument 'DbProxyName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProxyDefaultTargetGroup
 	err := ctx.RegisterResource("aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup", name, args, &resource, opts...)
 	if err != nil {

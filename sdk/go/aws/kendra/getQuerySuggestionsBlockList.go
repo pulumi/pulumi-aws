@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupQuerySuggestionsBlockList(ctx *pulumi.Context, args *LookupQuerySuggestionsBlockListArgs, opts ...pulumi.InvokeOption) (*LookupQuerySuggestionsBlockListResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQuerySuggestionsBlockListResult
 	err := ctx.Invoke("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", args, &rv, opts...)
 	if err != nil {

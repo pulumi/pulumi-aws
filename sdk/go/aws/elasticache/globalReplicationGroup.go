@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -194,6 +195,7 @@ func NewGlobalReplicationGroup(ctx *pulumi.Context,
 	if args.PrimaryReplicationGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'PrimaryReplicationGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalReplicationGroup
 	err := ctx.RegisterResource("aws:elasticache/globalReplicationGroup:GlobalReplicationGroup", name, args, &resource, opts...)
 	if err != nil {

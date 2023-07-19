@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,6 +69,7 @@ func NewSdkvoiceGlobalSettings(ctx *pulumi.Context,
 	if args.VoiceConnector == nil {
 		return nil, errors.New("invalid value for required argument 'VoiceConnector'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SdkvoiceGlobalSettings
 	err := ctx.RegisterResource("aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings", name, args, &resource, opts...)
 	if err != nil {

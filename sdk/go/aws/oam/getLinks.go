@@ -4,6 +4,7 @@
 package oam
 
 import (
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ import (
 //
 // ```
 func GetLinks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLinksResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLinksResult
 	err := ctx.Invoke("aws:oam/getLinks:getLinks", nil, &rv, opts...)
 	if err != nil {

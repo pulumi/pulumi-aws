@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -109,6 +110,7 @@ func NewSlotType(ctx *pulumi.Context,
 	if args.EnumerationValues == nil {
 		return nil, errors.New("invalid value for required argument 'EnumerationValues'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SlotType
 	err := ctx.RegisterResource("aws:lex/slotType:SlotType", name, args, &resource, opts...)
 	if err != nil {

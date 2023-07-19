@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -205,6 +206,7 @@ func NewInvocation(ctx *pulumi.Context,
 	if args.Input == nil {
 		return nil, errors.New("invalid value for required argument 'Input'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Invocation
 	err := ctx.RegisterResource("aws:lambda/invocation:Invocation", name, args, &resource, opts...)
 	if err != nil {

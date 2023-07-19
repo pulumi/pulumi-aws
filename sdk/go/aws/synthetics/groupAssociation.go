@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,6 +76,7 @@ func NewGroupAssociation(ctx *pulumi.Context,
 	if args.GroupName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupAssociation
 	err := ctx.RegisterResource("aws:synthetics/groupAssociation:GroupAssociation", name, args, &resource, opts...)
 	if err != nil {

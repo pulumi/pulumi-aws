@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -109,6 +110,7 @@ func NewLocationHdfs(ctx *pulumi.Context,
 	if args.NameNodes == nil {
 		return nil, errors.New("invalid value for required argument 'NameNodes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationHdfs
 	err := ctx.RegisterResource("aws:datasync/locationHdfs:LocationHdfs", name, args, &resource, opts...)
 	if err != nil {

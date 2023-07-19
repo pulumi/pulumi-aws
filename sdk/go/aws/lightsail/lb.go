@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -90,6 +91,7 @@ func NewLb(ctx *pulumi.Context,
 	if args.InstancePort == nil {
 		return nil, errors.New("invalid value for required argument 'InstancePort'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Lb
 	err := ctx.RegisterResource("aws:lightsail/lb:Lb", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetLaunchPaths(ctx *pulumi.Context, args *GetLaunchPathsArgs, opts ...pulumi.InvokeOption) (*GetLaunchPathsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLaunchPathsResult
 	err := ctx.Invoke("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args, &rv, opts...)
 	if err != nil {

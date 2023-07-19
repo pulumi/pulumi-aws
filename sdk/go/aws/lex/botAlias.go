@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -88,6 +89,7 @@ func NewBotAlias(ctx *pulumi.Context,
 	if args.BotVersion == nil {
 		return nil, errors.New("invalid value for required argument 'BotVersion'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BotAlias
 	err := ctx.RegisterResource("aws:lex/botAlias:BotAlias", name, args, &resource, opts...)
 	if err != nil {

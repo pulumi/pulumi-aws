@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOption) (*GetSecretResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecretResult
 	err := ctx.Invoke("aws:kms/getSecret:getSecret", args, &rv, opts...)
 	if err != nil {

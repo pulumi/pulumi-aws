@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,6 +88,7 @@ func NewOrganizationAdminAccount(ctx *pulumi.Context,
 	if args.AdminAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'AdminAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationAdminAccount
 	err := ctx.RegisterResource("aws:securityhub/organizationAdminAccount:OrganizationAdminAccount", name, args, &resource, opts...)
 	if err != nil {

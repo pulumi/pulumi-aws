@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,6 +73,7 @@ func NewServiceNetwork(ctx *pulumi.Context,
 		args = &ServiceNetworkArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceNetwork
 	err := ctx.RegisterResource("aws:vpclattice/serviceNetwork:ServiceNetwork", name, args, &resource, opts...)
 	if err != nil {

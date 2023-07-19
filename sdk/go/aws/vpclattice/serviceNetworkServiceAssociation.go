@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,6 +88,7 @@ func NewServiceNetworkServiceAssociation(ctx *pulumi.Context,
 	if args.ServiceNetworkIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceNetworkIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceNetworkServiceAssociation
 	err := ctx.RegisterResource("aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation", name, args, &resource, opts...)
 	if err != nil {

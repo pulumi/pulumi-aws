@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetArn(ctx *pulumi.Context, args *GetArnArgs, opts ...pulumi.InvokeOption) (*GetArnResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetArnResult
 	err := ctx.Invoke("aws:index/getArn:getArn", args, &rv, opts...)
 	if err != nil {

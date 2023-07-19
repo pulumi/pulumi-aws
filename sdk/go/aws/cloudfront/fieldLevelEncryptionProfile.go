@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -104,6 +105,7 @@ func NewFieldLevelEncryptionProfile(ctx *pulumi.Context,
 	if args.EncryptionEntities == nil {
 		return nil, errors.New("invalid value for required argument 'EncryptionEntities'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FieldLevelEncryptionProfile
 	err := ctx.RegisterResource("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile", name, args, &resource, opts...)
 	if err != nil {

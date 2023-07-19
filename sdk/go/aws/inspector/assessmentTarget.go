@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,6 +75,7 @@ func NewAssessmentTarget(ctx *pulumi.Context,
 		args = &AssessmentTargetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssessmentTarget
 	err := ctx.RegisterResource("aws:inspector/assessmentTarget:AssessmentTarget", name, args, &resource, opts...)
 	if err != nil {

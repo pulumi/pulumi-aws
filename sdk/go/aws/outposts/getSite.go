@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetSite(ctx *pulumi.Context, args *GetSiteArgs, opts ...pulumi.InvokeOption) (*GetSiteResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSiteResult
 	err := ctx.Invoke("aws:outposts/getSite:getSite", args, &rv, opts...)
 	if err != nil {

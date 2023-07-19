@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVaultResult
 	err := ctx.Invoke("aws:backup/getVault:getVault", args, &rv, opts...)
 	if err != nil {

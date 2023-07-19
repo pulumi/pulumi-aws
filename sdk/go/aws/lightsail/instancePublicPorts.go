@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,6 +80,7 @@ func NewInstancePublicPorts(ctx *pulumi.Context,
 	if args.PortInfos == nil {
 		return nil, errors.New("invalid value for required argument 'PortInfos'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstancePublicPorts
 	err := ctx.RegisterResource("aws:lightsail/instancePublicPorts:InstancePublicPorts", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ func NewBucketResourceAccess(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketResourceAccess
 	err := ctx.RegisterResource("aws:lightsail/bucketResourceAccess:BucketResourceAccess", name, args, &resource, opts...)
 	if err != nil {

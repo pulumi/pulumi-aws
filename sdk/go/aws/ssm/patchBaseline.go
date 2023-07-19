@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -338,6 +339,7 @@ func NewPatchBaseline(ctx *pulumi.Context,
 		args = &PatchBaselineArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PatchBaseline
 	err := ctx.RegisterResource("aws:ssm/patchBaseline:PatchBaseline", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -131,6 +132,7 @@ func NewCollaboration(ctx *pulumi.Context,
 	if args.QueryLogStatus == nil {
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Collaboration
 	err := ctx.RegisterResource("aws:cleanrooms/collaboration:Collaboration", name, args, &resource, opts...)
 	if err != nil {

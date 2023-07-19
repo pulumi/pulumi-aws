@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -160,6 +161,7 @@ func NewResourceLfTags(ctx *pulumi.Context,
 	if args.LfTags == nil {
 		return nil, errors.New("invalid value for required argument 'LfTags'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceLfTags
 	err := ctx.RegisterResource("aws:lakeformation/resourceLfTags:ResourceLfTags", name, args, &resource, opts...)
 	if err != nil {

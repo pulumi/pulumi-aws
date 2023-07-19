@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupPullThroughCacheRule(ctx *pulumi.Context, args *LookupPullThroughCacheRuleArgs, opts ...pulumi.InvokeOption) (*LookupPullThroughCacheRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPullThroughCacheRuleResult
 	err := ctx.Invoke("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args, &rv, opts...)
 	if err != nil {

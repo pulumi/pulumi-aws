@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,6 +69,7 @@ func NewMulticastGroupMember(ctx *pulumi.Context,
 	if args.TransitGatewayMulticastDomainId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayMulticastDomainId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MulticastGroupMember
 	err := ctx.RegisterResource("aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember", name, args, &resource, opts...)
 	if err != nil {

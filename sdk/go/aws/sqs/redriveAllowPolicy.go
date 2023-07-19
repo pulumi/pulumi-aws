@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ func NewRedriveAllowPolicy(ctx *pulumi.Context,
 	if args.RedriveAllowPolicy == nil {
 		return nil, errors.New("invalid value for required argument 'RedriveAllowPolicy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RedriveAllowPolicy
 	err := ctx.RegisterResource("aws:sqs/redriveAllowPolicy:RedriveAllowPolicy", name, args, &resource, opts...)
 	if err != nil {

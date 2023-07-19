@@ -7075,6 +7075,32 @@ func Provider() *tfbridge.ProviderInfo {
 		contract.AssertNoErrorf(err, "failed to apply default token mappings")
 	}
 
+	prov.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
+		tagsF, ok := value.Schema().GetOk("tags")
+		if !ok {
+			return true
+		}
+		tagsAllF, ok := value.Schema().GetOk("tags_all")
+		if !ok {
+			return true
+		}
+
+		// tags_all must be present and computed, tags must be present and non-computed.
+		if tagsF.Computed() || !tagsAllF.Computed() {
+			return true
+		}
+
+		if prov.Resources[key].Fields == nil {
+			prov.Resources[key].Fields = make(map[string]*tfbridge.SchemaInfo)
+		}
+		if f := prov.Resources[key].Fields["tags_all"]; f == nil {
+			prov.Resources[key].Fields["tags_all"] = &tfbridge.SchemaInfo{}
+		}
+		prov.Resources[key].Fields["tags_all"].XComputedInput = true
+
+		return true
+	})
+
 	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
 		// These examples hang on Go generation. Issue tracking to unblock:
 		// https://github.com/pulumi/pulumi-aws/issues/2598

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -84,6 +85,7 @@ func NewGroupPolicyAttachment(ctx *pulumi.Context,
 	if args.PolicyArn == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupPolicyAttachment
 	err := ctx.RegisterResource("aws:iam/groupPolicyAttachment:GroupPolicyAttachment", name, args, &resource, opts...)
 	if err != nil {

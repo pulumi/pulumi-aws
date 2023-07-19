@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -128,6 +129,7 @@ func NewLifecycleHook(ctx *pulumi.Context,
 	if args.LifecycleTransition == nil {
 		return nil, errors.New("invalid value for required argument 'LifecycleTransition'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LifecycleHook
 	err := ctx.RegisterResource("aws:autoscaling/lifecycleHook:LifecycleHook", name, args, &resource, opts...)
 	if err != nil {

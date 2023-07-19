@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -431,6 +432,7 @@ func NewMediaInsightsPipelineConfiguration(ctx *pulumi.Context,
 	if args.ResourceAccessRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceAccessRoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MediaInsightsPipelineConfiguration
 	err := ctx.RegisterResource("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration", name, args, &resource, opts...)
 	if err != nil {

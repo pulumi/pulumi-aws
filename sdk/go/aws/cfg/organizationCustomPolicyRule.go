@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -121,6 +122,7 @@ func NewOrganizationCustomPolicyRule(ctx *pulumi.Context,
 	if args.TriggerTypes == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerTypes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationCustomPolicyRule
 	err := ctx.RegisterResource("aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule", name, args, &resource, opts...)
 	if err != nil {

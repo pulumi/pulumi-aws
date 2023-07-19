@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,6 +56,7 @@ func NewLicenseGrantAccepter(ctx *pulumi.Context,
 	if args.GrantArn == nil {
 		return nil, errors.New("invalid value for required argument 'GrantArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LicenseGrantAccepter
 	err := ctx.RegisterResource("aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter", name, args, &resource, opts...)
 	if err != nil {

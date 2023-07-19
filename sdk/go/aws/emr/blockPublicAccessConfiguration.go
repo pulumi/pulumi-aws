@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -169,6 +170,7 @@ func NewBlockPublicAccessConfiguration(ctx *pulumi.Context,
 	if args.BlockPublicSecurityGroupRules == nil {
 		return nil, errors.New("invalid value for required argument 'BlockPublicSecurityGroupRules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BlockPublicAccessConfiguration
 	err := ctx.RegisterResource("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration", name, args, &resource, opts...)
 	if err != nil {

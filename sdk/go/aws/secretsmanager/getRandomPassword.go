@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetRandomPassword(ctx *pulumi.Context, args *GetRandomPasswordArgs, opts ...pulumi.InvokeOption) (*GetRandomPasswordResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRandomPasswordResult
 	err := ctx.Invoke("aws:secretsmanager/getRandomPassword:getRandomPassword", args, &rv, opts...)
 	if err != nil {

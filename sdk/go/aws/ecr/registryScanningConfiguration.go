@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -126,6 +127,7 @@ func NewRegistryScanningConfiguration(ctx *pulumi.Context,
 	if args.ScanType == nil {
 		return nil, errors.New("invalid value for required argument 'ScanType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegistryScanningConfiguration
 	err := ctx.RegisterResource("aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration", name, args, &resource, opts...)
 	if err != nil {

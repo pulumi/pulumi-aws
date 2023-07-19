@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +43,7 @@ import (
 //
 // ```
 func GetLbs(ctx *pulumi.Context, args *GetLbsArgs, opts ...pulumi.InvokeOption) (*GetLbsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLbsResult
 	err := ctx.Invoke("aws:lb/getLbs:getLbs", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func GetQuicksightGroup(ctx *pulumi.Context, args *GetQuicksightGroupArgs, opts ...pulumi.InvokeOption) (*GetQuicksightGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQuicksightGroupResult
 	err := ctx.Invoke("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -250,6 +251,7 @@ func NewInsight(ctx *pulumi.Context,
 	if args.GroupByAttribute == nil {
 		return nil, errors.New("invalid value for required argument 'GroupByAttribute'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Insight
 	err := ctx.RegisterResource("aws:securityhub/insight:Insight", name, args, &resource, opts...)
 	if err != nil {

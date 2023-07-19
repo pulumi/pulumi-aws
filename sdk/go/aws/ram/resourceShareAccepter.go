@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -110,6 +111,7 @@ func NewResourceShareAccepter(ctx *pulumi.Context,
 	if args.ShareArn == nil {
 		return nil, errors.New("invalid value for required argument 'ShareArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceShareAccepter
 	err := ctx.RegisterResource("aws:ram/resourceShareAccepter:ResourceShareAccepter", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -86,6 +87,7 @@ func NewDefaultVpcDhcpOptions(ctx *pulumi.Context,
 		args = &DefaultVpcDhcpOptionsArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultVpcDhcpOptions
 	err := ctx.RegisterResource("aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -114,6 +115,7 @@ func NewMedicalVocabulary(ctx *pulumi.Context,
 	if args.VocabularyName == nil {
 		return nil, errors.New("invalid value for required argument 'VocabularyName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MedicalVocabulary
 	err := ctx.RegisterResource("aws:transcribe/medicalVocabulary:MedicalVocabulary", name, args, &resource, opts...)
 	if err != nil {

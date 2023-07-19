@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -108,6 +109,7 @@ func NewCloudFormationType(ctx *pulumi.Context,
 	if args.TypeName == nil {
 		return nil, errors.New("invalid value for required argument 'TypeName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CloudFormationType
 	err := ctx.RegisterResource("aws:cloudformation/cloudFormationType:CloudFormationType", name, args, &resource, opts...)
 	if err != nil {

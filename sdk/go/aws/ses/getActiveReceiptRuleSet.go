@@ -4,6 +4,7 @@
 package ses
 
 import (
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +34,7 @@ import (
 //
 // ```
 func LookupActiveReceiptRuleSet(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupActiveReceiptRuleSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActiveReceiptRuleSetResult
 	err := ctx.Invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", nil, &rv, opts...)
 	if err != nil {

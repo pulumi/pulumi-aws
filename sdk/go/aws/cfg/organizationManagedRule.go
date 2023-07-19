@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -101,6 +102,7 @@ func NewOrganizationManagedRule(ctx *pulumi.Context,
 	if args.RuleIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'RuleIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationManagedRule
 	err := ctx.RegisterResource("aws:cfg/organizationManagedRule:OrganizationManagedRule", name, args, &resource, opts...)
 	if err != nil {

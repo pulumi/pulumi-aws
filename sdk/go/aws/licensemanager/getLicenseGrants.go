@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,6 +55,7 @@ import (
 //
 // ```
 func GetLicenseGrants(ctx *pulumi.Context, args *GetLicenseGrantsArgs, opts ...pulumi.InvokeOption) (*GetLicenseGrantsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLicenseGrantsResult
 	err := ctx.Invoke("aws:licensemanager/getLicenseGrants:getLicenseGrants", args, &rv, opts...)
 	if err != nil {

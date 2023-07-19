@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -138,6 +139,7 @@ func NewWorkspaceSamlConfiguration(ctx *pulumi.Context,
 	if args.WorkspaceId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WorkspaceSamlConfiguration
 	err := ctx.RegisterResource("aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration", name, args, &resource, opts...)
 	if err != nil {

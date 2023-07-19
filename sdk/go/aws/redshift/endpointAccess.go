@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,6 +88,7 @@ func NewEndpointAccess(ctx *pulumi.Context,
 	if args.SubnetGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EndpointAccess
 	err := ctx.RegisterResource("aws:redshift/endpointAccess:EndpointAccess", name, args, &resource, opts...)
 	if err != nil {

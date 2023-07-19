@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetExport(ctx *pulumi.Context, args *GetExportArgs, opts ...pulumi.InvokeOption) (*GetExportResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExportResult
 	err := ctx.Invoke("aws:apigatewayv2/getExport:getExport", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -99,6 +100,7 @@ func NewDataIntegration(ctx *pulumi.Context,
 	if args.SourceUri == nil {
 		return nil, errors.New("invalid value for required argument 'SourceUri'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataIntegration
 	err := ctx.RegisterResource("aws:appintegrations/dataIntegration:DataIntegration", name, args, &resource, opts...)
 	if err != nil {

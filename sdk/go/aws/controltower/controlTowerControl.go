@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -90,6 +91,7 @@ func NewControlTowerControl(ctx *pulumi.Context,
 	if args.TargetIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'TargetIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ControlTowerControl
 	err := ctx.RegisterResource("aws:controltower/controlTowerControl:ControlTowerControl", name, args, &resource, opts...)
 	if err != nil {

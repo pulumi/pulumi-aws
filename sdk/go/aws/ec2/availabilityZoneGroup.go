@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewAvailabilityZoneGroup(ctx *pulumi.Context,
 	if args.OptInStatus == nil {
 		return nil, errors.New("invalid value for required argument 'OptInStatus'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AvailabilityZoneGroup
 	err := ctx.RegisterResource("aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup", name, args, &resource, opts...)
 	if err != nil {

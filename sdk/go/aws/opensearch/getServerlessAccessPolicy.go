@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func LookupServerlessAccessPolicy(ctx *pulumi.Context, args *LookupServerlessAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessAccessPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessAccessPolicyResult
 	err := ctx.Invoke("aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy", args, &rv, opts...)
 	if err != nil {

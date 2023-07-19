@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewCache(ctx *pulumi.Context,
 	if args.GatewayArn == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cache
 	err := ctx.RegisterResource("aws:storagegateway/cache:Cache", name, args, &resource, opts...)
 	if err != nil {

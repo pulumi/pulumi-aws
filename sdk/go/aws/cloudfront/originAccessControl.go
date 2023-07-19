@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,6 +88,7 @@ func NewOriginAccessControl(ctx *pulumi.Context,
 	if args.SigningProtocol == nil {
 		return nil, errors.New("invalid value for required argument 'SigningProtocol'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OriginAccessControl
 	err := ctx.RegisterResource("aws:cloudfront/originAccessControl:OriginAccessControl", name, args, &resource, opts...)
 	if err != nil {

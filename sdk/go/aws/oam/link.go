@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -96,6 +97,7 @@ func NewLink(ctx *pulumi.Context,
 	if args.SinkIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'SinkIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Link
 	err := ctx.RegisterResource("aws:oam/link:Link", name, args, &resource, opts...)
 	if err != nil {

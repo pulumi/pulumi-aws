@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,6 +90,7 @@ func NewHumanTaskUI(ctx *pulumi.Context,
 	if args.UiTemplate == nil {
 		return nil, errors.New("invalid value for required argument 'UiTemplate'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HumanTaskUI
 	err := ctx.RegisterResource("aws:sagemaker/humanTaskUI:HumanTaskUI", name, args, &resource, opts...)
 	if err != nil {

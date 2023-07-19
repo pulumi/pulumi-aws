@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -188,6 +189,7 @@ func NewBucketVersioningV2(ctx *pulumi.Context,
 	if args.VersioningConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'VersioningConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketVersioningV2
 	err := ctx.RegisterResource("aws:s3/bucketVersioningV2:BucketVersioningV2", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -93,6 +94,7 @@ func NewOpenZfsVolume(ctx *pulumi.Context,
 	if args.ParentVolumeId == nil {
 		return nil, errors.New("invalid value for required argument 'ParentVolumeId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenZfsVolume
 	err := ctx.RegisterResource("aws:fsx/openZfsVolume:OpenZfsVolume", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupIntent(ctx *pulumi.Context, args *LookupIntentArgs, opts ...pulumi.InvokeOption) (*LookupIntentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIntentResult
 	err := ctx.Invoke("aws:lex/getIntent:getIntent", args, &rv, opts...)
 	if err != nil {

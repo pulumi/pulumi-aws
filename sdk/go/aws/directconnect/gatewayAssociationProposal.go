@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -93,6 +94,7 @@ func NewGatewayAssociationProposal(ctx *pulumi.Context,
 	if args.DxGatewayOwnerAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'DxGatewayOwnerAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayAssociationProposal
 	err := ctx.RegisterResource("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, args, &resource, opts...)
 	if err != nil {

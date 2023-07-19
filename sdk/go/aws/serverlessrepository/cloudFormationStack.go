@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -101,6 +102,7 @@ func NewCloudFormationStack(ctx *pulumi.Context,
 	if args.Capabilities == nil {
 		return nil, errors.New("invalid value for required argument 'Capabilities'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CloudFormationStack
 	err := ctx.RegisterResource("aws:serverlessrepository/cloudFormationStack:CloudFormationStack", name, args, &resource, opts...)
 	if err != nil {

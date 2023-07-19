@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.InvokeOption) (*LookupThemeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupThemeResult
 	err := ctx.Invoke("aws:quicksight/getTheme:getTheme", args, &rv, opts...)
 	if err != nil {

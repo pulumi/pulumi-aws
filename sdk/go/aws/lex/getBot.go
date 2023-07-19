@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOption) (*LookupBotResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotResult
 	err := ctx.Invoke("aws:lex/getBot:getBot", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -77,6 +78,7 @@ func NewCell(ctx *pulumi.Context,
 	if args.CellName == nil {
 		return nil, errors.New("invalid value for required argument 'CellName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cell
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/cell:Cell", name, args, &resource, opts...)
 	if err != nil {

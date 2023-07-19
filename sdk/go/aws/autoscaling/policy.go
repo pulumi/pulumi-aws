@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -379,6 +380,7 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.AutoscalingGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'AutoscalingGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("aws:autoscaling/policy:Policy", name, args, &resource, opts...)
 	if err != nil {

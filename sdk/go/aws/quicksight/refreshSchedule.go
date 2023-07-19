@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -160,6 +161,7 @@ func NewRefreshSchedule(ctx *pulumi.Context,
 	if args.ScheduleId == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduleId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RefreshSchedule
 	err := ctx.RegisterResource("aws:quicksight/refreshSchedule:RefreshSchedule", name, args, &resource, opts...)
 	if err != nil {

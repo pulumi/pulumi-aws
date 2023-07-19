@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,6 +76,7 @@ func NewEmailIdentityFeedbackAttributes(ctx *pulumi.Context,
 	if args.EmailIdentity == nil {
 		return nil, errors.New("invalid value for required argument 'EmailIdentity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EmailIdentityFeedbackAttributes
 	err := ctx.RegisterResource("aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes", name, args, &resource, opts...)
 	if err != nil {

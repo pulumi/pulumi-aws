@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -108,6 +109,7 @@ func NewStandardsSubscription(ctx *pulumi.Context,
 	if args.StandardsArn == nil {
 		return nil, errors.New("invalid value for required argument 'StandardsArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StandardsSubscription
 	err := ctx.RegisterResource("aws:securityhub/standardsSubscription:StandardsSubscription", name, args, &resource, opts...)
 	if err != nil {

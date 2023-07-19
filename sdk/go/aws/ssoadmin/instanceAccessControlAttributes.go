@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ func NewInstanceAccessControlAttributes(ctx *pulumi.Context,
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceAccessControlAttributes
 	err := ctx.RegisterResource("aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes", name, args, &resource, opts...)
 	if err != nil {

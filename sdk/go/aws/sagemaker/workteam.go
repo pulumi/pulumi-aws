@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -138,6 +139,7 @@ func NewWorkteam(ctx *pulumi.Context,
 	if args.WorkteamName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkteamName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Workteam
 	err := ctx.RegisterResource("aws:sagemaker/workteam:Workteam", name, args, &resource, opts...)
 	if err != nil {

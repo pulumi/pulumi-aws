@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,6 +56,7 @@ func NewScalingPlan(ctx *pulumi.Context,
 	if args.ScalingInstructions == nil {
 		return nil, errors.New("invalid value for required argument 'ScalingInstructions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScalingPlan
 	err := ctx.RegisterResource("aws:autoscalingplans/scalingPlan:ScalingPlan", name, args, &resource, opts...)
 	if err != nil {

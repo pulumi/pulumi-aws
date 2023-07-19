@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,6 +23,7 @@ import (
 // This is different from the `getAvailabilityZones` (plural) data source,
 // which provides a list of the available zones.
 func GetAvailabilityZone(ctx *pulumi.Context, args *GetAvailabilityZoneArgs, opts ...pulumi.InvokeOption) (*GetAvailabilityZoneResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAvailabilityZoneResult
 	err := ctx.Invoke("aws:index/getAvailabilityZone:getAvailabilityZone", args, &rv, opts...)
 	if err != nil {

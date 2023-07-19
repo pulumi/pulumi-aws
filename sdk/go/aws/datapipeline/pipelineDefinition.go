@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -136,6 +137,7 @@ func NewPipelineDefinition(ctx *pulumi.Context,
 	if args.PipelineObjects == nil {
 		return nil, errors.New("invalid value for required argument 'PipelineObjects'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PipelineDefinition
 	err := ctx.RegisterResource("aws:datapipeline/pipelineDefinition:PipelineDefinition", name, args, &resource, opts...)
 	if err != nil {

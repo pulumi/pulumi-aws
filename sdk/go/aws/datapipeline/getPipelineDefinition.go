@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupPipelineDefinition(ctx *pulumi.Context, args *LookupPipelineDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupPipelineDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPipelineDefinitionResult
 	err := ctx.Invoke("aws:datapipeline/getPipelineDefinition:getPipelineDefinition", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -85,6 +86,7 @@ func NewDelegatedAdministrator(ctx *pulumi.Context,
 	if args.ServicePrincipal == nil {
 		return nil, errors.New("invalid value for required argument 'ServicePrincipal'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DelegatedAdministrator
 	err := ctx.RegisterResource("aws:organizations/delegatedAdministrator:DelegatedAdministrator", name, args, &resource, opts...)
 	if err != nil {

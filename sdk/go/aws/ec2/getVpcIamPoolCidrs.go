@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -14,6 +15,7 @@ import (
 //
 // This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
 func GetVpcIamPoolCidrs(ctx *pulumi.Context, args *GetVpcIamPoolCidrsArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolCidrsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIamPoolCidrsResult
 	err := ctx.Invoke("aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs", args, &rv, opts...)
 	if err != nil {

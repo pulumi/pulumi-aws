@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupApprovalRuleTemplate(ctx *pulumi.Context, args *LookupApprovalRuleTemplateArgs, opts ...pulumi.InvokeOption) (*LookupApprovalRuleTemplateResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApprovalRuleTemplateResult
 	err := ctx.Invoke("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", args, &rv, opts...)
 	if err != nil {

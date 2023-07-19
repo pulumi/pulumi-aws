@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,6 +76,7 @@ func NewConnectionAssociation(ctx *pulumi.Context,
 	if args.LagId == nil {
 		return nil, errors.New("invalid value for required argument 'LagId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectionAssociation
 	err := ctx.RegisterResource("aws:directconnect/connectionAssociation:ConnectionAssociation", name, args, &resource, opts...)
 	if err != nil {

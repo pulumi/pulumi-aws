@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -166,6 +167,7 @@ func NewLoggingConfiguration(ctx *pulumi.Context,
 		args = &LoggingConfigurationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoggingConfiguration
 	err := ctx.RegisterResource("aws:ivschat/loggingConfiguration:LoggingConfiguration", name, args, &resource, opts...)
 	if err != nil {

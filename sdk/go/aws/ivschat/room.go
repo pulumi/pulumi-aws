@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -124,6 +125,7 @@ func NewRoom(ctx *pulumi.Context,
 		args = &RoomArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Room
 	err := ctx.RegisterResource("aws:ivschat/room:Room", name, args, &resource, opts...)
 	if err != nil {

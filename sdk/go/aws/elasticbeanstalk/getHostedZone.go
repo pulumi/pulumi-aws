@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ import (
 //
 // ```
 func GetHostedZone(ctx *pulumi.Context, args *GetHostedZoneArgs, opts ...pulumi.InvokeOption) (*GetHostedZoneResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetHostedZoneResult
 	err := ctx.Invoke("aws:elasticbeanstalk/getHostedZone:getHostedZone", args, &rv, opts...)
 	if err != nil {

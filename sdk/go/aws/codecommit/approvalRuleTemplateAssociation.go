@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -71,6 +72,7 @@ func NewApprovalRuleTemplateAssociation(ctx *pulumi.Context,
 	if args.RepositoryName == nil {
 		return nil, errors.New("invalid value for required argument 'RepositoryName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApprovalRuleTemplateAssociation
 	err := ctx.RegisterResource("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation", name, args, &resource, opts...)
 	if err != nil {

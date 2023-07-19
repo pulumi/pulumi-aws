@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func GetPrompt(ctx *pulumi.Context, args *GetPromptArgs, opts ...pulumi.InvokeOption) (*GetPromptResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPromptResult
 	err := ctx.Invoke("aws:connect/getPrompt:getPrompt", args, &rv, opts...)
 	if err != nil {

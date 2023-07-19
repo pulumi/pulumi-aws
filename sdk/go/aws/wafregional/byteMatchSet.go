@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewByteMatchSet(ctx *pulumi.Context,
 		args = &ByteMatchSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ByteMatchSet
 	err := ctx.RegisterResource("aws:wafregional/byteMatchSet:ByteMatchSet", name, args, &resource, opts...)
 	if err != nil {

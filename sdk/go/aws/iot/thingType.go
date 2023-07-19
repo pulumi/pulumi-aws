@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,6 +70,7 @@ func NewThingType(ctx *pulumi.Context,
 		args = &ThingTypeArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ThingType
 	err := ctx.RegisterResource("aws:iot/thingType:ThingType", name, args, &resource, opts...)
 	if err != nil {

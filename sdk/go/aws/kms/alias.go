@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,6 +81,7 @@ func NewAlias(ctx *pulumi.Context,
 	if args.TargetKeyId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetKeyId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Alias
 	err := ctx.RegisterResource("aws:kms/alias:Alias", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -92,6 +93,7 @@ func NewAssessmentDelegation(ctx *pulumi.Context,
 	if args.RoleType == nil {
 		return nil, errors.New("invalid value for required argument 'RoleType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssessmentDelegation
 	err := ctx.RegisterResource("aws:auditmanager/assessmentDelegation:AssessmentDelegation", name, args, &resource, opts...)
 	if err != nil {

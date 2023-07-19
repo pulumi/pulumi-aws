@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,6 +58,7 @@ import (
 //
 // ```
 func GetAddonVersion(ctx *pulumi.Context, args *GetAddonVersionArgs, opts ...pulumi.InvokeOption) (*GetAddonVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAddonVersionResult
 	err := ctx.Invoke("aws:eks/getAddonVersion:getAddonVersion", args, &rv, opts...)
 	if err != nil {

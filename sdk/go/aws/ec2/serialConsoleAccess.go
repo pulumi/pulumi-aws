@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,6 +64,7 @@ func NewSerialConsoleAccess(ctx *pulumi.Context,
 		args = &SerialConsoleAccessArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SerialConsoleAccess
 	err := ctx.RegisterResource("aws:ec2/serialConsoleAccess:SerialConsoleAccess", name, args, &resource, opts...)
 	if err != nil {

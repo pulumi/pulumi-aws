@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,6 +51,7 @@ import (
 //
 // ```
 func GetIpamPreviewNextCidr(ctx *pulumi.Context, args *GetIpamPreviewNextCidrArgs, opts ...pulumi.InvokeOption) (*GetIpamPreviewNextCidrResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpamPreviewNextCidrResult
 	err := ctx.Invoke("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args, &rv, opts...)
 	if err != nil {

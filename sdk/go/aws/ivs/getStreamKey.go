@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetStreamKey(ctx *pulumi.Context, args *GetStreamKeyArgs, opts ...pulumi.InvokeOption) (*GetStreamKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStreamKeyResult
 	err := ctx.Invoke("aws:ivs/getStreamKey:getStreamKey", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupServerlessCollection(ctx *pulumi.Context, args *LookupServerlessCollectionArgs, opts ...pulumi.InvokeOption) (*LookupServerlessCollectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessCollectionResult
 	err := ctx.Invoke("aws:opensearch/getServerlessCollection:getServerlessCollection", args, &rv, opts...)
 	if err != nil {

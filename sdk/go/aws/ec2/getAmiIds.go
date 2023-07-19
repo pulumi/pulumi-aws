@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,6 +49,7 @@ import (
 //
 // ```
 func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOption) (*GetAmiIdsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAmiIdsResult
 	err := ctx.Invoke("aws:ec2/getAmiIds:getAmiIds", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,6 +81,7 @@ func NewConditionalForwader(ctx *pulumi.Context,
 	if args.RemoteDomainName == nil {
 		return nil, errors.New("invalid value for required argument 'RemoteDomainName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConditionalForwader
 	err := ctx.RegisterResource("aws:directoryservice/conditionalForwader:ConditionalForwader", name, args, &resource, opts...)
 	if err != nil {

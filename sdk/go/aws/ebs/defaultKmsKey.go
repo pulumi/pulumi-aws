@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,6 +73,7 @@ func NewDefaultKmsKey(ctx *pulumi.Context,
 	if args.KeyArn == nil {
 		return nil, errors.New("invalid value for required argument 'KeyArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultKmsKey
 	err := ctx.RegisterResource("aws:ebs/defaultKmsKey:DefaultKmsKey", name, args, &resource, opts...)
 	if err != nil {

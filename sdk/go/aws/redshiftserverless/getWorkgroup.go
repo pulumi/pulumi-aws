@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupWorkgroup(ctx *pulumi.Context, args *LookupWorkgroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkgroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkgroupResult
 	err := ctx.Invoke("aws:redshiftserverless/getWorkgroup:getWorkgroup", args, &rv, opts...)
 	if err != nil {

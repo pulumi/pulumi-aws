@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,6 +68,7 @@ func NewGlobalNetwork(ctx *pulumi.Context,
 		args = &GlobalNetworkArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GlobalNetwork
 	err := ctx.RegisterResource("aws:networkmanager/globalNetwork:GlobalNetwork", name, args, &resource, opts...)
 	if err != nil {

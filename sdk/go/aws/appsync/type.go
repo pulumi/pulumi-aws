@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -96,6 +97,7 @@ func NewType(ctx *pulumi.Context,
 	if args.Format == nil {
 		return nil, errors.New("invalid value for required argument 'Format'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Type
 	err := ctx.RegisterResource("aws:appsync/type:Type", name, args, &resource, opts...)
 	if err != nil {

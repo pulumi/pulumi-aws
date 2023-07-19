@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,6 +76,7 @@ func NewMetricsDestination(ctx *pulumi.Context,
 	if args.Destination == nil {
 		return nil, errors.New("invalid value for required argument 'Destination'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricsDestination
 	err := ctx.RegisterResource("aws:rum/metricsDestination:MetricsDestination", name, args, &resource, opts...)
 	if err != nil {

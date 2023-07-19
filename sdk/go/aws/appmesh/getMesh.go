@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,6 +69,7 @@ import (
 //
 // ```
 func LookupMesh(ctx *pulumi.Context, args *LookupMeshArgs, opts ...pulumi.InvokeOption) (*LookupMeshResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMeshResult
 	err := ctx.Invoke("aws:appmesh/getMesh:getMesh", args, &rv, opts...)
 	if err != nil {

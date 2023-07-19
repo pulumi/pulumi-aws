@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -74,6 +75,7 @@ func NewDedicatedIpAssignment(ctx *pulumi.Context,
 	if args.Ip == nil {
 		return nil, errors.New("invalid value for required argument 'Ip'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DedicatedIpAssignment
 	err := ctx.RegisterResource("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment", name, args, &resource, opts...)
 	if err != nil {

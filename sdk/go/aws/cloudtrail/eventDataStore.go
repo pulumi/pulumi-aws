@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -151,6 +152,7 @@ func NewEventDataStore(ctx *pulumi.Context,
 		args = &EventDataStoreArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventDataStore
 	err := ctx.RegisterResource("aws:cloudtrail/eventDataStore:EventDataStore", name, args, &resource, opts...)
 	if err != nil {

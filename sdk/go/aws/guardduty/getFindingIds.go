@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func GetFindingIds(ctx *pulumi.Context, args *GetFindingIdsArgs, opts ...pulumi.InvokeOption) (*GetFindingIdsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFindingIdsResult
 	err := ctx.Invoke("aws:guardduty/getFindingIds:getFindingIds", args, &rv, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetEventSource(ctx *pulumi.Context, args *GetEventSourceArgs, opts ...pulumi.InvokeOption) (*GetEventSourceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventSourceResult
 	err := ctx.Invoke("aws:cloudwatch/getEventSource:getEventSource", args, &rv, opts...)
 	if err != nil {

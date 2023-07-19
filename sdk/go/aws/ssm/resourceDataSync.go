@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -135,6 +136,7 @@ func NewResourceDataSync(ctx *pulumi.Context,
 	if args.S3Destination == nil {
 		return nil, errors.New("invalid value for required argument 'S3Destination'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceDataSync
 	err := ctx.RegisterResource("aws:ssm/resourceDataSync:ResourceDataSync", name, args, &resource, opts...)
 	if err != nil {

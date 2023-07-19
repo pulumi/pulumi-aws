@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -375,6 +376,7 @@ func NewTrail(ctx *pulumi.Context,
 	if args.S3BucketName == nil {
 		return nil, errors.New("invalid value for required argument 'S3BucketName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Trail
 	err := ctx.RegisterResource("aws:cloudtrail/trail:Trail", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,6 +48,7 @@ import (
 //
 // ```
 func GetSpotPrice(ctx *pulumi.Context, args *GetSpotPriceArgs, opts ...pulumi.InvokeOption) (*GetSpotPriceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSpotPriceResult
 	err := ctx.Invoke("aws:ec2/getSpotPrice:getSpotPrice", args, &rv, opts...)
 	if err != nil {

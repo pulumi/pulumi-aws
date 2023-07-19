@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -76,6 +77,7 @@ func NewApplicationSnapshot(ctx *pulumi.Context,
 	if args.SnapshotName == nil {
 		return nil, errors.New("invalid value for required argument 'SnapshotName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApplicationSnapshot
 	err := ctx.RegisterResource("aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot", name, args, &resource, opts...)
 	if err != nil {

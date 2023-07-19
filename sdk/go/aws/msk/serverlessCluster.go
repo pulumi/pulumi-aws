@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,6 +55,7 @@ func NewServerlessCluster(ctx *pulumi.Context,
 	if args.VpcConfigs == nil {
 		return nil, errors.New("invalid value for required argument 'VpcConfigs'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServerlessCluster
 	err := ctx.RegisterResource("aws:msk/serverlessCluster:ServerlessCluster", name, args, &resource, opts...)
 	if err != nil {

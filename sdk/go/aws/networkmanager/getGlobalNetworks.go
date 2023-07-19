@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetGlobalNetworks(ctx *pulumi.Context, args *GetGlobalNetworksArgs, opts ...pulumi.InvokeOption) (*GetGlobalNetworksResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGlobalNetworksResult
 	err := ctx.Invoke("aws:networkmanager/getGlobalNetworks:getGlobalNetworks", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ func NewEnabler(ctx *pulumi.Context,
 	if args.ResourceTypes == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceTypes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Enabler
 	err := ctx.RegisterResource("aws:inspector2/enabler:Enabler", name, args, &resource, opts...)
 	if err != nil {

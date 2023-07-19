@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupServerlessSecurityPolicy(ctx *pulumi.Context, args *LookupServerlessSecurityPolicyArgs, opts ...pulumi.InvokeOption) (*LookupServerlessSecurityPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessSecurityPolicyResult
 	err := ctx.Invoke("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args, &rv, opts...)
 	if err != nil {

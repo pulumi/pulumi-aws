@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -91,6 +92,7 @@ func NewAccountRegistration(ctx *pulumi.Context,
 		args = &AccountRegistrationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccountRegistration
 	err := ctx.RegisterResource("aws:auditmanager/accountRegistration:AccountRegistration", name, args, &resource, opts...)
 	if err != nil {

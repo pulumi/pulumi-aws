@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,6 +90,7 @@ func NewVideoStream(ctx *pulumi.Context,
 		args = &VideoStreamArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VideoStream
 	err := ctx.RegisterResource("aws:kinesis/videoStream:VideoStream", name, args, &resource, opts...)
 	if err != nil {

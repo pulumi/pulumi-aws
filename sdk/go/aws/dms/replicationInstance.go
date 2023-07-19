@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -197,6 +198,7 @@ func NewReplicationInstance(ctx *pulumi.Context,
 	if args.ReplicationInstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'ReplicationInstanceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationInstance
 	err := ctx.RegisterResource("aws:dms/replicationInstance:ReplicationInstance", name, args, &resource, opts...)
 	if err != nil {

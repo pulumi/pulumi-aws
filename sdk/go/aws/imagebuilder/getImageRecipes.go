@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ import (
 //
 // ```
 func GetImageRecipes(ctx *pulumi.Context, args *GetImageRecipesArgs, opts ...pulumi.InvokeOption) (*GetImageRecipesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetImageRecipesResult
 	err := ctx.Invoke("aws:imagebuilder/getImageRecipes:getImageRecipes", args, &rv, opts...)
 	if err != nil {

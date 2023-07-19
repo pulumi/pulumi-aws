@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -86,6 +87,7 @@ func NewIngestion(ctx *pulumi.Context,
 	if args.IngestionType == nil {
 		return nil, errors.New("invalid value for required argument 'IngestionType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Ingestion
 	err := ctx.RegisterResource("aws:quicksight/ingestion:Ingestion", name, args, &resource, opts...)
 	if err != nil {

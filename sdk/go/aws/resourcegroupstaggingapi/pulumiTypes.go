@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type GetResourcesResourceTagMappingList struct {
 	// List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.

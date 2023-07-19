@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,6 +71,7 @@ func NewSqlInjectionMatchSet(ctx *pulumi.Context,
 		args = &SqlInjectionMatchSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SqlInjectionMatchSet
 	err := ctx.RegisterResource("aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet", name, args, &resource, opts...)
 	if err != nil {

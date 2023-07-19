@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -115,6 +116,7 @@ func NewBucketLoggingV2(ctx *pulumi.Context,
 	if args.TargetPrefix == nil {
 		return nil, errors.New("invalid value for required argument 'TargetPrefix'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketLoggingV2
 	err := ctx.RegisterResource("aws:s3/bucketLoggingV2:BucketLoggingV2", name, args, &resource, opts...)
 	if err != nil {

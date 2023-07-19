@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -44,6 +45,7 @@ import (
 //
 // ```
 func GetEips(ctx *pulumi.Context, args *GetEipsArgs, opts ...pulumi.InvokeOption) (*GetEipsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEipsResult
 	err := ctx.Invoke("aws:ec2/getEips:getEips", args, &rv, opts...)
 	if err != nil {

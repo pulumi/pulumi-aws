@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -150,6 +151,7 @@ func NewFindingAggregator(ctx *pulumi.Context,
 	if args.LinkingMode == nil {
 		return nil, errors.New("invalid value for required argument 'LinkingMode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FindingAggregator
 	err := ctx.RegisterResource("aws:securityhub/findingAggregator:FindingAggregator", name, args, &resource, opts...)
 	if err != nil {

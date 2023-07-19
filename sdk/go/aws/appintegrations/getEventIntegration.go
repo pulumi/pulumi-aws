@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetEventIntegration(ctx *pulumi.Context, args *GetEventIntegrationArgs, opts ...pulumi.InvokeOption) (*GetEventIntegrationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventIntegrationResult
 	err := ctx.Invoke("aws:appintegrations/getEventIntegration:getEventIntegration", args, &rv, opts...)
 	if err != nil {

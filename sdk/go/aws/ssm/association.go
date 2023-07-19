@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -206,6 +207,7 @@ func NewAssociation(ctx *pulumi.Context,
 		args = &AssociationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Association
 	err := ctx.RegisterResource("aws:ssm/association:Association", name, args, &resource, opts...)
 	if err != nil {

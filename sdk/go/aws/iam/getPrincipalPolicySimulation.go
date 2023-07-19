@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,6 +20,7 @@ import (
 //
 // ## Example Usage
 func LookupPrincipalPolicySimulation(ctx *pulumi.Context, args *LookupPrincipalPolicySimulationArgs, opts ...pulumi.InvokeOption) (*LookupPrincipalPolicySimulationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPrincipalPolicySimulationResult
 	err := ctx.Invoke("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args, &rv, opts...)
 	if err != nil {

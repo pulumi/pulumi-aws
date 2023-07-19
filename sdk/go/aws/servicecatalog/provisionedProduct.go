@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -132,6 +133,7 @@ func NewProvisionedProduct(ctx *pulumi.Context,
 		args = &ProvisionedProductArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisionedProduct
 	err := ctx.RegisterResource("aws:servicecatalog/provisionedProduct:ProvisionedProduct", name, args, &resource, opts...)
 	if err != nil {

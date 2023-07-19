@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,6 +40,7 @@ import (
 //
 // ```
 func LookupSelection(ctx *pulumi.Context, args *LookupSelectionArgs, opts ...pulumi.InvokeOption) (*LookupSelectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSelectionResult
 	err := ctx.Invoke("aws:backup/getSelection:getSelection", args, &rv, opts...)
 	if err != nil {

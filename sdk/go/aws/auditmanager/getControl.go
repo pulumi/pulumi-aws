@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -97,6 +98,7 @@ import (
 //
 // ```
 func LookupControl(ctx *pulumi.Context, args *LookupControlArgs, opts ...pulumi.InvokeOption) (*LookupControlResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupControlResult
 	err := ctx.Invoke("aws:auditmanager/getControl:getControl", args, &rv, opts...)
 	if err != nil {

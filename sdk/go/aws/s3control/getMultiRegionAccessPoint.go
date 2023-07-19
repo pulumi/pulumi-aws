@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func LookupMultiRegionAccessPoint(ctx *pulumi.Context, args *LookupMultiRegionAccessPointArgs, opts ...pulumi.InvokeOption) (*LookupMultiRegionAccessPointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMultiRegionAccessPointResult
 	err := ctx.Invoke("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args, &rv, opts...)
 	if err != nil {

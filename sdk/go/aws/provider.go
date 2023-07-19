@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,7 +55,7 @@ func NewProvider(ctx *pulumi.Context,
 	}
 
 	if args.Region == nil {
-		if d := getEnvOrDefault(nil, nil, "AWS_REGION", "AWS_DEFAULT_REGION"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "AWS_REGION", "AWS_DEFAULT_REGION"); d != nil {
 			args.Region = pulumi.StringPtr(d.(string))
 		}
 	}
@@ -67,6 +68,7 @@ func NewProvider(ctx *pulumi.Context,
 	if args.SkipRegionValidation == nil {
 		args.SkipRegionValidation = pulumi.BoolPtr(true)
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:aws", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -97,6 +98,7 @@ func NewReportPlan(ctx *pulumi.Context,
 	if args.ReportSetting == nil {
 		return nil, errors.New("invalid value for required argument 'ReportSetting'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReportPlan
 	err := ctx.RegisterResource("aws:backup/reportPlan:ReportPlan", name, args, &resource, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,6 +90,7 @@ func NewAutoScalingConfigurationVersion(ctx *pulumi.Context,
 	if args.AutoScalingConfigurationName == nil {
 		return nil, errors.New("invalid value for required argument 'AutoScalingConfigurationName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AutoScalingConfigurationVersion
 	err := ctx.RegisterResource("aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion", name, args, &resource, opts...)
 	if err != nil {

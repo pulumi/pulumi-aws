@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -94,6 +95,7 @@ func NewCustomKeyStore(ctx *pulumi.Context,
 	if args.TrustAnchorCertificate == nil {
 		return nil, errors.New("invalid value for required argument 'TrustAnchorCertificate'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomKeyStore
 	err := ctx.RegisterResource("aws:kms/customKeyStore:CustomKeyStore", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,8 @@ PROVIDER_PATH := provider/v6
 VERSION_PATH := $(PROVIDER_PATH)/pkg/version.Version
 TFGEN := pulumi-tfgen-$(PACK)
 PROVIDER := pulumi-resource-$(PACK)
+# We need to set VERSION_PREFIX before we set VERSION
+export VERSION_PREFIX := 6.0.0
 VERSION := $(shell pulumictl get version)
 JAVA_GEN := pulumi-java-gen
 JAVA_GEN_VERSION := v0.9.5
@@ -115,6 +117,7 @@ install_plugins:
 	pulumi plugin install resource github 4.10.0
 	pulumi plugin install resource kubernetes 3.17.0
 	pulumi plugin install resource random 4.8.2
+	pulumi plugin install resource github 5.14.0
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml
@@ -131,8 +134,22 @@ tfgen: install_plugins patch_upstream
 	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
 
+.PHONY: bin/pulumi-java-gen
 bin/pulumi-java-gen:
-	pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java
+# If $@ is already downloaded and then version doesn't match, we remove the old version.
+	@if [ -f $@ ]; then \
+		if [ $$($@ version) != $(JAVA_GEN_VERSION) ]; then \
+			echo "$@ version mismatch... redownloading"; \
+			rm $@; \
+		fi \
+	fi
+# We download the correct version when $@ is not present. That means either that
+# 1. $@ never existed, or
+# 2. $@ had the wrong version, and so was deleted.
+	@if ! [ -f $@ ]; then \
+		echo "Downloading $@ at version $(JAVA_GEN_VERSION)"; \
+		pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java; \
+	fi
 
 init_upstream:
 	@if [ ! -f "upstream/.git" ]; then \

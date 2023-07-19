@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulumi.InvokeOption) (*GetBrokerNodesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBrokerNodesResult
 	err := ctx.Invoke("aws:msk/getBrokerNodes:getBrokerNodes", args, &rv, opts...)
 	if err != nil {
