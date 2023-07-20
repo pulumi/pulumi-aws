@@ -5754,6 +5754,7 @@ func Provider() tfbridge.ProviderInfo {
 					{Value: "java11", Name: "Java11"},
 					{Value: "ruby2.5", Name: "Ruby2d5", DeprecationMessage: "This runtime is now deprecated"},
 					{Value: "ruby2.7", Name: "Ruby2d7"},
+					{Value: "ruby3.2", Name: "Ruby3d2"},
 					{Value: "nodejs10.x", Name: "NodeJS10dX", DeprecationMessage: "This runtime is now deprecated"},
 					{Value: "nodejs12.x", Name: "NodeJS12dX"},
 					{Value: "nodejs14.x", Name: "NodeJS14dX"},
