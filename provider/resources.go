@@ -7076,26 +7076,33 @@ func Provider() *tfbridge.ProviderInfo {
 	}
 
 	prov.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
+		// Skip resources that don't have tags.
 		tagsF, ok := value.Schema().GetOk("tags")
 		if !ok {
 			return true
 		}
+		// Skip resources that don't have tags_all.
 		tagsAllF, ok := value.Schema().GetOk("tags_all")
 		if !ok {
 			return true
 		}
 
-		// tags_all must be present and computed, tags must be present and non-computed.
+		// tags_all must computed, tags must be non-computed.
 		if tagsF.Computed() || !tagsAllF.Computed() {
 			return true
 		}
 
+		// Ensure Fields and tags_all are initialized.
 		if prov.Resources[key].Fields == nil {
 			prov.Resources[key].Fields = make(map[string]*tfbridge.SchemaInfo)
 		}
 		if f := prov.Resources[key].Fields["tags_all"]; f == nil {
 			prov.Resources[key].Fields["tags_all"] = &tfbridge.SchemaInfo{}
 		}
+
+		// By setting XComputedInput to true, we're indicating to the bridge that if this output
+		// changes we should trigger an update.
+		// See https://github.com/pulumi/pulumi-terraform-bridge/pull/1251 for more details.
 		prov.Resources[key].Fields["tags_all"].XComputedInput = true
 
 		return true

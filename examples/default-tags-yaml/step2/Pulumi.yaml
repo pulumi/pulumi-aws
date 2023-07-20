@@ -1,6 +1,6 @@
 name: test-aws-1655
 runtime: yaml
-description: A minimal Pulumi YAML program
+description: Check that changing the value of a default tag value affects the bucket's tag.
 resources:
   aws-provider:
     type: pulumi:providers:aws

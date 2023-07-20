@@ -1,6 +1,6 @@
 name: test-aws-1655
 runtime: yaml
-description: A minimal Pulumi YAML program
+description: Check that the initial default tags get added to the bucket.
 resources:
   aws-provider:
     type: pulumi:providers:aws

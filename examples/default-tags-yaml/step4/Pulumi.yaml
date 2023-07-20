@@ -1,12 +1,13 @@
 name: test-aws-1655
 runtime: yaml
-description: A minimal Pulumi YAML program
+description: Check that setting default tags to empty removes tags from the bucket.
 resources:
   aws-provider:
     type: pulumi:providers:aws
     properties:
       defaultTags:
-        tags: {}
+        tags:
+          thwomp: pow
     defaultProvider: true
   my-bucket:
     type: aws:s3:Bucket
