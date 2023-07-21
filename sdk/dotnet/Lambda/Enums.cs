@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Lambda
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime Ruby2d5 { get; } = new Runtime("ruby2.5");
         public static Runtime Ruby2d7 { get; } = new Runtime("ruby2.7");
+        public static Runtime Ruby3d2 { get; } = new Runtime("ruby3.2");
         [Obsolete(@"This runtime is now deprecated")]
         public static Runtime NodeJS10dX { get; } = new Runtime("nodejs10.x");
         public static Runtime NodeJS12dX { get; } = new Runtime("nodejs12.x");
