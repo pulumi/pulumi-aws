@@ -19,6 +19,7 @@ export const Runtime = {
      */
     Ruby2d5: "ruby2.5",
     Ruby2d7: "ruby2.7",
+    Ruby3d2: "ruby3.2",
     /**
      * @deprecated This runtime is now deprecated
      */

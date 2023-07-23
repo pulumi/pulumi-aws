@@ -26,6 +26,7 @@ const (
 	// Deprecated: This runtime is now deprecated
 	RuntimeRuby2d5 = Runtime("ruby2.5")
 	RuntimeRuby2d7 = Runtime("ruby2.7")
+	RuntimeRuby3d2 = Runtime("ruby3.2")
 	// Deprecated: This runtime is now deprecated
 	RuntimeNodeJS10dX = Runtime("nodejs10.x")
 	RuntimeNodeJS12dX = Runtime("nodejs12.x")
