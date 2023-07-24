@@ -1,4 +1,4 @@
-From 87e97062ae4cf4c72e475eee69e8d720e9027311 Mon Sep 17 00:00:00 2001
+From 0dfb2c54e1269129ae8fdcc4f04ad5174a835686 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Wed, 9 Nov 2022 17:37:35 +0000
 Subject: [PATCH 12/28] Add custom appautoscaling examples
@@ -9,7 +9,7 @@ Subject: [PATCH 12/28] Add custom appautoscaling examples
  2 files changed, 40 insertions(+)
 
 diff --git a/website/docs/r/appautoscaling_policy.html.markdown b/website/docs/r/appautoscaling_policy.html.markdown
-index ac28f00413..7a3a2f194a 100644
+index 10307ebf61..642fd54cec 100644
 --- a/website/docs/r/appautoscaling_policy.html.markdown
 +++ b/website/docs/r/appautoscaling_policy.html.markdown
 @@ -196,6 +196,34 @@ resource "aws_appautoscaling_policy" "example" {
@@ -46,9 +46,9 @@ index ac28f00413..7a3a2f194a 100644
 +
  ## Argument Reference
  
- The following arguments are supported:
+ This resource supports the following arguments:
 diff --git a/website/docs/r/appautoscaling_target.html.markdown b/website/docs/r/appautoscaling_target.html.markdown
-index 62d4093dfd..c6c126ee73 100644
+index c8899c14fe..eec6f7ca46 100644
 --- a/website/docs/r/appautoscaling_target.html.markdown
 +++ b/website/docs/r/appautoscaling_target.html.markdown
 @@ -82,6 +82,18 @@ resource "aws_appautoscaling_target" "ecs_target" {
@@ -69,4 +69,4 @@ index 62d4093dfd..c6c126ee73 100644
 +
  ## Argument Reference
  
- The following arguments are supported:
+ This resource supports the following arguments:
