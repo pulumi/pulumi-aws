@@ -11,7 +11,7 @@ namespace Pulumi.Aws.Organizations.Outputs
 {
 
     [OutputType]
-    public sealed class GetOrganizationalUnitsChildrenResult
+    public sealed class GetOrganizationalUnitsChildResult
     {
         /// <summary>
         /// ARN of the organizational unit
@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Organizations.Outputs
         public readonly string Name;
 
         [OutputConstructor]
-        private GetOrganizationalUnitsChildrenResult(
+        private GetOrganizationalUnitsChildResult(
             string arn,
 
             string id,

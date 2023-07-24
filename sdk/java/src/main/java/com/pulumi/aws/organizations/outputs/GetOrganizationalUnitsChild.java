@@ -8,7 +8,7 @@ import java.lang.String;
 import java.util.Objects;
 
 @CustomType
-public final class GetOrganizationalUnitsChildren {
+public final class GetOrganizationalUnitsChild {
     /**
      * @return ARN of the organizational unit
      * 
@@ -25,7 +25,7 @@ public final class GetOrganizationalUnitsChildren {
      */
     private String name;
 
-    private GetOrganizationalUnitsChildren() {}
+    private GetOrganizationalUnitsChild() {}
     /**
      * @return ARN of the organizational unit
      * 
@@ -52,7 +52,7 @@ public final class GetOrganizationalUnitsChildren {
         return new Builder();
     }
 
-    public static Builder builder(GetOrganizationalUnitsChildren defaults) {
+    public static Builder builder(GetOrganizationalUnitsChild defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
@@ -61,7 +61,7 @@ public final class GetOrganizationalUnitsChildren {
         private String id;
         private String name;
         public Builder() {}
-        public Builder(GetOrganizationalUnitsChildren defaults) {
+        public Builder(GetOrganizationalUnitsChild defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
@@ -83,8 +83,8 @@ public final class GetOrganizationalUnitsChildren {
             this.name = Objects.requireNonNull(name);
             return this;
         }
-        public GetOrganizationalUnitsChildren build() {
-            final var o = new GetOrganizationalUnitsChildren();
+        public GetOrganizationalUnitsChild build() {
+            final var o = new GetOrganizationalUnitsChild();
             o.arn = arn;
             o.id = id;
             o.name = name;

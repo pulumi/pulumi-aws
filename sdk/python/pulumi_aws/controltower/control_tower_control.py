@@ -112,7 +112,7 @@ class ControlTowerControl(pulumi.CustomResource):
         example_organizational_units = aws.organizations.get_organizational_units(parent_id=example_organization.roots[0].id)
         example_control_tower_control = aws.controltower.ControlTowerControl("exampleControlTowerControl",
             control_identifier=f"arn:aws:controltower:{current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
-            target_identifier=[x.arn for x in example_organizational_units.childrens if x.name == "Infrastructure"][0])
+            target_identifier=[x.arn for x in example_organizational_units.children if x.name == "Infrastructure"][0])
         ```
 
         ## Import
@@ -149,7 +149,7 @@ class ControlTowerControl(pulumi.CustomResource):
         example_organizational_units = aws.organizations.get_organizational_units(parent_id=example_organization.roots[0].id)
         example_control_tower_control = aws.controltower.ControlTowerControl("exampleControlTowerControl",
             control_identifier=f"arn:aws:controltower:{current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
-            target_identifier=[x.arn for x in example_organizational_units.childrens if x.name == "Infrastructure"][0])
+            target_identifier=[x.arn for x in example_organizational_units.children if x.name == "Infrastructure"][0])
         ```
 
         ## Import

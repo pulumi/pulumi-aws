@@ -78,7 +78,7 @@ def get_controls(target_identifier: Optional[str] = None,
 
     this_organization = aws.organizations.get_organization()
     this_organizational_units = aws.organizations.get_organizational_units(parent_id=this_organization.roots[0].id)
-    this_controls = aws.controltower.get_controls(target_identifier=[x.arn for x in this_organizational_units.childrens if x.name == "Security"][0])
+    this_controls = aws.controltower.get_controls(target_identifier=[x.arn for x in this_organizational_units.children if x.name == "Security"][0])
     ```
 
 
@@ -109,7 +109,7 @@ def get_controls_output(target_identifier: Optional[pulumi.Input[str]] = None,
 
     this_organization = aws.organizations.get_organization()
     this_organizational_units = aws.organizations.get_organizational_units(parent_id=this_organization.roots[0].id)
-    this_controls = aws.controltower.get_controls(target_identifier=[x.arn for x in this_organizational_units.childrens if x.name == "Security"][0])
+    this_controls = aws.controltower.get_controls(target_identifier=[x.arn for x in this_organizational_units.children if x.name == "Security"][0])
     ```
 
 

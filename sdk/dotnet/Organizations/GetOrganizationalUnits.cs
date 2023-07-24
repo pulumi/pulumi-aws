@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// List of child organizational units, which have the following attributes:
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetOrganizationalUnitsChildrenResult> Childrens;
+        public readonly ImmutableArray<Outputs.GetOrganizationalUnitsChildResult> Children;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -117,13 +117,13 @@ namespace Pulumi.Aws.Organizations
 
         [OutputConstructor]
         private GetOrganizationalUnitsResult(
-            ImmutableArray<Outputs.GetOrganizationalUnitsChildrenResult> childrens,
+            ImmutableArray<Outputs.GetOrganizationalUnitsChildResult> children,
 
             string id,
 
             string parentId)
         {
-            Childrens = childrens;
+            Children = children;
             Id = id;
             ParentId = parentId;
         }

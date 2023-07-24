@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.organizations.outputs;
 
-import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitsChildren;
+import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitsChild;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -15,7 +15,7 @@ public final class GetOrganizationalUnitsResult {
      * @return List of child organizational units, which have the following attributes:
      * 
      */
-    private List<GetOrganizationalUnitsChildren> childrens;
+    private List<GetOrganizationalUnitsChild> children;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -28,8 +28,8 @@ public final class GetOrganizationalUnitsResult {
      * @return List of child organizational units, which have the following attributes:
      * 
      */
-    public List<GetOrganizationalUnitsChildren> childrens() {
-        return this.childrens;
+    public List<GetOrganizationalUnitsChild> children() {
+        return this.children;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -51,24 +51,24 @@ public final class GetOrganizationalUnitsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetOrganizationalUnitsChildren> childrens;
+        private List<GetOrganizationalUnitsChild> children;
         private String id;
         private String parentId;
         public Builder() {}
         public Builder(GetOrganizationalUnitsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.childrens = defaults.childrens;
+    	      this.children = defaults.children;
     	      this.id = defaults.id;
     	      this.parentId = defaults.parentId;
         }
 
         @CustomType.Setter
-        public Builder childrens(List<GetOrganizationalUnitsChildren> childrens) {
-            this.childrens = Objects.requireNonNull(childrens);
+        public Builder children(List<GetOrganizationalUnitsChild> children) {
+            this.children = Objects.requireNonNull(children);
             return this;
         }
-        public Builder childrens(GetOrganizationalUnitsChildren... childrens) {
-            return childrens(List.of(childrens));
+        public Builder children(GetOrganizationalUnitsChild... children) {
+            return children(List.of(children));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -82,7 +82,7 @@ public final class GetOrganizationalUnitsResult {
         }
         public GetOrganizationalUnitsResult build() {
             final var o = new GetOrganizationalUnitsResult();
-            o.childrens = childrens;
+            o.children = children;
             o.id = id;
             o.parentId = parentId;
             return o;
