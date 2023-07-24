@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
- * ```
+ *  to = aws_sagemaker_human_task_ui.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For exampleconsole % pulumi import aws_sagemaker_human_task_ui.example example
  * 
  */
 @ResourceType(type="aws:sagemaker/humanTaskUI:HumanTaskUI")

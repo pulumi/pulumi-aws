@@ -120,11 +120,11 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Import
     /// 
-    /// AppConfig Hosted Configuration Versions can be imported by using the application ID, configuration profile ID, and version number separated by a slash (`/`), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
-    /// ```
+    ///  to = aws_appconfig_hosted_configuration_version.example
+    /// 
+    ///  id = "71abcde/11xxxxx/2" } Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For exampleconsole % pulumi import aws_appconfig_hosted_configuration_version.example 71abcde/11xxxxx/2
     /// </summary>
     [AwsResourceType("aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion")]
     public partial class HostedConfigurationVersion : global::Pulumi.CustomResource

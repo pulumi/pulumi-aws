@@ -282,11 +282,11 @@ class ApiKey(pulumi.CustomResource):
 
         ## Import
 
-        API Gateway Keys can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigateway/apiKey:ApiKey my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
-        ```
+         to = aws_api_gateway_api_key.my_demo_key
+
+         id = "8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk" } Using `pulumi import`, import API Gateway Keys using the `id`. For exampleconsole % pulumi import aws_api_gateway_api_key.my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -318,11 +318,11 @@ class ApiKey(pulumi.CustomResource):
 
         ## Import
 
-        API Gateway Keys can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigateway/apiKey:ApiKey my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
-        ```
+         to = aws_api_gateway_api_key.my_demo_key
+
+         id = "8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk" } Using `pulumi import`, import API Gateway Keys using the `id`. For exampleconsole % pulumi import aws_api_gateway_api_key.my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

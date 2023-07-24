@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Resource share accepters can be imported using the resource share ARN, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
- * ```
+ *  to = aws_ram_resource_share_accepter.example
+ * 
+ *  id = &#34;arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767&#34; } Using `pulumi import`, import resource share accepters using the resource share ARN. For exampleconsole % pulumi import aws_ram_resource_share_accepter.example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
  * 
  */
 @ResourceType(type="aws:ram/resourceShareAccepter:ResourceShareAccepter")

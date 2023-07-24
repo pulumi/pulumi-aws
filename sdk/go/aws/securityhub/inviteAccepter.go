@@ -62,13 +62,11 @@ import (
 //
 // ## Import
 //
-// Security Hub invite acceptance can be imported using the account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_invite_accepter.example
 //
-//	$ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import Security Hub invite acceptance using the account ID. For exampleconsole % pulumi import aws_securityhub_invite_accepter.example 123456789012
 type InviteAccepter struct {
 	pulumi.CustomResourceState
 

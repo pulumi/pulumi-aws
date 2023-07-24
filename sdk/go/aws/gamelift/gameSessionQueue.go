@@ -55,13 +55,11 @@ import (
 //
 // ## Import
 //
-// GameLift Game Session Queues can be imported by their `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_gamelift_game_session_queue.example
 //
-//	$ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import GameLift Game Session Queues using their `name`. For exampleconsole % pulumi import aws_gamelift_game_session_queue.example example
 type GameSessionQueue struct {
 	pulumi.CustomResourceState
 

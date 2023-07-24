@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * QLDB Ledgers can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
- * ```
+ *  to = aws_qldb_ledger.sample-ledger
+ *
+ *  id = "sample-ledger" } Using `pulumi import`, import QLDB Ledgers using the `name`. For exampleconsole % pulumi import aws_qldb_ledger.sample-ledger sample-ledger
  */
 export class Ledger extends pulumi.CustomResource {
     /**

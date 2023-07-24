@@ -162,11 +162,11 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        `aws_datapipeline_pipeline` can be imported by using the id (Pipeline ID), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
-        ```
+         to = aws_datapipeline_pipeline.default
+
+         id = "df-1234567890" } Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For exampleconsole % pulumi import aws_datapipeline_pipeline.default df-1234567890
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,11 +194,11 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        `aws_datapipeline_pipeline` can be imported by using the id (Pipeline ID), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
-        ```
+         to = aws_datapipeline_pipeline.default
+
+         id = "df-1234567890" } Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For exampleconsole % pulumi import aws_datapipeline_pipeline.default df-1234567890
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

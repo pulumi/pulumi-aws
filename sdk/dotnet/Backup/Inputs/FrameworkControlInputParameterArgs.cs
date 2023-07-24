@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Backup.Inputs
     public sealed class FrameworkControlInputParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        /// The name of a parameter, for example, BackupPlanFrequency.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

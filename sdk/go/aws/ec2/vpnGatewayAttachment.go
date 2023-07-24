@@ -66,7 +66,7 @@ import (
 //
 // ## Import
 //
-// This resource does not support importing.
+// You cannot import this resource.
 type VpnGatewayAttachment struct {
 	pulumi.CustomResourceState
 

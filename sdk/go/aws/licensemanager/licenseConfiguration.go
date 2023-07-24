@@ -64,13 +64,11 @@ import (
 //
 // ## Import
 //
-// License configurations can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_licensemanager_license_configuration.example
 //
-//	$ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-//
-// ```
+//	id = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `pulumi import`, import license configurations using the `id`. For exampleconsole % pulumi import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 type LicenseConfiguration struct {
 	pulumi.CustomResourceState
 

@@ -75,11 +75,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ECS Capacity Providers can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
- * ```
+ *  to = aws_ecs_capacity_provider.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import ECS Capacity Providers using the `name`. For exampleconsole % pulumi import aws_ecs_capacity_provider.example example
  * 
  */
 @ResourceType(type="aws:ecs/capacityProvider:CapacityProvider")

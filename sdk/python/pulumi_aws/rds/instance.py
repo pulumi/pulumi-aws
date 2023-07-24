@@ -24,6 +24,7 @@ class InstanceArgs:
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 backup_target: Optional[pulumi.Input[str]] = None,
                  backup_window: Optional[pulumi.Input[str]] = None,
                  blue_green_update: Optional[pulumi.Input['InstanceBlueGreenUpdateArgs']] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
@@ -99,6 +100,7 @@ class InstanceArgs:
                Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
                uses low-downtime updates,
                or will use [RDS Blue/Green deployments][blue-green].
+        :param pulumi.Input[str] backup_target: Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         :param pulumi.Input['InstanceBlueGreenUpdateArgs'] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
@@ -129,7 +131,7 @@ class InstanceArgs:
         :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
                set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
@@ -234,6 +236,8 @@ class InstanceArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if backup_retention_period is not None:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+        if backup_target is not None:
+            pulumi.set(__self__, "backup_target", backup_target)
         if backup_window is not None:
             pulumi.set(__self__, "backup_window", backup_window)
         if blue_green_update is not None:
@@ -440,6 +444,18 @@ class InstanceArgs:
         pulumi.set(self, "backup_retention_period", value)
 
     @property
+    @pulumi.getter(name="backupTarget")
+    def backup_target(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+        """
+        return pulumi.get(self, "backup_target")
+
+    @backup_target.setter
+    def backup_target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_target", value)
+
+    @property
     @pulumi.getter(name="backupWindow")
     def backup_window(self) -> Optional[pulumi.Input[str]]:
         """
@@ -638,7 +654,7 @@ class InstanceArgs:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         """
         return pulumi.get(self, "engine_version")
 
@@ -1164,6 +1180,7 @@ class _InstanceState:
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 backup_target: Optional[pulumi.Input[str]] = None,
                  backup_window: Optional[pulumi.Input[str]] = None,
                  blue_green_update: Optional[pulumi.Input['InstanceBlueGreenUpdateArgs']] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
@@ -1251,6 +1268,7 @@ class _InstanceState:
                Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
                uses low-downtime updates,
                or will use [RDS Blue/Green deployments][blue-green].
+        :param pulumi.Input[str] backup_target: Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         :param pulumi.Input['InstanceBlueGreenUpdateArgs'] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
@@ -1282,7 +1300,7 @@ class _InstanceState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] engine_version_actual: The running version of the database.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
@@ -1399,6 +1417,8 @@ class _InstanceState:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if backup_retention_period is not None:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+        if backup_target is not None:
+            pulumi.set(__self__, "backup_target", backup_target)
         if backup_window is not None:
             pulumi.set(__self__, "backup_window", backup_window)
         if blue_green_update is not None:
@@ -1639,6 +1659,18 @@ class _InstanceState:
         pulumi.set(self, "backup_retention_period", value)
 
     @property
+    @pulumi.getter(name="backupTarget")
+    def backup_target(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+        """
+        return pulumi.get(self, "backup_target")
+
+    @backup_target.setter
+    def backup_target(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_target", value)
+
+    @property
     @pulumi.getter(name="backupWindow")
     def backup_window(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1849,7 +1881,7 @@ class _InstanceState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         """
         return pulumi.get(self, "engine_version")
 
@@ -2492,6 +2524,7 @@ class Instance(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 backup_target: Optional[pulumi.Input[str]] = None,
                  backup_window: Optional[pulumi.Input[str]] = None,
                  blue_green_update: Optional[pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']]] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
@@ -2660,11 +2693,11 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        DB Instances can be imported using the `identifier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
-        ```
+         to = aws_db_instance.default
+
+         id = "mydb-rds-instance" } Using `pulumi import`, import DB Instances using the `identifier`. For exampleconsole % pulumi import aws_db_instance.default mydb-rds-instance
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2686,6 +2719,7 @@ class Instance(pulumi.CustomResource):
                Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
                uses low-downtime updates,
                or will use [RDS Blue/Green deployments][blue-green].
+        :param pulumi.Input[str] backup_target: Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         :param pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
@@ -2716,7 +2750,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] domain_iam_role_name: The name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
                set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
@@ -2927,11 +2961,11 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        DB Instances can be imported using the `identifier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
-        ```
+         to = aws_db_instance.default
+
+         id = "mydb-rds-instance" } Using `pulumi import`, import DB Instances using the `identifier`. For exampleconsole % pulumi import aws_db_instance.default mydb-rds-instance
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
@@ -2954,6 +2988,7 @@ class Instance(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 backup_target: Optional[pulumi.Input[str]] = None,
                  backup_window: Optional[pulumi.Input[str]] = None,
                  blue_green_update: Optional[pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']]] = None,
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
@@ -3024,6 +3059,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup_retention_period"] = backup_retention_period
+            __props__.__dict__["backup_target"] = backup_target
             __props__.__dict__["backup_window"] = backup_window
             __props__.__dict__["blue_green_update"] = blue_green_update
             __props__.__dict__["ca_cert_identifier"] = ca_cert_identifier
@@ -3113,6 +3149,7 @@ class Instance(pulumi.CustomResource):
             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             backup_retention_period: Optional[pulumi.Input[int]] = None,
+            backup_target: Optional[pulumi.Input[str]] = None,
             backup_window: Optional[pulumi.Input[str]] = None,
             blue_green_update: Optional[pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']]] = None,
             ca_cert_identifier: Optional[pulumi.Input[str]] = None,
@@ -3205,6 +3242,7 @@ class Instance(pulumi.CustomResource):
                Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
                uses low-downtime updates,
                or will use [RDS Blue/Green deployments][blue-green].
+        :param pulumi.Input[str] backup_target: Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
         :param pulumi.Input[str] backup_window: The daily time range (in UTC) during which automated backups are created if they are enabled.
                Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         :param pulumi.Input[pulumi.InputType['InstanceBlueGreenUpdateArgs']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
@@ -3236,7 +3274,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
         :param pulumi.Input[str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[str] engine: The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster's engine'. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         :param pulumi.Input[str] engine_version_actual: The running version of the database.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
@@ -3349,6 +3387,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["backup_retention_period"] = backup_retention_period
+        __props__.__dict__["backup_target"] = backup_target
         __props__.__dict__["backup_window"] = backup_window
         __props__.__dict__["blue_green_update"] = blue_green_update
         __props__.__dict__["ca_cert_identifier"] = ca_cert_identifier
@@ -3491,6 +3530,14 @@ class Instance(pulumi.CustomResource):
         or will use [RDS Blue/Green deployments][blue-green].
         """
         return pulumi.get(self, "backup_retention_period")
+
+    @property
+    @pulumi.getter(name="backupTarget")
+    def backup_target(self) -> pulumi.Output[str]:
+        """
+        Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+        """
+        return pulumi.get(self, "backup_target")
 
     @property
     @pulumi.getter(name="backupWindow")
@@ -3639,7 +3686,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
         """
-        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         """
         return pulumi.get(self, "engine_version")
 

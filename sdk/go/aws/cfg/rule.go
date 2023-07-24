@@ -207,13 +207,11 @@ import (
 //
 // ## Import
 //
-// Config Rule can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_config_rule.foo
 //
-//	$ pulumi import aws:cfg/rule:Rule foo example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Config Rule using the name. For exampleconsole % pulumi import aws_config_config_rule.foo example
 type Rule struct {
 	pulumi.CustomResourceState
 

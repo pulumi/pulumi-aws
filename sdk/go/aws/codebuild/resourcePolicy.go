@@ -91,13 +91,11 @@ import (
 //
 // ## Import
 //
-// CodeBuild Resource Policy can be imported using the CodeBuild Resource Policy arn, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codebuild_resource_policy.example
 //
-//	$ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
-//
-// ```
+//	id = "arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name" } Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For exampleconsole % pulumi import aws_codebuild_resource_policy.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 

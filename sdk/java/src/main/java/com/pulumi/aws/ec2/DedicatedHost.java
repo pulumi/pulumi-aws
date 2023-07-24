@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Hosts can be imported using the host `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
- * ```
+ *  to = aws_ec2_host.example
+ * 
+ *  id = &#34;h-0385a99d0e4b20cbb&#34; } Using `pulumi import`, import hosts using the host `id`. For exampleconsole % pulumi import aws_ec2_host.example h-0385a99d0e4b20cbb
  * 
  */
 @ResourceType(type="aws:ec2/dedicatedHost:DedicatedHost")
@@ -75,6 +75,20 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+     * 
+     */
+    @Export(name="assetId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> assetId;
+
+    /**
+     * @return The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+     * 
+     */
+    public Output<Optional<String>> assetId() {
+        return Codegen.optional(this.assetId);
     }
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.

@@ -42,13 +42,11 @@ import (
 //
 // ## Import
 //
-// Internet Monitor Monitors can be imported using the `monitor_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_internetmonitor_monitor.some
 //
-//	$ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
-//
-// ```
+//	id = "some-monitor" } Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For exampleconsole % pulumi import aws_internetmonitor_monitor.some some-monitor
 type InternetMonitor struct {
 	pulumi.CustomResourceState
 

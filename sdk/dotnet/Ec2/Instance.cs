@@ -278,11 +278,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Instances can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/instance:Instance web i-12345678
-    /// ```
+    ///  to = aws_instance.web
+    /// 
+    ///  id = "i-12345678" } Using `pulumi import`, import instances using the `id`. For exampleconsole % pulumi import aws_instance.web i-12345678
     /// </summary>
     [AwsResourceType("aws:ec2/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource

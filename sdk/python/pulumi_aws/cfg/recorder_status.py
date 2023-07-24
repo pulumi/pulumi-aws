@@ -141,11 +141,11 @@ class RecorderStatus(pulumi.CustomResource):
 
         ## Import
 
-        Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
-        ```
+         to = aws_config_configuration_recorder_status.foo
+
+         id = "example" } Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For exampleconsole % pulumi import aws_config_configuration_recorder_status.foo example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,11 +201,11 @@ class RecorderStatus(pulumi.CustomResource):
 
         ## Import
 
-        Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
-        ```
+         to = aws_config_configuration_recorder_status.foo
+
+         id = "example" } Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For exampleconsole % pulumi import aws_config_configuration_recorder_status.foo example
 
         :param str resource_name: The name of the resource.
         :param RecorderStatusArgs args: The arguments to use to populate this resource's properties.

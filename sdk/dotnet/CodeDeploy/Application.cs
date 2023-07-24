@@ -67,11 +67,11 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// ## Import
     /// 
-    /// CodeDeploy Applications can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:codedeploy/application:Application example my-application
-    /// ```
+    ///  to = aws_codedeploy_app.example
+    /// 
+    ///  id = "my-application" } Using `pulumi import`, import CodeDeploy Applications using the `name`. For exampleconsole % pulumi import aws_codedeploy_app.example my-application
     /// </summary>
     [AwsResourceType("aws:codedeploy/application:Application")]
     public partial class Application : global::Pulumi.CustomResource

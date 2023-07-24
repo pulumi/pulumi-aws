@@ -425,11 +425,11 @@ class ExternalKey(pulumi.CustomResource):
 
         ## Import
 
-        KMS External Keys can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
-        ```
+         to = aws_kms_external_key.a
+
+         id = "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS External Keys using the `id`. For exampleconsole % pulumi import aws_kms_external_key.a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -464,11 +464,11 @@ class ExternalKey(pulumi.CustomResource):
 
         ## Import
 
-        KMS External Keys can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
-        ```
+         to = aws_kms_external_key.a
+
+         id = "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS External Keys using the `id`. For exampleconsole % pulumi import aws_kms_external_key.a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 
         :param str resource_name: The name of the resource.
         :param ExternalKeyArgs args: The arguments to use to populate this resource's properties.

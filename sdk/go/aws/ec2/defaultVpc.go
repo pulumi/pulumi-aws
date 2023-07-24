@@ -55,13 +55,11 @@ import (
 //
 // ## Import
 //
-// Default VPCs can be imported using the `vpc id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_default_vpc.default
 //
-//	$ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
-//
-// ```
+//	id = "vpc-a01106c2" } Using `pulumi import`, import Default VPCs using the VPC `id`. For exampleconsole % pulumi import aws_default_vpc.default vpc-a01106c2
 type DefaultVpc struct {
 	pulumi.CustomResourceState
 

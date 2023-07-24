@@ -47,13 +47,11 @@ import (
 //
 // ## Import
 //
-// OpenSearchServerless Vpc Endpointa can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_opensearchserverless_vpc_endpoint.example
 //
-//	$ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
-//
-// ```
+//	id = "vpce-8012925589" } Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For exampleconsole % pulumi import aws_opensearchserverless_vpc_endpoint.example vpce-8012925589
 type ServerlessVpcEndpoint struct {
 	pulumi.CustomResourceState
 

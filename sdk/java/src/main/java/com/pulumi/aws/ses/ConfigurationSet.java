@@ -83,11 +83,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SES Configuration Sets can be imported using their `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
- * ```
+ *  to = aws_ses_configuration_set.test
+ * 
+ *  id = &#34;some-configuration-set-test&#34; } Using `pulumi import`, import SES Configuration Sets using their `name`. For exampleconsole % pulumi import aws_ses_configuration_set.test some-configuration-set-test
  * 
  */
 @ResourceType(type="aws:ses/configurationSet:ConfigurationSet")

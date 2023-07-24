@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ECR Repositories can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ecr/repository:Repository service test-service
- * ```
+ *  to = aws_ecr_repository.service
+ * 
+ *  id = &#34;test-service&#34; } Using `pulumi import`, import ECR Repositories using the `name`. For exampleconsole % pulumi import aws_ecr_repository.service test-service
  * 
  */
 @ResourceType(type="aws:ecr/repository:Repository")

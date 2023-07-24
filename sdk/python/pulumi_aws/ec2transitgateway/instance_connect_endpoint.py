@@ -333,11 +333,11 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        EC2 Instance Connect Endpoints can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
-        ```
+         to = aws_ec2_instance_connect_endpoint.example
+
+         id = "eice-012345678" } Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For exampleconsole % pulumi import aws_ec2_instance_connect_endpoint.example eice-012345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -366,11 +366,11 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        EC2 Instance Connect Endpoints can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
-        ```
+         to = aws_ec2_instance_connect_endpoint.example
+
+         id = "eice-012345678" } Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For exampleconsole % pulumi import aws_ec2_instance_connect_endpoint.example eice-012345678
 
         :param str resource_name: The name of the resource.
         :param InstanceConnectEndpointArgs args: The arguments to use to populate this resource's properties.

@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift endpoint authorization can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
- * ```
+ *  to = aws_redshift_endpoint_authorization.example
+ *
+ *  id = "01234567910:cluster-example-id" } Using `pulumi import`, import Redshift endpoint authorization using the `id`. For exampleconsole % pulumi import aws_redshift_endpoint_authorization.example 01234567910:cluster-example-id
  */
 export class EndpointAuthorization extends pulumi.CustomResource {
     /**

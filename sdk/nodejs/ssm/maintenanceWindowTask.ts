@@ -103,11 +103,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AWS Maintenance Window Task can be imported using the `window_id` and `window_task_id` separated by `/`.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
- * ```
+ *  to = aws_ssm_maintenance_window_task.task
+ *
+ *  id = "<window_id>/<window_task_id>" } Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For exampleconsole % pulumi import aws_ssm_maintenance_window_task.task <window_id>/<window_task_id>
  */
 export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**

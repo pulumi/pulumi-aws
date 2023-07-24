@@ -309,11 +309,11 @@ class Segment(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Evidently Segment can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
-        ```
+         to = aws_evidently_segment.example
+
+         id = "arn:aws:evidently:us-west-2:123456789012:segment/example" } Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For exampleconsole % pulumi import aws_evidently_segment.example arn:aws:evidently:us-west-2:123456789012:segment/example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -377,11 +377,11 @@ class Segment(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Evidently Segment can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
-        ```
+         to = aws_evidently_segment.example
+
+         id = "arn:aws:evidently:us-west-2:123456789012:segment/example" } Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For exampleconsole % pulumi import aws_evidently_segment.example arn:aws:evidently:us-west-2:123456789012:segment/example
 
         :param str resource_name: The name of the resource.
         :param SegmentArgs args: The arguments to use to populate this resource's properties.

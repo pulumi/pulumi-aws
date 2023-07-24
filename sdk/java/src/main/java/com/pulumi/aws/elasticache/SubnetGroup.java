@@ -67,11 +67,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ElastiCache Subnet Groups can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
- * ```
+ *  to = aws_elasticache_subnet_group.bar
+ * 
+ *  id = &#34;tf-test-cache-subnet&#34; } Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For exampleconsole % pulumi import aws_elasticache_subnet_group.bar tf-test-cache-subnet
  * 
  */
 @ResourceType(type="aws:elasticache/subnetGroup:SubnetGroup")

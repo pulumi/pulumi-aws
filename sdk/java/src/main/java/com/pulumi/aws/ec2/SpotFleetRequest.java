@@ -299,11 +299,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Spot Fleet Requests can be imported using `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
- * ```
+ *  to = aws_spot_fleet_request.fleet
+ * 
+ *  id = &#34;sfr-005e9ec8-5546-4c31-b317-31a62325411e&#34; } Using `pulumi import`, import Spot Fleet Requests using `id`. For exampleconsole % pulumi import aws_spot_fleet_request.fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
  * 
  */
 @ResourceType(type="aws:ec2/spotFleetRequest:SpotFleetRequest")

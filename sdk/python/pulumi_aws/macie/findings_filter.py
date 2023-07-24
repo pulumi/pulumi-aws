@@ -317,11 +317,11 @@ class FindingsFilter(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_findings_filter` can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
-        ```
+         to = aws_macie2_findings_filter.example
+
+         id = "abcd1" } Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For exampleconsole % pulumi import aws_macie2_findings_filter.example abcd1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -364,11 +364,11 @@ class FindingsFilter(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_findings_filter` can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
-        ```
+         to = aws_macie2_findings_filter.example
+
+         id = "abcd1" } Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For exampleconsole % pulumi import aws_macie2_findings_filter.example abcd1
 
         :param str resource_name: The name of the resource.
         :param FindingsFilterArgs args: The arguments to use to populate this resource's properties.

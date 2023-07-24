@@ -467,13 +467,11 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         ## Import
 
-        AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
-        ```
+         to = aws_batch_compute_environment.sample
 
-         [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
+         id = "sample" } Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For exampleconsole % pulumi import aws_batch_compute_environment.sample sample [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -581,13 +579,11 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         ## Import
 
-        AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
-        ```
+         to = aws_batch_compute_environment.sample
 
-         [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
+         id = "sample" } Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For exampleconsole % pulumi import aws_batch_compute_environment.sample sample [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 
         :param str resource_name: The name of the resource.
         :param ComputeEnvironmentArgs args: The arguments to use to populate this resource's properties.

@@ -73,13 +73,11 @@ import (
 //
 // ## Import
 //
-// Cloudfront Field Level Encryption Profile can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_field_level_encryption_profile.profile
 //
-//	$ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
-//
-// ```
+//	id = "K3D5EWEUDCCXON" } Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For exampleconsole % pulumi import aws_cloudfront_field_level_encryption_profile.profile K3D5EWEUDCCXON
 type FieldLevelEncryptionProfile struct {
 	pulumi.CustomResourceState
 

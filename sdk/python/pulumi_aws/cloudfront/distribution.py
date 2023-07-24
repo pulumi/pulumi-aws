@@ -842,11 +842,11 @@ class Distribution(pulumi.CustomResource):
 
         ## Import
 
-        CloudFront Distributions can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
-        ```
+         to = aws_cloudfront_distribution.distribution
+
+         id = "E74FTE3EXAMPLE" } Using `pulumi import`, import CloudFront Distributions using the `id`. For exampleconsole % pulumi import aws_cloudfront_distribution.distribution E74FTE3EXAMPLE
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -885,11 +885,11 @@ class Distribution(pulumi.CustomResource):
 
         ## Import
 
-        CloudFront Distributions can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
-        ```
+         to = aws_cloudfront_distribution.distribution
+
+         id = "E74FTE3EXAMPLE" } Using `pulumi import`, import CloudFront Distributions using the `id`. For exampleconsole % pulumi import aws_cloudfront_distribution.distribution E74FTE3EXAMPLE
 
         :param str resource_name: The name of the resource.
         :param DistributionArgs args: The arguments to use to populate this resource's properties.

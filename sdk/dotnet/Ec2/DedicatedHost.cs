@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Hosts can be imported using the host `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
-    /// ```
+    ///  to = aws_ec2_host.example
+    /// 
+    ///  id = "h-0385a99d0e4b20cbb" } Using `pulumi import`, import hosts using the host `id`. For exampleconsole % pulumi import aws_ec2_host.example h-0385a99d0e4b20cbb
     /// </summary>
     [AwsResourceType("aws:ec2/dedicatedHost:DedicatedHost")]
     public partial class DedicatedHost : global::Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+        /// </summary>
+        [Output("assetId")]
+        public Output<string?> AssetId { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
@@ -153,6 +159,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class DedicatedHostArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+        /// </summary>
+        [Input("assetId")]
+        public Input<string>? AssetId { get; set; }
+
+        /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
         /// </summary>
         [Input("autoPlacement")]
@@ -213,6 +225,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+        /// </summary>
+        [Input("assetId")]
+        public Input<string>? AssetId { get; set; }
 
         /// <summary>
         /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.

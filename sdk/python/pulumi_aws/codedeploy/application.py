@@ -243,11 +243,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        CodeDeploy Applications can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codedeploy/application:Application example my-application
-        ```
+         to = aws_codedeploy_app.example
+
+         id = "my-application" } Using `pulumi import`, import CodeDeploy Applications using the `name`. For exampleconsole % pulumi import aws_codedeploy_app.example my-application
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,11 +292,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        CodeDeploy Applications can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codedeploy/application:Application example my-application
-        ```
+         to = aws_codedeploy_app.example
+
+         id = "my-application" } Using `pulumi import`, import CodeDeploy Applications using the `name`. For exampleconsole % pulumi import aws_codedeploy_app.example my-application
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

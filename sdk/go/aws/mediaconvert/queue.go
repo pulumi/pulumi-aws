@@ -39,13 +39,11 @@ import (
 //
 // ## Import
 //
-// Media Convert Queue can be imported via the queue name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_media_convert_queue.test
 //
-//	$ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
-//
-// ```
+//	id = "tf-test-queue" } Using `pulumi import`, import Media Convert Queue using the queue name. For exampleconsole % pulumi import aws_media_convert_queue.test tf-test-queue
 type Queue struct {
 	pulumi.CustomResourceState
 

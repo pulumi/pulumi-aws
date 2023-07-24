@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
- * ```
+ *  to = aws_iam_user_policy.mypolicy
+ * 
+ *  id = &#34;user_of_mypolicy_name:mypolicy_name&#34; } Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For exampleconsole % pulumi import aws_iam_user_policy.mypolicy user_of_mypolicy_name:mypolicy_name
  * 
  */
 @ResourceType(type="aws:iam/userPolicy:UserPolicy")

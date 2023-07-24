@@ -94,11 +94,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SSM resource data sync can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
- * ```
+ *  to = aws_ssm_resource_data_sync.example
+ * 
+ *  id = &#34;example-name&#34; } Using `pulumi import`, import SSM resource data sync using the `name`. For exampleconsole % pulumi import aws_ssm_resource_data_sync.example example-name
  * 
  */
 @ResourceType(type="aws:ssm/resourceDataSync:ResourceDataSync")

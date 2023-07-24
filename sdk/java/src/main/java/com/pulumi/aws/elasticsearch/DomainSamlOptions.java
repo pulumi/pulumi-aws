@@ -75,11 +75,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Elasticsearch domains can be imported using the `domain_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
- * ```
+ *  to = aws_elasticsearch_domain_saml_options.example
+ * 
+ *  id = &#34;domain_name&#34; } Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For exampleconsole % pulumi import aws_elasticsearch_domain_saml_options.example domain_name
  * 
  */
 @ResourceType(type="aws:elasticsearch/domainSamlOptions:DomainSamlOptions")

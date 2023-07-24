@@ -88,11 +88,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SES domain identities can be imported using the domain name.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
- * ```
+ *  to = aws_ses_domain_identity.example
+ * 
+ *  id = &#34;example.com&#34; } Using `pulumi import`, import SES domain identities using the domain name. For exampleconsole % pulumi import aws_ses_domain_identity.example example.com
  * 
  */
 @ResourceType(type="aws:ses/domainIdentity:DomainIdentity")

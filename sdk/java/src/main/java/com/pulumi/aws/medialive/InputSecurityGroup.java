@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MediaLive InputSecurityGroup can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
- * ```
+ *  to = aws_medialive_input_security_group.example
+ * 
+ *  id = &#34;123456&#34; } Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For exampleconsole % pulumi import aws_medialive_input_security_group.example 123456
  * 
  */
 @ResourceType(type="aws:medialive/inputSecurityGroup:InputSecurityGroup")

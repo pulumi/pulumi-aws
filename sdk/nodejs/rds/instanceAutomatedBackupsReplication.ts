@@ -67,11 +67,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * RDS instance automated backups replication can be imported using the `arn`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
- * ```
+ *  to = aws_db_instance_automated_backups_replication.default
+ *
+ *  id = "arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my" } Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For exampleconsole % pulumi import aws_db_instance_automated_backups_replication.default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
  */
 export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
     /**

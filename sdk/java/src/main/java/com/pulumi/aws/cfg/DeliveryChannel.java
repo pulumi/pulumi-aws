@@ -103,11 +103,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Delivery Channel can be imported using the name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
- * ```
+ *  to = aws_config_delivery_channel.foo
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Delivery Channel using the name. For exampleconsole % pulumi import aws_config_delivery_channel.foo example
  * 
  */
 @ResourceType(type="aws:cfg/deliveryChannel:DeliveryChannel")

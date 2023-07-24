@@ -17,24 +17,14 @@ public final class GetReplicationInstanceArgs extends com.pulumi.resources.Invok
     public static final GetReplicationInstanceArgs Empty = new GetReplicationInstanceArgs();
 
     /**
-     * The replication instance identifier. This parameter is stored as a lowercase string.
-     * 
-     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen
-     * - Cannot contain two consecutive hyphens.
+     * The replication instance identifier.
      * 
      */
     @Import(name="replicationInstanceId", required=true)
     private Output<String> replicationInstanceId;
 
     /**
-     * @return The replication instance identifier. This parameter is stored as a lowercase string.
-     * 
-     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen
-     * - Cannot contain two consecutive hyphens.
+     * @return The replication instance identifier.
      * 
      */
     public Output<String> replicationInstanceId() {
@@ -74,12 +64,7 @@ public final class GetReplicationInstanceArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
-         * 
-         * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-         * - First character must be a letter.
-         * - Cannot end with a hyphen
-         * - Cannot contain two consecutive hyphens.
+         * @param replicationInstanceId The replication instance identifier.
          * 
          * @return builder
          * 
@@ -90,12 +75,7 @@ public final class GetReplicationInstanceArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
-         * 
-         * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-         * - First character must be a letter.
-         * - Cannot end with a hyphen
-         * - Cannot contain two consecutive hyphens.
+         * @param replicationInstanceId The replication instance identifier.
          * 
          * @return builder
          * 

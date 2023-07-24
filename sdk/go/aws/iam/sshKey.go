@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// SSH public keys can be imported using the `username`, `ssh_public_key_id`, and `encoding` e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_user_ssh_key.user
 //
-//	$ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
-//
-// ```
+//	id = "user:APKAJNCNNJICVN7CFKCA:SSH" } Using `pulumi import`, import SSH public keys using the `username`, `ssh_public_key_id`, and `encoding`. For exampleconsole % pulumi import aws_iam_user_ssh_key.user user:APKAJNCNNJICVN7CFKCA:SSH
 type SshKey struct {
 	pulumi.CustomResourceState
 

@@ -49,13 +49,11 @@ import (
 //
 // ## Import
 //
-// `aws_appstream_directory_config` can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appstream_directory_config.example
 //
-//	$ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
-//
-// ```
+//	id = "directoryNameExample" } Using `pulumi import`, import `aws_appstream_directory_config` using the id. For exampleconsole % pulumi import aws_appstream_directory_config.example directoryNameExample
 type DirectoryConfig struct {
 	pulumi.CustomResourceState
 

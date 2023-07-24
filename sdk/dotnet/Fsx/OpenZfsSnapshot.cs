@@ -78,11 +78,11 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// FSx OpenZFS snapshot can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
-    /// ```
+    ///  to = aws_fsx_openzfs_snapshot.example
+    /// 
+    ///  id = "fs-543ab12b1ca672f33" } Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For exampleconsole % pulumi import aws_fsx_openzfs_snapshot.example fs-543ab12b1ca672f33
     /// </summary>
     [AwsResourceType("aws:fsx/openZfsSnapshot:OpenZfsSnapshot")]
     public partial class OpenZfsSnapshot : global::Pulumi.CustomResource

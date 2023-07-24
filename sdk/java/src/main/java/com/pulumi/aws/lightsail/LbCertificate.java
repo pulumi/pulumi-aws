@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_lightsail_lb_certificate` can be imported by using the id attribute, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
- * ```
+ *  to = aws_lightsail_lb_certificate.test
+ * 
+ *  id = &#34;example-load-balancer,example-load-balancer-certificate&#34; } Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For exampleconsole % pulumi import aws_lightsail_lb_certificate.test example-load-balancer,example-load-balancer-certificate
  * 
  */
 @ResourceType(type="aws:lightsail/lbCertificate:LbCertificate")

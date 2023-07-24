@@ -184,11 +184,11 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        KMS aliases can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
-        ```
+         to = aws_kms_alias.a
+
+         id = "alias/my-key-alias" } Using `pulumi import`, import KMS aliases using the `name`. For exampleconsole % pulumi import aws_kms_alias.a alias/my-key-alias
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,11 +220,11 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        KMS aliases can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
-        ```
+         to = aws_kms_alias.a
+
+         id = "alias/my-key-alias" } Using `pulumi import`, import KMS aliases using the `name`. For exampleconsole % pulumi import aws_kms_alias.a alias/my-key-alias
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

@@ -44,13 +44,11 @@ import (
 //
 // ## Import
 //
-// Internet Gateways can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_internet_gateway.gw
 //
-//	$ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
-//
-// ```
+//	id = "igw-c0a643a9" } Using `pulumi import`, import Internet Gateways using the `id`. For exampleconsole % pulumi import aws_internet_gateway.gw igw-c0a643a9
 type InternetGateway struct {
 	pulumi.CustomResourceState
 

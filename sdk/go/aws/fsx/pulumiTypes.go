@@ -966,7 +966,7 @@ func (o FileCacheLustreConfigurationLogConfigurationArrayOutput) Index(i pulumi.
 }
 
 type FileCacheLustreConfigurationMetadataConfiguration struct {
-	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
 	StorageCapacity int `pulumi:"storageCapacity"`
 }
 
@@ -982,7 +982,7 @@ type FileCacheLustreConfigurationMetadataConfigurationInput interface {
 }
 
 type FileCacheLustreConfigurationMetadataConfigurationArgs struct {
-	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+	// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
 	StorageCapacity pulumi.IntInput `pulumi:"storageCapacity"`
 }
 
@@ -1037,7 +1037,7 @@ func (o FileCacheLustreConfigurationMetadataConfigurationOutput) ToFileCacheLust
 	return o
 }
 
-// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
 func (o FileCacheLustreConfigurationMetadataConfigurationOutput) StorageCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v FileCacheLustreConfigurationMetadataConfiguration) int { return v.StorageCapacity }).(pulumi.IntOutput)
 }

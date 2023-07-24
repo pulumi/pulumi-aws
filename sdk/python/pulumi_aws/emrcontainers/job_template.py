@@ -222,11 +222,11 @@ class JobTemplate(pulumi.CustomResource):
 
         ## Import
 
-        EKS job templates can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
-        ```
+         to = aws_emrcontainers_job_template.example
+
+         id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `pulumi import`, import EKS job templates using the `id`. For exampleconsole % pulumi import aws_emrcontainers_job_template.example a1b2c3d4e5f6g7h8i9j10k11l
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,11 +266,11 @@ class JobTemplate(pulumi.CustomResource):
 
         ## Import
 
-        EKS job templates can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
-        ```
+         to = aws_emrcontainers_job_template.example
+
+         id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `pulumi import`, import EKS job templates using the `id`. For exampleconsole % pulumi import aws_emrcontainers_job_template.example a1b2c3d4e5f6g7h8i9j10k11l
 
         :param str resource_name: The name of the resource.
         :param JobTemplateArgs args: The arguments to use to populate this resource's properties.

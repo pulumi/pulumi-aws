@@ -29,11 +29,11 @@ namespace Pulumi.Aws.SimpleDB
     /// 
     /// ## Import
     /// 
-    /// SimpleDB Domains can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:simpledb/domain:Domain users users
-    /// ```
+    ///  to = aws_simpledb_domain.users
+    /// 
+    ///  id = "users" } Using `pulumi import`, import SimpleDB Domains using the `name`. For exampleconsole % pulumi import aws_simpledb_domain.users users
     /// </summary>
     [AwsResourceType("aws:simpledb/domain:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

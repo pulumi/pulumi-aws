@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Backup vault can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:backup/vault:Vault test-vault TestVault
-    /// ```
+    ///  to = aws_backup_vault.test-vault
+    /// 
+    ///  id = "TestVault" } Using `pulumi import`, import Backup vault using the `name`. For exampleconsole % pulumi import aws_backup_vault.test-vault TestVault
     /// </summary>
     [AwsResourceType("aws:backup/vault:Vault")]
     public partial class Vault : global::Pulumi.CustomResource

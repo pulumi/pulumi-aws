@@ -16,11 +16,11 @@ namespace Pulumi.Aws.Dlm
     /// 
     /// ## Import
     /// 
-    /// DLM lifecycle policies can be imported by their policy ID
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-    /// ```
+    ///  to = aws_dlm_lifecycle_policy.example
+    /// 
+    ///  id = "policy-abcdef12345678901" } Using `pulumi import`, import DLM lifecycle policies using their policy ID. For exampleconsole % pulumi import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
     /// </summary>
     [AwsResourceType("aws:dlm/lifecyclePolicy:LifecyclePolicy")]
     public partial class LifecyclePolicy : global::Pulumi.CustomResource

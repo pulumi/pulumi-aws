@@ -60,6 +60,10 @@ export interface GetDedicatedHostResult {
      */
     readonly arn: string;
     /**
+     * The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
+     */
+    readonly assetId: string;
+    /**
      * Whether auto-placement is on or off.
      */
     readonly autoPlacement: string;

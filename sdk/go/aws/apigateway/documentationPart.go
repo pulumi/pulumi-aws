@@ -52,13 +52,11 @@ import (
 //
 // ## Import
 //
-// API Gateway documentation_parts can be imported using `REST-API-ID/DOC-PART-ID`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_documentation_part.example
 //
-//	$ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
-//
-// ```
+//	id = "5i4e1ko720/3oyy3t" } Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For exampleconsole % pulumi import aws_api_gateway_documentation_part.example 5i4e1ko720/3oyy3t
 type DocumentationPart struct {
 	pulumi.CustomResourceState
 

@@ -177,11 +177,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * FSx Backups can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
- * ```
+ *  to = aws_fsx_backup.example
+ * 
+ *  id = &#34;fs-543ab12b1ca672f33&#34; } Using `pulumi import`, import FSx Backups using the `id`. For exampleconsole % pulumi import aws_fsx_backup.example fs-543ab12b1ca672f33
  * 
  */
 @ResourceType(type="aws:fsx/backup:Backup")

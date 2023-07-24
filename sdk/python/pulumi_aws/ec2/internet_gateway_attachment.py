@@ -115,11 +115,11 @@ class InternetGatewayAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Internet Gateway Attachments can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
-        ```
+         to = aws_internet_gateway_attachment.example
+
+         id = "igw-c0a643a9:vpc-123456" } Using `pulumi import`, import Internet Gateway Attachments using the `id`. For exampleconsole % pulumi import aws_internet_gateway_attachment.example igw-c0a643a9:vpc-123456
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,11 +150,11 @@ class InternetGatewayAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Internet Gateway Attachments can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
-        ```
+         to = aws_internet_gateway_attachment.example
+
+         id = "igw-c0a643a9:vpc-123456" } Using `pulumi import`, import Internet Gateway Attachments using the `id`. For exampleconsole % pulumi import aws_internet_gateway_attachment.example igw-c0a643a9:vpc-123456
 
         :param str resource_name: The name of the resource.
         :param InternetGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.

@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * RDS Cluster Parameter Groups can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
- * ```
+ *  to = aws_rds_cluster_parameter_group.cluster_pg
+ * 
+ *  id = &#34;production-pg-1&#34; } Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For exampleconsole % pulumi import aws_rds_cluster_parameter_group.cluster_pg production-pg-1
  * 
  */
 @ResourceType(type="aws:rds/clusterParameterGroup:ClusterParameterGroup")

@@ -233,11 +233,11 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// ## Import
     /// 
-    /// WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
-    /// ```
+    ///  to = aws_wafregional_web_acl_association.foo
+    /// 
+    ///  id = "web_acl_id:resource_arn" } Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For exampleconsole % pulumi import aws_wafregional_web_acl_association.foo web_acl_id:resource_arn
     /// </summary>
     [AwsResourceType("aws:wafregional/webAclAssociation:WebAclAssociation")]
     public partial class WebAclAssociation : global::Pulumi.CustomResource

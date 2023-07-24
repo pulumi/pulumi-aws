@@ -118,11 +118,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudFormation StackSets can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudformation/stackSet:StackSet example example
- * ```
+ *  to = aws_cloudformation_stack_set.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import CloudFormation StackSets using the `name`. For exampleconsole % pulumi import aws_cloudformation_stack_set.example example
  * 
  */
 @ResourceType(type="aws:cloudformation/stackSet:StackSet")

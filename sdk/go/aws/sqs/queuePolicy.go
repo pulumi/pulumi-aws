@@ -81,13 +81,11 @@ import (
 //
 // ## Import
 //
-// SQS Queue Policies can be imported using the queue URL, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sqs_queue_policy.test
 //
-//	$ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
-//
-// ```
+//	id = "https://queue.amazonaws.com/0123456789012/myqueue" } Using `pulumi import`, import SQS Queue Policies using the queue URL. For exampleconsole % pulumi import aws_sqs_queue_policy.test https://queue.amazonaws.com/0123456789012/myqueue
 type QueuePolicy struct {
 	pulumi.CustomResourceState
 

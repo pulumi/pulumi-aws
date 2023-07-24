@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Use the `keyspace_name` and `table_name` separated by `/` to import a table. For example
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
- * ```
+ *  to = aws_keyspaces_table.example
+ * 
+ *  id = &#34;my_keyspace/my_table&#34; } Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For exampleconsole % pulumi import aws_keyspaces_table.example my_keyspace/my_table
  * 
  */
 @ResourceType(type="aws:keyspaces/table:Table")

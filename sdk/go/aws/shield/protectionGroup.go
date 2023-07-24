@@ -135,13 +135,11 @@ import (
 //
 // ## Import
 //
-// Shield protection group resources can be imported by specifying their protection group id.
+// terraform import {
 //
-// ```sh
+//	to = aws_shield_protection_group.example
 //
-//	$ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Shield protection group resources using their protection group id. For exampleconsole % pulumi import aws_shield_protection_group.example example
 type ProtectionGroup struct {
 	pulumi.CustomResourceState
 

@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_networkmanager_device` can be imported using the device ARN, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
- * ```
+ *  to = aws_networkmanager_device.example
+ * 
+ *  id = &#34;arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123&#34; } Using `pulumi import`, import `aws_networkmanager_device` using the device ARN. For exampleconsole % pulumi import aws_networkmanager_device.example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
  * 
  */
 @ResourceType(type="aws:networkmanager/device:Device")

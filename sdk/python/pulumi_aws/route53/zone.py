@@ -369,11 +369,11 @@ class Zone(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Zones can be imported using the `zone id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
-        ```
+         to = aws_route53_zone.myzone
+
+         id = "Z1D633PJN98FT9" } Using `pulumi import`, import Route53 Zones using the zone `id`. For exampleconsole % pulumi import aws_route53_zone.myzone Z1D633PJN98FT9
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -440,11 +440,11 @@ class Zone(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Zones can be imported using the `zone id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
-        ```
+         to = aws_route53_zone.myzone
+
+         id = "Z1D633PJN98FT9" } Using `pulumi import`, import Route53 Zones using the zone `id`. For exampleconsole % pulumi import aws_route53_zone.myzone Z1D633PJN98FT9
 
         :param str resource_name: The name of the resource.
         :param ZoneArgs args: The arguments to use to populate this resource's properties.

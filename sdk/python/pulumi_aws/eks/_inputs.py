@@ -239,7 +239,7 @@ class ClusterOutpostConfigArgs:
                For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outpost_arns: The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
         :param pulumi.Input['ClusterOutpostConfigControlPlanePlacementArgs'] control_plane_placement: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-               The following arguments are supported in the `control_plane_placement` configuration block:
+               The `control_plane_placement` configuration block supports the following arguments:
         """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
         pulumi.set(__self__, "outpost_arns", outpost_arns)
@@ -283,7 +283,7 @@ class ClusterOutpostConfigArgs:
     def control_plane_placement(self) -> Optional[pulumi.Input['ClusterOutpostConfigControlPlanePlacementArgs']]:
         """
         An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-        The following arguments are supported in the `control_plane_placement` configuration block:
+        The `control_plane_placement` configuration block supports the following arguments:
         """
         return pulumi.get(self, "control_plane_placement")
 

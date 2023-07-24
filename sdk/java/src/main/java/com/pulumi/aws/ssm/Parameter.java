@@ -104,11 +104,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SSM Parameters can be imported using the `parameter store name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
- * ```
+ *  to = aws_ssm_parameter.my_param
+ * 
+ *  id = &#34;/my_path/my_paramname&#34; } Using `pulumi import`, import SSM Parameters using the parameter store `name`. For exampleconsole % pulumi import aws_ssm_parameter.my_param /my_path/my_paramname
  * 
  */
 @ResourceType(type="aws:ssm/parameter:Parameter")

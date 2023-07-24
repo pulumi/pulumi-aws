@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_servicecatalog_provisioning_artifact` can be imported using the provisioning artifact ID and product ID separated by a colon, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
- * ```
+ *  to = aws_servicecatalog_provisioning_artifact.example
+ * 
+ *  id = &#34;pa-ij2b6lusy6dec:prod-el3an0rma3&#34; } Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For exampleconsole % pulumi import aws_servicecatalog_provisioning_artifact.example pa-ij2b6lusy6dec:prod-el3an0rma3
  * 
  */
 @ResourceType(type="aws:servicecatalog/provisioningArtifact:ProvisioningArtifact")

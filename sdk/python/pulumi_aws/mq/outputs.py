@@ -708,9 +708,11 @@ class GetBrokerUserResult(dict):
     def __init__(__self__, *,
                  console_access: bool,
                  groups: Sequence[str],
+                 replication_user: bool,
                  username: str):
         pulumi.set(__self__, "console_access", console_access)
         pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "replication_user", replication_user)
         pulumi.set(__self__, "username", username)
 
     @property
@@ -722,6 +724,11 @@ class GetBrokerUserResult(dict):
     @pulumi.getter
     def groups(self) -> Sequence[str]:
         return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter(name="replicationUser")
+    def replication_user(self) -> bool:
+        return pulumi.get(self, "replication_user")
 
     @property
     @pulumi.getter

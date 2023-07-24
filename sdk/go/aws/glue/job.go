@@ -151,13 +151,11 @@ import (
 //
 // ## Import
 //
-// Glue Jobs can be imported using `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_job.MyJob
 //
-//	$ pulumi import aws:glue/job:Job MyJob MyJob
-//
-// ```
+//	id = "MyJob" } Using `pulumi import`, import Glue Jobs using `name`. For exampleconsole % pulumi import aws_glue_job.MyJob MyJob
 type Job struct {
 	pulumi.CustomResourceState
 

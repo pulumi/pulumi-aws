@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
- * ```
+ *  to = aws_db_snapshot.example
+ *
+ *  id = "my-snapshot" } Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot.example my-snapshot
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

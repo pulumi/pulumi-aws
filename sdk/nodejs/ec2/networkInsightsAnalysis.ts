@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Network Insights Analyses can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
- * ```
+ *  to = aws_ec2_network_insights_analysis.test
+ *
+ *  id = "nia-0462085c957f11a55" } Using `pulumi import`, import Network Insights Analyses using the `id`. For exampleconsole % pulumi import aws_ec2_network_insights_analysis.test nia-0462085c957f11a55
  */
 export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**

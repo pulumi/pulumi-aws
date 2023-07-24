@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// To import the Pinpoint SMS Channel, use the `application_id`. For example
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
-    /// ```
+    ///  to = aws_pinpoint_sms_channel.sms
+    /// 
+    ///  id = "application-id" } Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For exampleconsole % pulumi import aws_pinpoint_sms_channel.sms application-id
     /// </summary>
     [AwsResourceType("aws:pinpoint/smsChannel:SmsChannel")]
     public partial class SmsChannel : global::Pulumi.CustomResource

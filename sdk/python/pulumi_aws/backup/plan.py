@@ -242,11 +242,11 @@ class Plan(pulumi.CustomResource):
 
         ## Import
 
-        Backup Plan can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/plan:Plan test <id>
-        ```
+         to = aws_backup_plan.test
+
+         id = "<id>" } Using `pulumi import`, import Backup Plan using the `id`. For exampleconsole % pulumi import aws_backup_plan.test <id>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -289,11 +289,11 @@ class Plan(pulumi.CustomResource):
 
         ## Import
 
-        Backup Plan can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/plan:Plan test <id>
-        ```
+         to = aws_backup_plan.test
+
+         id = "<id>" } Using `pulumi import`, import Backup Plan using the `id`. For exampleconsole % pulumi import aws_backup_plan.test <id>
 
         :param str resource_name: The name of the resource.
         :param PlanArgs args: The arguments to use to populate this resource's properties.

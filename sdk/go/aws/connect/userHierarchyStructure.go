@@ -91,13 +91,11 @@ import (
 //
 // ## Import
 //
-// Amazon Connect User Hierarchy Structures can be imported using the `instance_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_connect_user_hierarchy_structure.example
 //
-//	$ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
-//
-// ```
+//	id = "f1288a1f-6193-445a-b47e-af739b2" } Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For exampleconsole % pulumi import aws_connect_user_hierarchy_structure.example f1288a1f-6193-445a-b47e-af739b2
 type UserHierarchyStructure struct {
 	pulumi.CustomResourceState
 

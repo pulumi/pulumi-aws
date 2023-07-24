@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_appsync_domain_name_api_association` can be imported using the AppSync domain name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
- * ```
+ *  to = aws_appsync_domain_name_api_association.example
+ * 
+ *  id = &#34;example.com&#34; } Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For exampleconsole % pulumi import aws_appsync_domain_name_api_association.example example.com
  * 
  */
 @ResourceType(type="aws:appsync/domainNameApiAssociation:DomainNameApiAssociation")

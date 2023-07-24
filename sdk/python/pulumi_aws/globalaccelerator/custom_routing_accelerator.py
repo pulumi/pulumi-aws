@@ -30,8 +30,6 @@ class CustomRoutingAcceleratorArgs:
         :param pulumi.Input[str] ip_address_type: The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               **attributes** supports the following attributes:
         """
         pulumi.set(__self__, "name", name)
         if attributes is not None:
@@ -110,8 +108,6 @@ class CustomRoutingAcceleratorArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        **attributes** supports the following attributes:
         """
         return pulumi.get(self, "tags")
 
@@ -146,8 +142,6 @@ class _CustomRoutingAcceleratorState:
         :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingAcceleratorIpSetArgs']]] ip_sets: IP address set associated with the accelerator.
         :param pulumi.Input[str] name: The name of a custom routing accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               **attributes** supports the following attributes:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if attributes is not None:
@@ -274,8 +268,6 @@ class _CustomRoutingAcceleratorState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        **attributes** supports the following attributes:
         """
         return pulumi.get(self, "tags")
 
@@ -331,11 +323,11 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
         ## Import
 
-        Global Accelerator custom routing accelerators can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        ```
+         to = aws_globalaccelerator_custom_routing_accelerator.example
+
+         id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" } Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For exampleconsole % pulumi import aws_globalaccelerator_custom_routing_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -345,8 +337,6 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         :param pulumi.Input[str] name: The name of a custom routing accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               **attributes** supports the following attributes:
         """
         ...
     @overload
@@ -377,11 +367,11 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
         ## Import
 
-        Global Accelerator custom routing accelerators can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        ```
+         to = aws_globalaccelerator_custom_routing_accelerator.example
+
+         id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" } Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For exampleconsole % pulumi import aws_globalaccelerator_custom_routing_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
         :param str resource_name: The name of the resource.
         :param CustomRoutingAcceleratorArgs args: The arguments to use to populate this resource's properties.
@@ -463,8 +453,6 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomRoutingAcceleratorIpSetArgs']]]] ip_sets: IP address set associated with the accelerator.
         :param pulumi.Input[str] name: The name of a custom routing accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               **attributes** supports the following attributes:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -554,8 +542,6 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        **attributes** supports the following attributes:
         """
         return pulumi.get(self, "tags")
 

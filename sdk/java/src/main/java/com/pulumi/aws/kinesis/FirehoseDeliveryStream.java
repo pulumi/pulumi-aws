@@ -777,13 +777,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
- * ```
+ *  to = aws_kinesis_firehose_delivery_stream.foo
  * 
- *  NoteImport does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
+ *  id = &#34;arn:aws:firehose:us-east-1:XXX:deliverystream/example&#34; } Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For exampleconsole % pulumi import aws_kinesis_firehose_delivery_stream.foo arn:aws:firehose:us-east-1:XXX:deliverystream/example NoteImport does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
  * 
  */
 @ResourceType(type="aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream")

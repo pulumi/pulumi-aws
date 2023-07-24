@@ -287,11 +287,11 @@ class EmailIdentity(pulumi.CustomResource):
 
         ## Import
 
-        SESv2 (Simple Email V2) Email Identity can be imported using the `email_identity`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
-        ```
+         to = aws_sesv2_email_identity.example
+
+         id = "example.com" } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity.example example.com
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -357,11 +357,11 @@ class EmailIdentity(pulumi.CustomResource):
 
         ## Import
 
-        SESv2 (Simple Email V2) Email Identity can be imported using the `email_identity`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
-        ```
+         to = aws_sesv2_email_identity.example
+
+         id = "example.com" } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity.example example.com
 
         :param str resource_name: The name of the resource.
         :param EmailIdentityArgs args: The arguments to use to populate this resource's properties.

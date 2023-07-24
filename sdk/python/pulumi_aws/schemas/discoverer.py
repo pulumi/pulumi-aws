@@ -182,11 +182,11 @@ class Discoverer(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge discoverers can be imported using the `id`, e.g., console
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:schemas/discoverer:Discoverer test 123
-        ```
+         to = aws_schemas_discoverer.test
+
+         id = "123" } Using `pulumi import`, import EventBridge discoverers using the `id`. For exampleconsole % pulumi import aws_schemas_discoverer.test 123
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,11 +219,11 @@ class Discoverer(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge discoverers can be imported using the `id`, e.g., console
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:schemas/discoverer:Discoverer test 123
-        ```
+         to = aws_schemas_discoverer.test
+
+         id = "123" } Using `pulumi import`, import EventBridge discoverers using the `id`. For exampleconsole % pulumi import aws_schemas_discoverer.test 123
 
         :param str resource_name: The name of the resource.
         :param DiscovererArgs args: The arguments to use to populate this resource's properties.

@@ -79,13 +79,11 @@ import (
 //
 // ## Import
 //
-// Amazon File Cache cache can be imported using the resource `id`.
+// terraform import {
 //
-// ```sh
+//	to = aws_fsx_file_cache.example
 //
-//	$ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
-//
-// ```
+//	id = "fc-8012925589" } Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For exampleconsole % pulumi import aws_fsx_file_cache.example fc-8012925589
 type FileCache struct {
 	pulumi.CustomResourceState
 

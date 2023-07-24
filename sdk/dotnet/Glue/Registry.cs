@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Registries can be imported using `arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:glue/registry:Registry example arn:aws:glue:us-west-2:123456789012:registry/example
-    /// ```
+    ///  to = aws_glue_registry.example
+    /// 
+    ///  id = "arn:aws:glue:us-west-2:123456789012:registry/example" } Using `pulumi import`, import Glue Registries using `arn`. For exampleconsole % pulumi import aws_glue_registry.example arn:aws:glue:us-west-2:123456789012:registry/example
     /// </summary>
     [AwsResourceType("aws:glue/registry:Registry")]
     public partial class Registry : global::Pulumi.CustomResource

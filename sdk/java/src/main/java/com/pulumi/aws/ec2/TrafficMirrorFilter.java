@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Traffic mirror filter can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
- * ```
+ *  to = aws_ec2_traffic_mirror_filter.foo
+ * 
+ *  id = &#34;tmf-0fbb93ddf38198f64&#34; } Using `pulumi import`, import traffic mirror filter using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_filter.foo tmf-0fbb93ddf38198f64
  * 
  */
 @ResourceType(type="aws:ec2/trafficMirrorFilter:TrafficMirrorFilter")

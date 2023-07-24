@@ -291,11 +291,11 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        CloudFront Functions can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudfront/function:Function test my_test_function
-        ```
+         to = aws_cloudfront_function.test
+
+         id = "my_test_function" } Using `pulumi import`, import CloudFront Functions using the `name`. For exampleconsole % pulumi import aws_cloudfront_function.test my_test_function
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -336,11 +336,11 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        CloudFront Functions can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudfront/function:Function test my_test_function
-        ```
+         to = aws_cloudfront_function.test
+
+         id = "my_test_function" } Using `pulumi import`, import CloudFront Functions using the `name`. For exampleconsole % pulumi import aws_cloudfront_function.test my_test_function
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.

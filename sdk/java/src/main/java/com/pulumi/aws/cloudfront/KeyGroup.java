@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudFront Key Group can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
- * ```
+ *  to = aws_cloudfront_key_group.example
+ * 
+ *  id = &#34;4b4f2r1c-315d-5c2e-f093-216t50jed10f&#34; } Using `pulumi import`, import CloudFront Key Group using the `id`. For exampleconsole % pulumi import aws_cloudfront_key_group.example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
  * 
  */
 @ResourceType(type="aws:cloudfront/keyGroup:KeyGroup")

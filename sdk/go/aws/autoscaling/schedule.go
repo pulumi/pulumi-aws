@@ -64,13 +64,11 @@ import (
 //
 // ## Import
 //
-// AutoScaling ScheduledAction can be imported using the `auto-scaling-group-name` and `scheduled-action-name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_autoscaling_schedule.resource-name
 //
-//	$ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
-//
-// ```
+//	id = "auto-scaling-group-name/scheduled-action-name" } Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For exampleconsole % pulumi import aws_autoscaling_schedule.resource-name auto-scaling-group-name/scheduled-action-name
 type Schedule struct {
 	pulumi.CustomResourceState
 

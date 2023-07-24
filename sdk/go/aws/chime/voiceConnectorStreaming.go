@@ -150,13 +150,11 @@ import (
 //
 // ## Import
 //
-// Chime Voice Connector Streaming can be imported using the `voice_connector_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_chime_voice_connector_streaming.default
 //
-//	$ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
-//
-// ```
+//	id = "abcdef1ghij2klmno3pqr4" } Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_streaming.default abcdef1ghij2klmno3pqr4
 type VoiceConnectorStreaming struct {
 	pulumi.CustomResourceState
 

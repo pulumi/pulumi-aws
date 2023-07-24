@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GameLift Aliases can be imported using the ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:gamelift/alias:Alias example &lt;alias-id&gt;
- * ```
+ *  to = aws_gamelift_alias.example
+ * 
+ *  id = &#34;&lt;alias-id&gt;&#34; } Using `pulumi import`, import GameLift Aliases using the ID. For exampleconsole % pulumi import aws_gamelift_alias.example &lt;alias-id&gt;
  * 
  */
 @ResourceType(type="aws:gamelift/alias:Alias")

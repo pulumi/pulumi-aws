@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Glue Registries can be imported using `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:glue/registry:Registry example arn:aws:glue:us-west-2:123456789012:registry/example
- * ```
+ *  to = aws_glue_registry.example
+ * 
+ *  id = &#34;arn:aws:glue:us-west-2:123456789012:registry/example&#34; } Using `pulumi import`, import Glue Registries using `arn`. For exampleconsole % pulumi import aws_glue_registry.example arn:aws:glue:us-west-2:123456789012:registry/example
  * 
  */
 @ResourceType(type="aws:glue/registry:Registry")

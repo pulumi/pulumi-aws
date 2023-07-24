@@ -93,11 +93,11 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM role policy attachments can be imported using the role name and policy arn separated by `/`.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-    /// ```
+    ///  to = aws_iam_role_policy_attachment.test-attach
+    /// 
+    ///  id = "test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy" } Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For exampleconsole % pulumi import aws_iam_role_policy_attachment.test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
     /// </summary>
     [AwsResourceType("aws:iam/rolePolicyAttachment:RolePolicyAttachment")]
     public partial class RolePolicyAttachment : global::Pulumi.CustomResource

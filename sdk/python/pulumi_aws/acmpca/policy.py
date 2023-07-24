@@ -147,11 +147,11 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        `aws_acmpca_policy` can be imported using the `resource_arn` value.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-        ```
+         to = aws_acmpca_policy.example
+
+         id = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012" } Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For exampleconsole % pulumi import aws_acmpca_policy.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,11 +214,11 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
-        `aws_acmpca_policy` can be imported using the `resource_arn` value.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-        ```
+         to = aws_acmpca_policy.example
+
+         id = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012" } Using `pulumi import`, import `aws_acmpca_policy` using the `resource_arn` value. For exampleconsole % pulumi import aws_acmpca_policy.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

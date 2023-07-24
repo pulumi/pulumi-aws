@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Clusters can be imported using the `cluster_identifier`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
- * ```
+ *  to = aws_redshift_cluster.myprodcluster
+ * 
+ *  id = &#34;tf-redshift-cluster-12345&#34; } Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_redshift_cluster.myprodcluster tf-redshift-cluster-12345
  * 
  */
 @ResourceType(type="aws:redshift/cluster:Cluster")

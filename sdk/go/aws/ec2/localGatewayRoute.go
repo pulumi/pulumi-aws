@@ -44,13 +44,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_local_gateway_route` can be imported by using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_local_gateway_route.example
 //
-//	$ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
-//
-// ```
+//	id = "lgw-rtb-12345678_172.16.0.0/16" } Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For exampleconsole % pulumi import aws_ec2_local_gateway_route.example lgw-rtb-12345678_172.16.0.0/16
 type LocalGatewayRoute struct {
 	pulumi.CustomResourceState
 

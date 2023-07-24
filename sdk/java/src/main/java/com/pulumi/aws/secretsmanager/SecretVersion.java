@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_secretsmanager_secret_version` can be imported by using the secret ID and version ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example &#39;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx&#39;
- * ```
+ *  to = aws_secretsmanager_secret_version.example
+ * 
+ *  id = &#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx&#34; } Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For exampleconsole % pulumi import aws_secretsmanager_secret_version.example &#39;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx&#39;
  * 
  */
 @ResourceType(type="aws:secretsmanager/secretVersion:SecretVersion")

@@ -310,11 +310,11 @@ class Channel(pulumi.CustomResource):
 
         ## Import
 
-        IVS (Interactive Video) Channel can be imported using the ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
-        ```
+         to = aws_ivs_channel.example
+
+         id = "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5" } Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For exampleconsole % pulumi import aws_ivs_channel.example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -346,11 +346,11 @@ class Channel(pulumi.CustomResource):
 
         ## Import
 
-        IVS (Interactive Video) Channel can be imported using the ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ivs/channel:Channel example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
-        ```
+         to = aws_ivs_channel.example
+
+         id = "arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5" } Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For exampleconsole % pulumi import aws_ivs_channel.example arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

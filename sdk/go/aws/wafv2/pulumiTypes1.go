@@ -13,6 +13,675 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement struct {
+	// The statements to combine.
+	Statements []WebAclRuleStatement `pulumi:"statements"`
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs{...}
+type WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs struct {
+	// The statements to combine.
+	Statements WebAclRuleStatementArrayInput `pulumi:"statements"`
+}
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput)
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput).ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs, WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtr and WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrInput` via:
+//
+//	        WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput
+}
+
+type webAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrType WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs
+
+func WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtr(v *WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs) WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrInput {
+	return (*webAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrType)(v)
+}
+
+func (*webAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrType) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrType) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
+	return o.ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement {
+		return &v
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput)
+}
+
+// The statements to combine.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput) Statements() WebAclRuleStatementArrayOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement) []WebAclRuleStatement {
+		return v.Statements
+	}).(WebAclRuleStatementArrayOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput) Elem() WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement) WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement
+		return ret
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput)
+}
+
+// The statements to combine.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput) Statements() WebAclRuleStatementArrayOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement) []WebAclRuleStatement {
+		if v == nil {
+			return nil
+		}
+		return v.Statements
+	}).(WebAclRuleStatementArrayOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement struct {
+	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+	FieldToMatch *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch `pulumi:"fieldToMatch"`
+	// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+	PositionalConstraint string `pulumi:"positionalConstraint"`
+	// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+	SearchString string `pulumi:"searchString"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+	TextTransformations []WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation `pulumi:"textTransformations"`
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs{...}
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs struct {
+	// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+	FieldToMatch WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
+	// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+	PositionalConstraint pulumi.StringInput `pulumi:"positionalConstraint"`
+	// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+	SearchString pulumi.StringInput `pulumi:"searchString"`
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+	TextTransformations WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrayInput `pulumi:"textTransformations"`
+}
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput)
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput).ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs, WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtr and WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrInput` via:
+//
+//	        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput
+}
+
+type webAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrType WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs
+
+func WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtr(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrInput {
+	return (*webAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrType)(v)
+}
+
+func (*webAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrType) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrType) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
+	return o.ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement {
+		return &v
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput)
+}
+
+// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) FieldToMatch() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch {
+		return v.FieldToMatch
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput)
+}
+
+// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) PositionalConstraint() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) string {
+		return v.PositionalConstraint
+	}).(pulumi.StringOutput)
+}
+
+// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) SearchString() pulumi.StringOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) string {
+		return v.SearchString
+	}).(pulumi.StringOutput)
+}
+
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrayOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation {
+		return v.TextTransformations
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrayOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) Elem() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement
+		return ret
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput)
+}
+
+// Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) FieldToMatch() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch {
+		if v == nil {
+			return nil
+		}
+		return v.FieldToMatch
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput)
+}
+
+// Area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) PositionalConstraint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PositionalConstraint
+	}).(pulumi.StringPtrOutput)
+}
+
+// String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) SearchString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SearchString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput) TextTransformations() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrayOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement) []WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation {
+		if v == nil {
+			return nil
+		}
+		return v.TextTransformations
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrayOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch struct {
+	// Inspect all query arguments.
+	AllQueryArguments *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers. See `body` below for details.
+	Body *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody `pulumi:"body"`
+	// Inspect the cookies in the web request. See `cookies` below for details.
+	Cookies *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies `pulumi:"cookies"`
+	// Inspect the request headers. See `headers` below for details.
+	Headers []WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader `pulumi:"headers"`
+	// Inspect the request body as JSON. See `jsonBody` for details.
+	JsonBody *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString `pulumi:"queryString"`
+	// Inspect a single header. See `singleHeader` below for details.
+	SingleHeader *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader `pulumi:"singleHeader"`
+	// Inspect a single query argument. See `singleQueryArgument` below for details.
+	SingleQueryArgument *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument `pulumi:"singleQueryArgument"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath `pulumi:"uriPath"`
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs and WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchInput` via:
+//
+//	WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs{...}
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs struct {
+	// Inspect all query arguments.
+	AllQueryArguments WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsPtrInput `pulumi:"allQueryArguments"`
+	// Inspect the request body, which immediately follows the request headers. See `body` below for details.
+	Body WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyPtrInput `pulumi:"body"`
+	// Inspect the cookies in the web request. See `cookies` below for details.
+	Cookies WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesPtrInput `pulumi:"cookies"`
+	// Inspect the request headers. See `headers` below for details.
+	Headers WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArrayInput `pulumi:"headers"`
+	// Inspect the request body as JSON. See `jsonBody` for details.
+	JsonBody WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyPtrInput `pulumi:"jsonBody"`
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+	Method WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodPtrInput `pulumi:"method"`
+	// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+	QueryString WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringPtrInput `pulumi:"queryString"`
+	// Inspect a single header. See `singleHeader` below for details.
+	SingleHeader WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderPtrInput `pulumi:"singleHeader"`
+	// Inspect a single query argument. See `singleQueryArgument` below for details.
+	SingleQueryArgument WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrInput `pulumi:"singleQueryArgument"`
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+	UriPath WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathPtrInput `pulumi:"uriPath"`
+}
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch)(nil)).Elem()
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput)
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutputWithContext(context.Background())
+}
+
+func (i WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput).ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutputWithContext(ctx)
+}
+
+// WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrInput is an input type that accepts WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs, WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtr and WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput values.
+// You can construct a concrete instance of `WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrInput` via:
+//
+//	        WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrInput interface {
+	pulumi.Input
+
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput
+	ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutputWithContext(context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput
+}
+
+type webAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrType WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs
+
+func WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtr(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrInput {
+	return (*webAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrType)(v)
+}
+
+func (*webAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch)(nil)).Elem()
+}
+
+func (i *webAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrType) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
+	return i.ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutputWithContext(context.Background())
+}
+
+func (i *webAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrType) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
+	return o.ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutputWithContext(context.Background())
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch {
+		return &v
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput)
+}
+
+// Inspect all query arguments.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) AllQueryArguments() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments {
+		return v.AllQueryArguments
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
+}
+
+// Inspect the request body, which immediately follows the request headers. See `body` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) Body() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody {
+		return v.Body
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyPtrOutput)
+}
+
+// Inspect the cookies in the web request. See `cookies` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) Cookies() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies {
+		return v.Cookies
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesPtrOutput)
+}
+
+// Inspect the request headers. See `headers` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) Headers() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArrayOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) []WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader {
+		return v.Headers
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArrayOutput)
+}
+
+// Inspect the request body as JSON. See `jsonBody` for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) JsonBody() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody {
+		return v.JsonBody
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput)
+}
+
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) Method() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod {
+		return v.Method
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodPtrOutput)
+}
+
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) QueryString() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString {
+		return v.QueryString
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringPtrOutput)
+}
+
+// Inspect a single header. See `singleHeader` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) SingleHeader() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader {
+		return v.SingleHeader
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput)
+}
+
+// Inspect a single query argument. See `singleQueryArgument` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) SingleQueryArgument() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+		return v.SingleQueryArgument
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
+}
+
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput) UriPath() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathPtrOutput {
+	return o.ApplyT(func(v WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath {
+		return v.UriPath
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathPtrOutput)
+}
+
+type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput struct{ *pulumi.OutputState }
+
+func (WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch)(nil)).Elem()
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) ToWebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutputWithContext(ctx context.Context) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput {
+	return o
+}
+
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) Elem() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch
+		return ret
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput)
+}
+
+// Inspect all query arguments.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) AllQueryArguments() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments {
+		if v == nil {
+			return nil
+		}
+		return v.AllQueryArguments
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsPtrOutput)
+}
+
+// Inspect the request body, which immediately follows the request headers. See `body` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) Body() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyPtrOutput)
+}
+
+// Inspect the cookies in the web request. See `cookies` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) Cookies() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies {
+		if v == nil {
+			return nil
+		}
+		return v.Cookies
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesPtrOutput)
+}
+
+// Inspect the request headers. See `headers` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) Headers() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArrayOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) []WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArrayOutput)
+}
+
+// Inspect the request body as JSON. See `jsonBody` for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) JsonBody() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody {
+		if v == nil {
+			return nil
+		}
+		return v.JsonBody
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyPtrOutput)
+}
+
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) Method() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod {
+		if v == nil {
+			return nil
+		}
+		return v.Method
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodPtrOutput)
+}
+
+// Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) QueryString() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringPtrOutput)
+}
+
+// Inspect a single header. See `singleHeader` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) SingleHeader() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader {
+		if v == nil {
+			return nil
+		}
+		return v.SingleHeader
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput)
+}
+
+// Inspect a single query argument. See `singleQueryArgument` below for details.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) SingleQueryArgument() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+		if v == nil {
+			return nil
+		}
+		return v.SingleQueryArgument
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
+}
+
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+func (o WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput) UriPath() WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathPtrOutput {
+	return o.ApplyT(func(v *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch) *WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath {
+		if v == nil {
+			return nil
+		}
+		return v.UriPath
+	}).(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathPtrOutput)
+}
+
 type WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments struct {
 }
 
@@ -32600,6 +33269,12 @@ func (o GetRegexPatternSetRegularExpressionArrayOutput) Index(i pulumi.IntInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsPtrInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyInput)(nil)).Elem(), WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyArgs{})
@@ -33051,6 +33726,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclVisibilityConfigPtrInput)(nil)).Elem(), WebAclVisibilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegexPatternSetRegularExpressionInput)(nil)).Elem(), GetRegexPatternSetRegularExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegexPatternSetRegularExpressionArrayInput)(nil)).Elem(), GetRegexPatternSetRegularExpressionArray{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchOutput{})
+	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsPtrOutput{})
 	pulumi.RegisterOutputType(WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyOutput{})

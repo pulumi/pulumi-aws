@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Observability Access Manager Link can be imported using the `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
- * ```
+ *  to = aws_oam_link.example
+ * 
+ *  id = &#34;arn:aws:oam:us-west-2:123456789012:link/link-id&#34; } Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For exampleconsole % pulumi import aws_oam_link.example arn:aws:oam:us-west-2:123456789012:link/link-id
  * 
  */
 @ResourceType(type="aws:oam/link:Link")

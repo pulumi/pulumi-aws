@@ -52,13 +52,11 @@ import (
 //
 // ## Import
 //
-// Subnets can be imported using the `subnet id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_default_subnet.public_subnet
 //
-//	$ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
-//
-// ```
+//	id = "subnet-9d4a7b6c" } Using `pulumi import`, import subnets using the subnet `id`. For exampleconsole % pulumi import aws_default_subnet.public_subnet subnet-9d4a7b6c
 type DefaultSubnet struct {
 	pulumi.CustomResourceState
 
@@ -68,7 +66,7 @@ type DefaultSubnet struct {
 	// * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
 	// * The default value for `mapPublicIpOnLaunch` is `true`
 	//
-	// The following additional arguments are supported:
+	// This resource supports the following additional arguments:
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// The AZ ID of the subnet
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
@@ -135,7 +133,7 @@ type defaultSubnetState struct {
 	// * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
 	// * The default value for `mapPublicIpOnLaunch` is `true`
 	//
-	// The following additional arguments are supported:
+	// This resource supports the following additional arguments:
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// The AZ ID of the subnet
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
@@ -170,7 +168,7 @@ type DefaultSubnetState struct {
 	// * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
 	// * The default value for `mapPublicIpOnLaunch` is `true`
 	//
-	// The following additional arguments are supported:
+	// This resource supports the following additional arguments:
 	AvailabilityZone pulumi.StringPtrInput
 	// The AZ ID of the subnet
 	AvailabilityZoneId pulumi.StringPtrInput
@@ -208,7 +206,7 @@ type defaultSubnetArgs struct {
 	// * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
 	// * The default value for `mapPublicIpOnLaunch` is `true`
 	//
-	// The following additional arguments are supported:
+	// This resource supports the following additional arguments:
 	AvailabilityZone                        string  `pulumi:"availabilityZone"`
 	CustomerOwnedIpv4Pool                   *string `pulumi:"customerOwnedIpv4Pool"`
 	EnableDns64                             *bool   `pulumi:"enableDns64"`
@@ -231,7 +229,7 @@ type DefaultSubnetArgs struct {
 	// * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
 	// * The default value for `mapPublicIpOnLaunch` is `true`
 	//
-	// The following additional arguments are supported:
+	// This resource supports the following additional arguments:
 	AvailabilityZone                        pulumi.StringInput
 	CustomerOwnedIpv4Pool                   pulumi.StringPtrInput
 	EnableDns64                             pulumi.BoolPtrInput
@@ -346,7 +344,7 @@ func (o DefaultSubnetOutput) AssignIpv6AddressOnCreation() pulumi.BoolPtrOutput 
 // * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
 // * The default value for `mapPublicIpOnLaunch` is `true`
 //
-// The following additional arguments are supported:
+// This resource supports the following additional arguments:
 func (o DefaultSubnetOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }

@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AWS Opensearch Inbound Connection Accepters can be imported by using the Inbound Connection ID, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
- * ```
+ *  to = aws_opensearch_inbound_connection_accepter.foo
+ *
+ *  id = "connection-id" } Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For exampleconsole % pulumi import aws_opensearch_inbound_connection_accepter.foo connection-id
  */
 export class InboundConnectionAccepter extends pulumi.CustomResource {
     /**

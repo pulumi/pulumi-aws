@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Cloudwatch Log Groups can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
- * ```
+ *  to = aws_cloudwatch_log_group.test_group
+ * 
+ *  id = &#34;yada&#34; } Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For exampleconsole % pulumi import aws_cloudwatch_log_group.test_group yada
  * 
  */
 @ResourceType(type="aws:cloudwatch/logGroup:LogGroup")

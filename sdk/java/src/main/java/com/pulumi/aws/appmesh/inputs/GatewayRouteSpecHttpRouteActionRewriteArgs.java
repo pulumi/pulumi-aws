@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.inputs;
 
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttpRouteActionRewriteHostnameArgs;
+import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttpRouteActionRewritePathArgs;
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttpRouteActionRewritePrefixArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -32,6 +33,21 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
     }
 
     /**
+     * Exact path to rewrite.
+     * 
+     */
+    @Import(name="path")
+    private @Nullable Output<GatewayRouteSpecHttpRouteActionRewritePathArgs> path;
+
+    /**
+     * @return Exact path to rewrite.
+     * 
+     */
+    public Optional<Output<GatewayRouteSpecHttpRouteActionRewritePathArgs>> path() {
+        return Optional.ofNullable(this.path);
+    }
+
+    /**
      * Specified beginning characters to rewrite.
      * 
      */
@@ -50,6 +66,7 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
 
     private GatewayRouteSpecHttpRouteActionRewriteArgs(GatewayRouteSpecHttpRouteActionRewriteArgs $) {
         this.hostname = $.hostname;
+        this.path = $.path;
         this.prefix = $.prefix;
     }
 
@@ -90,6 +107,27 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
          */
         public Builder hostname(GatewayRouteSpecHttpRouteActionRewriteHostnameArgs hostname) {
             return hostname(Output.of(hostname));
+        }
+
+        /**
+         * @param path Exact path to rewrite.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(@Nullable Output<GatewayRouteSpecHttpRouteActionRewritePathArgs> path) {
+            $.path = path;
+            return this;
+        }
+
+        /**
+         * @param path Exact path to rewrite.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(GatewayRouteSpecHttpRouteActionRewritePathArgs path) {
+            return path(Output.of(path));
         }
 
         /**

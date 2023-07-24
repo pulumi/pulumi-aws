@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteActionRewriteHostname;
+import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteActionRewritePath;
 import com.pulumi.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteActionRewritePrefix;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -18,6 +19,11 @@ public final class GatewayRouteSpecHttp2RouteActionRewrite {
      */
     private @Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname;
     /**
+     * @return Exact path to rewrite.
+     * 
+     */
+    private @Nullable GatewayRouteSpecHttp2RouteActionRewritePath path;
+    /**
      * @return Specified beginning characters to rewrite.
      * 
      */
@@ -30,6 +36,13 @@ public final class GatewayRouteSpecHttp2RouteActionRewrite {
      */
     public Optional<GatewayRouteSpecHttp2RouteActionRewriteHostname> hostname() {
         return Optional.ofNullable(this.hostname);
+    }
+    /**
+     * @return Exact path to rewrite.
+     * 
+     */
+    public Optional<GatewayRouteSpecHttp2RouteActionRewritePath> path() {
+        return Optional.ofNullable(this.path);
     }
     /**
      * @return Specified beginning characters to rewrite.
@@ -49,17 +62,24 @@ public final class GatewayRouteSpecHttp2RouteActionRewrite {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname;
+        private @Nullable GatewayRouteSpecHttp2RouteActionRewritePath path;
         private @Nullable GatewayRouteSpecHttp2RouteActionRewritePrefix prefix;
         public Builder() {}
         public Builder(GatewayRouteSpecHttp2RouteActionRewrite defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostname = defaults.hostname;
+    	      this.path = defaults.path;
     	      this.prefix = defaults.prefix;
         }
 
         @CustomType.Setter
         public Builder hostname(@Nullable GatewayRouteSpecHttp2RouteActionRewriteHostname hostname) {
             this.hostname = hostname;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder path(@Nullable GatewayRouteSpecHttp2RouteActionRewritePath path) {
+            this.path = path;
             return this;
         }
         @CustomType.Setter
@@ -70,6 +90,7 @@ public final class GatewayRouteSpecHttp2RouteActionRewrite {
         public GatewayRouteSpecHttp2RouteActionRewrite build() {
             final var o = new GatewayRouteSpecHttp2RouteActionRewrite();
             o.hostname = hostname;
+            o.path = path;
             o.prefix = prefix;
             return o;
         }

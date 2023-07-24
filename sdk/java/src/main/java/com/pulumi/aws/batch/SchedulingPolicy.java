@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Batch Scheduling Policy can be imported using the `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
- * ```
+ *  to = aws_batch_scheduling_policy.test_policy
+ * 
+ *  id = &#34;arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample&#34; } Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For exampleconsole % pulumi import aws_batch_scheduling_policy.test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
  * 
  */
 @ResourceType(type="aws:batch/schedulingPolicy:SchedulingPolicy")

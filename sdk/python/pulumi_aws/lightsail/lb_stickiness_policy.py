@@ -152,11 +152,11 @@ class LbStickinessPolicy(pulumi.CustomResource):
 
         ## Import
 
-        `aws_lightsail_lb_stickiness_policy` can be imported by using the `lb_name` attribute, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
-        ```
+         to = aws_lightsail_lb_stickiness_policy.test
+
+         id = "example-load-balancer" } Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For exampleconsole % pulumi import aws_lightsail_lb_stickiness_policy.test example-load-balancer
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,11 +193,11 @@ class LbStickinessPolicy(pulumi.CustomResource):
 
         ## Import
 
-        `aws_lightsail_lb_stickiness_policy` can be imported by using the `lb_name` attribute, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
-        ```
+         to = aws_lightsail_lb_stickiness_policy.test
+
+         id = "example-load-balancer" } Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For exampleconsole % pulumi import aws_lightsail_lb_stickiness_policy.test example-load-balancer
 
         :param str resource_name: The name of the resource.
         :param LbStickinessPolicyArgs args: The arguments to use to populate this resource's properties.

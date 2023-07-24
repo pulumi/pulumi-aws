@@ -53,11 +53,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Import
     /// 
-    /// App Mesh service meshes can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
-    /// ```
+    ///  to = aws_appmesh_mesh.simple
+    /// 
+    ///  id = "simpleapp" } Using `pulumi import`, import App Mesh service meshes using the `name`. For exampleconsole % pulumi import aws_appmesh_mesh.simple simpleapp
     /// </summary>
     [AwsResourceType("aws:appmesh/mesh:Mesh")]
     public partial class Mesh : global::Pulumi.CustomResource

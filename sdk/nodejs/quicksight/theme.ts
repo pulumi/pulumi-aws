@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A QuickSight Theme can be imported using the AWS account ID and theme ID separated by a comma (`,`) e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
- * ```
+ *  to = aws_quicksight_theme.example
+ *
+ *  id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_theme.example 123456789012,example-id
  */
 export class Theme extends pulumi.CustomResource {
     /**

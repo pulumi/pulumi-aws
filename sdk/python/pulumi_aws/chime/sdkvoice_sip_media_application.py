@@ -224,11 +224,11 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
 
         ## Import
 
-        A ChimeSDKVoice SIP Media Application can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
-        ```
+         to = aws_chimesdkvoice_sip_media_application.example
+
+         id = "abcdef123456" } Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_sip_media_application.example abcdef123456
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,11 +265,11 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
 
         ## Import
 
-        A ChimeSDKVoice SIP Media Application can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
-        ```
+         to = aws_chimesdkvoice_sip_media_application.example
+
+         id = "abcdef123456" } Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_sip_media_application.example abcdef123456
 
         :param str resource_name: The name of the resource.
         :param SdkvoiceSipMediaApplicationArgs args: The arguments to use to populate this resource's properties.

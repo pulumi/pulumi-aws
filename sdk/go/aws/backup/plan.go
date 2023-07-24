@@ -59,13 +59,11 @@ import (
 //
 // ## Import
 //
-// Backup Plan can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_plan.test
 //
-//	$ pulumi import aws:backup/plan:Plan test <id>
-//
-// ```
+//	id = "<id>" } Using `pulumi import`, import Backup Plan using the `id`. For exampleconsole % pulumi import aws_backup_plan.test <id>
 type Plan struct {
 	pulumi.CustomResourceState
 

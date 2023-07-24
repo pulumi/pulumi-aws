@@ -48,10 +48,34 @@ import * as utilities from "../utilities";
  *     dependsOn: [withLb],
  * });
  * ```
+ * ### Registering Multiple Targets
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleInstance: aws.ec2.Instance[] = [];
+ * for (const range = {value: 0}; range.value < 3; range.value++) {
+ *     exampleInstance.push(new aws.ec2.Instance(`exampleInstance-${range.value}`, {}));
+ * }
+ * // ... other configuration ...
+ * const exampleTargetGroup = new aws.lb.TargetGroup("exampleTargetGroup", {});
+ * // ... other configuration ...
+ * const exampleTargetGroupAttachment: aws.lb.TargetGroupAttachment[] = [];
+ * pulumi.all(exampleInstance.map((v, k) => [k, v]).reduce((__obj, [, ]) => ({ ...__obj, [v.id]: v }))).apply(rangeBody => {
+ *     for (const range of Object.entries(rangeBody).map(([k, v]) => ({key: k, value: v}))) {
+ *         exampleTargetGroupAttachment.push(new aws.lb.TargetGroupAttachment(`exampleTargetGroupAttachment-${range.key}`, {
+ *             targetGroupArn: exampleTargetGroup.arn,
+ *             targetId: range.value.id,
+ *             port: 80,
+ *         }));
+ *     }
+ * });
+ * ```
  *
  * ## Import
  *
- * Target Group Attachments cannot be imported.
+ * You cannot import Target Group Attachments.
  */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**

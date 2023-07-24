@@ -59,13 +59,11 @@ import (
 //
 // ## Import
 //
-// `aws_organizations_policy` can be imported by using the policy ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_organizations_policy.example
 //
-//	$ pulumi import aws:organizations/policy:Policy example p-12345678
-//
-// ```
+//	id = "p-12345678" } Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For exampleconsole % pulumi import aws_organizations_policy.example p-12345678
 type Policy struct {
 	pulumi.CustomResourceState
 

@@ -23,8 +23,6 @@ class AliasArgs:
         The set of arguments for constructing a Alias resource.
         :param pulumi.Input[str] name: Name for the alias you are creating.
         :param pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
-               
-               For **routing_configuration** the following attributes are supported:
         :param pulumi.Input[str] description: Description of the alias.
         """
         pulumi.set(__self__, "name", name)
@@ -49,8 +47,6 @@ class AliasArgs:
     def routing_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]]:
         """
         The StateMachine alias' route configuration settings. Fields documented below
-
-        For **routing_configuration** the following attributes are supported:
         """
         return pulumi.get(self, "routing_configurations")
 
@@ -86,8 +82,6 @@ class _AliasState:
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name for the alias you are creating.
         :param pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
-               
-               For **routing_configuration** the following attributes are supported:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -153,8 +147,6 @@ class _AliasState:
     def routing_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AliasRoutingConfigurationArgs']]]]:
         """
         The StateMachine alias' route configuration settings. Fields documented below
-
-        For **routing_configuration** the following attributes are supported:
         """
         return pulumi.get(self, "routing_configurations")
 
@@ -204,19 +196,17 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        SFN (Step Functions) Alias can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
-        ```
+         to = aws_sfn_alias.foo
+
+         id = "arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo" } Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For exampleconsole % pulumi import aws_sfn_alias.foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name for the alias you are creating.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AliasRoutingConfigurationArgs']]]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
-               
-               For **routing_configuration** the following attributes are supported:
         """
         ...
     @overload
@@ -256,11 +246,11 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        SFN (Step Functions) Alias can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
-        ```
+         to = aws_sfn_alias.foo
+
+         id = "arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo" } Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For exampleconsole % pulumi import aws_sfn_alias.foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.
@@ -325,8 +315,6 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name for the alias you are creating.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AliasRoutingConfigurationArgs']]]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
-               
-               For **routing_configuration** the following attributes are supported:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -376,8 +364,6 @@ class Alias(pulumi.CustomResource):
     def routing_configurations(self) -> pulumi.Output[Sequence['outputs.AliasRoutingConfiguration']]:
         """
         The StateMachine alias' route configuration settings. Fields documented below
-
-        For **routing_configuration** the following attributes are supported:
         """
         return pulumi.get(self, "routing_configurations")
 

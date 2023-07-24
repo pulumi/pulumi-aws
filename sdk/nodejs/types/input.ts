@@ -105,61 +105,43 @@ export interface ProviderEndpoint {
     account?: pulumi.Input<string>;
     acm?: pulumi.Input<string>;
     acmpca?: pulumi.Input<string>;
-    alexaforbusiness?: pulumi.Input<string>;
     amg?: pulumi.Input<string>;
     amp?: pulumi.Input<string>;
     amplify?: pulumi.Input<string>;
-    amplifybackend?: pulumi.Input<string>;
-    amplifyuibuilder?: pulumi.Input<string>;
     apigateway?: pulumi.Input<string>;
-    apigatewaymanagementapi?: pulumi.Input<string>;
     apigatewayv2?: pulumi.Input<string>;
     appautoscaling?: pulumi.Input<string>;
     appconfig?: pulumi.Input<string>;
-    appconfigdata?: pulumi.Input<string>;
     appflow?: pulumi.Input<string>;
     appintegrations?: pulumi.Input<string>;
     appintegrationsservice?: pulumi.Input<string>;
     applicationautoscaling?: pulumi.Input<string>;
-    applicationcostprofiler?: pulumi.Input<string>;
-    applicationdiscovery?: pulumi.Input<string>;
-    applicationdiscoveryservice?: pulumi.Input<string>;
     applicationinsights?: pulumi.Input<string>;
     appmesh?: pulumi.Input<string>;
-    appregistry?: pulumi.Input<string>;
     apprunner?: pulumi.Input<string>;
     appstream?: pulumi.Input<string>;
     appsync?: pulumi.Input<string>;
     athena?: pulumi.Input<string>;
     auditmanager?: pulumi.Input<string>;
-    augmentedairuntime?: pulumi.Input<string>;
     autoscaling?: pulumi.Input<string>;
     autoscalingplans?: pulumi.Input<string>;
     backup?: pulumi.Input<string>;
-    backupgateway?: pulumi.Input<string>;
     batch?: pulumi.Input<string>;
     beanstalk?: pulumi.Input<string>;
-    billingconductor?: pulumi.Input<string>;
-    braket?: pulumi.Input<string>;
     budgets?: pulumi.Input<string>;
     ce?: pulumi.Input<string>;
     chime?: pulumi.Input<string>;
-    chimesdkidentity?: pulumi.Input<string>;
     chimesdkmediapipelines?: pulumi.Input<string>;
-    chimesdkmeetings?: pulumi.Input<string>;
-    chimesdkmessaging?: pulumi.Input<string>;
     chimesdkvoice?: pulumi.Input<string>;
     cleanrooms?: pulumi.Input<string>;
     cloud9?: pulumi.Input<string>;
     cloudcontrol?: pulumi.Input<string>;
     cloudcontrolapi?: pulumi.Input<string>;
-    clouddirectory?: pulumi.Input<string>;
     cloudformation?: pulumi.Input<string>;
     cloudfront?: pulumi.Input<string>;
     cloudhsm?: pulumi.Input<string>;
     cloudhsmv2?: pulumi.Input<string>;
     cloudsearch?: pulumi.Input<string>;
-    cloudsearchdomain?: pulumi.Input<string>;
     cloudtrail?: pulumi.Input<string>;
     cloudwatch?: pulumi.Input<string>;
     cloudwatchevents?: pulumi.Input<string>;
@@ -172,33 +154,24 @@ export interface ProviderEndpoint {
     codebuild?: pulumi.Input<string>;
     codecommit?: pulumi.Input<string>;
     codedeploy?: pulumi.Input<string>;
-    codeguruprofiler?: pulumi.Input<string>;
     codegurureviewer?: pulumi.Input<string>;
     codepipeline?: pulumi.Input<string>;
-    codestar?: pulumi.Input<string>;
     codestarconnections?: pulumi.Input<string>;
     codestarnotifications?: pulumi.Input<string>;
     cognitoidentity?: pulumi.Input<string>;
     cognitoidentityprovider?: pulumi.Input<string>;
     cognitoidp?: pulumi.Input<string>;
-    cognitosync?: pulumi.Input<string>;
     comprehend?: pulumi.Input<string>;
-    comprehendmedical?: pulumi.Input<string>;
     computeoptimizer?: pulumi.Input<string>;
     config?: pulumi.Input<string>;
     configservice?: pulumi.Input<string>;
     connect?: pulumi.Input<string>;
-    connectcontactlens?: pulumi.Input<string>;
-    connectparticipant?: pulumi.Input<string>;
-    connectwisdomservice?: pulumi.Input<string>;
     controltower?: pulumi.Input<string>;
     costandusagereportservice?: pulumi.Input<string>;
     costexplorer?: pulumi.Input<string>;
     cur?: pulumi.Input<string>;
-    customerprofiles?: pulumi.Input<string>;
     databasemigration?: pulumi.Input<string>;
     databasemigrationservice?: pulumi.Input<string>;
-    databrew?: pulumi.Input<string>;
     dataexchange?: pulumi.Input<string>;
     datapipeline?: pulumi.Input<string>;
     datasync?: pulumi.Input<string>;
@@ -206,21 +179,15 @@ export interface ProviderEndpoint {
     deploy?: pulumi.Input<string>;
     detective?: pulumi.Input<string>;
     devicefarm?: pulumi.Input<string>;
-    devopsguru?: pulumi.Input<string>;
     directconnect?: pulumi.Input<string>;
     directoryservice?: pulumi.Input<string>;
-    discovery?: pulumi.Input<string>;
     dlm?: pulumi.Input<string>;
     dms?: pulumi.Input<string>;
     docdb?: pulumi.Input<string>;
     docdbelastic?: pulumi.Input<string>;
-    drs?: pulumi.Input<string>;
     ds?: pulumi.Input<string>;
     dynamodb?: pulumi.Input<string>;
-    dynamodbstreams?: pulumi.Input<string>;
-    ebs?: pulumi.Input<string>;
     ec2?: pulumi.Input<string>;
-    ec2instanceconnect?: pulumi.Input<string>;
     ecr?: pulumi.Input<string>;
     ecrpublic?: pulumi.Input<string>;
     ecs?: pulumi.Input<string>;
@@ -228,7 +195,6 @@ export interface ProviderEndpoint {
     eks?: pulumi.Input<string>;
     elasticache?: pulumi.Input<string>;
     elasticbeanstalk?: pulumi.Input<string>;
-    elasticinference?: pulumi.Input<string>;
     elasticloadbalancing?: pulumi.Input<string>;
     elasticloadbalancingv2?: pulumi.Input<string>;
     elasticsearch?: pulumi.Input<string>;
@@ -244,29 +210,18 @@ export interface ProviderEndpoint {
     events?: pulumi.Input<string>;
     evidently?: pulumi.Input<string>;
     finspace?: pulumi.Input<string>;
-    finspacedata?: pulumi.Input<string>;
     firehose?: pulumi.Input<string>;
     fis?: pulumi.Input<string>;
     fms?: pulumi.Input<string>;
-    forecast?: pulumi.Input<string>;
-    forecastquery?: pulumi.Input<string>;
-    forecastqueryservice?: pulumi.Input<string>;
-    forecastservice?: pulumi.Input<string>;
-    frauddetector?: pulumi.Input<string>;
     fsx?: pulumi.Input<string>;
     gamelift?: pulumi.Input<string>;
     glacier?: pulumi.Input<string>;
     globalaccelerator?: pulumi.Input<string>;
     glue?: pulumi.Input<string>;
-    gluedatabrew?: pulumi.Input<string>;
     grafana?: pulumi.Input<string>;
     greengrass?: pulumi.Input<string>;
-    greengrassv2?: pulumi.Input<string>;
-    groundstation?: pulumi.Input<string>;
     guardduty?: pulumi.Input<string>;
-    health?: pulumi.Input<string>;
     healthlake?: pulumi.Input<string>;
-    honeycode?: pulumi.Input<string>;
     iam?: pulumi.Input<string>;
     identitystore?: pulumi.Input<string>;
     imagebuilder?: pulumi.Input<string>;
@@ -275,23 +230,8 @@ export interface ProviderEndpoint {
     inspectorv2?: pulumi.Input<string>;
     internetmonitor?: pulumi.Input<string>;
     iot?: pulumi.Input<string>;
-    iot1clickdevices?: pulumi.Input<string>;
-    iot1clickdevicesservice?: pulumi.Input<string>;
-    iot1clickprojects?: pulumi.Input<string>;
     iotanalytics?: pulumi.Input<string>;
-    iotdata?: pulumi.Input<string>;
-    iotdataplane?: pulumi.Input<string>;
-    iotdeviceadvisor?: pulumi.Input<string>;
     iotevents?: pulumi.Input<string>;
-    ioteventsdata?: pulumi.Input<string>;
-    iotfleethub?: pulumi.Input<string>;
-    iotjobsdata?: pulumi.Input<string>;
-    iotjobsdataplane?: pulumi.Input<string>;
-    iotsecuretunneling?: pulumi.Input<string>;
-    iotsitewise?: pulumi.Input<string>;
-    iotthingsgraph?: pulumi.Input<string>;
-    iottwinmaker?: pulumi.Input<string>;
-    iotwireless?: pulumi.Input<string>;
     ivs?: pulumi.Input<string>;
     ivschat?: pulumi.Input<string>;
     kafka?: pulumi.Input<string>;
@@ -302,10 +242,6 @@ export interface ProviderEndpoint {
     kinesisanalytics?: pulumi.Input<string>;
     kinesisanalyticsv2?: pulumi.Input<string>;
     kinesisvideo?: pulumi.Input<string>;
-    kinesisvideoarchivedmedia?: pulumi.Input<string>;
-    kinesisvideomedia?: pulumi.Input<string>;
-    kinesisvideosignaling?: pulumi.Input<string>;
-    kinesisvideosignalingchannels?: pulumi.Input<string>;
     kms?: pulumi.Input<string>;
     lakeformation?: pulumi.Input<string>;
     lambda?: pulumi.Input<string>;
@@ -313,104 +249,54 @@ export interface ProviderEndpoint {
     lexmodelbuilding?: pulumi.Input<string>;
     lexmodelbuildingservice?: pulumi.Input<string>;
     lexmodels?: pulumi.Input<string>;
-    lexmodelsv2?: pulumi.Input<string>;
-    lexruntime?: pulumi.Input<string>;
-    lexruntimeservice?: pulumi.Input<string>;
-    lexruntimev2?: pulumi.Input<string>;
-    lexv2models?: pulumi.Input<string>;
-    lexv2runtime?: pulumi.Input<string>;
     licensemanager?: pulumi.Input<string>;
     lightsail?: pulumi.Input<string>;
     location?: pulumi.Input<string>;
     locationservice?: pulumi.Input<string>;
     logs?: pulumi.Input<string>;
-    lookoutequipment?: pulumi.Input<string>;
-    lookoutforvision?: pulumi.Input<string>;
-    lookoutmetrics?: pulumi.Input<string>;
-    lookoutvision?: pulumi.Input<string>;
-    machinelearning?: pulumi.Input<string>;
-    macie?: pulumi.Input<string>;
     macie2?: pulumi.Input<string>;
-    managedblockchain?: pulumi.Input<string>;
     managedgrafana?: pulumi.Input<string>;
-    marketplacecatalog?: pulumi.Input<string>;
-    marketplacecommerceanalytics?: pulumi.Input<string>;
-    marketplaceentitlement?: pulumi.Input<string>;
-    marketplaceentitlementservice?: pulumi.Input<string>;
-    marketplacemetering?: pulumi.Input<string>;
     mediaconnect?: pulumi.Input<string>;
     mediaconvert?: pulumi.Input<string>;
     medialive?: pulumi.Input<string>;
     mediapackage?: pulumi.Input<string>;
-    mediapackagevod?: pulumi.Input<string>;
     mediastore?: pulumi.Input<string>;
-    mediastoredata?: pulumi.Input<string>;
-    mediatailor?: pulumi.Input<string>;
     memorydb?: pulumi.Input<string>;
-    meteringmarketplace?: pulumi.Input<string>;
-    mgh?: pulumi.Input<string>;
-    mgn?: pulumi.Input<string>;
-    migrationhub?: pulumi.Input<string>;
-    migrationhubconfig?: pulumi.Input<string>;
-    migrationhubrefactorspaces?: pulumi.Input<string>;
-    migrationhubstrategy?: pulumi.Input<string>;
-    migrationhubstrategyrecommendations?: pulumi.Input<string>;
-    mobile?: pulumi.Input<string>;
     mq?: pulumi.Input<string>;
     msk?: pulumi.Input<string>;
-    mturk?: pulumi.Input<string>;
     mwaa?: pulumi.Input<string>;
     neptune?: pulumi.Input<string>;
     networkfirewall?: pulumi.Input<string>;
     networkmanager?: pulumi.Input<string>;
-    nimble?: pulumi.Input<string>;
-    nimblestudio?: pulumi.Input<string>;
     oam?: pulumi.Input<string>;
     opensearch?: pulumi.Input<string>;
     opensearchserverless?: pulumi.Input<string>;
     opensearchservice?: pulumi.Input<string>;
     opsworks?: pulumi.Input<string>;
-    opsworkscm?: pulumi.Input<string>;
     organizations?: pulumi.Input<string>;
     outposts?: pulumi.Input<string>;
-    panorama?: pulumi.Input<string>;
-    personalize?: pulumi.Input<string>;
-    personalizeevents?: pulumi.Input<string>;
-    personalizeruntime?: pulumi.Input<string>;
-    pi?: pulumi.Input<string>;
     pinpoint?: pulumi.Input<string>;
-    pinpointemail?: pulumi.Input<string>;
-    pinpointsmsvoice?: pulumi.Input<string>;
     pipes?: pulumi.Input<string>;
-    polly?: pulumi.Input<string>;
     pricing?: pulumi.Input<string>;
     prometheus?: pulumi.Input<string>;
     prometheusservice?: pulumi.Input<string>;
-    proton?: pulumi.Input<string>;
     qldb?: pulumi.Input<string>;
-    qldbsession?: pulumi.Input<string>;
     quicksight?: pulumi.Input<string>;
     ram?: pulumi.Input<string>;
     rbin?: pulumi.Input<string>;
     rds?: pulumi.Input<string>;
-    rdsdata?: pulumi.Input<string>;
-    rdsdataservice?: pulumi.Input<string>;
     recyclebin?: pulumi.Input<string>;
     redshift?: pulumi.Input<string>;
     redshiftdata?: pulumi.Input<string>;
     redshiftdataapiservice?: pulumi.Input<string>;
     redshiftserverless?: pulumi.Input<string>;
-    rekognition?: pulumi.Input<string>;
-    resiliencehub?: pulumi.Input<string>;
     resourceexplorer2?: pulumi.Input<string>;
     resourcegroups?: pulumi.Input<string>;
     resourcegroupstagging?: pulumi.Input<string>;
     resourcegroupstaggingapi?: pulumi.Input<string>;
-    robomaker?: pulumi.Input<string>;
     rolesanywhere?: pulumi.Input<string>;
     route53?: pulumi.Input<string>;
     route53domains?: pulumi.Input<string>;
-    route53recoverycluster?: pulumi.Input<string>;
     route53recoverycontrolconfig?: pulumi.Input<string>;
     route53recoveryreadiness?: pulumi.Input<string>;
     route53resolver?: pulumi.Input<string>;
@@ -420,12 +306,6 @@ export interface ProviderEndpoint {
     s3control?: pulumi.Input<string>;
     s3outposts?: pulumi.Input<string>;
     sagemaker?: pulumi.Input<string>;
-    sagemakera2iruntime?: pulumi.Input<string>;
-    sagemakeredge?: pulumi.Input<string>;
-    sagemakeredgemanager?: pulumi.Input<string>;
-    sagemakerfeaturestoreruntime?: pulumi.Input<string>;
-    sagemakerruntime?: pulumi.Input<string>;
-    savingsplans?: pulumi.Input<string>;
     scheduler?: pulumi.Input<string>;
     schemas?: pulumi.Input<string>;
     sdb?: pulumi.Input<string>;
@@ -436,7 +316,6 @@ export interface ProviderEndpoint {
     serverlessapprepo?: pulumi.Input<string>;
     serverlessrepo?: pulumi.Input<string>;
     servicecatalog?: pulumi.Input<string>;
-    servicecatalogappregistry?: pulumi.Input<string>;
     servicediscovery?: pulumi.Input<string>;
     servicequotas?: pulumi.Input<string>;
     ses?: pulumi.Input<string>;
@@ -445,46 +324,28 @@ export interface ProviderEndpoint {
     shield?: pulumi.Input<string>;
     signer?: pulumi.Input<string>;
     simpledb?: pulumi.Input<string>;
-    sms?: pulumi.Input<string>;
-    snowball?: pulumi.Input<string>;
-    snowdevicemanagement?: pulumi.Input<string>;
     sns?: pulumi.Input<string>;
     sqs?: pulumi.Input<string>;
     ssm?: pulumi.Input<string>;
     ssmcontacts?: pulumi.Input<string>;
     ssmincidents?: pulumi.Input<string>;
-    sso?: pulumi.Input<string>;
     ssoadmin?: pulumi.Input<string>;
-    ssooidc?: pulumi.Input<string>;
     stepfunctions?: pulumi.Input<string>;
     storagegateway?: pulumi.Input<string>;
     sts?: pulumi.Input<string>;
-    support?: pulumi.Input<string>;
     swf?: pulumi.Input<string>;
     synthetics?: pulumi.Input<string>;
-    textract?: pulumi.Input<string>;
-    timestreamquery?: pulumi.Input<string>;
     timestreamwrite?: pulumi.Input<string>;
     transcribe?: pulumi.Input<string>;
     transcribeservice?: pulumi.Input<string>;
-    transcribestreaming?: pulumi.Input<string>;
-    transcribestreamingservice?: pulumi.Input<string>;
     transfer?: pulumi.Input<string>;
-    translate?: pulumi.Input<string>;
     verifiedpermissions?: pulumi.Input<string>;
-    voiceid?: pulumi.Input<string>;
     vpclattice?: pulumi.Input<string>;
     waf?: pulumi.Input<string>;
     wafregional?: pulumi.Input<string>;
     wafv2?: pulumi.Input<string>;
-    wellarchitected?: pulumi.Input<string>;
-    wisdom?: pulumi.Input<string>;
-    workdocs?: pulumi.Input<string>;
     worklink?: pulumi.Input<string>;
-    workmail?: pulumi.Input<string>;
-    workmailmessageflow?: pulumi.Input<string>;
     workspaces?: pulumi.Input<string>;
-    workspacesweb?: pulumi.Input<string>;
     xray?: pulumi.Input<string>;
 }
 
@@ -3860,6 +3721,10 @@ export namespace appmesh {
          */
         hostname?: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttp2RouteActionRewriteHostname>;
         /**
+         * Exact path to rewrite.
+         */
+        path?: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttp2RouteActionRewritePath>;
+        /**
          * Specified beginning characters to rewrite.
          */
         prefix?: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttp2RouteActionRewritePrefix>;
@@ -3870,6 +3735,13 @@ export namespace appmesh {
          * Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
          */
         defaultTargetHostname: pulumi.Input<string>;
+    }
+
+    export interface GatewayRouteSpecHttp2RouteActionRewritePath {
+        /**
+         * The exact path to match on.
+         */
+        exact: pulumi.Input<string>;
     }
 
     export interface GatewayRouteSpecHttp2RouteActionRewritePrefix {
@@ -3911,7 +3783,7 @@ export namespace appmesh {
          */
         hostname?: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttp2RouteMatchHostname>;
         /**
-         * Client request path to match on.
+         * Exact path to rewrite.
          */
         path?: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttp2RouteMatchPath>;
         /**
@@ -3945,7 +3817,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatchHeaderMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Value used to replace matched path.
          */
         exact?: pulumi.Input<string>;
         /**
@@ -4012,7 +3884,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatchQueryParameterMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Value used to replace matched path.
          */
         exact?: pulumi.Input<string>;
     }
@@ -4045,6 +3917,10 @@ export namespace appmesh {
          */
         hostname?: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttpRouteActionRewriteHostname>;
         /**
+         * Exact path to rewrite.
+         */
+        path?: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttpRouteActionRewritePath>;
+        /**
          * Specified beginning characters to rewrite.
          */
         prefix?: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttpRouteActionRewritePrefix>;
@@ -4055,6 +3931,13 @@ export namespace appmesh {
          * Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
          */
         defaultTargetHostname: pulumi.Input<string>;
+    }
+
+    export interface GatewayRouteSpecHttpRouteActionRewritePath {
+        /**
+         * The exact path to match on.
+         */
+        exact: pulumi.Input<string>;
     }
 
     export interface GatewayRouteSpecHttpRouteActionRewritePrefix {
@@ -4096,7 +3979,7 @@ export namespace appmesh {
          */
         hostname?: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttpRouteMatchHostname>;
         /**
-         * Client request path to match on.
+         * Exact path to rewrite.
          */
         path?: pulumi.Input<inputs.appmesh.GatewayRouteSpecHttpRouteMatchPath>;
         /**
@@ -4130,7 +4013,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatchHeaderMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Value used to replace matched path.
          */
         exact?: pulumi.Input<string>;
         /**
@@ -4197,7 +4080,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatchQueryParameterMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Value used to replace matched path.
          */
         exact?: pulumi.Input<string>;
     }
@@ -7277,7 +7160,7 @@ export namespace autoscaling {
 
     export interface GroupInstanceRefreshPreferences {
         /**
-         * Automatically rollback if instance refresh fails. Defaults to `false`.
+         * Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
          */
         autoRollback?: pulumi.Input<boolean>;
         /**
@@ -8391,7 +8274,7 @@ export namespace backup {
          */
         inputParameters?: pulumi.Input<pulumi.Input<inputs.backup.FrameworkControlInputParameter>[]>;
         /**
-         * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * The name of a control. This name is between 1 and 256 characters.
          */
         name: pulumi.Input<string>;
         /**
@@ -8402,7 +8285,7 @@ export namespace backup {
 
     export interface FrameworkControlInputParameter {
         /**
-         * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * The name of a parameter, for example, BackupPlanFrequency.
          */
         name?: pulumi.Input<string>;
         /**
@@ -8421,7 +8304,7 @@ export namespace backup {
          */
         complianceResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
@@ -8482,7 +8365,7 @@ export namespace backup {
          */
         destinationVaultArn: pulumi.Input<string>;
         /**
-         * The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+         * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
          */
         lifecycle?: pulumi.Input<inputs.backup.PlanRuleCopyActionLifecycle>;
     }
@@ -9633,6 +9516,21 @@ export namespace cloudformation {
         regionOrders?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface StackSetInstanceStackInstanceSummary {
+        /**
+         * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+         */
+        accountId?: pulumi.Input<string>;
+        /**
+         * Organizational unit ID in which the stack is deployed.
+         */
+        organizationalUnitId?: pulumi.Input<string>;
+        /**
+         * Stack identifier.
+         */
+        stackId?: pulumi.Input<string>;
+    }
+
     export interface StackSetManagedExecution {
         /**
          * When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
@@ -10675,7 +10573,7 @@ export namespace cloudtrail {
          */
         fieldSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelector>[]>;
         /**
-         * The name of the event data store.
+         * Specifies the name of the advanced event selector.
          */
         name?: pulumi.Input<string>;
     }
@@ -22908,7 +22806,7 @@ export namespace eks {
         controlPlaneInstanceType: pulumi.Input<string>;
         /**
          * An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-         * The following arguments are supported in the `controlPlanePlacement` configuration block:
+         * The `controlPlanePlacement` configuration block supports the following arguments:
          */
         controlPlanePlacement?: pulumi.Input<inputs.eks.ClusterOutpostConfigControlPlanePlacement>;
         /**
@@ -25426,7 +25324,7 @@ export namespace fsx {
 
     export interface FileCacheLustreConfigurationMetadataConfiguration {
         /**
-         * The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+         * The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
          */
         storageCapacity: pulumi.Input<number>;
     }
@@ -26039,8 +25937,6 @@ export namespace globalaccelerator {
         protocols: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-         *
-         * **endpoint_configuration** supports the following attributes:
          */
         toPort: pulumi.Input<number>;
     }
@@ -26075,8 +25971,6 @@ export namespace globalaccelerator {
         endpointId?: pulumi.Input<string>;
         /**
          * The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-         *
-         * **port_override** supports the following attributes:
          */
         weight?: pulumi.Input<number>;
     }
@@ -50914,6 +50808,10 @@ export namespace signer {
         type: pulumi.Input<string>;
         value: pulumi.Input<number>;
     }
+
+    export interface SigningProfileSigningMaterial {
+        certificateArn: pulumi.Input<string>;
+    }
 }
 
 export namespace ssm {
@@ -56146,6 +56044,27 @@ export namespace wafv2 {
         sampledRequestsEnabled: pulumi.Input<boolean>;
     }
 
+    export interface WebAclAssociationConfig {
+        /**
+         * Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
+         */
+        requestBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclAssociationConfigRequestBody>[]>;
+    }
+
+    export interface WebAclAssociationConfigRequestBody {
+        /**
+         * Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+         */
+        cloudfronts?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclAssociationConfigRequestBodyCloudfront>[]>;
+    }
+
+    export interface WebAclAssociationConfigRequestBodyCloudfront {
+        /**
+         * Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         */
+        defaultSizeInspectionLimit: pulumi.Input<string>;
+    }
+
     export interface WebAclCaptchaConfig {
         /**
          * Defines custom immunity time. See `immunityTimeProperty` below for details.
@@ -60991,6 +60910,12 @@ export namespace worklink {
 }
 
 export namespace workspaces {
+    export interface ConnectionAliasTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+        update?: pulumi.Input<string>;
+    }
+
     export interface DirectorySelfServicePermissions {
         /**
          * Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.

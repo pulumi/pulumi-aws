@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EMR Security Configurations can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
- * ```
+ *  to = aws_emr_security_configuration.sc
+ * 
+ *  id = &#34;example-sc-name&#34; } Using `pulumi import`, import EMR Security Configurations using the `name`. For exampleconsole % pulumi import aws_emr_security_configuration.sc example-sc-name
  * 
  */
 @ResourceType(type="aws:emr/securityConfiguration:SecurityConfiguration")

@@ -32,11 +32,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Internet Monitor Monitors can be imported using the `monitor_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
-    /// ```
+    ///  to = aws_internetmonitor_monitor.some
+    /// 
+    ///  id = "some-monitor" } Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For exampleconsole % pulumi import aws_internetmonitor_monitor.some some-monitor
     /// </summary>
     [AwsResourceType("aws:cloudwatch/internetMonitor:InternetMonitor")]
     public partial class InternetMonitor : global::Pulumi.CustomResource

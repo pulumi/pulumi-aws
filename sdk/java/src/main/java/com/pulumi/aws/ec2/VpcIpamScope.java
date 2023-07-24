@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IPAMs can be imported using the `scope_id`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
- * ```
+ *  to = aws_vpc_ipam_scope.example
+ * 
+ *  id = &#34;ipam-scope-0513c69f283d11dfb&#34; } Using `pulumi import`, import IPAMs using the `scope_id`. For exampleconsole % pulumi import aws_vpc_ipam_scope.example ipam-scope-0513c69f283d11dfb
  * 
  */
 @ResourceType(type="aws:ec2/vpcIpamScope:VpcIpamScope")

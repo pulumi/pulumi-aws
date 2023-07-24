@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Config aggregate authorizations can be imported using `account_id:region`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
- * ```
+ *  to = aws_config_aggregate_authorization.example
+ * 
+ *  id = &#34;123456789012:us-east-1&#34; } Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For exampleconsole % pulumi import aws_config_aggregate_authorization.example 123456789012:us-east-1
  * 
  */
 @ResourceType(type="aws:cfg/aggregateAuthorization:AggregateAuthorization")

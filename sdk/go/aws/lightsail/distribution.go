@@ -220,13 +220,11 @@ import (
 //
 // ## Import
 //
-// Lightsail Distribution can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_distribution.example
 //
-//	$ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
-//
-// ```
+//	id = "rft-8012925589" } Using `pulumi import`, import Lightsail Distribution using the `id`. For exampleconsole % pulumi import aws_lightsail_distribution.example rft-8012925589
 type Distribution struct {
 	pulumi.CustomResourceState
 

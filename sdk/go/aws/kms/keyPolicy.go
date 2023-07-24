@@ -70,13 +70,11 @@ import (
 //
 // ## Import
 //
-// KMS Key Policies can be imported using the `key_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kms_key_policy.a
 //
-//	$ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
-//
-// ```
+//	id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS Key Policies using the `key_id`. For exampleconsole % pulumi import aws_kms_key_policy.a 1234abcd-12ab-34cd-56ef-1234567890ab
 type KeyPolicy struct {
 	pulumi.CustomResourceState
 

@@ -489,11 +489,11 @@ class Volume(pulumi.CustomResource):
 
         ## Import
 
-        EBS Volumes can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
-        ```
+         to = aws_ebs_volume.id
+
+         id = "vol-049df61146c4d7901" } Using `pulumi import`, import EBS Volumes using the `id`. For exampleconsole % pulumi import aws_ebs_volume.id vol-049df61146c4d7901
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -539,11 +539,11 @@ class Volume(pulumi.CustomResource):
 
         ## Import
 
-        EBS Volumes can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
-        ```
+         to = aws_ebs_volume.id
+
+         id = "vol-049df61146c4d7901" } Using `pulumi import`, import EBS Volumes using the `id`. For exampleconsole % pulumi import aws_ebs_volume.id vol-049df61146c4d7901
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

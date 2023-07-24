@@ -45,11 +45,11 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
-    /// ```
+    ///  to = aws_appstream_fleet_stack_association.example
+    /// 
+    ///  id = "fleetName/stackName" } Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For exampleconsole % pulumi import aws_appstream_fleet_stack_association.example fleetName/stackName
     /// </summary>
     [AwsResourceType("aws:appstream/fleetStackAssociation:FleetStackAssociation")]
     public partial class FleetStackAssociation : global::Pulumi.CustomResource

@@ -47,11 +47,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- *  Route 53 Resolver DNS Firewall rule groups can be imported using the Route 53 Resolver DNS Firewall rule group ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
- * ```
+ *  to = aws_route53_resolver_firewall_rule_group.example
+ * 
+ *  id = &#34;rslvr-frg-0123456789abcdef&#34; } Using `pulumi import`, import
+ * 
+ * Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For exampleconsole % pulumi import aws_route53_resolver_firewall_rule_group.example rslvr-frg-0123456789abcdef
  * 
  */
 @ResourceType(type="aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup")

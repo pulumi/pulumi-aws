@@ -197,7 +197,7 @@ class TableItem(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB table items cannot be imported.
+        You cannot import DynamoDB table items.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,7 +247,7 @@ class TableItem(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB table items cannot be imported.
+        You cannot import DynamoDB table items.
 
         :param str resource_name: The name of the resource.
         :param TableItemArgs args: The arguments to use to populate this resource's properties.

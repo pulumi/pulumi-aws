@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SFN (Step Functions) Alias can be imported using the `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
- * ```
+ *  to = aws_sfn_alias.foo
+ * 
+ *  id = &#34;arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo&#34; } Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For exampleconsole % pulumi import aws_sfn_alias.foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
  * 
  */
 @ResourceType(type="aws:sfn/alias:Alias")
@@ -138,16 +138,12 @@ public class Alias extends com.pulumi.resources.CustomResource {
     /**
      * The StateMachine alias&#39; route configuration settings. Fields documented below
      * 
-     * For **routing_configuration** the following attributes are supported:
-     * 
      */
     @Export(name="routingConfigurations", refs={List.class,AliasRoutingConfiguration.class}, tree="[0,1]")
     private Output<List<AliasRoutingConfiguration>> routingConfigurations;
 
     /**
      * @return The StateMachine alias&#39; route configuration settings. Fields documented below
-     * 
-     * For **routing_configuration** the following attributes are supported:
      * 
      */
     public Output<List<AliasRoutingConfiguration>> routingConfigurations() {

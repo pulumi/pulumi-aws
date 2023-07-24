@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM Groups can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:iam/group:Group developers developers
-    /// ```
+    ///  to = aws_iam_group.developers
+    /// 
+    ///  id = "developers" } Using `pulumi import`, import IAM Groups using the `name`. For exampleconsole % pulumi import aws_iam_group.developers developers
     /// </summary>
     [AwsResourceType("aws:iam/group:Group")]
     public partial class Group : global::Pulumi.CustomResource

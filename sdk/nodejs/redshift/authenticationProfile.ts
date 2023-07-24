@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift Authentication Profiles support import by `authentication_profile_name`, e.g., console
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
- * ```
+ *  to = aws_redshift_authentication_profile.test
+ *
+ *  id = "example" } Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For exampleconsole % pulumi import aws_redshift_authentication_profile.test example
  */
 export class AuthenticationProfile extends pulumi.CustomResource {
     /**

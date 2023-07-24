@@ -20,6 +20,7 @@ __all__ = [
     'SigningJobSourceS3',
     'SigningProfileRevocationRecord',
     'SigningProfileSignatureValidityPeriod',
+    'SigningProfileSigningMaterial',
     'GetSigningJobRevocationRecordResult',
     'GetSigningJobSignedObjectResult',
     'GetSigningJobSignedObjectS3Result',
@@ -300,6 +301,35 @@ class SigningProfileSignatureValidityPeriod(dict):
     @pulumi.getter
     def value(self) -> int:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SigningProfileSigningMaterial(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SigningProfileSigningMaterial. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SigningProfileSigningMaterial.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SigningProfileSigningMaterial.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_arn: str):
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> str:
+        return pulumi.get(self, "certificate_arn")
 
 
 @pulumi.output_type

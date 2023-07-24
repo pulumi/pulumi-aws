@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * QuickSight Folder Membership can be imported using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`) e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
- * ```
+ *  to = aws_quicksight_folder_membership.example
+ *
+ *  id = "123456789012,example-folder,DATASET,example-dataset" } Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_folder_membership.example 123456789012,example-folder,DATASET,example-dataset
  */
 export class FolderMembership extends pulumi.CustomResource {
     /**

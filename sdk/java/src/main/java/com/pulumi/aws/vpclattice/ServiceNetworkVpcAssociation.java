@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Lattice Service Network VPC Association can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
- * ```
+ *  to = aws_vpclattice_service_network_vpc_association.example
+ * 
+ *  id = &#34;snsa-05e2474658a88f6ba&#34; } Using `pulumi import`, import VPC Lattice Service Network VPC Association using the `id`. For exampleconsole % pulumi import aws_vpclattice_service_network_vpc_association.example snsa-05e2474658a88f6ba
  * 
  */
 @ResourceType(type="aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation")

@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EBS Volumes can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
- * ```
+ *  to = aws_ebs_volume.id
+ *
+ *  id = "vol-049df61146c4d7901" } Using `pulumi import`, import EBS Volumes using the `id`. For exampleconsole % pulumi import aws_ebs_volume.id vol-049df61146c4d7901
  */
 export class Volume extends pulumi.CustomResource {
     /**

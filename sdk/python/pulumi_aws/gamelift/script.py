@@ -250,11 +250,11 @@ class Script(pulumi.CustomResource):
 
         ## Import
 
-        GameLift Scripts can be imported using the ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:gamelift/script:Script example <script-id>
-        ```
+         to = aws_gamelift_script.example
+
+         id = "<script-id>" } Using `pulumi import`, import GameLift Scripts using the ID. For exampleconsole % pulumi import aws_gamelift_script.example <script-id>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,11 +288,11 @@ class Script(pulumi.CustomResource):
 
         ## Import
 
-        GameLift Scripts can be imported using the ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:gamelift/script:Script example <script-id>
-        ```
+         to = aws_gamelift_script.example
+
+         id = "<script-id>" } Using `pulumi import`, import GameLift Scripts using the ID. For exampleconsole % pulumi import aws_gamelift_script.example <script-id>
 
         :param str resource_name: The name of the resource.
         :param ScriptArgs args: The arguments to use to populate this resource's properties.

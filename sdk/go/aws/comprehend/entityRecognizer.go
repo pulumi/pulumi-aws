@@ -77,13 +77,11 @@ import (
 //
 // ## Import
 //
-// Comprehend Entity Recognizer can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_comprehend_entity_recognizer.example
 //
-//	$ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
-//
-// ```
+//	id = "arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example" } Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For exampleconsole % pulumi import aws_comprehend_entity_recognizer.example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
 type EntityRecognizer struct {
 	pulumi.CustomResourceState
 

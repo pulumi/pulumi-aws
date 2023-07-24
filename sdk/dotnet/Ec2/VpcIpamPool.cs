@@ -101,11 +101,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// IPAMs can be imported using the `ipam pool id`, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
-    /// ```
+    ///  to = aws_vpc_ipam_pool.example
+    /// 
+    ///  id = "ipam-pool-0958f95207d978e1e" } Using `pulumi import`, import IPAMs using the IPAM pool `id`. For exampleconsole % pulumi import aws_vpc_ipam_pool.example ipam-pool-0958f95207d978e1e
     /// </summary>
     [AwsResourceType("aws:ec2/vpcIpamPool:VpcIpamPool")]
     public partial class VpcIpamPool : global::Pulumi.CustomResource

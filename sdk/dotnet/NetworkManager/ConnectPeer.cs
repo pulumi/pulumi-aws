@@ -16,11 +16,11 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// `aws_networkmanager_connect_peer` can be imported using the connect peer ID, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
-    /// ```
+    ///  to = aws_networkmanager_connect_peer.example
+    /// 
+    ///  id = "connect-peer-061f3e96275db1acc" } Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For exampleconsole % pulumi import aws_networkmanager_connect_peer.example connect-peer-061f3e96275db1acc
     /// </summary>
     [AwsResourceType("aws:networkmanager/connectPeer:ConnectPeer")]
     public partial class ConnectPeer : global::Pulumi.CustomResource

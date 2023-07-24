@@ -47,13 +47,11 @@ import (
 //
 // ## Import
 //
-// Pinpoint App can be imported using the `application-id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_pinpoint_app.name
 //
-//	$ pulumi import aws:pinpoint/app:App name application-id
-//
-// ```
+//	id = "application-id" } Using `pulumi import`, import Pinpoint App using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_app.name application-id
 type App struct {
 	pulumi.CustomResourceState
 

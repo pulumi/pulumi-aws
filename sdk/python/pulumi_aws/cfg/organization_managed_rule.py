@@ -400,11 +400,11 @@ class OrganizationManagedRule(pulumi.CustomResource):
 
         ## Import
 
-        Config Organization Managed Rules can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
-        ```
+         to = aws_config_organization_managed_rule.example
+
+         id = "example" } Using `pulumi import`, import Config Organization Managed Rules using the name. For exampleconsole % pulumi import aws_config_organization_managed_rule.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -447,11 +447,11 @@ class OrganizationManagedRule(pulumi.CustomResource):
 
         ## Import
 
-        Config Organization Managed Rules can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
-        ```
+         to = aws_config_organization_managed_rule.example
+
+         id = "example" } Using `pulumi import`, import Config Organization Managed Rules using the name. For exampleconsole % pulumi import aws_config_organization_managed_rule.example example
 
         :param str resource_name: The name of the resource.
         :param OrganizationManagedRuleArgs args: The arguments to use to populate this resource's properties.

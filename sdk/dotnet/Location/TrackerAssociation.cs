@@ -43,11 +43,11 @@ namespace Pulumi.Aws.Location
     /// 
     /// ## Import
     /// 
-    /// Location Tracker Association can be imported using the `tracker_name|consumer_arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
-    /// ```
+    ///  to = aws_location_tracker_association.example
+    /// 
+    ///  id = "tracker_name|consumer_arn" } Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For exampleconsole % pulumi import aws_location_tracker_association.example "tracker_name|consumer_arn"
     /// </summary>
     [AwsResourceType("aws:location/trackerAssociation:TrackerAssociation")]
     public partial class TrackerAssociation : global::Pulumi.CustomResource

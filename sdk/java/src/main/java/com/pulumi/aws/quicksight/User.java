@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Importing is currently not supported on this resource.
+ * You cannot import this resource.
  * 
  */
 @ResourceType(type="aws:quicksight/user:User")

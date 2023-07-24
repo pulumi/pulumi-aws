@@ -1266,6 +1266,8 @@ func (o GatewayRouteSpecHttp2RouteActionPtrOutput) Target() GatewayRouteSpecHttp
 type GatewayRouteSpecHttp2RouteActionRewrite struct {
 	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttp2RouteActionRewriteHostname `pulumi:"hostname"`
+	// Exact path to rewrite.
+	Path *GatewayRouteSpecHttp2RouteActionRewritePath `pulumi:"path"`
 	// Specified beginning characters to rewrite.
 	Prefix *GatewayRouteSpecHttp2RouteActionRewritePrefix `pulumi:"prefix"`
 }
@@ -1284,6 +1286,8 @@ type GatewayRouteSpecHttp2RouteActionRewriteInput interface {
 type GatewayRouteSpecHttp2RouteActionRewriteArgs struct {
 	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrInput `pulumi:"hostname"`
+	// Exact path to rewrite.
+	Path GatewayRouteSpecHttp2RouteActionRewritePathPtrInput `pulumi:"path"`
 	// Specified beginning characters to rewrite.
 	Prefix GatewayRouteSpecHttp2RouteActionRewritePrefixPtrInput `pulumi:"prefix"`
 }
@@ -1372,6 +1376,13 @@ func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) Hostname() GatewayRouteSp
 	}).(GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput)
 }
 
+// Exact path to rewrite.
+func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) Path() GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewritePath {
+		return v.Path
+	}).(GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput)
+}
+
 // Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttp2RouteActionRewriteOutput) Prefix() GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewritePrefix {
@@ -1411,6 +1422,16 @@ func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) Hostname() GatewayRout
 		}
 		return v.Hostname
 	}).(GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput)
+}
+
+// Exact path to rewrite.
+func (o GatewayRouteSpecHttp2RouteActionRewritePtrOutput) Path() GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewrite) *GatewayRouteSpecHttp2RouteActionRewritePath {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput)
 }
 
 // Specified beginning characters to rewrite.
@@ -1557,6 +1578,143 @@ func (o GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput) DefaultTargetH
 			return nil
 		}
 		return &v.DefaultTargetHostname
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewritePath struct {
+	// The exact path to match on.
+	Exact string `pulumi:"exact"`
+}
+
+// GatewayRouteSpecHttp2RouteActionRewritePathInput is an input type that accepts GatewayRouteSpecHttp2RouteActionRewritePathArgs and GatewayRouteSpecHttp2RouteActionRewritePathOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttp2RouteActionRewritePathInput` via:
+//
+//	GatewayRouteSpecHttp2RouteActionRewritePathArgs{...}
+type GatewayRouteSpecHttp2RouteActionRewritePathInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttp2RouteActionRewritePathOutput() GatewayRouteSpecHttp2RouteActionRewritePathOutput
+	ToGatewayRouteSpecHttp2RouteActionRewritePathOutputWithContext(context.Context) GatewayRouteSpecHttp2RouteActionRewritePathOutput
+}
+
+type GatewayRouteSpecHttp2RouteActionRewritePathArgs struct {
+	// The exact path to match on.
+	Exact pulumi.StringInput `pulumi:"exact"`
+}
+
+func (GatewayRouteSpecHttp2RouteActionRewritePathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePath)(nil)).Elem()
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewritePathArgs) ToGatewayRouteSpecHttp2RouteActionRewritePathOutput() GatewayRouteSpecHttp2RouteActionRewritePathOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewritePathOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewritePathArgs) ToGatewayRouteSpecHttp2RouteActionRewritePathOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewritePathOutput)
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewritePathArgs) ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutput() GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttp2RouteActionRewritePathArgs) ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewritePathOutput).ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteSpecHttp2RouteActionRewritePathPtrInput is an input type that accepts GatewayRouteSpecHttp2RouteActionRewritePathArgs, GatewayRouteSpecHttp2RouteActionRewritePathPtr and GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttp2RouteActionRewritePathPtrInput` via:
+//
+//	        GatewayRouteSpecHttp2RouteActionRewritePathArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayRouteSpecHttp2RouteActionRewritePathPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutput() GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput
+	ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutputWithContext(context.Context) GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput
+}
+
+type gatewayRouteSpecHttp2RouteActionRewritePathPtrType GatewayRouteSpecHttp2RouteActionRewritePathArgs
+
+func GatewayRouteSpecHttp2RouteActionRewritePathPtr(v *GatewayRouteSpecHttp2RouteActionRewritePathArgs) GatewayRouteSpecHttp2RouteActionRewritePathPtrInput {
+	return (*gatewayRouteSpecHttp2RouteActionRewritePathPtrType)(v)
+}
+
+func (*gatewayRouteSpecHttp2RouteActionRewritePathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttp2RouteActionRewritePath)(nil)).Elem()
+}
+
+func (i *gatewayRouteSpecHttp2RouteActionRewritePathPtrType) ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutput() GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput {
+	return i.ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteSpecHttp2RouteActionRewritePathPtrType) ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewritePathOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttp2RouteActionRewritePathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePath)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePathOutput) ToGatewayRouteSpecHttp2RouteActionRewritePathOutput() GatewayRouteSpecHttp2RouteActionRewritePathOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePathOutput) ToGatewayRouteSpecHttp2RouteActionRewritePathOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePathOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePathOutput) ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutput() GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput {
+	return o.ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePathOutput) ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttp2RouteActionRewritePath) *GatewayRouteSpecHttp2RouteActionRewritePath {
+		return &v
+	}).(GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput)
+}
+
+// The exact path to match on.
+func (o GatewayRouteSpecHttp2RouteActionRewritePathOutput) Exact() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionRewritePath) string { return v.Exact }).(pulumi.StringOutput)
+}
+
+type GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttp2RouteActionRewritePath)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput) ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutput() GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput) ToGatewayRouteSpecHttp2RouteActionRewritePathPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput) Elem() GatewayRouteSpecHttp2RouteActionRewritePathOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewritePath) GatewayRouteSpecHttp2RouteActionRewritePath {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttp2RouteActionRewritePath
+		return ret
+	}).(GatewayRouteSpecHttp2RouteActionRewritePathOutput)
+}
+
+// The exact path to match on.
+func (o GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionRewritePath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Exact
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2016,7 +2174,7 @@ type GatewayRouteSpecHttp2RouteMatch struct {
 	Headers []GatewayRouteSpecHttp2RouteMatchHeader `pulumi:"headers"`
 	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttp2RouteMatchHostname `pulumi:"hostname"`
-	// Client request path to match on.
+	// Exact path to rewrite.
 	Path *GatewayRouteSpecHttp2RouteMatchPath `pulumi:"path"`
 	// The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
 	Port *int `pulumi:"port"`
@@ -2042,7 +2200,7 @@ type GatewayRouteSpecHttp2RouteMatchArgs struct {
 	Headers GatewayRouteSpecHttp2RouteMatchHeaderArrayInput `pulumi:"headers"`
 	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttp2RouteMatchHostnamePtrInput `pulumi:"hostname"`
-	// Client request path to match on.
+	// Exact path to rewrite.
 	Path GatewayRouteSpecHttp2RouteMatchPathPtrInput `pulumi:"path"`
 	// The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
 	Port pulumi.IntPtrInput `pulumi:"port"`
@@ -2139,7 +2297,7 @@ func (o GatewayRouteSpecHttp2RouteMatchOutput) Hostname() GatewayRouteSpecHttp2R
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *GatewayRouteSpecHttp2RouteMatchHostname { return v.Hostname }).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
 }
 
-// Client request path to match on.
+// Exact path to rewrite.
 func (o GatewayRouteSpecHttp2RouteMatchOutput) Path() GatewayRouteSpecHttp2RouteMatchPathPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *GatewayRouteSpecHttp2RouteMatchPath { return v.Path }).(GatewayRouteSpecHttp2RouteMatchPathPtrOutput)
 }
@@ -2205,7 +2363,7 @@ func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Hostname() GatewayRouteSpecHtt
 	}).(GatewayRouteSpecHttp2RouteMatchHostnamePtrOutput)
 }
 
-// Client request path to match on.
+// Exact path to rewrite.
 func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Path() GatewayRouteSpecHttp2RouteMatchPathPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatch) *GatewayRouteSpecHttp2RouteMatchPath {
 		if v == nil {
@@ -2363,7 +2521,7 @@ func (o GatewayRouteSpecHttp2RouteMatchHeaderArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GatewayRouteSpecHttp2RouteMatchHeaderMatch struct {
-	// Header value sent by the client must match the specified value exactly.
+	// Value used to replace matched path.
 	Exact *string `pulumi:"exact"`
 	// Specified beginning characters to rewrite.
 	Prefix *string `pulumi:"prefix"`
@@ -2387,7 +2545,7 @@ type GatewayRouteSpecHttp2RouteMatchHeaderMatchInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs struct {
-	// Header value sent by the client must match the specified value exactly.
+	// Value used to replace matched path.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
 	// Specified beginning characters to rewrite.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -2476,7 +2634,7 @@ func (o GatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) ToGatewayRouteSpecHttp
 	}).(GatewayRouteSpecHttp2RouteMatchHeaderMatchPtrOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// Value used to replace matched path.
 func (o GatewayRouteSpecHttp2RouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -2527,7 +2685,7 @@ func (o GatewayRouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Elem() GatewayRoute
 	}).(GatewayRouteSpecHttp2RouteMatchHeaderMatchOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// Value used to replace matched path.
 func (o GatewayRouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -3154,7 +3312,7 @@ func (o GatewayRouteSpecHttp2RouteMatchQueryParameterArrayOutput) Index(i pulumi
 }
 
 type GatewayRouteSpecHttp2RouteMatchQueryParameterMatch struct {
-	// Header value sent by the client must match the specified value exactly.
+	// Value used to replace matched path.
 	Exact *string `pulumi:"exact"`
 }
 
@@ -3170,7 +3328,7 @@ type GatewayRouteSpecHttp2RouteMatchQueryParameterMatchInput interface {
 }
 
 type GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs struct {
-	// Header value sent by the client must match the specified value exactly.
+	// Value used to replace matched path.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
@@ -3251,7 +3409,7 @@ func (o GatewayRouteSpecHttp2RouteMatchQueryParameterMatchOutput) ToGatewayRoute
 	}).(GatewayRouteSpecHttp2RouteMatchQueryParameterMatchPtrOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// Value used to replace matched path.
 func (o GatewayRouteSpecHttp2RouteMatchQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatchQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -3280,7 +3438,7 @@ func (o GatewayRouteSpecHttp2RouteMatchQueryParameterMatchPtrOutput) Elem() Gate
 	}).(GatewayRouteSpecHttp2RouteMatchQueryParameterMatchOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// Value used to replace matched path.
 func (o GatewayRouteSpecHttp2RouteMatchQueryParameterMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatchQueryParameterMatch) *string {
 		if v == nil {
@@ -3605,6 +3763,8 @@ func (o GatewayRouteSpecHttpRouteActionPtrOutput) Target() GatewayRouteSpecHttpR
 type GatewayRouteSpecHttpRouteActionRewrite struct {
 	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttpRouteActionRewriteHostname `pulumi:"hostname"`
+	// Exact path to rewrite.
+	Path *GatewayRouteSpecHttpRouteActionRewritePath `pulumi:"path"`
 	// Specified beginning characters to rewrite.
 	Prefix *GatewayRouteSpecHttpRouteActionRewritePrefix `pulumi:"prefix"`
 }
@@ -3623,6 +3783,8 @@ type GatewayRouteSpecHttpRouteActionRewriteInput interface {
 type GatewayRouteSpecHttpRouteActionRewriteArgs struct {
 	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttpRouteActionRewriteHostnamePtrInput `pulumi:"hostname"`
+	// Exact path to rewrite.
+	Path GatewayRouteSpecHttpRouteActionRewritePathPtrInput `pulumi:"path"`
 	// Specified beginning characters to rewrite.
 	Prefix GatewayRouteSpecHttpRouteActionRewritePrefixPtrInput `pulumi:"prefix"`
 }
@@ -3711,6 +3873,13 @@ func (o GatewayRouteSpecHttpRouteActionRewriteOutput) Hostname() GatewayRouteSpe
 	}).(GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput)
 }
 
+// Exact path to rewrite.
+func (o GatewayRouteSpecHttpRouteActionRewriteOutput) Path() GatewayRouteSpecHttpRouteActionRewritePathPtrOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewritePath {
+		return v.Path
+	}).(GatewayRouteSpecHttpRouteActionRewritePathPtrOutput)
+}
+
 // Specified beginning characters to rewrite.
 func (o GatewayRouteSpecHttpRouteActionRewriteOutput) Prefix() GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewritePrefix {
@@ -3750,6 +3919,16 @@ func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) Hostname() GatewayRoute
 		}
 		return v.Hostname
 	}).(GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput)
+}
+
+// Exact path to rewrite.
+func (o GatewayRouteSpecHttpRouteActionRewritePtrOutput) Path() GatewayRouteSpecHttpRouteActionRewritePathPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewrite) *GatewayRouteSpecHttpRouteActionRewritePath {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(GatewayRouteSpecHttpRouteActionRewritePathPtrOutput)
 }
 
 // Specified beginning characters to rewrite.
@@ -3896,6 +4075,143 @@ func (o GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput) DefaultTargetHo
 			return nil
 		}
 		return &v.DefaultTargetHostname
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewritePath struct {
+	// The exact path to match on.
+	Exact string `pulumi:"exact"`
+}
+
+// GatewayRouteSpecHttpRouteActionRewritePathInput is an input type that accepts GatewayRouteSpecHttpRouteActionRewritePathArgs and GatewayRouteSpecHttpRouteActionRewritePathOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttpRouteActionRewritePathInput` via:
+//
+//	GatewayRouteSpecHttpRouteActionRewritePathArgs{...}
+type GatewayRouteSpecHttpRouteActionRewritePathInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttpRouteActionRewritePathOutput() GatewayRouteSpecHttpRouteActionRewritePathOutput
+	ToGatewayRouteSpecHttpRouteActionRewritePathOutputWithContext(context.Context) GatewayRouteSpecHttpRouteActionRewritePathOutput
+}
+
+type GatewayRouteSpecHttpRouteActionRewritePathArgs struct {
+	// The exact path to match on.
+	Exact pulumi.StringInput `pulumi:"exact"`
+}
+
+func (GatewayRouteSpecHttpRouteActionRewritePathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePath)(nil)).Elem()
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewritePathArgs) ToGatewayRouteSpecHttpRouteActionRewritePathOutput() GatewayRouteSpecHttpRouteActionRewritePathOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewritePathOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewritePathArgs) ToGatewayRouteSpecHttpRouteActionRewritePathOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewritePathOutput)
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewritePathArgs) ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutput() GatewayRouteSpecHttpRouteActionRewritePathPtrOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayRouteSpecHttpRouteActionRewritePathArgs) ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewritePathOutput).ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutputWithContext(ctx)
+}
+
+// GatewayRouteSpecHttpRouteActionRewritePathPtrInput is an input type that accepts GatewayRouteSpecHttpRouteActionRewritePathArgs, GatewayRouteSpecHttpRouteActionRewritePathPtr and GatewayRouteSpecHttpRouteActionRewritePathPtrOutput values.
+// You can construct a concrete instance of `GatewayRouteSpecHttpRouteActionRewritePathPtrInput` via:
+//
+//	        GatewayRouteSpecHttpRouteActionRewritePathArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayRouteSpecHttpRouteActionRewritePathPtrInput interface {
+	pulumi.Input
+
+	ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutput() GatewayRouteSpecHttpRouteActionRewritePathPtrOutput
+	ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutputWithContext(context.Context) GatewayRouteSpecHttpRouteActionRewritePathPtrOutput
+}
+
+type gatewayRouteSpecHttpRouteActionRewritePathPtrType GatewayRouteSpecHttpRouteActionRewritePathArgs
+
+func GatewayRouteSpecHttpRouteActionRewritePathPtr(v *GatewayRouteSpecHttpRouteActionRewritePathArgs) GatewayRouteSpecHttpRouteActionRewritePathPtrInput {
+	return (*gatewayRouteSpecHttpRouteActionRewritePathPtrType)(v)
+}
+
+func (*gatewayRouteSpecHttpRouteActionRewritePathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttpRouteActionRewritePath)(nil)).Elem()
+}
+
+func (i *gatewayRouteSpecHttpRouteActionRewritePathPtrType) ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutput() GatewayRouteSpecHttpRouteActionRewritePathPtrOutput {
+	return i.ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayRouteSpecHttpRouteActionRewritePathPtrType) ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteSpecHttpRouteActionRewritePathPtrOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewritePathOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttpRouteActionRewritePathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePath)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePathOutput) ToGatewayRouteSpecHttpRouteActionRewritePathOutput() GatewayRouteSpecHttpRouteActionRewritePathOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePathOutput) ToGatewayRouteSpecHttpRouteActionRewritePathOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePathOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePathOutput) ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutput() GatewayRouteSpecHttpRouteActionRewritePathPtrOutput {
+	return o.ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePathOutput) ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttpRouteActionRewritePath) *GatewayRouteSpecHttpRouteActionRewritePath {
+		return &v
+	}).(GatewayRouteSpecHttpRouteActionRewritePathPtrOutput)
+}
+
+// The exact path to match on.
+func (o GatewayRouteSpecHttpRouteActionRewritePathOutput) Exact() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionRewritePath) string { return v.Exact }).(pulumi.StringOutput)
+}
+
+type GatewayRouteSpecHttpRouteActionRewritePathPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayRouteSpecHttpRouteActionRewritePathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayRouteSpecHttpRouteActionRewritePath)(nil)).Elem()
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePathPtrOutput) ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutput() GatewayRouteSpecHttpRouteActionRewritePathPtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePathPtrOutput) ToGatewayRouteSpecHttpRouteActionRewritePathPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionRewritePathPtrOutput {
+	return o
+}
+
+func (o GatewayRouteSpecHttpRouteActionRewritePathPtrOutput) Elem() GatewayRouteSpecHttpRouteActionRewritePathOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewritePath) GatewayRouteSpecHttpRouteActionRewritePath {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttpRouteActionRewritePath
+		return ret
+	}).(GatewayRouteSpecHttpRouteActionRewritePathOutput)
+}
+
+// The exact path to match on.
+func (o GatewayRouteSpecHttpRouteActionRewritePathPtrOutput) Exact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionRewritePath) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Exact
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4355,7 +4671,7 @@ type GatewayRouteSpecHttpRouteMatch struct {
 	Headers []GatewayRouteSpecHttpRouteMatchHeader `pulumi:"headers"`
 	// Host name to rewrite.
 	Hostname *GatewayRouteSpecHttpRouteMatchHostname `pulumi:"hostname"`
-	// Client request path to match on.
+	// Exact path to rewrite.
 	Path *GatewayRouteSpecHttpRouteMatchPath `pulumi:"path"`
 	// The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
 	Port *int `pulumi:"port"`
@@ -4381,7 +4697,7 @@ type GatewayRouteSpecHttpRouteMatchArgs struct {
 	Headers GatewayRouteSpecHttpRouteMatchHeaderArrayInput `pulumi:"headers"`
 	// Host name to rewrite.
 	Hostname GatewayRouteSpecHttpRouteMatchHostnamePtrInput `pulumi:"hostname"`
-	// Client request path to match on.
+	// Exact path to rewrite.
 	Path GatewayRouteSpecHttpRouteMatchPathPtrInput `pulumi:"path"`
 	// The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
 	Port pulumi.IntPtrInput `pulumi:"port"`
@@ -4478,7 +4794,7 @@ func (o GatewayRouteSpecHttpRouteMatchOutput) Hostname() GatewayRouteSpecHttpRou
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *GatewayRouteSpecHttpRouteMatchHostname { return v.Hostname }).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
 }
 
-// Client request path to match on.
+// Exact path to rewrite.
 func (o GatewayRouteSpecHttpRouteMatchOutput) Path() GatewayRouteSpecHttpRouteMatchPathPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *GatewayRouteSpecHttpRouteMatchPath { return v.Path }).(GatewayRouteSpecHttpRouteMatchPathPtrOutput)
 }
@@ -4544,7 +4860,7 @@ func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Hostname() GatewayRouteSpecHttp
 	}).(GatewayRouteSpecHttpRouteMatchHostnamePtrOutput)
 }
 
-// Client request path to match on.
+// Exact path to rewrite.
 func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Path() GatewayRouteSpecHttpRouteMatchPathPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatch) *GatewayRouteSpecHttpRouteMatchPath {
 		if v == nil {
@@ -4702,7 +5018,7 @@ func (o GatewayRouteSpecHttpRouteMatchHeaderArrayOutput) Index(i pulumi.IntInput
 }
 
 type GatewayRouteSpecHttpRouteMatchHeaderMatch struct {
-	// Header value sent by the client must match the specified value exactly.
+	// Value used to replace matched path.
 	Exact *string `pulumi:"exact"`
 	// Specified beginning characters to rewrite.
 	Prefix *string `pulumi:"prefix"`
@@ -4726,7 +5042,7 @@ type GatewayRouteSpecHttpRouteMatchHeaderMatchInput interface {
 }
 
 type GatewayRouteSpecHttpRouteMatchHeaderMatchArgs struct {
-	// Header value sent by the client must match the specified value exactly.
+	// Value used to replace matched path.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
 	// Specified beginning characters to rewrite.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -4815,7 +5131,7 @@ func (o GatewayRouteSpecHttpRouteMatchHeaderMatchOutput) ToGatewayRouteSpecHttpR
 	}).(GatewayRouteSpecHttpRouteMatchHeaderMatchPtrOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// Value used to replace matched path.
 func (o GatewayRouteSpecHttpRouteMatchHeaderMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatchHeaderMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -4866,7 +5182,7 @@ func (o GatewayRouteSpecHttpRouteMatchHeaderMatchPtrOutput) Elem() GatewayRouteS
 	}).(GatewayRouteSpecHttpRouteMatchHeaderMatchOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// Value used to replace matched path.
 func (o GatewayRouteSpecHttpRouteMatchHeaderMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatchHeaderMatch) *string {
 		if v == nil {
@@ -5493,7 +5809,7 @@ func (o GatewayRouteSpecHttpRouteMatchQueryParameterArrayOutput) Index(i pulumi.
 }
 
 type GatewayRouteSpecHttpRouteMatchQueryParameterMatch struct {
-	// Header value sent by the client must match the specified value exactly.
+	// Value used to replace matched path.
 	Exact *string `pulumi:"exact"`
 }
 
@@ -5509,7 +5825,7 @@ type GatewayRouteSpecHttpRouteMatchQueryParameterMatchInput interface {
 }
 
 type GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs struct {
-	// Header value sent by the client must match the specified value exactly.
+	// Value used to replace matched path.
 	Exact pulumi.StringPtrInput `pulumi:"exact"`
 }
 
@@ -5590,7 +5906,7 @@ func (o GatewayRouteSpecHttpRouteMatchQueryParameterMatchOutput) ToGatewayRouteS
 	}).(GatewayRouteSpecHttpRouteMatchQueryParameterMatchPtrOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// Value used to replace matched path.
 func (o GatewayRouteSpecHttpRouteMatchQueryParameterMatchOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatchQueryParameterMatch) *string { return v.Exact }).(pulumi.StringPtrOutput)
 }
@@ -5619,7 +5935,7 @@ func (o GatewayRouteSpecHttpRouteMatchQueryParameterMatchPtrOutput) Elem() Gatew
 	}).(GatewayRouteSpecHttpRouteMatchQueryParameterMatchOutput)
 }
 
-// Header value sent by the client must match the specified value exactly.
+// Value used to replace matched path.
 func (o GatewayRouteSpecHttpRouteMatchQueryParameterMatchPtrOutput) Exact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatchQueryParameterMatch) *string {
 		if v == nil {
@@ -31616,6 +31932,7 @@ func (o GetGatewayRouteSpecHttp2RouteActionArrayOutput) Index(i pulumi.IntInput)
 
 type GetGatewayRouteSpecHttp2RouteActionRewrite struct {
 	Hostnames []GetGatewayRouteSpecHttp2RouteActionRewriteHostname `pulumi:"hostnames"`
+	Paths     []GetGatewayRouteSpecHttp2RouteActionRewritePath     `pulumi:"paths"`
 	Prefixes  []GetGatewayRouteSpecHttp2RouteActionRewritePrefix   `pulumi:"prefixes"`
 }
 
@@ -31632,6 +31949,7 @@ type GetGatewayRouteSpecHttp2RouteActionRewriteInput interface {
 
 type GetGatewayRouteSpecHttp2RouteActionRewriteArgs struct {
 	Hostnames GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArrayInput `pulumi:"hostnames"`
+	Paths     GetGatewayRouteSpecHttp2RouteActionRewritePathArrayInput     `pulumi:"paths"`
 	Prefixes  GetGatewayRouteSpecHttp2RouteActionRewritePrefixArrayInput   `pulumi:"prefixes"`
 }
 
@@ -31690,6 +32008,12 @@ func (o GetGatewayRouteSpecHttp2RouteActionRewriteOutput) Hostnames() GetGateway
 	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionRewrite) []GetGatewayRouteSpecHttp2RouteActionRewriteHostname {
 		return v.Hostnames
 	}).(GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArrayOutput)
+}
+
+func (o GetGatewayRouteSpecHttp2RouteActionRewriteOutput) Paths() GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionRewrite) []GetGatewayRouteSpecHttp2RouteActionRewritePath {
+		return v.Paths
+	}).(GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput)
 }
 
 func (o GetGatewayRouteSpecHttp2RouteActionRewriteOutput) Prefixes() GetGatewayRouteSpecHttp2RouteActionRewritePrefixArrayOutput {
@@ -31810,6 +32134,100 @@ func (o GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArrayOutput) Index(i p
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewayRouteSpecHttp2RouteActionRewriteHostname {
 		return vs[0].([]GetGatewayRouteSpecHttp2RouteActionRewriteHostname)[vs[1].(int)]
 	}).(GetGatewayRouteSpecHttp2RouteActionRewriteHostnameOutput)
+}
+
+type GetGatewayRouteSpecHttp2RouteActionRewritePath struct {
+	Exact string `pulumi:"exact"`
+}
+
+// GetGatewayRouteSpecHttp2RouteActionRewritePathInput is an input type that accepts GetGatewayRouteSpecHttp2RouteActionRewritePathArgs and GetGatewayRouteSpecHttp2RouteActionRewritePathOutput values.
+// You can construct a concrete instance of `GetGatewayRouteSpecHttp2RouteActionRewritePathInput` via:
+//
+//	GetGatewayRouteSpecHttp2RouteActionRewritePathArgs{...}
+type GetGatewayRouteSpecHttp2RouteActionRewritePathInput interface {
+	pulumi.Input
+
+	ToGetGatewayRouteSpecHttp2RouteActionRewritePathOutput() GetGatewayRouteSpecHttp2RouteActionRewritePathOutput
+	ToGetGatewayRouteSpecHttp2RouteActionRewritePathOutputWithContext(context.Context) GetGatewayRouteSpecHttp2RouteActionRewritePathOutput
+}
+
+type GetGatewayRouteSpecHttp2RouteActionRewritePathArgs struct {
+	Exact pulumi.StringInput `pulumi:"exact"`
+}
+
+func (GetGatewayRouteSpecHttp2RouteActionRewritePathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayRouteSpecHttp2RouteActionRewritePath)(nil)).Elem()
+}
+
+func (i GetGatewayRouteSpecHttp2RouteActionRewritePathArgs) ToGetGatewayRouteSpecHttp2RouteActionRewritePathOutput() GetGatewayRouteSpecHttp2RouteActionRewritePathOutput {
+	return i.ToGetGatewayRouteSpecHttp2RouteActionRewritePathOutputWithContext(context.Background())
+}
+
+func (i GetGatewayRouteSpecHttp2RouteActionRewritePathArgs) ToGetGatewayRouteSpecHttp2RouteActionRewritePathOutputWithContext(ctx context.Context) GetGatewayRouteSpecHttp2RouteActionRewritePathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayRouteSpecHttp2RouteActionRewritePathOutput)
+}
+
+// GetGatewayRouteSpecHttp2RouteActionRewritePathArrayInput is an input type that accepts GetGatewayRouteSpecHttp2RouteActionRewritePathArray and GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput values.
+// You can construct a concrete instance of `GetGatewayRouteSpecHttp2RouteActionRewritePathArrayInput` via:
+//
+//	GetGatewayRouteSpecHttp2RouteActionRewritePathArray{ GetGatewayRouteSpecHttp2RouteActionRewritePathArgs{...} }
+type GetGatewayRouteSpecHttp2RouteActionRewritePathArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput() GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput
+	ToGetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutputWithContext(context.Context) GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput
+}
+
+type GetGatewayRouteSpecHttp2RouteActionRewritePathArray []GetGatewayRouteSpecHttp2RouteActionRewritePathInput
+
+func (GetGatewayRouteSpecHttp2RouteActionRewritePathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayRouteSpecHttp2RouteActionRewritePath)(nil)).Elem()
+}
+
+func (i GetGatewayRouteSpecHttp2RouteActionRewritePathArray) ToGetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput() GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput {
+	return i.ToGetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewayRouteSpecHttp2RouteActionRewritePathArray) ToGetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutputWithContext(ctx context.Context) GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput)
+}
+
+type GetGatewayRouteSpecHttp2RouteActionRewritePathOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayRouteSpecHttp2RouteActionRewritePathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayRouteSpecHttp2RouteActionRewritePath)(nil)).Elem()
+}
+
+func (o GetGatewayRouteSpecHttp2RouteActionRewritePathOutput) ToGetGatewayRouteSpecHttp2RouteActionRewritePathOutput() GetGatewayRouteSpecHttp2RouteActionRewritePathOutput {
+	return o
+}
+
+func (o GetGatewayRouteSpecHttp2RouteActionRewritePathOutput) ToGetGatewayRouteSpecHttp2RouteActionRewritePathOutputWithContext(ctx context.Context) GetGatewayRouteSpecHttp2RouteActionRewritePathOutput {
+	return o
+}
+
+func (o GetGatewayRouteSpecHttp2RouteActionRewritePathOutput) Exact() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttp2RouteActionRewritePath) string { return v.Exact }).(pulumi.StringOutput)
+}
+
+type GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayRouteSpecHttp2RouteActionRewritePath)(nil)).Elem()
+}
+
+func (o GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput) ToGetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput() GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput {
+	return o
+}
+
+func (o GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput) ToGetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutputWithContext(ctx context.Context) GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput {
+	return o
+}
+
+func (o GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput) Index(i pulumi.IntInput) GetGatewayRouteSpecHttp2RouteActionRewritePathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewayRouteSpecHttp2RouteActionRewritePath {
+		return vs[0].([]GetGatewayRouteSpecHttp2RouteActionRewritePath)[vs[1].(int)]
+	}).(GetGatewayRouteSpecHttp2RouteActionRewritePathOutput)
 }
 
 type GetGatewayRouteSpecHttp2RouteActionRewritePrefix struct {
@@ -33174,6 +33592,7 @@ func (o GetGatewayRouteSpecHttpRouteActionArrayOutput) Index(i pulumi.IntInput) 
 
 type GetGatewayRouteSpecHttpRouteActionRewrite struct {
 	Hostnames []GetGatewayRouteSpecHttpRouteActionRewriteHostname `pulumi:"hostnames"`
+	Paths     []GetGatewayRouteSpecHttpRouteActionRewritePath     `pulumi:"paths"`
 	Prefixes  []GetGatewayRouteSpecHttpRouteActionRewritePrefix   `pulumi:"prefixes"`
 }
 
@@ -33190,6 +33609,7 @@ type GetGatewayRouteSpecHttpRouteActionRewriteInput interface {
 
 type GetGatewayRouteSpecHttpRouteActionRewriteArgs struct {
 	Hostnames GetGatewayRouteSpecHttpRouteActionRewriteHostnameArrayInput `pulumi:"hostnames"`
+	Paths     GetGatewayRouteSpecHttpRouteActionRewritePathArrayInput     `pulumi:"paths"`
 	Prefixes  GetGatewayRouteSpecHttpRouteActionRewritePrefixArrayInput   `pulumi:"prefixes"`
 }
 
@@ -33248,6 +33668,12 @@ func (o GetGatewayRouteSpecHttpRouteActionRewriteOutput) Hostnames() GetGatewayR
 	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionRewrite) []GetGatewayRouteSpecHttpRouteActionRewriteHostname {
 		return v.Hostnames
 	}).(GetGatewayRouteSpecHttpRouteActionRewriteHostnameArrayOutput)
+}
+
+func (o GetGatewayRouteSpecHttpRouteActionRewriteOutput) Paths() GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionRewrite) []GetGatewayRouteSpecHttpRouteActionRewritePath {
+		return v.Paths
+	}).(GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput)
 }
 
 func (o GetGatewayRouteSpecHttpRouteActionRewriteOutput) Prefixes() GetGatewayRouteSpecHttpRouteActionRewritePrefixArrayOutput {
@@ -33368,6 +33794,100 @@ func (o GetGatewayRouteSpecHttpRouteActionRewriteHostnameArrayOutput) Index(i pu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewayRouteSpecHttpRouteActionRewriteHostname {
 		return vs[0].([]GetGatewayRouteSpecHttpRouteActionRewriteHostname)[vs[1].(int)]
 	}).(GetGatewayRouteSpecHttpRouteActionRewriteHostnameOutput)
+}
+
+type GetGatewayRouteSpecHttpRouteActionRewritePath struct {
+	Exact string `pulumi:"exact"`
+}
+
+// GetGatewayRouteSpecHttpRouteActionRewritePathInput is an input type that accepts GetGatewayRouteSpecHttpRouteActionRewritePathArgs and GetGatewayRouteSpecHttpRouteActionRewritePathOutput values.
+// You can construct a concrete instance of `GetGatewayRouteSpecHttpRouteActionRewritePathInput` via:
+//
+//	GetGatewayRouteSpecHttpRouteActionRewritePathArgs{...}
+type GetGatewayRouteSpecHttpRouteActionRewritePathInput interface {
+	pulumi.Input
+
+	ToGetGatewayRouteSpecHttpRouteActionRewritePathOutput() GetGatewayRouteSpecHttpRouteActionRewritePathOutput
+	ToGetGatewayRouteSpecHttpRouteActionRewritePathOutputWithContext(context.Context) GetGatewayRouteSpecHttpRouteActionRewritePathOutput
+}
+
+type GetGatewayRouteSpecHttpRouteActionRewritePathArgs struct {
+	Exact pulumi.StringInput `pulumi:"exact"`
+}
+
+func (GetGatewayRouteSpecHttpRouteActionRewritePathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayRouteSpecHttpRouteActionRewritePath)(nil)).Elem()
+}
+
+func (i GetGatewayRouteSpecHttpRouteActionRewritePathArgs) ToGetGatewayRouteSpecHttpRouteActionRewritePathOutput() GetGatewayRouteSpecHttpRouteActionRewritePathOutput {
+	return i.ToGetGatewayRouteSpecHttpRouteActionRewritePathOutputWithContext(context.Background())
+}
+
+func (i GetGatewayRouteSpecHttpRouteActionRewritePathArgs) ToGetGatewayRouteSpecHttpRouteActionRewritePathOutputWithContext(ctx context.Context) GetGatewayRouteSpecHttpRouteActionRewritePathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayRouteSpecHttpRouteActionRewritePathOutput)
+}
+
+// GetGatewayRouteSpecHttpRouteActionRewritePathArrayInput is an input type that accepts GetGatewayRouteSpecHttpRouteActionRewritePathArray and GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput values.
+// You can construct a concrete instance of `GetGatewayRouteSpecHttpRouteActionRewritePathArrayInput` via:
+//
+//	GetGatewayRouteSpecHttpRouteActionRewritePathArray{ GetGatewayRouteSpecHttpRouteActionRewritePathArgs{...} }
+type GetGatewayRouteSpecHttpRouteActionRewritePathArrayInput interface {
+	pulumi.Input
+
+	ToGetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput() GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput
+	ToGetGatewayRouteSpecHttpRouteActionRewritePathArrayOutputWithContext(context.Context) GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput
+}
+
+type GetGatewayRouteSpecHttpRouteActionRewritePathArray []GetGatewayRouteSpecHttpRouteActionRewritePathInput
+
+func (GetGatewayRouteSpecHttpRouteActionRewritePathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayRouteSpecHttpRouteActionRewritePath)(nil)).Elem()
+}
+
+func (i GetGatewayRouteSpecHttpRouteActionRewritePathArray) ToGetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput() GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput {
+	return i.ToGetGatewayRouteSpecHttpRouteActionRewritePathArrayOutputWithContext(context.Background())
+}
+
+func (i GetGatewayRouteSpecHttpRouteActionRewritePathArray) ToGetGatewayRouteSpecHttpRouteActionRewritePathArrayOutputWithContext(ctx context.Context) GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput)
+}
+
+type GetGatewayRouteSpecHttpRouteActionRewritePathOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayRouteSpecHttpRouteActionRewritePathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGatewayRouteSpecHttpRouteActionRewritePath)(nil)).Elem()
+}
+
+func (o GetGatewayRouteSpecHttpRouteActionRewritePathOutput) ToGetGatewayRouteSpecHttpRouteActionRewritePathOutput() GetGatewayRouteSpecHttpRouteActionRewritePathOutput {
+	return o
+}
+
+func (o GetGatewayRouteSpecHttpRouteActionRewritePathOutput) ToGetGatewayRouteSpecHttpRouteActionRewritePathOutputWithContext(ctx context.Context) GetGatewayRouteSpecHttpRouteActionRewritePathOutput {
+	return o
+}
+
+func (o GetGatewayRouteSpecHttpRouteActionRewritePathOutput) Exact() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGatewayRouteSpecHttpRouteActionRewritePath) string { return v.Exact }).(pulumi.StringOutput)
+}
+
+type GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGatewayRouteSpecHttpRouteActionRewritePath)(nil)).Elem()
+}
+
+func (o GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput) ToGetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput() GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput {
+	return o
+}
+
+func (o GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput) ToGetGatewayRouteSpecHttpRouteActionRewritePathArrayOutputWithContext(ctx context.Context) GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput {
+	return o
+}
+
+func (o GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput) Index(i pulumi.IntInput) GetGatewayRouteSpecHttpRouteActionRewritePathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGatewayRouteSpecHttpRouteActionRewritePath {
+		return vs[0].([]GetGatewayRouteSpecHttpRouteActionRewritePath)[vs[1].(int)]
+	}).(GetGatewayRouteSpecHttpRouteActionRewritePathOutput)
 }
 
 type GetGatewayRouteSpecHttpRouteActionRewritePrefix struct {
@@ -51444,6 +51964,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewriteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewriteHostnameInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePathInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewritePathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePathPtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewritePathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePrefixInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewritePrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionRewritePrefixPtrInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionRewritePrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttp2RouteActionTargetInput)(nil)).Elem(), GatewayRouteSpecHttp2RouteActionTargetArgs{})
@@ -51474,6 +51996,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewriteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewriteHostnameInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewriteHostnameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewriteHostnamePtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewriteHostnameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePathInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewritePathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePathPtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewritePathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePrefixInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewritePrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionRewritePrefixPtrInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionRewritePrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayRouteSpecHttpRouteActionTargetInput)(nil)).Elem(), GatewayRouteSpecHttpRouteActionTargetArgs{})
@@ -51842,6 +52366,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttp2RouteActionRewriteArrayInput)(nil)).Elem(), GetGatewayRouteSpecHttp2RouteActionRewriteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttp2RouteActionRewriteHostnameInput)(nil)).Elem(), GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArrayInput)(nil)).Elem(), GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttp2RouteActionRewritePathInput)(nil)).Elem(), GetGatewayRouteSpecHttp2RouteActionRewritePathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttp2RouteActionRewritePathArrayInput)(nil)).Elem(), GetGatewayRouteSpecHttp2RouteActionRewritePathArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttp2RouteActionRewritePrefixInput)(nil)).Elem(), GetGatewayRouteSpecHttp2RouteActionRewritePrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttp2RouteActionRewritePrefixArrayInput)(nil)).Elem(), GetGatewayRouteSpecHttp2RouteActionRewritePrefixArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttp2RouteActionTargetInput)(nil)).Elem(), GetGatewayRouteSpecHttp2RouteActionTargetArgs{})
@@ -51872,6 +52398,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttpRouteActionRewriteArrayInput)(nil)).Elem(), GetGatewayRouteSpecHttpRouteActionRewriteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttpRouteActionRewriteHostnameInput)(nil)).Elem(), GetGatewayRouteSpecHttpRouteActionRewriteHostnameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttpRouteActionRewriteHostnameArrayInput)(nil)).Elem(), GetGatewayRouteSpecHttpRouteActionRewriteHostnameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttpRouteActionRewritePathInput)(nil)).Elem(), GetGatewayRouteSpecHttpRouteActionRewritePathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttpRouteActionRewritePathArrayInput)(nil)).Elem(), GetGatewayRouteSpecHttpRouteActionRewritePathArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttpRouteActionRewritePrefixInput)(nil)).Elem(), GetGatewayRouteSpecHttpRouteActionRewritePrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttpRouteActionRewritePrefixArrayInput)(nil)).Elem(), GetGatewayRouteSpecHttpRouteActionRewritePrefixArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayRouteSpecHttpRouteActionTargetInput)(nil)).Elem(), GetGatewayRouteSpecHttpRouteActionTargetArgs{})
@@ -52244,6 +52772,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewritePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewriteHostnameOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewriteHostnamePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewritePathOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewritePathPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewritePrefixOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionRewritePrefixPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttp2RouteActionTargetOutput{})
@@ -52274,6 +52804,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewritePtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewriteHostnameOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewriteHostnamePtrOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewritePathOutput{})
+	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewritePathPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewritePrefixOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionRewritePrefixPtrOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecHttpRouteActionTargetOutput{})
@@ -52642,6 +53174,8 @@ func init() {
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttp2RouteActionRewriteArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttp2RouteActionRewriteHostnameOutput{})
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttp2RouteActionRewriteHostnameArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewayRouteSpecHttp2RouteActionRewritePathOutput{})
+	pulumi.RegisterOutputType(GetGatewayRouteSpecHttp2RouteActionRewritePathArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttp2RouteActionRewritePrefixOutput{})
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttp2RouteActionRewritePrefixArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttp2RouteActionTargetOutput{})
@@ -52672,6 +53206,8 @@ func init() {
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttpRouteActionRewriteArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttpRouteActionRewriteHostnameOutput{})
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttpRouteActionRewriteHostnameArrayOutput{})
+	pulumi.RegisterOutputType(GetGatewayRouteSpecHttpRouteActionRewritePathOutput{})
+	pulumi.RegisterOutputType(GetGatewayRouteSpecHttpRouteActionRewritePathArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttpRouteActionRewritePrefixOutput{})
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttpRouteActionRewritePrefixArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayRouteSpecHttpRouteActionTargetOutput{})

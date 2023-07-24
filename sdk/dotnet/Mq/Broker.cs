@@ -97,11 +97,11 @@ namespace Pulumi.Aws.Mq
     /// 
     /// ## Import
     /// 
-    /// MQ Brokers can be imported using their broker id, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-    /// ```
+    ///  to = aws_mq_broker.example
+    /// 
+    ///  id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import MQ Brokers using their broker id. For exampleconsole % pulumi import aws_mq_broker.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
     /// </summary>
     [AwsResourceType("aws:mq/broker:Broker")]
     public partial class Broker : global::Pulumi.CustomResource

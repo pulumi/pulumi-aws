@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Security Hub members can be imported using their account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_member.example
 //
-//	$ pulumi import aws:securityhub/member:Member example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import Security Hub members using their account ID. For exampleconsole % pulumi import aws_securityhub_member.example 123456789012
 type Member struct {
 	pulumi.CustomResourceState
 

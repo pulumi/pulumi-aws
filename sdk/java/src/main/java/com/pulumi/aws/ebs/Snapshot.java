@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EBS Snapshot can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
- * ```
+ *  to = aws_ebs_snapshot.id
+ * 
+ *  id = &#34;snap-049df61146c4d7901&#34; } Using `pulumi import`, import EBS Snapshot using the `id`. For exampleconsole % pulumi import aws_ebs_snapshot.id snap-049df61146c4d7901
  * 
  */
 @ResourceType(type="aws:ebs/snapshot:Snapshot")

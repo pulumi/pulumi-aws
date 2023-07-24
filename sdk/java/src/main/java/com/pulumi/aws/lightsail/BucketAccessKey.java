@@ -18,11 +18,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_lightsail_bucket_access_key` can be imported by using the `id` attribute, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIA47VOQ2KPR7LLRZ6D
- * ```
+ *  to = aws_lightsail_bucket_access_key.test
+ * 
+ *  id = &#34;example-bucket,AKIA47VOQ2KPR7LLRZ6D&#34; } Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For exampleconsole % pulumi import aws_lightsail_bucket_access_key.test example-bucket,AKIA47VOQ2KPR7LLRZ6D
  * 
  */
 @ResourceType(type="aws:lightsail/bucketAccessKey:BucketAccessKey")

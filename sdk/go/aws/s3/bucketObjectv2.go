@@ -198,21 +198,15 @@ import (
 //
 // ## Import
 //
-// Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
+// Import using the `id`, which is the bucket name and the key togetherterraform import {
 //
-// ```sh
+//	to = aws_s3_object.example
 //
-//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object some-bucket-name/some/key.txt
+//	id = "some-bucket-name/some/key.txt" } Import using S3 URL syntaxterraform import {
 //
-// ```
+//	to = aws_s3_object.example
 //
-//	Additionally, s3 url syntax can be used, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 object s3://some-bucket-name/some/key.txt
-//
-// ```
+//	id = "s3://some-bucket-name/some/key.txt" } **Using `pulumi import` to import** objects using the `id` or S3 URL. For exampleImport using the `id`, which is the bucket name and the key togetherconsole % pulumi import aws_s3_object.example some-bucket-name/some/key.txt Import using S3 URL syntaxconsole % pulumi import aws_s3_object.example s3://some-bucket-name/some/key.txt
 type BucketObjectv2 struct {
 	pulumi.CustomResourceState
 

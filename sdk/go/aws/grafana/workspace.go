@@ -74,13 +74,11 @@ import (
 //
 // ## Import
 //
-// Grafana Workspace can be imported using the workspace's `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_grafana_workspace.example
 //
-//	$ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
-//
-// ```
+//	id = "g-2054c75a02" } Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_workspace.example g-2054c75a02
 type Workspace struct {
 	pulumi.CustomResourceState
 

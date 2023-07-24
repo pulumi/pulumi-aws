@@ -39,13 +39,11 @@ import (
 //
 // ## Import
 //
-// Activities can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sfn_activity.foo
 //
-//	$ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
-//
-// ```
+//	id = "arn:aws:states:eu-west-1:123456789098:activity:bar" } Using `pulumi import`, import activities using the `arn`. For exampleconsole % pulumi import aws_sfn_activity.foo arn:aws:states:eu-west-1:123456789098:activity:bar
 type Activity struct {
 	pulumi.CustomResourceState
 

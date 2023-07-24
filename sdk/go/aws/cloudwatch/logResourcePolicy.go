@@ -121,13 +121,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch log resource policies can be imported using the policy name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_log_resource_policy.MyPolicy
 //
-//	$ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
-//
-// ```
+//	id = "MyPolicy" } Using `pulumi import`, import CloudWatch log resource policies using the policy name. For exampleconsole % pulumi import aws_cloudwatch_log_resource_policy.MyPolicy MyPolicy
 type LogResourcePolicy struct {
 	pulumi.CustomResourceState
 

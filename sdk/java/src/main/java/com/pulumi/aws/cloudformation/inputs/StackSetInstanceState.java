@@ -5,10 +5,12 @@ package com.pulumi.aws.cloudformation.inputs;
 
 import com.pulumi.aws.cloudformation.inputs.StackSetInstanceDeploymentTargetsArgs;
 import com.pulumi.aws.cloudformation.inputs.StackSetInstanceOperationPreferencesArgs;
+import com.pulumi.aws.cloudformation.inputs.StackSetInstanceStackInstanceSummaryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -80,14 +82,14 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+     * Organizational unit ID in which the stack is deployed.
      * 
      */
     @Import(name="organizationalUnitId")
     private @Nullable Output<String> organizationalUnitId;
 
     /**
-     * @return The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+     * @return Organizational unit ID in which the stack is deployed.
      * 
      */
     public Optional<Output<String>> organizationalUnitId() {
@@ -140,18 +142,33 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Stack identifier
+     * Stack identifier.
      * 
      */
     @Import(name="stackId")
     private @Nullable Output<String> stackId;
 
     /**
-     * @return Stack identifier
+     * @return Stack identifier.
      * 
      */
     public Optional<Output<String>> stackId() {
         return Optional.ofNullable(this.stackId);
+    }
+
+    /**
+     * List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+     * 
+     */
+    @Import(name="stackInstanceSummaries")
+    private @Nullable Output<List<StackSetInstanceStackInstanceSummaryArgs>> stackInstanceSummaries;
+
+    /**
+     * @return List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+     * 
+     */
+    public Optional<Output<List<StackSetInstanceStackInstanceSummaryArgs>>> stackInstanceSummaries() {
+        return Optional.ofNullable(this.stackInstanceSummaries);
     }
 
     /**
@@ -181,6 +198,7 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         this.region = $.region;
         this.retainStack = $.retainStack;
         this.stackId = $.stackId;
+        this.stackInstanceSummaries = $.stackInstanceSummaries;
         this.stackSetName = $.stackSetName;
     }
 
@@ -287,7 +305,7 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param organizationalUnitId The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+         * @param organizationalUnitId Organizational unit ID in which the stack is deployed.
          * 
          * @return builder
          * 
@@ -298,7 +316,7 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param organizationalUnitId The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+         * @param organizationalUnitId Organizational unit ID in which the stack is deployed.
          * 
          * @return builder
          * 
@@ -371,7 +389,7 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param stackId Stack identifier
+         * @param stackId Stack identifier.
          * 
          * @return builder
          * 
@@ -382,13 +400,44 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param stackId Stack identifier
+         * @param stackId Stack identifier.
          * 
          * @return builder
          * 
          */
         public Builder stackId(String stackId) {
             return stackId(Output.of(stackId));
+        }
+
+        /**
+         * @param stackInstanceSummaries List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stackInstanceSummaries(@Nullable Output<List<StackSetInstanceStackInstanceSummaryArgs>> stackInstanceSummaries) {
+            $.stackInstanceSummaries = stackInstanceSummaries;
+            return this;
+        }
+
+        /**
+         * @param stackInstanceSummaries List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stackInstanceSummaries(List<StackSetInstanceStackInstanceSummaryArgs> stackInstanceSummaries) {
+            return stackInstanceSummaries(Output.of(stackInstanceSummaries));
+        }
+
+        /**
+         * @param stackInstanceSummaries List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stackInstanceSummaries(StackSetInstanceStackInstanceSummaryArgs... stackInstanceSummaries) {
+            return stackInstanceSummaries(List.of(stackInstanceSummaries));
         }
 
         /**

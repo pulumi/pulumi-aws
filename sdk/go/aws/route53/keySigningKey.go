@@ -126,13 +126,11 @@ import (
 //
 // ## Import
 //
-// `aws_route53_key_signing_key` resources can be imported by using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_key_signing_key.example
 //
-//	$ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
-//
-// ```
+//	id = "Z1D633PJN98FT9,example" } Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For exampleconsole % pulumi import aws_route53_key_signing_key.example Z1D633PJN98FT9,example
 type KeySigningKey struct {
 	pulumi.CustomResourceState
 

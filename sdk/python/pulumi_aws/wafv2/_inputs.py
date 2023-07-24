@@ -282,6 +282,9 @@ __all__ = [
     'RuleGroupRuleStatementXssMatchStatementTextTransformationArgs',
     'RuleGroupRuleVisibilityConfigArgs',
     'RuleGroupVisibilityConfigArgs',
+    'WebAclAssociationConfigArgs',
+    'WebAclAssociationConfigRequestBodyArgs',
+    'WebAclAssociationConfigRequestBodyCloudfrontArgs',
     'WebAclCaptchaConfigArgs',
     'WebAclCaptchaConfigImmunityTimePropertyArgs',
     'WebAclCustomResponseBodyArgs',
@@ -10847,6 +10850,74 @@ class RuleGroupVisibilityConfigArgs:
     @sampled_requests_enabled.setter
     def sampled_requests_enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "sampled_requests_enabled", value)
+
+
+@pulumi.input_type
+class WebAclAssociationConfigArgs:
+    def __init__(__self__, *,
+                 request_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclAssociationConfigRequestBodyArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclAssociationConfigRequestBodyArgs']]] request_bodies: Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
+        """
+        if request_bodies is not None:
+            pulumi.set(__self__, "request_bodies", request_bodies)
+
+    @property
+    @pulumi.getter(name="requestBodies")
+    def request_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclAssociationConfigRequestBodyArgs']]]]:
+        """
+        Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
+        """
+        return pulumi.get(self, "request_bodies")
+
+    @request_bodies.setter
+    def request_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclAssociationConfigRequestBodyArgs']]]]):
+        pulumi.set(self, "request_bodies", value)
+
+
+@pulumi.input_type
+class WebAclAssociationConfigRequestBodyArgs:
+    def __init__(__self__, *,
+                 cloudfronts: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclAssociationConfigRequestBodyCloudfrontArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclAssociationConfigRequestBodyCloudfrontArgs']]] cloudfronts: Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+        """
+        if cloudfronts is not None:
+            pulumi.set(__self__, "cloudfronts", cloudfronts)
+
+    @property
+    @pulumi.getter
+    def cloudfronts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclAssociationConfigRequestBodyCloudfrontArgs']]]]:
+        """
+        Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+        """
+        return pulumi.get(self, "cloudfronts")
+
+    @cloudfronts.setter
+    def cloudfronts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclAssociationConfigRequestBodyCloudfrontArgs']]]]):
+        pulumi.set(self, "cloudfronts", value)
+
+
+@pulumi.input_type
+class WebAclAssociationConfigRequestBodyCloudfrontArgs:
+    def __init__(__self__, *,
+                 default_size_inspection_limit: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
+
+    @property
+    @pulumi.getter(name="defaultSizeInspectionLimit")
+    def default_size_inspection_limit(self) -> pulumi.Input[str]:
+        """
+        Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        return pulumi.get(self, "default_size_inspection_limit")
+
+    @default_size_inspection_limit.setter
+    def default_size_inspection_limit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "default_size_inspection_limit", value)
 
 
 @pulumi.input_type

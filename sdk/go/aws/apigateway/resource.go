@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_resource` can be imported using `REST-API-ID/RESOURCE-ID`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_resource.example
 //
-//	$ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
-//
-// ```
+//	id = "12345abcde/67890fghij" } Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For exampleconsole % pulumi import aws_api_gateway_resource.example 12345abcde/67890fghij
 type Resource struct {
 	pulumi.CustomResourceState
 

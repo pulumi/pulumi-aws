@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteMatchHostname? Hostname;
         /// <summary>
-        /// Client request path to match on.
+        /// Exact path to rewrite.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteMatchPath? Path;
         /// <summary>

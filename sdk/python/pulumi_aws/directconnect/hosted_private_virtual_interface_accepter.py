@@ -230,11 +230,11 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect hosted private virtual interfaces can be imported using the `vif id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
-        ```
+         to = aws_dx_hosted_private_virtual_interface_accepter.test
+
+         id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_hosted_private_virtual_interface_accepter.test dxvif-33cc44dd
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,11 +283,11 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect hosted private virtual interfaces can be imported using the `vif id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter test dxvif-33cc44dd
-        ```
+         to = aws_dx_hosted_private_virtual_interface_accepter.test
+
+         id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_hosted_private_virtual_interface_accepter.test dxvif-33cc44dd
 
         :param str resource_name: The name of the resource.
         :param HostedPrivateVirtualInterfaceAccepterArgs args: The arguments to use to populate this resource's properties.

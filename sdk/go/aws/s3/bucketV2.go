@@ -93,13 +93,11 @@ import (
 //
 // ## Import
 //
-// S3 bucket can be imported using the `bucket`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_s3_bucket.bucket
 //
-//	$ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
-//
-// ```
+//	id = "bucket-name" } Using `pulumi import`, import S3 bucket using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket.bucket bucket-name
 type BucketV2 struct {
 	pulumi.CustomResourceState
 

@@ -52,14 +52,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     }
 
     /**
-     * Client request path to match on.
+     * Exact path to rewrite.
      * 
      */
     @Import(name="path")
     private @Nullable Output<GatewayRouteSpecHttpRouteMatchPathArgs> path;
 
     /**
-     * @return Client request path to match on.
+     * @return Exact path to rewrite.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteMatchPathArgs>> path() {
@@ -193,7 +193,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param path Client request path to match on.
+         * @param path Exact path to rewrite.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param path Client request path to match on.
+         * @param path Exact path to rewrite.
          * 
          * @return builder
          * 

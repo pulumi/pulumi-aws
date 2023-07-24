@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A ChimeSDKVoice SIP Rule can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
- * ```
+ *  to = aws_chimesdkvoice_sip_rule.example
+ * 
+ *  id = &#34;abcdef123456&#34; } Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_sip_rule.example abcdef123456
  * 
  */
 @ResourceType(type="aws:chime/sdkvoiceSipRule:SdkvoiceSipRule")

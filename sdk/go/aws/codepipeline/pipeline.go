@@ -221,13 +221,11 @@ import (
 //
 // ## Import
 //
-// CodePipelines can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codepipeline.foo
 //
-//	$ pulumi import aws:codepipeline/pipeline:Pipeline foo example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import CodePipelines using the name. For exampleconsole % pulumi import aws_codepipeline.foo example
 type Pipeline struct {
 	pulumi.CustomResourceState
 

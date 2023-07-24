@@ -955,11 +955,11 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        OpenSearch domains can be imported using the `domain_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opensearch/domain:Domain example domain_name
-        ```
+         to = aws_opensearch_domain.example
+
+         id = "domain_name" } Using `pulumi import`, import OpenSearch domains using the `domain_name`. For exampleconsole % pulumi import aws_opensearch_domain.example domain_name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1228,11 +1228,11 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        OpenSearch domains can be imported using the `domain_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opensearch/domain:Domain example domain_name
-        ```
+         to = aws_opensearch_domain.example
+
+         id = "domain_name" } Using `pulumi import`, import OpenSearch domains using the `domain_name`. For exampleconsole % pulumi import aws_opensearch_domain.example domain_name
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

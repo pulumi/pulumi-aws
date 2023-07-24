@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Transfer AS2 Agreement can be imported using the `server_id/agreement_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
- * ```
+ *  to = aws_transfer_agreement.example
+ * 
+ *  id = &#34;s-4221a88afd5f4362a/a-4221a88afd5f4362a&#34; } Using `pulumi import`, import Transfer AS2 Agreement using the `server_id/agreement_id`. For exampleconsole % pulumi import aws_transfer_agreement.example s-4221a88afd5f4362a/a-4221a88afd5f4362a
  * 
  */
 @ResourceType(type="aws:transfer/agreement:Agreement")

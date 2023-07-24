@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Direct Connect hosted public virtual interfaces can be imported using the `vif id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter test dxvif-33cc44dd
- * ```
+ *  to = aws_dx_hosted_public_virtual_interface_accepter.test
+ * 
+ *  id = &#34;dxvif-33cc44dd&#34; } Using `pulumi import`, import Direct Connect hosted public virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_hosted_public_virtual_interface_accepter.test dxvif-33cc44dd
  * 
  */
 @ResourceType(type="aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter")

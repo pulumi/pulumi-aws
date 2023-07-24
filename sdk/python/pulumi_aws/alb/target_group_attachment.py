@@ -211,10 +211,32 @@ class TargetGroupAttachment(pulumi.CustomResource):
             target_id=test_function.arn,
             opts=pulumi.ResourceOptions(depends_on=[with_lb]))
         ```
+        ### Registering Multiple Targets
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_instance = []
+        for range in [{"value": i} for i in range(0, 3)]:
+            example_instance.append(aws.ec2.Instance(f"exampleInstance-{range['value']}"))
+        # ... other configuration ...
+        example_target_group = aws.lb.TargetGroup("exampleTargetGroup")
+        # ... other configuration ...
+        example_target_group_attachment = []
+        def create_example_target_group_attachment(range_body):
+            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+                example_target_group_attachment.append(aws.lb.TargetGroupAttachment(f"exampleTargetGroupAttachment-{range['key']}",
+                    target_group_arn=example_target_group.arn,
+                    target_id=range["value"],
+                    port=80))
+
+        pulumi.Output.all({v.id: v for k, v in example_instance}).apply(lambda resolved_outputs: create_example_target_group_attachment(resolved_outputs[0]))
+        ```
 
         ## Import
 
-        Target Group Attachments cannot be imported.
+        You cannot import Target Group Attachments.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,10 +293,32 @@ class TargetGroupAttachment(pulumi.CustomResource):
             target_id=test_function.arn,
             opts=pulumi.ResourceOptions(depends_on=[with_lb]))
         ```
+        ### Registering Multiple Targets
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_instance = []
+        for range in [{"value": i} for i in range(0, 3)]:
+            example_instance.append(aws.ec2.Instance(f"exampleInstance-{range['value']}"))
+        # ... other configuration ...
+        example_target_group = aws.lb.TargetGroup("exampleTargetGroup")
+        # ... other configuration ...
+        example_target_group_attachment = []
+        def create_example_target_group_attachment(range_body):
+            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+                example_target_group_attachment.append(aws.lb.TargetGroupAttachment(f"exampleTargetGroupAttachment-{range['key']}",
+                    target_group_arn=example_target_group.arn,
+                    target_id=range["value"],
+                    port=80))
+
+        pulumi.Output.all({v.id: v for k, v in example_instance}).apply(lambda resolved_outputs: create_example_target_group_attachment(resolved_outputs[0]))
+        ```
 
         ## Import
 
-        Target Group Attachments cannot be imported.
+        You cannot import Target Group Attachments.
 
         :param str resource_name: The name of the resource.
         :param TargetGroupAttachmentArgs args: The arguments to use to populate this resource's properties.

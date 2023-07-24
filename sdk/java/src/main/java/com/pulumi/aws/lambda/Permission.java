@@ -348,15 +348,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
- * ```
+ *  to = aws_lambda_permission.test_lambda_permission
  * 
- * ```sh
- *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
- * ```
+ *  id = &#34;my_test_lambda_function/AllowExecutionFromCloudWatch&#34; } terraform import {
+ * 
+ *  to = aws_lambda_permission.test_lambda_permission
+ * 
+ *  id = &#34;my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch&#34; } Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For exampleconsole % pulumi import aws_lambda_permission.test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch console % pulumi import aws_lambda_permission.test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
  * 
  */
 @ResourceType(type="aws:lambda/permission:Permission")

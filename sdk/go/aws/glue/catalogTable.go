@@ -112,13 +112,11 @@ import (
 //
 // ## Import
 //
-// Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_catalog_table.MyTable
 //
-//	$ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
-//
-// ```
+//	id = "123456789012:MyDatabase:MyTable" } Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For exampleconsole % pulumi import aws_glue_catalog_table.MyTable 123456789012:MyDatabase:MyTable
 type CatalogTable struct {
 	pulumi.CustomResourceState
 

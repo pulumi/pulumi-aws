@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A QuickSight Dashboard can be imported using the AWS account ID and dashboard ID separated by a comma (`,`) e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
- * ```
+ *  to = aws_quicksight_dashboard.example
+ *
+ *  id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight Dashboard using the AWS account ID and dashboard ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_dashboard.example 123456789012,example-id
  */
 export class Dashboard extends pulumi.CustomResource {
     /**

@@ -34,11 +34,11 @@ import {Role} from "./index";
  *
  * ## Import
  *
- * Instance Profiles can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
- * ```
+ *  to = aws_iam_instance_profile.test_profile
+ *
+ *  id = "app-instance-profile-1" } Using `pulumi import`, import Instance Profiles using the `name`. For exampleconsole % pulumi import aws_iam_instance_profile.test_profile app-instance-profile-1
  */
 export class InstanceProfile extends pulumi.CustomResource {
     /**

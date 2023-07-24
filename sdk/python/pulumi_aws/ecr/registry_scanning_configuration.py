@@ -164,11 +164,11 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        ECR Scanning Configurations can be imported using the `registry_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
-        ```
+         to = aws_ecr_registry_scanning_configuration.example
+
+         id = "012345678901" } Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For exampleconsole % pulumi import aws_ecr_registry_scanning_configuration.example 012345678901
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,11 +229,11 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        ECR Scanning Configurations can be imported using the `registry_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
-        ```
+         to = aws_ecr_registry_scanning_configuration.example
+
+         id = "012345678901" } Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For exampleconsole % pulumi import aws_ecr_registry_scanning_configuration.example 012345678901
 
         :param str resource_name: The name of the resource.
         :param RegistryScanningConfigurationArgs args: The arguments to use to populate this resource's properties.

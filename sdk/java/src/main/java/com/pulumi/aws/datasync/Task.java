@@ -100,11 +100,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_datasync_task` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
- * ```
+ *  to = aws_datasync_task.example
+ * 
+ *  id = &#34;arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567&#34; } Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_task.example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
  * 
  */
 @ResourceType(type="aws:datasync/task:Task")

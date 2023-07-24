@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.WebAclAssociationConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCaptchaConfigArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclCustomResponseBodyArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
@@ -36,6 +37,21 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+     * 
+     */
+    @Import(name="associationConfig")
+    private @Nullable Output<WebAclAssociationConfigArgs> associationConfig;
+
+    /**
+     * @return Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+     * 
+     */
+    public Optional<Output<WebAclAssociationConfigArgs>> associationConfig() {
+        return Optional.ofNullable(this.associationConfig);
     }
 
     /**
@@ -229,6 +245,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
 
     private WebAclState(WebAclState $) {
         this.arn = $.arn;
+        this.associationConfig = $.associationConfig;
         this.capacity = $.capacity;
         this.captchaConfig = $.captchaConfig;
         this.customResponseBodies = $.customResponseBodies;
@@ -281,6 +298,27 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param associationConfig Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder associationConfig(@Nullable Output<WebAclAssociationConfigArgs> associationConfig) {
+            $.associationConfig = associationConfig;
+            return this;
+        }
+
+        /**
+         * @param associationConfig Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder associationConfig(WebAclAssociationConfigArgs associationConfig) {
+            return associationConfig(Output.of(associationConfig));
         }
 
         /**

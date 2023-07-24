@@ -799,11 +799,11 @@ class PhpAppLayer(pulumi.CustomResource):
 
         ## Import
 
-        OpsWorks PHP Application Layers can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
-        ```
+         to = aws_opsworks_php_app_layer.bar
+
+         id = "00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import OpsWorks PHP Application Layers using the `id`. For exampleconsole % pulumi import aws_opsworks_php_app_layer.bar 00000000-0000-0000-0000-000000000000
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -848,11 +848,11 @@ class PhpAppLayer(pulumi.CustomResource):
 
         ## Import
 
-        OpsWorks PHP Application Layers can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
-        ```
+         to = aws_opsworks_php_app_layer.bar
+
+         id = "00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import OpsWorks PHP Application Layers using the `id`. For exampleconsole % pulumi import aws_opsworks_php_app_layer.bar 00000000-0000-0000-0000-000000000000
 
         :param str resource_name: The name of the resource.
         :param PhpAppLayerArgs args: The arguments to use to populate this resource's properties.

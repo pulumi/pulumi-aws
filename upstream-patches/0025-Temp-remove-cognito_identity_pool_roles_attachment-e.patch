@@ -1,4 +1,4 @@
-From 2010090475e3f3b54732d7da98dc0d1825b9f4f2 Mon Sep 17 00:00:00 2001
+From 2c61a764cc3675367fb8006f641f2fe49f5bf6eb Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Mon, 24 Apr 2023 10:36:36 -0400
 Subject: [PATCH 25/28] Temp remove cognito_identity_pool_roles_attachment
@@ -9,7 +9,7 @@ Subject: [PATCH 25/28] Temp remove cognito_identity_pool_roles_attachment
  1 file changed, 81 deletions(-)
 
 diff --git a/website/docs/r/cognito_identity_pool_roles_attachment.markdown b/website/docs/r/cognito_identity_pool_roles_attachment.markdown
-index 52afa0cbe0..0e5f66201c 100644
+index 23c0000bb6..d56a26e5f0 100644
 --- a/website/docs/r/cognito_identity_pool_roles_attachment.markdown
 +++ b/website/docs/r/cognito_identity_pool_roles_attachment.markdown
 @@ -12,87 +12,6 @@ Provides an AWS Cognito Identity Pool Roles Attachment.

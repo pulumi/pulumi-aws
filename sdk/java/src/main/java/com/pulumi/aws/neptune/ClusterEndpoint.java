@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_neptune_cluster_endpoint` can be imported by using the `cluster-identifier:endpoint-identfier`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
- * ```
+ *  to = aws_neptune_cluster_endpoint.example
+ * 
+ *  id = &#34;my-cluster:my-endpoint&#34; } Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For exampleconsole % pulumi import aws_neptune_cluster_endpoint.example my-cluster:my-endpoint
  * 
  */
 @ResourceType(type="aws:neptune/clusterEndpoint:ClusterEndpoint")

@@ -183,11 +183,11 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror filter can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
-        ```
+         to = aws_ec2_traffic_mirror_filter.foo
+
+         id = "tmf-0fbb93ddf38198f64" } Using `pulumi import`, import traffic mirror filter using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_filter.foo tmf-0fbb93ddf38198f64
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,11 +220,11 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror filter can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
-        ```
+         to = aws_ec2_traffic_mirror_filter.foo
+
+         id = "tmf-0fbb93ddf38198f64" } Using `pulumi import`, import traffic mirror filter using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_filter.foo tmf-0fbb93ddf38198f64
 
         :param str resource_name: The name of the resource.
         :param TrafficMirrorFilterArgs args: The arguments to use to populate this resource's properties.

@@ -80,13 +80,11 @@ import (
 //
 // ## Import
 //
-// Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_accessanalyzer_analyzer.example
 //
-//	$ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For exampleconsole % pulumi import aws_accessanalyzer_analyzer.example example
 type Analyzer struct {
 	pulumi.CustomResourceState
 

@@ -116,11 +116,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Cognito User can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
- * ```
+ *  to = aws_cognito_user.user
+ * 
+ *  id = &#34;us-east-1_vG78M4goG/user&#34; } Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For exampleconsole % pulumi import aws_cognito_user.user us-east-1_vG78M4goG/user
  * 
  */
 @ResourceType(type="aws:cognito/user:User")

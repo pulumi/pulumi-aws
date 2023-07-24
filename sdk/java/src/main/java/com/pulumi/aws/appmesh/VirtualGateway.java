@@ -118,11 +118,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * App Mesh virtual gateway can be imported using `mesh_name` together with the virtual gateway&#39;s `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
- * ```
+ *  to = aws_appmesh_virtual_gateway.example
+ * 
+ *  id = &#34;mesh/gw1&#34; } Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway&#39;s `name`. For exampleconsole % pulumi import aws_appmesh_virtual_gateway.example mesh/gw1
  * 
  */
 @ResourceType(type="aws:appmesh/virtualGateway:VirtualGateway")

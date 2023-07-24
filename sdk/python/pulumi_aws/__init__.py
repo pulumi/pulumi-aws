@@ -10453,6 +10453,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "workspaces/connectionAlias",
+  "fqn": "pulumi_aws.workspaces",
+  "classes": {
+   "aws:workspaces/connectionAlias:ConnectionAlias": "ConnectionAlias"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "workspaces/directory",
   "fqn": "pulumi_aws.workspaces",
   "classes": {

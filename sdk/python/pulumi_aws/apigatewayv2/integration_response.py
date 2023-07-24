@@ -247,11 +247,11 @@ class IntegrationResponse(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_integration_response` can be imported by using the API identifier, integration identifier and integration response identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
-        ```
+         to = aws_apigatewayv2_integration_response.example
+
+         id = "aabbccddee/1122334/998877" } Using `pulumi import`, import `aws_apigatewayv2_integration_response` using the API identifier, integration identifier and integration response identifier. For exampleconsole % pulumi import aws_apigatewayv2_integration_response.example aabbccddee/1122334/998877
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,11 +287,11 @@ class IntegrationResponse(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_integration_response` can be imported by using the API identifier, integration identifier and integration response identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
-        ```
+         to = aws_apigatewayv2_integration_response.example
+
+         id = "aabbccddee/1122334/998877" } Using `pulumi import`, import `aws_apigatewayv2_integration_response` using the API identifier, integration identifier and integration response identifier. For exampleconsole % pulumi import aws_apigatewayv2_integration_response.example aabbccddee/1122334/998877
 
         :param str resource_name: The name of the resource.
         :param IntegrationResponseArgs args: The arguments to use to populate this resource's properties.

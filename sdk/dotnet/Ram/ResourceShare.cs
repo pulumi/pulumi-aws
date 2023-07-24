@@ -36,11 +36,11 @@ namespace Pulumi.Aws.Ram
     /// 
     /// ## Import
     /// 
-    /// Resource shares can be imported using the `arn` of the resource share, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
-    /// ```
+    ///  to = aws_ram_resource_share.example
+    /// 
+    ///  id = "arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12" } Using `pulumi import`, import resource shares using the `arn` of the resource share. For exampleconsole % pulumi import aws_ram_resource_share.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
     /// </summary>
     [AwsResourceType("aws:ram/resourceShare:ResourceShare")]
     public partial class ResourceShare : global::Pulumi.CustomResource

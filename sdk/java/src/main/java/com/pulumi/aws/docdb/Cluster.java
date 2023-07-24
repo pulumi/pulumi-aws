@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DocumentDB Clusters can be imported using the `cluster_identifier`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
- * ```
+ *  to = aws_docdb_cluster.docdb_cluster
+ * 
+ *  id = &#34;docdb-prod-cluster&#34; } Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For exampleconsole % pulumi import aws_docdb_cluster.docdb_cluster docdb-prod-cluster
  * 
  */
 @ResourceType(type="aws:docdb/cluster:Cluster")

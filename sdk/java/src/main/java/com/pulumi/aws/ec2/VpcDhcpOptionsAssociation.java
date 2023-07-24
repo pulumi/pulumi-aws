@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DHCP associations can be imported by providing the VPC ID associated with the options
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
- * ```
+ *  to = aws_vpc_dhcp_options_association.imported
+ * 
+ *  id = &#34;vpc-0f001273ec18911b1&#34; } Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For exampleconsole % pulumi import aws_vpc_dhcp_options_association.imported vpc-0f001273ec18911b1
  * 
  */
 @ResourceType(type="aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation")

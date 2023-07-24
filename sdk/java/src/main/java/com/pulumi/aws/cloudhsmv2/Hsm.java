@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * HSM modules can be imported using their HSM ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
- * ```
+ *  to = aws_cloudhsm_v2_hsm.bar
+ * 
+ *  id = &#34;hsm-quo8dahtaca&#34; } Using `pulumi import`, import HSM modules using their HSM ID. For exampleconsole % pulumi import aws_cloudhsm_v2_hsm.bar hsm-quo8dahtaca
  * 
  */
 @ResourceType(type="aws:cloudhsmv2/hsm:Hsm")

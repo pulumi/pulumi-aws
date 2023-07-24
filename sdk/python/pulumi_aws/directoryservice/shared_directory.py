@@ -217,11 +217,11 @@ class SharedDirectory(pulumi.CustomResource):
 
         ## Import
 
-        Directory Service Shared Directories can be imported using the owner directory ID/shared directory ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
-        ```
+         to = aws_directory_service_shared_directory.example
+
+         id = "d-1234567890/d-9267633ece" } Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For exampleconsole % pulumi import aws_directory_service_shared_directory.example d-1234567890/d-9267633ece
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,11 +266,11 @@ class SharedDirectory(pulumi.CustomResource):
 
         ## Import
 
-        Directory Service Shared Directories can be imported using the owner directory ID/shared directory ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
-        ```
+         to = aws_directory_service_shared_directory.example
+
+         id = "d-1234567890/d-9267633ece" } Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For exampleconsole % pulumi import aws_directory_service_shared_directory.example d-1234567890/d-9267633ece
 
         :param str resource_name: The name of the resource.
         :param SharedDirectoryArgs args: The arguments to use to populate this resource's properties.

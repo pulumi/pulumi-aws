@@ -22,8 +22,6 @@ class CustomRoutingListenerArgs:
         The set of arguments for constructing a CustomRoutingListener resource.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of a custom routing accelerator.
         :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-               
-               **port_range** supports the following attributes:
         """
         pulumi.set(__self__, "accelerator_arn", accelerator_arn)
         pulumi.set(__self__, "port_ranges", port_ranges)
@@ -45,8 +43,6 @@ class CustomRoutingListenerArgs:
     def port_ranges(self) -> pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]]:
         """
         The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-
-        **port_range** supports the following attributes:
         """
         return pulumi.get(self, "port_ranges")
 
@@ -64,8 +60,6 @@ class _CustomRoutingListenerState:
         Input properties used for looking up and filtering CustomRoutingListener resources.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of a custom routing accelerator.
         :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-               
-               **port_range** supports the following attributes:
         """
         if accelerator_arn is not None:
             pulumi.set(__self__, "accelerator_arn", accelerator_arn)
@@ -89,8 +83,6 @@ class _CustomRoutingListenerState:
     def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRoutingListenerPortRangeArgs']]]]:
         """
         The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-
-        **port_range** supports the following attributes:
         """
         return pulumi.get(self, "port_ranges")
 
@@ -135,18 +127,16 @@ class CustomRoutingListener(pulumi.CustomResource):
 
         ## Import
 
-        Global Accelerator custom routing listeners can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-        ```
+         to = aws_globalaccelerator_custom_routing_listener.example
+
+         id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx" } Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of a custom routing accelerator.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomRoutingListenerPortRangeArgs']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-               
-               **port_range** supports the following attributes:
         """
         ...
     @overload
@@ -182,11 +172,11 @@ class CustomRoutingListener(pulumi.CustomResource):
 
         ## Import
 
-        Global Accelerator custom routing listeners can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-        ```
+         to = aws_globalaccelerator_custom_routing_listener.example
+
+         id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx" } Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 
         :param str resource_name: The name of the resource.
         :param CustomRoutingListenerArgs args: The arguments to use to populate this resource's properties.
@@ -241,8 +231,6 @@ class CustomRoutingListener(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of a custom routing accelerator.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomRoutingListenerPortRangeArgs']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-               
-               **port_range** supports the following attributes:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -265,8 +253,6 @@ class CustomRoutingListener(pulumi.CustomResource):
     def port_ranges(self) -> pulumi.Output[Sequence['outputs.CustomRoutingListenerPortRange']]:
         """
         The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-
-        **port_range** supports the following attributes:
         """
         return pulumi.get(self, "port_ranges")
 

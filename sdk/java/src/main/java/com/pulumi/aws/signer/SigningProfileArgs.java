@@ -4,6 +4,7 @@
 package com.pulumi.aws.signer;
 
 import com.pulumi.aws.signer.inputs.SigningProfileSignatureValidityPeriodArgs;
+import com.pulumi.aws.signer.inputs.SigningProfileSigningMaterialArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -77,6 +78,13 @@ public final class SigningProfileArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.signatureValidityPeriod);
     }
 
+    @Import(name="signingMaterial")
+    private @Nullable Output<SigningProfileSigningMaterialArgs> signingMaterial;
+
+    public Optional<Output<SigningProfileSigningMaterialArgs>> signingMaterial() {
+        return Optional.ofNullable(this.signingMaterial);
+    }
+
     /**
      * A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -99,6 +107,7 @@ public final class SigningProfileArgs extends com.pulumi.resources.ResourceArgs 
         this.namePrefix = $.namePrefix;
         this.platformId = $.platformId;
         this.signatureValidityPeriod = $.signatureValidityPeriod;
+        this.signingMaterial = $.signingMaterial;
         this.tags = $.tags;
     }
 
@@ -202,6 +211,15 @@ public final class SigningProfileArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs signatureValidityPeriod) {
             return signatureValidityPeriod(Output.of(signatureValidityPeriod));
+        }
+
+        public Builder signingMaterial(@Nullable Output<SigningProfileSigningMaterialArgs> signingMaterial) {
+            $.signingMaterial = signingMaterial;
+            return this;
+        }
+
+        public Builder signingMaterial(SigningProfileSigningMaterialArgs signingMaterial) {
+            return signingMaterial(Output.of(signingMaterial));
         }
 
         /**

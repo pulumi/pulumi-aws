@@ -24,13 +24,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AppFlow Connector Profile can be imported using the connector profile `arn`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
- * ```
+ *  to = aws_appflow_connector_profile.profile
  * 
- *  [1]https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html [2]https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
+ *  id = &#34;arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile&#34; } Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For exampleconsole % pulumi import aws_appflow_connector_profile.profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile [1]https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html [2]https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
  * 
  */
 @ResourceType(type="aws:appflow/connectorProfile:ConnectorProfile")

@@ -50,7 +50,7 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
 
     /**
      * An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-     * The following arguments are supported in the `control_plane_placement` configuration block:
+     * The `control_plane_placement` configuration block supports the following arguments:
      * 
      */
     @Import(name="controlPlanePlacement")
@@ -58,7 +58,7 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
 
     /**
      * @return An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-     * The following arguments are supported in the `control_plane_placement` configuration block:
+     * The `control_plane_placement` configuration block supports the following arguments:
      * 
      */
     public Optional<Output<ClusterOutpostConfigControlPlanePlacementArgs>> controlPlanePlacement() {
@@ -145,7 +145,7 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param controlPlanePlacement An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-         * The following arguments are supported in the `control_plane_placement` configuration block:
+         * The `control_plane_placement` configuration block supports the following arguments:
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param controlPlanePlacement An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-         * The following arguments are supported in the `control_plane_placement` configuration block:
+         * The `control_plane_placement` configuration block supports the following arguments:
          * 
          * @return builder
          * 

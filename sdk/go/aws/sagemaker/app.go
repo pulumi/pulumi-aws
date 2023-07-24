@@ -46,13 +46,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Apps can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_app.example
 //
-//	$ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
-//
-// ```
+//	id = "arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name" } Using `pulumi import`, import SageMaker Apps using the `id`. For exampleconsole % pulumi import aws_sagemaker_app.example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
 type App struct {
 	pulumi.CustomResourceState
 

@@ -125,13 +125,11 @@ import (
 //
 // ## Import
 //
-// An existing Security Hub finding aggregator can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_finding_aggregator.example
 //
-//	$ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
-//
-// ```
+//	id = "arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456" } Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For exampleconsole % pulumi import aws_securityhub_finding_aggregator.example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
 type FindingAggregator struct {
 	pulumi.CustomResourceState
 

@@ -82,13 +82,11 @@ import (
 //
 // ## Import
 //
-// The EFS file system policies can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_efs_file_system_policy.foo
 //
-//	$ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
-//
-// ```
+//	id = "fs-6fa144c6" } Using `pulumi import`, import the EFS file system policies using the `id`. For exampleconsole % pulumi import aws_efs_file_system_policy.foo fs-6fa144c6
 type FileSystemPolicy struct {
 	pulumi.CustomResourceState
 

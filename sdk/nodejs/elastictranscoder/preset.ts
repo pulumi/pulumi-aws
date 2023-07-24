@@ -74,11 +74,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Elastic Transcoder presets can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
- * ```
+ *  to = aws_elastictranscoder_preset.basic_preset
+ *
+ *  id = "1407981661351-cttk8b" } Using `pulumi import`, import Elastic Transcoder presets using the `id`. For exampleconsole % pulumi import aws_elastictranscoder_preset.basic_preset 1407981661351-cttk8b
  */
 export class Preset extends pulumi.CustomResource {
     /**

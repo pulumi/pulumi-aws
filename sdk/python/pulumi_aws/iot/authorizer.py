@@ -300,11 +300,11 @@ class Authorizer(pulumi.CustomResource):
 
         ## Import
 
-        IOT Authorizers can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iot/authorizer:Authorizer example example
-        ```
+         to = aws_iot_authorizer.example
+
+         id = "example" } Using `pulumi import`, import IOT Authorizers using the name. For exampleconsole % pulumi import aws_iot_authorizer.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -343,11 +343,11 @@ class Authorizer(pulumi.CustomResource):
 
         ## Import
 
-        IOT Authorizers can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iot/authorizer:Authorizer example example
-        ```
+         to = aws_iot_authorizer.example
+
+         id = "example" } Using `pulumi import`, import IOT Authorizers using the name. For exampleconsole % pulumi import aws_iot_authorizer.example example
 
         :param str resource_name: The name of the resource.
         :param AuthorizerArgs args: The arguments to use to populate this resource's properties.

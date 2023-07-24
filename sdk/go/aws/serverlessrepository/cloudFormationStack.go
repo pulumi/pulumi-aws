@@ -61,13 +61,11 @@ import (
 //
 // ## Import
 //
-// Serverless Application Repository Stack can be imported using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_serverlessapplicationrepository_cloudformation_stack.example
 //
-//	$ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
-//
-// ```
+//	id = "serverlessrepo-postgres-rotator" } Using `pulumi import`, import Serverless Application Repository Stack using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID. For exampleconsole % pulumi import aws_serverlessapplicationrepository_cloudformation_stack.example serverlessrepo-postgres-rotator
 type CloudFormationStack struct {
 	pulumi.CustomResourceState
 

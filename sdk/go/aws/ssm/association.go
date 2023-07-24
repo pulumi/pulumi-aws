@@ -152,13 +152,11 @@ import (
 //
 // ## Import
 //
-// SSM associations can be imported using the `association_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ssm_association.test-association
 //
-//	$ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
-//
-// ```
+//	id = "10abcdef-0abc-1234-5678-90abcdef123456" } Using `pulumi import`, import SSM associations using the `association_id`. For exampleconsole % pulumi import aws_ssm_association.test-association 10abcdef-0abc-1234-5678-90abcdef123456
 type Association struct {
 	pulumi.CustomResourceState
 

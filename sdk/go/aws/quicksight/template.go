@@ -49,13 +49,11 @@ import (
 //
 // ## Import
 //
-// A QuickSight Template can be imported using the AWS account ID and template ID separated by a comma (`,`) e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_quicksight_template.example
 //
-//	$ pulumi import aws:quicksight/template:Template example 123456789012,example-id
-//
-// ```
+//	id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_template.example 123456789012,example-id
 type Template struct {
 	pulumi.CustomResourceState
 

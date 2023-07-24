@@ -109,13 +109,11 @@ import (
 //
 // ## Import
 //
-// WorkLink can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_worklink_fleet.test
 //
-//	$ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
-//
-// ```
+//	id = "arn:aws:worklink::123456789012:fleet/example" } Using `pulumi import`, import WorkLink using the ARN. For exampleconsole % pulumi import aws_worklink_fleet.test arn:aws:worklink::123456789012:fleet/example
 type Fleet struct {
 	pulumi.CustomResourceState
 

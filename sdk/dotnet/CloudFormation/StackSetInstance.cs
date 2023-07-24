@@ -17,6 +17,7 @@ namespace Pulumi.Aws.CloudFormation
     /// &gt; **NOTE:** To retain the Stack during resource destroy, ensure `retain_stack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -133,17 +134,15 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Import
     /// 
-    /// CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
-    /// ```
+    ///  to = aws_cloudformation_stack_set_instance.example
     /// 
-    ///  CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
+    ///  id = "example,123456789012,us-east-1" } Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`)terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
-    /// ```
+    ///  to = aws_cloudformation_stack_set_instance.example
+    /// 
+    ///  id = "example,ou-sdas-123123123/ou-sdas-789789789,us-east-1" } **Using `pulumi import` to import** CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`). For exampleconsole % pulumi import aws_cloudformation_stack_set_instance.example example,123456789012,us-east-1 Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`)console % pulumi import aws_cloudformation_stack_set_instance.example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
     /// </summary>
     [AwsResourceType("aws:cloudformation/stackSetInstance:StackSetInstance")]
     public partial class StackSetInstance : global::Pulumi.CustomResource
@@ -173,7 +172,7 @@ namespace Pulumi.Aws.CloudFormation
         public Output<Outputs.StackSetInstanceOperationPreferences?> OperationPreferences { get; private set; } = null!;
 
         /// <summary>
-        /// The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+        /// Organizational unit ID in which the stack is deployed.
         /// </summary>
         [Output("organizationalUnitId")]
         public Output<string> OrganizationalUnitId { get; private set; } = null!;
@@ -197,10 +196,16 @@ namespace Pulumi.Aws.CloudFormation
         public Output<bool?> RetainStack { get; private set; } = null!;
 
         /// <summary>
-        /// Stack identifier
+        /// Stack identifier.
         /// </summary>
         [Output("stackId")]
         public Output<string> StackId { get; private set; } = null!;
+
+        /// <summary>
+        /// List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+        /// </summary>
+        [Output("stackInstanceSummaries")]
+        public Output<ImmutableArray<Outputs.StackSetInstanceStackInstanceSummary>> StackInstanceSummaries { get; private set; } = null!;
 
         /// <summary>
         /// Name of the StackSet.
@@ -341,7 +346,7 @@ namespace Pulumi.Aws.CloudFormation
         public Input<Inputs.StackSetInstanceOperationPreferencesGetArgs>? OperationPreferences { get; set; }
 
         /// <summary>
-        /// The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+        /// Organizational unit ID in which the stack is deployed.
         /// </summary>
         [Input("organizationalUnitId")]
         public Input<string>? OrganizationalUnitId { get; set; }
@@ -371,10 +376,22 @@ namespace Pulumi.Aws.CloudFormation
         public Input<bool>? RetainStack { get; set; }
 
         /// <summary>
-        /// Stack identifier
+        /// Stack identifier.
         /// </summary>
         [Input("stackId")]
         public Input<string>? StackId { get; set; }
+
+        [Input("stackInstanceSummaries")]
+        private InputList<Inputs.StackSetInstanceStackInstanceSummaryGetArgs>? _stackInstanceSummaries;
+
+        /// <summary>
+        /// List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+        /// </summary>
+        public InputList<Inputs.StackSetInstanceStackInstanceSummaryGetArgs> StackInstanceSummaries
+        {
+            get => _stackInstanceSummaries ?? (_stackInstanceSummaries = new InputList<Inputs.StackSetInstanceStackInstanceSummaryGetArgs>());
+            set => _stackInstanceSummaries = value;
+        }
 
         /// <summary>
         /// Name of the StackSet.

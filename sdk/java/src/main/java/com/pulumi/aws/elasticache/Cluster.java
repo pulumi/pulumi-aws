@@ -190,11 +190,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
- * ```
+ *  to = aws_elasticache_cluster.my_cluster
+ * 
+ *  id = &#34;my_cluster&#34; } Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For exampleconsole % pulumi import aws_elasticache_cluster.my_cluster my_cluster
  * 
  */
 @ResourceType(type="aws:elasticache/cluster:Cluster")
@@ -351,7 +351,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
@@ -365,7 +365,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     public Output<String> engineVersion() {

@@ -58,13 +58,11 @@ import (
 //
 // ## Import
 //
-// ECS cluster capacity providers can be imported using the `cluster_name` attribute. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_ecs_cluster_capacity_providers.example
 //
-//	$ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
-//
-// ```
+//	id = "my-cluster" } Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For exampleconsole % pulumi import aws_ecs_cluster_capacity_providers.example my-cluster
 type ClusterCapacityProviders struct {
 	pulumi.CustomResourceState
 

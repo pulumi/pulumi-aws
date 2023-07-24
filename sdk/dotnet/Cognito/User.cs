@@ -85,11 +85,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Cognito User can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
-    /// ```
+    ///  to = aws_cognito_user.user
+    /// 
+    ///  id = "us-east-1_vG78M4goG/user" } Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For exampleconsole % pulumi import aws_cognito_user.user us-east-1_vG78M4goG/user
     /// </summary>
     [AwsResourceType("aws:cognito/user:User")]
     public partial class User : global::Pulumi.CustomResource

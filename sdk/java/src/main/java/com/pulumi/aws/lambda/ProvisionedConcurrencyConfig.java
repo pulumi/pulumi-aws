@@ -87,11 +87,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A Lambda Provisioned Concurrency Configuration can be imported using the `function_name` and `qualifier` separated by a comma (`,`), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
- * ```
+ *  to = aws_lambda_provisioned_concurrency_config.example
+ * 
+ *  id = &#34;my_function,production&#34; } Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For exampleconsole % pulumi import aws_lambda_provisioned_concurrency_config.example my_function,production
  * 
  */
 @ResourceType(type="aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig")

@@ -38,11 +38,11 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
-    /// ```
+    ///  to = aws_storagegateway_nfs_file_share.example
+    /// 
+    ///  id = "arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678" } Using `pulumi import`, import `aws_storagegateway_nfs_file_share` using the NFS File Share Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_nfs_file_share.example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
     /// </summary>
     [AwsResourceType("aws:storagegateway/nfsFileShare:NfsFileShare")]
     public partial class NfsFileShare : global::Pulumi.CustomResource

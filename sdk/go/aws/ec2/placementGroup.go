@@ -43,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Placement groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_placement_group.prod_pg
 //
-//	$ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
-//
-// ```
+//	id = "production-placement-group" } Using `pulumi import`, import placement groups using the `name`. For exampleconsole % pulumi import aws_placement_group.prod_pg production-placement-group
 type PlacementGroup struct {
 	pulumi.CustomResourceState
 

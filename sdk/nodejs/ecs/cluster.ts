@@ -46,11 +46,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECS clusters can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
- * ```
+ *  to = aws_ecs_cluster.stateless
+ *
+ *  id = "stateless-app" } Using `pulumi import`, import ECS clusters using the `name`. For exampleconsole % pulumi import aws_ecs_cluster.stateless stateless-app
  */
 export class Cluster extends pulumi.CustomResource {
     /**

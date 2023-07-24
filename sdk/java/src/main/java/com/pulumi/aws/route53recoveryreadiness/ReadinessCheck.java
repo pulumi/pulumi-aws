@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Recovery Readiness readiness checks can be imported via the readiness check name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check
- * ```
+ *  to = aws_route53recoveryreadiness_readiness_check.my-cw-alarm-check
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For exampleconsole % pulumi import aws_route53recoveryreadiness_readiness_check.my-cw-alarm-check example
  * 
  */
 @ResourceType(type="aws:route53recoveryreadiness/readinessCheck:ReadinessCheck")

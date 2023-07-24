@@ -70,11 +70,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// VPC Endpoint Policies can be imported using the `id`, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
-    /// ```
+    ///  to = aws_vpc_endpoint_policy.example
+    /// 
+    ///  id = "vpce-3ecf2a57" } Using `pulumi import`, import VPC Endpoint Policies using the `id`. For exampleconsole % pulumi import aws_vpc_endpoint_policy.example vpce-3ecf2a57
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy")]
     public partial class VpcEndpointPolicy : global::Pulumi.CustomResource

@@ -253,11 +253,11 @@ class AssessmentDelegation(pulumi.CustomResource):
 
         ## Import
 
-        Audit Manager Assessment Delegation can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
-        ```
+         to = aws_auditmanager_assessment_delegation.example
+
+         id = "abcdef-123456,arn:aws:iam::012345678901:role/example,example" } Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For exampleconsole % pulumi import aws_auditmanager_assessment_delegation.example abcdef-123456,arn:aws:iam::012345678901:role/example,example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -294,11 +294,11 @@ class AssessmentDelegation(pulumi.CustomResource):
 
         ## Import
 
-        Audit Manager Assessment Delegation can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
-        ```
+         to = aws_auditmanager_assessment_delegation.example
+
+         id = "abcdef-123456,arn:aws:iam::012345678901:role/example,example" } Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For exampleconsole % pulumi import aws_auditmanager_assessment_delegation.example abcdef-123456,arn:aws:iam::012345678901:role/example,example
 
         :param str resource_name: The name of the resource.
         :param AssessmentDelegationArgs args: The arguments to use to populate this resource's properties.

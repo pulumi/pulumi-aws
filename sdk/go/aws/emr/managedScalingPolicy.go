@@ -63,13 +63,11 @@ import (
 //
 // ## Import
 //
-// # EMR Managed Scaling Policies can be imported via the EMR Cluster identifier, e.g., console
+// terraform import {
 //
-// ```sh
+//	to = aws_emr_managed_scaling_policy.example
 //
-//	$ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
-//
-// ```
+//	id = "j-123456ABCDEF" } Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For exampleconsole % pulumi import aws_emr_managed_scaling_policy.example j-123456ABCDEF
 type ManagedScalingPolicy struct {
 	pulumi.CustomResourceState
 

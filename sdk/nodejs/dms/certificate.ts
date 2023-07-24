@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Certificates can be imported using the `certificate_id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
- * ```
+ *  to = aws_dms_certificate.test
+ *
+ *  id = "test-dms-certificate-tf" } Using `pulumi import`, import certificates using the `certificate_id`. For exampleconsole % pulumi import aws_dms_certificate.test test-dms-certificate-tf
  */
 export class Certificate extends pulumi.CustomResource {
     /**

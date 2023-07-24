@@ -61,13 +61,11 @@ import (
 //
 // ## Import
 //
-// SESv2 (Simple Email V2) Configuration Set can be imported using the `configuration_set_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sesv2_configuration_set.example
 //
-//	$ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set using the `configuration_set_name`. For exampleconsole % pulumi import aws_sesv2_configuration_set.example example
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 

@@ -65,13 +65,11 @@ import (
 //
 // ## Import
 //
-// Audit Manager Account Registration resources can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_auditmanager_account_registration.example
 //
-//	$ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
-//
-// ```
+//	id = "us-east-1" } Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For exampleconsole % pulumi import aws_auditmanager_account_registration.example us-east-1
 type AccountRegistration struct {
 	pulumi.CustomResourceState
 

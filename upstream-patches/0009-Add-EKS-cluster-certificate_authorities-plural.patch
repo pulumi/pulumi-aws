@@ -1,4 +1,4 @@
-From 9c1522d028b20ac43edb94f663a04648158192ad Mon Sep 17 00:00:00 2001
+From 725568af455bf6aefbfe2c141ba9d404d6b2fe87 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:32:49 +0000
 Subject: [PATCH 09/28] Add EKS cluster certificate_authorities (plural)

@@ -36,11 +36,11 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// ## Import
     /// 
-    /// DeviceFarm Network Profiles can be imported by their arn
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:devicefarm/networkProfile:NetworkProfile example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-    /// ```
+    ///  to = aws_devicefarm_network_profile.example
+    /// 
+    ///  id = "arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For exampleconsole % pulumi import aws_devicefarm_network_profile.example arn:aws:devicefarm:us-west-2:123456789012:networkprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
     /// </summary>
     [AwsResourceType("aws:devicefarm/networkProfile:NetworkProfile")]
     public partial class NetworkProfile : global::Pulumi.CustomResource

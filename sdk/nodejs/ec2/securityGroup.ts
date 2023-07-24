@@ -155,11 +155,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Security Groups can be imported using the `security group id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
- * ```
+ *  to = aws_security_group.elb_sg
+ *
+ *  id = "sg-903004f8" } Using `pulumi import`, import Security Groups using the security group `id`. For exampleconsole % pulumi import aws_security_group.elb_sg sg-903004f8
  */
 export class SecurityGroup extends pulumi.CustomResource {
     /**

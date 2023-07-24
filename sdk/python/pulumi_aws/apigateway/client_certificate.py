@@ -193,11 +193,11 @@ class ClientCertificate(pulumi.CustomResource):
 
         ## Import
 
-        API Gateway Client Certificates can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
-        ```
+         to = aws_api_gateway_client_certificate.demo
+
+         id = "ab1cqe" } Using `pulumi import`, import API Gateway Client Certificates using the id. For exampleconsole % pulumi import aws_api_gateway_client_certificate.demo ab1cqe
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,11 +224,11 @@ class ClientCertificate(pulumi.CustomResource):
 
         ## Import
 
-        API Gateway Client Certificates can be imported using the id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
-        ```
+         to = aws_api_gateway_client_certificate.demo
+
+         id = "ab1cqe" } Using `pulumi import`, import API Gateway Client Certificates using the id. For exampleconsole % pulumi import aws_api_gateway_client_certificate.demo ab1cqe
 
         :param str resource_name: The name of the resource.
         :param ClientCertificateArgs args: The arguments to use to populate this resource's properties.

@@ -140,11 +140,11 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        IPAMs can be imported using the `delegate account id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
-        ```
+         to = aws_vpc_ipam_organization_admin_account.example
+
+         id = "12345678901" } Using `pulumi import`, import IPAMs using the delegate account `id`. For exampleconsole % pulumi import aws_vpc_ipam_organization_admin_account.example 12345678901
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,11 +174,11 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        IPAMs can be imported using the `delegate account id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
-        ```
+         to = aws_vpc_ipam_organization_admin_account.example
+
+         id = "12345678901" } Using `pulumi import`, import IPAMs using the delegate account `id`. For exampleconsole % pulumi import aws_vpc_ipam_organization_admin_account.example 12345678901
 
         :param str resource_name: The name of the resource.
         :param VpcIpamOrganizationAdminAccountArgs args: The arguments to use to populate this resource's properties.

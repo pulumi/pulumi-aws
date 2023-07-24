@@ -48,13 +48,11 @@ import (
 //
 // ## Import
 //
-// `aws_datasync_location_object_storage` can be imported by using the Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_datasync_location_object_storage.example
 //
-//	$ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
-// ```
+//	id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 type LocationObjectStorage struct {
 	pulumi.CustomResourceState
 

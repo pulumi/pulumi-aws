@@ -250,11 +250,11 @@ class Build(pulumi.CustomResource):
 
         ## Import
 
-        GameLift Builds can be imported using the ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:gamelift/build:Build example <build-id>
-        ```
+         to = aws_gamelift_build.example
+
+         id = "<build-id>" } Using `pulumi import`, import GameLift Builds using the ID. For exampleconsole % pulumi import aws_gamelift_build.example <build-id>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,11 +290,11 @@ class Build(pulumi.CustomResource):
 
         ## Import
 
-        GameLift Builds can be imported using the ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:gamelift/build:Build example <build-id>
-        ```
+         to = aws_gamelift_build.example
+
+         id = "<build-id>" } Using `pulumi import`, import GameLift Builds using the ID. For exampleconsole % pulumi import aws_gamelift_build.example <build-id>
 
         :param str resource_name: The name of the resource.
         :param BuildArgs args: The arguments to use to populate this resource's properties.

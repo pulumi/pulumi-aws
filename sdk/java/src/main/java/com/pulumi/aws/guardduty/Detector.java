@@ -78,13 +78,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GuardDuty detectors can be imported using the detector ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
- * ```
+ *  to = aws_guardduty_detector.MyDetector
  * 
- *  The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
+ *  id = &#34;00b00fd5aecc0ab60a708659477e9617&#34; } Using `pulumi import`, import GuardDuty detectors using the detector ID. For exampleconsole % pulumi import aws_guardduty_detector.MyDetector 00b00fd5aecc0ab60a708659477e9617 The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
  * 
  */
 @ResourceType(type="aws:guardduty/detector:Detector")

@@ -401,11 +401,11 @@ class Folder(pulumi.CustomResource):
 
         ## Import
 
-        A QuickSight folder can be imported using the AWS account ID and folder ID name separated by a comma (`,`) e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
-        ```
+         to = aws_quicksight_folder.example
+
+         id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_folder.example 123456789012,example-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -473,11 +473,11 @@ class Folder(pulumi.CustomResource):
 
         ## Import
 
-        A QuickSight folder can be imported using the AWS account ID and folder ID name separated by a comma (`,`) e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
-        ```
+         to = aws_quicksight_folder.example
+
+         id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_folder.example 123456789012,example-id
 
         :param str resource_name: The name of the resource.
         :param FolderArgs args: The arguments to use to populate this resource's properties.

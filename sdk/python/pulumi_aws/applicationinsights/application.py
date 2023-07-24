@@ -360,11 +360,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:applicationinsights/application:Application some some-application
-        ```
+         to = aws_applicationinsights_application.some
+
+         id = "some-application" } Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For exampleconsole % pulumi import aws_applicationinsights_application.some some-application
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -409,11 +409,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:applicationinsights/application:Application some some-application
-        ```
+         to = aws_applicationinsights_application.some
+
+         id = "some-application" } Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For exampleconsole % pulumi import aws_applicationinsights_application.some some-application
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

@@ -218,11 +218,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Glue Triggers can be imported using `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
- * ```
+ *  to = aws_glue_trigger.MyTrigger
+ * 
+ *  id = &#34;MyTrigger&#34; } Using `pulumi import`, import Glue Triggers using `name`. For exampleconsole % pulumi import aws_glue_trigger.MyTrigger MyTrigger
  * 
  */
 @ResourceType(type="aws:glue/trigger:Trigger")

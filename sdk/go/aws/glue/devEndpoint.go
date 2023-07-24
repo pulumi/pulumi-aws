@@ -78,13 +78,11 @@ import (
 //
 // ## Import
 //
-// A Glue Development Endpoint can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_dev_endpoint.example
 //
-//	$ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-//
-// ```
+//	id = "foo" } Using `pulumi import`, import a Glue Development Endpoint using the `name`. For exampleconsole % pulumi import aws_glue_dev_endpoint.example foo
 type DevEndpoint struct {
 	pulumi.CustomResourceState
 

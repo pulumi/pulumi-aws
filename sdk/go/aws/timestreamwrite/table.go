@@ -110,13 +110,11 @@ import (
 //
 // ## Import
 //
-// Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_timestreamwrite_table.example
 //
-//	$ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
-//
-// ```
+//	id = "ExampleTable:ExampleDatabase" } Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For exampleconsole % pulumi import aws_timestreamwrite_table.example ExampleTable:ExampleDatabase
 type Table struct {
 	pulumi.CustomResourceState
 

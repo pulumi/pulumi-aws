@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * XRay Sampling Rules can be imported using the name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:xray/samplingRule:SamplingRule example example
- * ```
+ *  to = aws_xray_sampling_rule.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import XRay Sampling Rules using the name. For exampleconsole % pulumi import aws_xray_sampling_rule.example example
  * 
  */
 @ResourceType(type="aws:xray/samplingRule:SamplingRule")

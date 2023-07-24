@@ -262,11 +262,11 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache Parameter Groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
-        ```
+         to = aws_elasticache_parameter_group.default
+
+         id = "redis-params" } Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For exampleconsole % pulumi import aws_elasticache_parameter_group.default redis-params
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,11 +309,11 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache Parameter Groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
-        ```
+         to = aws_elasticache_parameter_group.default
+
+         id = "redis-params" } Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For exampleconsole % pulumi import aws_elasticache_parameter_group.default redis-params
 
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.

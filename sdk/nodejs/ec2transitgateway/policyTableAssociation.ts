@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_ec2_transit_gateway_policy_table_association` can be imported by using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
- * ```
+ *  to = aws_ec2_transit_gateway_policy_table_association.example
+ *
+ *  id = "tgw-rtb-12345678_tgw-attach-87654321" } Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table_association` using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_policy_table_association.example tgw-rtb-12345678_tgw-attach-87654321
  */
 export class PolicyTableAssociation extends pulumi.CustomResource {
     /**

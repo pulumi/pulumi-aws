@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// EC2 Instance Connect Endpoints can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
-    /// ```
+    ///  to = aws_ec2_instance_connect_endpoint.example
+    /// 
+    ///  id = "eice-012345678" } Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For exampleconsole % pulumi import aws_ec2_instance_connect_endpoint.example eice-012345678
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint")]
     public partial class InstanceConnectEndpoint : global::Pulumi.CustomResource

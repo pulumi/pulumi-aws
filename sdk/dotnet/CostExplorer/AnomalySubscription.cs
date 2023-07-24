@@ -60,11 +60,11 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// ## Import
     /// 
-    /// `aws_ce_anomaly_subscription` can be imported using the `id`, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
-    /// ```
+    ///  to = aws_ce_anomaly_subscription.example
+    /// 
+    ///  id = "AnomalySubscriptionARN" } Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For exampleconsole % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
     /// </summary>
     [AwsResourceType("aws:costexplorer/anomalySubscription:AnomalySubscription")]
     public partial class AnomalySubscription : global::Pulumi.CustomResource

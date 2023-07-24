@@ -261,11 +261,11 @@ class DomainName(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
-        ```
+         to = aws_apigatewayv2_domain_name.example
+
+         id = "ws-api.example.com" } Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For exampleconsole % pulumi import aws_apigatewayv2_domain_name.example ws-api.example.com
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,11 +328,11 @@ class DomainName(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
-        ```
+         to = aws_apigatewayv2_domain_name.example
+
+         id = "ws-api.example.com" } Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For exampleconsole % pulumi import aws_apigatewayv2_domain_name.example ws-api.example.com
 
         :param str resource_name: The name of the resource.
         :param DomainNameArgs args: The arguments to use to populate this resource's properties.

@@ -61,13 +61,11 @@ import (
 //
 // ## Import
 //
-// `aws_macie2_findings_filter` can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_macie2_findings_filter.example
 //
-//	$ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
-//
-// ```
+//	id = "abcd1" } Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For exampleconsole % pulumi import aws_macie2_findings_filter.example abcd1
 type FindingsFilter struct {
 	pulumi.CustomResourceState
 

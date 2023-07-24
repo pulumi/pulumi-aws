@@ -42,13 +42,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_route_table` can be imported by using the EC2 Transit Gateway Route Table identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_transit_gateway_route_table.example
 //
-//	$ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
-//
-// ```
+//	id = "tgw-rtb-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_route_table.example tgw-rtb-12345678
 type RouteTable struct {
 	pulumi.CustomResourceState
 

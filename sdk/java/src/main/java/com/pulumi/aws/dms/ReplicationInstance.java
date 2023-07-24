@@ -117,11 +117,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Replication instances can be imported using the `replication_instance_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
- * ```
+ *  to = aws_dms_replication_instance.test
+ * 
+ *  id = &#34;test-dms-replication-instance-tf&#34; } Using `pulumi import`, import replication instances using the `replication_instance_id`. For exampleconsole % pulumi import aws_dms_replication_instance.test test-dms-replication-instance-tf
  * 
  */
 @ResourceType(type="aws:dms/replicationInstance:ReplicationInstance")

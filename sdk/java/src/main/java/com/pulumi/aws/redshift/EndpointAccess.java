@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift endpoint access can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
- * ```
+ *  to = aws_redshift_endpoint_access.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Redshift endpoint access using the `name`. For exampleconsole % pulumi import aws_redshift_endpoint_access.example example
  * 
  */
 @ResourceType(type="aws:redshift/endpointAccess:EndpointAccess")

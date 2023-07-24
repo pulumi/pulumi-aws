@@ -350,11 +350,11 @@ class OrganizationConformancePack(pulumi.CustomResource):
 
         ## Import
 
-        Config Organization Conformance Packs can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
-        ```
+         to = aws_config_organization_conformance_pack.example
+
+         id = "example" } Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For exampleconsole % pulumi import aws_config_organization_conformance_pack.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -440,11 +440,11 @@ class OrganizationConformancePack(pulumi.CustomResource):
 
         ## Import
 
-        Config Organization Conformance Packs can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
-        ```
+         to = aws_config_organization_conformance_pack.example
+
+         id = "example" } Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For exampleconsole % pulumi import aws_config_organization_conformance_pack.example example
 
         :param str resource_name: The name of the resource.
         :param OrganizationConformancePackArgs args: The arguments to use to populate this resource's properties.

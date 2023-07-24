@@ -68,11 +68,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Workflows can be imported using `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
-    /// ```
+    ///  to = aws_glue_workflow.MyWorkflow
+    /// 
+    ///  id = "MyWorkflow" } Using `pulumi import`, import Glue Workflows using `name`. For exampleconsole % pulumi import aws_glue_workflow.MyWorkflow MyWorkflow
     /// </summary>
     [AwsResourceType("aws:glue/workflow:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource

@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AccessAnalyzer ArchiveRule can be imported using the `analyzer_name/rule_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
- * ```
+ *  to = aws_accessanalyzer_archive_rule.example
+ * 
+ *  id = &#34;example-analyzer/example-rule&#34; } Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For exampleconsole % pulumi import aws_accessanalyzer_archive_rule.example example-analyzer/example-rule
  * 
  */
 @ResourceType(type="aws:accessanalyzer/archiveRule:ArchiveRule")

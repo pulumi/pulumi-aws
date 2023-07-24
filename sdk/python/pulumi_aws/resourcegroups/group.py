@@ -260,11 +260,11 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        Resource groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
-        ```
+         to = aws_resourcegroups_group.foo
+
+         id = "resource-group-name" } Using `pulumi import`, import resource groups using the `name`. For exampleconsole % pulumi import aws_resourcegroups_group.foo resource-group-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -308,11 +308,11 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        Resource groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
-        ```
+         to = aws_resourcegroups_group.foo
+
+         id = "resource-group-name" } Using `pulumi import`, import resource groups using the `name`. For exampleconsole % pulumi import aws_resourcegroups_group.foo resource-group-name
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

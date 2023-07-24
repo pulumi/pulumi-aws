@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
- * ```
+ *  to = aws_emr_instance_group.task_group
+ * 
+ *  id = &#34;j-123456ABCDEF/ig-15EK4O09RZLNR&#34; } Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For exampleconsole % pulumi import aws_emr_instance_group.task_group j-123456ABCDEF/ig-15EK4O09RZLNR
  * 
  */
 @ResourceType(type="aws:emr/instanceGroup:InstanceGroup")

@@ -58,13 +58,11 @@ import (
 //
 // ## Import
 //
-// `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_snapshot.example
 //
-//	$ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
-//
-// ```
+//	id = "my-snapshot" } Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For exampleconsole % pulumi import aws_db_snapshot.example my-snapshot
 type Snapshot struct {
 	pulumi.CustomResourceState
 

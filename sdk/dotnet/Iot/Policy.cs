@@ -48,11 +48,11 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
-    /// IoT policies can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
-    /// ```
+    ///  to = aws_iot_policy.pubsub
+    /// 
+    ///  id = "PubSubToAnyTopic" } Using `pulumi import`, import IoT policies using the `name`. For exampleconsole % pulumi import aws_iot_policy.pubsub PubSubToAnyTopic
     /// </summary>
     [AwsResourceType("aws:iot/policy:Policy")]
     public partial class Policy : global::Pulumi.CustomResource

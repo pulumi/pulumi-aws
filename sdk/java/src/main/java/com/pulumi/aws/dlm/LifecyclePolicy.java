@@ -208,11 +208,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DLM lifecycle policies can be imported by their policy ID
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
- * ```
+ *  to = aws_dlm_lifecycle_policy.example
+ * 
+ *  id = &#34;policy-abcdef12345678901&#34; } Using `pulumi import`, import DLM lifecycle policies using their policy ID. For exampleconsole % pulumi import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
  * 
  */
 @ResourceType(type="aws:dlm/lifecyclePolicy:LifecyclePolicy")

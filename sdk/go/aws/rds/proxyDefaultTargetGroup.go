@@ -81,13 +81,11 @@ import (
 //
 // ## Import
 //
-// DB proxy default target groups can be imported using the `db_proxy_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_proxy_default_target_group.example
 //
-//	$ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For exampleconsole % pulumi import aws_db_proxy_default_target_group.example example
 type ProxyDefaultTargetGroup struct {
 	pulumi.CustomResourceState
 

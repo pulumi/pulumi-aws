@@ -54,11 +54,11 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// ## Import
     /// 
-    /// Global Accelerator listeners can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-    /// ```
+    ///  to = aws_globalaccelerator_listener.example
+    /// 
+    ///  id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx" } Using `pulumi import`, import Global Accelerator listeners using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/listener:Listener")]
     public partial class Listener : global::Pulumi.CustomResource
@@ -77,8 +77,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// 
-        /// **port_range** supports the following attributes:
         /// </summary>
         [Output("portRanges")]
         public Output<ImmutableArray<Outputs.ListenerPortRange>> PortRanges { get; private set; } = null!;
@@ -152,8 +150,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// 
-        /// **port_range** supports the following attributes:
         /// </summary>
         public InputList<Inputs.ListenerPortRangeArgs> PortRanges
         {
@@ -192,8 +188,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// 
-        /// **port_range** supports the following attributes:
         /// </summary>
         public InputList<Inputs.ListenerPortRangeGetArgs> PortRanges
         {

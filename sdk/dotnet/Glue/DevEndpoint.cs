@@ -70,11 +70,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// A Glue Development Endpoint can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-    /// ```
+    ///  to = aws_glue_dev_endpoint.example
+    /// 
+    ///  id = "foo" } Using `pulumi import`, import a Glue Development Endpoint using the `name`. For exampleconsole % pulumi import aws_glue_dev_endpoint.example foo
     /// </summary>
     [AwsResourceType("aws:glue/devEndpoint:DevEndpoint")]
     public partial class DevEndpoint : global::Pulumi.CustomResource

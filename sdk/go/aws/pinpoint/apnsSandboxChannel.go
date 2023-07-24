@@ -58,13 +58,11 @@ import (
 //
 // ## Import
 //
-// Pinpoint APNs Sandbox Channel can be imported using the `application-id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_pinpoint_apns_sandbox_channel.apns_sandbox
 //
-//	$ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
-//
-// ```
+//	id = "application-id" } Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_apns_sandbox_channel.apns_sandbox application-id
 type ApnsSandboxChannel struct {
 	pulumi.CustomResourceState
 

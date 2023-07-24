@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IOT Authorizers can be imported using the name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iot/authorizer:Authorizer example example
- * ```
+ *  to = aws_iot_authorizer.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import IOT Authorizers using the name. For exampleconsole % pulumi import aws_iot_authorizer.example example
  * 
  */
 @ResourceType(type="aws:iot/authorizer:Authorizer")

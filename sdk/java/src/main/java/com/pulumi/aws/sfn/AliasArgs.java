@@ -50,16 +50,12 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The StateMachine alias&#39; route configuration settings. Fields documented below
      * 
-     * For **routing_configuration** the following attributes are supported:
-     * 
      */
     @Import(name="routingConfigurations", required=true)
     private Output<List<AliasRoutingConfigurationArgs>> routingConfigurations;
 
     /**
      * @return The StateMachine alias&#39; route configuration settings. Fields documented below
-     * 
-     * For **routing_configuration** the following attributes are supported:
      * 
      */
     public Output<List<AliasRoutingConfigurationArgs>> routingConfigurations() {
@@ -137,8 +133,6 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param routingConfigurations The StateMachine alias&#39; route configuration settings. Fields documented below
          * 
-         * For **routing_configuration** the following attributes are supported:
-         * 
          * @return builder
          * 
          */
@@ -150,8 +144,6 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param routingConfigurations The StateMachine alias&#39; route configuration settings. Fields documented below
          * 
-         * For **routing_configuration** the following attributes are supported:
-         * 
          * @return builder
          * 
          */
@@ -161,8 +153,6 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param routingConfigurations The StateMachine alias&#39; route configuration settings. Fields documented below
-         * 
-         * For **routing_configuration** the following attributes are supported:
          * 
          * @return builder
          * 

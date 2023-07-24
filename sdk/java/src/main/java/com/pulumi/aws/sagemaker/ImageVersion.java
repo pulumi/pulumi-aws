@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Image Versions can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
- * ```
+ *  to = aws_sagemaker_image_version.test_image
+ * 
+ *  id = &#34;my-code-repo&#34; } Using `pulumi import`, import SageMaker Image Versions using the `name`. For exampleconsole % pulumi import aws_sagemaker_image_version.test_image my-code-repo
  * 
  */
 @ResourceType(type="aws:sagemaker/imageVersion:ImageVersion")

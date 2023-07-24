@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Direct Connect LAGs can be imported using the `lag id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
- * ```
+ *  to = aws_dx_lag.test_lag
+ * 
+ *  id = &#34;dxlag-fgnsp5rq&#34; } Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For exampleconsole % pulumi import aws_dx_lag.test_lag dxlag-fgnsp5rq
  * 
  */
 @ResourceType(type="aws:directconnect/linkAggregationGroup:LinkAggregationGroup")

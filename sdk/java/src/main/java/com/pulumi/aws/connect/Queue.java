@@ -22,8 +22,6 @@ import javax.annotation.Nullable;
  * Provides an Amazon Connect Queue resource. For more information see
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
  * 
- * &gt; **NOTE:** Due to The behaviour of Amazon Connect you cannot delete queues.
- * 
  * ## Example Usage
  * ### Basic
  * ```java
@@ -131,11 +129,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Amazon Connect Queues can be imported using the `instance_id` and `queue_id` separated by a colon (`:`), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
- * ```
+ *  to = aws_connect_queue.example
+ * 
+ *  id = &#34;f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5&#34; } Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_queue.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * 
  */
 @ResourceType(type="aws:connect/queue:Queue")

@@ -147,11 +147,11 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        IAM Groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/group:Group developers developers
-        ```
+         to = aws_iam_group.developers
+
+         id = "developers" } Using `pulumi import`, import IAM Groups using the `name`. For exampleconsole % pulumi import aws_iam_group.developers developers
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,11 +180,11 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        IAM Groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/group:Group developers developers
-        ```
+         to = aws_iam_group.developers
+
+         id = "developers" } Using `pulumi import`, import IAM Groups using the `name`. For exampleconsole % pulumi import aws_iam_group.developers developers
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

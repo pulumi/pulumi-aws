@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Event subscriptions can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
- * ```
+ *  to = aws_dms_event_subscription.test
+ * 
+ *  id = &#34;my-awesome-event-subscription&#34; } Using `pulumi import`, import event subscriptions using the `name`. For exampleconsole % pulumi import aws_dms_event_subscription.test my-awesome-event-subscription
  * 
  */
 @ResourceType(type="aws:dms/eventSubscription:EventSubscription")

@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 traffic policy instance can be imported using its id.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
- * ```
+ *  to = aws_route53_traffic_policy_instance.test
+ *
+ *  id = "df579d9a-6396-410e-ac22-e7ad60cf9e7e" } Using `pulumi import`, import Route53 traffic policy instance using its id. For exampleconsole % pulumi import aws_route53_traffic_policy_instance.test df579d9a-6396-410e-ac22-e7ad60cf9e7e
  */
 export class TrafficPolicyInstance extends pulumi.CustomResource {
     /**

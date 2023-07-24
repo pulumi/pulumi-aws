@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
- * ```
+ *  to = aws_lightsail_domain_entry.example
+ *
+ *  id = "www,mydomain.com,A,127.0.0.1" } Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For exampleconsole % pulumi import aws_lightsail_domain_entry.example www,mydomain.com,A,127.0.0.1
  */
 export class DomainEntry extends pulumi.CustomResource {
     /**

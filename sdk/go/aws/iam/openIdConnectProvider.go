@@ -48,13 +48,11 @@ import (
 //
 // ## Import
 //
-// IAM OpenID Connect Providers can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_openid_connect_provider.default
 //
-//	$ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
-//
-// ```
+//	id = "arn:aws:iam::123456789012:oidc-provider/accounts.google.com" } Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For exampleconsole % pulumi import aws_iam_openid_connect_provider.default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
 type OpenIdConnectProvider struct {
 	pulumi.CustomResourceState
 

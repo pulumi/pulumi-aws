@@ -90,11 +90,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
- * ```
+ *  to = aws_accessanalyzer_analyzer.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For exampleconsole % pulumi import aws_accessanalyzer_analyzer.example example
  * 
  */
 @ResourceType(type="aws:accessanalyzer/analyzer:Analyzer")

@@ -75,13 +75,11 @@ import (
 //
 // ## Import
 //
-// CodeBuild Source Credential can be imported using the CodeBuild Source Credential arn, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codebuild_source_credential.example
 //
-//	$ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
-//
-// ```
+//	id = "arn:aws:codebuild:us-west-2:123456789:token:github" } Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For exampleconsole % pulumi import aws_codebuild_source_credential.example arn:aws:codebuild:us-west-2:123456789:token:github
 type SourceCredential struct {
 	pulumi.CustomResourceState
 

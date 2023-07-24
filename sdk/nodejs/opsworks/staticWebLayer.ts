@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * OpsWorks static web server Layers can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:opsworks/staticWebLayer:StaticWebLayer bar 00000000-0000-0000-0000-000000000000
- * ```
+ *  to = aws_opsworks_static_web_layer.bar
+ *
+ *  id = "00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import OpsWorks static web server Layers using the `id`. For exampleconsole % pulumi import aws_opsworks_static_web_layer.bar 00000000-0000-0000-0000-000000000000
  */
 export class StaticWebLayer extends pulumi.CustomResource {
     /**

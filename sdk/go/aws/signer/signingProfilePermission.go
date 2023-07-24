@@ -78,13 +78,11 @@ import (
 //
 // ## Import
 //
-// Signer signing profile permission statements can be imported using profile_name/statement_id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_signer_signing_profile_permission.test_signer_signing_profile_permission
 //
-//	$ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
-//
-// ```
+//	id = "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId" } Using `pulumi import`, import Signer signing profile permission statements using profile_name/statement_id. For exampleconsole % pulumi import aws_signer_signing_profile_permission.test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
 type SigningProfilePermission struct {
 	pulumi.CustomResourceState
 

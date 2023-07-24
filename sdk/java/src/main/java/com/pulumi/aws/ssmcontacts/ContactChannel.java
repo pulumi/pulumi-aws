@@ -96,11 +96,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Import SSM Contact Channel using the `ARN`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
- * ```
+ *  to = aws_ssmcontacts_contact_channel.example
+ * 
+ *  id = &#34;arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example&#34; } Using `pulumi import`, import SSM Contact Channel using the `ARN`. For exampleconsole % pulumi import aws_ssmcontacts_contact_channel.example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
  * 
  */
 @ResourceType(type="aws:ssmcontacts/contactChannel:ContactChannel")

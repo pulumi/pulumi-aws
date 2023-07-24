@@ -21,11 +21,11 @@ namespace Pulumi.Aws.AutoScalingPlans
     /// 
     /// ## Import
     /// 
-    /// Auto Scaling scaling plans can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
-    /// ```
+    ///  to = aws_autoscalingplans_scaling_plan.example
+    /// 
+    ///  id = "MyScale1" } Using `pulumi import`, import Auto Scaling scaling plans using the `name`. For exampleconsole % pulumi import aws_autoscalingplans_scaling_plan.example MyScale1
     /// </summary>
     [AwsResourceType("aws:autoscalingplans/scalingPlan:ScalingPlan")]
     public partial class ScalingPlan : global::Pulumi.CustomResource

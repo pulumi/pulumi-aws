@@ -198,11 +198,11 @@ import {ARN} from "..";
  *
  * ## Import
  *
- * Lambda Functions can be imported using the `function_name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
- * ```
+ *  to = aws_lambda_function.test_lambda
+ *
+ *  id = "my_test_lambda_function" } Using `pulumi import`, import Lambda Functions using the `function_name`. For exampleconsole % pulumi import aws_lambda_function.test_lambda my_test_lambda_function
  */
 export class Function extends pulumi.CustomResource {
     /**

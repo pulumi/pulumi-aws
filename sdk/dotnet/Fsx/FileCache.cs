@@ -80,11 +80,11 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// Amazon File Cache cache can be imported using the resource `id`.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
-    /// ```
+    ///  to = aws_fsx_file_cache.example
+    /// 
+    ///  id = "fc-8012925589" } Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For exampleconsole % pulumi import aws_fsx_file_cache.example fc-8012925589
     /// </summary>
     [AwsResourceType("aws:fsx/fileCache:FileCache")]
     public partial class FileCache : global::Pulumi.CustomResource

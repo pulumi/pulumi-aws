@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MediaStore Container can be imported using the MediaStore Container Name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:mediastore/container:Container example example
- * ```
+ *  to = aws_media_store_container.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For exampleconsole % pulumi import aws_media_store_container.example example
  * 
  */
 @ResourceType(type="aws:mediastore/container:Container")

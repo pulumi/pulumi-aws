@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// ## Import
     /// 
-    /// Amplify backend environment can be imported using `app_id` and `environment_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
-    /// ```
+    ///  to = aws_amplify_backend_environment.example
+    /// 
+    ///  id = "d2ypk4k47z8u6/example" } Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For exampleconsole % pulumi import aws_amplify_backend_environment.example d2ypk4k47z8u6/example
     /// </summary>
     [AwsResourceType("aws:amplify/backendEnvironment:BackendEnvironment")]
     public partial class BackendEnvironment : global::Pulumi.CustomResource

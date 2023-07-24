@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EC2 Availability Zone Groups can be imported using the group name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
- * ```
+ *  to = aws_ec2_availability_zone_group.example
+ * 
+ *  id = &#34;us-west-2-lax-1&#34; } Using `pulumi import`, import EC2 Availability Zone Groups using the group name. For exampleconsole % pulumi import aws_ec2_availability_zone_group.example us-west-2-lax-1
  * 
  */
 @ResourceType(type="aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup")

@@ -44,13 +44,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Code Images can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_image.test_image
 //
-//	$ pulumi import aws:sagemaker/image:Image test_image my-code-repo
-//
-// ```
+//	id = "my-code-repo" } Using `pulumi import`, import SageMaker Code Images using the `name`. For exampleconsole % pulumi import aws_sagemaker_image.test_image my-code-repo
 type Image struct {
 	pulumi.CustomResourceState
 

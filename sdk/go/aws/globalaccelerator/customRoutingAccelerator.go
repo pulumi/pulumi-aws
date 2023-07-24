@@ -52,13 +52,11 @@ import (
 //
 // ## Import
 //
-// Global Accelerator custom routing accelerators can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_globalaccelerator_custom_routing_accelerator.example
 //
-//	$ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-//
-// ```
+//	id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" } Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For exampleconsole % pulumi import aws_globalaccelerator_custom_routing_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 type CustomRoutingAccelerator struct {
 	pulumi.CustomResourceState
 
@@ -81,8 +79,6 @@ type CustomRoutingAccelerator struct {
 	// The name of a custom routing accelerator.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **attributes** supports the following attributes:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -140,8 +136,6 @@ type customRoutingAcceleratorState struct {
 	// The name of a custom routing accelerator.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **attributes** supports the following attributes:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -167,8 +161,6 @@ type CustomRoutingAcceleratorState struct {
 	// The name of a custom routing accelerator.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **attributes** supports the following attributes:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -190,8 +182,6 @@ type customRoutingAcceleratorArgs struct {
 	// The name of a custom routing accelerator.
 	Name string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **attributes** supports the following attributes:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -208,8 +198,6 @@ type CustomRoutingAcceleratorArgs struct {
 	// The name of a custom routing accelerator.
 	Name pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// **attributes** supports the following attributes:
 	Tags pulumi.StringMapInput
 }
 
@@ -343,8 +331,6 @@ func (o CustomRoutingAcceleratorOutput) Name() pulumi.StringOutput {
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// **attributes** supports the following attributes:
 func (o CustomRoutingAcceleratorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomRoutingAccelerator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -80,11 +80,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Import
     /// 
-    /// Amazon Connect Phone Numbers can be imported using its `id` e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
-    /// ```
+    ///  to = aws_connect_phone_number.example
+    /// 
+    ///  id = "12345678-abcd-1234-efgh-9876543210ab" } Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For exampleconsole % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
     /// </summary>
     [AwsResourceType("aws:connect/phoneNumber:PhoneNumber")]
     public partial class PhoneNumber : global::Pulumi.CustomResource

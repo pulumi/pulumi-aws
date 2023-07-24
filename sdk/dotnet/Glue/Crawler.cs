@@ -201,11 +201,11 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Crawlers can be imported using `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
-    /// ```
+    ///  to = aws_glue_crawler.MyJob
+    /// 
+    ///  id = "MyJob" } Using `pulumi import`, import Glue Crawlers using `name`. For exampleconsole % pulumi import aws_glue_crawler.MyJob MyJob
     /// </summary>
     [AwsResourceType("aws:glue/crawler:Crawler")]
     public partial class Crawler : global::Pulumi.CustomResource

@@ -19,6 +19,7 @@ import (
 // > **NOTE:** To retain the Stack during resource destroy, ensure `retainStack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
 //
 // ## Example Usage
+// ### Basic Usage
 //
 // ```go
 // package main
@@ -147,21 +148,15 @@ import (
 //
 // ## Import
 //
-// CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudformation_stack_set_instance.example
 //
-//	$ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
+//	id = "example,123456789012,us-east-1" } Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`)terraform import {
 //
-// ```
+//	to = aws_cloudformation_stack_set_instance.example
 //
-//	CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
-//
-// ```
+//	id = "example,ou-sdas-123123123/ou-sdas-789789789,us-east-1" } **Using `pulumi import` to import** CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`). For exampleconsole % pulumi import aws_cloudformation_stack_set_instance.example example,123456789012,us-east-1 Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`)console % pulumi import aws_cloudformation_stack_set_instance.example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
 type StackSetInstance struct {
 	pulumi.CustomResourceState
 
@@ -173,7 +168,7 @@ type StackSetInstance struct {
 	DeploymentTargets StackSetInstanceDeploymentTargetsPtrOutput `pulumi:"deploymentTargets"`
 	// Preferences for how AWS CloudFormation performs a stack set operation.
 	OperationPreferences StackSetInstanceOperationPreferencesPtrOutput `pulumi:"operationPreferences"`
-	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+	// Organizational unit ID in which the stack is deployed.
 	OrganizationalUnitId pulumi.StringOutput `pulumi:"organizationalUnitId"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides pulumi.StringMapOutput `pulumi:"parameterOverrides"`
@@ -181,8 +176,10 @@ type StackSetInstance struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 	RetainStack pulumi.BoolPtrOutput `pulumi:"retainStack"`
-	// Stack identifier
+	// Stack identifier.
 	StackId pulumi.StringOutput `pulumi:"stackId"`
+	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+	StackInstanceSummaries StackSetInstanceStackInstanceSummaryArrayOutput `pulumi:"stackInstanceSummaries"`
 	// Name of the StackSet.
 	StackSetName pulumi.StringOutput `pulumi:"stackSetName"`
 }
@@ -228,7 +225,7 @@ type stackSetInstanceState struct {
 	DeploymentTargets *StackSetInstanceDeploymentTargets `pulumi:"deploymentTargets"`
 	// Preferences for how AWS CloudFormation performs a stack set operation.
 	OperationPreferences *StackSetInstanceOperationPreferences `pulumi:"operationPreferences"`
-	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+	// Organizational unit ID in which the stack is deployed.
 	OrganizationalUnitId *string `pulumi:"organizationalUnitId"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
@@ -236,8 +233,10 @@ type stackSetInstanceState struct {
 	Region *string `pulumi:"region"`
 	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 	RetainStack *bool `pulumi:"retainStack"`
-	// Stack identifier
+	// Stack identifier.
 	StackId *string `pulumi:"stackId"`
+	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+	StackInstanceSummaries []StackSetInstanceStackInstanceSummary `pulumi:"stackInstanceSummaries"`
 	// Name of the StackSet.
 	StackSetName *string `pulumi:"stackSetName"`
 }
@@ -251,7 +250,7 @@ type StackSetInstanceState struct {
 	DeploymentTargets StackSetInstanceDeploymentTargetsPtrInput
 	// Preferences for how AWS CloudFormation performs a stack set operation.
 	OperationPreferences StackSetInstanceOperationPreferencesPtrInput
-	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+	// Organizational unit ID in which the stack is deployed.
 	OrganizationalUnitId pulumi.StringPtrInput
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides pulumi.StringMapInput
@@ -259,8 +258,10 @@ type StackSetInstanceState struct {
 	Region pulumi.StringPtrInput
 	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 	RetainStack pulumi.BoolPtrInput
-	// Stack identifier
+	// Stack identifier.
 	StackId pulumi.StringPtrInput
+	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+	StackInstanceSummaries StackSetInstanceStackInstanceSummaryArrayInput
 	// Name of the StackSet.
 	StackSetName pulumi.StringPtrInput
 }
@@ -415,7 +416,7 @@ func (o StackSetInstanceOutput) OperationPreferences() StackSetInstanceOperation
 	return o.ApplyT(func(v *StackSetInstance) StackSetInstanceOperationPreferencesPtrOutput { return v.OperationPreferences }).(StackSetInstanceOperationPreferencesPtrOutput)
 }
 
-// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+// Organizational unit ID in which the stack is deployed.
 func (o StackSetInstanceOutput) OrganizationalUnitId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.OrganizationalUnitId }).(pulumi.StringOutput)
 }
@@ -435,9 +436,16 @@ func (o StackSetInstanceOutput) RetainStack() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.BoolPtrOutput { return v.RetainStack }).(pulumi.BoolPtrOutput)
 }
 
-// Stack identifier
+// Stack identifier.
 func (o StackSetInstanceOutput) StackId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.StackId }).(pulumi.StringOutput)
+}
+
+// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
+func (o StackSetInstanceOutput) StackInstanceSummaries() StackSetInstanceStackInstanceSummaryArrayOutput {
+	return o.ApplyT(func(v *StackSetInstance) StackSetInstanceStackInstanceSummaryArrayOutput {
+		return v.StackInstanceSummaries
+	}).(StackSetInstanceStackInstanceSummaryArrayOutput)
 }
 
 // Name of the StackSet.

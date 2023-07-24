@@ -491,11 +491,11 @@ class Input(pulumi.CustomResource):
 
         ## Import
 
-        MediaLive Input can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:medialive/input:Input example 12345678
-        ```
+         to = aws_medialive_input.example
+
+         id = "12345678" } Using `pulumi import`, import MediaLive Input using the `id`. For exampleconsole % pulumi import aws_medialive_input.example 12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -545,11 +545,11 @@ class Input(pulumi.CustomResource):
 
         ## Import
 
-        MediaLive Input can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:medialive/input:Input example 12345678
-        ```
+         to = aws_medialive_input.example
+
+         id = "12345678" } Using `pulumi import`, import MediaLive Input using the `id`. For exampleconsole % pulumi import aws_medialive_input.example 12345678
 
         :param str resource_name: The name of the resource.
         :param InputArgs args: The arguments to use to populate this resource's properties.

@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Pinpoint GCM Channel can be imported using the `application-id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
- * ```
+ *  to = aws_pinpoint_gcm_channel.gcm
+ * 
+ *  id = &#34;application-id&#34; } Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_gcm_channel.gcm application-id
  * 
  */
 @ResourceType(type="aws:pinpoint/gcmChannel:GcmChannel")

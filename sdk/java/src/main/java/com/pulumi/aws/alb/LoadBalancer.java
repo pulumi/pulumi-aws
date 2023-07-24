@@ -108,11 +108,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * LBs can be imported using their ARN, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
- * ```
+ *  to = aws_lb.bar
+ * 
+ *  id = &#34;arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188&#34; } Using `pulumi import`, import LBs using their ARN. For exampleconsole % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
  * 
  */
 @ResourceType(type="aws:alb/loadBalancer:LoadBalancer")

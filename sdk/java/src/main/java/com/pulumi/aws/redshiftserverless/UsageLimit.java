@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Serverless Usage Limits can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
- * ```
+ *  to = aws_redshiftserverless_usage_limit.example
+ * 
+ *  id = &#34;example-id&#34; } Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For exampleconsole % pulumi import aws_redshiftserverless_usage_limit.example example-id
  * 
  */
 @ResourceType(type="aws:redshiftserverless/usageLimit:UsageLimit")

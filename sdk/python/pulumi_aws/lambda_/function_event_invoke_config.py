@@ -277,29 +277,23 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Function Event Invoke Configs can be imported using the fully qualified Function name or Amazon Resource Name (ARN), e.g., ARN without qualifier (all versions and aliases)
+        ARN without qualifier (all versions and aliases)terraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
-        ```
+         to = aws_lambda_function_event_invoke_config.example
 
-         ARN with qualifier
+         id = "arn:aws:us-east-1:123456789012:function:my_function" } ARN with qualifierterraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
-        ```
+         to = aws_lambda_function_event_invoke_config.example
 
-         Name without qualifier (all versions and aliases)
+         id = "arn:aws:us-east-1:123456789012:function:my_function:production" } Name without qualifier (all versions and aliases)terraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
-        ```
+         to = aws_lambda_function_event_invoke_config.example
 
-         Name with qualifier
+         id = "my_function" } Name with qualifierterraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
-        ```
+         to = aws_lambda_function_event_invoke_config.example
+
+         id = "my_function:production" } **Using `pulumi import` to import** Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For exampleARN without qualifier (all versions and aliases)console % pulumi import aws_lambda_function_event_invoke_config.example arn:aws:us-east-1:123456789012:function:my_function ARN with qualifierconsole % pulumi import aws_lambda_function_event_invoke_config.example arn:aws:us-east-1:123456789012:function:my_function:production Name without qualifier (all versions and aliases)console % pulumi import aws_lambda_function_event_invoke_config.example my_function Name with qualifierconsole % pulumi import aws_lambda_function_event_invoke_config.example my_function:production
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -387,29 +381,23 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Function Event Invoke Configs can be imported using the fully qualified Function name or Amazon Resource Name (ARN), e.g., ARN without qualifier (all versions and aliases)
+        ARN without qualifier (all versions and aliases)terraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
-        ```
+         to = aws_lambda_function_event_invoke_config.example
 
-         ARN with qualifier
+         id = "arn:aws:us-east-1:123456789012:function:my_function" } ARN with qualifierterraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
-        ```
+         to = aws_lambda_function_event_invoke_config.example
 
-         Name without qualifier (all versions and aliases)
+         id = "arn:aws:us-east-1:123456789012:function:my_function:production" } Name without qualifier (all versions and aliases)terraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
-        ```
+         to = aws_lambda_function_event_invoke_config.example
 
-         Name with qualifier
+         id = "my_function" } Name with qualifierterraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
-        ```
+         to = aws_lambda_function_event_invoke_config.example
+
+         id = "my_function:production" } **Using `pulumi import` to import** Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For exampleARN without qualifier (all versions and aliases)console % pulumi import aws_lambda_function_event_invoke_config.example arn:aws:us-east-1:123456789012:function:my_function ARN with qualifierconsole % pulumi import aws_lambda_function_event_invoke_config.example arn:aws:us-east-1:123456789012:function:my_function:production Name without qualifier (all versions and aliases)console % pulumi import aws_lambda_function_event_invoke_config.example my_function Name with qualifierconsole % pulumi import aws_lambda_function_event_invoke_config.example my_function:production
 
         :param str resource_name: The name of the resource.
         :param FunctionEventInvokeConfigArgs args: The arguments to use to populate this resource's properties.

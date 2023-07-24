@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
- * ```
+ *  to = aws_route53recoveryreadiness_cell.us-west-2-failover-cell
+ * 
+ *  id = &#34;us-west-2-failover-cell&#34; } Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For exampleconsole % pulumi import aws_route53recoveryreadiness_cell.us-west-2-failover-cell us-west-2-failover-cell
  * 
  */
 @ResourceType(type="aws:route53recoveryreadiness/cell:Cell")

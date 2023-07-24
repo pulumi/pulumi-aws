@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// An Audit Manager Control can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_auditmanager_control.example
 //
-//	$ pulumi import aws:auditmanager/control:Control example abc123-de45
-//
-// ```
+//	id = "abc123-de45" } Using `pulumi import`, import an Audit Manager Control using the `id`. For exampleconsole % pulumi import aws_auditmanager_control.example abc123-de45
 type Control struct {
 	pulumi.CustomResourceState
 

@@ -157,11 +157,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// DB Instances can be imported using the `identifier`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
-    /// ```
+    ///  to = aws_db_instance.default
+    /// 
+    ///  id = "mydb-rds-instance" } Using `pulumi import`, import DB Instances using the `identifier`. For exampleconsole % pulumi import aws_db_instance.default mydb-rds-instance
     /// </summary>
     [AwsResourceType("aws:rds/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource
@@ -225,6 +225,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("backupRetentionPeriod")]
         public Output<int> BackupRetentionPeriod { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+        /// </summary>
+        [Output("backupTarget")]
+        public Output<string> BackupTarget { get; private set; } = null!;
 
         /// <summary>
         /// The daily time range (in UTC) during which automated backups are created if they are enabled.
@@ -338,7 +344,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -777,6 +783,12 @@ namespace Pulumi.Aws.Rds
         public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
+        /// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+        /// </summary>
+        [Input("backupTarget")]
+        public Input<string>? BackupTarget { get; set; }
+
+        /// <summary>
         /// The daily time range (in UTC) during which automated backups are created if they are enabled.
         /// Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         /// </summary>
@@ -888,7 +900,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -1268,6 +1280,12 @@ namespace Pulumi.Aws.Rds
         public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
+        /// Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+        /// </summary>
+        [Input("backupTarget")]
+        public Input<string>? BackupTarget { get; set; }
+
+        /// <summary>
         /// The daily time range (in UTC) during which automated backups are created if they are enabled.
         /// Example: "09:46-10:16". Must not overlap with `maintenance_window`.
         /// </summary>
@@ -1385,7 +1403,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+        /// The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }

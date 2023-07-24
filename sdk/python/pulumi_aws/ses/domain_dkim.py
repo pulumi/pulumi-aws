@@ -116,11 +116,11 @@ class DomainDkim(pulumi.CustomResource):
 
         ## Import
 
-        DKIM tokens can be imported using the `domain` attribute, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
-        ```
+         to = aws_ses_domain_dkim.example
+
+         id = "example.com" } Using `pulumi import`, import DKIM tokens using the `domain` attribute. For exampleconsole % pulumi import aws_ses_domain_dkim.example example.com
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,11 +157,11 @@ class DomainDkim(pulumi.CustomResource):
 
         ## Import
 
-        DKIM tokens can be imported using the `domain` attribute, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
-        ```
+         to = aws_ses_domain_dkim.example
+
+         id = "example.com" } Using `pulumi import`, import DKIM tokens using the `domain` attribute. For exampleconsole % pulumi import aws_ses_domain_dkim.example example.com
 
         :param str resource_name: The name of the resource.
         :param DomainDkimArgs args: The arguments to use to populate this resource's properties.

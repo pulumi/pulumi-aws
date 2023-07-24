@@ -37,11 +37,11 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// GameLift Aliases can be imported using the ID, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:gamelift/alias:Alias example &lt;alias-id&gt;
-    /// ```
+    ///  to = aws_gamelift_alias.example
+    /// 
+    ///  id = "&lt;alias-id&gt;" } Using `pulumi import`, import GameLift Aliases using the ID. For exampleconsole % pulumi import aws_gamelift_alias.example &lt;alias-id&gt;
     /// </summary>
     [AwsResourceType("aws:gamelift/alias:Alias")]
     public partial class Alias : global::Pulumi.CustomResource

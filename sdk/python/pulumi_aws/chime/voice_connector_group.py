@@ -132,11 +132,11 @@ class VoiceConnectorGroup(pulumi.CustomResource):
 
         ## Import
 
-        Configuration Recorder can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
-        ```
+         to = aws_chime_voice_connector_group.default
+
+         id = "example" } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_chime_voice_connector_group.default example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,11 +180,11 @@ class VoiceConnectorGroup(pulumi.CustomResource):
 
         ## Import
 
-        Configuration Recorder can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
-        ```
+         to = aws_chime_voice_connector_group.default
+
+         id = "example" } Using `pulumi import`, import Configuration Recorder using the name. For exampleconsole % pulumi import aws_chime_voice_connector_group.default example
 
         :param str resource_name: The name of the resource.
         :param VoiceConnectorGroupArgs args: The arguments to use to populate this resource's properties.

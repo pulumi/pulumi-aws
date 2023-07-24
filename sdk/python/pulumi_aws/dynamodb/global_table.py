@@ -170,11 +170,11 @@ class GlobalTable(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB Global Tables can be imported using the global table name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
-        ```
+         to = aws_dynamodb_global_table.MyTable
+
+         id = "MyTable" } Using `pulumi import`, import DynamoDB Global Tables using the global table name. For exampleconsole % pulumi import aws_dynamodb_global_table.MyTable MyTable
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -241,11 +241,11 @@ class GlobalTable(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB Global Tables can be imported using the global table name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
-        ```
+         to = aws_dynamodb_global_table.MyTable
+
+         id = "MyTable" } Using `pulumi import`, import DynamoDB Global Tables using the global table name. For exampleconsole % pulumi import aws_dynamodb_global_table.MyTable MyTable
 
         :param str resource_name: The name of the resource.
         :param GlobalTableArgs args: The arguments to use to populate this resource's properties.

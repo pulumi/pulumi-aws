@@ -136,6 +136,11 @@ public final class GetInstanceResult {
      */
     private String masterUsername;
     /**
+     * @return The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+     * 
+     */
+    private Integer maxAllocatedStorage;
+    /**
      * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
      * 
      */
@@ -390,6 +395,13 @@ public final class GetInstanceResult {
         return this.masterUsername;
     }
     /**
+     * @return The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+     * 
+     */
+    public Integer maxAllocatedStorage() {
+        return this.maxAllocatedStorage;
+    }
+    /**
      * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
      * 
      */
@@ -539,6 +551,7 @@ public final class GetInstanceResult {
         private String licenseModel;
         private List<GetInstanceMasterUserSecret> masterUserSecrets;
         private String masterUsername;
+        private Integer maxAllocatedStorage;
         private Integer monitoringInterval;
         private String monitoringRoleArn;
         private Boolean multiAz;
@@ -584,6 +597,7 @@ public final class GetInstanceResult {
     	      this.licenseModel = defaults.licenseModel;
     	      this.masterUserSecrets = defaults.masterUserSecrets;
     	      this.masterUsername = defaults.masterUsername;
+    	      this.maxAllocatedStorage = defaults.maxAllocatedStorage;
     	      this.monitoringInterval = defaults.monitoringInterval;
     	      this.monitoringRoleArn = defaults.monitoringRoleArn;
     	      this.multiAz = defaults.multiAz;
@@ -738,6 +752,11 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder maxAllocatedStorage(Integer maxAllocatedStorage) {
+            this.maxAllocatedStorage = Objects.requireNonNull(maxAllocatedStorage);
+            return this;
+        }
+        @CustomType.Setter
         public Builder monitoringInterval(Integer monitoringInterval) {
             this.monitoringInterval = Objects.requireNonNull(monitoringInterval);
             return this;
@@ -855,6 +874,7 @@ public final class GetInstanceResult {
             o.licenseModel = licenseModel;
             o.masterUserSecrets = masterUserSecrets;
             o.masterUsername = masterUsername;
+            o.maxAllocatedStorage = maxAllocatedStorage;
             o.monitoringInterval = monitoringInterval;
             o.monitoringRoleArn = monitoringRoleArn;
             o.multiAz = multiAz;

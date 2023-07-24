@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
- * ```
+ *  to = aws_kinesisanalyticsv2_application_snapshot.example
+ * 
+ *  id = &#34;example-application/example-snapshot&#34; } Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For exampleconsole % pulumi import aws_kinesisanalyticsv2_application_snapshot.example example-application/example-snapshot
  * 
  */
 @ResourceType(type="aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot")

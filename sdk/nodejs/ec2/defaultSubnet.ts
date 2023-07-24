@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Subnets can be imported using the `subnet id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
- * ```
+ *  to = aws_default_subnet.public_subnet
+ *
+ *  id = "subnet-9d4a7b6c" } Using `pulumi import`, import subnets using the subnet `id`. For exampleconsole % pulumi import aws_default_subnet.public_subnet subnet-9d4a7b6c
  */
 export class DefaultSubnet extends pulumi.CustomResource {
     /**
@@ -71,7 +71,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
      * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
      * * The default value for `mapPublicIpOnLaunch` is `true`
      *
-     * The following additional arguments are supported:
+     * This resource supports the following additional arguments:
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
@@ -188,7 +188,7 @@ export interface DefaultSubnetState {
      * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
      * * The default value for `mapPublicIpOnLaunch` is `true`
      *
-     * The following additional arguments are supported:
+     * This resource supports the following additional arguments:
      */
     availabilityZone?: pulumi.Input<string>;
     /**
@@ -235,7 +235,7 @@ export interface DefaultSubnetArgs {
      * * The `availabilityZoneId`, `cidrBlock` and `vpcId` arguments become computed attributes
      * * The default value for `mapPublicIpOnLaunch` is `true`
      *
-     * The following additional arguments are supported:
+     * This resource supports the following additional arguments:
      */
     availabilityZone: pulumi.Input<string>;
     customerOwnedIpv4Pool?: pulumi.Input<string>;

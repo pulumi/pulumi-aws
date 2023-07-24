@@ -71,11 +71,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SES event destinations can be imported using `configuration_set_name` together with the event destination's `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
- * ```
+ *  to = aws_ses_event_destination.sns
+ *
+ *  id = "some-configuration-set-test/event-destination-sns" } Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For exampleconsole % pulumi import aws_ses_event_destination.sns some-configuration-set-test/event-destination-sns
  */
 export class EventDestination extends pulumi.CustomResource {
     /**

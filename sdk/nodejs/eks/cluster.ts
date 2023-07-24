@@ -114,11 +114,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EKS Clusters can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
- * ```
+ *  to = aws_eks_cluster.my_cluster
+ *
+ *  id = "my_cluster" } Using `pulumi import`, import EKS Clusters using the `name`. For exampleconsole % pulumi import aws_eks_cluster.my_cluster my_cluster
  */
 export class Cluster extends pulumi.CustomResource {
     /**

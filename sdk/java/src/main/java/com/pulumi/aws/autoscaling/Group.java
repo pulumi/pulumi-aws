@@ -677,11 +677,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Auto Scaling Groups can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:autoscaling/group:Group web web-asg
- * ```
+ *  to = aws_autoscaling_group.web
+ * 
+ *  id = &#34;web-asg&#34; } Using `pulumi import`, import Auto Scaling Groups using the `name`. For exampleconsole % pulumi import aws_autoscaling_group.web web-asg
  * 
  */
 @ResourceType(type="aws:autoscaling/group:Group")

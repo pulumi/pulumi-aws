@@ -99,11 +99,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 query logging configurations can be imported using their ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
- * ```
+ *  to = aws_route53_query_log.example_com
+ * 
+ *  id = &#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34; } Using `pulumi import`, import Route53 query logging configurations using their ID. For exampleconsole % pulumi import aws_route53_query_log.example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
  * 
  */
 @ResourceType(type="aws:route53/queryLog:QueryLog")

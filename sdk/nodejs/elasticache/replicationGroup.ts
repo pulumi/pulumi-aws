@@ -164,11 +164,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
- * ```
+ *  to = aws_elasticache_replication_group.my_replication_group
+ *
+ *  id = "replication-group-1" } Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For exampleconsole % pulumi import aws_elasticache_replication_group.my_replication_group replication-group-1
  */
 export class ReplicationGroup extends pulumi.CustomResource {
     /**
@@ -250,7 +250,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -542,7 +542,7 @@ export interface ReplicationGroupState {
      * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -716,7 +716,7 @@ export interface ReplicationGroupArgs {
      * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**

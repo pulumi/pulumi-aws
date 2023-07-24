@@ -115,11 +115,11 @@ class TrackerAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Location Tracker Association can be imported using the `tracker_name|consumer_arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
-        ```
+         to = aws_location_tracker_association.example
+
+         id = "tracker_name|consumer_arn" } Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For exampleconsole % pulumi import aws_location_tracker_association.example "tracker_name|consumer_arn"
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,11 +150,11 @@ class TrackerAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Location Tracker Association can be imported using the `tracker_name|consumer_arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
-        ```
+         to = aws_location_tracker_association.example
+
+         id = "tracker_name|consumer_arn" } Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For exampleconsole % pulumi import aws_location_tracker_association.example "tracker_name|consumer_arn"
 
         :param str resource_name: The name of the resource.
         :param TrackerAssociationArgs args: The arguments to use to populate this resource's properties.

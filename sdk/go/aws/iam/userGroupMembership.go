@@ -76,13 +76,11 @@ import (
 //
 // ## Import
 //
-// IAM user group membership can be imported using the user name and group names separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_user_group_membership.example1
 //
-//	$ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
-//
-// ```
+//	id = "user1/group1/group2" } Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For exampleconsole % pulumi import aws_iam_user_group_membership.example1 user1/group1/group2
 type UserGroupMembership struct {
 	pulumi.CustomResourceState
 

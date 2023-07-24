@@ -250,11 +250,11 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        Neptune Parameter Groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
-        ```
+         to = aws_neptune_parameter_group.some_pg
+
+         id = "some-pg" } Using `pulumi import`, import Neptune Parameter Groups using the `name`. For exampleconsole % pulumi import aws_neptune_parameter_group.some_pg some-pg
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -289,11 +289,11 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        Neptune Parameter Groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
-        ```
+         to = aws_neptune_parameter_group.some_pg
+
+         id = "some-pg" } Using `pulumi import`, import Neptune Parameter Groups using the `name`. For exampleconsole % pulumi import aws_neptune_parameter_group.some_pg some-pg
 
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.

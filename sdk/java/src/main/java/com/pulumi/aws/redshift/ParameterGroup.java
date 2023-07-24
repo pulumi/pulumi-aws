@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Parameter Groups can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test
- * ```
+ *  to = aws_redshift_parameter_group.paramgroup1
+ * 
+ *  id = &#34;parameter-group-test-TODO&#34; } Using `pulumi import`, import Redshift Parameter Groups using the `name`. For exampleconsole % pulumi import aws_redshift_parameter_group.paramgroup1 parameter-group-test-TODO
  * 
  */
 @ResourceType(type="aws:redshift/parameterGroup:ParameterGroup")

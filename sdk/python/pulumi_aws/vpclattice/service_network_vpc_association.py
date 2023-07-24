@@ -249,11 +249,11 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Service Network VPC Association can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
-        ```
+         to = aws_vpclattice_service_network_vpc_association.example
+
+         id = "snsa-05e2474658a88f6ba" } Using `pulumi import`, import VPC Lattice Service Network VPC Association using the `id`. For exampleconsole % pulumi import aws_vpclattice_service_network_vpc_association.example snsa-05e2474658a88f6ba
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,11 +287,11 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Service Network VPC Association can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
-        ```
+         to = aws_vpclattice_service_network_vpc_association.example
+
+         id = "snsa-05e2474658a88f6ba" } Using `pulumi import`, import VPC Lattice Service Network VPC Association using the `id`. For exampleconsole % pulumi import aws_vpclattice_service_network_vpc_association.example snsa-05e2474658a88f6ba
 
         :param str resource_name: The name of the resource.
         :param ServiceNetworkVpcAssociationArgs args: The arguments to use to populate this resource's properties.

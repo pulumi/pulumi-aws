@@ -53,13 +53,11 @@ import (
 //
 // ## Import
 //
-// Internet Gateway Attachments can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_internet_gateway_attachment.example
 //
-//	$ pulumi import aws:ec2/internetGatewayAttachment:InternetGatewayAttachment example igw-c0a643a9:vpc-123456
-//
-// ```
+//	id = "igw-c0a643a9:vpc-123456" } Using `pulumi import`, import Internet Gateway Attachments using the `id`. For exampleconsole % pulumi import aws_internet_gateway_attachment.example igw-c0a643a9:vpc-123456
 type InternetGatewayAttachment struct {
 	pulumi.CustomResourceState
 

@@ -43,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Audit Manager Organization Admin Account Registration can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_auditmanager_organization_admin_account_registration.example
 //
-//	$ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
-//
-// ```
+//	id = "012345678901 " } Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For exampleconsole % pulumi import aws_auditmanager_organization_admin_account_registration.example 012345678901
 type OrganizationAdminAccountRegistration struct {
 	pulumi.CustomResourceState
 

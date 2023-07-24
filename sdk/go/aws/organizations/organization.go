@@ -49,13 +49,11 @@ import (
 //
 // ## Import
 //
-// The AWS organization can be imported by using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_organizations_organization.my_org
 //
-//	$ pulumi import aws:organizations/organization:Organization my_org o-1234567
-//
-// ```
+//	id = "o-1234567" } Using `pulumi import`, import the AWS organization using the `id`. For exampleconsole % pulumi import aws_organizations_organization.my_org o-1234567
 type Organization struct {
 	pulumi.CustomResourceState
 

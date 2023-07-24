@@ -86,13 +86,11 @@ import (
 //
 // ## Import
 //
-// IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_role_policy.mypolicy
 //
-//	$ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
-//
-// ```
+//	id = "role_of_mypolicy_name:mypolicy_name" } Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For exampleconsole % pulumi import aws_iam_role_policy.mypolicy role_of_mypolicy_name:mypolicy_name
 type RolePolicy struct {
 	pulumi.CustomResourceState
 

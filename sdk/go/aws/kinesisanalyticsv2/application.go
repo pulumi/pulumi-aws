@@ -291,13 +291,11 @@ import (
 //
 // ## Import
 //
-// `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kinesisanalyticsv2_application.example
 //
-//	$ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
-//
-// ```
+//	id = "arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application" } Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For exampleconsole % pulumi import aws_kinesisanalyticsv2_application.example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
 type Application struct {
 	pulumi.CustomResourceState
 

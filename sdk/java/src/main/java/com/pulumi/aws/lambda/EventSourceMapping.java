@@ -341,11 +341,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
- * ```
+ *  to = aws_lambda_event_source_mapping.event_source_mapping
+ * 
+ *  id = &#34;12345kxodurf3443&#34; } Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For exampleconsole % pulumi import aws_lambda_event_source_mapping.event_source_mapping 12345kxodurf3443
  * 
  */
 @ResourceType(type="aws:lambda/eventSourceMapping:EventSourceMapping")

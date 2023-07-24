@@ -127,13 +127,11 @@ import (
 //
 // ## Import
 //
-// Network Firewall Logging Configurations can be imported using the `firewall_arn` e.g
+// terraform import {
 //
-// ```sh
+//	to = aws_networkfirewall_logging_configuration.example
 //
-//	$ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-//
-// ```
+//	id = "arn:aws:network-firewall:us-west-1:123456789012:firewall/example" } Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For exampleconsole % pulumi import aws_networkfirewall_logging_configuration.example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
 type LoggingConfiguration struct {
 	pulumi.CustomResourceState
 

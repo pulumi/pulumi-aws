@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Subnets can be imported using the `subnet id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
- * ```
+ *  to = aws_default_subnet.public_subnet
+ * 
+ *  id = &#34;subnet-9d4a7b6c&#34; } Using `pulumi import`, import subnets using the subnet `id`. For exampleconsole % pulumi import aws_default_subnet.public_subnet subnet-9d4a7b6c
  * 
  */
 @ResourceType(type="aws:ec2/defaultSubnet:DefaultSubnet")
@@ -86,7 +86,7 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
      * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
      * * The default value for `map_public_ip_on_launch` is `true`
      * 
-     * The following additional arguments are supported:
+     * This resource supports the following additional arguments:
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
@@ -97,7 +97,7 @@ public class DefaultSubnet extends com.pulumi.resources.CustomResource {
      * * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
      * * The default value for `map_public_ip_on_launch` is `true`
      * 
-     * The following additional arguments are supported:
+     * This resource supports the following additional arguments:
      * 
      */
     public Output<String> availabilityZone() {

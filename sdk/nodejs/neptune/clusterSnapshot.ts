@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_neptune_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
- * ```
+ *  to = aws_neptune_cluster_snapshot.example
+ *
+ *  id = "my-cluster-snapshot" } Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For exampleconsole % pulumi import aws_neptune_cluster_snapshot.example my-cluster-snapshot
  */
 export class ClusterSnapshot extends pulumi.CustomResource {
     /**

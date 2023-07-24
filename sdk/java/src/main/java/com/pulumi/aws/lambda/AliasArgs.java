@@ -79,16 +79,12 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The Lambda alias&#39; route configuration settings. Fields documented below
      * 
-     * For **routing_config** the following attributes are supported:
-     * 
      */
     @Import(name="routingConfig")
     private @Nullable Output<AliasRoutingConfigArgs> routingConfig;
 
     /**
      * @return The Lambda alias&#39; route configuration settings. Fields documented below
-     * 
-     * For **routing_config** the following attributes are supported:
      * 
      */
     public Optional<Output<AliasRoutingConfigArgs>> routingConfig() {
@@ -210,8 +206,6 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param routingConfig The Lambda alias&#39; route configuration settings. Fields documented below
          * 
-         * For **routing_config** the following attributes are supported:
-         * 
          * @return builder
          * 
          */
@@ -222,8 +216,6 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param routingConfig The Lambda alias&#39; route configuration settings. Fields documented below
-         * 
-         * For **routing_config** the following attributes are supported:
          * 
          * @return builder
          * 

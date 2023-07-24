@@ -112,13 +112,11 @@ import (
 //
 // ## Import
 //
-// Transfer Users can be imported using the `server_id` and `user_name` separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_transfer_user.bar
 //
-//	$ pulumi import aws:transfer/user:User bar s-12345678/test-username
-//
-// ```
+//	id = "s-12345678/test-username" } Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For exampleconsole % pulumi import aws_transfer_user.bar s-12345678/test-username
 type User struct {
 	pulumi.CustomResourceState
 

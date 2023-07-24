@@ -48,15 +48,11 @@ import (
 //
 // ## Import
 //
-// Kinesis Streams can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kinesis_video_stream.test_stream
 //
-//	$ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/terraform-kinesis-test/1554978910975
-//
-// ```
-//
-//	[1]https://aws.amazon.com/documentation/kinesis/ [2]http://www.iana.org/assignments/media-types/media-types.xhtml [3]https://tools.ietf.org/html/rfc6838#section-4.2
+//	id = "arn:aws:kinesisvideo:us-west-2:123456789012:stream/TODO-kinesis-test/1554978910975" } Using `pulumi import`, import Kinesis Streams using the `arn`. For exampleconsole % pulumi import aws_kinesis_video_stream.test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/TODO-kinesis-test/1554978910975 [1]https://aws.amazon.com/documentation/kinesis/ [2]http://www.iana.org/assignments/media-types/media-types.xhtml [3]https://tools.ietf.org/html/rfc6838#section-4.2
 type VideoStream struct {
 	pulumi.CustomResourceState
 

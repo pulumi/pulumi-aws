@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Global Accelerator custom routing endpoint groups can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
- * ```
+ *  to = aws_globalaccelerator_custom_routing_endpoint_group.example
+ *
+ *  id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx" } Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_custom_routing_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
  */
 export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
     /**
@@ -79,8 +79,6 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
     public readonly endpointConfigurations!: pulumi.Output<outputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration[] | undefined>;
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
-     *
-     * **destination_configuration** supports the following attributes:
      */
     public readonly endpointGroupRegion!: pulumi.Output<string>;
     /**
@@ -143,8 +141,6 @@ export interface CustomRoutingEndpointGroupState {
     endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration>[]>;
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
-     *
-     * **destination_configuration** supports the following attributes:
      */
     endpointGroupRegion?: pulumi.Input<string>;
     /**
@@ -167,8 +163,6 @@ export interface CustomRoutingEndpointGroupArgs {
     endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.CustomRoutingEndpointGroupEndpointConfiguration>[]>;
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
-     *
-     * **destination_configuration** supports the following attributes:
      */
     endpointGroupRegion?: pulumi.Input<string>;
     /**

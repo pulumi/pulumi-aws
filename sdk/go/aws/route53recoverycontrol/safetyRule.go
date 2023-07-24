@@ -87,13 +87,11 @@ import (
 //
 // ## Import
 //
-// Route53 Recovery Control Config Safety Rule can be imported via the safety rule ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53recoverycontrolconfig_safety_rule.myrule
 //
-//	$ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
-//
-// ```
+//	id = "arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f" } Using `pulumi import`, import Route53 Recovery Control Config Safety Rule using the safety rule ARN. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_safety_rule.myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
 type SafetyRule struct {
 	pulumi.CustomResourceState
 

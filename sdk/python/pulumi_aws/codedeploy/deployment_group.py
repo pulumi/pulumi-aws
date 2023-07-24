@@ -766,13 +766,11 @@ class DeploymentGroup(pulumi.CustomResource):
 
         ## Import
 
-        CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
-        ```
+         to = aws_codedeploy_deployment_group.example
 
-         [1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
+         id = "my-application:my-deployment-group" } Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For exampleconsole % pulumi import aws_codedeploy_deployment_group.example my-application:my-deployment-group [1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -941,13 +939,11 @@ class DeploymentGroup(pulumi.CustomResource):
 
         ## Import
 
-        CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
-        ```
+         to = aws_codedeploy_deployment_group.example
 
-         [1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
+         id = "my-application:my-deployment-group" } Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For exampleconsole % pulumi import aws_codedeploy_deployment_group.example my-application:my-deployment-group [1]http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
 
         :param str resource_name: The name of the resource.
         :param DeploymentGroupArgs args: The arguments to use to populate this resource's properties.

@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
- * ```
+ *  to = aws_neptune_cluster.example
+ * 
+ *  id = &#34;my-cluster&#34; } Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For exampleconsole % pulumi import aws_neptune_cluster.example my-cluster
  * 
  */
 @ResourceType(type="aws:neptune/cluster:Cluster")

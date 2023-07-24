@@ -619,13 +619,11 @@ class Document(pulumi.CustomResource):
 
         ## Import
 
-        SSM Documents can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssm/document:Document example example
-        ```
+         to = aws_ssm_document.example
 
-         The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_ssm_document" "test" {
+         id = "example" } Using `pulumi import`, import SSM Documents using the name. For exampleconsole % pulumi import aws_ssm_document.example example The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_ssm_document" "test" {
 
          name
 
@@ -738,13 +736,11 @@ class Document(pulumi.CustomResource):
 
         ## Import
 
-        SSM Documents can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssm/document:Document example example
-        ```
+         to = aws_ssm_document.example
 
-         The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_ssm_document" "test" {
+         id = "example" } Using `pulumi import`, import SSM Documents using the name. For exampleconsole % pulumi import aws_ssm_document.example example The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource "aws_ssm_document" "test" {
 
          name
 

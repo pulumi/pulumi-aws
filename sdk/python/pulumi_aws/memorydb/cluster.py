@@ -931,11 +931,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        Use the `name` to import a cluster. For example
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
-        ```
+         to = aws_memorydb_cluster.example
+
+         id = "my-cluster" } Using `pulumi import`, import a cluster using the `name`. For exampleconsole % pulumi import aws_memorydb_cluster.example my-cluster
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -994,11 +994,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        Use the `name` to import a cluster. For example
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
-        ```
+         to = aws_memorydb_cluster.example
+
+         id = "my-cluster" } Using `pulumi import`, import a cluster using the `name`. For exampleconsole % pulumi import aws_memorydb_cluster.example my-cluster
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

@@ -48,13 +48,11 @@ import (
 //
 // ## Import
 //
-// Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53recoveryreadiness_resource_set.my-cw-alarm-set
 //
-//	$ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Route53 Recovery Readiness resource set name using the resource set name. For exampleconsole % pulumi import aws_route53recoveryreadiness_resource_set.my-cw-alarm-set example
 type ResourceSet struct {
 	pulumi.CustomResourceState
 

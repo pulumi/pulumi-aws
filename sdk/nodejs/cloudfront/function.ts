@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CloudFront Functions can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:cloudfront/function:Function test my_test_function
- * ```
+ *  to = aws_cloudfront_function.test
+ *
+ *  id = "my_test_function" } Using `pulumi import`, import CloudFront Functions using the `name`. For exampleconsole % pulumi import aws_cloudfront_function.test my_test_function
  */
 export class Function extends pulumi.CustomResource {
     /**

@@ -56,11 +56,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SSM Maintenance Window targets can be imported using `WINDOW_ID/WINDOW_TARGET_ID`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
- * ```
+ *  to = aws_ssm_maintenance_window_target.example
+ *
+ *  id = "mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE" } Using `pulumi import`, import SSM Maintenance Window targets using `WINDOW_ID/WINDOW_TARGET_ID`. For exampleconsole % pulumi import aws_ssm_maintenance_window_target.example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
  */
 export class MaintenanceWindowTarget extends pulumi.CustomResource {
     /**

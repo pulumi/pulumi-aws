@@ -20,8 +20,6 @@ import javax.annotation.Nullable;
 /**
  * This resource creates a WAFv2 Web ACL Logging Configuration.
  * 
- * &gt; **NOTE:** To start logging from a WAFv2 Web ACL, you need to create an Amazon Kinesis Data Firehose resource, such as the `aws.kinesis.FirehoseDeliveryStream` resource. Make sure to create the firehose with a PUT source (not a stream) in the region where you are operating. If you are capturing logs for Amazon CloudFront, create the firehose in the US East (N. Virginia) region. It is important to name the data firehose, CloudWatch log group, and/or S3 bucket with a prefix of `aws-waf-logs-`.
- * 
  * !&gt; **WARNING:** When logging from a WAFv2 Web ACL to a CloudWatch Log Group, the WAFv2 service tries to create or update a generic Log Resource Policy named `AWSWAF-LOGS`. However, if there are a large number of Web ACLs or if the account frequently creates and deletes Web ACLs, this policy may exceed the maximum policy size. As a result, this resource type will fail to be created. More details about this issue can be found in this issue. To prevent this issue, you can manage a specific resource policy. Please refer to the example below for managing a CloudWatch Log Group with a managed CloudWatch Log Resource Policy.
  * 
  * ## Example Usage
@@ -124,11 +122,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * To import WAFv2 Web ACL Logging Configurations, use the ARN of the WAFv2 Web ACL. For example
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
- * ```
+ *  to = aws_wafv2_web_acl_logging_configuration.example
+ * 
+ *  id = &#34;arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef&#34; } Using `pulumi import`, import WAFv2 Web ACL Logging Configurations using the ARN of the WAFv2 Web ACL. For exampleconsole % pulumi import aws_wafv2_web_acl_logging_configuration.example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
  * 
  */
 @ResourceType(type="aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")

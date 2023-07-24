@@ -243,13 +243,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_storagegateway_gateway` can be imported by using the gateway Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
- * ```
+ *  to = aws_storagegateway_gateway.example
  * 
- *  Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the provider configuration or use `ignoreChanges` to hide the difference. terraform resource &#34;aws_storagegateway_gateway&#34; &#34;example&#34; {
+ *  id = &#34;arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678&#34; } Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_gateway.example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678 Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For exampleterraform resource &#34;aws_storagegateway_gateway&#34; &#34;example&#34; {
  * 
  * # ... other configuration ...
  * 

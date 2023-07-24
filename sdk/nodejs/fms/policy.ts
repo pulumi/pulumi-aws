@@ -47,11 +47,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Firewall Manager policies can be imported using the policy ID, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
- * ```
+ *  to = aws_fms_policy.example
+ *
+ *  id = "5be49585-a7e3-4c49-dde1-a179fe4a619a" } Using `pulumi import`, import Firewall Manager policies using the policy ID. For exampleconsole % pulumi import aws_fms_policy.example 5be49585-a7e3-4c49-dde1-a179fe4a619a
  */
 export class Policy extends pulumi.CustomResource {
     /**

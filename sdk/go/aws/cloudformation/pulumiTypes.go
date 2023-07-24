@@ -694,6 +694,121 @@ func (o StackSetInstanceOperationPreferencesPtrOutput) RegionOrders() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+type StackSetInstanceStackInstanceSummary struct {
+	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+	AccountId *string `pulumi:"accountId"`
+	// Organizational unit ID in which the stack is deployed.
+	OrganizationalUnitId *string `pulumi:"organizationalUnitId"`
+	// Stack identifier.
+	StackId *string `pulumi:"stackId"`
+}
+
+// StackSetInstanceStackInstanceSummaryInput is an input type that accepts StackSetInstanceStackInstanceSummaryArgs and StackSetInstanceStackInstanceSummaryOutput values.
+// You can construct a concrete instance of `StackSetInstanceStackInstanceSummaryInput` via:
+//
+//	StackSetInstanceStackInstanceSummaryArgs{...}
+type StackSetInstanceStackInstanceSummaryInput interface {
+	pulumi.Input
+
+	ToStackSetInstanceStackInstanceSummaryOutput() StackSetInstanceStackInstanceSummaryOutput
+	ToStackSetInstanceStackInstanceSummaryOutputWithContext(context.Context) StackSetInstanceStackInstanceSummaryOutput
+}
+
+type StackSetInstanceStackInstanceSummaryArgs struct {
+	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// Organizational unit ID in which the stack is deployed.
+	OrganizationalUnitId pulumi.StringPtrInput `pulumi:"organizationalUnitId"`
+	// Stack identifier.
+	StackId pulumi.StringPtrInput `pulumi:"stackId"`
+}
+
+func (StackSetInstanceStackInstanceSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetInstanceStackInstanceSummary)(nil)).Elem()
+}
+
+func (i StackSetInstanceStackInstanceSummaryArgs) ToStackSetInstanceStackInstanceSummaryOutput() StackSetInstanceStackInstanceSummaryOutput {
+	return i.ToStackSetInstanceStackInstanceSummaryOutputWithContext(context.Background())
+}
+
+func (i StackSetInstanceStackInstanceSummaryArgs) ToStackSetInstanceStackInstanceSummaryOutputWithContext(ctx context.Context) StackSetInstanceStackInstanceSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceStackInstanceSummaryOutput)
+}
+
+// StackSetInstanceStackInstanceSummaryArrayInput is an input type that accepts StackSetInstanceStackInstanceSummaryArray and StackSetInstanceStackInstanceSummaryArrayOutput values.
+// You can construct a concrete instance of `StackSetInstanceStackInstanceSummaryArrayInput` via:
+//
+//	StackSetInstanceStackInstanceSummaryArray{ StackSetInstanceStackInstanceSummaryArgs{...} }
+type StackSetInstanceStackInstanceSummaryArrayInput interface {
+	pulumi.Input
+
+	ToStackSetInstanceStackInstanceSummaryArrayOutput() StackSetInstanceStackInstanceSummaryArrayOutput
+	ToStackSetInstanceStackInstanceSummaryArrayOutputWithContext(context.Context) StackSetInstanceStackInstanceSummaryArrayOutput
+}
+
+type StackSetInstanceStackInstanceSummaryArray []StackSetInstanceStackInstanceSummaryInput
+
+func (StackSetInstanceStackInstanceSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackSetInstanceStackInstanceSummary)(nil)).Elem()
+}
+
+func (i StackSetInstanceStackInstanceSummaryArray) ToStackSetInstanceStackInstanceSummaryArrayOutput() StackSetInstanceStackInstanceSummaryArrayOutput {
+	return i.ToStackSetInstanceStackInstanceSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i StackSetInstanceStackInstanceSummaryArray) ToStackSetInstanceStackInstanceSummaryArrayOutputWithContext(ctx context.Context) StackSetInstanceStackInstanceSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceStackInstanceSummaryArrayOutput)
+}
+
+type StackSetInstanceStackInstanceSummaryOutput struct{ *pulumi.OutputState }
+
+func (StackSetInstanceStackInstanceSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetInstanceStackInstanceSummary)(nil)).Elem()
+}
+
+func (o StackSetInstanceStackInstanceSummaryOutput) ToStackSetInstanceStackInstanceSummaryOutput() StackSetInstanceStackInstanceSummaryOutput {
+	return o
+}
+
+func (o StackSetInstanceStackInstanceSummaryOutput) ToStackSetInstanceStackInstanceSummaryOutputWithContext(ctx context.Context) StackSetInstanceStackInstanceSummaryOutput {
+	return o
+}
+
+// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+func (o StackSetInstanceStackInstanceSummaryOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceStackInstanceSummary) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// Organizational unit ID in which the stack is deployed.
+func (o StackSetInstanceStackInstanceSummaryOutput) OrganizationalUnitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceStackInstanceSummary) *string { return v.OrganizationalUnitId }).(pulumi.StringPtrOutput)
+}
+
+// Stack identifier.
+func (o StackSetInstanceStackInstanceSummaryOutput) StackId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceStackInstanceSummary) *string { return v.StackId }).(pulumi.StringPtrOutput)
+}
+
+type StackSetInstanceStackInstanceSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (StackSetInstanceStackInstanceSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackSetInstanceStackInstanceSummary)(nil)).Elem()
+}
+
+func (o StackSetInstanceStackInstanceSummaryArrayOutput) ToStackSetInstanceStackInstanceSummaryArrayOutput() StackSetInstanceStackInstanceSummaryArrayOutput {
+	return o
+}
+
+func (o StackSetInstanceStackInstanceSummaryArrayOutput) ToStackSetInstanceStackInstanceSummaryArrayOutputWithContext(ctx context.Context) StackSetInstanceStackInstanceSummaryArrayOutput {
+	return o
+}
+
+func (o StackSetInstanceStackInstanceSummaryArrayOutput) Index(i pulumi.IntInput) StackSetInstanceStackInstanceSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackSetInstanceStackInstanceSummary {
+		return vs[0].([]StackSetInstanceStackInstanceSummary)[vs[1].(int)]
+	}).(StackSetInstanceStackInstanceSummaryOutput)
+}
+
 type StackSetManagedExecution struct {
 	// When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
 	Active *bool `pulumi:"active"`
@@ -1178,6 +1293,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceDeploymentTargetsPtrInput)(nil)).Elem(), StackSetInstanceDeploymentTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceOperationPreferencesInput)(nil)).Elem(), StackSetInstanceOperationPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceOperationPreferencesPtrInput)(nil)).Elem(), StackSetInstanceOperationPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceStackInstanceSummaryInput)(nil)).Elem(), StackSetInstanceStackInstanceSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceStackInstanceSummaryArrayInput)(nil)).Elem(), StackSetInstanceStackInstanceSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetManagedExecutionInput)(nil)).Elem(), StackSetManagedExecutionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetManagedExecutionPtrInput)(nil)).Elem(), StackSetManagedExecutionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetOperationPreferencesInput)(nil)).Elem(), StackSetOperationPreferencesArgs{})
@@ -1192,6 +1309,8 @@ func init() {
 	pulumi.RegisterOutputType(StackSetInstanceDeploymentTargetsPtrOutput{})
 	pulumi.RegisterOutputType(StackSetInstanceOperationPreferencesOutput{})
 	pulumi.RegisterOutputType(StackSetInstanceOperationPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(StackSetInstanceStackInstanceSummaryOutput{})
+	pulumi.RegisterOutputType(StackSetInstanceStackInstanceSummaryArrayOutput{})
 	pulumi.RegisterOutputType(StackSetManagedExecutionOutput{})
 	pulumi.RegisterOutputType(StackSetManagedExecutionPtrOutput{})
 	pulumi.RegisterOutputType(StackSetOperationPreferencesOutput{})

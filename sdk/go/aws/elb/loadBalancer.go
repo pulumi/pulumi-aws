@@ -99,13 +99,11 @@ import (
 //
 // ## Import
 //
-// ELBs can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_elb.bar
 //
-//	$ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
-//
-// ```
+//	id = "elb-production-12345" } Using `pulumi import`, import ELBs using the `name`. For exampleconsole % pulumi import aws_elb.bar elb-production-12345
 type LoadBalancer struct {
 	pulumi.CustomResourceState
 

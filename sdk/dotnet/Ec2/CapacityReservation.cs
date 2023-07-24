@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Capacity Reservations can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
-    /// ```
+    ///  to = aws_ec2_capacity_reservation.web
+    /// 
+    ///  id = "cr-0123456789abcdef0" } Using `pulumi import`, import Capacity Reservations using the `id`. For exampleconsole % pulumi import aws_ec2_capacity_reservation.web cr-0123456789abcdef0
     /// </summary>
     [AwsResourceType("aws:ec2/capacityReservation:CapacityReservation")]
     public partial class CapacityReservation : global::Pulumi.CustomResource

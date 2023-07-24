@@ -82,13 +82,11 @@ import (
 //
 // ## Import
 //
-// CloudSearch domain service access policies can be imported using the domain name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudsearch_domain_service_access_policy.example
 //
-//	$ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
-//
-// ```
+//	id = "example-domain" } Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For exampleconsole % pulumi import aws_cloudsearch_domain_service_access_policy.example example-domain
 type DomainServiceAccessPolicy struct {
 	pulumi.CustomResourceState
 

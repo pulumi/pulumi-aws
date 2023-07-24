@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CIDR locations can be imported using their the CIDR collection ID and location name, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
- * ```
+ *  to = aws_route53_cidr_location.example
+ *
+ *  id = "9ac32814-3e67-0932-6048-8d779cc6f511,office" } Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For exampleconsole % pulumi import aws_route53_cidr_location.example 9ac32814-3e67-0932-6048-8d779cc6f511,office
  */
 export class CidrLocation extends pulumi.CustomResource {
     /**

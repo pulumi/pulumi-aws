@@ -85,13 +85,11 @@ import (
 //
 // ## Import
 //
-// IVS (Interactive Video) Chat Room can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ivschat_room.example
 //
-//	$ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
-//
-// ```
+//	id = "arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb" } Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For exampleconsole % pulumi import aws_ivschat_room.example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
 type Room struct {
 	pulumi.CustomResourceState
 

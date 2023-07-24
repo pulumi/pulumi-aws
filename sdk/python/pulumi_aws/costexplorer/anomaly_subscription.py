@@ -323,11 +323,11 @@ class AnomalySubscription(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ce_anomaly_subscription` can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
-        ```
+         to = aws_ce_anomaly_subscription.example
+
+         id = "AnomalySubscriptionARN" } Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For exampleconsole % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -373,11 +373,11 @@ class AnomalySubscription(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ce_anomaly_subscription` can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
-        ```
+         to = aws_ce_anomaly_subscription.example
+
+         id = "AnomalySubscriptionARN" } Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For exampleconsole % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
 
         :param str resource_name: The name of the resource.
         :param AnomalySubscriptionArgs args: The arguments to use to populate this resource's properties.

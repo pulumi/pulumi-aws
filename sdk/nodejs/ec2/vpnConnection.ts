@@ -96,11 +96,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPN Connections can be imported using the `vpn connection id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
- * ```
+ *  to = aws_vpn_connection.testvpnconnection
+ *
+ *  id = "vpn-40f41529" } Using `pulumi import`, import VPN Connections using the VPN connection `id`. For exampleconsole % pulumi import aws_vpn_connection.testvpnconnection vpn-40f41529
  */
 export class VpnConnection extends pulumi.CustomResource {
     /**

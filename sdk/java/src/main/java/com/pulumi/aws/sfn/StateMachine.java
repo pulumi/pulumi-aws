@@ -204,11 +204,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * State Machines can be imported using the `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
- * ```
+ *  to = aws_sfn_state_machine.foo
+ * 
+ *  id = &#34;arn:aws:states:eu-west-1:123456789098:stateMachine:bar&#34; } Using `pulumi import`, import State Machines using the `arn`. For exampleconsole % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
  * 
  */
 @ResourceType(type="aws:sfn/stateMachine:StateMachine")

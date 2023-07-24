@@ -75,13 +75,11 @@ import (
 //
 // ## Import
 //
-// Multi-Region Access Points can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_s3control_multi_region_access_point.example
 //
-//	$ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
-//
-// ```
+//	id = "123456789012:example" } Using `pulumi import`, import Multi-Region Access Points using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_multi_region_access_point.example 123456789012:example
 type MultiRegionAccessPoint struct {
 	pulumi.CustomResourceState
 

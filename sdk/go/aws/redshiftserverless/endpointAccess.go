@@ -43,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Redshift Serverless Endpoint Access can be imported using the `endpoint_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshiftserverless_endpoint_access.example
 //
-//	$ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For exampleconsole % pulumi import aws_redshiftserverless_endpoint_access.example example
 type EndpointAccess struct {
 	pulumi.CustomResourceState
 

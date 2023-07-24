@@ -314,13 +314,11 @@ import (
 //
 // ## Import
 //
-// Cloudtrails can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudtrail.sample
 //
-//	$ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
-//
-// ```
+//	id = "my-sample-trail" } Using `pulumi import`, import Cloudtrails using the `name`. For exampleconsole % pulumi import aws_cloudtrail.sample my-sample-trail
 type Trail struct {
 	pulumi.CustomResourceState
 

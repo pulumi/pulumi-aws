@@ -18,13 +18,11 @@ import (
 //
 // ## Import
 //
-// An AWS FinSpace Kx Cluster can be imported using the `id` (environment ID and cluster name, comma-delimited), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_finspace_kx_cluster.example
 //
-//	$ pulumi import aws:finspace/kxCluster:KxCluster example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-cluster
-//
-// ```
+//	id = "n3ceo7wqxoxcti5tujqwzs,my-tf-kx-cluster" } Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For exampleconsole % pulumi import aws_finspace_kx_cluster.example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-cluster
 type KxCluster struct {
 	pulumi.CustomResourceState
 

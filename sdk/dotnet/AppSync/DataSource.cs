@@ -115,11 +115,11 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Import
     /// 
-    /// `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
-    /// ```
+    ///  to = aws_appsync_datasource.example
+    /// 
+    ///  id = "abcdef123456-example" } Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For exampleconsole % pulumi import aws_appsync_datasource.example abcdef123456-example
     /// </summary>
     [AwsResourceType("aws:appsync/dataSource:DataSource")]
     public partial class DataSource : global::Pulumi.CustomResource
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> ServiceRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? ServiceRoleArn { get; set; }
 
         /// <summary>
-        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? ServiceRoleArn { get; set; }
 
         /// <summary>
-        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+        /// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

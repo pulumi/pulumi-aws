@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// Active SES receipt rule sets can be imported using the rule set name.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet my_rule_set my_rule_set_name
-    /// ```
+    ///  to = aws_ses_active_receipt_rule_set.my_rule_set
+    /// 
+    ///  id = "my_rule_set_name" } Using `pulumi import`, import active SES receipt rule sets using the rule set name. For exampleconsole % pulumi import aws_ses_active_receipt_rule_set.my_rule_set my_rule_set_name
     /// </summary>
     [AwsResourceType("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet")]
     public partial class ActiveReceiptRuleSet : global::Pulumi.CustomResource

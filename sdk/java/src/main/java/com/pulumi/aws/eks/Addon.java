@@ -165,11 +165,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
- * ```
+ *  to = aws_eks_addon.my_eks_addon
+ * 
+ *  id = &#34;my_cluster_name:my_addon_name&#34; } Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_addon.my_eks_addon my_cluster_name:my_addon_name
  * 
  */
 @ResourceType(type="aws:eks/addon:Addon")

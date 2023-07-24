@@ -41,13 +41,11 @@ import (
 //
 // ## Import
 //
-// `aws_networkmanager_global_network` can be imported using the global network ID, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkmanager_global_network.example
 //
-//	$ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4
-//
-// ```
+//	id = "global-network-0d47f6t230mz46dy4" } Using `pulumi import`, import `aws_networkmanager_global_network` using the global network ID. For exampleconsole % pulumi import aws_networkmanager_global_network.example global-network-0d47f6t230mz46dy4
 type GlobalNetwork struct {
 	pulumi.CustomResourceState
 

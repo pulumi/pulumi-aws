@@ -85,13 +85,11 @@ import (
 //
 // ## Import
 //
-// Subnets can be imported using the `subnet id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_subnet.public_subnet
 //
-//	$ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
-//
-// ```
+//	id = "subnet-9d4a7b6c" } Using `pulumi import`, import subnets using the subnet `id`. For exampleconsole % pulumi import aws_subnet.public_subnet subnet-9d4a7b6c
 type Subnet struct {
 	pulumi.CustomResourceState
 

@@ -45,11 +45,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AMI Launch Permissions can be imported using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
- * ```
+ *  to = aws_ami_launch_permission.example
+ *
+ *  id = "123456789012/ami-12345678" } Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For exampleconsole % pulumi import aws_ami_launch_permission.example 123456789012/ami-12345678
  */
 export class AmiLaunchPermission extends pulumi.CustomResource {
     /**

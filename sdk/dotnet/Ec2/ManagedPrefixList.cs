@@ -64,11 +64,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Prefix Lists can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
-    /// ```
+    ///  to = aws_ec2_managed_prefix_list.default
+    /// 
+    ///  id = "pl-0570a1d2d725c16be" } Using `pulumi import`, import Prefix Lists using the `id`. For exampleconsole % pulumi import aws_ec2_managed_prefix_list.default pl-0570a1d2d725c16be
     /// </summary>
     [AwsResourceType("aws:ec2/managedPrefixList:ManagedPrefixList")]
     public partial class ManagedPrefixList : global::Pulumi.CustomResource

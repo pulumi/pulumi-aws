@@ -32,11 +32,11 @@ namespace Pulumi.Aws.DataExchange
     /// 
     /// ## Import
     /// 
-    /// DataExchange Revisions can be imported by their `data-set-id:revision-id`
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-    /// ```
+    ///  to = aws_dataexchange_revision.example
+    /// 
+    ///  id = "4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DataExchange Revisions using their `data-set-id:revision-id`. For exampleconsole % pulumi import aws_dataexchange_revision.example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
     /// </summary>
     [AwsResourceType("aws:dataexchange/revision:Revision")]
     public partial class Revision : global::Pulumi.CustomResource

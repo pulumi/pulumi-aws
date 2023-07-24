@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IOT Thing Types can be imported using the name, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:iot/thingType:ThingType example example
- * ```
+ *  to = aws_iot_thing_type.example
+ *
+ *  id = "example" } Using `pulumi import`, import IOT Thing Types using the name. For exampleconsole % pulumi import aws_iot_thing_type.example example
  */
 export class ThingType extends pulumi.CustomResource {
     /**

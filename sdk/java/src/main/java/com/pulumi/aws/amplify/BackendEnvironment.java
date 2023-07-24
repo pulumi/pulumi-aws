@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Amplify backend environment can be imported using `app_id` and `environment_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
- * ```
+ *  to = aws_amplify_backend_environment.example
+ * 
+ *  id = &#34;d2ypk4k47z8u6/example&#34; } Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For exampleconsole % pulumi import aws_amplify_backend_environment.example d2ypk4k47z8u6/example
  * 
  */
 @ResourceType(type="aws:amplify/backendEnvironment:BackendEnvironment")

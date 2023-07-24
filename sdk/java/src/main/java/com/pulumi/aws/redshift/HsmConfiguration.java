@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Hsm Client Certificates support import by `hsm_configuration_identifier`, e.g., console
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
- * ```
+ *  to = aws_redshift_hsm_configuration.test
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For exampleconsole % pulumi import aws_redshift_hsm_configuration.example example
  * 
  */
 @ResourceType(type="aws:redshift/hsmConfiguration:HsmConfiguration")

@@ -28,7 +28,7 @@ public final class ClusterOutpostConfig {
     private String controlPlaneInstanceType;
     /**
      * @return An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-     * The following arguments are supported in the `control_plane_placement` configuration block:
+     * The `control_plane_placement` configuration block supports the following arguments:
      * 
      */
     private @Nullable ClusterOutpostConfigControlPlanePlacement controlPlanePlacement;
@@ -56,7 +56,7 @@ public final class ClusterOutpostConfig {
     }
     /**
      * @return An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-     * The following arguments are supported in the `control_plane_placement` configuration block:
+     * The `control_plane_placement` configuration block supports the following arguments:
      * 
      */
     public Optional<ClusterOutpostConfigControlPlanePlacement> controlPlanePlacement() {

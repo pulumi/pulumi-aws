@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_detective_member` can be imported using the ARN of the graph followed by the account ID of the member account, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
- * ```
+ *  to = aws_detective_member.example
+ * 
+ *  id = &#34;arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012&#34; } Using `pulumi import`, import `aws_detective_member` using the ARN of the graph followed by the account ID of the member account. For exampleconsole % pulumi import aws_detective_member.example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
  * 
  */
 @ResourceType(type="aws:detective/member:Member")

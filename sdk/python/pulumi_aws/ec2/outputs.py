@@ -22176,13 +22176,30 @@ class GetVpcEndpointDnsEntryResult(dict):
 @pulumi.output_type
 class GetVpcEndpointDnsOptionResult(dict):
     def __init__(__self__, *,
-                 dns_record_ip_type: str):
+                 dns_record_ip_type: str,
+                 private_dns_only_for_inbound_resolver_endpoint: bool):
+        """
+        :param str dns_record_ip_type: The DNS records created for the endpoint.
+        :param bool private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints.
+        """
         pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
+        pulumi.set(__self__, "private_dns_only_for_inbound_resolver_endpoint", private_dns_only_for_inbound_resolver_endpoint)
 
     @property
     @pulumi.getter(name="dnsRecordIpType")
     def dns_record_ip_type(self) -> str:
+        """
+        The DNS records created for the endpoint.
+        """
         return pulumi.get(self, "dns_record_ip_type")
+
+    @property
+    @pulumi.getter(name="privateDnsOnlyForInboundResolverEndpoint")
+    def private_dns_only_for_inbound_resolver_endpoint(self) -> bool:
+        """
+        Indicates whether to enable private DNS only for inbound endpoints.
+        """
+        return pulumi.get(self, "private_dns_only_for_inbound_resolver_endpoint")
 
 
 @pulumi.output_type

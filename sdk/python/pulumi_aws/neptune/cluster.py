@@ -1136,11 +1136,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:neptune/cluster:Cluster example my-cluster
-        ```
+         to = aws_neptune_cluster.example
+
+         id = "my-cluster" } Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For exampleconsole % pulumi import aws_neptune_cluster.example my-cluster
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1212,11 +1212,11 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:neptune/cluster:Cluster example my-cluster
-        ```
+         to = aws_neptune_cluster.example
+
+         id = "my-cluster" } Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For exampleconsole % pulumi import aws_neptune_cluster.example my-cluster
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

@@ -289,11 +289,11 @@ class IPSet(pulumi.CustomResource):
 
         ## Import
 
-        GuardDuty IPSet can be imported using the primary GuardDuty detector ID and IPSet ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
-        ```
+         to = aws_guardduty_ipset.MyIPSet
+
+         id = "00b00fd5aecc0ab60a708659477e9617:123456789012" } Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For exampleconsole % pulumi import aws_guardduty_ipset.MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -340,11 +340,11 @@ class IPSet(pulumi.CustomResource):
 
         ## Import
 
-        GuardDuty IPSet can be imported using the primary GuardDuty detector ID and IPSet ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
-        ```
+         to = aws_guardduty_ipset.MyIPSet
+
+         id = "00b00fd5aecc0ab60a708659477e9617:123456789012" } Using `pulumi import`, import GuardDuty IPSet using the primary GuardDuty detector ID and IPSet ID. For exampleconsole % pulumi import aws_guardduty_ipset.MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
 
         :param str resource_name: The name of the resource.
         :param IPSetArgs args: The arguments to use to populate this resource's properties.

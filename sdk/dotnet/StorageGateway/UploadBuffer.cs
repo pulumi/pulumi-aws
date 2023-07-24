@@ -66,11 +66,11 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_storagegateway_upload_buffer` can be imported by using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
-    /// ```
+    ///  to = aws_storagegateway_upload_buffer.example
+    /// 
+    ///  id = "arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0" } Using `pulumi import`, import `aws_storagegateway_upload_buffer` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For exampleconsole % pulumi import aws_storagegateway_upload_buffer.example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
     /// </summary>
     [AwsResourceType("aws:storagegateway/uploadBuffer:UploadBuffer")]
     public partial class UploadBuffer : global::Pulumi.CustomResource

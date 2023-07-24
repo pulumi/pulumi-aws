@@ -110,11 +110,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Runner Services can be imported by using the `arn`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
- * ```
+ *  to = aws_apprunner_service.example
+ *
+ *  id = "arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe" } Using `pulumi import`, import App Runner Services using the `arn`. For exampleconsole % pulumi import aws_apprunner_service.example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
  */
 export class Service extends pulumi.CustomResource {
     /**

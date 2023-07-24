@@ -74,11 +74,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Workspaces can be imported using their ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
- * ```
+ *  to = aws_workspaces_workspace.example
+ * 
+ *  id = &#34;ws-9z9zmbkhv&#34; } Using `pulumi import`, import Workspaces using their ID. For exampleconsole % pulumi import aws_workspaces_workspace.example ws-9z9zmbkhv
  * 
  */
 @ResourceType(type="aws:workspaces/workspace:Workspace")

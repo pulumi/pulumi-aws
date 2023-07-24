@@ -56,13 +56,11 @@ import (
 //
 // ## Import
 //
-// IAM group policy attachments can be imported using the group name and policy arn separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_group_policy_attachment.test-attach
 //
-//	$ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-//
-// ```
+//	id = "test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy" } Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For exampleconsole % pulumi import aws_iam_group_policy_attachment.test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 type GroupPolicyAttachment struct {
 	pulumi.CustomResourceState
 

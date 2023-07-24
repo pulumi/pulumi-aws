@@ -382,8 +382,6 @@ class Queue(pulumi.CustomResource):
         Provides an Amazon Connect Queue resource. For more information see
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
-        > **NOTE:** Due to The behaviour of Amazon Connect you cannot delete queues.
-
         ## Example Usage
         ### Basic
 
@@ -436,11 +434,11 @@ class Queue(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Connect Queues can be imported using the `instance_id` and `queue_id` separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
+         to = aws_connect_queue.example
+
+         id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_queue.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -464,8 +462,6 @@ class Queue(pulumi.CustomResource):
         Provides an Amazon Connect Queue resource. For more information see
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
-        > **NOTE:** Due to The behaviour of Amazon Connect you cannot delete queues.
-
         ## Example Usage
         ### Basic
 
@@ -518,11 +514,11 @@ class Queue(pulumi.CustomResource):
 
         ## Import
 
-        Amazon Connect Queues can be imported using the `instance_id` and `queue_id` separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:connect/queue:Queue example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
+         to = aws_connect_queue.example
+
+         id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Queues using the `instance_id` and `queue_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_queue.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

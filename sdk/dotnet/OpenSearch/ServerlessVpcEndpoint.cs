@@ -38,11 +38,11 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// OpenSearchServerless Vpc Endpointa can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
-    /// ```
+    ///  to = aws_opensearchserverless_vpc_endpoint.example
+    /// 
+    ///  id = "vpce-8012925589" } Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For exampleconsole % pulumi import aws_opensearchserverless_vpc_endpoint.example vpce-8012925589
     /// </summary>
     [AwsResourceType("aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint")]
     public partial class ServerlessVpcEndpoint : global::Pulumi.CustomResource

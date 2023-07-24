@@ -106,13 +106,11 @@ import (
 //
 // ## Import
 //
-// App Mesh virtual gateway can be imported using `mesh_name` together with the virtual gateway's `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appmesh_virtual_gateway.example
 //
-//	$ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
-//
-// ```
+//	id = "mesh/gw1" } Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_gateway.example mesh/gw1
 type VirtualGateway struct {
 	pulumi.CustomResourceState
 

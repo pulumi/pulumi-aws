@@ -350,11 +350,11 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        CodePipelines can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
-        ```
+         to = aws_codepipeline.foo
+
+         id = "example" } Using `pulumi import`, import CodePipelines using the name. For exampleconsole % pulumi import aws_codepipeline.foo example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -491,11 +491,11 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        CodePipelines can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
-        ```
+         to = aws_codepipeline.foo
+
+         id = "example" } Using `pulumi import`, import CodePipelines using the name. For exampleconsole % pulumi import aws_codepipeline.foo example
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

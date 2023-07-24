@@ -800,11 +800,11 @@ class NodeGroup(pulumi.CustomResource):
 
         ## Import
 
-        EKS Node Groups can be imported using the `cluster_name` and `node_group_name` separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
-        ```
+         to = aws_eks_node_group.my_node_group
+
+         id = "my_cluster:my_node_group" } Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_node_group.my_node_group my_cluster:my_node_group
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -906,11 +906,11 @@ class NodeGroup(pulumi.CustomResource):
 
         ## Import
 
-        EKS Node Groups can be imported using the `cluster_name` and `node_group_name` separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
-        ```
+         to = aws_eks_node_group.my_node_group
+
+         id = "my_cluster:my_node_group" } Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_node_group.my_node_group my_cluster:my_node_group
 
         :param str resource_name: The name of the resource.
         :param NodeGroupArgs args: The arguments to use to populate this resource's properties.

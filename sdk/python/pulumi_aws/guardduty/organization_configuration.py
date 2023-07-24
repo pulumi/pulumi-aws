@@ -214,11 +214,11 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        GuardDuty Organization Configurations can be imported using the GuardDuty Detector ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
-        ```
+         to = aws_guardduty_organization_configuration.example
+
+         id = "00b00fd5aecc0ab60a708659477e9617" } Using `pulumi import`, import GuardDuty Organization Configurations using the GuardDuty Detector ID. For exampleconsole % pulumi import aws_guardduty_organization_configuration.example 00b00fd5aecc0ab60a708659477e9617
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,11 +269,11 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        GuardDuty Organization Configurations can be imported using the GuardDuty Detector ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
-        ```
+         to = aws_guardduty_organization_configuration.example
+
+         id = "00b00fd5aecc0ab60a708659477e9617" } Using `pulumi import`, import GuardDuty Organization Configurations using the GuardDuty Detector ID. For exampleconsole % pulumi import aws_guardduty_organization_configuration.example 00b00fd5aecc0ab60a708659477e9617
 
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -142,13 +142,11 @@ import (
 //
 // ## Import
 //
-// The current EMR Block Public Access Configuration can be imported, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_emr_block_public_access_configuration.example
 //
-//	$ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
-//
-// ```
+//	id = "current" } Using `pulumi import`, import the current EMR Block Public Access Configuration. For exampleconsole % pulumi import aws_emr_block_public_access_configuration.example current
 type BlockPublicAccessConfiguration struct {
 	pulumi.CustomResourceState
 

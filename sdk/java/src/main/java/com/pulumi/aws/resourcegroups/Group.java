@@ -69,11 +69,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Resource groups can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
- * ```
+ *  to = aws_resourcegroups_group.foo
+ * 
+ *  id = &#34;resource-group-name&#34; } Using `pulumi import`, import resource groups using the `name`. For exampleconsole % pulumi import aws_resourcegroups_group.foo resource-group-name
  * 
  */
 @ResourceType(type="aws:resourcegroups/group:Group")

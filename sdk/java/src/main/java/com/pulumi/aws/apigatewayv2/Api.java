@@ -85,11 +85,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_apigatewayv2_api` can be imported by using the API identifier, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
- * ```
+ *  to = aws_apigatewayv2_api.example
+ * 
+ *  id = &#34;aabbccddee&#34; } Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For exampleconsole % pulumi import aws_apigatewayv2_api.example aabbccddee
  * 
  */
 @ResourceType(type="aws:apigatewayv2/api:Api")

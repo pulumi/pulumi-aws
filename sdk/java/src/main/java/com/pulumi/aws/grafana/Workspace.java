@@ -75,11 +75,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Grafana Workspace can be imported using the workspace&#39;s `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
- * ```
+ *  to = aws_grafana_workspace.example
+ * 
+ *  id = &#34;g-2054c75a02&#34; } Using `pulumi import`, import Grafana Workspace using the workspace&#39;s `id`. For exampleconsole % pulumi import aws_grafana_workspace.example g-2054c75a02
  * 
  */
 @ResourceType(type="aws:grafana/workspace:Workspace")

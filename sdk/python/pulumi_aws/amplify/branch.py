@@ -773,11 +773,11 @@ class Branch(pulumi.CustomResource):
 
         ## Import
 
-        Amplify branch can be imported using `app_id` and `branch_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
-        ```
+         to = aws_amplify_branch.master
+
+         id = "d2ypk4k47z8u6/master" } Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For exampleconsole % pulumi import aws_amplify_branch.master d2ypk4k47z8u6/master
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -890,11 +890,11 @@ class Branch(pulumi.CustomResource):
 
         ## Import
 
-        Amplify branch can be imported using `app_id` and `branch_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
-        ```
+         to = aws_amplify_branch.master
+
+         id = "d2ypk4k47z8u6/master" } Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For exampleconsole % pulumi import aws_amplify_branch.master d2ypk4k47z8u6/master
 
         :param str resource_name: The name of the resource.
         :param BranchArgs args: The arguments to use to populate this resource's properties.

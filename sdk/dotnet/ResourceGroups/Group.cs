@@ -47,11 +47,11 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// ## Import
     /// 
-    /// Resource groups can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
-    /// ```
+    ///  to = aws_resourcegroups_group.foo
+    /// 
+    ///  id = "resource-group-name" } Using `pulumi import`, import resource groups using the `name`. For exampleconsole % pulumi import aws_resourcegroups_group.foo resource-group-name
     /// </summary>
     [AwsResourceType("aws:resourcegroups/group:Group")]
     public partial class Group : global::Pulumi.CustomResource

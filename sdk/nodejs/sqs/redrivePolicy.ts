@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SQS Queue Redrive Policies can be imported using the queue URL, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:sqs/redrivePolicy:RedrivePolicy test https://queue.amazonaws.com/0123456789012/myqueue
- * ```
+ *  to = aws_sqs_queue_redrive_policy.test
+ *
+ *  id = "https://queue.amazonaws.com/0123456789012/myqueue" } Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For exampleconsole % pulumi import aws_sqs_queue_redrive_policy.test https://queue.amazonaws.com/0123456789012/myqueue
  */
 export class RedrivePolicy extends pulumi.CustomResource {
     /**

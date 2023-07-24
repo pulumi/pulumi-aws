@@ -236,11 +236,11 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ## Import
 
-        DLM lifecycle policies can be imported by their policy ID
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-        ```
+         to = aws_dlm_lifecycle_policy.example
+
+         id = "policy-abcdef12345678901" } Using `pulumi import`, import DLM lifecycle policies using their policy ID. For exampleconsole % pulumi import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,11 +263,11 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ## Import
 
-        DLM lifecycle policies can be imported by their policy ID
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-        ```
+         to = aws_dlm_lifecycle_policy.example
+
+         id = "policy-abcdef12345678901" } Using `pulumi import`, import DLM lifecycle policies using their policy ID. For exampleconsole % pulumi import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
 
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.

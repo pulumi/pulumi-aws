@@ -46,13 +46,11 @@ import (
 //
 // ## Import
 //
-// SESv2 (Simple Email V2) Dedicated IP Assignment can be imported using the `id`, which is a comma-separated string made up of `ip` and `destination_pool_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sesv2_dedicated_ip_assignment.example
 //
-//	$ pulumi import aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment example "0.0.0.0,my-pool"
-//
-// ```
+//	id = "0.0.0.0,my-pool" } Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Assignment using the `id`, which is a comma-separated string made up of `ip` and `destination_pool_name`. For exampleconsole % pulumi import aws_sesv2_dedicated_ip_assignment.example "0.0.0.0,my-pool"
 type DedicatedIpAssignment struct {
 	pulumi.CustomResourceState
 

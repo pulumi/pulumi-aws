@@ -85,11 +85,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// S3 bucket intelligent tiering configurations can be imported using `bucket:name`, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
-    /// ```
+    ///  to = aws_s3_bucket_intelligent_tiering_configuration.my-bucket-entire-bucket
+    /// 
+    ///  id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For exampleconsole % pulumi import aws_s3_bucket_intelligent_tiering_configuration.my-bucket-entire-bucket my-bucket:EntireBucket
     /// </summary>
     [AwsResourceType("aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration")]
     public partial class BucketIntelligentTieringConfiguration : global::Pulumi.CustomResource

@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_apigatewayv2_api` can be imported by using the API identifier, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
- * ```
+ *  to = aws_apigatewayv2_api.example
+ *
+ *  id = "aabbccddee" } Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For exampleconsole % pulumi import aws_apigatewayv2_api.example aabbccddee
  */
 export class Api extends pulumi.CustomResource {
     /**

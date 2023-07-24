@@ -9,11 +9,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IOT Role Alias can be imported via the alias, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
- * ```
+ *  to = aws_iot_role_alias.example
+ *
+ *  id = "myalias" } Using `pulumi import`, import IOT Role Alias using the alias. For exampleconsole % pulumi import aws_iot_role_alias.example myalias
  */
 export class RoleAlias extends pulumi.CustomResource {
     /**

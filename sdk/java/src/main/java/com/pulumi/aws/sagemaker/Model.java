@@ -89,11 +89,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Models can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sagemaker/model:Model test_model model-foo
- * ```
+ *  to = aws_sagemaker_model.test_model
+ * 
+ *  id = &#34;model-foo&#34; } Using `pulumi import`, import models using the `name`. For exampleconsole % pulumi import aws_sagemaker_model.test_model model-foo
  * 
  */
 @ResourceType(type="aws:sagemaker/model:Model")

@@ -74,11 +74,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Data catalogs can be imported using their `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
- * ```
+ *  to = aws_athena_data_catalog.example
+ *
+ *  id = "example-data-catalog" } Using `pulumi import`, import data catalogs using their `name`. For exampleconsole % pulumi import aws_athena_data_catalog.example example-data-catalog
  */
 export class DataCatalog extends pulumi.CustomResource {
     /**

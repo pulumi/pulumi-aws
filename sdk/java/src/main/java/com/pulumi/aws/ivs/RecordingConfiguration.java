@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IVS (Interactive Video) Recording Configuration can be imported using the ARN, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
- * ```
+ *  to = aws_ivs_recording_configuration.example
+ * 
+ *  id = &#34;arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47&#34; } Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For exampleconsole % pulumi import aws_ivs_recording_configuration.example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
  * 
  */
 @ResourceType(type="aws:ivs/recordingConfiguration:RecordingConfiguration")

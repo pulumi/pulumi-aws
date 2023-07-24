@@ -19,14 +19,14 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
     public static final GroupInstanceRefreshPreferencesArgs Empty = new GroupInstanceRefreshPreferencesArgs();
 
     /**
-     * Automatically rollback if instance refresh fails. Defaults to `false`.
+     * Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
      * 
      */
     @Import(name="autoRollback")
     private @Nullable Output<Boolean> autoRollback;
 
     /**
-     * @return Automatically rollback if instance refresh fails. Defaults to `false`.
+     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
      * 
      */
     public Optional<Output<Boolean>> autoRollback() {
@@ -138,7 +138,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`.
+         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GroupInstanceRefreshPreferencesArgs extends com.pulumi.resour
         }
 
         /**
-         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`.
+         * @param autoRollback Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
          * 
          * @return builder
          * 

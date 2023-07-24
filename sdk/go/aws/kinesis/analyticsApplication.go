@@ -175,13 +175,11 @@ import (
 //
 // ## Import
 //
-// Kinesis Analytics Application can be imported by using ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kinesis_analytics_application.example
 //
-//	$ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
-//
-// ```
+//	id = "arn:aws:kinesisanalytics:us-west-2:1234567890:application/example" } Using `pulumi import`, import Kinesis Analytics Application using ARN. For exampleconsole % pulumi import aws_kinesis_analytics_application.example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
 type AnalyticsApplication struct {
 	pulumi.CustomResourceState
 

@@ -85,13 +85,11 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Resource Policy can be imported using the `resource_arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpclattice_resource_policy.example
 //
-//	$ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
-//
-// ```
+//	id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For exampleconsole % pulumi import aws_vpclattice_resource_policy.example rft-8012925589
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 

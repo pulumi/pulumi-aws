@@ -47,13 +47,11 @@ import (
 //
 // ## Import
 //
-// CloudFront monitoring subscription can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_monitoring_subscription.example
 //
-//	$ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
-//
-// ```
+//	id = "E3QYSUHO4VYRGB" } Using `pulumi import`, import CloudFront monitoring subscription using the id. For exampleconsole % pulumi import aws_cloudfront_monitoring_subscription.example E3QYSUHO4VYRGB
 type MonitoringSubscription struct {
 	pulumi.CustomResourceState
 

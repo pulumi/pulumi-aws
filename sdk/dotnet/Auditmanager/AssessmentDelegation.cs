@@ -36,11 +36,11 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
-    /// Audit Manager Assessment Delegation can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
-    /// ```
+    ///  to = aws_auditmanager_assessment_delegation.example
+    /// 
+    ///  id = "abcdef-123456,arn:aws:iam::012345678901:role/example,example" } Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For exampleconsole % pulumi import aws_auditmanager_assessment_delegation.example abcdef-123456,arn:aws:iam::012345678901:role/example,example
     /// </summary>
     [AwsResourceType("aws:auditmanager/assessmentDelegation:AssessmentDelegation")]
     public partial class AssessmentDelegation : global::Pulumi.CustomResource

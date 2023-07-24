@@ -49,13 +49,11 @@ import (
 //
 // ## Import
 //
-// Neptune Cluster Parameter Groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_neptune_cluster_parameter_group.cluster_pg
 //
-//	$ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
-//
-// ```
+//	id = "production-pg-1" } Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For exampleconsole % pulumi import aws_neptune_cluster_parameter_group.cluster_pg production-pg-1
 type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
 

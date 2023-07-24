@@ -75,11 +75,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_lightsail_lb_attachment` can be imported by using the name attribute, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
- * ```
+ *  to = aws_lightsail_lb_attachment.test
+ * 
+ *  id = &#34;example-load-balancer,example-instance&#34; } Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For exampleconsole % pulumi import aws_lightsail_lb_attachment.test example-load-balancer,example-instance
  * 
  */
 @ResourceType(type="aws:lightsail/lbAttachment:LbAttachment")

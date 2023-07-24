@@ -330,11 +330,11 @@ class WebAcl(pulumi.CustomResource):
 
         ## Import
 
-        WAF Web ACL can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
-        ```
+         to = aws_waf_web_acl.main
+
+         id = "0c8e583e-18f3-4c13-9e2a-67c4805d2f94" } Using `pulumi import`, import WAF Web ACL using the `id`. For exampleconsole % pulumi import aws_waf_web_acl.main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -418,11 +418,11 @@ class WebAcl(pulumi.CustomResource):
 
         ## Import
 
-        WAF Web ACL can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
-        ```
+         to = aws_waf_web_acl.main
+
+         id = "0c8e583e-18f3-4c13-9e2a-67c4805d2f94" } Using `pulumi import`, import WAF Web ACL using the `id`. For exampleconsole % pulumi import aws_waf_web_acl.main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
 
         :param str resource_name: The name of the resource.
         :param WebAclArgs args: The arguments to use to populate this resource's properties.

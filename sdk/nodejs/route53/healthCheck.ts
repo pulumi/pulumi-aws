@@ -83,11 +83,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Health Checks can be imported using the `health check id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
- * ```
+ *  to = aws_route53_health_check.http_check
+ *
+ *  id = "abcdef11-2222-3333-4444-555555fedcba" } Using `pulumi import`, import Route53 Health Checks using the health check `id`. For exampleconsole % pulumi import aws_route53_health_check.http_check abcdef11-2222-3333-4444-555555fedcba
  */
 export class HealthCheck extends pulumi.CustomResource {
     /**

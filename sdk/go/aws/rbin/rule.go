@@ -57,13 +57,11 @@ import (
 //
 // ## Import
 //
-// RBin Rule can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_rbin_rule.example
 //
-//	$ pulumi import aws:rbin/rule:Rule example examplerule
-//
-// ```
+//	id = "examplerule" } Using `pulumi import`, import RBin Rule using the `id`. For exampleconsole % pulumi import aws_rbin_rule.example examplerule
 type Rule struct {
 	pulumi.CustomResourceState
 

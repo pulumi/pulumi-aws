@@ -314,11 +314,11 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
-        ```
+         to = aws_timestreamwrite_table.example
+
+         id = "ExampleTable:ExampleDatabase" } Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For exampleconsole % pulumi import aws_timestreamwrite_table.example ExampleTable:ExampleDatabase
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -386,11 +386,11 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
-        ```
+         to = aws_timestreamwrite_table.example
+
+         id = "ExampleTable:ExampleDatabase" } Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For exampleconsole % pulumi import aws_timestreamwrite_table.example ExampleTable:ExampleDatabase
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

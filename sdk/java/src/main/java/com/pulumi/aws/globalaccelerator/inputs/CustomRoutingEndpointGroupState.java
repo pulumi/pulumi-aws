@@ -66,16 +66,12 @@ public final class CustomRoutingEndpointGroupState extends com.pulumi.resources.
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
      * 
-     * **destination_configuration** supports the following attributes:
-     * 
      */
     @Import(name="endpointGroupRegion")
     private @Nullable Output<String> endpointGroupRegion;
 
     /**
      * @return The name of the AWS Region where the custom routing endpoint group is located.
-     * 
-     * **destination_configuration** supports the following attributes:
      * 
      */
     public Optional<Output<String>> endpointGroupRegion() {
@@ -211,8 +207,6 @@ public final class CustomRoutingEndpointGroupState extends com.pulumi.resources.
         /**
          * @param endpointGroupRegion The name of the AWS Region where the custom routing endpoint group is located.
          * 
-         * **destination_configuration** supports the following attributes:
-         * 
          * @return builder
          * 
          */
@@ -223,8 +217,6 @@ public final class CustomRoutingEndpointGroupState extends com.pulumi.resources.
 
         /**
          * @param endpointGroupRegion The name of the AWS Region where the custom routing endpoint group is located.
-         * 
-         * **destination_configuration** supports the following attributes:
          * 
          * @return builder
          * 

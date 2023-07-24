@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
- * ```
+ *  to = aws_ec2_tag.example
+ * 
+ *  id = &#34;tgw-attach-1234567890abcdef,Name&#34; } Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_ec2_tag.example tgw-attach-1234567890abcdef,Name
  * 
  */
 @ResourceType(type="aws:ec2/tag:Tag")

@@ -61,13 +61,11 @@ import (
 //
 // ## Import
 //
-// AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appconfig_environment.example
 //
-//	$ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
-//
-// ```
+//	id = "71abcde:11xxxxx" } Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For exampleconsole % pulumi import aws_appconfig_environment.example 71abcde:11xxxxx
 type Environment struct {
 	pulumi.CustomResourceState
 

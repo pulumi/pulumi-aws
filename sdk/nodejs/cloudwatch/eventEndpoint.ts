@@ -46,11 +46,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EventBridge Global Endpoints can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
- * ```
+ *  to = aws_cloudwatch_event_endpoint.imported_endpoint
+ *
+ *  id = "example-endpoint" } Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_endpoint.imported_endpoint example-endpoint
  */
 export class EventEndpoint extends pulumi.CustomResource {
     /**

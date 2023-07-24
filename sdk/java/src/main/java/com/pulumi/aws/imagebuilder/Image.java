@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_imagebuilder_image` resources can be imported using the Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
- * ```
+ *  to = aws_imagebuilder_image.example
+ * 
+ *  id = &#34;arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1&#34; } Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_imagebuilder_image.example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
  * 
  */
 @ResourceType(type="aws:imagebuilder/image:Image")

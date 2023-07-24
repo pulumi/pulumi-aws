@@ -47,13 +47,11 @@ import (
 //
 // ## Import
 //
-// A ChimeSDKVoice SIP Media Application can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_chimesdkvoice_sip_media_application.example
 //
-//	$ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
-//
-// ```
+//	id = "abcdef123456" } Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_sip_media_application.example abcdef123456
 type SdkvoiceSipMediaApplication struct {
 	pulumi.CustomResourceState
 

@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_lightsail_certificate` can be imported using the certificate name, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
- * ```
+ *  to = aws_lightsail_certificate.test
+ * 
+ *  id = &#34;CertificateName&#34; } Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For exampleconsole % pulumi import aws_lightsail_certificate.test CertificateName
  * 
  */
 @ResourceType(type="aws:lightsail/certificate:Certificate")

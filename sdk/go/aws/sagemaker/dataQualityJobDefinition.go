@@ -68,13 +68,11 @@ import (
 //
 // ## Import
 //
-// Data quality job definitions can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_data_quality_job_definition.test_data_quality_job_definition
 //
-//	$ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
-//
-// ```
+//	id = "data-quality-job-definition-foo" } Using `pulumi import`, import data quality job definitions using the `name`. For exampleconsole % pulumi import aws_sagemaker_data_quality_job_definition.test_data_quality_job_definition data-quality-job-definition-foo
 type DataQualityJobDefinition struct {
 	pulumi.CustomResourceState
 

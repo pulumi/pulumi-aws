@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Service Catalog Portfolios can be imported using the `service catalog portfolio id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
- * ```
+ *  to = aws_servicecatalog_portfolio.testfolio
+ * 
+ *  id = &#34;port-12344321&#34; } Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For exampleconsole % pulumi import aws_servicecatalog_portfolio.testfolio port-12344321
  * 
  */
 @ResourceType(type="aws:servicecatalog/portfolio:Portfolio")

@@ -78,11 +78,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
- * ```
+ *  to = aws_chime_voice_connector_termination_credentials.default
+ * 
+ *  id = &#34;abcdef1ghij2klmno3pqr4&#34; } Using `pulumi import`, import Chime Voice Connector Termination Credentials using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_termination_credentials.default abcdef1ghij2klmno3pqr4
  * 
  */
 @ResourceType(type="aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials")

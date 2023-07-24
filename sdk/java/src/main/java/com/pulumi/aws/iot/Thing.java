@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IOT Things can be imported using the name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iot/thing:Thing example example
- * ```
+ *  to = aws_iot_thing.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import IOT Things using the name. For exampleconsole % pulumi import aws_iot_thing.example example
  * 
  */
 @ResourceType(type="aws:iot/thing:Thing")

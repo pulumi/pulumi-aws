@@ -86,13 +86,11 @@ import (
 //
 // ## Import
 //
-// `aws_appstream_stack` can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appstream_stack.example
 //
-//	$ pulumi import aws:appstream/stack:Stack example stackID
-//
-// ```
+//	id = "stackID" } Using `pulumi import`, import `aws_appstream_stack` using the id. For exampleconsole % pulumi import aws_appstream_stack.example stackID
 type Stack struct {
 	pulumi.CustomResourceState
 

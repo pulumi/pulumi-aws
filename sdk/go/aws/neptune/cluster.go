@@ -58,13 +58,11 @@ import (
 //
 // ## Import
 //
-// `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_neptune_cluster.example
 //
-//	$ pulumi import aws:neptune/cluster:Cluster example my-cluster
-//
-// ```
+//	id = "my-cluster" } Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For exampleconsole % pulumi import aws_neptune_cluster.example my-cluster
 type Cluster struct {
 	pulumi.CustomResourceState
 

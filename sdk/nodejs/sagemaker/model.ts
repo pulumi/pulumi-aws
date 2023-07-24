@@ -44,11 +44,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Models can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:sagemaker/model:Model test_model model-foo
- * ```
+ *  to = aws_sagemaker_model.test_model
+ *
+ *  id = "model-foo" } Using `pulumi import`, import models using the `name`. For exampleconsole % pulumi import aws_sagemaker_model.test_model model-foo
  */
 export class Model extends pulumi.CustomResource {
     /**

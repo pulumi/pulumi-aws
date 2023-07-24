@@ -109,13 +109,11 @@ import (
 //
 // ## Import
 //
-// DB Parameter groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_parameter_group.rds_pg
 //
-//	$ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
-//
-// ```
+//	id = "rds-pg" } Using `pulumi import`, import DB Parameter groups using the `name`. For exampleconsole % pulumi import aws_db_parameter_group.rds_pg rds-pg
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 

@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift Hsm Client Certificates support import by `hsm_client_certificate_identifier`, e.g., console
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
- * ```
+ *  to = aws_redshift_hsm_client_certificate.test
+ *
+ *  id = "example" } Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For exampleconsole % pulumi import aws_redshift_hsm_client_certificate.test example
  */
 export class HsmClientCertificate extends pulumi.CustomResource {
     /**

@@ -58,11 +58,11 @@ namespace Pulumi.Aws.Amp
     /// 
     /// ## Import
     /// 
-    /// AMP Workspaces can be imported using the identifier, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
-    /// ```
+    ///  to = aws_prometheus_workspace.demo
+    /// 
+    ///  id = "ws-C6DCB907-F2D7-4D96-957B-66691F865D8B" } Using `pulumi import`, import AMP Workspaces using the identifier. For exampleconsole % pulumi import aws_prometheus_workspace.demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
     /// </summary>
     [AwsResourceType("aws:amp/workspace:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

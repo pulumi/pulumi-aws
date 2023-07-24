@@ -42,13 +42,11 @@ import (
 //
 // ## Import
 //
-// KMS External Keys can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kms_external_key.a
 //
-//	$ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
-//
-// ```
+//	id = "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS External Keys using the `id`. For exampleconsole % pulumi import aws_kms_external_key.a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 type ExternalKey struct {
 	pulumi.CustomResourceState
 

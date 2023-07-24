@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Resource Explorer views can be imported using the `arn`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
- * ```
+ *  to = aws_resourceexplorer2_view.example
+ * 
+ *  id = &#34;arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421&#34; } Using `pulumi import`, import Resource Explorer views using the `arn`. For exampleconsole % pulumi import aws_resourceexplorer2_view.example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
  * 
  */
 @ResourceType(type="aws:resourceexplorer/view:View")

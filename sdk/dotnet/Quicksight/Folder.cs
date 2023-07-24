@@ -91,11 +91,11 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// A QuickSight folder can be imported using the AWS account ID and folder ID name separated by a comma (`,`) e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
-    /// ```
+    ///  to = aws_quicksight_folder.example
+    /// 
+    ///  id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_folder.example 123456789012,example-id
     /// </summary>
     [AwsResourceType("aws:quicksight/folder:Folder")]
     public partial class Folder : global::Pulumi.CustomResource

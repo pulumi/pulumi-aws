@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
- * ```
+ *  to = aws_servicecatalog_budget_resource_association.example
+ * 
+ *  id = &#34;budget-pjtvyakdlyo3m:prod-dnigbtea24ste&#34; } Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For exampleconsole % pulumi import aws_servicecatalog_budget_resource_association.example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
  * 
  */
 @ResourceType(type="aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")

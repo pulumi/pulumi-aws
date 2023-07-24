@@ -129,11 +129,11 @@ class LogService(pulumi.CustomResource):
 
         ## Import
 
-        Directory Service Log Subscriptions can be imported using the directory id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
-        ```
+         to = aws_directory_service_log_subscription.msad
+
+         id = "d-1234567890" } Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For exampleconsole % pulumi import aws_directory_service_log_subscription.msad d-1234567890
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,11 +178,11 @@ class LogService(pulumi.CustomResource):
 
         ## Import
 
-        Directory Service Log Subscriptions can be imported using the directory id, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
-        ```
+         to = aws_directory_service_log_subscription.msad
+
+         id = "d-1234567890" } Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For exampleconsole % pulumi import aws_directory_service_log_subscription.msad d-1234567890
 
         :param str resource_name: The name of the resource.
         :param LogServiceArgs args: The arguments to use to populate this resource's properties.

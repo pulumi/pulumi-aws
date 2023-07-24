@@ -84,13 +84,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch dashboards can be imported using the `dashboard_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_dashboard.sample
 //
-//	$ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
-//
-// ```
+//	id = "dashboard_name" } Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For exampleconsole % pulumi import aws_cloudwatch_dashboard.sample dashboard_name
 type Dashboard struct {
 	pulumi.CustomResourceState
 

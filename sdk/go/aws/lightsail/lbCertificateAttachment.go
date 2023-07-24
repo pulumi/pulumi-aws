@@ -60,13 +60,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_lb_certificate_attachment` can be imported by using the name attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_lb_certificate_attachment.test
 //
-//	$ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
-//
-// ```
+//	id = "example-load-balancer,example-certificate" } Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For exampleconsole % pulumi import aws_lightsail_lb_certificate_attachment.test example-load-balancer,example-certificate
 type LbCertificateAttachment struct {
 	pulumi.CustomResourceState
 

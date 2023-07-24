@@ -130,13 +130,11 @@ import (
 //
 // ## Import
 //
-// MSK SCRAM Secret Associations can be imported using the `id` e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_msk_scram_secret_association.example
 //
-//	$ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
-//
-// ```
+//	id = "arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3" } Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For exampleconsole % pulumi import aws_msk_scram_secret_association.example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
 type ScramSecretAssociation struct {
 	pulumi.CustomResourceState
 

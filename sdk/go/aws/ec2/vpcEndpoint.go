@@ -159,13 +159,11 @@ import (
 //
 // ## Import
 //
-// VPC Endpoints can be imported using the `vpc endpoint id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_endpoint.endpoint1
 //
-//	$ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
-//
-// ```
+//	id = "vpce-3ecf2a57" } Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For exampleconsole % pulumi import aws_vpc_endpoint.endpoint1 vpce-3ecf2a57
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 

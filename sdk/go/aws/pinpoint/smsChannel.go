@@ -46,13 +46,11 @@ import (
 //
 // ## Import
 //
-// To import the Pinpoint SMS Channel, use the `application_id`. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_pinpoint_sms_channel.sms
 //
-//	$ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
-//
-// ```
+//	id = "application-id" } Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For exampleconsole % pulumi import aws_pinpoint_sms_channel.sms application-id
 type SmsChannel struct {
 	pulumi.CustomResourceState
 

@@ -65,13 +65,11 @@ import (
 //
 // ## Import
 //
-// EIP Assocations can be imported using their association ID.
+// terraform import {
 //
-// ```sh
+//	to = aws_eip_association.test
 //
-//	$ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
-//
-// ```
+//	id = "eipassoc-ab12c345" } Using `pulumi import`, import EIP Assocations using their association IDs. For exampleconsole % pulumi import aws_eip_association.test eipassoc-ab12c345
 type EipAssociation struct {
 	pulumi.CustomResourceState
 

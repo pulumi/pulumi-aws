@@ -114,13 +114,11 @@ import (
 //
 // ## Import
 //
-// Configuration Aggregators can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_configuration_aggregator.example
 //
-//	$ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
-//
-// ```
+//	id = "foo" } Using `pulumi import`, import Configuration Aggregators using the name. For exampleconsole % pulumi import aws_config_configuration_aggregator.example foo
 type ConfigurationAggregator struct {
 	pulumi.CustomResourceState
 

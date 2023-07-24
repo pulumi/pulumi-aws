@@ -69,11 +69,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MediaLive Input can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:medialive/input:Input example 12345678
- * ```
+ *  to = aws_medialive_input.example
+ * 
+ *  id = &#34;12345678&#34; } Using `pulumi import`, import MediaLive Input using the `id`. For exampleconsole % pulumi import aws_medialive_input.example 12345678
  * 
  */
 @ResourceType(type="aws:medialive/input:Input")

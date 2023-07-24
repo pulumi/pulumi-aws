@@ -71,17 +71,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g., For empty `base_path` (e.g., root path (`/`))
+ * For an empty `base_path` or, in other words, a root path (`/`)terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
- * ```
+ *  to = aws_api_gateway_base_path_mapping.example
  * 
- *  Otherwise
+ *  id = &#34;example.com/&#34; } For a non-root `base_path`terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
- * ```
+ *  to = aws_api_gateway_base_path_mapping.example
+ * 
+ *  id = &#34;example.com/base-path&#34; } Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path. For exampleFor an empty `base_path` or, in other words, a root path (`/`)console % pulumi import aws_api_gateway_base_path_mapping.example example.com/ For a non-root `base_path`console % pulumi import aws_api_gateway_base_path_mapping.example example.com/base-path
  * 
  */
 @ResourceType(type="aws:apigateway/basePathMapping:BasePathMapping")

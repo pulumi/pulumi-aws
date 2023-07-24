@@ -14,11 +14,11 @@ namespace Pulumi.Aws.IdentityStore
     /// 
     /// ## Import
     /// 
-    /// `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
-    /// ```
+    ///  to = aws_identitystore_group_membership.example
+    /// 
+    ///  id = "d-0000000000/00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For exampleconsole % pulumi import aws_identitystore_group_membership.example d-0000000000/00000000-0000-0000-0000-000000000000
     /// </summary>
     [AwsResourceType("aws:identitystore/groupMembership:GroupMembership")]
     public partial class GroupMembership : global::Pulumi.CustomResource

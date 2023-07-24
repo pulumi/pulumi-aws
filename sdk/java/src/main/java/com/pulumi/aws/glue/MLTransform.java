@@ -141,11 +141,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Glue ML Transforms can be imported using `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
- * ```
+ *  to = aws_glue_ml_transform.example
+ * 
+ *  id = &#34;tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5&#34; } Using `pulumi import`, import Glue ML Transforms using `id`. For exampleconsole % pulumi import aws_glue_ml_transform.example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
  * 
  */
 @ResourceType(type="aws:glue/mLTransform:MLTransform")

@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Global Accelerator endpoint groups can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
- * ```
+ *  to = aws_globalaccelerator_endpoint_group.example
+ *
+ *  id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx" } Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
  */
 export class EndpointGroup extends pulumi.CustomResource {
     /**
@@ -96,8 +96,6 @@ export class EndpointGroup extends pulumi.CustomResource {
     public readonly listenerArn!: pulumi.Output<string>;
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-     *
-     * **endpoint_configuration** supports the following attributes:
      */
     public readonly portOverrides!: pulumi.Output<outputs.globalaccelerator.EndpointGroupPortOverride[] | undefined>;
     /**
@@ -194,8 +192,6 @@ export interface EndpointGroupState {
     listenerArn?: pulumi.Input<string>;
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-     *
-     * **endpoint_configuration** supports the following attributes:
      */
     portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
     /**
@@ -243,8 +239,6 @@ export interface EndpointGroupArgs {
     listenerArn: pulumi.Input<string>;
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-     *
-     * **endpoint_configuration** supports the following attributes:
      */
     portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
     /**

@@ -108,11 +108,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// VPCs can be imported using the `vpc id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
-    /// ```
+    ///  to = aws_vpc.test_vpc
+    /// 
+    ///  id = "vpc-a01106c2" } Using `pulumi import`, import VPCs using the VPC `id`. For exampleconsole % pulumi import aws_vpc.test_vpc vpc-a01106c2
     /// </summary>
     [AwsResourceType("aws:ec2/vpc:Vpc")]
     public partial class Vpc : global::Pulumi.CustomResource

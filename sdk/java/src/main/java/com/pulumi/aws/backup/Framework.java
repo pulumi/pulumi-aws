@@ -123,11 +123,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Backup Framework can be imported using the `id` which corresponds to the name of the Backup Framework, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:backup/framework:Framework test &lt;id&gt;
- * ```
+ *  to = aws_backup_framework.test
+ * 
+ *  id = &#34;&lt;id&gt;&#34; } Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For exampleconsole % pulumi import aws_backup_framework.test &lt;id&gt;
  * 
  */
 @ResourceType(type="aws:backup/framework:Framework")

@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Key Pairs can be imported using the `key_name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
- * ```
+ *  to = aws_key_pair.deployer
+ *
+ *  id = "deployer-key" } Using `pulumi import`, import Key Pairs using the `key_name`. For exampleconsole % pulumi import aws_key_pair.deployer deployer-key
  */
 export class KeyPair extends pulumi.CustomResource {
     /**

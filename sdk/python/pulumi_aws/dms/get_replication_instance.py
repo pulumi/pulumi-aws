@@ -21,16 +21,10 @@ class GetReplicationInstanceResult:
     """
     A collection of values returned by getReplicationInstance.
     """
-    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, apply_immediately=None, auto_minor_version_upgrade=None, availability_zone=None, engine_version=None, id=None, kms_key_arn=None, multi_az=None, preferred_maintenance_window=None, publicly_accessible=None, replication_instance_arn=None, replication_instance_class=None, replication_instance_id=None, replication_instance_private_ips=None, replication_instance_public_ips=None, replication_subnet_group_id=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, engine_version=None, id=None, kms_key_arn=None, multi_az=None, preferred_maintenance_window=None, publicly_accessible=None, replication_instance_arn=None, replication_instance_class=None, replication_instance_id=None, replication_instance_private_ips=None, replication_instance_public_ips=None, replication_subnet_group_id=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
-        if allow_major_version_upgrade and not isinstance(allow_major_version_upgrade, bool):
-            raise TypeError("Expected argument 'allow_major_version_upgrade' to be a bool")
-        pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
-        if apply_immediately and not isinstance(apply_immediately, bool):
-            raise TypeError("Expected argument 'apply_immediately' to be a bool")
-        pulumi.set(__self__, "apply_immediately", apply_immediately)
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
@@ -84,31 +78,15 @@ class GetReplicationInstanceResult:
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> int:
         """
-        (Default: 50, Min: 5, Max: 6144) The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+        The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         """
         return pulumi.get(self, "allocated_storage")
-
-    @property
-    @pulumi.getter(name="allowMajorVersionUpgrade")
-    def allow_major_version_upgrade(self) -> bool:
-        """
-        (Default: false) Indicates that major version upgrades are allowed.
-        """
-        return pulumi.get(self, "allow_major_version_upgrade")
-
-    @property
-    @pulumi.getter(name="applyImmediately")
-    def apply_immediately(self) -> bool:
-        """
-        (Default: false) Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
-        """
-        return pulumi.get(self, "apply_immediately")
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> bool:
         """
-        (Default: false) Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+        Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -140,7 +118,7 @@ class GetReplicationInstanceResult:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -148,7 +126,7 @@ class GetReplicationInstanceResult:
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> bool:
         """
-        Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+        Specifies if the replication instance is a multi-az deployment.
         """
         return pulumi.get(self, "multi_az")
 
@@ -164,7 +142,7 @@ class GetReplicationInstanceResult:
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> bool:
         """
-        (Default: false) Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+        Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         """
         return pulumi.get(self, "publicly_accessible")
 
@@ -180,7 +158,7 @@ class GetReplicationInstanceResult:
     @pulumi.getter(name="replicationInstanceClass")
     def replication_instance_class(self) -> str:
         """
-        The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
+        The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
         """
         return pulumi.get(self, "replication_instance_class")
 
@@ -209,7 +187,7 @@ class GetReplicationInstanceResult:
     @pulumi.getter(name="replicationSubnetGroupId")
     def replication_subnet_group_id(self) -> str:
         """
-        (Optional) A subnet group to associate with the replication instance.
+        A subnet group to associate with the replication instance.
         """
         return pulumi.get(self, "replication_subnet_group_id")
 
@@ -222,7 +200,7 @@ class GetReplicationInstanceResult:
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Sequence[str]:
         """
-        (Optional) A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+        A set of VPC security group IDs that are used with the replication instance.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -234,8 +212,6 @@ class AwaitableGetReplicationInstanceResult(GetReplicationInstanceResult):
             yield self
         return GetReplicationInstanceResult(
             allocated_storage=self.allocated_storage,
-            allow_major_version_upgrade=self.allow_major_version_upgrade,
-            apply_immediately=self.apply_immediately,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
             availability_zone=self.availability_zone,
             engine_version=self.engine_version,
@@ -270,12 +246,7 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
     ```
 
 
-    :param str replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
-           
-           - Must contain from 1 to 63 alphanumeric characters or hyphens.
-           - First character must be a letter.
-           - Cannot end with a hyphen
-           - Cannot contain two consecutive hyphens.
+    :param str replication_instance_id: The replication instance identifier.
     """
     __args__ = dict()
     __args__['replicationInstanceId'] = replication_instance_id
@@ -285,8 +256,6 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
 
     return AwaitableGetReplicationInstanceResult(
         allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
-        allow_major_version_upgrade=pulumi.get(__ret__, 'allow_major_version_upgrade'),
-        apply_immediately=pulumi.get(__ret__, 'apply_immediately'),
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
@@ -322,11 +291,6 @@ def get_replication_instance_output(replication_instance_id: Optional[pulumi.Inp
     ```
 
 
-    :param str replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
-           
-           - Must contain from 1 to 63 alphanumeric characters or hyphens.
-           - First character must be a letter.
-           - Cannot end with a hyphen
-           - Cannot contain two consecutive hyphens.
+    :param str replication_instance_id: The replication instance identifier.
     """
     ...

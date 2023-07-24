@@ -45,13 +45,11 @@ import (
 //
 // ## Import
 //
-// AWS Chime SDK Voice Global Settings can be imported using the `id` (AWS account ID), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_chimesdkvoice_global_settings.example
 //
-//	$ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For exampleconsole % pulumi import aws_chimesdkvoice_global_settings.example 123456789012
 type SdkvoiceGlobalSettings struct {
 	pulumi.CustomResourceState
 

@@ -86,13 +86,11 @@ import (
 //
 // ## Import
 //
-// RAM Principal Associations can be imported using their Resource Share ARN and the `principal` separated by a comma, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ram_principal_association.example
 //
-//	$ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
-//
-// ```
+//	id = "arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012" } Using `pulumi import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For exampleconsole % pulumi import aws_ram_principal_association.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
 type PrincipalAssociation struct {
 	pulumi.CustomResourceState
 

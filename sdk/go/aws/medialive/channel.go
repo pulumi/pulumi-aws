@@ -121,13 +121,11 @@ import (
 //
 // ## Import
 //
-// MediaLive Channel can be imported using the `channel_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_medialive_channel.example
 //
-//	$ pulumi import aws:medialive/channel:Channel example 1234567
-//
-// ```
+//	id = "1234567" } Using `pulumi import`, import MediaLive Channel using the `channel_id`. For exampleconsole % pulumi import aws_medialive_channel.example 1234567
 type Channel struct {
 	pulumi.CustomResourceState
 

@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * QuickSight Template Alias can be imported using the AWS account ID, template ID, and alias name separated by a comma (`,`) e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
- * ```
+ *  to = aws_quicksight_template_alias.example
+ *
+ *  id = "123456789012,example-id,example-alias" } Using `pulumi import`, import QuickSight Template Alias using the AWS account ID, template ID, and alias name separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_template_alias.example 123456789012,example-id,example-alias
  */
 export class TemplateAlias extends pulumi.CustomResource {
     /**

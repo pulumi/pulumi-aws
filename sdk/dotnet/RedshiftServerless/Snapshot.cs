@@ -33,11 +33,11 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Import
     /// 
-    /// Redshift Serverless Snapshots can be imported using the `snapshot_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
-    /// ```
+    ///  to = aws_redshiftserverless_snapshot.example
+    /// 
+    ///  id = "example" } Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For exampleconsole % pulumi import aws_redshiftserverless_snapshot.example example
     /// </summary>
     [AwsResourceType("aws:redshiftserverless/snapshot:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource

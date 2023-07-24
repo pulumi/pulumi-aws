@@ -193,11 +193,11 @@ class Revision(pulumi.CustomResource):
 
         ## Import
 
-        DataExchange Revisions can be imported by their `data-set-id:revision-id`
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-        ```
+         to = aws_dataexchange_revision.example
+
+         id = "4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DataExchange Revisions using their `data-set-id:revision-id`. For exampleconsole % pulumi import aws_dataexchange_revision.example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,11 +225,11 @@ class Revision(pulumi.CustomResource):
 
         ## Import
 
-        DataExchange Revisions can be imported by their `data-set-id:revision-id`
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dataexchange/revision:Revision example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-        ```
+         to = aws_dataexchange_revision.example
+
+         id = "4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DataExchange Revisions using their `data-set-id:revision-id`. For exampleconsole % pulumi import aws_dataexchange_revision.example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 
         :param str resource_name: The name of the resource.
         :param RevisionArgs args: The arguments to use to populate this resource's properties.

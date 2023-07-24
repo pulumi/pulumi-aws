@@ -47,11 +47,11 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
-    /// Audit Manager Framework can be imported using the framework `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
-    /// ```
+    ///  to = aws_auditmanager_framework.example
+    /// 
+    ///  id = "abc123-de45" } Using `pulumi import`, import Audit Manager Framework using the framework `id`. For exampleconsole % pulumi import aws_auditmanager_framework.example abc123-de45
     /// </summary>
     [AwsResourceType("aws:auditmanager/framework:Framework")]
     public partial class Framework : global::Pulumi.CustomResource

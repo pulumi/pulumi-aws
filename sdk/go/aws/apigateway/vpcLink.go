@@ -19,13 +19,11 @@ import (
 //
 // ## Import
 //
-// API Gateway VPC Link can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_vpc_link.example
 //
-//	$ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
-//
-// ```
+//	id = "12345abcde" } Using `pulumi import`, import API Gateway VPC Link using the `id`. For exampleconsole % pulumi import aws_api_gateway_vpc_link.example 12345abcde
 type VpcLink struct {
 	pulumi.CustomResourceState
 

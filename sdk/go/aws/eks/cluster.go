@@ -209,13 +209,11 @@ import (
 //
 // ## Import
 //
-// EKS Clusters can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_eks_cluster.my_cluster
 //
-//	$ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
-//
-// ```
+//	id = "my_cluster" } Using `pulumi import`, import EKS Clusters using the `name`. For exampleconsole % pulumi import aws_eks_cluster.my_cluster my_cluster
 type Cluster struct {
 	pulumi.CustomResourceState
 

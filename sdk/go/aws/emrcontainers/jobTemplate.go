@@ -52,13 +52,11 @@ import (
 //
 // ## Import
 //
-// EKS job templates can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_emrcontainers_job_template.example
 //
-//	$ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
-//
-// ```
+//	id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `pulumi import`, import EKS job templates using the `id`. For exampleconsole % pulumi import aws_emrcontainers_job_template.example a1b2c3d4e5f6g7h8i9j10k11l
 type JobTemplate struct {
 	pulumi.CustomResourceState
 

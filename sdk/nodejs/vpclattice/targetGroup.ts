@@ -69,11 +69,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPC Lattice Target Group can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
- * ```
+ *  to = aws_vpclattice_target_group.example
+ *
+ *  id = "tg-0c11d4dc16ed96bdb" } Using `pulumi import`, import VPC Lattice Target Group using the `id`. For exampleconsole % pulumi import aws_vpclattice_target_group.example tg-0c11d4dc16ed96bdb
  */
 export class TargetGroup extends pulumi.CustomResource {
     /**

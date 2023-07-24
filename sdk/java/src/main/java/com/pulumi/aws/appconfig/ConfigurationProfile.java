@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AppConfig Configuration Profiles can be imported by using the configuration profile ID and application ID separated by a colon (`:`), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
- * ```
+ *  to = aws_appconfig_configuration_profile.example
+ * 
+ *  id = &#34;71abcde:11xxxxx&#34; } Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For exampleconsole % pulumi import aws_appconfig_configuration_profile.example 71abcde:11xxxxx
  * 
  */
 @ResourceType(type="aws:appconfig/configurationProfile:ConfigurationProfile")

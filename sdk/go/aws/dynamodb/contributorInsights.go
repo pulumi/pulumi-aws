@@ -42,13 +42,11 @@ import (
 //
 // ## Import
 //
-// `aws_dynamodb_contributor_insights` can be imported using the format `name:table_name/index:index_name`, followed by the account number, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dynamodb_contributor_insights.test
 //
-//	$ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
-//
-// ```
+//	id = "name:ExampleTableName/index:ExampleIndexName/123456789012" } Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For exampleconsole % pulumi import aws_dynamodb_contributor_insights.test name:ExampleTableName/index:ExampleIndexName/123456789012
 type ContributorInsights struct {
 	pulumi.CustomResourceState
 

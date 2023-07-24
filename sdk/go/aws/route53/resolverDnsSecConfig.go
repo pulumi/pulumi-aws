@@ -51,13 +51,13 @@ import (
 //
 // ## Import
 //
-//	Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_dnssec_config.example
 //
-//	$ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
+//	id = "rdsc-be1866ecc1683e95" } Using `pulumi import`, import
 //
-// ```
+// Route 53 Resolver DNSSEC configs using the Route 53 Resolver DNSSEC config ID. For exampleconsole % pulumi import aws_route53_resolver_dnssec_config.example rdsc-be1866ecc1683e95
 type ResolverDnsSecConfig struct {
 	pulumi.CustomResourceState
 

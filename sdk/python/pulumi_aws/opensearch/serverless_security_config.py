@@ -196,11 +196,11 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
 
         ## Import
 
-        OpenSearchServerless Access Policy can be imported using the `name` argument prefixed with the string `saml/account_id/` e.g
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example
-        ```
+         to = aws_opensearchserverless_security_config.example
+
+         id = "saml/123456789012/example" } Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` argument prefixed with the string `saml/account_id/`. For exampleconsole % pulumi import aws_opensearchserverless_security_config.example saml/123456789012/example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,11 +224,11 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
 
         ## Import
 
-        OpenSearchServerless Access Policy can be imported using the `name` argument prefixed with the string `saml/account_id/` e.g
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example
-        ```
+         to = aws_opensearchserverless_security_config.example
+
+         id = "saml/123456789012/example" } Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` argument prefixed with the string `saml/account_id/`. For exampleconsole % pulumi import aws_opensearchserverless_security_config.example saml/123456789012/example
 
         :param str resource_name: The name of the resource.
         :param ServerlessSecurityConfigArgs args: The arguments to use to populate this resource's properties.

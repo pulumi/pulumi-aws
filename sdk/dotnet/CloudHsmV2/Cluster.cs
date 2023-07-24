@@ -23,11 +23,11 @@ namespace Pulumi.Aws.CloudHsmV2
     /// 
     /// ## Import
     /// 
-    /// CloudHSM v2 Clusters can be imported using the `cluster id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
-    /// ```
+    ///  to = aws_cloudhsm_v2_cluster.test_cluster
+    /// 
+    ///  id = "cluster-aeb282a201" } Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For exampleconsole % pulumi import aws_cloudhsm_v2_cluster.test_cluster cluster-aeb282a201
     /// </summary>
     [AwsResourceType("aws:cloudhsmv2/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

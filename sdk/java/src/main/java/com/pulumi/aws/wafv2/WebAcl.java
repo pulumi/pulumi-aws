@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.wafv2.WebAclArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclState;
+import com.pulumi.aws.wafv2.outputs.WebAclAssociationConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclCaptchaConfig;
 import com.pulumi.aws.wafv2.outputs.WebAclCustomResponseBody;
 import com.pulumi.aws.wafv2.outputs.WebAclDefaultAction;
@@ -37,6 +38,20 @@ public class WebAcl extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+     * 
+     */
+    @Export(name="associationConfig", refs={WebAclAssociationConfig.class}, tree="[0]")
+    private Output</* @Nullable */ WebAclAssociationConfig> associationConfig;
+
+    /**
+     * @return Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+     * 
+     */
+    public Output<Optional<WebAclAssociationConfig>> associationConfig() {
+        return Codegen.optional(this.associationConfig);
     }
     /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.

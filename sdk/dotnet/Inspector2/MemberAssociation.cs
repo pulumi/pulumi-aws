@@ -33,11 +33,11 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// ## Import
     /// 
-    /// Amazon Inspector Member Association can be imported using the `account_id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
-    /// ```
+    ///  to = aws_inspector2_member_association.example
+    /// 
+    ///  id = "123456789012" } Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For exampleconsole % pulumi import aws_inspector2_member_association.example 123456789012
     /// </summary>
     [AwsResourceType("aws:inspector2/memberAssociation:MemberAssociation")]
     public partial class MemberAssociation : global::Pulumi.CustomResource

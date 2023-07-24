@@ -203,13 +203,11 @@ import (
 //
 // ## Import
 //
-// SQS Queues can be imported using the `queue url`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sqs_queue.public_queue
 //
-//	$ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
-//
-// ```
+//	id = "https://queue.amazonaws.com/80398EXAMPLE/MyQueue" } Using `pulumi import`, import SQS Queues using the queue `url`. For exampleconsole % pulumi import aws_sqs_queue.public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
 type Queue struct {
 	pulumi.CustomResourceState
 

@@ -43,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Serial console access state can be imported, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_serial_console_access.example
 //
-//	$ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
-//
-// ```
+//	id = "default" } Using `pulumi import`, import serial console access state. For exampleconsole % pulumi import aws_ec2_serial_console_access.example default
 type SerialConsoleAccess struct {
 	pulumi.CustomResourceState
 

@@ -33,11 +33,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_ec2_transit_gateway_route_table_propagation` can be imported by using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
-    /// ```
+    ///  to = aws_ec2_transit_gateway_route_table_propagation.example
+    /// 
+    ///  id = "tgw-rtb-12345678_tgw-attach-87654321" } Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_propagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_route_table_propagation.example tgw-rtb-12345678_tgw-attach-87654321
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation")]
     public partial class RouteTablePropagation : global::Pulumi.CustomResource

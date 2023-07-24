@@ -44,13 +44,11 @@ import (
 //
 // ## Import
 //
-// AWS Client VPN network associations can be imported using the endpoint ID and the association ID. Values are separated by a `,`.
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_client_vpn_network_association.example
 //
-//	$ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
-//
-// ```
+//	id = "cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad" } Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For exampleconsole % pulumi import aws_ec2_client_vpn_network_association.example cvpn-endpoint-0ac3a1abbccddd666,vpn-assoc-0b8db902465d069ad
 type NetworkAssociation struct {
 	pulumi.CustomResourceState
 

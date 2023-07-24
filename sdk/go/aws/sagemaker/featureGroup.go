@@ -56,13 +56,11 @@ import (
 //
 // ## Import
 //
-// Feature Groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_feature_group.test_feature_group
 //
-//	$ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
-//
-// ```
+//	id = "feature_group-foo" } Using `pulumi import`, import Feature Groups using the `name`. For exampleconsole % pulumi import aws_sagemaker_feature_group.test_feature_group feature_group-foo
 type FeatureGroup struct {
 	pulumi.CustomResourceState
 

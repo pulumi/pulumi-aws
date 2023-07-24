@@ -57,13 +57,11 @@ import (
 //
 // ## Import
 //
-// DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_proxy_endpoint.example
 //
-//	$ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
-//
-// ```
+//	id = "example/example" } Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For exampleconsole % pulumi import aws_db_proxy_endpoint.example example/example
 type ProxyEndpoint struct {
 	pulumi.CustomResourceState
 

@@ -1037,11 +1037,11 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Project can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codebuild/project:Project name project-name
-        ```
+         to = aws_codebuild_project.name
+
+         id = "project-name" } Using `pulumi import`, import CodeBuild Project using the `name`. For exampleconsole % pulumi import aws_codebuild_project.name project-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1252,11 +1252,11 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Project can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codebuild/project:Project name project-name
-        ```
+         to = aws_codebuild_project.name
+
+         id = "project-name" } Using `pulumi import`, import CodeBuild Project using the `name`. For exampleconsole % pulumi import aws_codebuild_project.name project-name
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

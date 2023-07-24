@@ -848,11 +848,11 @@ class Ami(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ami` can be imported using the ID of the AMI, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/ami:Ami example ami-12345678
-        ```
+         to = aws_ami.example
+
+         id = "ami-12345678" } Using `pulumi import`, import `aws_ami` using the ID of the AMI. For exampleconsole % pulumi import aws_ami.example ami-12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -920,11 +920,11 @@ class Ami(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ami` can be imported using the ID of the AMI, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/ami:Ami example ami-12345678
-        ```
+         to = aws_ami.example
+
+         id = "ami-12345678" } Using `pulumi import`, import `aws_ami` using the ID of the AMI. For exampleconsole % pulumi import aws_ami.example ami-12345678
 
         :param str resource_name: The name of the resource.
         :param AmiArgs args: The arguments to use to populate this resource's properties.

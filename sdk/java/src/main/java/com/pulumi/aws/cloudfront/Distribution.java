@@ -337,11 +337,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudFront Distributions can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
- * ```
+ *  to = aws_cloudfront_distribution.distribution
+ * 
+ *  id = &#34;E74FTE3EXAMPLE&#34; } Using `pulumi import`, import CloudFront Distributions using the `id`. For exampleconsole % pulumi import aws_cloudfront_distribution.distribution E74FTE3EXAMPLE
  * 
  */
 @ResourceType(type="aws:cloudfront/distribution:Distribution")

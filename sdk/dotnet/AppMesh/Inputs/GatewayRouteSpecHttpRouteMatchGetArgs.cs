@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<Inputs.GatewayRouteSpecHttpRouteMatchHostnameGetArgs>? Hostname { get; set; }
 
         /// <summary>
-        /// Client request path to match on.
+        /// Exact path to rewrite.
         /// </summary>
         [Input("path")]
         public Input<Inputs.GatewayRouteSpecHttpRouteMatchPathGetArgs>? Path { get; set; }

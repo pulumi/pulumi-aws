@@ -741,11 +741,11 @@ class PatchBaseline(pulumi.CustomResource):
 
         ## Import
 
-        SSM Patch Baselines can be imported by their baseline ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
-        ```
+         to = aws_ssm_patch_baseline.example
+
+         id = "pb-12345678" } Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For exampleconsole % pulumi import aws_ssm_patch_baseline.example pb-12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -959,11 +959,11 @@ class PatchBaseline(pulumi.CustomResource):
 
         ## Import
 
-        SSM Patch Baselines can be imported by their baseline ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
-        ```
+         to = aws_ssm_patch_baseline.example
+
+         id = "pb-12345678" } Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For exampleconsole % pulumi import aws_ssm_patch_baseline.example pb-12345678
 
         :param str resource_name: The name of the resource.
         :param PatchBaselineArgs args: The arguments to use to populate this resource's properties.

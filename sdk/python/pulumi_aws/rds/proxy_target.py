@@ -311,17 +311,15 @@ class ProxyTarget(pulumi.CustomResource):
 
         ## Import
 
-        RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
+        Instancesterraform import {
 
-        ```sh
-         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
-        ```
+         to = aws_db_proxy_target.example
 
-         Provisioned Clusters
+         id = "example-proxy/default/RDS_INSTANCE/example-instance" } Provisioned Clustersterraform import {
 
-        ```sh
-         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
-        ```
+         to = aws_db_proxy_target.example
+
+         id = "example-proxy/default/TRACKED_CLUSTER/example-cluster" } **Using `pulumi import` to import** RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For exampleInstancesconsole % pulumi import aws_db_proxy_target.example example-proxy/default/RDS_INSTANCE/example-instance Provisioned Clustersconsole % pulumi import aws_db_proxy_target.example example-proxy/default/TRACKED_CLUSTER/example-cluster
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -382,17 +380,15 @@ class ProxyTarget(pulumi.CustomResource):
 
         ## Import
 
-        RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
+        Instancesterraform import {
 
-        ```sh
-         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
-        ```
+         to = aws_db_proxy_target.example
 
-         Provisioned Clusters
+         id = "example-proxy/default/RDS_INSTANCE/example-instance" } Provisioned Clustersterraform import {
 
-        ```sh
-         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
-        ```
+         to = aws_db_proxy_target.example
+
+         id = "example-proxy/default/TRACKED_CLUSTER/example-cluster" } **Using `pulumi import` to import** RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For exampleInstancesconsole % pulumi import aws_db_proxy_target.example example-proxy/default/RDS_INSTANCE/example-instance Provisioned Clustersconsole % pulumi import aws_db_proxy_target.example example-proxy/default/TRACKED_CLUSTER/example-cluster
 
         :param str resource_name: The name of the resource.
         :param ProxyTargetArgs args: The arguments to use to populate this resource's properties.

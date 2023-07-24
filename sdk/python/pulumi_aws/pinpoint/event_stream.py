@@ -168,11 +168,11 @@ class EventStream(pulumi.CustomResource):
 
         ## Import
 
-        Pinpoint Event Stream can be imported using the `application-id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
-        ```
+         to = aws_pinpoint_event_stream.stream
+
+         id = "application-id" } Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_event_stream.stream application-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,11 +225,11 @@ class EventStream(pulumi.CustomResource):
 
         ## Import
 
-        Pinpoint Event Stream can be imported using the `application-id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
-        ```
+         to = aws_pinpoint_event_stream.stream
+
+         id = "application-id" } Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_event_stream.stream application-id
 
         :param str resource_name: The name of the resource.
         :param EventStreamArgs args: The arguments to use to populate this resource's properties.

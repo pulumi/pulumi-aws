@@ -41,13 +41,11 @@ import (
 //
 // ## Import
 //
-// Backup vault can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_vault.test-vault
 //
-//	$ pulumi import aws:backup/vault:Vault test-vault TestVault
-//
-// ```
+//	id = "TestVault" } Using `pulumi import`, import Backup vault using the `name`. For exampleconsole % pulumi import aws_backup_vault.test-vault TestVault
 type Vault struct {
 	pulumi.CustomResourceState
 

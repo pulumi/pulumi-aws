@@ -242,11 +242,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Lightsail Distribution can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
- * ```
+ *  to = aws_lightsail_distribution.example
+ * 
+ *  id = &#34;rft-8012925589&#34; } Using `pulumi import`, import Lightsail Distribution using the `id`. For exampleconsole % pulumi import aws_lightsail_distribution.example rft-8012925589
  * 
  */
 @ResourceType(type="aws:lightsail/distribution:Distribution")

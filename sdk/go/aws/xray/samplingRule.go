@@ -55,13 +55,11 @@ import (
 //
 // ## Import
 //
-// XRay Sampling Rules can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_xray_sampling_rule.example
 //
-//	$ pulumi import aws:xray/samplingRule:SamplingRule example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import XRay Sampling Rules using the name. For exampleconsole % pulumi import aws_xray_sampling_rule.example example
 type SamplingRule struct {
 	pulumi.CustomResourceState
 

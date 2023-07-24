@@ -158,11 +158,11 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         ## Import
 
-        ECR Public Repository Policy can be imported using the repository name, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
-        ```
+         to = aws_ecrpublic_repository_policy.example
+
+         id = "example" } Using `pulumi import`, import ECR Public Repository Policy using the repository name. For exampleconsole % pulumi import aws_ecrpublic_repository_policy.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,11 +220,11 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         ## Import
 
-        ECR Public Repository Policy can be imported using the repository name, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
-        ```
+         to = aws_ecrpublic_repository_policy.example
+
+         id = "example" } Using `pulumi import`, import ECR Public Repository Policy using the repository name. For exampleconsole % pulumi import aws_ecrpublic_repository_policy.example example
 
         :param str resource_name: The name of the resource.
         :param RepositoryPolicyArgs args: The arguments to use to populate this resource's properties.

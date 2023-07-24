@@ -172,11 +172,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Health Checks can be imported using the `health check id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
- * ```
+ *  to = aws_route53_health_check.http_check
+ * 
+ *  id = &#34;abcdef11-2222-3333-4444-555555fedcba&#34; } Using `pulumi import`, import Route53 Health Checks using the health check `id`. For exampleconsole % pulumi import aws_route53_health_check.http_check abcdef11-2222-3333-4444-555555fedcba
  * 
  */
 @ResourceType(type="aws:route53/healthCheck:HealthCheck")

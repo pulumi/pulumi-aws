@@ -111,11 +111,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch log resource policies can be imported using the policy name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
- * ```
+ *  to = aws_cloudwatch_log_resource_policy.MyPolicy
+ * 
+ *  id = &#34;MyPolicy&#34; } Using `pulumi import`, import CloudWatch log resource policies using the policy name. For exampleconsole % pulumi import aws_cloudwatch_log_resource_policy.MyPolicy MyPolicy
  * 
  */
 @ResourceType(type="aws:cloudwatch/logResourcePolicy:LogResourcePolicy")

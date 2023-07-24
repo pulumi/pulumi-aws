@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * RDS DB Instance Reservations can be imported using the `instance_id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
- * ```
+ *  to = aws_rds_reserved_instance.reservation_instance
+ *
+ *  id = "CustomReservationID" } Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For exampleconsole % pulumi import aws_rds_reserved_instance.reservation_instance CustomReservationID
  */
 export class ReservedInstance extends pulumi.CustomResource {
     /**

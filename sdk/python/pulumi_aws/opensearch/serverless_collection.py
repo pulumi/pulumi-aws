@@ -298,11 +298,11 @@ class ServerlessCollection(pulumi.CustomResource):
 
         ## Import
 
-        OpenSearchServerless Collection can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
-        ```
+         to = aws_opensearchserverless_collection.example
+
+         id = "example" } Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For exampleconsole % pulumi import aws_opensearchserverless_collection.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -346,11 +346,11 @@ class ServerlessCollection(pulumi.CustomResource):
 
         ## Import
 
-        OpenSearchServerless Collection can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
-        ```
+         to = aws_opensearchserverless_collection.example
+
+         id = "example" } Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For exampleconsole % pulumi import aws_opensearchserverless_collection.example example
 
         :param str resource_name: The name of the resource.
         :param ServerlessCollectionArgs args: The arguments to use to populate this resource's properties.

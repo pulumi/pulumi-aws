@@ -49,13 +49,11 @@ import (
 //
 // ## Import
 //
-// `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appsync_api_key.example
 //
-//	$ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
-//
-// ```
+//	id = "xxxxx:yyyyy" } Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For exampleconsole % pulumi import aws_appsync_api_key.example xxxxx:yyyyy
 type ApiKey struct {
 	pulumi.CustomResourceState
 

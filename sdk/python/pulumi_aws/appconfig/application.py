@@ -182,11 +182,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Applications can be imported using their application ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appconfig/application:Application example 71rxuzt
-        ```
+         to = aws_appconfig_application.example
+
+         id = "71rxuzt" } Using `pulumi import`, import AppConfig Applications using their application ID. For exampleconsole % pulumi import aws_appconfig_application.example 71rxuzt
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,11 +218,11 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Applications can be imported using their application ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appconfig/application:Application example 71rxuzt
-        ```
+         to = aws_appconfig_application.example
+
+         id = "71rxuzt" } Using `pulumi import`, import AppConfig Applications using their application ID. For exampleconsole % pulumi import aws_appconfig_application.example 71rxuzt
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

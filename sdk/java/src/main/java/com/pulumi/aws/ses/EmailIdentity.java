@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SES email identities can be imported using the email address.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
- * ```
+ *  to = aws_ses_email_identity.example
+ * 
+ *  id = &#34;email@example.com&#34; } Using `pulumi import`, import SES email identities using the email address. For exampleconsole % pulumi import aws_ses_email_identity.example email@example.com
  * 
  */
 @ResourceType(type="aws:ses/emailIdentity:EmailIdentity")

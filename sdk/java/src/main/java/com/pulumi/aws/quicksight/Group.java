@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * QuickSight Group can be imported using the aws account id, namespace and group name separated by `/`.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
- * ```
+ *  to = aws_quicksight_group.example
+ * 
+ *  id = &#34;123456789123/default/tf-example&#34; } Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For exampleconsole % pulumi import aws_quicksight_group.example 123456789123/default/tf-example
  * 
  */
 @ResourceType(type="aws:quicksight/group:Group")

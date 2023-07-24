@@ -48,13 +48,11 @@ import (
 //
 // ## Import
 //
-// Transfer AS2 Agreement can be imported using the `server_id/agreement_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_transfer_agreement.example
 //
-//	$ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
-//
-// ```
+//	id = "s-4221a88afd5f4362a/a-4221a88afd5f4362a" } Using `pulumi import`, import Transfer AS2 Agreement using the `server_id/agreement_id`. For exampleconsole % pulumi import aws_transfer_agreement.example s-4221a88afd5f4362a/a-4221a88afd5f4362a
 type Agreement struct {
 	pulumi.CustomResourceState
 

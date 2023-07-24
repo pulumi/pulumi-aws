@@ -164,11 +164,11 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:securityhub/account:Account example 123456789012
-        ```
+         to = aws_securityhub_account.example
+
+         id = "123456789012" } Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % pulumi import aws_securityhub_account.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,11 +198,11 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:securityhub/account:Account example 123456789012
-        ```
+         to = aws_securityhub_account.example
+
+         id = "123456789012" } Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % pulumi import aws_securityhub_account.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

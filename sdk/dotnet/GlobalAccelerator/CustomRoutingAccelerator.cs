@@ -44,11 +44,11 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// ## Import
     /// 
-    /// Global Accelerator custom routing accelerators can be imported using the `arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-    /// ```
+    ///  to = aws_globalaccelerator_custom_routing_accelerator.example
+    /// 
+    ///  id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" } Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For exampleconsole % pulumi import aws_globalaccelerator_custom_routing_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator")]
     public partial class CustomRoutingAccelerator : global::Pulumi.CustomResource
@@ -105,8 +105,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// **attributes** supports the following attributes:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -204,8 +202,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// **attributes** supports the following attributes:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -288,8 +284,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// **attributes** supports the following attributes:
         /// </summary>
         public InputMap<string> Tags
         {

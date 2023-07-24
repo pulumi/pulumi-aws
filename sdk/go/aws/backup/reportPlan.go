@@ -55,13 +55,11 @@ import (
 //
 // ## Import
 //
-// Backup Report Plan can be imported using the `id` which corresponds to the name of the Backup Report Plan, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_report_plan.test
 //
-//	$ pulumi import aws:backup/reportPlan:ReportPlan test <id>
-//
-// ```
+//	id = "<id>" } Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For exampleconsole % pulumi import aws_backup_report_plan.test <id>
 type ReportPlan struct {
 	pulumi.CustomResourceState
 

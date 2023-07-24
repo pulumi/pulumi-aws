@@ -278,7 +278,7 @@ class GroupInstanceRefreshPreferences(dict):
                  min_healthy_percentage: Optional[int] = None,
                  skip_matching: Optional[bool] = None):
         """
-        :param bool auto_rollback: Automatically rollback if instance refresh fails. Defaults to `false`.
+        :param bool auto_rollback: Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
         :param str checkpoint_delay: Number of seconds to wait after a checkpoint. Defaults to `3600`.
         :param Sequence[int] checkpoint_percentages: List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
         :param str instance_warmup: Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
@@ -302,7 +302,7 @@ class GroupInstanceRefreshPreferences(dict):
     @pulumi.getter(name="autoRollback")
     def auto_rollback(self) -> Optional[bool]:
         """
-        Automatically rollback if instance refresh fails. Defaults to `false`.
+        Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
         """
         return pulumi.get(self, "auto_rollback")
 

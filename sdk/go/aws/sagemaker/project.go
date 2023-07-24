@@ -47,13 +47,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Projects can be imported using the `project_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_project.example
 //
-//	$ pulumi import aws:sagemaker/project:Project example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import SageMaker Projects using the `project_name`. For exampleconsole % pulumi import aws_sagemaker_project.example example
 type Project struct {
 	pulumi.CustomResourceState
 

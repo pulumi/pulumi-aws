@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SES Configuration Sets can be imported using their `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
- * ```
+ *  to = aws_ses_configuration_set.test
+ *
+ *  id = "some-configuration-set-test" } Using `pulumi import`, import SES Configuration Sets using their `name`. For exampleconsole % pulumi import aws_ses_configuration_set.test some-configuration-set-test
  */
 export class ConfigurationSet extends pulumi.CustomResource {
     /**

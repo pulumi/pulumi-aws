@@ -134,11 +134,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Network Interface Security Group attachments can be imported using the associated network interface ID and security group ID, separated by an underscore (`_`). For example
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
- * ```
+ *  to = aws_network_interface_sg_attachment.sg_attachment
+ * 
+ *  id = &#34;eni-1234567890abcdef0_sg-1234567890abcdef0&#34; } Using `pulumi import`, import Network Interface Security Group attachments using the associated network interface ID and security group ID, separated by an underscore (`_`). For exampleconsole % pulumi import aws_network_interface_sg_attachment.sg_attachment eni-1234567890abcdef0_sg-1234567890abcdef0
  * 
  */
 @ResourceType(type="aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment")

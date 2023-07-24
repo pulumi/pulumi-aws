@@ -110,13 +110,11 @@ import (
 //
 // ## Import
 //
-// Cognito User Pools can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cognito_user_pool.pool
 //
-//	$ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
-//
-// ```
+//	id = "us-west-2_abc123" } Using `pulumi import`, import Cognito User Pools using the `id`. For exampleconsole % pulumi import aws_cognito_user_pool.pool us-west-2_abc123
 type UserPool struct {
 	pulumi.CustomResourceState
 

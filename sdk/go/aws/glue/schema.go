@@ -46,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Glue Registries can be imported using `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_schema.example
 //
-//	$ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
-//
-// ```
+//	id = "arn:aws:glue:us-west-2:123456789012:schema/example/example" } Using `pulumi import`, import Glue Registries using `arn`. For exampleconsole % pulumi import aws_glue_schema.example arn:aws:glue:us-west-2:123456789012:schema/example/example
 type Schema struct {
 	pulumi.CustomResourceState
 

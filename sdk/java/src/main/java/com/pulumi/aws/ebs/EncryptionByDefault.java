@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Default EBS encryption state can be imported, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
- * ```
+ *  to = aws_ebs_encryption_by_default.example
+ * 
+ *  id = &#34;default&#34; } Using `pulumi import`, import the default EBS encryption state. For exampleconsole % pulumi import aws_ebs_encryption_by_default.example default
  * 
  */
 @ResourceType(type="aws:ebs/encryptionByDefault:EncryptionByDefault")

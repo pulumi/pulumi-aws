@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * QuickSight Namespace can be imported using the AWS account ID and namespace separated by commas (`,`) e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
- * ```
+ *  to = aws_quicksight_namespace.example
+ *
+ *  id = "123456789012,example" } Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_namespace.example 123456789012,example
  */
 export class Namespace extends pulumi.CustomResource {
     /**

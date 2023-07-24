@@ -58,13 +58,11 @@ import (
 //
 // ## Import
 //
-// The EFS mount targets can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_efs_mount_target.alpha
 //
-//	$ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
-//
-// ```
+//	id = "fsmt-52a643fb" } Using `pulumi import`, import the EFS mount targets using the `id`. For exampleconsole % pulumi import aws_efs_mount_target.alpha fsmt-52a643fb
 type MountTarget struct {
 	pulumi.CustomResourceState
 

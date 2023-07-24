@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Redshift Event Subscriptions can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
- * ```
+ *  to = aws_redshift_event_subscription.default
+ * 
+ *  id = &#34;redshift-event-sub&#34; } Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_redshift_event_subscription.default redshift-event-sub
  * 
  */
 @ResourceType(type="aws:redshift/eventSubscription:EventSubscription")

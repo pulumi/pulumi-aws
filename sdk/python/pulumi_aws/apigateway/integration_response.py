@@ -350,11 +350,11 @@ class IntegrationResponse(pulumi.CustomResource):
 
         ## Import
 
-        `aws_api_gateway_integration_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
-        ```
+         to = aws_api_gateway_integration_response.example
+
+         id = "12345abcde/67890fghij/GET/200" } Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For exampleconsole % pulumi import aws_api_gateway_integration_response.example 12345abcde/67890fghij/GET/200
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -424,11 +424,11 @@ class IntegrationResponse(pulumi.CustomResource):
 
         ## Import
 
-        `aws_api_gateway_integration_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
-        ```
+         to = aws_api_gateway_integration_response.example
+
+         id = "12345abcde/67890fghij/GET/200" } Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For exampleconsole % pulumi import aws_api_gateway_integration_response.example 12345abcde/67890fghij/GET/200
 
         :param str resource_name: The name of the resource.
         :param IntegrationResponseArgs args: The arguments to use to populate this resource's properties.

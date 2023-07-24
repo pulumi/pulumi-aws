@@ -119,11 +119,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Configuration Aggregators can be imported using the name, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
- * ```
+ *  to = aws_config_configuration_aggregator.example
+ * 
+ *  id = &#34;foo&#34; } Using `pulumi import`, import Configuration Aggregators using the name. For exampleconsole % pulumi import aws_config_configuration_aggregator.example foo
  * 
  */
 @ResourceType(type="aws:cfg/configurationAggregator:ConfigurationAggregator")

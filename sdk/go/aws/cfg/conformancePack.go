@@ -128,13 +128,11 @@ import (
 //
 // ## Import
 //
-// Config Conformance Packs can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_conformance_pack.example
 //
-//	$ pulumi import aws:cfg/conformancePack:ConformancePack example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Config Conformance Packs using the `name`. For exampleconsole % pulumi import aws_config_conformance_pack.example example
 type ConformancePack struct {
 	pulumi.CustomResourceState
 

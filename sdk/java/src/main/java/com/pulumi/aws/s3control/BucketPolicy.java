@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * S3 Control Bucket Policies can be imported using the Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
- * ```
+ *  to = aws_s3control_bucket_policy.example
+ * 
+ *  id = &#34;arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example&#34; } Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_s3control_bucket_policy.example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
  * 
  */
 @ResourceType(type="aws:s3control/bucketPolicy:BucketPolicy")

@@ -128,11 +128,11 @@ class Gateway(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect Gateways can be imported using the `gateway id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
-        ```
+         to = aws_dx_gateway.test
+
+         id = "abcd1234-dcba-5678-be23-cdef9876ab45" } Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For exampleconsole % pulumi import aws_dx_gateway.test abcd1234-dcba-5678-be23-cdef9876ab45
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,11 +159,11 @@ class Gateway(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect Gateways can be imported using the `gateway id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
-        ```
+         to = aws_dx_gateway.test
+
+         id = "abcd1234-dcba-5678-be23-cdef9876ab45" } Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For exampleconsole % pulumi import aws_dx_gateway.test abcd1234-dcba-5678-be23-cdef9876ab45
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.

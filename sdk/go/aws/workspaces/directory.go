@@ -206,13 +206,11 @@ import (
 //
 // ## Import
 //
-// Workspaces directory can be imported using the directory ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_workspaces_directory.main
 //
-//	$ pulumi import aws:workspaces/directory:Directory main d-4444444444
-//
-// ```
+//	id = "d-4444444444" } Using `pulumi import`, import Workspaces directory using the directory ID. For exampleconsole % pulumi import aws_workspaces_directory.main d-4444444444
 type Directory struct {
 	pulumi.CustomResourceState
 

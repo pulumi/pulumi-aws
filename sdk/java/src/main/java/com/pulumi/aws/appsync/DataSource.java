@@ -116,11 +116,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
- * ```
+ *  to = aws_appsync_datasource.example
+ * 
+ *  id = &#34;abcdef123456-example&#34; } Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For exampleconsole % pulumi import aws_appsync_datasource.example abcdef123456-example
  * 
  */
 @ResourceType(type="aws:appsync/dataSource:DataSource")
@@ -294,14 +294,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceRoleArn);
     }
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
     public Output<String> type() {

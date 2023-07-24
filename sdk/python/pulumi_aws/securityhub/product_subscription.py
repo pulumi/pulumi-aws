@@ -250,11 +250,11 @@ class ProductSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Security Hub product subscriptions can be imported in the form `product_arn,arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
-        ```
+         to = aws_securityhub_product_subscription.example
+
+         id = "arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement" } Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For exampleconsole % pulumi import aws_securityhub_product_subscription.example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,11 +321,11 @@ class ProductSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Security Hub product subscriptions can be imported in the form `product_arn,arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
-        ```
+         to = aws_securityhub_product_subscription.example
+
+         id = "arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement" } Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For exampleconsole % pulumi import aws_securityhub_product_subscription.example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
 
         :param str resource_name: The name of the resource.
         :param ProductSubscriptionArgs args: The arguments to use to populate this resource's properties.

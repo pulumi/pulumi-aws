@@ -53,13 +53,11 @@ import (
 //
 // ## Import
 //
-// IVS (Interactive Video) Playback Key Pair can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ivs_playback_key_pair.example
 //
-//	$ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
-//
-// ```
+//	id = "arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA" } Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For exampleconsole % pulumi import aws_ivs_playback_key_pair.example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
 type PlaybackKeyPair struct {
 	pulumi.CustomResourceState
 

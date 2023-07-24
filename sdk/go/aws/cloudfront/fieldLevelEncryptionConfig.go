@@ -64,13 +64,11 @@ import (
 //
 // ## Import
 //
-// Cloudfront Field Level Encryption Config can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_field_level_encryption_config.config
 //
-//	$ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
-//
-// ```
+//	id = "E74FTE3AEXAMPLE" } Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For exampleconsole % pulumi import aws_cloudfront_field_level_encryption_config.config E74FTE3AEXAMPLE
 type FieldLevelEncryptionConfig struct {
 	pulumi.CustomResourceState
 

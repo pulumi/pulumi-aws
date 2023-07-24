@@ -73,11 +73,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * S3 bucket can be imported using the `bucket`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
- * ```
+ *  to = aws_s3_bucket.bucket
+ *
+ *  id = "bucket-name" } Using `pulumi import`, import S3 bucket using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket.bucket bucket-name
  */
 export class BucketV2 extends pulumi.CustomResource {
     /**

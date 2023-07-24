@@ -213,11 +213,11 @@ class Site(pulumi.CustomResource):
 
         ## Import
 
-        `aws_networkmanager_site` can be imported using the site ARN, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
-        ```
+         to = aws_networkmanager_site.example
+
+         id = "arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223" } Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For exampleconsole % pulumi import aws_networkmanager_site.example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,11 +247,11 @@ class Site(pulumi.CustomResource):
 
         ## Import
 
-        `aws_networkmanager_site` can be imported using the site ARN, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
-        ```
+         to = aws_networkmanager_site.example
+
+         id = "arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223" } Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For exampleconsole % pulumi import aws_networkmanager_site.example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
 
         :param str resource_name: The name of the resource.
         :param SiteArgs args: The arguments to use to populate this resource's properties.

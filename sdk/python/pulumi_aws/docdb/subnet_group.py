@@ -254,11 +254,11 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        DocumentDB Subnet groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
-        ```
+         to = aws_docdb_subnet_group.default
+
+         id = "production-subnet-group" } Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For exampleconsole % pulumi import aws_docdb_subnet_group.default production-subnet-group
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,11 +295,11 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        DocumentDB Subnet groups can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
-        ```
+         to = aws_docdb_subnet_group.default
+
+         id = "production-subnet-group" } Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For exampleconsole % pulumi import aws_docdb_subnet_group.default production-subnet-group
 
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.

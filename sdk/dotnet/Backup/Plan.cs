@@ -55,11 +55,11 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Backup Plan can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:backup/plan:Plan test &lt;id&gt;
-    /// ```
+    ///  to = aws_backup_plan.test
+    /// 
+    ///  id = "&lt;id&gt;" } Using `pulumi import`, import Backup Plan using the `id`. For exampleconsole % pulumi import aws_backup_plan.test &lt;id&gt;
     /// </summary>
     [AwsResourceType("aws:backup/plan:Plan")]
     public partial class Plan : global::Pulumi.CustomResource

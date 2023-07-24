@@ -351,11 +351,11 @@ class GatewayAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect gateway associations can be imported using `dx_gateway_id` together with `associated_gateway_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
-        ```
+         to = aws_dx_gateway_association.example
+
+         id = "345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432" } Using `pulumi import`, import Direct Connect gateway associations using `dx_gateway_id` together with `associated_gateway_id`. For exampleconsole % pulumi import aws_dx_gateway_association.example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -431,11 +431,11 @@ class GatewayAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect gateway associations can be imported using `dx_gateway_id` together with `associated_gateway_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
-        ```
+         to = aws_dx_gateway_association.example
+
+         id = "345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432" } Using `pulumi import`, import Direct Connect gateway associations using `dx_gateway_id` together with `associated_gateway_id`. For exampleconsole % pulumi import aws_dx_gateway_association.example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
 
         :param str resource_name: The name of the resource.
         :param GatewayAssociationArgs args: The arguments to use to populate this resource's properties.

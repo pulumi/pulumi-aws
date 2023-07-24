@@ -192,11 +192,11 @@ class HttpNamespace(pulumi.CustomResource):
 
         ## Import
 
-        Service Discovery HTTP Namespace can be imported using the namespace ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
-        ```
+         to = aws_service_discovery_http_namespace.example
+
+         id = "ns-1234567890" } Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For exampleconsole % pulumi import aws_service_discovery_http_namespace.example ns-1234567890
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,11 +222,11 @@ class HttpNamespace(pulumi.CustomResource):
 
         ## Import
 
-        Service Discovery HTTP Namespace can be imported using the namespace ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
-        ```
+         to = aws_service_discovery_http_namespace.example
+
+         id = "ns-1234567890" } Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For exampleconsole % pulumi import aws_service_discovery_http_namespace.example ns-1234567890
 
         :param str resource_name: The name of the resource.
         :param HttpNamespaceArgs args: The arguments to use to populate this resource's properties.

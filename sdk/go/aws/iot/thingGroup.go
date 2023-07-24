@@ -57,13 +57,11 @@ import (
 //
 // ## Import
 //
-// IoT Things Groups can be imported using the name, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_iot_thing_group.example
 //
-//	$ pulumi import aws:iot/thingGroup:ThingGroup example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import IoT Things Groups using the name. For exampleconsole % pulumi import aws_iot_thing_group.example example
 type ThingGroup struct {
 	pulumi.CustomResourceState
 

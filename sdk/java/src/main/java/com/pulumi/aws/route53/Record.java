@@ -214,17 +214,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Records can be imported using ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)E.g.,
+ * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
- * ```
+ *  to = aws_route53_record.myrecord
  * 
- *  If the record also contains a set identifier, it should be appended
+ *  id = &#34;Z4KAPRWWNC7JR_dev.example.com_NS&#34; } If the record also contains a set identifier, append itterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
- * ```
+ *  to = aws_route53_record.myrecord
+ * 
+ *  id = &#34;Z4KAPRWWNC7JR_dev.example.com_NS_dev&#34; } **Using `pulumi import` to import** Route53 Records using the ID of the record, record name, record type, and set identifier. For exampleUsing the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)console % pulumi import aws_route53_record.myrecord Z4KAPRWWNC7JR_dev.example.com_NS If the record also contains a set identifier, append itconsole % pulumi import aws_route53_record.myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
  * 
  */
 @ResourceType(type="aws:route53/record:Record")

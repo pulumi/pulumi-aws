@@ -1,4 +1,4 @@
-From 44bb1d5c0ed932977685ee0f7112eb8678138c17 Mon Sep 17 00:00:00 2001
+From c0ca7957f3255fd849f8f0b6658dd3cb1ce1477e Mon Sep 17 00:00:00 2001
 From: Kyle Pitzen <kpitzen@pulumi.com>
 Date: Fri, 27 Jan 2023 09:37:43 -0600
 Subject: [PATCH 19/28] Reverts patches to S3BucketLegacy and GameLift

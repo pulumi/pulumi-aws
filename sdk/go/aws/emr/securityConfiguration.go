@@ -59,13 +59,11 @@ import (
 //
 // ## Import
 //
-// EMR Security Configurations can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_emr_security_configuration.sc
 //
-//	$ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
-//
-// ```
+//	id = "example-sc-name" } Using `pulumi import`, import EMR Security Configurations using the `name`. For exampleconsole % pulumi import aws_emr_security_configuration.sc example-sc-name
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState
 

@@ -241,11 +241,11 @@ class VpcIpamScope(pulumi.CustomResource):
 
         ## Import
 
-        IPAMs can be imported using the `scope_id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
-        ```
+         to = aws_vpc_ipam_scope.example
+
+         id = "ipam-scope-0513c69f283d11dfb" } Using `pulumi import`, import IPAMs using the `scope_id`. For exampleconsole % pulumi import aws_vpc_ipam_scope.example ipam-scope-0513c69f283d11dfb
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,11 +281,11 @@ class VpcIpamScope(pulumi.CustomResource):
 
         ## Import
 
-        IPAMs can be imported using the `scope_id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
-        ```
+         to = aws_vpc_ipam_scope.example
+
+         id = "ipam-scope-0513c69f283d11dfb" } Using `pulumi import`, import IPAMs using the `scope_id`. For exampleconsole % pulumi import aws_vpc_ipam_scope.example ipam-scope-0513c69f283d11dfb
 
         :param str resource_name: The name of the resource.
         :param VpcIpamScopeArgs args: The arguments to use to populate this resource's properties.

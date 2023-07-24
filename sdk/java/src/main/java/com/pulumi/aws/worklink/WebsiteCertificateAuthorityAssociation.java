@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
- * ```
+ *  to = aws_worklink_website_certificate_authority_association.example
+ * 
+ *  id = &#34;arn:aws:worklink::123456789012:fleet/example,abcdefghijk&#34; } Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For exampleconsole % pulumi import aws_worklink_website_certificate_authority_association.example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
  * 
  */
 @ResourceType(type="aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation")

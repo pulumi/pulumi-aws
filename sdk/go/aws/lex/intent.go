@@ -17,13 +17,11 @@ import (
 //
 // ## Import
 //
-// Intents can be imported using their name.
+// terraform import {
 //
-// ```sh
+//	to = aws_lex_intent.order_flowers_intent
 //
-//	$ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
-//
-// ```
+//	id = "OrderFlowers" } Using `pulumi import`, import intents using their name. For exampleconsole % pulumi import aws_lex_intent.order_flowers_intent OrderFlowers
 type Intent struct {
 	pulumi.CustomResourceState
 

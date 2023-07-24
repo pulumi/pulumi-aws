@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// The EFS backup policies can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_efs_backup_policy.example
 //
-//	$ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
-//
-// ```
+//	id = "fs-6fa144c6" } Using `pulumi import`, import the EFS backup policies using the `id`. For exampleconsole % pulumi import aws_efs_backup_policy.example fs-6fa144c6
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 

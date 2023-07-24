@@ -462,11 +462,11 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        Use the `keyspace_name` and `table_name` separated by `/` to import a table. For example
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
-        ```
+         to = aws_keyspaces_table.example
+
+         id = "my_keyspace/my_table" } Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For exampleconsole % pulumi import aws_keyspaces_table.example my_keyspace/my_table
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -517,11 +517,11 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        Use the `keyspace_name` and `table_name` separated by `/` to import a table. For example
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
-        ```
+         to = aws_keyspaces_table.example
+
+         id = "my_keyspace/my_table" } Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For exampleconsole % pulumi import aws_keyspaces_table.example my_keyspace/my_table
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

@@ -252,11 +252,11 @@ class EventIntegration(pulumi.CustomResource):
 
         ## Import
 
-        Amazon AppIntegrations Event Integrations can be imported using the `name` e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
-        ```
+         to = aws_appintegrations_event_integration.example
+
+         id = "example-name" } Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For exampleconsole % pulumi import aws_appintegrations_event_integration.example example-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -294,11 +294,11 @@ class EventIntegration(pulumi.CustomResource):
 
         ## Import
 
-        Amazon AppIntegrations Event Integrations can be imported using the `name` e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
-        ```
+         to = aws_appintegrations_event_integration.example
+
+         id = "example-name" } Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For exampleconsole % pulumi import aws_appintegrations_event_integration.example example-name
 
         :param str resource_name: The name of the resource.
         :param EventIntegrationArgs args: The arguments to use to populate this resource's properties.

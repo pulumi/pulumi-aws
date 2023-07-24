@@ -249,11 +249,11 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         ## Import
 
-        Configuration Aggregators can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
-        ```
+         to = aws_config_configuration_aggregator.example
+
+         id = "foo" } Using `pulumi import`, import Configuration Aggregators using the name. For exampleconsole % pulumi import aws_config_configuration_aggregator.example foo
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -312,11 +312,11 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         ## Import
 
-        Configuration Aggregators can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
-        ```
+         to = aws_config_configuration_aggregator.example
+
+         id = "foo" } Using `pulumi import`, import Configuration Aggregators using the name. For exampleconsole % pulumi import aws_config_configuration_aggregator.example foo
 
         :param str resource_name: The name of the resource.
         :param ConfigurationAggregatorArgs args: The arguments to use to populate this resource's properties.

@@ -215,11 +215,11 @@ class DomainEntry(pulumi.CustomResource):
 
         ## Import
 
-        `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
-        ```
+         to = aws_lightsail_domain_entry.example
+
+         id = "www,mydomain.com,A,127.0.0.1" } Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For exampleconsole % pulumi import aws_lightsail_domain_entry.example www,mydomain.com,A,127.0.0.1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,11 +255,11 @@ class DomainEntry(pulumi.CustomResource):
 
         ## Import
 
-        `aws_lightsail_domain_entry` can be imported by using the id attribute, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
-        ```
+         to = aws_lightsail_domain_entry.example
+
+         id = "www,mydomain.com,A,127.0.0.1" } Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For exampleconsole % pulumi import aws_lightsail_domain_entry.example www,mydomain.com,A,127.0.0.1
 
         :param str resource_name: The name of the resource.
         :param DomainEntryArgs args: The arguments to use to populate this resource's properties.

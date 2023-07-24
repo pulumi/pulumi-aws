@@ -206,11 +206,11 @@ class ResourceServer(pulumi.CustomResource):
 
         ## Import
 
-        `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
-        ```
+         to = aws_cognito_resource_server.example
+
+         id = "us-west-2_abc123|https://example.com" } Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For exampleconsole % pulumi import aws_cognito_resource_server.example "us-west-2_abc123|https://example.com"
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,11 +257,11 @@ class ResourceServer(pulumi.CustomResource):
 
         ## Import
 
-        `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
-        ```
+         to = aws_cognito_resource_server.example
+
+         id = "us-west-2_abc123|https://example.com" } Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For exampleconsole % pulumi import aws_cognito_resource_server.example "us-west-2_abc123|https://example.com"
 
         :param str resource_name: The name of the resource.
         :param ResourceServerArgs args: The arguments to use to populate this resource's properties.

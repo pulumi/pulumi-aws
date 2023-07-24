@@ -109,11 +109,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ECS clusters can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
- * ```
+ *  to = aws_ecs_cluster.stateless
+ * 
+ *  id = &#34;stateless-app&#34; } Using `pulumi import`, import ECS clusters using the `name`. For exampleconsole % pulumi import aws_ecs_cluster.stateless stateless-app
  * 
  */
 @ResourceType(type="aws:ecs/cluster:Cluster")

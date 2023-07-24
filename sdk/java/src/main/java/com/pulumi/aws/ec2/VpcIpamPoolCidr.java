@@ -141,11 +141,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IPAMs can be imported using the `&lt;cidr&gt;_&lt;ipam-pool-id&gt;`. Please note we **DO NOT** use the ipam pool cidr id as this was introduced after the resource already existed. An import example
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
- * ```
+ *  to = aws_vpc_ipam_pool_cidr.example
+ * 
+ *  id = &#34;172.2.0.0/24_ipam-pool-0e634f5a1517cccdc&#34; } Using `pulumi import`, import IPAMs using the `&lt;cidr&gt;_&lt;ipam-pool-id&gt;`. For exampleconsole % pulumi import aws_vpc_ipam_pool_cidr.example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
  * 
  */
 @ResourceType(type="aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr")

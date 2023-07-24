@@ -119,13 +119,11 @@ import (
 //
 // ## Import
 //
-// Security Groups can be imported using the `security group id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_default_security_group.default_sg
 //
-//	$ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
-//
-// ```
+//	id = "sg-903004f8" } Using `pulumi import`, import Security Groups using the security group `id`. For exampleconsole % pulumi import aws_default_security_group.default_sg sg-903004f8
 type DefaultSecurityGroup struct {
 	pulumi.CustomResourceState
 

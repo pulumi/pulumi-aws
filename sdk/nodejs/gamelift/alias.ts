@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * GameLift Aliases can be imported using the ID, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:gamelift/alias:Alias example <alias-id>
- * ```
+ *  to = aws_gamelift_alias.example
+ *
+ *  id = "<alias-id>" } Using `pulumi import`, import GameLift Aliases using the ID. For exampleconsole % pulumi import aws_gamelift_alias.example <alias-id>
  */
 export class Alias extends pulumi.CustomResource {
     /**

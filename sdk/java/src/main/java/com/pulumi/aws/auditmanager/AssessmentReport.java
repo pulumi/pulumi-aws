@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Audit Manager Assessment Reports can be imported using the assessment report `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
- * ```
+ *  to = aws_auditmanager_assessment_report.example
+ * 
+ *  id = &#34;abc123-de45&#34; } Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For exampleconsole % pulumi import aws_auditmanager_assessment_report.example abc123-de45
  * 
  */
 @ResourceType(type="aws:auditmanager/assessmentReport:AssessmentReport")

@@ -98,11 +98,11 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Import
     /// 
-    /// CodeBuild Webhooks can be imported using the CodeBuild Project name, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
-    /// ```
+    ///  to = aws_codebuild_webhook.example
+    /// 
+    ///  id = "MyProjectName" } Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For exampleconsole % pulumi import aws_codebuild_webhook.example MyProjectName
     /// </summary>
     [AwsResourceType("aws:codebuild/webhook:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource
