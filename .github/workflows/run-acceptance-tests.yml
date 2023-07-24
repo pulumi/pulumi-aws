@@ -357,6 +357,9 @@ jobs:
     - name: Uncompress SDK folder
       run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{
         github.workspace }}/sdk/${{ matrix.language }}
+    - run: |
+        which pulumi
+        which pulumi-resource-aws
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
     - name: Install Python deps
@@ -379,6 +382,10 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.4.0
+    - run: |
+        which pulumi
+        which pulumi-resource-aws
+        pulumi about
     - name: Run tests
       run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
         matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
@@ -390,7 +397,7 @@ jobs:
         fields: repo,commit,author,action
         status: ${{ job.status }}
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         goversion:
         - 1.20.x
