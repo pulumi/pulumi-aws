@@ -46028,7 +46028,7 @@ export namespace organizations {
         status: string;
     }
 
-    export interface GetOrganizationalUnitsChildren {
+    export interface GetOrganizationalUnitsChild {
         /**
          * ARN of the organizational unit
          */

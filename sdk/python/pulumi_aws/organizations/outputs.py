@@ -24,7 +24,7 @@ __all__ = [
     'GetOrganizationRootPolicyTypeResult',
     'GetOrganizationalUnitChildAccountsAccountResult',
     'GetOrganizationalUnitDescendantAccountsAccountResult',
-    'GetOrganizationalUnitsChildrenResult',
+    'GetOrganizationalUnitsChildResult',
 ]
 
 @pulumi.output_type
@@ -764,7 +764,7 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
 
 
 @pulumi.output_type
-class GetOrganizationalUnitsChildrenResult(dict):
+class GetOrganizationalUnitsChildResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,

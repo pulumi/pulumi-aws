@@ -61,7 +61,7 @@ type GetOrganizationalUnitsArgs struct {
 // A collection of values returned by getOrganizationalUnits.
 type GetOrganizationalUnitsResult struct {
 	// List of child organizational units, which have the following attributes:
-	Childrens []GetOrganizationalUnitsChildren `pulumi:"childrens"`
+	Children []GetOrganizationalUnitsChild `pulumi:"children"`
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	ParentId string `pulumi:"parentId"`
@@ -106,8 +106,8 @@ func (o GetOrganizationalUnitsResultOutput) ToGetOrganizationalUnitsResultOutput
 }
 
 // List of child organizational units, which have the following attributes:
-func (o GetOrganizationalUnitsResultOutput) Childrens() GetOrganizationalUnitsChildrenArrayOutput {
-	return o.ApplyT(func(v GetOrganizationalUnitsResult) []GetOrganizationalUnitsChildren { return v.Childrens }).(GetOrganizationalUnitsChildrenArrayOutput)
+func (o GetOrganizationalUnitsResultOutput) Children() GetOrganizationalUnitsChildArrayOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitsResult) []GetOrganizationalUnitsChild { return v.Children }).(GetOrganizationalUnitsChildArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

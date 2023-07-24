@@ -6494,8 +6494,15 @@ func Provider() *tfbridge.ProviderInfo {
 			"aws_wafregional_rate_based_rule":       {Tok: awsDataSource(wafregionalMod, "getRateBasedMod")},
 			"aws_wafregional_subscribed_rule_group": {Tok: awsDataSource(wafregionalMod, "getSubscribedRuleGroup")},
 			// Organizations
-			"aws_organizations_organization":                            {Tok: awsDataSource(organizationsMod, "getOrganization")},
-			"aws_organizations_organizational_units":                    {Tok: awsDataSource(organizationsMod, "getOrganizationalUnits")},
+			"aws_organizations_organization": {Tok: awsDataSource(organizationsMod, "getOrganization")},
+			"aws_organizations_organizational_units": {
+				Tok: awsDataSource(organizationsMod, "getOrganizationalUnits"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// The inflector incorrectly pluralizes this to
+					// "childrens".
+					"children": {Name: "children"},
+				},
+			},
 			"aws_organizations_organizational_unit_child_accounts":      {Tok: awsDataSource(organizationsMod, "getOrganizationalUnitChildAccounts")},
 			"aws_organizations_organizational_unit_descendant_accounts": {Tok: awsDataSource(organizationsMod, "getOrganizationalUnitDescendantAccounts")},
 			"aws_organizations_delegated_services":                      {Tok: awsDataSource(organizationsMod, "getDelegatedServices")},
