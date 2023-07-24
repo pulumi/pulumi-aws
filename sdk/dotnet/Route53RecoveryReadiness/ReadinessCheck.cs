@@ -33,11 +33,11 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// ## Import
     /// 
-    /// Route53 Recovery Readiness readiness checks can be imported via the readiness check name, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check
-    /// ```
+    ///  to = aws_route53recoveryreadiness_readiness_check.my-cw-alarm-check
+    /// 
+    ///  id = "example" } Using `pulumi import`, import Route53 Recovery Readiness readiness checks using the readiness check name. For exampleconsole % pulumi import aws_route53recoveryreadiness_readiness_check.my-cw-alarm-check example
     /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/readinessCheck:ReadinessCheck")]
     public partial class ReadinessCheck : global::Pulumi.CustomResource

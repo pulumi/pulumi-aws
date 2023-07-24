@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route 53 Resolver configs can be imported using the Route 53 Resolver config ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
- * ```
+ *  to = aws_route53_resolver_config.example
+ * 
+ *  id = &#34;rslvr-rc-715aa20c73a23da7&#34; } Using `pulumi import`, import Route 53 Resolver configs using the Route 53 Resolver config ID. For exampleconsole % pulumi import aws_route53_resolver_config.example rslvr-rc-715aa20c73a23da7
  * 
  */
 @ResourceType(type="aws:route53/resolverConfig:ResolverConfig")

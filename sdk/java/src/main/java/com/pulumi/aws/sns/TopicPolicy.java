@@ -84,11 +84,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SNS Topic Policy can be imported using the topic ARN, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
- * ```
+ *  to = aws_sns_topic_policy.user_updates
+ * 
+ *  id = &#34;arn:aws:sns:us-west-2:0123456789012:my-topic&#34; } Using `pulumi import`, import SNS Topic Policy using the topic ARN. For exampleconsole % pulumi import aws_sns_topic_policy.user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
  * 
  */
 @ResourceType(type="aws:sns/topicPolicy:TopicPolicy")

@@ -207,11 +207,11 @@ class Database(pulumi.CustomResource):
 
         ## Import
 
-        Timestream databases can be imported using the `database_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:timestreamwrite/database:Database example example
-        ```
+         to = aws_timestreamwrite_database.example
+
+         id = "example" } Using `pulumi import`, import Timestream databases using the `database_name`. For exampleconsole % pulumi import aws_timestreamwrite_database.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,11 +253,11 @@ class Database(pulumi.CustomResource):
 
         ## Import
 
-        Timestream databases can be imported using the `database_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:timestreamwrite/database:Database example example
-        ```
+         to = aws_timestreamwrite_database.example
+
+         id = "example" } Using `pulumi import`, import Timestream databases using the `database_name`. For exampleconsole % pulumi import aws_timestreamwrite_database.example example
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

@@ -89,11 +89,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IAM Signing Certificates can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
- * ```
+ *  to = aws_iam_signing_certificate.certificate
+ * 
+ *  id = &#34;IDIDIDIDID:user-name&#34; } Using `pulumi import`, import IAM Signing Certificates using the `id`. For exampleconsole % pulumi import aws_iam_signing_certificate.certificate IDIDIDIDID:user-name
  * 
  */
 @ResourceType(type="aws:iam/signingCertificate:SigningCertificate")

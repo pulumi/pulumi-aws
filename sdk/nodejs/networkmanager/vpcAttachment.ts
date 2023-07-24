@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_networkmanager_vpc_attachment` can be imported using the attachment ID, e.g.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
- * ```
+ *  to = aws_networkmanager_vpc_attachment.example
+ *
+ *  id = "attachment-0f8fa60d2238d1bd8" } Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For exampleconsole % pulumi import aws_networkmanager_vpc_attachment.example attachment-0f8fa60d2238d1bd8
  */
 export class VpcAttachment extends pulumi.CustomResource {
     /**

@@ -99,13 +99,11 @@ import (
 //
 // ## Import
 //
-// ECR Scanning Configurations can be imported using the `registry_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ecr_registry_scanning_configuration.example
 //
-//	$ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
-//
-// ```
+//	id = "012345678901" } Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For exampleconsole % pulumi import aws_ecr_registry_scanning_configuration.example 012345678901
 type RegistryScanningConfiguration struct {
 	pulumi.CustomResourceState
 

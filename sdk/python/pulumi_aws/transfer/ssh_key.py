@@ -176,11 +176,11 @@ class SshKey(pulumi.CustomResource):
 
         ## Import
 
-        Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
-        ```
+         to = aws_transfer_ssh_key.bar
+
+         id = "s-12345678/test-username/key-12345" } Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For exampleconsole % pulumi import aws_transfer_ssh_key.bar s-12345678/test-username/key-12345
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -241,11 +241,11 @@ class SshKey(pulumi.CustomResource):
 
         ## Import
 
-        Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
-        ```
+         to = aws_transfer_ssh_key.bar
+
+         id = "s-12345678/test-username/key-12345" } Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For exampleconsole % pulumi import aws_transfer_ssh_key.bar s-12345678/test-username/key-12345
 
         :param str resource_name: The name of the resource.
         :param SshKeyArgs args: The arguments to use to populate this resource's properties.

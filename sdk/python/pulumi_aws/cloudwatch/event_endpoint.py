@@ -301,11 +301,11 @@ class EventEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge Global Endpoints can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
-        ```
+         to = aws_cloudwatch_event_endpoint.imported_endpoint
+
+         id = "example-endpoint" } Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_endpoint.imported_endpoint example-endpoint
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -360,11 +360,11 @@ class EventEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge Global Endpoints can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
-        ```
+         to = aws_cloudwatch_event_endpoint.imported_endpoint
+
+         id = "example-endpoint" } Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_endpoint.imported_endpoint example-endpoint
 
         :param str resource_name: The name of the resource.
         :param EventEndpointArgs args: The arguments to use to populate this resource's properties.

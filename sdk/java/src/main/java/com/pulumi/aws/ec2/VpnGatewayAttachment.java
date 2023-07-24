@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * This resource does not support importing.
+ * You cannot import this resource.
  * 
  */
 @ResourceType(type="aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment")

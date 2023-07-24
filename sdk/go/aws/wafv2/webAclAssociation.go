@@ -125,13 +125,11 @@ import (
 //
 // ## Import
 //
-// WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_wafv2_web_acl_association.example
 //
-//	$ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
-//
-// ```
+//	id = "arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name" } Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For exampleconsole % pulumi import aws_wafv2_web_acl_association.example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
 //
 // [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
 type WebAclAssociation struct {

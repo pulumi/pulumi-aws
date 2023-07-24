@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Models can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
- * ```
+ *  to = aws_sagemaker_servicecatalog_portfolio_status.example
+ *
+ *  id = "us-east-1" } Using `pulumi import`, import models using the `id`. For exampleconsole % pulumi import aws_sagemaker_servicecatalog_portfolio_status.example us-east-1
  */
 export class ServicecatalogPortfolioStatus extends pulumi.CustomResource {
     /**

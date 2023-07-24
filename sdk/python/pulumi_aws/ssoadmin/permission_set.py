@@ -285,11 +285,11 @@ class PermissionSet(pulumi.CustomResource):
 
         ## Import
 
-        SSO Permission Sets can be imported using the `arn` and `instance_arn` separated by a comma (`,`) e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-        ```
+         to = aws_ssoadmin_permission_set.example
+
+         id = "arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72" } Using `pulumi import`, import SSO Permission Sets using the `arn` and `instance_arn` separated by a comma (`,`). For exampleconsole % pulumi import aws_ssoadmin_permission_set.example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,11 +313,11 @@ class PermissionSet(pulumi.CustomResource):
 
         ## Import
 
-        SSO Permission Sets can be imported using the `arn` and `instance_arn` separated by a comma (`,`) e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-        ```
+         to = aws_ssoadmin_permission_set.example
+
+         id = "arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72" } Using `pulumi import`, import SSO Permission Sets using the `arn` and `instance_arn` separated by a comma (`,`). For exampleconsole % pulumi import aws_ssoadmin_permission_set.example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
 
         :param str resource_name: The name of the resource.
         :param PermissionSetArgs args: The arguments to use to populate this resource's properties.

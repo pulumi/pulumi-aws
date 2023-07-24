@@ -360,11 +360,11 @@ class Profile(pulumi.CustomResource):
 
         ## Import
 
-        `aws_rolesanywhere_profile` can be imported using its `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
-        ```
+         to = aws_rolesanywhere_profile.example
+
+         id = "db138a85-8925-4f9f-a409-08231233cacf" } Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For exampleconsole % pulumi import aws_rolesanywhere_profile.example db138a85-8925-4f9f-a409-08231233cacf
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -415,11 +415,11 @@ class Profile(pulumi.CustomResource):
 
         ## Import
 
-        `aws_rolesanywhere_profile` can be imported using its `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
-        ```
+         to = aws_rolesanywhere_profile.example
+
+         id = "db138a85-8925-4f9f-a409-08231233cacf" } Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For exampleconsole % pulumi import aws_rolesanywhere_profile.example db138a85-8925-4f9f-a409-08231233cacf
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * App Runner Connections can be imported by using the `connection_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apprunner/connection:Connection example example
- * ```
+ *  to = aws_apprunner_connection.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import App Runner Connections using the `connection_name`. For exampleconsole % pulumi import aws_apprunner_connection.example example
  * 
  */
 @ResourceType(type="aws:apprunner/connection:Connection")

@@ -199,11 +199,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPN Connections can be imported using the `vpn connection id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
- * ```
+ *  to = aws_vpn_connection.testvpnconnection
+ * 
+ *  id = &#34;vpn-40f41529&#34; } Using `pulumi import`, import VPN Connections using the VPN connection `id`. For exampleconsole % pulumi import aws_vpn_connection.testvpnconnection vpn-40f41529
  * 
  */
 @ResourceType(type="aws:ec2/vpnConnection:VpnConnection")

@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SimpleDB Domains can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:simpledb/domain:Domain users users
- * ```
+ *  to = aws_simpledb_domain.users
+ * 
+ *  id = &#34;users&#34; } Using `pulumi import`, import SimpleDB Domains using the `name`. For exampleconsole % pulumi import aws_simpledb_domain.users users
  * 
  */
 @ResourceType(type="aws:simpledb/domain:Domain")

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// AWS API Gateway Authorizer can be imported using the `REST-API-ID/AUTHORIZER-ID`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
-    /// ```
+    ///  to = aws_api_gateway_authorizer.authorizer
+    /// 
+    ///  id = "12345abcde/example" } Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For exampleconsole % pulumi import aws_api_gateway_authorizer.authorizer 12345abcde/example
     /// </summary>
     [AwsResourceType("aws:apigateway/authorizer:Authorizer")]
     public partial class Authorizer : global::Pulumi.CustomResource

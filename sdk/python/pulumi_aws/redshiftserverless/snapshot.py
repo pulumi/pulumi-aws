@@ -258,11 +258,11 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Serverless Snapshots can be imported using the `snapshot_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
-        ```
+         to = aws_redshiftserverless_snapshot.example
+
+         id = "example" } Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For exampleconsole % pulumi import aws_redshiftserverless_snapshot.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,11 +292,11 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Serverless Snapshots can be imported using the `snapshot_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
-        ```
+         to = aws_redshiftserverless_snapshot.example
+
+         id = "example" } Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For exampleconsole % pulumi import aws_redshiftserverless_snapshot.example example
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

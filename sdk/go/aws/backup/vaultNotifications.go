@@ -84,13 +84,11 @@ import (
 //
 // ## Import
 //
-// Backup vault notifications can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_vault_notifications.test
 //
-//	$ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
-//
-// ```
+//	id = "TestVault" } Using `pulumi import`, import Backup vault notifications using the `name`. For exampleconsole % pulumi import aws_backup_vault_notifications.test TestVault
 type VaultNotifications struct {
 	pulumi.CustomResourceState
 

@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Service Discovery Private DNS Namespace can be imported using the namespace ID and VPC ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_service_discovery_private_dns_namespace.example
 //
-//	$ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
-//
-// ```
+//	id = "0123456789:vpc-123345" } Using `pulumi import`, import Service Discovery Private DNS Namespace using the namespace ID and VPC ID. For exampleconsole % pulumi import aws_service_discovery_private_dns_namespace.example 0123456789:vpc-123345
 type PrivateDnsNamespace struct {
 	pulumi.CustomResourceState
 

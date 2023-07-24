@@ -32,8 +32,6 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
 
         /// <summary>
         /// The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        /// 
-        /// **endpoint_configuration** supports the following attributes:
         /// </summary>
         [Input("toPort", required: true)]
         public Input<int> ToPort { get; set; } = null!;

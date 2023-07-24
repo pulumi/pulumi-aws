@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// `aws_neptune_cluster_endpoint` can be imported by using the `cluster-identifier:endpoint-identfier`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
-    /// ```
+    ///  to = aws_neptune_cluster_endpoint.example
+    /// 
+    ///  id = "my-cluster:my-endpoint" } Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For exampleconsole % pulumi import aws_neptune_cluster_endpoint.example my-cluster:my-endpoint
     /// </summary>
     [AwsResourceType("aws:neptune/clusterEndpoint:ClusterEndpoint")]
     public partial class ClusterEndpoint : global::Pulumi.CustomResource

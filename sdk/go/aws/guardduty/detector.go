@@ -60,15 +60,11 @@ import (
 //
 // ## Import
 //
-// GuardDuty detectors can be imported using the detector ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_guardduty_detector.MyDetector
 //
-//	$ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
-//
-// ```
-//
-//	The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
+//	id = "00b00fd5aecc0ab60a708659477e9617" } Using `pulumi import`, import GuardDuty detectors using the detector ID. For exampleconsole % pulumi import aws_guardduty_detector.MyDetector 00b00fd5aecc0ab60a708659477e9617 The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
 type Detector struct {
 	pulumi.CustomResourceState
 

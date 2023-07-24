@@ -100,13 +100,11 @@ import (
 //
 // ## Import
 //
-// API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_account.demo
 //
-//	$ pulumi import aws:apigateway/account:Account demo api-gateway-account
-//
-// ```
+//	id = "api-gateway-account" } Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For exampleconsole % pulumi import aws_api_gateway_account.demo api-gateway-account
 type Account struct {
 	pulumi.CustomResourceState
 

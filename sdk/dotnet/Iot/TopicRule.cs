@@ -111,11 +111,11 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
-    /// IoT Topic Rules can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;
-    /// ```
+    ///  to = aws_iot_topic_rule.rule
+    /// 
+    ///  id = "&lt;name&gt;" } Using `pulumi import`, import IoT Topic Rules using the `name`. For exampleconsole % pulumi import aws_iot_topic_rule.rule &lt;name&gt;
     /// </summary>
     [AwsResourceType("aws:iot/topicRule:TopicRule")]
     public partial class TopicRule : global::Pulumi.CustomResource

@@ -312,11 +312,11 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_connect_peer` can be imported by using the EC2 Transit Gateway Connect Peer identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
-        ```
+         to = aws_ec2_transit_gateway_connect_peer.example
+
+         id = "tgw-connect-peer-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_connect_peer.example tgw-connect-peer-12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -353,11 +353,11 @@ class ConnectPeer(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_connect_peer` can be imported by using the EC2 Transit Gateway Connect Peer identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678
-        ```
+         to = aws_ec2_transit_gateway_connect_peer.example
+
+         id = "tgw-connect-peer-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_connect_peer.example tgw-connect-peer-12345678
 
         :param str resource_name: The name of the resource.
         :param ConnectPeerArgs args: The arguments to use to populate this resource's properties.

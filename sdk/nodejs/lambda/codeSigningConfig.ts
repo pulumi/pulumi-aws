@@ -34,11 +34,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Code Signing Configs can be imported using their ARN, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
- * ```
+ *  to = aws_lambda_code_signing_config.imported_csc
+ *
+ *  id = "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b" } Using `pulumi import`, import Code Signing Configs using their ARN. For exampleconsole % pulumi import aws_lambda_code_signing_config.imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
  */
 export class CodeSigningConfig extends pulumi.CustomResource {
     /**

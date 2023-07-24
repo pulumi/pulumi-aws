@@ -79,13 +79,11 @@ import (
 //
 // ## Import
 //
-// `aws_storagegateway_stored_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_storagegateway_stored_iscsi_volume.example
 //
-//	$ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
-//
-// ```
+//	id = "arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678" } Using `pulumi import`, import `aws_storagegateway_stored_iscsi_volume` using the volume Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_stored_iscsi_volume.example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
 type StoredIscsiVolume struct {
 	pulumi.CustomResourceState
 

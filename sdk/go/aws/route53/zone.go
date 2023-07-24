@@ -118,13 +118,11 @@ import (
 //
 // ## Import
 //
-// Route53 Zones can be imported using the `zone id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_zone.myzone
 //
-//	$ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
-//
-// ```
+//	id = "Z1D633PJN98FT9" } Using `pulumi import`, import Route53 Zones using the zone `id`. For exampleconsole % pulumi import aws_route53_zone.myzone Z1D633PJN98FT9
 type Zone struct {
 	pulumi.CustomResourceState
 

@@ -92,11 +92,11 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Import
     /// 
-    /// AppConfig Extension Associations can be imported using their extension association ID, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
-    /// ```
+    ///  to = aws_appconfig_extension_association.example
+    /// 
+    ///  id = "71rxuzt" } Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For exampleconsole % pulumi import aws_appconfig_extension_association.example 71rxuzt
     /// </summary>
     [AwsResourceType("aws:appconfig/extensionAssociation:ExtensionAssociation")]
     public partial class ExtensionAssociation : global::Pulumi.CustomResource

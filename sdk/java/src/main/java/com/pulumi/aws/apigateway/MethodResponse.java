@@ -86,11 +86,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_api_gateway_method_response` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
- * ```
+ *  to = aws_api_gateway_method_response.example
+ * 
+ *  id = &#34;12345abcde/67890fghij/GET/200&#34; } Using `pulumi import`, import `aws_api_gateway_method_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For exampleconsole % pulumi import aws_api_gateway_method_response.example 12345abcde/67890fghij/GET/200
  * 
  */
 @ResourceType(type="aws:apigateway/methodResponse:MethodResponse")

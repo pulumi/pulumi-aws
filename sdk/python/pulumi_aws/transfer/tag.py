@@ -155,11 +155,11 @@ class Tag(pulumi.CustomResource):
 
         ## Import
 
-        `aws_transfer_tag` can be imported by using the Transfer Family resource identifier and key, separated by a comma (`,`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transfer/tag:Tag example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
-        ```
+         to = aws_transfer_tag.example
+
+         id = "arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name" } Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_transfer_tag.example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,11 +199,11 @@ class Tag(pulumi.CustomResource):
 
         ## Import
 
-        `aws_transfer_tag` can be imported by using the Transfer Family resource identifier and key, separated by a comma (`,`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transfer/tag:Tag example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
-        ```
+         to = aws_transfer_tag.example
+
+         id = "arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name" } Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For exampleconsole % pulumi import aws_transfer_tag.example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.

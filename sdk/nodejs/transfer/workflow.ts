@@ -57,11 +57,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Transfer Workflows can be imported using the `worflow_id`.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:transfer/workflow:Workflow example example
- * ```
+ *  to = aws_transfer_workflow.example
+ *
+ *  id = "example" } Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For exampleconsole % pulumi import aws_transfer_workflow.example example
  */
 export class Workflow extends pulumi.CustomResource {
     /**

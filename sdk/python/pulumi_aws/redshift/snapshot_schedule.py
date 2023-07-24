@@ -280,11 +280,11 @@ class SnapshotSchedule(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Snapshot Schedule can be imported using the `identifier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
-        ```
+         to = aws_redshift_snapshot_schedule.default
+
+         id = "tf-redshift-snapshot-schedule" } Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For exampleconsole % pulumi import aws_redshift_snapshot_schedule.default tf-redshift-snapshot-schedule
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,11 +316,11 @@ class SnapshotSchedule(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Snapshot Schedule can be imported using the `identifier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
-        ```
+         to = aws_redshift_snapshot_schedule.default
+
+         id = "tf-redshift-snapshot-schedule" } Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For exampleconsole % pulumi import aws_redshift_snapshot_schedule.default tf-redshift-snapshot-schedule
 
         :param str resource_name: The name of the resource.
         :param SnapshotScheduleArgs args: The arguments to use to populate this resource's properties.

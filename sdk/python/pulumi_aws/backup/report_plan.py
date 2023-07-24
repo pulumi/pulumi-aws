@@ -290,11 +290,11 @@ class ReportPlan(pulumi.CustomResource):
 
         ## Import
 
-        Backup Report Plan can be imported using the `id` which corresponds to the name of the Backup Report Plan, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
-        ```
+         to = aws_backup_report_plan.test
+
+         id = "<id>" } Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For exampleconsole % pulumi import aws_backup_report_plan.test <id>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -338,11 +338,11 @@ class ReportPlan(pulumi.CustomResource):
 
         ## Import
 
-        Backup Report Plan can be imported using the `id` which corresponds to the name of the Backup Report Plan, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
-        ```
+         to = aws_backup_report_plan.test
+
+         id = "<id>" } Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For exampleconsole % pulumi import aws_backup_report_plan.test <id>
 
         :param str resource_name: The name of the resource.
         :param ReportPlanArgs args: The arguments to use to populate this resource's properties.

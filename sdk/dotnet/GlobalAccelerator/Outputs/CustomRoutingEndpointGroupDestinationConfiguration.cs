@@ -23,8 +23,6 @@ namespace Pulumi.Aws.GlobalAccelerator.Outputs
         public readonly ImmutableArray<string> Protocols;
         /// <summary>
         /// The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        /// 
-        /// **endpoint_configuration** supports the following attributes:
         /// </summary>
         public readonly int ToPort;
 

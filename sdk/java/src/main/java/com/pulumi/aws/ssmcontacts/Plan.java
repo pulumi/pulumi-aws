@@ -158,11 +158,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Import SSM Contact Plan using the Contact ARN. For example
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
- * ```
+ *  to = aws_ssmcontacts_plan.example
+ * 
+ *  id = &#34;{ARNValue}&#34; } Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For exampleconsole % pulumi import aws_ssmcontacts_plan.example {ARNValue}
  * 
  */
 @ResourceType(type="aws:ssmcontacts/plan:Plan")

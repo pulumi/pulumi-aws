@@ -181,11 +181,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AWS Maintenance Window Task can be imported using the `window_id` and `window_task_id` separated by `/`.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task &lt;window_id&gt;/&lt;window_task_id&gt;
- * ```
+ *  to = aws_ssm_maintenance_window_task.task
+ * 
+ *  id = &#34;&lt;window_id&gt;/&lt;window_task_id&gt;&#34; } Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For exampleconsole % pulumi import aws_ssm_maintenance_window_task.task &lt;window_id&gt;/&lt;window_task_id&gt;
  * 
  */
 @ResourceType(type="aws:ssm/maintenanceWindowTask:MaintenanceWindowTask")

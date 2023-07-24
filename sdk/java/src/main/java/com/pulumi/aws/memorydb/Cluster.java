@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Use the `name` to import a cluster. For example
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
- * ```
+ *  to = aws_memorydb_cluster.example
+ * 
+ *  id = &#34;my-cluster&#34; } Using `pulumi import`, import a cluster using the `name`. For exampleconsole % pulumi import aws_memorydb_cluster.example my-cluster
  * 
  */
 @ResourceType(type="aws:memorydb/cluster:Cluster")

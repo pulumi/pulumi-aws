@@ -307,11 +307,11 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// ## Import
     /// 
-    /// `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
-    /// ```
+    ///  to = aws_kinesisanalyticsv2_application.example
+    /// 
+    ///  id = "arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application" } Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For exampleconsole % pulumi import aws_kinesisanalyticsv2_application.example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
     /// </summary>
     [AwsResourceType("aws:kinesisanalyticsv2/application:Application")]
     public partial class Application : global::Pulumi.CustomResource

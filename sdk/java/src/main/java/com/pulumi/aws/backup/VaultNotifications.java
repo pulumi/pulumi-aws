@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Backup vault notifications can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
- * ```
+ *  to = aws_backup_vault_notifications.test
+ * 
+ *  id = &#34;TestVault&#34; } Using `pulumi import`, import Backup vault notifications using the `name`. For exampleconsole % pulumi import aws_backup_vault_notifications.test TestVault
  * 
  */
 @ResourceType(type="aws:backup/vaultNotifications:VaultNotifications")

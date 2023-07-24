@@ -151,11 +151,11 @@ class RoleAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_db_instance_role_association` can be imported using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
-        ```
+         to = aws_db_instance_role_association.example
+
+         id = "my-db-instance,arn:aws:iam::123456789012:role/my-role" } Using `pulumi import`, import `aws_db_instance_role_association` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For exampleconsole % pulumi import aws_db_instance_role_association.example my-db-instance,arn:aws:iam::123456789012:role/my-role
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,11 +191,11 @@ class RoleAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_db_instance_role_association` can be imported using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
-        ```
+         to = aws_db_instance_role_association.example
+
+         id = "my-db-instance,arn:aws:iam::123456789012:role/my-role" } Using `pulumi import`, import `aws_db_instance_role_association` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For exampleconsole % pulumi import aws_db_instance_role_association.example my-db-instance,arn:aws:iam::123456789012:role/my-role
 
         :param str resource_name: The name of the resource.
         :param RoleAssociationArgs args: The arguments to use to populate this resource's properties.

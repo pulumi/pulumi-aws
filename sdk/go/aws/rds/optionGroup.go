@@ -82,13 +82,11 @@ import (
 //
 // ## Import
 //
-// DB Option groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_option_group.example
 //
-//	$ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
-//
-// ```
+//	id = "mysql-option-group" } Using `pulumi import`, import DB Option groups using the `name`. For exampleconsole % pulumi import aws_db_option_group.example mysql-option-group
 type OptionGroup struct {
 	pulumi.CustomResourceState
 

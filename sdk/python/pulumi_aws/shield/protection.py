@@ -187,11 +187,11 @@ class Protection(pulumi.CustomResource):
 
         ## Import
 
-        Shield protection resources can be imported by specifying their ID e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
-        ```
+         to = aws_shield_protection.example
+
+         id = "ff9592dc-22f3-4e88-afa1-7b29fde9669a" } Using `pulumi import`, import Shield protection resources using specifying their ID. For exampleconsole % pulumi import aws_shield_protection.example ff9592dc-22f3-4e88-afa1-7b29fde9669a
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,11 +229,11 @@ class Protection(pulumi.CustomResource):
 
         ## Import
 
-        Shield protection resources can be imported by specifying their ID e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
-        ```
+         to = aws_shield_protection.example
+
+         id = "ff9592dc-22f3-4e88-afa1-7b29fde9669a" } Using `pulumi import`, import Shield protection resources using specifying their ID. For exampleconsole % pulumi import aws_shield_protection.example ff9592dc-22f3-4e88-afa1-7b29fde9669a
 
         :param str resource_name: The name of the resource.
         :param ProtectionArgs args: The arguments to use to populate this resource's properties.

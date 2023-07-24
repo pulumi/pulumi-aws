@@ -47,13 +47,11 @@ import (
 //
 // ## Import
 //
-// Conditional forwarders can be imported using the directory id and remote_domain_name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_directory_service_conditional_forwarder.example
 //
-//	$ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
-//
-// ```
+//	id = "d-1234567890:example.com" } Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For exampleconsole % pulumi import aws_directory_service_conditional_forwarder.example d-1234567890:example.com
 type ConditionalForwader struct {
 	pulumi.CustomResourceState
 

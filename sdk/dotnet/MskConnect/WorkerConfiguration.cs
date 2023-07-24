@@ -36,11 +36,11 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// ## Import
     /// 
-    /// MSK Connect Worker Configuration can be imported using the plugin's `arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
-    /// ```
+    ///  to = aws_mskconnect_worker_configuration.example
+    /// 
+    ///  id = "arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4" } Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `arn`. For exampleconsole % pulumi import aws_mskconnect_worker_configuration.example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
     /// </summary>
     [AwsResourceType("aws:mskconnect/workerConfiguration:WorkerConfiguration")]
     public partial class WorkerConfiguration : global::Pulumi.CustomResource

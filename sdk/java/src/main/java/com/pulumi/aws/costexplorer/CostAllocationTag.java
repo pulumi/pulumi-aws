@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_ce_cost_allocation_tag` can be imported using the `id`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
- * ```
+ *  to = aws_ce_cost_allocation_tag.example
+ * 
+ *  id = &#34;key&#34; } Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For exampleconsole % pulumi import aws_ce_cost_allocation_tag.example key
  * 
  */
 @ResourceType(type="aws:costexplorer/costAllocationTag:CostAllocationTag")

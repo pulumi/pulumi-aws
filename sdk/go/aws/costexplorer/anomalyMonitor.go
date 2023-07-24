@@ -92,13 +92,11 @@ import (
 //
 // ## Import
 //
-// `aws_ce_anomaly_monitor` can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_ce_anomaly_monitor.example
 //
-//	$ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
-//
-// ```
+//	id = "costAnomalyMonitorARN" } Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For exampleconsole % pulumi import aws_ce_anomaly_monitor.example costAnomalyMonitorARN
 type AnomalyMonitor struct {
 	pulumi.CustomResourceState
 

@@ -205,11 +205,11 @@ class CodeRepository(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Code Repositories can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
-        ```
+         to = aws_sagemaker_code_repository.test_code_repository
+
+         id = "my-code-repo" } Using `pulumi import`, import SageMaker Code Repositories using the `name`. For exampleconsole % pulumi import aws_sagemaker_code_repository.test_code_repository my-code-repo
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,11 +264,11 @@ class CodeRepository(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Code Repositories can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
-        ```
+         to = aws_sagemaker_code_repository.test_code_repository
+
+         id = "my-code-repo" } Using `pulumi import`, import SageMaker Code Repositories using the `name`. For exampleconsole % pulumi import aws_sagemaker_code_repository.test_code_repository my-code-repo
 
         :param str resource_name: The name of the resource.
         :param CodeRepositoryArgs args: The arguments to use to populate this resource's properties.

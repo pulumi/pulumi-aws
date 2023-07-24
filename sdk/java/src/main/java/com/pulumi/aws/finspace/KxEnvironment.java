@@ -116,11 +116,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An AWS FinSpace Kx Environment can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
- * ```
+ *  to = aws_finspace_kx_environment.example
+ * 
+ *  id = &#34;n3ceo7wqxoxcti5tujqwzs&#34; } Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For exampleconsole % pulumi import aws_finspace_kx_environment.example n3ceo7wqxoxcti5tujqwzs
  * 
  */
 @ResourceType(type="aws:finspace/kxEnvironment:KxEnvironment")

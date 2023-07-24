@@ -137,13 +137,11 @@ import (
 //
 // ## Import
 //
-// Glue Classifiers can be imported using their name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_classifier.MyClassifier
 //
-//	$ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
-//
-// ```
+//	id = "MyClassifier" } Using `pulumi import`, import Glue Classifiers using their name. For exampleconsole % pulumi import aws_glue_classifier.MyClassifier MyClassifier
 type Classifier struct {
 	pulumi.CustomResourceState
 

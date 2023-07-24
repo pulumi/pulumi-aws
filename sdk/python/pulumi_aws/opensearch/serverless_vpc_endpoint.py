@@ -215,11 +215,11 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        OpenSearchServerless Vpc Endpointa can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
-        ```
+         to = aws_opensearchserverless_vpc_endpoint.example
+
+         id = "vpce-8012925589" } Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For exampleconsole % pulumi import aws_opensearchserverless_vpc_endpoint.example vpce-8012925589
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,11 +254,11 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        OpenSearchServerless Vpc Endpointa can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
-        ```
+         to = aws_opensearchserverless_vpc_endpoint.example
+
+         id = "vpce-8012925589" } Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For exampleconsole % pulumi import aws_opensearchserverless_vpc_endpoint.example vpce-8012925589
 
         :param str resource_name: The name of the resource.
         :param ServerlessVpcEndpointArgs args: The arguments to use to populate this resource's properties.

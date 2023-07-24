@@ -185,11 +185,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
- * ```
+ *  to = aws_sagemaker_flow_definition.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For exampleconsole % pulumi import aws_sagemaker_flow_definition.example example
  * 
  */
 @ResourceType(type="aws:sagemaker/flowDefinition:FlowDefinition")

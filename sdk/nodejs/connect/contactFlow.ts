@@ -59,11 +59,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Amazon Connect Contact Flows can be imported using the `instance_id` and `contact_flow_id` separated by a colon (`:`), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
- * ```
+ *  to = aws_connect_contact_flow.example
+ *
+ *  id = "f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5" } Using `pulumi import`, import Amazon Connect Contact Flows using the `instance_id` and `contact_flow_id` separated by a colon (`:`). For exampleconsole % pulumi import aws_connect_contact_flow.example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  */
 export class ContactFlow extends pulumi.CustomResource {
     /**

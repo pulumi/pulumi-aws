@@ -106,6 +106,8 @@ type LookupInstanceResult struct {
 	MasterUserSecrets []GetInstanceMasterUserSecret `pulumi:"masterUserSecrets"`
 	// Contains the master username for the DB instance.
 	MasterUsername string `pulumi:"masterUsername"`
+	// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+	MaxAllocatedStorage int `pulumi:"maxAllocatedStorage"`
 	// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 	MonitoringInterval int `pulumi:"monitoringInterval"`
 	// ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
@@ -302,6 +304,11 @@ func (o LookupInstanceResultOutput) MasterUserSecrets() GetInstanceMasterUserSec
 // Contains the master username for the DB instance.
 func (o LookupInstanceResultOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.MasterUsername }).(pulumi.StringOutput)
+}
+
+// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+func (o LookupInstanceResultOutput) MaxAllocatedStorage() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupInstanceResult) int { return v.MaxAllocatedStorage }).(pulumi.IntOutput)
 }
 
 // Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.

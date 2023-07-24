@@ -218,11 +218,11 @@ class WebAclAssociation(pulumi.CustomResource):
 
         ## Import
 
-        WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
-        ```
+         to = aws_wafregional_web_acl_association.foo
+
+         id = "web_acl_id:resource_arn" } Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For exampleconsole % pulumi import aws_wafregional_web_acl_association.foo web_acl_id:resource_arn
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -356,11 +356,11 @@ class WebAclAssociation(pulumi.CustomResource):
 
         ## Import
 
-        WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
-        ```
+         to = aws_wafregional_web_acl_association.foo
+
+         id = "web_acl_id:resource_arn" } Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For exampleconsole % pulumi import aws_wafregional_web_acl_association.foo web_acl_id:resource_arn
 
         :param str resource_name: The name of the resource.
         :param WebAclAssociationArgs args: The arguments to use to populate this resource's properties.

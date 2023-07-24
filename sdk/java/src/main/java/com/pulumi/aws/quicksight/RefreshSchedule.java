@@ -148,11 +148,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A QuickSight Refresh Schedule can be imported using the AWS account ID, data set ID and schedule ID separated by commas (`,`) e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:quicksight/refreshSchedule:RefreshSchedule example 123456789012,dataset-id,schedule-id
- * ```
+ *  to = aws_quicksight_refresh_schedule.example
+ * 
+ *  id = &#34;123456789012,dataset-id,schedule-id&#34; } Using `pulumi import`, import a QuickSight Refresh Schedule using the AWS account ID, data set ID and schedule ID separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_refresh_schedule.example 123456789012,dataset-id,schedule-id
  * 
  */
 @ResourceType(type="aws:quicksight/refreshSchedule:RefreshSchedule")

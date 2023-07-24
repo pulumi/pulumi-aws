@@ -51,11 +51,11 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// ## Import
     /// 
-    /// SESv2 (Simple Email V2) Dedicated IP Pool can be imported using the `pool_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:sesv2/dedicatedIpPool:DedicatedIpPool example my-pool
-    /// ```
+    ///  to = aws_sesv2_dedicated_ip_pool.example
+    /// 
+    ///  id = "my-pool" } Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Pool using the `pool_name`. For exampleconsole % pulumi import aws_sesv2_dedicated_ip_pool.example my-pool
     /// </summary>
     [AwsResourceType("aws:sesv2/dedicatedIpPool:DedicatedIpPool")]
     public partial class DedicatedIpPool : global::Pulumi.CustomResource

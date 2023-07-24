@@ -22,7 +22,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
@@ -98,6 +98,9 @@ class GetInstanceResult:
         if master_username and not isinstance(master_username, str):
             raise TypeError("Expected argument 'master_username' to be a str")
         pulumi.set(__self__, "master_username", master_username)
+        if max_allocated_storage and not isinstance(max_allocated_storage, int):
+            raise TypeError("Expected argument 'max_allocated_storage' to be a int")
+        pulumi.set(__self__, "max_allocated_storage", max_allocated_storage)
         if monitoring_interval and not isinstance(monitoring_interval, int):
             raise TypeError("Expected argument 'monitoring_interval' to be a int")
         pulumi.set(__self__, "monitoring_interval", monitoring_interval)
@@ -348,6 +351,14 @@ class GetInstanceResult:
         return pulumi.get(self, "master_username")
 
     @property
+    @pulumi.getter(name="maxAllocatedStorage")
+    def max_allocated_storage(self) -> int:
+        """
+        The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+        """
+        return pulumi.get(self, "max_allocated_storage")
+
+    @property
     @pulumi.getter(name="monitoringInterval")
     def monitoring_interval(self) -> int:
         """
@@ -512,6 +523,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             license_model=self.license_model,
             master_user_secrets=self.master_user_secrets,
             master_username=self.master_username,
+            max_allocated_storage=self.max_allocated_storage,
             monitoring_interval=self.monitoring_interval,
             monitoring_role_arn=self.monitoring_role_arn,
             multi_az=self.multi_az,
@@ -581,6 +593,7 @@ def get_instance(db_instance_identifier: Optional[str] = None,
         license_model=pulumi.get(__ret__, 'license_model'),
         master_user_secrets=pulumi.get(__ret__, 'master_user_secrets'),
         master_username=pulumi.get(__ret__, 'master_username'),
+        max_allocated_storage=pulumi.get(__ret__, 'max_allocated_storage'),
         monitoring_interval=pulumi.get(__ret__, 'monitoring_interval'),
         monitoring_role_arn=pulumi.get(__ret__, 'monitoring_role_arn'),
         multi_az=pulumi.get(__ret__, 'multi_az'),

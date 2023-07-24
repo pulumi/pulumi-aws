@@ -76,11 +76,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Audit Manager Assessments can be imported using the assessment `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
- * ```
+ *  to = aws_auditmanager_assessment.example
+ * 
+ *  id = &#34;abc123-de45&#34; } Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For exampleconsole % pulumi import aws_auditmanager_assessment.example abc123-de45
  * 
  */
 @ResourceType(type="aws:auditmanager/assessment:Assessment")

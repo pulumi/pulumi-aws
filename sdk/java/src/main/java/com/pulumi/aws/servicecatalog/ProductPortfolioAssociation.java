@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_servicecatalog_product_portfolio_association` can be imported using the accept language, portfolio ID, and product ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
- * ```
+ *  to = aws_servicecatalog_product_portfolio_association.example
+ * 
+ *  id = &#34;en:port-68656c6c6f:prod-dnigbtea24ste&#34; } Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For exampleconsole % pulumi import aws_servicecatalog_product_portfolio_association.example en:port-68656c6c6f:prod-dnigbtea24ste
  * 
  */
 @ResourceType(type="aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation")

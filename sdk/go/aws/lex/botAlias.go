@@ -46,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Bot aliases can be imported using an ID with the format `bot_name:bot_alias_name`.
+// terraform import {
 //
-// ```sh
+//	to = aws_lex_bot_alias.order_flowers_prod
 //
-//	$ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
-//
-// ```
+//	id = "OrderFlowers:OrderFlowersProd" } Using `pulumi import`, import bot aliases using an ID with the format `bot_name:bot_alias_name`. For exampleconsole % pulumi import aws_lex_bot_alias.order_flowers_prod OrderFlowers:OrderFlowersProd
 type BotAlias struct {
 	pulumi.CustomResourceState
 

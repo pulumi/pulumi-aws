@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Pinpoint App can be imported using the `application-id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:pinpoint/app:App name application-id
- * ```
+ *  to = aws_pinpoint_app.name
+ *
+ *  id = "application-id" } Using `pulumi import`, import Pinpoint App using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_app.name application-id
  */
 export class App extends pulumi.CustomResource {
     /**

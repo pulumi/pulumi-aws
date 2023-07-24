@@ -83,11 +83,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AWS SSM Activation can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
- * ```
+ *  to = aws_ssm_activation.example
+ * 
+ *  id = &#34;e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE&#34; } Using `pulumi import`, import AWS SSM Activation using the `id`. For exampleconsole % pulumi import aws_ssm_activation.example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
  * 
  */
 @ResourceType(type="aws:ssm/activation:Activation")

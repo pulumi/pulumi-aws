@@ -86,11 +86,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * NAT Gateways can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
- * ```
+ *  to = aws_nat_gateway.private_gw
+ * 
+ *  id = &#34;nat-05dba92075d71c408&#34; } Using `pulumi import`, import NAT Gateways using the `id`. For exampleconsole % pulumi import aws_nat_gateway.private_gw nat-05dba92075d71c408
  * 
  */
 @ResourceType(type="aws:ec2/natGateway:NatGateway")

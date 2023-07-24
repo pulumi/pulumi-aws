@@ -69,11 +69,11 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// ## Import
     /// 
-    /// Import SSM Contact using the `ARN`. For example
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
-    /// ```
+    ///  to = aws_ssmcontacts_contact.example
+    /// 
+    ///  id = "{ARNValue}" } Using `pulumi import`, import SSM Contact using the `ARN`. For exampleconsole % pulumi import aws_ssmcontacts_contact.example {ARNValue}
     /// </summary>
     [AwsResourceType("aws:ssmcontacts/contact:Contact")]
     public partial class Contact : global::Pulumi.CustomResource

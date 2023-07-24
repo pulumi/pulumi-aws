@@ -321,13 +321,11 @@ import (
 //
 // ## Import
 //
-// Application AutoScaling Policy can be imported using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_appautoscaling_policy.test-policy
 //
-//	$ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
-//
-// ```
+//	id = "service-namespace/resource-id/scalable-dimension/policy-name" } Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For exampleconsole % pulumi import aws_appautoscaling_policy.test-policy service-namespace/resource-id/scalable-dimension/policy-name
 type Policy struct {
 	pulumi.CustomResourceState
 

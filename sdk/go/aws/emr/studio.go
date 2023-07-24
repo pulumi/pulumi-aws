@@ -53,13 +53,11 @@ import (
 //
 // ## Import
 //
-// EMR studios can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_emr_studio.studio
 //
-//	$ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
-//
-// ```
+//	id = "es-123456ABCDEF" } Using `pulumi import`, import EMR studios using the `id`. For exampleconsole % pulumi import aws_emr_studio.studio es-123456ABCDEF
 type Studio struct {
 	pulumi.CustomResourceState
 

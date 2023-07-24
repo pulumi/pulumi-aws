@@ -189,13 +189,11 @@ import (
 //
 // ## Import
 //
-// Default Network ACLs can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_default_network_acl.sample
 //
-//	$ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
-//
-// ```
+//	id = "acl-7aaabd18" } Using `pulumi import`, import Default Network ACLs using the `id`. For exampleconsole % pulumi import aws_default_network_acl.sample acl-7aaabd18
 type DefaultNetworkAcl struct {
 	pulumi.CustomResourceState
 

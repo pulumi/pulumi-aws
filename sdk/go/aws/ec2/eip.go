@@ -179,21 +179,11 @@ import (
 //
 // ## Import
 //
-// EIPs in a VPC can be imported using their Allocation ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_eip.bar
 //
-//	$ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
-//
-// ```
-//
-//	EIPs in EC2-Classic can be imported using their Public IP, e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
-//
-// ```
+//	id = "eipalloc-00a10e96" } Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For exampleconsole % pulumi import aws_eip.bar eipalloc-00a10e96
 type Eip struct {
 	pulumi.CustomResourceState
 

@@ -20,11 +20,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SSO Account Assignments can be imported using the `instance_arn`
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
- * ```
+ *  to = aws_ssoadmin_instance_access_control_attributes.example
+ * 
+ *  id = &#34;arn:aws:sso:::instance/ssoins-0123456789abcdef&#34; } Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For exampleconsole % pulumi import aws_ssoadmin_instance_access_control_attributes.example arn:aws:sso:::instance/ssoins-0123456789abcdef
  * 
  */
 @ResourceType(type="aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes")

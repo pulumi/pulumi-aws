@@ -192,13 +192,11 @@ import (
 //
 // ## Import
 //
-// State Machines can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sfn_state_machine.foo
 //
-//	$ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
-//
-// ```
+//	id = "arn:aws:states:eu-west-1:123456789098:stateMachine:bar" } Using `pulumi import`, import State Machines using the `arn`. For exampleconsole % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
 type StateMachine struct {
 	pulumi.CustomResourceState
 

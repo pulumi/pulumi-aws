@@ -249,17 +249,15 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CloudWatch Evidently Launch can be imported using the `name` of the launch and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`, e.g. with the `name` of the launch and `arn` of the project,
+ * Import using the `name` of the launch and `name` of the project separated by a `:`terraform import {
  *
- * ```sh
- *  $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
- * ```
+ *  to = aws_evidently_launch.example
  *
- *  e.g. with the `name` of the launch and `name` of the project,
+ *  id = "exampleLaunchName:exampleProjectName" } Import using the `name` of the launch and `arn` of the project separated by a `:`terraform import {
  *
- * ```sh
- *  $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
- * ```
+ *  to = aws_evidently_launch.example
+ *
+ *  id = "exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName" } **Using `pulumi import` to import** CloudWatch Evidently Launch using the `name` of the launch and `name` of the project or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For exampleImport using the `name` of the launch and `name` of the project separated by a `:`console % pulumi import aws_evidently_launch.example exampleLaunchName:exampleProjectName Import using the `name` of the launch and `arn` of the project separated by a `:`console % pulumi import aws_evidently_launch.example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
  */
 export class Launch extends pulumi.CustomResource {
     /**

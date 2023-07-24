@@ -73,11 +73,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Cloudfront Field Level Encryption Config can be imported using the `id`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
- * ```
+ *  to = aws_cloudfront_field_level_encryption_config.config
+ * 
+ *  id = &#34;E74FTE3AEXAMPLE&#34; } Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For exampleconsole % pulumi import aws_cloudfront_field_level_encryption_config.config E74FTE3AEXAMPLE
  * 
  */
 @ResourceType(type="aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig")

@@ -129,11 +129,11 @@ class CostAllocationTag(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ce_cost_allocation_tag` can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
-        ```
+         to = aws_ce_cost_allocation_tag.example
+
+         id = "key" } Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For exampleconsole % pulumi import aws_ce_cost_allocation_tag.example key
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,11 +162,11 @@ class CostAllocationTag(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ce_cost_allocation_tag` can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
-        ```
+         to = aws_ce_cost_allocation_tag.example
+
+         id = "key" } Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For exampleconsole % pulumi import aws_ce_cost_allocation_tag.example key
 
         :param str resource_name: The name of the resource.
         :param CostAllocationTagArgs args: The arguments to use to populate this resource's properties.

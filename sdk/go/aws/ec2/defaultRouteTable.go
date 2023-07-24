@@ -91,13 +91,11 @@ import (
 //
 // ## Import
 //
-// Default VPC route tables can be imported using the `vpc_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_default_route_table.example
 //
-//	$ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
-//
-// ```
+//	id = "vpc-33cc44dd" } Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For exampleconsole % pulumi import aws_default_route_table.example vpc-33cc44dd
 type DefaultRouteTable struct {
 	pulumi.CustomResourceState
 

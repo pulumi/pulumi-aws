@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * WAF Regional Geo Match Set can be imported using the id, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:wafregional/geoMatchSet:GeoMatchSet geo_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
+ *  to = aws_wafregional_geo_match_set.geo_match_set
+ *
+ *  id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Regional Geo Match Set using the id. For exampleconsole % pulumi import aws_wafregional_geo_match_set.geo_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  */
 export class GeoMatchSet extends pulumi.CustomResource {
     /**

@@ -63,13 +63,11 @@ import (
 //
 // ## Import
 //
-// MediaLive Multiplex can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_medialive_multiplex.example
 //
-//	$ pulumi import aws:medialive/multiplex:Multiplex example 12345678
-//
-// ```
+//	id = "12345678" } Using `pulumi import`, import MediaLive Multiplex using the `id`. For exampleconsole % pulumi import aws_medialive_multiplex.example 12345678
 type Multiplex struct {
 	pulumi.CustomResourceState
 

@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Serial console access state can be imported, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
- * ```
+ *  to = aws_ec2_serial_console_access.example
+ * 
+ *  id = &#34;default&#34; } Using `pulumi import`, import serial console access state. For exampleconsole % pulumi import aws_ec2_serial_console_access.example default
  * 
  */
 @ResourceType(type="aws:ec2/serialConsoleAccess:SerialConsoleAccess")

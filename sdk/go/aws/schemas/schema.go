@@ -77,13 +77,11 @@ import (
 //
 // ## Import
 //
-// EventBridge schema can be imported using the `name` and `registry_name`, e.g., console
+// terraform import {
 //
-// ```sh
+//	to = aws_schemas_schema.test
 //
-//	$ pulumi import aws:schemas/schema:Schema test name/registry
-//
-// ```
+//	id = "name/registry" } Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For exampleconsole % pulumi import aws_schemas_schema.test name/registry
 type Schema struct {
 	pulumi.CustomResourceState
 

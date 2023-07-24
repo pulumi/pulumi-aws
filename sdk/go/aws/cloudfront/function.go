@@ -61,13 +61,11 @@ import (
 //
 // ## Import
 //
-// CloudFront Functions can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_function.test
 //
-//	$ pulumi import aws:cloudfront/function:Function test my_test_function
-//
-// ```
+//	id = "my_test_function" } Using `pulumi import`, import CloudFront Functions using the `name`. For exampleconsole % pulumi import aws_cloudfront_function.test my_test_function
 type Function struct {
 	pulumi.CustomResourceState
 

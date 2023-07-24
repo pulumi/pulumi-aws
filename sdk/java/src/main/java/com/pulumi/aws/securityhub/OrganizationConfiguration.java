@@ -69,11 +69,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
- * ```
+ *  to = aws_securityhub_organization_configuration.example
+ * 
+ *  id = &#34;123456789012&#34; } Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % pulumi import aws_securityhub_organization_configuration.example 123456789012
  * 
  */
 @ResourceType(type="aws:securityhub/organizationConfiguration:OrganizationConfiguration")

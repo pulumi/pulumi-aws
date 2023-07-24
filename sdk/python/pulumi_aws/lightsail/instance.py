@@ -608,11 +608,11 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        Lightsail Instances can be imported using their name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
-        ```
+         to = aws_lightsail_instance.gitlab_test
+
+         id = "custom_gitlab" } Using `pulumi import`, import Lightsail Instances using their name. For exampleconsole % pulumi import aws_lightsail_instance.gitlab_test 'custom_gitlab'
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -745,11 +745,11 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        Lightsail Instances can be imported using their name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
-        ```
+         to = aws_lightsail_instance.gitlab_test
+
+         id = "custom_gitlab" } Using `pulumi import`, import Lightsail Instances using their name. For exampleconsole % pulumi import aws_lightsail_instance.gitlab_test 'custom_gitlab'
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

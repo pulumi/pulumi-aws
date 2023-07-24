@@ -88,11 +88,11 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_classification_export_configuration` can be imported using the account ID and region, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
-        ```
+         to = aws_macie2_classification_export_configuration.example
+
+         id = "123456789012:us-west-2" } Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For exampleconsole % pulumi import aws_macie2_classification_export_configuration.example 123456789012:us-west-2
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,11 +124,11 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_classification_export_configuration` can be imported using the account ID and region, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
-        ```
+         to = aws_macie2_classification_export_configuration.example
+
+         id = "123456789012:us-west-2" } Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For exampleconsole % pulumi import aws_macie2_classification_export_configuration.example 123456789012:us-west-2
 
         :param str resource_name: The name of the resource.
         :param ClassificationExportConfigurationArgs args: The arguments to use to populate this resource's properties.

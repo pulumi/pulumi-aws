@@ -67,11 +67,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * RBin Rule can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:rbin/rule:Rule example examplerule
- * ```
+ *  to = aws_rbin_rule.example
+ * 
+ *  id = &#34;examplerule&#34; } Using `pulumi import`, import RBin Rule using the `id`. For exampleconsole % pulumi import aws_rbin_rule.example examplerule
  * 
  */
 @ResourceType(type="aws:rbin/rule:Rule")

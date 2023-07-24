@@ -44,13 +44,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Observability Access Manager Sink can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_oam_sink.example
 //
-//	$ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
-//
-// ```
+//	id = "arn:aws:oam:us-west-2:123456789012:sink/sink-id" } Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For exampleconsole % pulumi import aws_oam_sink.example arn:aws:oam:us-west-2:123456789012:sink/sink-id
 type Sink struct {
 	pulumi.CustomResourceState
 

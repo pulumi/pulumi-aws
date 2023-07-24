@@ -317,11 +317,11 @@ class VirtualService(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
-        ```
+         to = aws_appmesh_virtual_service.servicea
+
+         id = "simpleapp/servicea.simpleapp.local" } Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_service.servicea simpleapp/servicea.simpleapp.local
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -376,11 +376,11 @@ class VirtualService(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
-        ```
+         to = aws_appmesh_virtual_service.servicea
+
+         id = "simpleapp/servicea.simpleapp.local" } Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_service.servicea simpleapp/servicea.simpleapp.local
 
         :param str resource_name: The name of the resource.
         :param VirtualServiceArgs args: The arguments to use to populate this resource's properties.

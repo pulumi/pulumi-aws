@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_secretsmanager_secret` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
- * ```
+ *  to = aws_secretsmanager_secret.example
+ * 
+ *  id = &#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34; } Using `pulumi import`, import `aws_secretsmanager_secret` using the secret Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_secretsmanager_secret.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
  * 
  */
 @ResourceType(type="aws:secretsmanager/secret:Secret")

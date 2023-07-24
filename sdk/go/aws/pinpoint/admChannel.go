@@ -49,13 +49,11 @@ import (
 //
 // ## Import
 //
-// Pinpoint ADM Channel can be imported using the `application-id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_pinpoint_adm_channel.channel
 //
-//	$ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
-//
-// ```
+//	id = "application-id" } Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_adm_channel.channel application-id
 type AdmChannel struct {
 	pulumi.CustomResourceState
 

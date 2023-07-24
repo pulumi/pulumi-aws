@@ -1003,11 +1003,11 @@ class Topic(pulumi.CustomResource):
 
         ## Import
 
-        SNS Topics can be imported using the `topic arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
-        ```
+         to = aws_sns_topic.user_updates
+
+         id = "arn:aws:sns:us-west-2:0123456789012:my-topic" } Using `pulumi import`, import SNS Topics using the topic `arn`. For exampleconsole % pulumi import aws_sns_topic.user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1108,11 +1108,11 @@ class Topic(pulumi.CustomResource):
 
         ## Import
 
-        SNS Topics can be imported using the `topic arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
-        ```
+         to = aws_sns_topic.user_updates
+
+         id = "arn:aws:sns:us-west-2:0123456789012:my-topic" } Using `pulumi import`, import SNS Topics using the topic `arn`. For exampleconsole % pulumi import aws_sns_topic.user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

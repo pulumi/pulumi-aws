@@ -46,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Use the `name` to import an ACL. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_memorydb_acl.example
 //
-//	$ pulumi import aws:memorydb/acl:Acl example my-acl
-//
-// ```
+//	id = "my-acl" } Using `pulumi import`, import an ACL using the `name`. For exampleconsole % pulumi import aws_memorydb_acl.example my-acl
 type Acl struct {
 	pulumi.CustomResourceState
 

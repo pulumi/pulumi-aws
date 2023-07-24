@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AppConfig Deployment Strategies can be imported by using their deployment strategy ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
- * ```
+ *  to = aws_appconfig_deployment_strategy.example
+ * 
+ *  id = &#34;11xxxxx&#34; } Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For exampleconsole % pulumi import aws_appconfig_deployment_strategy.example 11xxxxx
  * 
  */
 @ResourceType(type="aws:appconfig/deploymentStrategy:DeploymentStrategy")

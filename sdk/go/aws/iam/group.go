@@ -43,13 +43,11 @@ import (
 //
 // ## Import
 //
-// IAM Groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_group.developers
 //
-//	$ pulumi import aws:iam/group:Group developers developers
-//
-// ```
+//	id = "developers" } Using `pulumi import`, import IAM Groups using the `name`. For exampleconsole % pulumi import aws_iam_group.developers developers
 type Group struct {
 	pulumi.CustomResourceState
 

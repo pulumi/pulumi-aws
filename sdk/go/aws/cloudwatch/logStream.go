@@ -46,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Cloudwatch Log Stream can be imported using the stream's `log_group_name` and `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_log_stream.foo
 //
-//	$ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
-//
-// ```
+//	id = "Yada:SampleLogStream1234" } Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For exampleconsole % pulumi import aws_cloudwatch_log_stream.foo Yada:SampleLogStream1234
 type LogStream struct {
 	pulumi.CustomResourceState
 

@@ -161,11 +161,11 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Network Firewall Logging Configurations can be imported using the `firewall_arn` e.g
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-        ```
+         to = aws_networkfirewall_logging_configuration.example
+
+         id = "arn:aws:network-firewall:us-west-1:123456789012:firewall/example" } Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For exampleconsole % pulumi import aws_networkfirewall_logging_configuration.example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,11 +240,11 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Network Firewall Logging Configurations can be imported using the `firewall_arn` e.g
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-        ```
+         to = aws_networkfirewall_logging_configuration.example
+
+         id = "arn:aws:network-firewall:us-west-1:123456789012:firewall/example" } Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For exampleconsole % pulumi import aws_networkfirewall_logging_configuration.example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
 
         :param str resource_name: The name of the resource.
         :param LoggingConfigurationArgs args: The arguments to use to populate this resource's properties.

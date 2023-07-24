@@ -142,11 +142,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Shield protection group resources can be imported by specifying their protection group id.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
- * ```
+ *  to = aws_shield_protection_group.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import Shield protection group resources using their protection group id. For exampleconsole % pulumi import aws_shield_protection_group.example example
  * 
  */
 @ResourceType(type="aws:shield/protectionGroup:ProtectionGroup")

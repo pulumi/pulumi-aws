@@ -42,13 +42,11 @@ import (
 //
 // ## Import
 //
-// Direct Connect Gateways can be imported using the `gateway id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dx_gateway.test
 //
-//	$ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
-//
-// ```
+//	id = "abcd1234-dcba-5678-be23-cdef9876ab45" } Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For exampleconsole % pulumi import aws_dx_gateway.test abcd1234-dcba-5678-be23-cdef9876ab45
 type Gateway struct {
 	pulumi.CustomResourceState
 

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Importing is currently not supported on this resource.
+ * You cannot import this resource.
  */
 export class User extends pulumi.CustomResource {
     /**

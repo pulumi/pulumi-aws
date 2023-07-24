@@ -418,11 +418,11 @@ class Workgroup(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
-        ```
+         to = aws_redshiftserverless_workgroup.example
+
+         id = "example" } Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For exampleconsole % pulumi import aws_redshiftserverless_workgroup.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -460,11 +460,11 @@ class Workgroup(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
-        ```
+         to = aws_redshiftserverless_workgroup.example
+
+         id = "example" } Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For exampleconsole % pulumi import aws_redshiftserverless_workgroup.example example
 
         :param str resource_name: The name of the resource.
         :param WorkgroupArgs args: The arguments to use to populate this resource's properties.

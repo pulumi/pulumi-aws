@@ -149,11 +149,11 @@ class ConditionalForwader(pulumi.CustomResource):
 
         ## Import
 
-        Conditional forwarders can be imported using the directory id and remote_domain_name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
-        ```
+         to = aws_directory_service_conditional_forwarder.example
+
+         id = "d-1234567890:example.com" } Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For exampleconsole % pulumi import aws_directory_service_conditional_forwarder.example d-1234567890:example.com
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,11 +187,11 @@ class ConditionalForwader(pulumi.CustomResource):
 
         ## Import
 
-        Conditional forwarders can be imported using the directory id and remote_domain_name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
-        ```
+         to = aws_directory_service_conditional_forwarder.example
+
+         id = "d-1234567890:example.com" } Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For exampleconsole % pulumi import aws_directory_service_conditional_forwarder.example d-1234567890:example.com
 
         :param str resource_name: The name of the resource.
         :param ConditionalForwaderArgs args: The arguments to use to populate this resource's properties.

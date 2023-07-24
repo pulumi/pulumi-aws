@@ -142,13 +142,11 @@ import (
 //
 // ## Import
 //
-// DynamoDB tables can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dynamodb_table.basic-dynamodb-table
 //
-//	$ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
-//
-// ```
+//	id = "GameScores" } Using `pulumi import`, import DynamoDB tables using the `name`. For exampleconsole % pulumi import aws_dynamodb_table.basic-dynamodb-table GameScores
 type Table struct {
 	pulumi.CustomResourceState
 

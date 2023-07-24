@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Runner Connections can be imported by using the `connection_name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:apprunner/connection:Connection example example
- * ```
+ *  to = aws_apprunner_connection.example
+ *
+ *  id = "example" } Using `pulumi import`, import App Runner Connections using the `connection_name`. For exampleconsole % pulumi import aws_apprunner_connection.example example
  */
 export class Connection extends pulumi.CustomResource {
     /**

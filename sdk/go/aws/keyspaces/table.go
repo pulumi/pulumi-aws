@@ -58,13 +58,11 @@ import (
 //
 // ## Import
 //
-// Use the `keyspace_name` and `table_name` separated by `/` to import a table. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_keyspaces_table.example
 //
-//	$ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
-//
-// ```
+//	id = "my_keyspace/my_table" } Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For exampleconsole % pulumi import aws_keyspaces_table.example my_keyspace/my_table
 type Table struct {
 	pulumi.CustomResourceState
 

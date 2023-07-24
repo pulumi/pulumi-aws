@@ -158,37 +158,23 @@ import (
 //
 // ## Import
 //
-// Lambda Function Event Invoke Configs can be imported using the fully qualified Function name or Amazon Resource Name (ARN), e.g., ARN without qualifier (all versions and aliases)
+// ARN without qualifier (all versions and aliases)terraform import {
 //
-// ```sh
+//	to = aws_lambda_function_event_invoke_config.example
 //
-//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+//	id = "arn:aws:us-east-1:123456789012:function:my_function" } ARN with qualifierterraform import {
 //
-// ```
+//	to = aws_lambda_function_event_invoke_config.example
 //
-//	ARN with qualifier
+//	id = "arn:aws:us-east-1:123456789012:function:my_function:production" } Name without qualifier (all versions and aliases)terraform import {
 //
-// ```sh
+//	to = aws_lambda_function_event_invoke_config.example
 //
-//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+//	id = "my_function" } Name with qualifierterraform import {
 //
-// ```
+//	to = aws_lambda_function_event_invoke_config.example
 //
-//	Name without qualifier (all versions and aliases)
-//
-// ```sh
-//
-//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
-//
-// ```
-//
-//	Name with qualifier
-//
-// ```sh
-//
-//	$ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
-//
-// ```
+//	id = "my_function:production" } **Using `pulumi import` to import** Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For exampleARN without qualifier (all versions and aliases)console % pulumi import aws_lambda_function_event_invoke_config.example arn:aws:us-east-1:123456789012:function:my_function ARN with qualifierconsole % pulumi import aws_lambda_function_event_invoke_config.example arn:aws:us-east-1:123456789012:function:my_function:production Name without qualifier (all versions and aliases)console % pulumi import aws_lambda_function_event_invoke_config.example my_function Name with qualifierconsole % pulumi import aws_lambda_function_event_invoke_config.example my_function:production
 type FunctionEventInvokeConfig struct {
 	pulumi.CustomResourceState
 

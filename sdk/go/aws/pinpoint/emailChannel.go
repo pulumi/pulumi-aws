@@ -107,13 +107,11 @@ import (
 //
 // ## Import
 //
-// Pinpoint Email Channel can be imported using the `application-id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_pinpoint_email_channel.email
 //
-//	$ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
-//
-// ```
+//	id = "application-id" } Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_email_channel.email application-id
 type EmailChannel struct {
 	pulumi.CustomResourceState
 

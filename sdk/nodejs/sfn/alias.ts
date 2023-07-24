@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SFN (Step Functions) Alias can be imported using the `arn`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
- * ```
+ *  to = aws_sfn_alias.foo
+ *
+ *  id = "arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo" } Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For exampleconsole % pulumi import aws_sfn_alias.foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
  */
 export class Alias extends pulumi.CustomResource {
     /**
@@ -93,8 +93,6 @@ export class Alias extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The StateMachine alias' route configuration settings. Fields documented below
-     *
-     * For **routing_configuration** the following attributes are supported:
      */
     public readonly routingConfigurations!: pulumi.Output<outputs.sfn.AliasRoutingConfiguration[]>;
 
@@ -157,8 +155,6 @@ export interface AliasState {
     name?: pulumi.Input<string>;
     /**
      * The StateMachine alias' route configuration settings. Fields documented below
-     *
-     * For **routing_configuration** the following attributes are supported:
      */
     routingConfigurations?: pulumi.Input<pulumi.Input<inputs.sfn.AliasRoutingConfiguration>[]>;
 }
@@ -177,8 +173,6 @@ export interface AliasArgs {
     name: pulumi.Input<string>;
     /**
      * The StateMachine alias' route configuration settings. Fields documented below
-     *
-     * For **routing_configuration** the following attributes are supported:
      */
     routingConfigurations: pulumi.Input<pulumi.Input<inputs.sfn.AliasRoutingConfiguration>[]>;
 }

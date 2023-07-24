@@ -471,7 +471,7 @@ class FileCacheLustreConfigurationMetadataConfiguration(dict):
     def __init__(__self__, *,
                  storage_capacity: int):
         """
-        :param int storage_capacity: The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        :param int storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         """
         pulumi.set(__self__, "storage_capacity", storage_capacity)
 
@@ -479,7 +479,7 @@ class FileCacheLustreConfigurationMetadataConfiguration(dict):
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> int:
         """
-        The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         """
         return pulumi.get(self, "storage_capacity")
 

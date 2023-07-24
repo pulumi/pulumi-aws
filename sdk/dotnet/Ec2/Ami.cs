@@ -53,11 +53,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// `aws_ami` can be imported using the ID of the AMI, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/ami:Ami example ami-12345678
-    /// ```
+    ///  to = aws_ami.example
+    /// 
+    ///  id = "ami-12345678" } Using `pulumi import`, import `aws_ami` using the ID of the AMI. For exampleconsole % pulumi import aws_ami.example ami-12345678
     /// </summary>
     [AwsResourceType("aws:ec2/ami:Ami")]
     public partial class Ami : global::Pulumi.CustomResource

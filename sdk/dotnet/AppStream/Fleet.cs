@@ -54,11 +54,11 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// `aws_appstream_fleet` can be imported using the id, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
-    /// ```
+    ///  to = aws_appstream_fleet.example
+    /// 
+    ///  id = "fleetNameExample" } Using `pulumi import`, import `aws_appstream_fleet` using the id. For exampleconsole % pulumi import aws_appstream_fleet.example fleetNameExample
     /// </summary>
     [AwsResourceType("aws:appstream/fleet:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource

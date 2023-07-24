@@ -83,13 +83,11 @@ import (
 //
 // ## Import
 //
-// IAM Signing Certificates can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_signing_certificate.certificate
 //
-//	$ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
-//
-// ```
+//	id = "IDIDIDIDID:user-name" } Using `pulumi import`, import IAM Signing Certificates using the `id`. For exampleconsole % pulumi import aws_iam_signing_certificate.certificate IDIDIDIDID:user-name
 type SigningCertificate struct {
 	pulumi.CustomResourceState
 

@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * WAF Regional Rate Based Rule can be imported using the id, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:wafregional/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
+ *  to = aws_wafregional_rate_based_rule.wafrule
+ *
+ *  id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Regional Rate Based Rule using the id. For exampleconsole % pulumi import aws_wafregional_rate_based_rule.wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  */
 export class RateBasedRule extends pulumi.CustomResource {
     /**

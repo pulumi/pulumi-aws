@@ -120,11 +120,11 @@ class FleetStackAssociation(pulumi.CustomResource):
 
         ## Import
 
-        AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
-        ```
+         to = aws_appstream_fleet_stack_association.example
+
+         id = "fleetName/stackName" } Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For exampleconsole % pulumi import aws_appstream_fleet_stack_association.example fleetName/stackName
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,11 +160,11 @@ class FleetStackAssociation(pulumi.CustomResource):
 
         ## Import
 
-        AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
-        ```
+         to = aws_appstream_fleet_stack_association.example
+
+         id = "fleetName/stackName" } Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For exampleconsole % pulumi import aws_appstream_fleet_stack_association.example fleetName/stackName
 
         :param str resource_name: The name of the resource.
         :param FleetStackAssociationArgs args: The arguments to use to populate this resource's properties.

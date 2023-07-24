@@ -64,13 +64,11 @@ import (
 //
 // ## Import
 //
-// Security Hub Organization Admin Accounts can be imported using the AWS account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_organization_admin_account.example
 //
-//	$ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For exampleconsole % pulumi import aws_securityhub_organization_admin_account.example 123456789012
 type OrganizationAdminAccount struct {
 	pulumi.CustomResourceState
 

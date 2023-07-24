@@ -80,11 +80,11 @@ class AdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        Firewall Manager administrator account association can be imported using the account ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
-        ```
+         to = aws_fms_admin_account.example
+
+         id = "123456789012" } Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For exampleconsole % pulumi import aws_fms_admin_account.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,11 +110,11 @@ class AdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        Firewall Manager administrator account association can be imported using the account ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
-        ```
+         to = aws_fms_admin_account.example
+
+         id = "123456789012" } Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For exampleconsole % pulumi import aws_fms_admin_account.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param AdminAccountArgs args: The arguments to use to populate this resource's properties.

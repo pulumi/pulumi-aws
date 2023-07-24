@@ -296,13 +296,11 @@ import (
 //
 // ## Import
 //
-// Instances can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_instance.web
 //
-//	$ pulumi import aws:ec2/instance:Instance web i-12345678
-//
-// ```
+//	id = "i-12345678" } Using `pulumi import`, import instances using the `id`. For exampleconsole % pulumi import aws_instance.web i-12345678
 type Instance struct {
 	pulumi.CustomResourceState
 

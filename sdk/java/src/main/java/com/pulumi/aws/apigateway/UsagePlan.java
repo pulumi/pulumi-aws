@@ -124,11 +124,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AWS API Gateway Usage Plan can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan &lt;usage_plan_id&gt;
- * ```
+ *  to = aws_api_gateway_usage_plan.myusageplan
+ * 
+ *  id = &#34;&lt;usage_plan_id&gt;&#34; } Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For exampleconsole % pulumi import aws_api_gateway_usage_plan.myusageplan &lt;usage_plan_id&gt;
  * 
  */
 @ResourceType(type="aws:apigateway/usagePlan:UsagePlan")

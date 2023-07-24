@@ -252,13 +252,11 @@ import (
 //
 // ## Import
 //
-// ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_elasticache_replication_group.my_replication_group
 //
-//	$ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
-//
-// ```
+//	id = "replication-group-1" } Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For exampleconsole % pulumi import aws_elasticache_replication_group.my_replication_group replication-group-1
 type ReplicationGroup struct {
 	pulumi.CustomResourceState
 
@@ -291,7 +289,7 @@ type ReplicationGroup struct {
 	// If the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
@@ -426,7 +424,7 @@ type replicationGroupState struct {
 	// If the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
@@ -525,7 +523,7 @@ type ReplicationGroupState struct {
 	// If the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringPtrInput
 	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual pulumi.StringPtrInput
@@ -622,7 +620,7 @@ type replicationGroupArgs struct {
 	// If the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
@@ -706,7 +704,7 @@ type ReplicationGroupArgs struct {
 	// If the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 	// Otherwise, specify the full version desired, e.g., `5.0.6`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
@@ -914,7 +912,7 @@ func (o ReplicationGroupOutput) Engine() pulumi.StringPtrOutput {
 // If the version is 6, the major and minor version can be set, e.g., `6.2`,
 // or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
 // Otherwise, specify the full version desired, e.g., `5.0.6`.
-// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 func (o ReplicationGroupOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }

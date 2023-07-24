@@ -566,7 +566,7 @@ class AccountSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Importing is currently not supported on this resource.
+        You cannot import this resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -612,7 +612,7 @@ class AccountSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Importing is currently not supported on this resource.
+        You cannot import this resource.
 
         :param str resource_name: The name of the resource.
         :param AccountSubscriptionArgs args: The arguments to use to populate this resource's properties.

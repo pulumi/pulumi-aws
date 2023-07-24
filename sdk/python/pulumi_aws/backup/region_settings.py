@@ -129,11 +129,11 @@ class RegionSettings(pulumi.CustomResource):
 
         ## Import
 
-        Backup Region Settings can be imported using the `region`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
-        ```
+         to = aws_backup_region_settings.test
+
+         id = "us-west-2" } Using `pulumi import`, import Backup Region Settings using the `region`. For exampleconsole % pulumi import aws_backup_region_settings.test us-west-2
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,11 +177,11 @@ class RegionSettings(pulumi.CustomResource):
 
         ## Import
 
-        Backup Region Settings can be imported using the `region`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
-        ```
+         to = aws_backup_region_settings.test
+
+         id = "us-west-2" } Using `pulumi import`, import Backup Region Settings using the `region`. For exampleconsole % pulumi import aws_backup_region_settings.test us-west-2
 
         :param str resource_name: The name of the resource.
         :param RegionSettingsArgs args: The arguments to use to populate this resource's properties.

@@ -65,13 +65,11 @@ import (
 //
 // ## Import
 //
-// CloudSearch Domains can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudsearch_domain.example
 //
-//	$ pulumi import aws:cloudsearch/domain:Domain example example-domain
-//
-// ```
+//	id = "example-domain" } Using `pulumi import`, import CloudSearch Domains using the `name`. For exampleconsole % pulumi import aws_cloudsearch_domain.example example-domain
 type Domain struct {
 	pulumi.CustomResourceState
 

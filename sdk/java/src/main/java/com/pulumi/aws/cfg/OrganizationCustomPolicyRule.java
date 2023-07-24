@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A Config Organization Custom Policy Rule can be imported using the `name` argument, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
- * ```
+ *  to = aws_config_organization_custom_policy_rule.example
+ * 
+ *  id = &#34;example_rule_name&#34; } Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For exampleconsole % pulumi import aws_config_organization_custom_policy_rule.example example_rule_name
  * 
  */
 @ResourceType(type="aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule")

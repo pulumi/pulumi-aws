@@ -51,13 +51,11 @@ import (
 //
 // ## Import
 //
-// The Primary Contact can be imported using the `account_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_account_primary_contact.test
 //
-//	$ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
-//
-// ```
+//	id = "1234567890" } Using `pulumi import`, import the Primary Contact using the `account_id`. For exampleconsole % pulumi import aws_account_primary_contact.test 1234567890
 type PrimaryContact struct {
 	pulumi.CustomResourceState
 

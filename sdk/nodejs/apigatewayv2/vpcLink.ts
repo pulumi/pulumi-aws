@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_apigatewayv2_vpc_link` can be imported by using the VPC Link identifier, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
- * ```
+ *  to = aws_apigatewayv2_vpc_link.example
+ *
+ *  id = "aabbccddee" } Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For exampleconsole % pulumi import aws_apigatewayv2_vpc_link.example aabbccddee
  */
 export class VpcLink extends pulumi.CustomResource {
     /**

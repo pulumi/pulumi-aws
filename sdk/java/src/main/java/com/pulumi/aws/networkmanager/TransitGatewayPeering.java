@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_networkmanager_transit_gateway_peering` can be imported using the peering ID, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
- * ```
+ *  to = aws_networkmanager_transit_gateway_peering.example
+ * 
+ *  id = &#34;peering-444555aaabbb11223&#34; } Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For exampleconsole % pulumi import aws_networkmanager_transit_gateway_peering.example peering-444555aaabbb11223
  * 
  */
 @ResourceType(type="aws:networkmanager/transitGatewayPeering:TransitGatewayPeering")

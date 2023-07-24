@@ -311,11 +311,11 @@ class Connection(pulumi.CustomResource):
 
         ## Import
 
-        `aws_networkmanager_connection` can be imported using the connection ARN, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
-        ```
+         to = aws_networkmanager_connection.example
+
+         id = "arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123" } Using `pulumi import`, import `aws_networkmanager_connection` using the connection ARN. For exampleconsole % pulumi import aws_networkmanager_connection.example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -351,11 +351,11 @@ class Connection(pulumi.CustomResource):
 
         ## Import
 
-        `aws_networkmanager_connection` can be imported using the connection ARN, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
-        ```
+         to = aws_networkmanager_connection.example
+
+         id = "arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123" } Using `pulumi import`, import `aws_networkmanager_connection` using the connection ARN. For exampleconsole % pulumi import aws_networkmanager_connection.example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

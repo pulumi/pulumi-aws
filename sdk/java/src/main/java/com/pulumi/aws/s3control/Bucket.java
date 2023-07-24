@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * S3 Control Buckets can be imported using Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
- * ```
+ *  to = aws_s3control_bucket.example
+ * 
+ *  id = &#34;arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example&#34; } Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_s3control_bucket.example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
  * 
  */
 @ResourceType(type="aws:s3control/bucket:Bucket")

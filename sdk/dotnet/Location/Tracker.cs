@@ -32,11 +32,11 @@ namespace Pulumi.Aws.Location
     /// 
     /// ## Import
     /// 
-    /// `aws_location_tracker` resources can be imported using the tracker name, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:location/tracker:Tracker example example
-    /// ```
+    ///  to = aws_location_tracker.example
+    /// 
+    ///  id = "example" } Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For exampleconsole % pulumi import aws_location_tracker.example example
     /// </summary>
     [AwsResourceType("aws:location/tracker:Tracker")]
     public partial class Tracker : global::Pulumi.CustomResource

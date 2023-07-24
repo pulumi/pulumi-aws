@@ -61,11 +61,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// Transfer Accesses can be imported using the `server_id` and `external_id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
-    /// ```
+    ///  to = aws_transfer_access.example
+    /// 
+    ///  id = "s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234" } Using `pulumi import`, import Transfer Accesses using the `server_id` and `external_id`. For exampleconsole % pulumi import aws_transfer_access.example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
     /// </summary>
     [AwsResourceType("aws:transfer/access:Access")]
     public partial class Access : global::Pulumi.CustomResource

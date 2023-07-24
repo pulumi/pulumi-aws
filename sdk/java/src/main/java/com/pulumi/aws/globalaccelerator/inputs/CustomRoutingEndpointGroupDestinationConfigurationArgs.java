@@ -48,16 +48,12 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
     /**
      * The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
      * 
-     * **endpoint_configuration** supports the following attributes:
-     * 
      */
     @Import(name="toPort", required=true)
     private Output<Integer> toPort;
 
     /**
      * @return The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-     * 
-     * **endpoint_configuration** supports the following attributes:
      * 
      */
     public Output<Integer> toPort() {
@@ -145,8 +141,6 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
         /**
          * @param toPort The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
          * 
-         * **endpoint_configuration** supports the following attributes:
-         * 
          * @return builder
          * 
          */
@@ -157,8 +151,6 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs extend
 
         /**
          * @param toPort The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-         * 
-         * **endpoint_configuration** supports the following attributes:
          * 
          * @return builder
          * 

@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Security Hub product subscriptions can be imported in the form `product_arn,arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
- * ```
+ *  to = aws_securityhub_product_subscription.example
+ * 
+ *  id = &#34;arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement&#34; } Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For exampleconsole % pulumi import aws_securityhub_product_subscription.example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
  * 
  */
 @ResourceType(type="aws:securityhub/productSubscription:ProductSubscription")

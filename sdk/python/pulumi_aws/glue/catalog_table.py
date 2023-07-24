@@ -589,11 +589,11 @@ class CatalogTable(pulumi.CustomResource):
 
         ## Import
 
-        Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
-        ```
+         to = aws_glue_catalog_table.MyTable
+
+         id = "123456789012:MyDatabase:MyTable" } Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For exampleconsole % pulumi import aws_glue_catalog_table.MyTable 123456789012:MyDatabase:MyTable
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -689,11 +689,11 @@ class CatalogTable(pulumi.CustomResource):
 
         ## Import
 
-        Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
-        ```
+         to = aws_glue_catalog_table.MyTable
+
+         id = "123456789012:MyDatabase:MyTable" } Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For exampleconsole % pulumi import aws_glue_catalog_table.MyTable 123456789012:MyDatabase:MyTable
 
         :param str resource_name: The name of the resource.
         :param CatalogTableArgs args: The arguments to use to populate this resource's properties.

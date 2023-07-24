@@ -93,11 +93,11 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// MAIL FROM domain can be imported using the `domain` attribute, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ses/mailFrom:MailFrom example example.com
-    /// ```
+    ///  to = aws_ses_domain_mail_from.example
+    /// 
+    ///  id = "example.com" } Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For exampleconsole % pulumi import aws_ses_domain_mail_from.example example.com
     /// </summary>
     [AwsResourceType("aws:ses/mailFrom:MailFrom")]
     public partial class MailFrom : global::Pulumi.CustomResource

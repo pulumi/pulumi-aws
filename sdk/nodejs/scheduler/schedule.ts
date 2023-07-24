@@ -58,11 +58,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Schedules can be imported using the combination `group_name/name`. For example
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
- * ```
+ *  to = aws_scheduler_schedule.example
+ *
+ *  id = "my-schedule-group/my-schedule" } Using `pulumi import`, import schedules using the combination `group_name/name`. For exampleconsole % pulumi import aws_scheduler_schedule.example my-schedule-group/my-schedule
  */
 export class Schedule extends pulumi.CustomResource {
     /**

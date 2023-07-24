@@ -659,11 +659,11 @@ class Workspace(pulumi.CustomResource):
 
         ## Import
 
-        Grafana Workspace can be imported using the workspace's `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
-        ```
+         to = aws_grafana_workspace.example
+
+         id = "g-2054c75a02" } Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_workspace.example g-2054c75a02
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -723,11 +723,11 @@ class Workspace(pulumi.CustomResource):
 
         ## Import
 
-        Grafana Workspace can be imported using the workspace's `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
-        ```
+         to = aws_grafana_workspace.example
+
+         id = "g-2054c75a02" } Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_workspace.example g-2054c75a02
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

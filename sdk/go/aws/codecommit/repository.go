@@ -43,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Codecommit repository can be imported using repository name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codecommit_repository.imported
 //
-//	$ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
-//
-// ```
+//	id = "ExistingRepo" } Using `pulumi import`, import Codecommit repository using repository name. For exampleconsole % pulumi import aws_codecommit_repository.imported ExistingRepo
 type Repository struct {
 	pulumi.CustomResourceState
 

@@ -29,11 +29,11 @@ import {ARN} from "..";
  *
  * ## Import
  *
- * `aws_datasync_location_s3` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
- * ```
+ *  to = aws_datasync_location_s3.example
+ *
+ *  id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_location_s3.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
  */
 export class S3Location extends pulumi.CustomResource {
     /**

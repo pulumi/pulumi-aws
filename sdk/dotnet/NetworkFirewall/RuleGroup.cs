@@ -216,11 +216,11 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ## Import
     /// 
-    /// Network Firewall Rule Groups can be imported using their `ARN`.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
-    /// ```
+    ///  to = aws_networkfirewall_rule_group.example
+    /// 
+    ///  id = "arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example" } Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For exampleconsole % pulumi import aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
     /// </summary>
     [AwsResourceType("aws:networkfirewall/ruleGroup:RuleGroup")]
     public partial class RuleGroup : global::Pulumi.CustomResource

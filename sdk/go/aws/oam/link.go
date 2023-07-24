@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Observability Access Manager Link can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_oam_link.example
 //
-//	$ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
-//
-// ```
+//	id = "arn:aws:oam:us-west-2:123456789012:link/link-id" } Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For exampleconsole % pulumi import aws_oam_link.example arn:aws:oam:us-west-2:123456789012:link/link-id
 type Link struct {
 	pulumi.CustomResourceState
 

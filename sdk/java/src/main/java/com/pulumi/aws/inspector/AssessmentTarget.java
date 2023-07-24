@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Inspector Classic Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
- * ```
+ *  to = aws_inspector_assessment_target.example
+ * 
+ *  id = &#34;arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx&#34; } Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_inspector_assessment_target.example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
  * 
  */
 @ResourceType(type="aws:inspector/assessmentTarget:AssessmentTarget")

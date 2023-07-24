@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Global Accelerator custom routing endpoint groups can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
- * ```
+ *  to = aws_globalaccelerator_custom_routing_endpoint_group.example
+ * 
+ *  id = &#34;arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx&#34; } Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_custom_routing_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
  * 
  */
 @ResourceType(type="aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup")
@@ -116,16 +116,12 @@ public class CustomRoutingEndpointGroup extends com.pulumi.resources.CustomResou
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
      * 
-     * **destination_configuration** supports the following attributes:
-     * 
      */
     @Export(name="endpointGroupRegion", refs={String.class}, tree="[0]")
     private Output<String> endpointGroupRegion;
 
     /**
      * @return The name of the AWS Region where the custom routing endpoint group is located.
-     * 
-     * **destination_configuration** supports the following attributes:
      * 
      */
     public Output<String> endpointGroupRegion() {

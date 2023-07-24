@@ -313,11 +313,11 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        `aws_neptune_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
-        ```
+         to = aws_neptune_cluster_snapshot.example
+
+         id = "my-cluster-snapshot" } Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For exampleconsole % pulumi import aws_neptune_cluster_snapshot.example my-cluster-snapshot
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -346,11 +346,11 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        `aws_neptune_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
-        ```
+         to = aws_neptune_cluster_snapshot.example
+
+         id = "my-cluster-snapshot" } Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For exampleconsole % pulumi import aws_neptune_cluster_snapshot.example my-cluster-snapshot
 
         :param str resource_name: The name of the resource.
         :param ClusterSnapshotArgs args: The arguments to use to populate this resource's properties.

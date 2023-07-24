@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_servicecatalog_provisioning_artifact` can be imported using the provisioning artifact ID and product ID separated by a colon, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
- * ```
+ *  to = aws_servicecatalog_provisioning_artifact.example
+ *
+ *  id = "pa-ij2b6lusy6dec:prod-el3an0rma3" } Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For exampleconsole % pulumi import aws_servicecatalog_provisioning_artifact.example pa-ij2b6lusy6dec:prod-el3an0rma3
  */
 export class ProvisioningArtifact extends pulumi.CustomResource {
     /**

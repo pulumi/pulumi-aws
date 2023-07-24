@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Target Group Attachments cannot be imported.
+ * You cannot import Target Group Attachments.
  * 
  */
 @ResourceType(type="aws:alb/targetGroupAttachment:TargetGroupAttachment")

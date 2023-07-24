@@ -41,11 +41,11 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Import
     /// 
-    /// `aws_datasync_location_smb` can be imported by using the Amazon Resource Name (ARN), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-    /// ```
+    ///  to = aws_datasync_location_smb.example
+    /// 
+    ///  id = "arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567" } Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_location_smb.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
     /// </summary>
     [AwsResourceType("aws:datasync/locationSmb:LocationSmb")]
     public partial class LocationSmb : global::Pulumi.CustomResource

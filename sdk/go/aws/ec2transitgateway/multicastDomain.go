@@ -212,13 +212,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_multicast_domain` can be imported by using the EC2 Transit Gateway Multicast Domain identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_transit_gateway_multicast_domain.example
 //
-//	$ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
-//
-// ```
+//	id = "tgw-mcast-domain-12345" } Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_multicast_domain.example tgw-mcast-domain-12345
 type MulticastDomain struct {
 	pulumi.CustomResourceState
 

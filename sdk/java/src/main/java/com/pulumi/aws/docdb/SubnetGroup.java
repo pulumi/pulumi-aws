@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DocumentDB Subnet groups can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
- * ```
+ *  to = aws_docdb_subnet_group.default
+ * 
+ *  id = &#34;production-subnet-group&#34; } Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For exampleconsole % pulumi import aws_docdb_subnet_group.default production-subnet-group
  * 
  */
 @ResourceType(type="aws:docdb/subnetGroup:SubnetGroup")

@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SageMaker Code Images can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
- * ```
+ *  to = aws_sagemaker_image.test_image
+ * 
+ *  id = &#34;my-code-repo&#34; } Using `pulumi import`, import SageMaker Code Images using the `name`. For exampleconsole % pulumi import aws_sagemaker_image.test_image my-code-repo
  * 
  */
 @ResourceType(type="aws:sagemaker/image:Image")

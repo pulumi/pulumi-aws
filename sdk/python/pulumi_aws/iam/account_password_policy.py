@@ -370,11 +370,11 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
         ## Import
 
-        IAM Account Password Policy can be imported using the word `iam-account-password-policy`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
-        ```
+         to = aws_iam_account_password_policy.strict
+
+         id = "iam-account-password-policy" } Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For exampleconsole % pulumi import aws_iam_account_password_policy.strict iam-account-password-policy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -418,11 +418,11 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
         ## Import
 
-        IAM Account Password Policy can be imported using the word `iam-account-password-policy`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
-        ```
+         to = aws_iam_account_password_policy.strict
+
+         id = "iam-account-password-policy" } Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For exampleconsole % pulumi import aws_iam_account_password_policy.strict iam-account-password-policy
 
         :param str resource_name: The name of the resource.
         :param AccountPasswordPolicyArgs args: The arguments to use to populate this resource's properties.

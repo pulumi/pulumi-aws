@@ -164,11 +164,11 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        DAX Subnet Group can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
-        ```
+         to = aws_dax_subnet_group.example
+
+         id = "my_dax_sg" } Using `pulumi import`, import DAX Subnet Group using the `name`. For exampleconsole % pulumi import aws_dax_subnet_group.example my_dax_sg
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,11 +199,11 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        DAX Subnet Group can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
-        ```
+         to = aws_dax_subnet_group.example
+
+         id = "my_dax_sg" } Using `pulumi import`, import DAX Subnet Group using the `name`. For exampleconsole % pulumi import aws_dax_subnet_group.example my_dax_sg
 
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.

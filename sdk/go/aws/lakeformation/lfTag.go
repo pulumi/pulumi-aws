@@ -47,13 +47,11 @@ import (
 //
 // ## Import
 //
-// Lake Formation LF-Tags can be imported using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_lakeformation_lf_tag.example
 //
-//	$ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
-//
-// ```
+//	id = "123456789012:some_key" } Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For exampleconsole % pulumi import aws_lakeformation_lf_tag.example 123456789012:some_key
 type LfTag struct {
 	pulumi.CustomResourceState
 

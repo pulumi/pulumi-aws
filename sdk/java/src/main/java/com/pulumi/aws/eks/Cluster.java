@@ -220,11 +220,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EKS Clusters can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
- * ```
+ *  to = aws_eks_cluster.my_cluster
+ * 
+ *  id = &#34;my_cluster&#34; } Using `pulumi import`, import EKS Clusters using the `name`. For exampleconsole % pulumi import aws_eks_cluster.my_cluster my_cluster
  * 
  */
 @ResourceType(type="aws:eks/cluster:Cluster")

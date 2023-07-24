@@ -248,11 +248,11 @@ class Workflow(pulumi.CustomResource):
 
         ## Import
 
-        Transfer Workflows can be imported using the `worflow_id`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transfer/workflow:Workflow example example
-        ```
+         to = aws_transfer_workflow.example
+
+         id = "example" } Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For exampleconsole % pulumi import aws_transfer_workflow.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,11 +317,11 @@ class Workflow(pulumi.CustomResource):
 
         ## Import
 
-        Transfer Workflows can be imported using the `worflow_id`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transfer/workflow:Workflow example example
-        ```
+         to = aws_transfer_workflow.example
+
+         id = "example" } Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For exampleconsole % pulumi import aws_transfer_workflow.example example
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

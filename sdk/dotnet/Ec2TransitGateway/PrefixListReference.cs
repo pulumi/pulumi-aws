@@ -54,11 +54,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_ec2_transit_gateway_prefix_list_reference` can be imported by using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`), e.g., console
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
-    /// ```
+    ///  to = aws_ec2_transit_gateway_prefix_list_reference.example
+    /// 
+    ///  id = "tgw-rtb-12345678_pl-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For exampleconsole % pulumi import aws_ec2_transit_gateway_prefix_list_reference.example tgw-rtb-12345678_pl-12345678
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/prefixListReference:PrefixListReference")]
     public partial class PrefixListReference : global::Pulumi.CustomResource

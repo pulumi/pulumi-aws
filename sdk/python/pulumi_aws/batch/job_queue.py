@@ -316,11 +316,11 @@ class JobQueue(pulumi.CustomResource):
 
         ## Import
 
-        Batch Job Queue can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
-        ```
+         to = aws_batch_job_queue.test_queue
+
+         id = "arn:aws:batch:us-east-1:123456789012:job-queue/sample" } Using `pulumi import`, import Batch Job Queue using the `arn`. For exampleconsole % pulumi import aws_batch_job_queue.test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -384,11 +384,11 @@ class JobQueue(pulumi.CustomResource):
 
         ## Import
 
-        Batch Job Queue can be imported using the `arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
-        ```
+         to = aws_batch_job_queue.test_queue
+
+         id = "arn:aws:batch:us-east-1:123456789012:job-queue/sample" } Using `pulumi import`, import Batch Job Queue using the `arn`. For exampleconsole % pulumi import aws_batch_job_queue.test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
 
         :param str resource_name: The name of the resource.
         :param JobQueueArgs args: The arguments to use to populate this resource's properties.

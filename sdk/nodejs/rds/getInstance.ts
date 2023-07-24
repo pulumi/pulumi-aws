@@ -143,6 +143,10 @@ export interface GetInstanceResult {
      */
     readonly masterUsername: string;
     /**
+     * The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+     */
+    readonly maxAllocatedStorage: number;
+    /**
      * Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
      */
     readonly monitoringInterval: number;

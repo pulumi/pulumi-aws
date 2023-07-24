@@ -199,11 +199,11 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Application cookie stickiness policies can be imported using the ELB name, port, and policy name separated by colons (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
-        ```
+         to = aws_app_cookie_stickiness_policy.example
+
+         id = "my-elb:80:my-policy" } Using `pulumi import`, import application cookie stickiness policies using the ELB name, port, and policy name separated by colons (`:`). For exampleconsole % pulumi import aws_app_cookie_stickiness_policy.example my-elb:80:my-policy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,11 +246,11 @@ class AppCookieStickinessPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Application cookie stickiness policies can be imported using the ELB name, port, and policy name separated by colons (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
-        ```
+         to = aws_app_cookie_stickiness_policy.example
+
+         id = "my-elb:80:my-policy" } Using `pulumi import`, import application cookie stickiness policies using the ELB name, port, and policy name separated by colons (`:`). For exampleconsole % pulumi import aws_app_cookie_stickiness_policy.example my-elb:80:my-policy
 
         :param str resource_name: The name of the resource.
         :param AppCookieStickinessPolicyArgs args: The arguments to use to populate this resource's properties.

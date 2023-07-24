@@ -47,11 +47,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CloudWatch Observability Access Manager Sink Policy can be imported using the `sink_identifier`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:oam/sinkPolicy:SinkPolicy example arn:aws:oam:us-west-2:123456789012:sink/sink-id
- * ```
+ *  to = aws_oam_sink_policy.example
+ *
+ *  id = "arn:aws:oam:us-west-2:123456789012:sink/sink-id" } Using `pulumi import`, import CloudWatch Observability Access Manager Sink Policy using the `sink_identifier`. For exampleconsole % pulumi import aws_oam_sink_policy.example arn:aws:oam:us-west-2:123456789012:sink/sink-id
  */
 export class SinkPolicy extends pulumi.CustomResource {
     /**

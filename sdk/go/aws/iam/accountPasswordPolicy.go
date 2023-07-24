@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// IAM Account Password Policy can be imported using the word `iam-account-password-policy`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_account_password_policy.strict
 //
-//	$ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
-//
-// ```
+//	id = "iam-account-password-policy" } Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For exampleconsole % pulumi import aws_iam_account_password_policy.strict iam-account-password-policy
 type AccountPasswordPolicy struct {
 	pulumi.CustomResourceState
 

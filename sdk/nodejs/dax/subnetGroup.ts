@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DAX Subnet Group can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
- * ```
+ *  to = aws_dax_subnet_group.example
+ *
+ *  id = "my_dax_sg" } Using `pulumi import`, import DAX Subnet Group using the `name`. For exampleconsole % pulumi import aws_dax_subnet_group.example my_dax_sg
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**

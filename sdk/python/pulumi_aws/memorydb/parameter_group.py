@@ -293,11 +293,11 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        Use the `name` to import a parameter group. For example
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
-        ```
+         to = aws_memorydb_parameter_group.example
+
+         id = "my-parameter-group" } Using `pulumi import`, import a parameter group using the `name`. For exampleconsole % pulumi import aws_memorydb_parameter_group.example my-parameter-group
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,11 +337,11 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        Use the `name` to import a parameter group. For example
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
-        ```
+         to = aws_memorydb_parameter_group.example
+
+         id = "my-parameter-group" } Using `pulumi import`, import a parameter group using the `name`. For exampleconsole % pulumi import aws_memorydb_parameter_group.example my-parameter-group
 
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.

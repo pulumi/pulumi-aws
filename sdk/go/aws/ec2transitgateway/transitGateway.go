@@ -41,13 +41,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_transit_gateway.example
 //
-//	$ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
-//
-// ```
+//	id = "tgw-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway` using the EC2 Transit Gateway identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway.example tgw-12345678
 type TransitGateway struct {
 	pulumi.CustomResourceState
 

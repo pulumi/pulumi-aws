@@ -184,11 +184,11 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         ## Import
 
-        Monitoring schedules can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
-        ```
+         to = aws_sagemaker_monitoring_schedule.test_monitoring_schedule
+
+         id = "monitoring-schedule-foo" } Using `pulumi import`, import monitoring schedules using the `name`. For exampleconsole % pulumi import aws_sagemaker_monitoring_schedule.test_monitoring_schedule monitoring-schedule-foo
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,11 +221,11 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         ## Import
 
-        Monitoring schedules can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
-        ```
+         to = aws_sagemaker_monitoring_schedule.test_monitoring_schedule
+
+         id = "monitoring-schedule-foo" } Using `pulumi import`, import monitoring schedules using the `name`. For exampleconsole % pulumi import aws_sagemaker_monitoring_schedule.test_monitoring_schedule monitoring-schedule-foo
 
         :param str resource_name: The name of the resource.
         :param MonitoringScheduleArgs args: The arguments to use to populate this resource's properties.

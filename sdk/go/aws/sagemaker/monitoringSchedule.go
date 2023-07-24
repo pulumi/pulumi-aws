@@ -47,13 +47,11 @@ import (
 //
 // ## Import
 //
-// Monitoring schedules can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_monitoring_schedule.test_monitoring_schedule
 //
-//	$ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
-//
-// ```
+//	id = "monitoring-schedule-foo" } Using `pulumi import`, import monitoring schedules using the `name`. For exampleconsole % pulumi import aws_sagemaker_monitoring_schedule.test_monitoring_schedule monitoring-schedule-foo
 type MonitoringSchedule struct {
 	pulumi.CustomResourceState
 

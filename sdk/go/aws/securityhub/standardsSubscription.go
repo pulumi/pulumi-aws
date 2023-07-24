@@ -63,25 +63,19 @@ import (
 //
 // ## Import
 //
-// Security Hub standards subscriptions can be imported using the standards subscription ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_securityhub_standards_subscription.cis
 //
-//	$ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
+//	id = "arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0" } terraform import {
 //
-// ```
+//	to = aws_securityhub_standards_subscription.pci_321
 //
-// ```sh
+//	id = "arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1" } terraform import {
 //
-//	$ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
+//	to = aws_securityhub_standards_subscription.nist_800_53_rev_5
 //
-// ```
-//
-// ```sh
-//
-//	$ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
-//
-// ```
+//	id = "arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0" } Using `pulumi import`, import Security Hub standards subscriptions using the standards subscription ARN. For exampleconsole % pulumi import aws_securityhub_standards_subscription.cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0 console % pulumi import aws_securityhub_standards_subscription.pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1 console % pulumi import aws_securityhub_standards_subscription.nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0
 type StandardsSubscription struct {
 	pulumi.CustomResourceState
 

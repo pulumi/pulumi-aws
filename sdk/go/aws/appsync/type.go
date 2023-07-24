@@ -57,13 +57,11 @@ import (
 //
 // ## Import
 //
-// Appsync Types can be imported using the `id` e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appsync_type.example
 //
-//	$ pulumi import aws:appsync/type:Type example api-id:format:name
-//
-// ```
+//	id = "api-id:format:name" } Using `pulumi import`, import Appsync Types using the `id`. For exampleconsole % pulumi import aws_appsync_type.example api-id:format:name
 type Type struct {
 	pulumi.CustomResourceState
 

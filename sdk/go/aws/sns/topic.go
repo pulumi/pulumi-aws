@@ -140,13 +140,11 @@ import (
 //
 // ## Import
 //
-// SNS Topics can be imported using the `topic arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sns_topic.user_updates
 //
-//	$ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
-//
-// ```
+//	id = "arn:aws:sns:us-west-2:0123456789012:my-topic" } Using `pulumi import`, import SNS Topics using the topic `arn`. For exampleconsole % pulumi import aws_sns_topic.user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
 type Topic struct {
 	pulumi.CustomResourceState
 

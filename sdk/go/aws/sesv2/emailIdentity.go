@@ -131,13 +131,11 @@ import (
 //
 // ## Import
 //
-// SESv2 (Simple Email V2) Email Identity can be imported using the `email_identity`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sesv2_email_identity.example
 //
-//	$ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
-//
-// ```
+//	id = "example.com" } Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For exampleconsole % pulumi import aws_sesv2_email_identity.example example.com
 type EmailIdentity struct {
 	pulumi.CustomResourceState
 

@@ -180,11 +180,11 @@ class MultiplexProgram(pulumi.CustomResource):
 
         ## Import
 
-        MediaLive MultiplexProgram can be imported using the `id`, or a combination of "`program_name`/`multiplex_id`" e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
-        ```
+         to = aws_medialive_multiplex_program.example
+
+         id = "example_program/1234567" } Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For exampleconsole % pulumi import aws_medialive_multiplex_program.example example_program/1234567
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,11 +240,11 @@ class MultiplexProgram(pulumi.CustomResource):
 
         ## Import
 
-        MediaLive MultiplexProgram can be imported using the `id`, or a combination of "`program_name`/`multiplex_id`" e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
-        ```
+         to = aws_medialive_multiplex_program.example
+
+         id = "example_program/1234567" } Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For exampleconsole % pulumi import aws_medialive_multiplex_program.example example_program/1234567
 
         :param str resource_name: The name of the resource.
         :param MultiplexProgramArgs args: The arguments to use to populate this resource's properties.

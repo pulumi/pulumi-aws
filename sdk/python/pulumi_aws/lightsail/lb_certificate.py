@@ -244,11 +244,11 @@ class LbCertificate(pulumi.CustomResource):
 
         ## Import
 
-        `aws_lightsail_lb_certificate` can be imported by using the id attribute, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
-        ```
+         to = aws_lightsail_lb_certificate.test
+
+         id = "example-load-balancer,example-load-balancer-certificate" } Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For exampleconsole % pulumi import aws_lightsail_lb_certificate.test example-load-balancer,example-load-balancer-certificate
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,11 +285,11 @@ class LbCertificate(pulumi.CustomResource):
 
         ## Import
 
-        `aws_lightsail_lb_certificate` can be imported by using the id attribute, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
-        ```
+         to = aws_lightsail_lb_certificate.test
+
+         id = "example-load-balancer,example-load-balancer-certificate" } Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For exampleconsole % pulumi import aws_lightsail_lb_certificate.test example-load-balancer,example-load-balancer-certificate
 
         :param str resource_name: The name of the resource.
         :param LbCertificateArgs args: The arguments to use to populate this resource's properties.

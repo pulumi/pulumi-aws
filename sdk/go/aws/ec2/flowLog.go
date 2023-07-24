@@ -176,13 +176,11 @@ import (
 //
 // ## Import
 //
-// Flow Logs can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_flow_log.test_flow_log
 //
-//	$ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
-//
-// ```
+//	id = "fl-1a2b3c4d" } Using `pulumi import`, import Flow Logs using the `id`. For exampleconsole % pulumi import aws_flow_log.test_flow_log fl-1a2b3c4d
 type FlowLog struct {
 	pulumi.CustomResourceState
 

@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CloudFront Origin Access Control can be imported using the `id`. For example
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
- * ```
+ *  to = aws_cloudfront_origin_access_control.example
+ *
+ *  id = "E327GJI25M56DG" } Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For exampleconsole % pulumi import aws_cloudfront_origin_access_control.example E327GJI25M56DG
  */
 export class OriginAccessControl extends pulumi.CustomResource {
     /**

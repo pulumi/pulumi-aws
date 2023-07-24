@@ -117,11 +117,11 @@ class ControlTowerControl(pulumi.CustomResource):
 
         ## Import
 
-        Control Tower Controls can be imported using their `organizational_unit_arn/control_identifier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
-        ```
+         to = aws_controltower_control.example
+
+         id = "arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE" } Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For exampleconsole % pulumi import aws_controltower_control.example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,11 +154,11 @@ class ControlTowerControl(pulumi.CustomResource):
 
         ## Import
 
-        Control Tower Controls can be imported using their `organizational_unit_arn/control_identifier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
-        ```
+         to = aws_controltower_control.example
+
+         id = "arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE" } Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For exampleconsole % pulumi import aws_controltower_control.example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
 
         :param str resource_name: The name of the resource.
         :param ControlTowerControlArgs args: The arguments to use to populate this resource's properties.

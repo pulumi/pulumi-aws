@@ -200,11 +200,11 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
         ## Import
 
-        EKS Identity Provider Configurations can be imported using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
-        ```
+         to = aws_eks_identity_provider_config.my_identity_provider_config
+
+         id = "my_cluster:my_identity_provider_config" } Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_identity_provider_config.my_identity_provider_config my_cluster:my_identity_provider_config
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -238,11 +238,11 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
         ## Import
 
-        EKS Identity Provider Configurations can be imported using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
-        ```
+         to = aws_eks_identity_provider_config.my_identity_provider_config
+
+         id = "my_cluster:my_identity_provider_config" } Using `pulumi import`, import EKS Identity Provider Configurations using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`). For exampleconsole % pulumi import aws_eks_identity_provider_config.my_identity_provider_config my_cluster:my_identity_provider_config
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderConfigArgs args: The arguments to use to populate this resource's properties.

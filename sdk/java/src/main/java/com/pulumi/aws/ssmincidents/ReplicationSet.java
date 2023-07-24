@@ -171,11 +171,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Use the following command to import an Incident Manager replication set
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
- * ```
+ *  to = aws_ssmincidents_replication_set.replicationSetName
+ * 
+ *  id = &#34;import&#34; } Using `pulumi import`, import an Incident Manager replication. For exampleconsole % pulumi import aws_ssmincidents_replication_set.replicationSetName import
  * 
  */
 @ResourceType(type="aws:ssmincidents/replicationSet:ReplicationSet")

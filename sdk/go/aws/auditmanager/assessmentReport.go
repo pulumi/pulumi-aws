@@ -44,13 +44,11 @@ import (
 //
 // ## Import
 //
-// Audit Manager Assessment Reports can be imported using the assessment report `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_auditmanager_assessment_report.example
 //
-//	$ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
-//
-// ```
+//	id = "abc123-de45" } Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For exampleconsole % pulumi import aws_auditmanager_assessment_report.example abc123-de45
 type AssessmentReport struct {
 	pulumi.CustomResourceState
 

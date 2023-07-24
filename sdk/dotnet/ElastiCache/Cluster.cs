@@ -134,11 +134,11 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
-    /// ```
+    ///  to = aws_elasticache_cluster.my_cluster
+    /// 
+    ///  id = "my_cluster" } Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For exampleconsole % pulumi import aws_elasticache_cluster.my_cluster my_cluster
     /// </summary>
     [AwsResourceType("aws:elasticache/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -695,7 +695,7 @@ namespace Pulumi.Aws.ElastiCache
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
-        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }

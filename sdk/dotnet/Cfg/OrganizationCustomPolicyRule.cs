@@ -54,11 +54,11 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// A Config Organization Custom Policy Rule can be imported using the `name` argument, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
-    /// ```
+    ///  to = aws_config_organization_custom_policy_rule.example
+    /// 
+    ///  id = "example_rule_name" } Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For exampleconsole % pulumi import aws_config_organization_custom_policy_rule.example example_rule_name
     /// </summary>
     [AwsResourceType("aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule")]
     public partial class OrganizationCustomPolicyRule : global::Pulumi.CustomResource

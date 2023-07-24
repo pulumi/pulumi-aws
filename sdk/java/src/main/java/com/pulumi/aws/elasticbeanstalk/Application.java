@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Elastic Beanstalk Applications can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:elasticbeanstalk/application:Application my_test tf-test-name
- * ```
+ *  to = aws_elastic_beanstalk_application.tf_test
+ * 
+ *  id = &#34;tf-test-name&#34; } Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For exampleconsole % pulumi import aws_elastic_beanstalk_application.tf_test tf-test-name
  * 
  */
 @ResourceType(type="aws:elasticbeanstalk/application:Application")

@@ -99,11 +99,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_appstream_stack` can be imported using the id, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appstream/stack:Stack example stackID
- * ```
+ *  to = aws_appstream_stack.example
+ * 
+ *  id = &#34;stackID&#34; } Using `pulumi import`, import `aws_appstream_stack` using the id. For exampleconsole % pulumi import aws_appstream_stack.example stackID
  * 
  */
 @ResourceType(type="aws:appstream/stack:Stack")

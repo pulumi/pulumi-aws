@@ -78,11 +78,11 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Remediation Configurations can be imported using the name config_rule_name, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
-    /// ```
+    ///  to = aws_config_remediation_configuration.this
+    /// 
+    ///  id = "example" } Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For exampleconsole % pulumi import aws_config_remediation_configuration.this example
     /// </summary>
     [AwsResourceType("aws:cfg/remediationConfiguration:RemediationConfiguration")]
     public partial class RemediationConfiguration : global::Pulumi.CustomResource

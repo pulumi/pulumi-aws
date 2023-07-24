@@ -275,11 +275,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Metric Alarm can be imported using the `alarm_name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
- * ```
+ *  to = aws_cloudwatch_metric_alarm.test
+ * 
+ *  id = &#34;alarm-12345&#34; } Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For exampleconsole % pulumi import aws_cloudwatch_metric_alarm.test alarm-12345
  * 
  */
 @ResourceType(type="aws:cloudwatch/metricAlarm:MetricAlarm")

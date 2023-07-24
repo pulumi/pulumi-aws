@@ -57,13 +57,11 @@ import (
 //
 // ## Import
 //
-// Signer signing profiles can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_signer_signing_profile.test_signer_signing_profile
 //
-//	$ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
-//
-// ```
+//	id = "test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK" } Using `pulumi import`, import Signer signing profiles using the `name`. For exampleconsole % pulumi import aws_signer_signing_profile.test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
 type SigningProfile struct {
 	pulumi.CustomResourceState
 
@@ -81,6 +79,7 @@ type SigningProfile struct {
 	RevocationRecords SigningProfileRevocationRecordArrayOutput `pulumi:"revocationRecords"`
 	// The validity period for a signing job.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodOutput `pulumi:"signatureValidityPeriod"`
+	SigningMaterial         SigningProfileSigningMaterialOutput         `pulumi:"signingMaterial"`
 	// The status of the target signing profile.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -140,6 +139,7 @@ type signingProfileState struct {
 	RevocationRecords []SigningProfileRevocationRecord `pulumi:"revocationRecords"`
 	// The validity period for a signing job.
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
+	SigningMaterial         *SigningProfileSigningMaterial         `pulumi:"signingMaterial"`
 	// The status of the target signing profile.
 	Status *string `pulumi:"status"`
 	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -167,6 +167,7 @@ type SigningProfileState struct {
 	RevocationRecords SigningProfileRevocationRecordArrayInput
 	// The validity period for a signing job.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
+	SigningMaterial         SigningProfileSigningMaterialPtrInput
 	// The status of the target signing profile.
 	Status pulumi.StringPtrInput
 	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -192,6 +193,7 @@ type signingProfileArgs struct {
 	PlatformId string `pulumi:"platformId"`
 	// The validity period for a signing job.
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
+	SigningMaterial         *SigningProfileSigningMaterial         `pulumi:"signingMaterial"`
 	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -206,6 +208,7 @@ type SigningProfileArgs struct {
 	PlatformId pulumi.StringInput
 	// The validity period for a signing job.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
+	SigningMaterial         SigningProfileSigningMaterialPtrInput
 	// A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -330,6 +333,10 @@ func (o SigningProfileOutput) RevocationRecords() SigningProfileRevocationRecord
 // The validity period for a signing job.
 func (o SigningProfileOutput) SignatureValidityPeriod() SigningProfileSignatureValidityPeriodOutput {
 	return o.ApplyT(func(v *SigningProfile) SigningProfileSignatureValidityPeriodOutput { return v.SignatureValidityPeriod }).(SigningProfileSignatureValidityPeriodOutput)
+}
+
+func (o SigningProfileOutput) SigningMaterial() SigningProfileSigningMaterialOutput {
+	return o.ApplyT(func(v *SigningProfile) SigningProfileSigningMaterialOutput { return v.SigningMaterial }).(SigningProfileSigningMaterialOutput)
 }
 
 // The status of the target signing profile.

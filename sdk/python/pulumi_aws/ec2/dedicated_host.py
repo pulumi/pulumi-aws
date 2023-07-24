@@ -15,6 +15,7 @@ __all__ = ['DedicatedHostArgs', 'DedicatedHost']
 class DedicatedHostArgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
+                 asset_id: Optional[pulumi.Input[str]] = None,
                  auto_placement: Optional[pulumi.Input[str]] = None,
                  host_recovery: Optional[pulumi.Input[str]] = None,
                  instance_family: Optional[pulumi.Input[str]] = None,
@@ -24,6 +25,7 @@ class DedicatedHostArgs:
         """
         The set of arguments for constructing a DedicatedHost resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
+        :param pulumi.Input[str] asset_id: The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
         :param pulumi.Input[str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
         :param pulumi.Input[str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
         :param pulumi.Input[str] instance_family: Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
@@ -32,6 +34,8 @@ class DedicatedHostArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
+        if asset_id is not None:
+            pulumi.set(__self__, "asset_id", asset_id)
         if auto_placement is not None:
             pulumi.set(__self__, "auto_placement", auto_placement)
         if host_recovery is not None:
@@ -56,6 +60,18 @@ class DedicatedHostArgs:
     @availability_zone.setter
     def availability_zone(self, value: pulumi.Input[str]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+        """
+        return pulumi.get(self, "asset_id")
+
+    @asset_id.setter
+    def asset_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asset_id", value)
 
     @property
     @pulumi.getter(name="autoPlacement")
@@ -134,6 +150,7 @@ class DedicatedHostArgs:
 class _DedicatedHostState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 asset_id: Optional[pulumi.Input[str]] = None,
                  auto_placement: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  host_recovery: Optional[pulumi.Input[str]] = None,
@@ -146,6 +163,7 @@ class _DedicatedHostState:
         """
         Input properties used for looking up and filtering DedicatedHost resources.
         :param pulumi.Input[str] arn: The ARN of the Dedicated Host.
+        :param pulumi.Input[str] asset_id: The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
         :param pulumi.Input[str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
         :param pulumi.Input[str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
@@ -158,6 +176,8 @@ class _DedicatedHostState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if asset_id is not None:
+            pulumi.set(__self__, "asset_id", asset_id)
         if auto_placement is not None:
             pulumi.set(__self__, "auto_placement", auto_placement)
         if availability_zone is not None:
@@ -188,6 +208,18 @@ class _DedicatedHostState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+        """
+        return pulumi.get(self, "asset_id")
+
+    @asset_id.setter
+    def asset_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asset_id", value)
 
     @property
     @pulumi.getter(name="autoPlacement")
@@ -303,6 +335,7 @@ class DedicatedHost(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asset_id: Optional[pulumi.Input[str]] = None,
                  auto_placement: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  host_recovery: Optional[pulumi.Input[str]] = None,
@@ -331,14 +364,15 @@ class DedicatedHost(pulumi.CustomResource):
 
         ## Import
 
-        Hosts can be imported using the host `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
-        ```
+         to = aws_ec2_host.example
+
+         id = "h-0385a99d0e4b20cbb" } Using `pulumi import`, import hosts using the host `id`. For exampleconsole % pulumi import aws_ec2_host.example h-0385a99d0e4b20cbb
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] asset_id: The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
         :param pulumi.Input[str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
         :param pulumi.Input[str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
@@ -373,11 +407,11 @@ class DedicatedHost(pulumi.CustomResource):
 
         ## Import
 
-        Hosts can be imported using the host `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
-        ```
+         to = aws_ec2_host.example
+
+         id = "h-0385a99d0e4b20cbb" } Using `pulumi import`, import hosts using the host `id`. For exampleconsole % pulumi import aws_ec2_host.example h-0385a99d0e4b20cbb
 
         :param str resource_name: The name of the resource.
         :param DedicatedHostArgs args: The arguments to use to populate this resource's properties.
@@ -394,6 +428,7 @@ class DedicatedHost(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 asset_id: Optional[pulumi.Input[str]] = None,
                  auto_placement: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  host_recovery: Optional[pulumi.Input[str]] = None,
@@ -410,6 +445,7 @@ class DedicatedHost(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DedicatedHostArgs.__new__(DedicatedHostArgs)
 
+            __props__.__dict__["asset_id"] = asset_id
             __props__.__dict__["auto_placement"] = auto_placement
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
@@ -433,6 +469,7 @@ class DedicatedHost(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            asset_id: Optional[pulumi.Input[str]] = None,
             auto_placement: Optional[pulumi.Input[str]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             host_recovery: Optional[pulumi.Input[str]] = None,
@@ -450,6 +487,7 @@ class DedicatedHost(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Dedicated Host.
+        :param pulumi.Input[str] asset_id: The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
         :param pulumi.Input[str] auto_placement: Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to allocate the Dedicated Host.
         :param pulumi.Input[str] host_recovery: Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
@@ -465,6 +503,7 @@ class DedicatedHost(pulumi.CustomResource):
         __props__ = _DedicatedHostState.__new__(_DedicatedHostState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["asset_id"] = asset_id
         __props__.__dict__["auto_placement"] = auto_placement
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["host_recovery"] = host_recovery
@@ -483,6 +522,14 @@ class DedicatedHost(pulumi.CustomResource):
         The ARN of the Dedicated Host.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="assetId")
+    def asset_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+        """
+        return pulumi.get(self, "asset_id")
 
     @property
     @pulumi.getter(name="autoPlacement")

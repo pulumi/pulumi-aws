@@ -288,11 +288,11 @@ class Constraint(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_constraint` can be imported using the constraint ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
-        ```
+         to = aws_servicecatalog_constraint.example
+
+         id = "cons-nmdkb6cgxfcrs" } Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For exampleconsole % pulumi import aws_servicecatalog_constraint.example cons-nmdkb6cgxfcrs
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -336,11 +336,11 @@ class Constraint(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_constraint` can be imported using the constraint ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
-        ```
+         to = aws_servicecatalog_constraint.example
+
+         id = "cons-nmdkb6cgxfcrs" } Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For exampleconsole % pulumi import aws_servicecatalog_constraint.example cons-nmdkb6cgxfcrs
 
         :param str resource_name: The name of the resource.
         :param ConstraintArgs args: The arguments to use to populate this resource's properties.

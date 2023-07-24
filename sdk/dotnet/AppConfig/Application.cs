@@ -36,11 +36,11 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Import
     /// 
-    /// AppConfig Applications can be imported using their application ID, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appconfig/application:Application example 71rxuzt
-    /// ```
+    ///  to = aws_appconfig_application.example
+    /// 
+    ///  id = "71rxuzt" } Using `pulumi import`, import AppConfig Applications using their application ID. For exampleconsole % pulumi import aws_appconfig_application.example 71rxuzt
     /// </summary>
     [AwsResourceType("aws:appconfig/application:Application")]
     public partial class Application : global::Pulumi.CustomResource

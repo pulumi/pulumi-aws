@@ -45,11 +45,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// Transfer AS2 Connector can be imported using the `connector_id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
-    /// ```
+    ///  to = aws_transfer_connector.example
+    /// 
+    ///  id = "c-4221a88afd5f4362a" } Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For exampleconsole % pulumi import aws_transfer_connector.example c-4221a88afd5f4362a
     /// </summary>
     [AwsResourceType("aws:transfer/connector:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

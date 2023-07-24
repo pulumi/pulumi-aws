@@ -280,11 +280,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
- * ```
+ *  to = aws_elasticache_replication_group.my_replication_group
+ * 
+ *  id = &#34;replication-group-1&#34; } Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For exampleconsole % pulumi import aws_elasticache_replication_group.my_replication_group replication-group-1
  * 
  */
 @ResourceType(type="aws:elasticache/replicationGroup:ReplicationGroup")
@@ -453,7 +453,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
@@ -465,7 +465,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
      * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     public Output<String> engineVersion() {

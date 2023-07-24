@@ -71,13 +71,11 @@ import (
 //
 // ## Import
 //
-// `aws_guardduty_invite_accepter` can be imported using the member GuardDuty detector ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_guardduty_invite_accepter.member
 //
-//	$ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
-//
-// ```
+//	id = "00b00fd5aecc0ab60a708659477e9617" } Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For exampleconsole % pulumi import aws_guardduty_invite_accepter.member 00b00fd5aecc0ab60a708659477e9617
 type InviteAccepter struct {
 	pulumi.CustomResourceState
 

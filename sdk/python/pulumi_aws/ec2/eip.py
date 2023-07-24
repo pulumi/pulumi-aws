@@ -625,17 +625,11 @@ class Eip(pulumi.CustomResource):
 
         ## Import
 
-        EIPs in a VPC can be imported using their Allocation ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
-        ```
+         to = aws_eip.bar
 
-         EIPs in EC2-Classic can be imported using their Public IP, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
-        ```
+         id = "eipalloc-00a10e96" } Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For exampleconsole % pulumi import aws_eip.bar eipalloc-00a10e96
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -741,17 +735,11 @@ class Eip(pulumi.CustomResource):
 
         ## Import
 
-        EIPs in a VPC can be imported using their Allocation ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
-        ```
+         to = aws_eip.bar
 
-         EIPs in EC2-Classic can be imported using their Public IP, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
-        ```
+         id = "eipalloc-00a10e96" } Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For exampleconsole % pulumi import aws_eip.bar eipalloc-00a10e96
 
         :param str resource_name: The name of the resource.
         :param EipArgs args: The arguments to use to populate this resource's properties.

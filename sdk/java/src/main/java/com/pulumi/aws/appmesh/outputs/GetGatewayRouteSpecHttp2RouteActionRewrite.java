@@ -4,6 +4,7 @@
 package com.pulumi.aws.appmesh.outputs;
 
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostname;
+import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteActionRewritePath;
 import com.pulumi.aws.appmesh.outputs.GetGatewayRouteSpecHttp2RouteActionRewritePrefix;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
@@ -12,11 +13,15 @@ import java.util.Objects;
 @CustomType
 public final class GetGatewayRouteSpecHttp2RouteActionRewrite {
     private List<GetGatewayRouteSpecHttp2RouteActionRewriteHostname> hostnames;
+    private List<GetGatewayRouteSpecHttp2RouteActionRewritePath> paths;
     private List<GetGatewayRouteSpecHttp2RouteActionRewritePrefix> prefixes;
 
     private GetGatewayRouteSpecHttp2RouteActionRewrite() {}
     public List<GetGatewayRouteSpecHttp2RouteActionRewriteHostname> hostnames() {
         return this.hostnames;
+    }
+    public List<GetGatewayRouteSpecHttp2RouteActionRewritePath> paths() {
+        return this.paths;
     }
     public List<GetGatewayRouteSpecHttp2RouteActionRewritePrefix> prefixes() {
         return this.prefixes;
@@ -32,11 +37,13 @@ public final class GetGatewayRouteSpecHttp2RouteActionRewrite {
     @CustomType.Builder
     public static final class Builder {
         private List<GetGatewayRouteSpecHttp2RouteActionRewriteHostname> hostnames;
+        private List<GetGatewayRouteSpecHttp2RouteActionRewritePath> paths;
         private List<GetGatewayRouteSpecHttp2RouteActionRewritePrefix> prefixes;
         public Builder() {}
         public Builder(GetGatewayRouteSpecHttp2RouteActionRewrite defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostnames = defaults.hostnames;
+    	      this.paths = defaults.paths;
     	      this.prefixes = defaults.prefixes;
         }
 
@@ -49,6 +56,14 @@ public final class GetGatewayRouteSpecHttp2RouteActionRewrite {
             return hostnames(List.of(hostnames));
         }
         @CustomType.Setter
+        public Builder paths(List<GetGatewayRouteSpecHttp2RouteActionRewritePath> paths) {
+            this.paths = Objects.requireNonNull(paths);
+            return this;
+        }
+        public Builder paths(GetGatewayRouteSpecHttp2RouteActionRewritePath... paths) {
+            return paths(List.of(paths));
+        }
+        @CustomType.Setter
         public Builder prefixes(List<GetGatewayRouteSpecHttp2RouteActionRewritePrefix> prefixes) {
             this.prefixes = Objects.requireNonNull(prefixes);
             return this;
@@ -59,6 +74,7 @@ public final class GetGatewayRouteSpecHttp2RouteActionRewrite {
         public GetGatewayRouteSpecHttp2RouteActionRewrite build() {
             final var o = new GetGatewayRouteSpecHttp2RouteActionRewrite();
             o.hostnames = hostnames;
+            o.paths = paths;
             o.prefixes = prefixes;
             return o;
         }

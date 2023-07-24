@@ -60,11 +60,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * QuickSight VPC connection can be imported using the AWS account ID and VPC connection ID separated by commas (`,`) e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
- * ```
+ *  to = aws_quicksight_vpc_connection.example
+ *
+ *  id = "123456789012,example" } Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_vpc_connection.example 123456789012,example
  */
 export class VpcConnection extends pulumi.CustomResource {
     /**

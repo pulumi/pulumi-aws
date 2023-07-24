@@ -261,11 +261,11 @@ class ContactList(pulumi.CustomResource):
 
         ## Import
 
-        SESv2 (Simple Email V2) Contact List can be imported using the `example_id_arg`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sesv2/contactList:ContactList example example
-        ```
+         to = aws_sesv2_contact_list.example
+
+         id = "example" } Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For exampleconsole % pulumi import aws_sesv2_contact_list.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,11 +313,11 @@ class ContactList(pulumi.CustomResource):
 
         ## Import
 
-        SESv2 (Simple Email V2) Contact List can be imported using the `example_id_arg`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sesv2/contactList:ContactList example example
-        ```
+         to = aws_sesv2_contact_list.example
+
+         id = "example" } Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For exampleconsole % pulumi import aws_sesv2_contact_list.example example
 
         :param str resource_name: The name of the resource.
         :param ContactListArgs args: The arguments to use to populate this resource's properties.

@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * MQ Configurations can be imported using the configuration ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
- * ```
+ *  to = aws_mq_configuration.example
+ * 
+ *  id = &#34;c-0187d1eb-88c8-475a-9b79-16ef5a10c94f&#34; } Using `pulumi import`, import MQ Configurations using the configuration ID. For exampleconsole % pulumi import aws_mq_configuration.example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
  * 
  */
 @ResourceType(type="aws:mq/configuration:Configuration")

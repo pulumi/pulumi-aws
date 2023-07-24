@@ -70,17 +70,15 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// For Access Points associated with an AWS Partition S3 Bucket, this resource can be imported using the `account_id` and `name` separated by a colon (`:`), e.g.,
+    /// Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucketterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
-    /// ```
+    ///  to = aws_s3_access_point.example
     /// 
-    ///  For Access Points associated with an S3 on Outposts Bucket, this resource can be imported using the ARN, e.g.,
+    ///  id = "123456789012:example" } Import using the ARN for Access Points associated with an S3 on Outposts Bucketterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
-    /// ```
+    ///  to = aws_s3_access_point.example
+    /// 
+    ///  id = "arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example" } **Using `pulumi import` to import.** For exampleImport using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucketconsole % pulumi import aws_s3_access_point.example 123456789012:example Import using the ARN for Access Points associated with an S3 on Outposts Bucketconsole % pulumi import aws_s3_access_point.example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
     /// </summary>
     [AwsResourceType("aws:s3/accessPoint:AccessPoint")]
     public partial class AccessPoint : global::Pulumi.CustomResource

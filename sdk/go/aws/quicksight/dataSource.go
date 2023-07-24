@@ -51,13 +51,11 @@ import (
 //
 // ## Import
 //
-// A QuickSight data source can be imported using the AWS account ID, and data source ID separated by a slash (`/`) e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_quicksight_data_source.example
 //
-//	$ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
-//
-// ```
+//	id = "123456789123/my-data-source-id" } Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For exampleconsole % pulumi import aws_quicksight_data_source.example 123456789123/my-data-source-id
 type DataSource struct {
 	pulumi.CustomResourceState
 

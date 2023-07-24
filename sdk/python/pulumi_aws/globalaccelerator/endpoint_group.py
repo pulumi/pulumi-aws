@@ -37,8 +37,6 @@ class EndpointGroupArgs:
                the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-               
-               **endpoint_configuration** supports the following attributes:
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         """
@@ -152,8 +150,6 @@ class EndpointGroupArgs:
     def port_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]:
         """
         Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-
-        **endpoint_configuration** supports the following attributes:
         """
         return pulumi.get(self, "port_overrides")
 
@@ -212,8 +208,6 @@ class _EndpointGroupState:
         :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-               
-               **endpoint_configuration** supports the following attributes:
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         """
@@ -342,8 +336,6 @@ class _EndpointGroupState:
     def port_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]:
         """
         Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-
-        **endpoint_configuration** supports the following attributes:
         """
         return pulumi.get(self, "port_overrides")
 
@@ -411,11 +403,11 @@ class EndpointGroup(pulumi.CustomResource):
 
         ## Import
 
-        Global Accelerator endpoint groups can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
-        ```
+         to = aws_globalaccelerator_endpoint_group.example
+
+         id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx" } Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -428,8 +420,6 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-               
-               **endpoint_configuration** supports the following attributes:
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         """
@@ -458,11 +448,11 @@ class EndpointGroup(pulumi.CustomResource):
 
         ## Import
 
-        Global Accelerator endpoint groups can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:globalaccelerator/endpointGroup:EndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
-        ```
+         to = aws_globalaccelerator_endpoint_group.example
+
+         id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx" } Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
 
         :param str resource_name: The name of the resource.
         :param EndpointGroupArgs args: The arguments to use to populate this resource's properties.
@@ -549,8 +539,6 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-               
-               **endpoint_configuration** supports the following attributes:
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
         """
@@ -641,8 +629,6 @@ class EndpointGroup(pulumi.CustomResource):
     def port_overrides(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointGroupPortOverride']]]:
         """
         Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
-
-        **endpoint_configuration** supports the following attributes:
         """
         return pulumi.get(self, "port_overrides")
 

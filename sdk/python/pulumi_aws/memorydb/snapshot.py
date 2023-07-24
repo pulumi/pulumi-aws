@@ -279,11 +279,11 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        Use the `name` to import a snapshot. For example
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
-        ```
+         to = aws_memorydb_snapshot.example
+
+         id = "my-snapshot" } Using `pulumi import`, import a snapshot using the `name`. For exampleconsole % pulumi import aws_memorydb_snapshot.example my-snapshot
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -315,11 +315,11 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        Use the `name` to import a snapshot. For example
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
-        ```
+         to = aws_memorydb_snapshot.example
+
+         id = "my-snapshot" } Using `pulumi import`, import a snapshot using the `name`. For exampleconsole % pulumi import aws_memorydb_snapshot.example my-snapshot
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

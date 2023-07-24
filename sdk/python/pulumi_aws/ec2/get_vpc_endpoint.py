@@ -108,13 +108,16 @@ class GetVpcEndpointResult:
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> Sequence['outputs.GetVpcEndpointDnsEntryResult']:
         """
-        DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
         """
         return pulumi.get(self, "dns_entries")
 
     @property
     @pulumi.getter(name="dnsOptions")
     def dns_options(self) -> Sequence['outputs.GetVpcEndpointDnsOptionResult']:
+        """
+        DNS options for the VPC Endpoint. DNS options blocks are documented below.
+        """
         return pulumi.get(self, "dns_options")
 
     @property

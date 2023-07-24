@@ -56,13 +56,11 @@ import (
 //
 // ## Import
 //
-// `aws_macie2_custom_data_identifier` can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_macie2_custom_data_identifier.example
 //
-//	$ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
-//
-// ```
+//	id = "abcd1" } Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For exampleconsole % pulumi import aws_macie2_custom_data_identifier.example abcd1
 type CustomDataIdentifier struct {
 	pulumi.CustomResourceState
 

@@ -18,11 +18,11 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// CloudFront Distributions can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
-    /// ```
+    ///  to = aws_cloudfront_distribution.distribution
+    /// 
+    ///  id = "E74FTE3EXAMPLE" } Using `pulumi import`, import CloudFront Distributions using the `id`. For exampleconsole % pulumi import aws_cloudfront_distribution.distribution E74FTE3EXAMPLE
     /// </summary>
     [AwsResourceType("aws:cloudfront/distribution:Distribution")]
     public partial class Distribution : global::Pulumi.CustomResource

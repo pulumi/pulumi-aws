@@ -97,11 +97,11 @@ class DelegatedAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        Inspector Delegated Admin Account can be imported using the `account_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
-        ```
+         to = aws_inspector2_delegated_admin_account.example
+
+         id = "012345678901" } Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For exampleconsole % pulumi import aws_inspector2_delegated_admin_account.example 012345678901
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,11 +129,11 @@ class DelegatedAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        Inspector Delegated Admin Account can be imported using the `account_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
-        ```
+         to = aws_inspector2_delegated_admin_account.example
+
+         id = "012345678901" } Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For exampleconsole % pulumi import aws_inspector2_delegated_admin_account.example 012345678901
 
         :param str resource_name: The name of the resource.
         :param DelegatedAdminAccountArgs args: The arguments to use to populate this resource's properties.

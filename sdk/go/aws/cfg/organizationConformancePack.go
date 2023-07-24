@@ -145,13 +145,11 @@ import (
 //
 // ## Import
 //
-// Config Organization Conformance Packs can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_organization_conformance_pack.example
 //
-//	$ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For exampleconsole % pulumi import aws_config_organization_conformance_pack.example example
 type OrganizationConformancePack struct {
 	pulumi.CustomResourceState
 

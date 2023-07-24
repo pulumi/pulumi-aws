@@ -74,13 +74,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_disk` can be imported by using the id attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_disk_attachment.test
 //
-//	$ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
-//
-// ```
+//	id = "test-disk,test-instance" } Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For exampleconsole % pulumi import aws_lightsail_disk_attachment.test test-disk,test-instance
 type Disk_attachment struct {
 	pulumi.CustomResourceState
 

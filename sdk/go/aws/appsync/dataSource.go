@@ -119,13 +119,11 @@ import (
 //
 // ## Import
 //
-// `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appsync_datasource.example
 //
-//	$ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
-//
-// ```
+//	id = "abcdef123456-example" } Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For exampleconsole % pulumi import aws_appsync_datasource.example abcdef123456-example
 type DataSource struct {
 	pulumi.CustomResourceState
 
@@ -153,7 +151,7 @@ type DataSource struct {
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrOutput `pulumi:"serviceRoleArn"`
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -217,7 +215,7 @@ type dataSourceState struct {
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 	Type *string `pulumi:"type"`
 }
 
@@ -246,7 +244,7 @@ type DataSourceState struct {
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	// IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrInput
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 	Type pulumi.StringPtrInput
 }
 
@@ -277,7 +275,7 @@ type dataSourceArgs struct {
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
 	// IAM service role ARN for the data source.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 	Type string `pulumi:"type"`
 }
 
@@ -305,7 +303,7 @@ type DataSourceArgs struct {
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
 	// IAM service role ARN for the data source.
 	ServiceRoleArn pulumi.StringPtrInput
-	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 	Type pulumi.StringInput
 }
 
@@ -456,7 +454,7 @@ func (o DataSourceOutput) ServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 func (o DataSourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

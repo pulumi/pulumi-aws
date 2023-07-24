@@ -72,11 +72,11 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Backup vault policy can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
-    /// ```
+    ///  to = aws_backup_vault_policy.test
+    /// 
+    ///  id = "TestVault" } Using `pulumi import`, import Backup vault policy using the `name`. For exampleconsole % pulumi import aws_backup_vault_policy.test TestVault
     /// </summary>
     [AwsResourceType("aws:backup/vaultPolicy:VaultPolicy")]
     public partial class VaultPolicy : global::Pulumi.CustomResource

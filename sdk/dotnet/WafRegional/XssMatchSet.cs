@@ -50,11 +50,11 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// ## Import
     /// 
-    /// AWS WAF Regional XSS Match can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
-    /// ```
+    ///  to = aws_wafregional_xss_match_set.example
+    /// 
+    ///  id = "12345abcde" } Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For exampleconsole % pulumi import aws_wafregional_xss_match_set.example 12345abcde
     /// </summary>
     [AwsResourceType("aws:wafregional/xssMatchSet:XssMatchSet")]
     public partial class XssMatchSet : global::Pulumi.CustomResource

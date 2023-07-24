@@ -418,11 +418,11 @@ class SigningJob(pulumi.CustomResource):
 
         ## Import
 
-        Signer signing jobs can be imported using the `job_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
-        ```
+         to = aws_signer_signing_job.test_signer_signing_job
+
+         id = "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee" } Using `pulumi import`, import Signer signing jobs using the `job_id`. For exampleconsole % pulumi import aws_signer_signing_job.test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -467,11 +467,11 @@ class SigningJob(pulumi.CustomResource):
 
         ## Import
 
-        Signer signing jobs can be imported using the `job_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
-        ```
+         to = aws_signer_signing_job.test_signer_signing_job
+
+         id = "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee" } Using `pulumi import`, import Signer signing jobs using the `job_id`. For exampleconsole % pulumi import aws_signer_signing_job.test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
 
         :param str resource_name: The name of the resource.
         :param SigningJobArgs args: The arguments to use to populate this resource's properties.

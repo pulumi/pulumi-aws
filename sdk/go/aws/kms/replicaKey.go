@@ -59,13 +59,11 @@ import (
 //
 // ## Import
 //
-// KMS multi-Region replica keys can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kms_replica_key.example
 //
-//	$ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
-//
-// ```
+//	id = "1234abcd-12ab-34cd-56ef-1234567890ab" } Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For exampleconsole % pulumi import aws_kms_replica_key.example 1234abcd-12ab-34cd-56ef-1234567890ab
 type ReplicaKey struct {
 	pulumi.CustomResourceState
 

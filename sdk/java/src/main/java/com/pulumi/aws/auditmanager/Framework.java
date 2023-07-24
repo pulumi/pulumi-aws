@@ -60,11 +60,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Audit Manager Framework can be imported using the framework `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
- * ```
+ *  to = aws_auditmanager_framework.example
+ * 
+ *  id = &#34;abc123-de45&#34; } Using `pulumi import`, import Audit Manager Framework using the framework `id`. For exampleconsole % pulumi import aws_auditmanager_framework.example abc123-de45
  * 
  */
 @ResourceType(type="aws:auditmanager/framework:Framework")

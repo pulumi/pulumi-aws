@@ -273,11 +273,11 @@ class FirewallPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Network Firewall Policies can be imported using their `ARN`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
-        ```
+         to = aws_networkfirewall_firewall_policy.example
+
+         id = "arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example" } Using `pulumi import`, import Network Firewall Policies using their `arn`. For exampleconsole % pulumi import aws_networkfirewall_firewall_policy.example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,11 +319,11 @@ class FirewallPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Network Firewall Policies can be imported using their `ARN`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
-        ```
+         to = aws_networkfirewall_firewall_policy.example
+
+         id = "arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example" } Using `pulumi import`, import Network Firewall Policies using their `arn`. For exampleconsole % pulumi import aws_networkfirewall_firewall_policy.example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.

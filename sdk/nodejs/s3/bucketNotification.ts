@@ -184,11 +184,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * S3 bucket notification can be imported using the `bucket`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
- * ```
+ *  to = aws_s3_bucket_notification.bucket_notification
+ *
+ *  id = "bucket-name" } Using `pulumi import`, import S3 bucket notification using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_notification.bucket_notification bucket-name
  */
 export class BucketNotification extends pulumi.CustomResource {
     /**

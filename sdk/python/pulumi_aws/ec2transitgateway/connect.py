@@ -265,11 +265,11 @@ class Connect(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
-        ```
+         to = aws_ec2_transit_gateway_connect.example
+
+         id = "tgw-attach-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_connect.example tgw-attach-12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -306,11 +306,11 @@ class Connect(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
-        ```
+         to = aws_ec2_transit_gateway_connect.example
+
+         id = "tgw-attach-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_connect.example tgw-attach-12345678
 
         :param str resource_name: The name of the resource.
         :param ConnectArgs args: The arguments to use to populate this resource's properties.

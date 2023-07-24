@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IOT Role Alias can be imported via the alias, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
- * ```
+ *  to = aws_iot_role_alias.example
+ * 
+ *  id = &#34;myalias&#34; } Using `pulumi import`, import IOT Role Alias using the alias. For exampleconsole % pulumi import aws_iot_role_alias.example myalias
  * 
  */
 @ResourceType(type="aws:iot/roleAlias:RoleAlias")

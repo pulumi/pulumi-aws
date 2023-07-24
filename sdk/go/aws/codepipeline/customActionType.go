@@ -52,13 +52,11 @@ import (
 //
 // ## Import
 //
-// CodeDeploy CustomActionType can be imported using the `id`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_codepipeline_custom_action_type.example
 //
-//	$ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:terraform:1
-//
-// ```
+//	id = "Build:TODO:1" } Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For exampleconsole % pulumi import aws_codepipeline_custom_action_type.example Build:TODO:1
 type CustomActionType struct {
 	pulumi.CustomResourceState
 

@@ -220,8 +220,6 @@ class CustomRoutingEndpointGroupDestinationConfigurationArgs:
         :param pulumi.Input[int] from_port: The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
         :param pulumi.Input[int] to_port: The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-               
-               **endpoint_configuration** supports the following attributes:
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "protocols", protocols)
@@ -256,8 +254,6 @@ class CustomRoutingEndpointGroupDestinationConfigurationArgs:
     def to_port(self) -> pulumi.Input[int]:
         """
         The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-
-        **endpoint_configuration** supports the following attributes:
         """
         return pulumi.get(self, "to_port")
 
@@ -339,8 +335,6 @@ class EndpointGroupEndpointConfigurationArgs:
                **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
         :param pulumi.Input[str] endpoint_id: An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
         :param pulumi.Input[int] weight: The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-               
-               **port_override** supports the following attributes:
         """
         if client_ip_preservation_enabled is not None:
             pulumi.set(__self__, "client_ip_preservation_enabled", client_ip_preservation_enabled)
@@ -379,8 +373,6 @@ class EndpointGroupEndpointConfigurationArgs:
     def weight(self) -> Optional[pulumi.Input[int]]:
         """
         The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-
-        **port_override** supports the following attributes:
         """
         return pulumi.get(self, "weight")
 

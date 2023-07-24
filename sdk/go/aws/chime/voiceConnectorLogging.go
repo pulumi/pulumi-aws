@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Chime Voice Connector Logging can be imported using the `voice_connector_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_chime_voice_connector_logging.default
 //
-//	$ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
-//
-// ```
+//	id = "abcdef1ghij2klmno3pqr4" } Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_logging.default abcdef1ghij2klmno3pqr4
 type VoiceConnectorLogging struct {
 	pulumi.CustomResourceState
 

@@ -242,11 +242,11 @@ class MedicalVocabulary(pulumi.CustomResource):
 
         ## Import
 
-        Transcribe MedicalVocabulary can be imported using the `vocabulary_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
-        ```
+         to = aws_transcribe_medical_vocabulary.example
+
+         id = "example-name" } Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For exampleconsole % pulumi import aws_transcribe_medical_vocabulary.example example-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -291,11 +291,11 @@ class MedicalVocabulary(pulumi.CustomResource):
 
         ## Import
 
-        Transcribe MedicalVocabulary can be imported using the `vocabulary_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
-        ```
+         to = aws_transcribe_medical_vocabulary.example
+
+         id = "example-name" } Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For exampleconsole % pulumi import aws_transcribe_medical_vocabulary.example example-name
 
         :param str resource_name: The name of the resource.
         :param MedicalVocabularyArgs args: The arguments to use to populate this resource's properties.

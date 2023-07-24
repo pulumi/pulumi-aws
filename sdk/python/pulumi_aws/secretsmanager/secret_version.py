@@ -223,11 +223,11 @@ class SecretVersion(pulumi.CustomResource):
 
         ## Import
 
-        `aws_secretsmanager_secret_version` can be imported by using the secret ID and version ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
-        ```
+         to = aws_secretsmanager_secret_version.example
+
+         id = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx" } Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For exampleconsole % pulumi import aws_secretsmanager_secret_version.example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,11 +263,11 @@ class SecretVersion(pulumi.CustomResource):
 
         ## Import
 
-        `aws_secretsmanager_secret_version` can be imported by using the secret ID and version ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
-        ```
+         to = aws_secretsmanager_secret_version.example
+
+         id = "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx" } Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For exampleconsole % pulumi import aws_secretsmanager_secret_version.example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
 
         :param str resource_name: The name of the resource.
         :param SecretVersionArgs args: The arguments to use to populate this resource's properties.

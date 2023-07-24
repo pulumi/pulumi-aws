@@ -278,11 +278,11 @@ class Extension(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Extensions can be imported using their extension ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
-        ```
+         to = aws_appconfig_extension.example
+
+         id = "71rxuzt" } Using `pulumi import`, import AppConfig Extensions using their extension ID. For exampleconsole % pulumi import aws_appconfig_extension.example 71rxuzt
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -333,11 +333,11 @@ class Extension(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Extensions can be imported using their extension ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
-        ```
+         to = aws_appconfig_extension.example
+
+         id = "71rxuzt" } Using `pulumi import`, import AppConfig Extensions using their extension ID. For exampleconsole % pulumi import aws_appconfig_extension.example 71rxuzt
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

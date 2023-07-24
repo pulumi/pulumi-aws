@@ -16,11 +16,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// Transfer AS2 Profile can be imported using the `profile_id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
-    /// ```
+    ///  to = aws_transfer_profile.example
+    /// 
+    ///  id = "p-4221a88afd5f4362a" } Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For exampleconsole % pulumi import aws_transfer_profile.example p-4221a88afd5f4362a
     /// </summary>
     [AwsResourceType("aws:transfer/profile:Profile")]
     public partial class Profile : global::Pulumi.CustomResource

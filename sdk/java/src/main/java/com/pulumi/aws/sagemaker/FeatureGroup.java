@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Feature Groups can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
- * ```
+ *  to = aws_sagemaker_feature_group.test_feature_group
+ * 
+ *  id = &#34;feature_group-foo&#34; } Using `pulumi import`, import Feature Groups using the `name`. For exampleconsole % pulumi import aws_sagemaker_feature_group.test_feature_group feature_group-foo
  * 
  */
 @ResourceType(type="aws:sagemaker/featureGroup:FeatureGroup")

@@ -529,11 +529,11 @@ class Studio(pulumi.CustomResource):
 
         ## Import
 
-        EMR studios can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
-        ```
+         to = aws_emr_studio.studio
+
+         id = "es-123456ABCDEF" } Using `pulumi import`, import EMR studios using the `id`. For exampleconsole % pulumi import aws_emr_studio.studio es-123456ABCDEF
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -581,11 +581,11 @@ class Studio(pulumi.CustomResource):
 
         ## Import
 
-        EMR studios can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
-        ```
+         to = aws_emr_studio.studio
+
+         id = "es-123456ABCDEF" } Using `pulumi import`, import EMR studios using the `id`. For exampleconsole % pulumi import aws_emr_studio.studio es-123456ABCDEF
 
         :param str resource_name: The name of the resource.
         :param StudioArgs args: The arguments to use to populate this resource's properties.

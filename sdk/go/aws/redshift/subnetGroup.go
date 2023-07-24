@@ -77,13 +77,11 @@ import (
 //
 // ## Import
 //
-// Redshift subnet groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_subnet_group.testgroup1
 //
-//	$ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group
-//
-// ```
+//	id = "test-cluster-subnet-group" } Using `pulumi import`, import Redshift subnet groups using the `name`. For exampleconsole % pulumi import aws_redshift_subnet_group.testgroup1 test-cluster-subnet-group
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 

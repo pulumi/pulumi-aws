@@ -58,13 +58,11 @@ import (
 //
 // ## Import
 //
-// Transfer AS2 Certificate can be imported using the `certificate_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_transfer_certificate.example
 //
-//	$ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
-//
-// ```
+//	id = "c-4221a88afd5f4362a" } Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For exampleconsole % pulumi import aws_transfer_certificate.example c-4221a88afd5f4362a
 type Certificate struct {
 	pulumi.CustomResourceState
 

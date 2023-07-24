@@ -188,11 +188,11 @@ class EventBus(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
-        ```
+         to = aws_cloudwatch_event_bus.messenger
+
+         id = "chat-messages" } Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For exampleconsole % pulumi import aws_cloudwatch_event_bus.messenger chat-messages
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,11 +230,11 @@ class EventBus(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
-        ```
+         to = aws_cloudwatch_event_bus.messenger
+
+         id = "chat-messages" } Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For exampleconsole % pulumi import aws_cloudwatch_event_bus.messenger chat-messages
 
         :param str resource_name: The name of the resource.
         :param EventBusArgs args: The arguments to use to populate this resource's properties.

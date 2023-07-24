@@ -162,11 +162,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The current EMR Block Public Access Configuration can be imported, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
- * ```
+ *  to = aws_emr_block_public_access_configuration.example
+ * 
+ *  id = &#34;current&#34; } Using `pulumi import`, import the current EMR Block Public Access Configuration. For exampleconsole % pulumi import aws_emr_block_public_access_configuration.example current
  * 
  */
 @ResourceType(type="aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration")

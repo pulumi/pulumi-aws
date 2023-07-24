@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EKS Clusters can be imported using the `id`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
- * ```
+ *  to = aws_emrcontainers_virtual_cluster.example
+ * 
+ *  id = &#34;a1b2c3d4e5f6g7h8i9j10k11l&#34; } Using `pulumi import`, import EKS Clusters using the `id`. For exampleconsole % pulumi import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l
  * 
  */
 @ResourceType(type="aws:emrcontainers/virtualCluster:VirtualCluster")

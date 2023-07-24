@@ -98,11 +98,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Glue Connections can be imported using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
- * ```
+ *  to = aws_glue_connection.MyConnection
+ * 
+ *  id = &#34;123456789012:MyConnection&#34; } Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For exampleconsole % pulumi import aws_glue_connection.MyConnection 123456789012:MyConnection
  * 
  */
 @ResourceType(type="aws:glue/connection:Connection")

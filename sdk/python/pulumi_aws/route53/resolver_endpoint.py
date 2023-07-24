@@ -288,11 +288,13 @@ class ResolverEndpoint(pulumi.CustomResource):
 
         ## Import
 
-         Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
-        ```
+         to = aws_route53_resolver_endpoint.foo
+
+         id = "rslvr-in-abcdef01234567890" } Using `pulumi import`, import
+
+        Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For exampleconsole % pulumi import aws_route53_resolver_endpoint.foo rslvr-in-abcdef01234567890
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -342,11 +344,13 @@ class ResolverEndpoint(pulumi.CustomResource):
 
         ## Import
 
-         Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
-        ```
+         to = aws_route53_resolver_endpoint.foo
+
+         id = "rslvr-in-abcdef01234567890" } Using `pulumi import`, import
+
+        Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For exampleconsole % pulumi import aws_route53_resolver_endpoint.foo rslvr-in-abcdef01234567890
 
         :param str resource_name: The name of the resource.
         :param ResolverEndpointArgs args: The arguments to use to populate this resource's properties.

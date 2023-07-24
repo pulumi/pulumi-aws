@@ -2000,6 +2000,7 @@
         "worklink/fleet.ts",
         "worklink/index.ts",
         "worklink/websiteCertificateAuthorityAssociation.ts",
+        "workspaces/connectionAlias.ts",
         "workspaces/directory.ts",
         "workspaces/getBundle.ts",
         "workspaces/getDirectory.ts",

@@ -163,11 +163,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AppFlow flows can be imported using the `arn`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
- * ```
+ *  to = aws_appflow_flow.example
+ * 
+ *  id = &#34;arn:aws:appflow:us-west-2:123456789012:flow/example-flow&#34; } Using `pulumi import`, import AppFlow flows using the `arn`. For exampleconsole % pulumi import aws_appflow_flow.example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
  * 
  */
 @ResourceType(type="aws:appflow/flow:Flow")

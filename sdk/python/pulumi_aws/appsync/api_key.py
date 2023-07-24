@@ -168,11 +168,11 @@ class ApiKey(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
-        ```
+         to = aws_appsync_api_key.example
+
+         id = "xxxxx:yyyyy" } Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For exampleconsole % pulumi import aws_appsync_api_key.example xxxxx:yyyyy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,11 +203,11 @@ class ApiKey(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
-        ```
+         to = aws_appsync_api_key.example
+
+         id = "xxxxx:yyyyy" } Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For exampleconsole % pulumi import aws_appsync_api_key.example xxxxx:yyyyy
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.

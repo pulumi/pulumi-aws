@@ -107,13 +107,11 @@ import (
 //
 // ## Import
 //
-// Pinpoint Event Stream can be imported using the `application-id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_pinpoint_event_stream.stream
 //
-//	$ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
-//
-// ```
+//	id = "application-id" } Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_event_stream.stream application-id
 type EventStream struct {
 	pulumi.CustomResourceState
 

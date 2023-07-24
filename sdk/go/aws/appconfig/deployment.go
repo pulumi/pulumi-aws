@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// AppConfig Deployments can be imported by using the application ID, environment ID, and deployment number separated by a slash (`/`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appconfig_deployment.example
 //
-//	$ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
-//
-// ```
+//	id = "71abcde/11xxxxx/1" } Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For exampleconsole % pulumi import aws_appconfig_deployment.example 71abcde/11xxxxx/1
 type Deployment struct {
 	pulumi.CustomResourceState
 

@@ -60,13 +60,11 @@ import (
 //
 // ## Import
 //
-// App Mesh gateway routes can be imported using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appmesh_gateway_route.example
 //
-//	$ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
-//
-// ```
+//	id = "mesh/gw1/example-gateway-route" } Using `pulumi import`, import App Mesh gateway routes using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`. For exampleconsole % pulumi import aws_appmesh_gateway_route.example mesh/gw1/example-gateway-route
 type GatewayRoute struct {
 	pulumi.CustomResourceState
 

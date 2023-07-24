@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Neptune Cluster Parameter Groups can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
- * ```
+ *  to = aws_neptune_cluster_parameter_group.cluster_pg
+ * 
+ *  id = &#34;production-pg-1&#34; } Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For exampleconsole % pulumi import aws_neptune_cluster_parameter_group.cluster_pg production-pg-1
  * 
  */
 @ResourceType(type="aws:neptune/clusterParameterGroup:ClusterParameterGroup")

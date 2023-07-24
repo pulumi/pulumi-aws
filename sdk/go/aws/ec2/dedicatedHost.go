@@ -45,18 +45,18 @@ import (
 //
 // ## Import
 //
-// Hosts can be imported using the host `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_host.example
 //
-//	$ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
-//
-// ```
+//	id = "h-0385a99d0e4b20cbb" } Using `pulumi import`, import hosts using the host `id`. For exampleconsole % pulumi import aws_ec2_host.example h-0385a99d0e4b20cbb
 type DedicatedHost struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the Dedicated Host.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+	AssetId pulumi.StringPtrOutput `pulumi:"assetId"`
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
 	AutoPlacement pulumi.StringPtrOutput `pulumi:"autoPlacement"`
 	// The Availability Zone in which to allocate the Dedicated Host.
@@ -112,6 +112,8 @@ func GetDedicatedHost(ctx *pulumi.Context,
 type dedicatedHostState struct {
 	// The ARN of the Dedicated Host.
 	Arn *string `pulumi:"arn"`
+	// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+	AssetId *string `pulumi:"assetId"`
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
 	AutoPlacement *string `pulumi:"autoPlacement"`
 	// The Availability Zone in which to allocate the Dedicated Host.
@@ -135,6 +137,8 @@ type dedicatedHostState struct {
 type DedicatedHostState struct {
 	// The ARN of the Dedicated Host.
 	Arn pulumi.StringPtrInput
+	// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+	AssetId pulumi.StringPtrInput
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
 	AutoPlacement pulumi.StringPtrInput
 	// The Availability Zone in which to allocate the Dedicated Host.
@@ -160,6 +164,8 @@ func (DedicatedHostState) ElementType() reflect.Type {
 }
 
 type dedicatedHostArgs struct {
+	// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+	AssetId *string `pulumi:"assetId"`
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
 	AutoPlacement *string `pulumi:"autoPlacement"`
 	// The Availability Zone in which to allocate the Dedicated Host.
@@ -178,6 +184,8 @@ type dedicatedHostArgs struct {
 
 // The set of arguments for constructing a DedicatedHost resource.
 type DedicatedHostArgs struct {
+	// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+	AssetId pulumi.StringPtrInput
 	// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
 	AutoPlacement pulumi.StringPtrInput
 	// The Availability Zone in which to allocate the Dedicated Host.
@@ -284,6 +292,11 @@ func (o DedicatedHostOutput) ToDedicatedHostOutputWithContext(ctx context.Contex
 // The ARN of the Dedicated Host.
 func (o DedicatedHostOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
+func (o DedicatedHostOutput) AssetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringPtrOutput { return v.AssetId }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.

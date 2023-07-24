@@ -62,13 +62,11 @@ import (
 //
 // ## Import
 //
-// MediaLive Input can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_medialive_input.example
 //
-//	$ pulumi import aws:medialive/input:Input example 12345678
-//
-// ```
+//	id = "12345678" } Using `pulumi import`, import MediaLive Input using the `id`. For exampleconsole % pulumi import aws_medialive_input.example 12345678
 type Input struct {
 	pulumi.CustomResourceState
 

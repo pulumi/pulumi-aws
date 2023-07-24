@@ -313,13 +313,11 @@ import (
 //
 // ## Import
 //
-// Budgets can be imported using `AccountID:BudgetName`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_budgets_budget.myBudget
 //
-//	$ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget`
-//
-// ```
+//	id = "123456789012:myBudget" } Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For exampleconsole % pulumi import aws_budgets_budget.myBudget 123456789012:myBudget
 type Budget struct {
 	pulumi.CustomResourceState
 

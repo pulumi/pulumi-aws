@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Glue Resource Policy can be imported using the account ID
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
- * ```
+ *  to = aws_glue_resource_policy.Test
+ *
+ *  id = "12356789012" } Using `pulumi import`, import Glue Resource Policy using the account ID. For exampleconsole % pulumi import aws_glue_resource_policy.Test 12356789012
  */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**

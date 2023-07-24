@@ -78,11 +78,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Directory Service Log Subscriptions can be imported using the directory id, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
- * ```
+ *  to = aws_directory_service_log_subscription.msad
+ * 
+ *  id = &#34;d-1234567890&#34; } Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For exampleconsole % pulumi import aws_directory_service_log_subscription.msad d-1234567890
  * 
  */
 @ResourceType(type="aws:directoryservice/logService:LogService")

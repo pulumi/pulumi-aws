@@ -525,11 +525,11 @@ class CapacityReservation(pulumi.CustomResource):
 
         ## Import
 
-        Capacity Reservations can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
-        ```
+         to = aws_ec2_capacity_reservation.web
+
+         id = "cr-0123456789abcdef0" } Using `pulumi import`, import Capacity Reservations using the `id`. For exampleconsole % pulumi import aws_ec2_capacity_reservation.web cr-0123456789abcdef0
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -571,11 +571,11 @@ class CapacityReservation(pulumi.CustomResource):
 
         ## Import
 
-        Capacity Reservations can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
-        ```
+         to = aws_ec2_capacity_reservation.web
+
+         id = "cr-0123456789abcdef0" } Using `pulumi import`, import Capacity Reservations using the `id`. For exampleconsole % pulumi import aws_ec2_capacity_reservation.web cr-0123456789abcdef0
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.

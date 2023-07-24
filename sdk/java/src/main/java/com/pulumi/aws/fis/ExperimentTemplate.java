@@ -84,11 +84,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * FIS Experiment Templates can be imported using the `id`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
- * ```
+ *  to = aws_fis_experiment_template.template
+ * 
+ *  id = &#34;EXT123AbCdEfGhIjK&#34; } Using `pulumi import`, import FIS Experiment Templates using the `id`. For exampleconsole % pulumi import aws_fis_experiment_template.template EXT123AbCdEfGhIjK
  * 
  */
 @ResourceType(type="aws:fis/experimentTemplate:ExperimentTemplate")

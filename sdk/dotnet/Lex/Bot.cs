@@ -71,11 +71,11 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ## Import
     /// 
-    /// Bots can be imported using their name.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
-    /// ```
+    ///  to = aws_lex_bot.order_flowers_bot
+    /// 
+    ///  id = "OrderFlowers" } Using `pulumi import`, import bots using their name. For exampleconsole % pulumi import aws_lex_bot.order_flowers_bot OrderFlowers
     /// </summary>
     [AwsResourceType("aws:lex/bot:Bot")]
     public partial class Bot : global::Pulumi.CustomResource

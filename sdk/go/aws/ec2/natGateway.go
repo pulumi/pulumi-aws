@@ -75,13 +75,11 @@ import (
 //
 // ## Import
 //
-// NAT Gateways can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_nat_gateway.private_gw
 //
-//	$ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
-//
-// ```
+//	id = "nat-05dba92075d71c408" } Using `pulumi import`, import NAT Gateways using the `id`. For exampleconsole % pulumi import aws_nat_gateway.private_gw nat-05dba92075d71c408
 type NatGateway struct {
 	pulumi.CustomResourceState
 

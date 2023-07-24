@@ -77,13 +77,11 @@ import (
 //
 // ## Import
 //
-// DB Event Subscriptions can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_event_subscription.default
 //
-//	$ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
-//
-// ```
+//	id = "rds-event-sub" } Using `pulumi import`, import DB Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_db_event_subscription.default rds-event-sub
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

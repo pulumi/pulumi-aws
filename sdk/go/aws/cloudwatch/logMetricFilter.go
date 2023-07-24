@@ -52,13 +52,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch Log Metric Filter can be imported using the `log_group_name:name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_log_metric_filter.test
 //
-//	$ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
-//
-// ```
+//	id = "/aws/lambda/function:test" } Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For exampleconsole % pulumi import aws_cloudwatch_log_metric_filter.test /aws/lambda/function:test
 type LogMetricFilter struct {
 	pulumi.CustomResourceState
 

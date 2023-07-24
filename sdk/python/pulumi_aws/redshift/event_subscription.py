@@ -388,11 +388,11 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Event Subscriptions can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
-        ```
+         to = aws_redshift_event_subscription.default
+
+         id = "redshift-event-sub" } Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_redshift_event_subscription.default redshift-event-sub
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -443,11 +443,11 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Event Subscriptions can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
-        ```
+         to = aws_redshift_event_subscription.default
+
+         id = "redshift-event-sub" } Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For exampleconsole % pulumi import aws_redshift_event_subscription.default redshift-event-sub
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

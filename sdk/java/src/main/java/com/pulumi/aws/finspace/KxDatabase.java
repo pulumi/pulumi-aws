@@ -67,11 +67,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * An AWS FinSpace Kx Database can be imported using the `id` (environment ID and database name, comma-delimited), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
- * ```
+ *  to = aws_finspace_kx_database.example
+ * 
+ *  id = &#34;n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database&#34; } Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For exampleconsole % pulumi import aws_finspace_kx_database.example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
  * 
  */
 @ResourceType(type="aws:finspace/kxDatabase:KxDatabase")

@@ -57,13 +57,11 @@ import (
 //
 // ## Import
 //
-// `aws_ami` can be imported using the ID of the AMI, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ami.example
 //
-//	$ pulumi import aws:ec2/ami:Ami example ami-12345678
-//
-// ```
+//	id = "ami-12345678" } Using `pulumi import`, import `aws_ami` using the ID of the AMI. For exampleconsole % pulumi import aws_ami.example ami-12345678
 type Ami struct {
 	pulumi.CustomResourceState
 

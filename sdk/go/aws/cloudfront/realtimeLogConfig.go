@@ -106,13 +106,11 @@ import (
 //
 // ## Import
 //
-// CloudFront real-time log configurations can be imported using the ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudfront_realtime_log_config.example
 //
-//	$ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
-//
-// ```
+//	id = "arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig" } Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For exampleconsole % pulumi import aws_cloudfront_realtime_log_config.example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig
 type RealtimeLogConfig struct {
 	pulumi.CustomResourceState
 

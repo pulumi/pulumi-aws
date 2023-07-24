@@ -44,13 +44,11 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Access Log Subscription can be imported using the access log subscription ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpclattice_access_log_subscription.example
 //
-//	$ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
-//
-// ```
+//	id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For exampleconsole % pulumi import aws_vpclattice_access_log_subscription.example rft-8012925589
 type AccessLogSubscription struct {
 	pulumi.CustomResourceState
 

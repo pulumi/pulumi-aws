@@ -35,7 +35,7 @@ class FrameworkControlArgs:
                  input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]]] = None,
                  scope: Optional[pulumi.Input['FrameworkControlScopeArgs']] = None):
         """
-        :param pulumi.Input[str] name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        :param pulumi.Input[str] name: The name of a control. This name is between 1 and 256 characters.
         :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
         :param pulumi.Input['FrameworkControlScopeArgs'] scope: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         """
@@ -49,7 +49,7 @@ class FrameworkControlArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        The name of a control. This name is between 1 and 256 characters.
         """
         return pulumi.get(self, "name")
 
@@ -88,7 +88,7 @@ class FrameworkControlInputParameterArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        :param pulumi.Input[str] name: The name of a parameter, for example, BackupPlanFrequency.
         :param pulumi.Input[str] value: The value of parameter, for example, hourly.
         """
         if name is not None:
@@ -100,7 +100,7 @@ class FrameworkControlInputParameterArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+        The name of a parameter, for example, BackupPlanFrequency.
         """
         return pulumi.get(self, "name")
 
@@ -130,7 +130,7 @@ class FrameworkControlScopeArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compliance_resource_ids: The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compliance_resource_types: Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         """
         if compliance_resource_ids is not None:
             pulumi.set(__self__, "compliance_resource_ids", compliance_resource_ids)
@@ -167,7 +167,7 @@ class FrameworkControlScopeArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
         """
         return pulumi.get(self, "tags")
 
@@ -369,7 +369,7 @@ class PlanRuleCopyActionArgs:
                  lifecycle: Optional[pulumi.Input['PlanRuleCopyActionLifecycleArgs']] = None):
         """
         :param pulumi.Input[str] destination_vault_arn: An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
-        :param pulumi.Input['PlanRuleCopyActionLifecycleArgs'] lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        :param pulumi.Input['PlanRuleCopyActionLifecycleArgs'] lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         """
         pulumi.set(__self__, "destination_vault_arn", destination_vault_arn)
         if lifecycle is not None:
@@ -391,7 +391,7 @@ class PlanRuleCopyActionArgs:
     @pulumi.getter
     def lifecycle(self) -> Optional[pulumi.Input['PlanRuleCopyActionLifecycleArgs']]:
         """
-        The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         """
         return pulumi.get(self, "lifecycle")
 

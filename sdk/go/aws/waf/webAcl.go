@@ -126,13 +126,11 @@ import (
 //
 // ## Import
 //
-// WAF Web ACL can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_waf_web_acl.main
 //
-//	$ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
-//
-// ```
+//	id = "0c8e583e-18f3-4c13-9e2a-67c4805d2f94" } Using `pulumi import`, import WAF Web ACL using the `id`. For exampleconsole % pulumi import aws_waf_web_acl.main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
 type WebAcl struct {
 	pulumi.CustomResourceState
 

@@ -148,21 +148,15 @@ import (
 //
 // ## Import
 //
-// S3 bucket versioning can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` e.g.,
+// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`terraform import {
 //
-// ```sh
+//	to = aws_s3_bucket_versioning.example
 //
-//	$ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name
+//	id = "bucket-name" } If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)terraform import {
 //
-// ```
+//	to = aws_s3_bucket_versioning.example
 //
-//	If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket versioning resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
-//
-// ```
+//	id = "bucket-name,123456789012" } **Using `pulumi import` to import** S3 bucket versioning using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For exampleIf the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`console % pulumi import aws_s3_bucket_versioning.example bucket-name If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`)console % pulumi import aws_s3_bucket_versioning.example bucket-name,123456789012
 type BucketVersioningV2 struct {
 	pulumi.CustomResourceState
 

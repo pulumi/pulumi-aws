@@ -74,11 +74,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Backup vault policy can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
- * ```
+ *  to = aws_backup_vault_policy.test
+ * 
+ *  id = &#34;TestVault&#34; } Using `pulumi import`, import Backup vault policy using the `name`. For exampleconsole % pulumi import aws_backup_vault_policy.test TestVault
  * 
  */
 @ResourceType(type="aws:backup/vaultPolicy:VaultPolicy")

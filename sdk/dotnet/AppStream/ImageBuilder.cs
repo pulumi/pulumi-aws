@@ -47,11 +47,11 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// `aws_appstream_image_builder` can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
-    /// ```
+    ///  to = aws_appstream_image_builder.example
+    /// 
+    ///  id = "imageBuilderExample" } Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For exampleconsole % pulumi import aws_appstream_image_builder.example imageBuilderExample
     /// </summary>
     [AwsResourceType("aws:appstream/imageBuilder:ImageBuilder")]
     public partial class ImageBuilder : global::Pulumi.CustomResource

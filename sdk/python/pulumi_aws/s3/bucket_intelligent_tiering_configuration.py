@@ -247,11 +247,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket intelligent tiering configurations can be imported using `bucket:name`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
-        ```
+         to = aws_s3_bucket_intelligent_tiering_configuration.my-bucket-entire-bucket
+
+         id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For exampleconsole % pulumi import aws_s3_bucket_intelligent_tiering_configuration.my-bucket-entire-bucket my-bucket:EntireBucket
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -316,11 +316,11 @@ class BucketIntelligentTieringConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket intelligent tiering configurations can be imported using `bucket:name`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
-        ```
+         to = aws_s3_bucket_intelligent_tiering_configuration.my-bucket-entire-bucket
+
+         id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket intelligent tiering configurations using `bucket:name`. For exampleconsole % pulumi import aws_s3_bucket_intelligent_tiering_configuration.my-bucket-entire-bucket my-bucket:EntireBucket
 
         :param str resource_name: The name of the resource.
         :param BucketIntelligentTieringConfigurationArgs args: The arguments to use to populate this resource's properties.

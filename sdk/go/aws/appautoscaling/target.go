@@ -206,13 +206,11 @@ import (
 //
 // ## Import
 //
-// Application AutoScaling Target can be imported using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`.
+// terraform import {
 //
-// ```sh
+//	to = aws_appautoscaling_target.test-target
 //
-//	$ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
-//
-// ```
+//	id = "service-namespace/resource-id/scalable-dimension" } Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For exampleconsole % pulumi import aws_appautoscaling_target.test-target service-namespace/resource-id/scalable-dimension
 type Target struct {
 	pulumi.CustomResourceState
 

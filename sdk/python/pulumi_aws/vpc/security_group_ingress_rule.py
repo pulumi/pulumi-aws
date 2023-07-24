@@ -435,11 +435,11 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
 
         ## Import
 
-        Security group ingress rules can be imported using the `security_group_rule_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
-        ```
+         to = aws_vpc_security_group_ingress_rule.example
+
+         id = "sgr-02108b27edd666983" } Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For exampleconsole % pulumi import aws_vpc_security_group_ingress_rule.example sgr-02108b27edd666983
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -486,11 +486,11 @@ class SecurityGroupIngressRule(pulumi.CustomResource):
 
         ## Import
 
-        Security group ingress rules can be imported using the `security_group_rule_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
-        ```
+         to = aws_vpc_security_group_ingress_rule.example
+
+         id = "sgr-02108b27edd666983" } Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For exampleconsole % pulumi import aws_vpc_security_group_ingress_rule.example sgr-02108b27edd666983
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupIngressRuleArgs args: The arguments to use to populate this resource's properties.

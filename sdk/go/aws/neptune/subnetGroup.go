@@ -48,13 +48,11 @@ import (
 //
 // ## Import
 //
-// Neptune Subnet groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_neptune_subnet_group.default
 //
-//	$ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group
-//
-// ```
+//	id = "production-subnet-group" } Using `pulumi import`, import Neptune Subnet groups using the `name`. For exampleconsole % pulumi import aws_neptune_subnet_group.default production-subnet-group
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 

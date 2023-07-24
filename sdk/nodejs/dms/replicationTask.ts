@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Replication tasks can be imported using the `replication_task_id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
- * ```
+ *  to = aws_dms_replication_task.test
+ *
+ *  id = "test-dms-replication-task-tf" } Using `pulumi import`, import replication tasks using the `replication_task_id`. For exampleconsole % pulumi import aws_dms_replication_task.test test-dms-replication-task-tf
  */
 export class ReplicationTask extends pulumi.CustomResource {
     /**

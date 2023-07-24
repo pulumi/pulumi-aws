@@ -18,13 +18,11 @@ import (
 //
 // ## Import
 //
-// OpenSearchServerless Access Policy can be imported using the `name` argument prefixed with the string `saml/account_id/` e.g
+// terraform import {
 //
-// ```sh
+//	to = aws_opensearchserverless_security_config.example
 //
-//	$ pulumi import aws:opensearch/serverlessSecurityConfig:ServerlessSecurityConfig example saml/123456789012/example
-//
-// ```
+//	id = "saml/123456789012/example" } Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` argument prefixed with the string `saml/account_id/`. For exampleconsole % pulumi import aws_opensearchserverless_security_config.example saml/123456789012/example
 type ServerlessSecurityConfig struct {
 	pulumi.CustomResourceState
 

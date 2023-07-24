@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DB Subnet groups can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
- * ```
+ *  to = aws_db_subnet_group.default
+ *
+ *  id = "production-subnet-group" } Using `pulumi import`, import DB Subnet groups using the `name`. For exampleconsole % pulumi import aws_db_subnet_group.default production-subnet-group
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**

@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_api_gateway_gateway_response` can be imported using `REST-API-ID/RESPONSE-TYPE`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
- * ```
+ *  to = aws_api_gateway_gateway_response.example
+ *
+ *  id = "12345abcde/UNAUTHORIZED" } Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleconsole % pulumi import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED
  */
 export class Response extends pulumi.CustomResource {
     /**

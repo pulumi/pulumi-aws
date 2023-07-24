@@ -80,10 +80,47 @@ namespace Pulumi.Aws.LB
     /// 
     /// });
     /// ```
+    /// ### Registering Multiple Targets
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleInstance = new List&lt;Aws.Ec2.Instance&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 3; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         exampleInstance.Add(new Aws.Ec2.Instance($"exampleInstance-{range.Value}", new()
+    ///         {
+    ///         }));
+    ///     }
+    ///     // ... other configuration ...
+    ///     var exampleTargetGroup = new Aws.LB.TargetGroup("exampleTargetGroup");
+    /// 
+    ///     // ... other configuration ...
+    ///     var exampleTargetGroupAttachment = new List&lt;Aws.LB.TargetGroupAttachment&gt;();
+    ///     foreach (var range in exampleInstance.Select((value, i) =&gt; new { Key = i.ToString(), Value = pair.Value }).Select(v =&gt; 
+    ///     {
+    ///         return  v;
+    ///     }).Select(pair =&gt; new { pair.Key, pair.Value }))
+    ///     {
+    ///         exampleTargetGroupAttachment.Add(new Aws.LB.TargetGroupAttachment($"exampleTargetGroupAttachment-{range.Key}", new()
+    ///         {
+    ///             TargetGroupArn = exampleTargetGroup.Arn,
+    ///             TargetId = range.Value.Id,
+    ///             Port = 80,
+    ///         }));
+    ///     }
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// Target Group Attachments cannot be imported.
+    /// You cannot import Target Group Attachments.
     /// </summary>
     [AwsResourceType("aws:lb/targetGroupAttachment:TargetGroupAttachment")]
     public partial class TargetGroupAttachment : global::Pulumi.CustomResource

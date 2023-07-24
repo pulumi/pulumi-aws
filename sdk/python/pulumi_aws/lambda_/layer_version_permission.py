@@ -314,13 +314,11 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
-        ```
+         to = aws_lambda_layer_version_permission.example
 
-         [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
+         id = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1" } Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For exampleconsole % pulumi import aws_lambda_layer_version_permission.example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1 [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,13 +359,11 @@ class LayerVersionPermission(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
-        ```
+         to = aws_lambda_layer_version_permission.example
 
-         [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
+         id = "arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1" } Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For exampleconsole % pulumi import aws_lambda_layer_version_permission.example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1 [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
 
         :param str resource_name: The name of the resource.
         :param LayerVersionPermissionArgs args: The arguments to use to populate this resource's properties.

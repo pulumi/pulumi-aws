@@ -569,11 +569,11 @@ class DocumentClassifier(pulumi.CustomResource):
 
         ## Import
 
-        Comprehend Document Classifier can be imported using the ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
-        ```
+         to = aws_comprehend_document_classifier.example
+
+         id = "arn:aws:comprehend:us-west-2:123456789012:document_classifier/example" } Using `pulumi import`, import Comprehend Document Classifier using the ARN. For exampleconsole % pulumi import aws_comprehend_document_classifier.example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -642,11 +642,11 @@ class DocumentClassifier(pulumi.CustomResource):
 
         ## Import
 
-        Comprehend Document Classifier can be imported using the ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
-        ```
+         to = aws_comprehend_document_classifier.example
+
+         id = "arn:aws:comprehend:us-west-2:123456789012:document_classifier/example" } Using `pulumi import`, import Comprehend Document Classifier using the ARN. For exampleconsole % pulumi import aws_comprehend_document_classifier.example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
 
         :param str resource_name: The name of the resource.
         :param DocumentClassifierArgs args: The arguments to use to populate this resource's properties.

@@ -127,11 +127,11 @@ class RegistryPolicy(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge Schema Registry Policy can be imported using the `registry_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
-        ```
+         to = aws_schemas_registry_policy.example
+
+         id = "example" } Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For exampleconsole % pulumi import aws_schemas_registry_policy.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,11 +174,11 @@ class RegistryPolicy(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge Schema Registry Policy can be imported using the `registry_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
-        ```
+         to = aws_schemas_registry_policy.example
+
+         id = "example" } Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For exampleconsole % pulumi import aws_schemas_registry_policy.example example
 
         :param str resource_name: The name of the resource.
         :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.

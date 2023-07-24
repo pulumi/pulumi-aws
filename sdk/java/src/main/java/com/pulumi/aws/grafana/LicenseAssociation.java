@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Grafana workspace license association can be imported using the workspace&#39;s `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
- * ```
+ *  to = aws_grafana_license_association.example
+ * 
+ *  id = &#34;g-2054c75a02&#34; } Using `pulumi import`, import Grafana workspace license association using the workspace&#39;s `id`. For exampleconsole % pulumi import aws_grafana_license_association.example g-2054c75a02
  * 
  */
 @ResourceType(type="aws:grafana/licenseAssociation:LicenseAssociation")

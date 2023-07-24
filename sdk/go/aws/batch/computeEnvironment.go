@@ -218,15 +218,11 @@ import (
 //
 // ## Import
 //
-// AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_batch_compute_environment.sample
 //
-//	$ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
-//
-// ```
-//
-//	[1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
+//	id = "sample" } Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For exampleconsole % pulumi import aws_batch_compute_environment.sample sample [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 type ComputeEnvironment struct {
 	pulumi.CustomResourceState
 

@@ -215,6 +215,10 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string MasterUsername;
         /// <summary>
+        /// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+        /// </summary>
+        public readonly int MaxAllocatedStorage;
+        /// <summary>
         /// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
         /// </summary>
         public readonly int MonitoringInterval;
@@ -332,6 +336,8 @@ namespace Pulumi.Aws.Rds
 
             string masterUsername,
 
+            int maxAllocatedStorage,
+
             int monitoringInterval,
 
             string monitoringRoleArn,
@@ -391,6 +397,7 @@ namespace Pulumi.Aws.Rds
             LicenseModel = licenseModel;
             MasterUserSecrets = masterUserSecrets;
             MasterUsername = masterUsername;
+            MaxAllocatedStorage = maxAllocatedStorage;
             MonitoringInterval = monitoringInterval;
             MonitoringRoleArn = monitoringRoleArn;
             MultiAz = multiAz;

@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * The prometheus alert manager definition can be imported using the workspace identifier, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
- * ```
+ *  to = aws_prometheus_alert_manager_definition.demo
+ * 
+ *  id = &#34;ws-C6DCB907-F2D7-4D96-957B-66691F865D8B&#34; } Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For exampleconsole % pulumi import aws_prometheus_alert_manager_definition.demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
  * 
  */
 @ResourceType(type="aws:amp/alertManagerDefinition:AlertManagerDefinition")

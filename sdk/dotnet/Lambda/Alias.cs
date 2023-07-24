@@ -44,11 +44,11 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
-    /// Lambda Function Aliases can be imported using the `function_name/alias`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
-    /// ```
+    ///  to = aws_lambda_alias.test_lambda_alias
+    /// 
+    ///  id = "my_test_lambda_function/my_alias" } Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For exampleconsole % pulumi import aws_lambda_alias.test_lambda_alias my_test_lambda_function/my_alias
     /// </summary>
     [AwsResourceType("aws:lambda/alias:Alias")]
     public partial class Alias : global::Pulumi.CustomResource
@@ -91,8 +91,6 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below
-        /// 
-        /// For **routing_config** the following attributes are supported:
         /// </summary>
         [Output("routingConfig")]
         public Output<Outputs.AliasRoutingConfig?> RoutingConfig { get; private set; } = null!;
@@ -169,8 +167,6 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below
-        /// 
-        /// For **routing_config** the following attributes are supported:
         /// </summary>
         [Input("routingConfig")]
         public Input<Inputs.AliasRoutingConfigArgs>? RoutingConfig { get; set; }
@@ -221,8 +217,6 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// The Lambda alias' route configuration settings. Fields documented below
-        /// 
-        /// For **routing_config** the following attributes are supported:
         /// </summary>
         [Input("routingConfig")]
         public Input<Inputs.AliasRoutingConfigGetArgs>? RoutingConfig { get; set; }

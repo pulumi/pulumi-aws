@@ -43,11 +43,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
-    /// ```
+    ///  to = aws_ec2_transit_gateway_connect.example
+    /// 
+    ///  id = "tgw-attach-12345678" } Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For exampleconsole % pulumi import aws_ec2_transit_gateway_connect.example tgw-attach-12345678
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/connect:Connect")]
     public partial class Connect : global::Pulumi.CustomResource

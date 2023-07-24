@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_kendra_thesaurus` can be imported using the unique identifiers of the thesaurus and index separated by a slash (`/`), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
- * ```
+ *  to = aws_kendra_thesaurus.example
+ *
+ *  id = "thesaurus-123456780/idx-8012925589" } Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For exampleconsole % pulumi import aws_kendra_thesaurus.example thesaurus-123456780/idx-8012925589
  */
 export class Thesaurus extends pulumi.CustomResource {
     /**

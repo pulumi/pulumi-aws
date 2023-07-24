@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Global Accelerator listeners can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
- * ```
+ *  to = aws_globalaccelerator_listener.example
+ * 
+ *  id = &#34;arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx&#34; } Using `pulumi import`, import Global Accelerator listeners using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
  * 
  */
 @ResourceType(type="aws:globalaccelerator/listener:Listener")
@@ -111,16 +111,12 @@ public class Listener extends com.pulumi.resources.CustomResource {
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      * 
-     * **port_range** supports the following attributes:
-     * 
      */
     @Export(name="portRanges", refs={List.class,ListenerPortRange.class}, tree="[0,1]")
     private Output<List<ListenerPortRange>> portRanges;
 
     /**
      * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     * 
-     * **port_range** supports the following attributes:
      * 
      */
     public Output<List<ListenerPortRange>> portRanges() {

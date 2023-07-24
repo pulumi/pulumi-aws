@@ -114,13 +114,11 @@ import (
 //
 // ## Import
 //
-// Delivery Channel can be imported using the name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_config_delivery_channel.foo
 //
-//	$ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Delivery Channel using the name. For exampleconsole % pulumi import aws_config_delivery_channel.foo example
 type DeliveryChannel struct {
 	pulumi.CustomResourceState
 

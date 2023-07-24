@@ -296,11 +296,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// S3 bucket replication configuration can be imported using the `bucket`, e.g.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
-    /// ```
+    ///  to = aws_s3_bucket_replication_configuration.replication
+    /// 
+    ///  id = "bucket-name" } Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For exampleconsole % pulumi import aws_s3_bucket_replication_configuration.replication bucket-name
     /// </summary>
     [AwsResourceType("aws:s3/bucketReplicationConfig:BucketReplicationConfig")]
     public partial class BucketReplicationConfig : global::Pulumi.CustomResource

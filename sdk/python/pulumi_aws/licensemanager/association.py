@@ -125,11 +125,11 @@ class Association(pulumi.CustomResource):
 
         ## Import
 
-        License configurations can be imported in the form `resource_arn,license_configuration_arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-        ```
+         to = aws_licensemanager_association.example
+
+         id = "arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For exampleconsole % pulumi import aws_licensemanager_association.example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,11 +170,11 @@ class Association(pulumi.CustomResource):
 
         ## Import
 
-        License configurations can be imported in the form `resource_arn,license_configuration_arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-        ```
+         to = aws_licensemanager_association.example
+
+         id = "arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `pulumi import`, import license configurations using `resource_arn,license_configuration_arn`. For exampleconsole % pulumi import aws_licensemanager_association.example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 
         :param str resource_name: The name of the resource.
         :param AssociationArgs args: The arguments to use to populate this resource's properties.

@@ -56,13 +56,11 @@ import (
 //
 // ## Import
 //
-// KMS (Key Management) Custom Key Store can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_kms_custom_key_store.example
 //
-//	$ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
-//
-// ```
+//	id = "cks-5ebd4ef395a96288e" } Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For exampleconsole % pulumi import aws_kms_custom_key_store.example cks-5ebd4ef395a96288e
 type CustomKeyStore struct {
 	pulumi.CustomResourceState
 

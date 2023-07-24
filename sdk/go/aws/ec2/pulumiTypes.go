@@ -55236,7 +55236,10 @@ func (o GetVpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) GetVpcEndpoi
 }
 
 type GetVpcEndpointDnsOption struct {
+	// The DNS records created for the endpoint.
 	DnsRecordIpType string `pulumi:"dnsRecordIpType"`
+	// Indicates whether to enable private DNS only for inbound endpoints.
+	PrivateDnsOnlyForInboundResolverEndpoint bool `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 }
 
 // GetVpcEndpointDnsOptionInput is an input type that accepts GetVpcEndpointDnsOptionArgs and GetVpcEndpointDnsOptionOutput values.
@@ -55251,7 +55254,10 @@ type GetVpcEndpointDnsOptionInput interface {
 }
 
 type GetVpcEndpointDnsOptionArgs struct {
+	// The DNS records created for the endpoint.
 	DnsRecordIpType pulumi.StringInput `pulumi:"dnsRecordIpType"`
+	// Indicates whether to enable private DNS only for inbound endpoints.
+	PrivateDnsOnlyForInboundResolverEndpoint pulumi.BoolInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 }
 
 func (GetVpcEndpointDnsOptionArgs) ElementType() reflect.Type {
@@ -55305,8 +55311,14 @@ func (o GetVpcEndpointDnsOptionOutput) ToGetVpcEndpointDnsOptionOutputWithContex
 	return o
 }
 
+// The DNS records created for the endpoint.
 func (o GetVpcEndpointDnsOptionOutput) DnsRecordIpType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVpcEndpointDnsOption) string { return v.DnsRecordIpType }).(pulumi.StringOutput)
+}
+
+// Indicates whether to enable private DNS only for inbound endpoints.
+func (o GetVpcEndpointDnsOptionOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVpcEndpointDnsOption) bool { return v.PrivateDnsOnlyForInboundResolverEndpoint }).(pulumi.BoolOutput)
 }
 
 type GetVpcEndpointDnsOptionArrayOutput struct{ *pulumi.OutputState }

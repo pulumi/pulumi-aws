@@ -133,13 +133,11 @@ import (
 //
 // ## Import
 //
-// IoT fleet provisioning templates can be imported using the `name`, e.g.
+// terraform import {
 //
-// ```sh
+//	to = aws_iot_provisioning_template.fleet
 //
-//	$ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
-//
-// ```
+//	id = "FleetProvisioningTemplate" } Using `pulumi import`, import IoT fleet provisioning templates using the `name`. For exampleconsole % pulumi import aws_iot_provisioning_template.fleet FleetProvisioningTemplate
 type ProvisioningTemplate struct {
 	pulumi.CustomResourceState
 

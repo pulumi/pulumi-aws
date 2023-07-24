@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_macie2_account` can be imported using the id, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:macie2/account:Account example abcd1
- * ```
+ *  to = aws_macie2_account.example
+ * 
+ *  id = &#34;abcd1&#34; } Using `pulumi import`, import `aws_macie2_account` using the id. For exampleconsole % pulumi import aws_macie2_account.example abcd1
  * 
  */
 @ResourceType(type="aws:macie2/account:Account")

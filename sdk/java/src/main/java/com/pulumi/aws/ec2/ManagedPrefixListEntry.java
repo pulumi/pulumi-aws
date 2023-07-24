@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * To import Prefix List Entries, use the `prefix_list_id` and `cidr`. Separate them with a comma (`,`). For example
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
- * ```
+ *  to = aws_ec2_managed_prefix_list_entry.default
+ * 
+ *  id = &#34;pl-0570a1d2d725c16be,10.0.3.0/24&#34; } Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For exampleconsole % pulumi import aws_ec2_managed_prefix_list_entry.default pl-0570a1d2d725c16be,10.0.3.0/24
  * 
  */
 @ResourceType(type="aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry")

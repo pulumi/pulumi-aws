@@ -996,11 +996,11 @@ class ClusterInstance(pulumi.CustomResource):
 
         ## Import
 
-        RDS Cluster Instances can be imported using the `identifier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
-        ```
+         to = aws_rds_cluster_instance.prod_instance_1
+
+         id = "aurora-cluster-instance-1" } Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For exampleconsole % pulumi import aws_rds_cluster_instance.prod_instance_1 aurora-cluster-instance-1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1080,11 +1080,11 @@ class ClusterInstance(pulumi.CustomResource):
 
         ## Import
 
-        RDS Cluster Instances can be imported using the `identifier`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
-        ```
+         to = aws_rds_cluster_instance.prod_instance_1
+
+         id = "aurora-cluster-instance-1" } Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For exampleconsole % pulumi import aws_rds_cluster_instance.prod_instance_1 aurora-cluster-instance-1
 
         :param str resource_name: The name of the resource.
         :param ClusterInstanceArgs args: The arguments to use to populate this resource's properties.

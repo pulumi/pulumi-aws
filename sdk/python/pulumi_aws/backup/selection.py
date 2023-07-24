@@ -370,11 +370,11 @@ class Selection(pulumi.CustomResource):
 
         ## Import
 
-        Backup selection can be imported using the role plan_id and id separated by `|`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
-        ```
+         to = aws_backup_selection.example
+
+         id = "plan-id|selection-id" } Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For exampleconsole % pulumi import aws_backup_selection.example plan-id|selection-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -498,11 +498,11 @@ class Selection(pulumi.CustomResource):
 
         ## Import
 
-        Backup selection can be imported using the role plan_id and id separated by `|`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
-        ```
+         to = aws_backup_selection.example
+
+         id = "plan-id|selection-id" } Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For exampleconsole % pulumi import aws_backup_selection.example plan-id|selection-id
 
         :param str resource_name: The name of the resource.
         :param SelectionArgs args: The arguments to use to populate this resource's properties.

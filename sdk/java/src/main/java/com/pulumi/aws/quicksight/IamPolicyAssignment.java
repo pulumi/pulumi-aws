@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * QuickSight IAM Policy Assignment can be imported using the AWS account ID, namespace, and assignment name separated by commas (`,`) e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
- * ```
+ *  to = aws_quicksight_iam_policy_assignment.example
+ * 
+ *  id = &#34;123456789012,default,example&#34; } Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_iam_policy_assignment.example 123456789012,default,example
  * 
  */
 @ResourceType(type="aws:quicksight/iamPolicyAssignment:IamPolicyAssignment")

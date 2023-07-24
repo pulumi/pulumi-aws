@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Direct Connect connections can be imported using the `connection id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
- * ```
+ *  to = aws_dx_connection.test_connection
+ *
+ *  id = "dxcon-ffre0ec3" } Using `pulumi import`, import Direct Connect connections using the connection `id`. For exampleconsole % pulumi import aws_dx_connection.test_connection dxcon-ffre0ec3
  */
 export class Connection extends pulumi.CustomResource {
     /**

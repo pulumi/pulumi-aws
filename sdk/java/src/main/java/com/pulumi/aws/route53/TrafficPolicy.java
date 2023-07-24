@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Traffic Policy can be imported using the `id` and `version`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
- * ```
+ *  to = aws_route53_traffic_policy.example
+ * 
+ *  id = &#34;01a52019-d16f-422a-ae72-c306d2b6df7e/1&#34; } Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For exampleconsole % pulumi import aws_route53_traffic_policy.example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
  * 
  */
 @ResourceType(type="aws:route53/trafficPolicy:TrafficPolicy")

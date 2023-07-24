@@ -133,13 +133,11 @@ import (
 //
 // ## Import
 //
-// CloudFormation StackSets can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudformation_stack_set.example
 //
-//	$ pulumi import aws:cloudformation/stackSet:StackSet example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import CloudFormation StackSets using the `name`. For exampleconsole % pulumi import aws_cloudformation_stack_set.example example
 type StackSet struct {
 	pulumi.CustomResourceState
 

@@ -133,11 +133,11 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
 
         ## Import
 
-        CloudSearch domain service access policies can be imported using the domain name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
-        ```
+         to = aws_cloudsearch_domain_service_access_policy.example
+
+         id = "example-domain" } Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For exampleconsole % pulumi import aws_cloudsearch_domain_service_access_policy.example example-domain
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,11 +186,11 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
 
         ## Import
 
-        CloudSearch domain service access policies can be imported using the domain name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
-        ```
+         to = aws_cloudsearch_domain_service_access_policy.example
+
+         id = "example-domain" } Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For exampleconsole % pulumi import aws_cloudsearch_domain_service_access_policy.example example-domain
 
         :param str resource_name: The name of the resource.
         :param DomainServiceAccessPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -84,6 +84,8 @@ type LookupDistributionResult struct {
 	// CloudFront system.
 	Status string            `pulumi:"status"`
 	Tags   map[string]string `pulumi:"tags"`
+	// AWS WAF web ACL associated with this distribution.
+	WebAclId string `pulumi:"webAclId"`
 }
 
 func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionResultOutput {
@@ -183,6 +185,11 @@ func (o LookupDistributionResultOutput) Status() pulumi.StringOutput {
 
 func (o LookupDistributionResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDistributionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// AWS WAF web ACL associated with this distribution.
+func (o LookupDistributionResultOutput) WebAclId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDistributionResult) string { return v.WebAclId }).(pulumi.StringOutput)
 }
 
 func init() {

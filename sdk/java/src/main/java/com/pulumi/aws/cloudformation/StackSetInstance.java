@@ -8,12 +8,14 @@ import com.pulumi.aws.cloudformation.StackSetInstanceArgs;
 import com.pulumi.aws.cloudformation.inputs.StackSetInstanceState;
 import com.pulumi.aws.cloudformation.outputs.StackSetInstanceDeploymentTargets;
 import com.pulumi.aws.cloudformation.outputs.StackSetInstanceOperationPreferences;
+import com.pulumi.aws.cloudformation.outputs.StackSetInstanceStackInstanceSummary;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -26,6 +28,7 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** To retain the Stack during resource destroy, ensure `retain_stack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
  * 
  * ## Example Usage
+ * ### Basic Usage
  * ```java
  * package generated_program;
  * 
@@ -153,17 +156,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
- * ```
+ *  to = aws_cloudformation_stack_set_instance.example
  * 
- *  CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
+ *  id = &#34;example,123456789012,us-east-1&#34; } Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`)terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
- * ```
+ *  to = aws_cloudformation_stack_set_instance.example
+ * 
+ *  id = &#34;example,ou-sdas-123123123/ou-sdas-789789789,us-east-1&#34; } **Using `pulumi import` to import** CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`). For exampleconsole % pulumi import aws_cloudformation_stack_set_instance.example example,123456789012,us-east-1 Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`)console % pulumi import aws_cloudformation_stack_set_instance.example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
  * 
  */
 @ResourceType(type="aws:cloudformation/stackSetInstance:StackSetInstance")
@@ -225,14 +226,14 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.operationPreferences);
     }
     /**
-     * The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+     * Organizational unit ID in which the stack is deployed.
      * 
      */
     @Export(name="organizationalUnitId", refs={String.class}, tree="[0]")
     private Output<String> organizationalUnitId;
 
     /**
-     * @return The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+     * @return Organizational unit ID in which the stack is deployed.
      * 
      */
     public Output<String> organizationalUnitId() {
@@ -281,18 +282,32 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retainStack);
     }
     /**
-     * Stack identifier
+     * Stack identifier.
      * 
      */
     @Export(name="stackId", refs={String.class}, tree="[0]")
     private Output<String> stackId;
 
     /**
-     * @return Stack identifier
+     * @return Stack identifier.
      * 
      */
     public Output<String> stackId() {
         return this.stackId;
+    }
+    /**
+     * List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+     * 
+     */
+    @Export(name="stackInstanceSummaries", refs={List.class,StackSetInstanceStackInstanceSummary.class}, tree="[0,1]")
+    private Output<List<StackSetInstanceStackInstanceSummary>> stackInstanceSummaries;
+
+    /**
+     * @return List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+     * 
+     */
+    public Output<List<StackSetInstanceStackInstanceSummary>> stackInstanceSummaries() {
+        return this.stackInstanceSummaries;
     }
     /**
      * Name of the StackSet.

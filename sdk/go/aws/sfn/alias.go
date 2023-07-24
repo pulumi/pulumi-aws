@@ -65,13 +65,11 @@ import (
 //
 // ## Import
 //
-// SFN (Step Functions) Alias can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sfn_alias.foo
 //
-//	$ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
-//
-// ```
+//	id = "arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo" } Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For exampleconsole % pulumi import aws_sfn_alias.foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
 type Alias struct {
 	pulumi.CustomResourceState
 
@@ -84,8 +82,6 @@ type Alias struct {
 	// Name for the alias you are creating.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The StateMachine alias' route configuration settings. Fields documented below
-	//
-	// For **routing_configuration** the following attributes are supported:
 	RoutingConfigurations AliasRoutingConfigurationArrayOutput `pulumi:"routingConfigurations"`
 }
 
@@ -134,8 +130,6 @@ type aliasState struct {
 	// Name for the alias you are creating.
 	Name *string `pulumi:"name"`
 	// The StateMachine alias' route configuration settings. Fields documented below
-	//
-	// For **routing_configuration** the following attributes are supported:
 	RoutingConfigurations []AliasRoutingConfiguration `pulumi:"routingConfigurations"`
 }
 
@@ -149,8 +143,6 @@ type AliasState struct {
 	// Name for the alias you are creating.
 	Name pulumi.StringPtrInput
 	// The StateMachine alias' route configuration settings. Fields documented below
-	//
-	// For **routing_configuration** the following attributes are supported:
 	RoutingConfigurations AliasRoutingConfigurationArrayInput
 }
 
@@ -164,8 +156,6 @@ type aliasArgs struct {
 	// Name for the alias you are creating.
 	Name string `pulumi:"name"`
 	// The StateMachine alias' route configuration settings. Fields documented below
-	//
-	// For **routing_configuration** the following attributes are supported:
 	RoutingConfigurations []AliasRoutingConfiguration `pulumi:"routingConfigurations"`
 }
 
@@ -176,8 +166,6 @@ type AliasArgs struct {
 	// Name for the alias you are creating.
 	Name pulumi.StringInput
 	// The StateMachine alias' route configuration settings. Fields documented below
-	//
-	// For **routing_configuration** the following attributes are supported:
 	RoutingConfigurations AliasRoutingConfigurationArrayInput
 }
 
@@ -289,8 +277,6 @@ func (o AliasOutput) Name() pulumi.StringOutput {
 }
 
 // The StateMachine alias' route configuration settings. Fields documented below
-//
-// For **routing_configuration** the following attributes are supported:
 func (o AliasOutput) RoutingConfigurations() AliasRoutingConfigurationArrayOutput {
 	return o.ApplyT(func(v *Alias) AliasRoutingConfigurationArrayOutput { return v.RoutingConfigurations }).(AliasRoutingConfigurationArrayOutput)
 }

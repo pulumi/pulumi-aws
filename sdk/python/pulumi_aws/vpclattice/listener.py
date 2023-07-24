@@ -411,11 +411,11 @@ class Listener(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Listener can be imported by using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
-        ```
+         to = aws_vpclattice_listener.example
+
+         id = "svc-1a2b3c4d/listener-987654321" } Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For exampleconsole % pulumi import aws_vpclattice_listener.example svc-1a2b3c4d/listener-987654321
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -505,11 +505,11 @@ class Listener(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Listener can be imported by using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
-        ```
+         to = aws_vpclattice_listener.example
+
+         id = "svc-1a2b3c4d/listener-987654321" } Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For exampleconsole % pulumi import aws_vpclattice_listener.example svc-1a2b3c4d/listener-987654321
 
         :param str resource_name: The name of the resource.
         :param ListenerArgs args: The arguments to use to populate this resource's properties.

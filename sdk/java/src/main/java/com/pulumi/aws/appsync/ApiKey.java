@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
- * ```
+ *  to = aws_appsync_api_key.example
+ * 
+ *  id = &#34;xxxxx:yyyyy&#34; } Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For exampleconsole % pulumi import aws_appsync_api_key.example xxxxx:yyyyy
  * 
  */
 @ResourceType(type="aws:appsync/apiKey:ApiKey")

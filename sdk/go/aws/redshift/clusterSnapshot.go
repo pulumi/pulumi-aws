@@ -16,13 +16,11 @@ import (
 //
 // ## Import
 //
-// Redshift Cluster Snapshots support import by `snapshot_identifier`, e.g., console
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_cluster_snapshot.test
 //
-//	$ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For exampleconsole % pulumi import aws_redshift_cluster_snapshot.test example
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 

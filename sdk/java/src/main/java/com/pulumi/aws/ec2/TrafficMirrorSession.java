@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Traffic mirror sessions can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
- * ```
+ *  to = aws_ec2_traffic_mirror_session.session
+ * 
+ *  id = &#34;tms-0d8aa3ca35897b82e&#34; } Using `pulumi import`, import traffic mirror sessions using the `id`. For exampleconsole % pulumi import aws_ec2_traffic_mirror_session.session tms-0d8aa3ca35897b82e
  * 
  */
 @ResourceType(type="aws:ec2/trafficMirrorSession:TrafficMirrorSession")

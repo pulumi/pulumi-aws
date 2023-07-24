@@ -45,13 +45,13 @@ import (
 //
 // ## Import
 //
-//	Route 53 Resolver query logging configurations can be imported using the Route 53 Resolver query logging configuration ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_query_log_config.example
 //
-//	$ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+//	id = "rqlc-92edc3b1838248bf" } Using `pulumi import`, import
 //
-// ```
+// Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For exampleconsole % pulumi import aws_route53_resolver_query_log_config.example rqlc-92edc3b1838248bf
 type ResolverQueryLogConfig struct {
 	pulumi.CustomResourceState
 

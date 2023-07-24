@@ -277,11 +277,11 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM Roles can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:iam/role:Role developer developer_name
-    /// ```
+    ///  to = aws_iam_role.developer
+    /// 
+    ///  id = "developer_name" } Using `pulumi import`, import IAM Roles using the `name`. For exampleconsole % pulumi import aws_iam_role.developer developer_name
     /// </summary>
     [AwsResourceType("aws:iam/role:Role")]
     public partial class Role : global::Pulumi.CustomResource

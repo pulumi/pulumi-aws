@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudWatch Logs destinations can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
- * ```
+ *  to = aws_cloudwatch_log_destination.test_destination
+ * 
+ *  id = &#34;test_destination&#34; } Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_log_destination.test_destination test_destination
  * 
  */
 @ResourceType(type="aws:cloudwatch/logDestination:LogDestination")

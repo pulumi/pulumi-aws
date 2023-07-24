@@ -128,11 +128,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_storagegateway_cached_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
- * ```
+ *  to = aws_storagegateway_cached_iscsi_volume.example
+ * 
+ *  id = &#34;arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678&#34; } Using `pulumi import`, import `aws_storagegateway_cached_iscsi_volume` using the volume Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_cached_iscsi_volume.example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
  * 
  */
 @ResourceType(type="aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume")

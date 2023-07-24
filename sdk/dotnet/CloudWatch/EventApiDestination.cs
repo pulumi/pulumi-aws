@@ -38,11 +38,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// EventBridge API Destinations can be imported using the `name`, e.g., console
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
-    /// ```
+    ///  to = aws_cloudwatch_event_api_destination.test
+    /// 
+    ///  id = "api-destination" } Using `pulumi import`, import EventBridge API Destinations using the `name`. For exampleconsole % pulumi import aws_cloudwatch_event_api_destination.test api-destination
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventApiDestination:EventApiDestination")]
     public partial class EventApiDestination : global::Pulumi.CustomResource

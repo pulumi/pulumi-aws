@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
- * ```
+ *  to = aws_appsync_datasource.example
+ *
+ *  id = "abcdef123456-example" } Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For exampleconsole % pulumi import aws_appsync_datasource.example abcdef123456-example
  */
 export class DataSource extends pulumi.CustomResource {
     /**
@@ -144,7 +144,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly serviceRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -254,7 +254,7 @@ export interface DataSourceState {
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      */
     type?: pulumi.Input<string>;
 }
@@ -308,7 +308,7 @@ export interface DataSourceArgs {
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`.
+     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      */
     type: pulumi.Input<string>;
 }

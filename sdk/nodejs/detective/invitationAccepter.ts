@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_detective_invitation_accepter` can be imported using the graph ARN, e.g.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
- * ```
+ *  to = aws_detective_invitation_accepter.example
+ *
+ *  id = "arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d" } Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For exampleconsole % pulumi import aws_detective_invitation_accepter.example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
  */
 export class InvitationAccepter extends pulumi.CustomResource {
     /**

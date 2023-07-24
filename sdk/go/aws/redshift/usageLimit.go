@@ -45,13 +45,11 @@ import (
 //
 // ## Import
 //
-// Redshift usage limits can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_usage_limit.example
 //
-//	$ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
-//
-// ```
+//	id = "example-id" } Using `pulumi import`, import Redshift usage limits using the `id`. For exampleconsole % pulumi import aws_redshift_usage_limit.example example-id
 type UsageLimit struct {
 	pulumi.CustomResourceState
 

@@ -45,21 +45,15 @@ import (
 //
 // ## Import
 //
-// The Alternate Contact for the current account can be imported using the `alternate_contact_type`, e.g.,
+// Import the Alternate Contact for the current accountterraform import {
 //
-// ```sh
+//	to = aws_account_alternate_contact.operations
 //
-//	$ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
+//	id = "OPERATIONS" } Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`)terraform import {
 //
-// ```
+//	to = aws_account_alternate_contact.operations
 //
-//	If you provide an account ID, the Alternate Contact can be imported using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`) e.g.,
-//
-// ```sh
-//
-//	$ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
-//
-// ```
+//	id = "1234567890/OPERATIONS" } **Using `pulumi import` to import** the Alternate Contact for the current or another account using the `alternate_contact_type`. For exampleImport the Alternate Contact for the current accountconsole % pulumi import aws_account_alternate_contact.operations OPERATIONS Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`)console % pulumi import aws_account_alternate_contact.operations 1234567890/OPERATIONS
 type AlternativeContact struct {
 	pulumi.CustomResourceState
 

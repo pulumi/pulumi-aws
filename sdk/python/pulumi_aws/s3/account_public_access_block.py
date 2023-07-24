@@ -238,11 +238,11 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
 
         ## Import
 
-        `aws_s3_account_public_access_block` can be imported by using the AWS account ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
-        ```
+         to = aws_s3_account_public_access_block.example
+
+         id = "123456789012" } Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For exampleconsole % pulumi import aws_s3_account_public_access_block.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,11 +283,11 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
 
         ## Import
 
-        `aws_s3_account_public_access_block` can be imported by using the AWS account ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
-        ```
+         to = aws_s3_account_public_access_block.example
+
+         id = "123456789012" } Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For exampleconsole % pulumi import aws_s3_account_public_access_block.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param AccountPublicAccessBlockArgs args: The arguments to use to populate this resource's properties.

@@ -87,6 +87,10 @@ export interface GetDistributionResult {
      */
     readonly status: string;
     readonly tags?: {[key: string]: string};
+    /**
+     * AWS WAF web ACL associated with this distribution.
+     */
+    readonly webAclId: string;
 }
 /**
  * Use this data source to retrieve information about a CloudFront distribution.

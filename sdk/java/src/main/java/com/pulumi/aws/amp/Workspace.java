@@ -87,11 +87,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * AMP Workspaces can be imported using the identifier, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
- * ```
+ *  to = aws_prometheus_workspace.demo
+ * 
+ *  id = &#34;ws-C6DCB907-F2D7-4D96-957B-66691F865D8B&#34; } Using `pulumi import`, import AMP Workspaces using the identifier. For exampleconsole % pulumi import aws_prometheus_workspace.demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
  * 
  */
 @ResourceType(type="aws:amp/workspace:Workspace")

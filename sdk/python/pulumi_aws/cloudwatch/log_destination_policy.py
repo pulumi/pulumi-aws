@@ -158,11 +158,11 @@ class LogDestinationPolicy(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
-        ```
+         to = aws_cloudwatch_log_destination_policy.test_destination_policy
+
+         id = "test_destination" } Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For exampleconsole % pulumi import aws_cloudwatch_log_destination_policy.test_destination_policy test_destination
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,11 +204,11 @@ class LogDestinationPolicy(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
-        ```
+         to = aws_cloudwatch_log_destination_policy.test_destination_policy
+
+         id = "test_destination" } Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For exampleconsole % pulumi import aws_cloudwatch_log_destination_policy.test_destination_policy test_destination
 
         :param str resource_name: The name of the resource.
         :param LogDestinationPolicyArgs args: The arguments to use to populate this resource's properties.

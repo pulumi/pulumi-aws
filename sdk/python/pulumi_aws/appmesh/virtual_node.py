@@ -424,11 +424,11 @@ class VirtualNode(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh virtual nodes can be imported using `mesh_name` together with the virtual node's `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
-        ```
+         to = aws_appmesh_virtual_node.serviceb1
+
+         id = "simpleapp/serviceBv1" } Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_node.serviceb1 simpleapp/serviceBv1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -590,11 +590,11 @@ class VirtualNode(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh virtual nodes can be imported using `mesh_name` together with the virtual node's `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
-        ```
+         to = aws_appmesh_virtual_node.serviceb1
+
+         id = "simpleapp/serviceBv1" } Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For exampleconsole % pulumi import aws_appmesh_virtual_node.serviceb1 simpleapp/serviceBv1
 
         :param str resource_name: The name of the resource.
         :param VirtualNodeArgs args: The arguments to use to populate this resource's properties.

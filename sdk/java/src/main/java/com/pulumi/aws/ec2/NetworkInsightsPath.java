@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Network Insights Paths can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
- * ```
+ *  to = aws_ec2_network_insights_path.test
+ * 
+ *  id = &#34;nip-00edfba169923aefd&#34; } Using `pulumi import`, import Network Insights Paths using the `id`. For exampleconsole % pulumi import aws_ec2_network_insights_path.test nip-00edfba169923aefd
  * 
  */
 @ResourceType(type="aws:ec2/networkInsightsPath:NetworkInsightsPath")

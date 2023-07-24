@@ -354,7 +354,7 @@ func (o GroupInstanceRefreshPtrOutput) Triggers() pulumi.StringArrayOutput {
 }
 
 type GroupInstanceRefreshPreferences struct {
-	// Automatically rollback if instance refresh fails. Defaults to `false`.
+	// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
 	AutoRollback *bool `pulumi:"autoRollback"`
 	// Number of seconds to wait after a checkpoint. Defaults to `3600`.
 	CheckpointDelay *string `pulumi:"checkpointDelay"`
@@ -380,7 +380,7 @@ type GroupInstanceRefreshPreferencesInput interface {
 }
 
 type GroupInstanceRefreshPreferencesArgs struct {
-	// Automatically rollback if instance refresh fails. Defaults to `false`.
+	// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
 	AutoRollback pulumi.BoolPtrInput `pulumi:"autoRollback"`
 	// Number of seconds to wait after a checkpoint. Defaults to `3600`.
 	CheckpointDelay pulumi.StringPtrInput `pulumi:"checkpointDelay"`
@@ -471,7 +471,7 @@ func (o GroupInstanceRefreshPreferencesOutput) ToGroupInstanceRefreshPreferences
 	}).(GroupInstanceRefreshPreferencesPtrOutput)
 }
 
-// Automatically rollback if instance refresh fails. Defaults to `false`.
+// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
 func (o GroupInstanceRefreshPreferencesOutput) AutoRollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *bool { return v.AutoRollback }).(pulumi.BoolPtrOutput)
 }
@@ -525,7 +525,7 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) Elem() GroupInstanceRefreshPre
 	}).(GroupInstanceRefreshPreferencesOutput)
 }
 
-// Automatically rollback if instance refresh fails. Defaults to `false`.
+// Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
 func (o GroupInstanceRefreshPreferencesPtrOutput) AutoRollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *bool {
 		if v == nil {

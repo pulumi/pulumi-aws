@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Importing is currently not supported on this resource.
+// You cannot import this resource.
 type AccountSubscription struct {
 	pulumi.CustomResourceState
 

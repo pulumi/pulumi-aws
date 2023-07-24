@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * CloudFront monitoring subscription can be imported using the id, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
- * ```
+ *  to = aws_cloudfront_monitoring_subscription.example
+ * 
+ *  id = &#34;E3QYSUHO4VYRGB&#34; } Using `pulumi import`, import CloudFront monitoring subscription using the id. For exampleconsole % pulumi import aws_cloudfront_monitoring_subscription.example E3QYSUHO4VYRGB
  * 
  */
 @ResourceType(type="aws:cloudfront/monitoringSubscription:MonitoringSubscription")

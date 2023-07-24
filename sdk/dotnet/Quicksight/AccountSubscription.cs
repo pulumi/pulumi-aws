@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// Importing is currently not supported on this resource.
+    /// You cannot import this resource.
     /// </summary>
     [AwsResourceType("aws:quicksight/accountSubscription:AccountSubscription")]
     public partial class AccountSubscription : global::Pulumi.CustomResource

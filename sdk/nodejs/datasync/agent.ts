@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_datasync_agent` can be imported by using the DataSync Agent Amazon Resource Name (ARN), e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
- * ```
+ *  to = aws_datasync_agent.example
+ *
+ *  id = "arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567" } Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_agent.example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
  */
 export class Agent extends pulumi.CustomResource {
     /**
@@ -73,7 +73,7 @@ export class Agent extends pulumi.CustomResource {
     /**
      * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
      */
-    public readonly privateLinkEndpoint!: pulumi.Output<string | undefined>;
+    public readonly privateLinkEndpoint!: pulumi.Output<string>;
     /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      */

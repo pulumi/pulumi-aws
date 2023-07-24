@@ -71,11 +71,11 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// To import CloudFront cache policies, use the `id` of the cache policy. For example
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
-    /// ```
+    ///  to = aws_cloudfront_cache_policy.policy
+    /// 
+    ///  id = "658327ea-f89d-4fab-a63d-7e88639e58f6" } Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For exampleconsole % pulumi import aws_cloudfront_cache_policy.policy 658327ea-f89d-4fab-a63d-7e88639e58f6
     /// </summary>
     [AwsResourceType("aws:cloudfront/cachePolicy:CachePolicy")]
     public partial class CachePolicy : global::Pulumi.CustomResource

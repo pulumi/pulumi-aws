@@ -16,13 +16,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_bucket_resource_access` can be imported by using the `id` attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_bucket_resource_access.test
 //
-//	$ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess test example-bucket,example-instance
-//
-// ```
+//	id = "example-bucket,example-instance" } Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For exampleconsole % pulumi import aws_lightsail_bucket_resource_access.test example-bucket,example-instance
 type BucketResourceAccess struct {
 	pulumi.CustomResourceState
 

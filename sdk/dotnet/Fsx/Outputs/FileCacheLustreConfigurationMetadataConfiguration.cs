@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Fsx.Outputs
     public sealed class FileCacheLustreConfigurationMetadataConfiguration
     {
         /// <summary>
-        /// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+        /// The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
         /// </summary>
         public readonly int StorageCapacity;
 

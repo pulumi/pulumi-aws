@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
- * ```
+ *  to = aws_emr_instance_group.task_group
+ *
+ *  id = "j-123456ABCDEF/ig-15EK4O09RZLNR" } Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For exampleconsole % pulumi import aws_emr_instance_group.task_group j-123456ABCDEF/ig-15EK4O09RZLNR
  */
 export class InstanceGroup extends pulumi.CustomResource {
     /**

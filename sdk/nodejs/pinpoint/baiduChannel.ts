@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
- * ```
+ *  to = aws_pinpoint_baidu_channel.channel
+ *
+ *  id = "application-id" } Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_baidu_channel.channel application-id
  */
 export class BaiduChannel extends pulumi.CustomResource {
     /**

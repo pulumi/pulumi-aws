@@ -182,11 +182,11 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_vpc_ipv6_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
-        ```
+         to = aws_vpc_ipv6_cidr_block_association.example
+
+         id = "vpc-cidr-assoc-xxxxxxxx" } Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR Association ID. For exampleconsole % pulumi import aws_vpc_ipv6_cidr_block_association.example vpc-cidr-assoc-xxxxxxxx
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,11 +220,11 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
 
         ## Import
 
-        `aws_vpc_ipv6_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
-        ```
+         to = aws_vpc_ipv6_cidr_block_association.example
+
+         id = "vpc-cidr-assoc-xxxxxxxx" } Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR Association ID. For exampleconsole % pulumi import aws_vpc_ipv6_cidr_block_association.example vpc-cidr-assoc-xxxxxxxx
 
         :param str resource_name: The name of the resource.
         :param VpcIpv6CidrBlockAssociationArgs args: The arguments to use to populate this resource's properties.

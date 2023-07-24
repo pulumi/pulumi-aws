@@ -71,13 +71,11 @@ import (
 //
 // ## Import
 //
-// # EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_event_bus.messenger
 //
-//	$ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
-//
-// ```
+//	id = "chat-messages" } Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For exampleconsole % pulumi import aws_cloudwatch_event_bus.messenger chat-messages
 type EventBus struct {
 	pulumi.CustomResourceState
 

@@ -34,11 +34,11 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
-    /// ```
+    ///  to = aws_apigatewayv2_stage.example
+    /// 
+    ///  id = "aabbccddee/example-stage" } Using `pulumi import`, import `aws_apigatewayv2_stage` using the API identifier and stage name. For exampleconsole % pulumi import aws_apigatewayv2_stage.example aabbccddee/example-stage
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/stage:Stage")]
     public partial class Stage : global::Pulumi.CustomResource

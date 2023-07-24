@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * A Glue Development Endpoint can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
- * ```
+ *  to = aws_glue_dev_endpoint.example
+ * 
+ *  id = &#34;foo&#34; } Using `pulumi import`, import a Glue Development Endpoint using the `name`. For exampleconsole % pulumi import aws_glue_dev_endpoint.example foo
  * 
  */
 @ResourceType(type="aws:glue/devEndpoint:DevEndpoint")

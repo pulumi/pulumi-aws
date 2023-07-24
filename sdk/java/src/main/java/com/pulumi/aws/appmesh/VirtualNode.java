@@ -257,11 +257,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * App Mesh virtual nodes can be imported using `mesh_name` together with the virtual node&#39;s `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
- * ```
+ *  to = aws_appmesh_virtual_node.serviceb1
+ * 
+ *  id = &#34;simpleapp/serviceBv1&#34; } Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node&#39;s `name`. For exampleconsole % pulumi import aws_appmesh_virtual_node.serviceb1 simpleapp/serviceBv1
  * 
  */
 @ResourceType(type="aws:appmesh/virtualNode:VirtualNode")

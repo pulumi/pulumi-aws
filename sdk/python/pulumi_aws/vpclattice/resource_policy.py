@@ -133,11 +133,11 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Resource Policy can be imported using the `resource_arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
-        ```
+         to = aws_vpclattice_resource_policy.example
+
+         id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For exampleconsole % pulumi import aws_vpclattice_resource_policy.example rft-8012925589
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,11 +186,11 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Resource Policy can be imported using the `resource_arn`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
-        ```
+         to = aws_vpclattice_resource_policy.example
+
+         id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For exampleconsole % pulumi import aws_vpclattice_resource_policy.example rft-8012925589
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

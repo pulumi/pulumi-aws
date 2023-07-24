@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DAX Subnet Group can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
- * ```
+ *  to = aws_dax_subnet_group.example
+ * 
+ *  id = &#34;my_dax_sg&#34; } Using `pulumi import`, import DAX Subnet Group using the `name`. For exampleconsole % pulumi import aws_dax_subnet_group.example my_dax_sg
  * 
  */
 @ResourceType(type="aws:dax/subnetGroup:SubnetGroup")

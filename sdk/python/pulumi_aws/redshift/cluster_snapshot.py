@@ -232,11 +232,11 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Cluster Snapshots support import by `snapshot_identifier`, e.g., console
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
-        ```
+         to = aws_redshift_cluster_snapshot.test
+
+         id = "example" } Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For exampleconsole % pulumi import aws_redshift_cluster_snapshot.test example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,11 +256,11 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Cluster Snapshots support import by `snapshot_identifier`, e.g., console
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
-        ```
+         to = aws_redshift_cluster_snapshot.test
+
+         id = "example" } Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For exampleconsole % pulumi import aws_redshift_cluster_snapshot.test example
 
         :param str resource_name: The name of the resource.
         :param ClusterSnapshotArgs args: The arguments to use to populate this resource's properties.

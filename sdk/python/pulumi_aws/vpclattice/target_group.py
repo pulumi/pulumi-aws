@@ -282,11 +282,11 @@ class TargetGroup(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Target Group can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
-        ```
+         to = aws_vpclattice_target_group.example
+
+         id = "tg-0c11d4dc16ed96bdb" } Using `pulumi import`, import VPC Lattice Target Group using the `id`. For exampleconsole % pulumi import aws_vpclattice_target_group.example tg-0c11d4dc16ed96bdb
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -363,11 +363,11 @@ class TargetGroup(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Target Group can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb
-        ```
+         to = aws_vpclattice_target_group.example
+
+         id = "tg-0c11d4dc16ed96bdb" } Using `pulumi import`, import VPC Lattice Target Group using the `id`. For exampleconsole % pulumi import aws_vpclattice_target_group.example tg-0c11d4dc16ed96bdb
 
         :param str resource_name: The name of the resource.
         :param TargetGroupArgs args: The arguments to use to populate this resource's properties.

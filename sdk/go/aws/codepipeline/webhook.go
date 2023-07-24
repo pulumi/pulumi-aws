@@ -126,13 +126,11 @@ import (
 //
 // ## Import
 //
-// CodePipeline Webhooks can be imported by their ARN, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_codepipeline_webhook.example
 //
-//	$ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
-//
-// ```
+//	id = "arn:aws:codepipeline:us-west-2:123456789012:webhook:example" } Using `pulumi import`, import CodePipeline Webhooks using their ARN. For exampleconsole % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
 type Webhook struct {
 	pulumi.CustomResourceState
 

@@ -99,11 +99,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
- * ```
+ *  to = aws_elasticache_cluster.my_cluster
+ *
+ *  id = "my_cluster" } Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For exampleconsole % pulumi import aws_elasticache_cluster.my_cluster my_cluster
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -183,7 +183,7 @@ export class Cluster extends pulumi.CustomResource {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -426,7 +426,7 @@ export interface ClusterState {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -565,7 +565,7 @@ export interface ClusterArgs {
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**

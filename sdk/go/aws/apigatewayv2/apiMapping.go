@@ -46,13 +46,11 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_api_mapping` can be imported by using the API mapping identifier and domain name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apigatewayv2_api_mapping.example
 //
-//	$ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
-//
-// ```
+//	id = "1122334/ws-api.example.com" } Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For exampleconsole % pulumi import aws_apigatewayv2_api_mapping.example 1122334/ws-api.example.com
 type ApiMapping struct {
 	pulumi.CustomResourceState
 

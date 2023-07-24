@@ -67,11 +67,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Use the `name` to import a subnet group. For example
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
- * ```
+ *  to = aws_memorydb_subnet_group.example
+ * 
+ *  id = &#34;my-subnet-group&#34; } Using `pulumi import`, import a subnet group using its `name`. For exampleconsole % pulumi import aws_memorydb_subnet_group.example my-subnet-group
  * 
  */
 @ResourceType(type="aws:memorydb/subnetGroup:SubnetGroup")

@@ -568,11 +568,11 @@ class MetricStream(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch metric streams can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
-        ```
+         to = aws_cloudwatch_metric_stream.sample
+
+         id = "sample-stream-name" } Using `pulumi import`, import CloudWatch metric streams using the `name`. For exampleconsole % pulumi import aws_cloudwatch_metric_stream.sample sample-stream-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -713,11 +713,11 @@ class MetricStream(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch metric streams can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
-        ```
+         to = aws_cloudwatch_metric_stream.sample
+
+         id = "sample-stream-name" } Using `pulumi import`, import CloudWatch metric streams using the `name`. For exampleconsole % pulumi import aws_cloudwatch_metric_stream.sample sample-stream-name
 
         :param str resource_name: The name of the resource.
         :param MetricStreamArgs args: The arguments to use to populate this resource's properties.

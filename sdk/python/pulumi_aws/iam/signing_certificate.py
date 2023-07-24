@@ -180,11 +180,11 @@ class SigningCertificate(pulumi.CustomResource):
 
         ## Import
 
-        IAM Signing Certificates can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
-        ```
+         to = aws_iam_signing_certificate.certificate
+
+         id = "IDIDIDIDID:user-name" } Using `pulumi import`, import IAM Signing Certificates using the `id`. For exampleconsole % pulumi import aws_iam_signing_certificate.certificate IDIDIDIDID:user-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,11 +232,11 @@ class SigningCertificate(pulumi.CustomResource):
 
         ## Import
 
-        IAM Signing Certificates can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
-        ```
+         to = aws_iam_signing_certificate.certificate
+
+         id = "IDIDIDIDID:user-name" } Using `pulumi import`, import IAM Signing Certificates using the `id`. For exampleconsole % pulumi import aws_iam_signing_certificate.certificate IDIDIDIDID:user-name
 
         :param str resource_name: The name of the resource.
         :param SigningCertificateArgs args: The arguments to use to populate this resource's properties.

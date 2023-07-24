@@ -118,11 +118,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Event data stores can be imported using their `arn`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
- * ```
+ *  to = aws_cloudtrail_event_data_store.example
+ * 
+ *  id = &#34;arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf&#34; } Using `pulumi import`, import event data stores using their `arn`. For exampleconsole % pulumi import aws_cloudtrail_event_data_store.example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
  * 
  */
 @ResourceType(type="aws:cloudtrail/eventDataStore:EventDataStore")

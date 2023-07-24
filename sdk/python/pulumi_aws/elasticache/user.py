@@ -383,11 +383,11 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache users can be imported using the `user_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:elasticache/user:User my_user userId1
-        ```
+         to = aws_elasticache_user.my_user
+
+         id = "userId1" } Using `pulumi import`, import ElastiCache users using the `user_id`. For exampleconsole % pulumi import aws_elasticache_user.my_user userId1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -460,11 +460,11 @@ class User(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache users can be imported using the `user_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:elasticache/user:User my_user userId1
-        ```
+         to = aws_elasticache_user.my_user
+
+         id = "userId1" } Using `pulumi import`, import ElastiCache users using the `user_id`. For exampleconsole % pulumi import aws_elasticache_user.my_user userId1
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

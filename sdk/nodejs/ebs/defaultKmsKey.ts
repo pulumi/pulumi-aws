@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * The EBS default KMS CMK can be imported with the KMS key ARN, e.g., console
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
- * ```
+ *  to = aws_ebs_default_kms_key.example
+ *
+ *  id = "arn:aws:kms:us-east-1:123456789012:key/abcd-1234" } Using `pulumi import`, import the EBS default KMS CMK using the KMS key ARN. For exampleconsole % pulumi import aws_ebs_default_kms_key.example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
  */
 export class DefaultKmsKey extends pulumi.CustomResource {
     /**

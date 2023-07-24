@@ -54,13 +54,11 @@ import (
 //
 // ## Import
 //
-// Event subscriptions can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dms_event_subscription.test
 //
-//	$ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
-//
-// ```
+//	id = "my-awesome-event-subscription" } Using `pulumi import`, import event subscriptions using the `name`. For exampleconsole % pulumi import aws_dms_event_subscription.test my-awesome-event-subscription
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

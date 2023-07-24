@@ -48,13 +48,11 @@ import (
 //
 // ## Import
 //
-// DocumentDB Subnet groups can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_docdb_subnet_group.default
 //
-//	$ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
-//
-// ```
+//	id = "production-subnet-group" } Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For exampleconsole % pulumi import aws_docdb_subnet_group.default production-subnet-group
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 

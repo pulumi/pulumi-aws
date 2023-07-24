@@ -325,11 +325,11 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
         ## Import
 
-        VPC DHCP Options can be imported using the `dhcp options id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
-        ```
+         to = aws_vpc_dhcp_options.my_options
+
+         id = "dopt-d9070ebb" } Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For exampleconsole % pulumi import aws_vpc_dhcp_options.my_options dopt-d9070ebb
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -392,11 +392,11 @@ class VpcDhcpOptions(pulumi.CustomResource):
 
         ## Import
 
-        VPC DHCP Options can be imported using the `dhcp options id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
-        ```
+         to = aws_vpc_dhcp_options.my_options
+
+         id = "dopt-d9070ebb" } Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For exampleconsole % pulumi import aws_vpc_dhcp_options.my_options dopt-d9070ebb
 
         :param str resource_name: The name of the resource.
         :param VpcDhcpOptionsArgs args: The arguments to use to populate this resource's properties.

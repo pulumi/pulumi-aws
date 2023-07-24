@@ -99,11 +99,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC DHCP Options can be imported using the `dhcp options id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
- * ```
+ *  to = aws_vpc_dhcp_options.my_options
+ * 
+ *  id = &#34;dopt-d9070ebb&#34; } Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For exampleconsole % pulumi import aws_vpc_dhcp_options.my_options dopt-d9070ebb
  * 
  */
 @ResourceType(type="aws:ec2/vpcDhcpOptions:VpcDhcpOptions")

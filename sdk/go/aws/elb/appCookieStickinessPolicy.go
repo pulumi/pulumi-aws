@@ -60,13 +60,11 @@ import (
 //
 // ## Import
 //
-// Application cookie stickiness policies can be imported using the ELB name, port, and policy name separated by colons (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_app_cookie_stickiness_policy.example
 //
-//	$ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
-//
-// ```
+//	id = "my-elb:80:my-policy" } Using `pulumi import`, import application cookie stickiness policies using the ELB name, port, and policy name separated by colons (`:`). For exampleconsole % pulumi import aws_app_cookie_stickiness_policy.example my-elb:80:my-policy
 type AppCookieStickinessPolicy struct {
 	pulumi.CustomResourceState
 

@@ -77,11 +77,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IAM Users can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iam/user:User lb loadbalancer
- * ```
+ *  to = aws_iam_user.lb
+ * 
+ *  id = &#34;loadbalancer&#34; } Using `pulumi import`, import IAM Users using the `name`. For exampleconsole % pulumi import aws_iam_user.lb loadbalancer
  * 
  */
 @ResourceType(type="aws:iam/user:User")

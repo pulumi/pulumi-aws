@@ -52,16 +52,12 @@ public final class EndpointGroupEndpointConfigurationArgs extends com.pulumi.res
     /**
      * The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
      * 
-     * **port_override** supports the following attributes:
-     * 
      */
     @Import(name="weight")
     private @Nullable Output<Integer> weight;
 
     /**
      * @return The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-     * 
-     * **port_override** supports the following attributes:
      * 
      */
     public Optional<Output<Integer>> weight() {
@@ -141,8 +137,6 @@ public final class EndpointGroupEndpointConfigurationArgs extends com.pulumi.res
         /**
          * @param weight The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
          * 
-         * **port_override** supports the following attributes:
-         * 
          * @return builder
          * 
          */
@@ -153,8 +147,6 @@ public final class EndpointGroupEndpointConfigurationArgs extends com.pulumi.res
 
         /**
          * @param weight The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-         * 
-         * **port_override** supports the following attributes:
          * 
          * @return builder
          * 

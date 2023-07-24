@@ -41,13 +41,11 @@ import (
 //
 // ## Import
 //
-// # DeviceFarm Instance Profiles can be imported by their arn
+// terraform import {
 //
-// ```sh
+//	to = aws_devicefarm_instance_profile.example
 //
-//	$ pulumi import aws:devicefarm/instanceProfile:InstanceProfile example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
-//
-// ```
+//	id = "arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1" } Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For exampleconsole % pulumi import aws_devicefarm_instance_profile.example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 type InstanceProfile struct {
 	pulumi.CustomResourceState
 

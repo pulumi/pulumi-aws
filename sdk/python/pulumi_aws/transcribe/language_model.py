@@ -278,11 +278,11 @@ class LanguageModel(pulumi.CustomResource):
 
         ## Import
 
-        Transcribe LanguageModel can be imported using the `model_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
-        ```
+         to = aws_transcribe_language_model.example
+
+         id = "example-name" } Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For exampleconsole % pulumi import aws_transcribe_language_model.example example-name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -352,11 +352,11 @@ class LanguageModel(pulumi.CustomResource):
 
         ## Import
 
-        Transcribe LanguageModel can be imported using the `model_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
-        ```
+         to = aws_transcribe_language_model.example
+
+         id = "example-name" } Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For exampleconsole % pulumi import aws_transcribe_language_model.example example-name
 
         :param str resource_name: The name of the resource.
         :param LanguageModelArgs args: The arguments to use to populate this resource's properties.

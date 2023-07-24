@@ -91,11 +91,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EMR Instance Fleet can be imported with the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`), e.g., console
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
- * ```
+ *  to = aws_emr_instance_fleet.example
+ * 
+ *  id = &#34;j-123456ABCDEF/if-15EK4O09RZLNR&#34; } Using `pulumi import`, import EMR Instance Fleet using the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`). For exampleconsole % pulumi import aws_emr_instance_fleet.example j-123456ABCDEF/if-15EK4O09RZLNR
  * 
  */
 @ResourceType(type="aws:emr/instanceFleet:InstanceFleet")

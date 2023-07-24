@@ -125,11 +125,11 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Glue Security Configurations can be imported using `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
-        ```
+         to = aws_glue_security_configuration.example
+
+         id = "example" } Using `pulumi import`, import Glue Security Configurations using `name`. For exampleconsole % pulumi import aws_glue_security_configuration.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,11 +167,11 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Glue Security Configurations can be imported using `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
-        ```
+         to = aws_glue_security_configuration.example
+
+         id = "example" } Using `pulumi import`, import Glue Security Configurations using `name`. For exampleconsole % pulumi import aws_glue_security_configuration.example example
 
         :param str resource_name: The name of the resource.
         :param SecurityConfigurationArgs args: The arguments to use to populate this resource's properties.

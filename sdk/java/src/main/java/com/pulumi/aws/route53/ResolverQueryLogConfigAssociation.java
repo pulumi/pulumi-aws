@@ -49,11 +49,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- *  Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
- * ```
+ *  to = aws_route53_resolver_query_log_config_association.example
+ * 
+ *  id = &#34;rqlca-b320624fef3c4d70&#34; } Using `pulumi import`, import
+ * 
+ * Route 53 Resolver query logging configuration associations using the Route 53 Resolver query logging configuration association ID. For exampleconsole % pulumi import aws_route53_resolver_query_log_config_association.example rqlca-b320624fef3c4d70
  * 
  */
 @ResourceType(type="aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation")

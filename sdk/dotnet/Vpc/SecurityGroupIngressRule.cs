@@ -43,11 +43,11 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// ## Import
     /// 
-    /// Security group ingress rules can be imported using the `security_group_rule_id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
-    /// ```
+    ///  to = aws_vpc_security_group_ingress_rule.example
+    /// 
+    ///  id = "sgr-02108b27edd666983" } Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For exampleconsole % pulumi import aws_vpc_security_group_ingress_rule.example sgr-02108b27edd666983
     /// </summary>
     [AwsResourceType("aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule")]
     public partial class SecurityGroupIngressRule : global::Pulumi.CustomResource

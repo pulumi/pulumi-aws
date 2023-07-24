@@ -849,11 +849,11 @@ class CustomLayer(pulumi.CustomResource):
 
         ## Import
 
-        OpsWorks Custom Layers can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
-        ```
+         to = aws_opsworks_custom_layer.bar
+
+         id = "00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import OpsWorks Custom Layers using the `id`. For exampleconsole % pulumi import aws_opsworks_custom_layer.bar 00000000-0000-0000-0000-000000000000
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -903,11 +903,11 @@ class CustomLayer(pulumi.CustomResource):
 
         ## Import
 
-        OpsWorks Custom Layers can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000
-        ```
+         to = aws_opsworks_custom_layer.bar
+
+         id = "00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import OpsWorks Custom Layers using the `id`. For exampleconsole % pulumi import aws_opsworks_custom_layer.bar 00000000-0000-0000-0000-000000000000
 
         :param str resource_name: The name of the resource.
         :param CustomLayerArgs args: The arguments to use to populate this resource's properties.

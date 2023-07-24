@@ -197,11 +197,11 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
 
         ## Import
 
-        Cloudfront Field Level Encryption Config can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
-        ```
+         to = aws_cloudfront_field_level_encryption_config.config
+
+         id = "E74FTE3AEXAMPLE" } Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For exampleconsole % pulumi import aws_cloudfront_field_level_encryption_config.config E74FTE3AEXAMPLE
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,11 +248,11 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
 
         ## Import
 
-        Cloudfront Field Level Encryption Config can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
-        ```
+         to = aws_cloudfront_field_level_encryption_config.config
+
+         id = "E74FTE3AEXAMPLE" } Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For exampleconsole % pulumi import aws_cloudfront_field_level_encryption_config.config E74FTE3AEXAMPLE
 
         :param str resource_name: The name of the resource.
         :param FieldLevelEncryptionConfigArgs args: The arguments to use to populate this resource's properties.

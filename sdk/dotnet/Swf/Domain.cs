@@ -35,11 +35,11 @@ namespace Pulumi.Aws.Swf
     /// 
     /// ## Import
     /// 
-    /// SWF Domains can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:swf/domain:Domain foo test-domain
-    /// ```
+    ///  to = aws_swf_domain.foo
+    /// 
+    ///  id = "test-domain" } Using `pulumi import`, import SWF Domains using the `name`. For exampleconsole % pulumi import aws_swf_domain.foo test-domain
     /// </summary>
     [AwsResourceType("aws:swf/domain:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

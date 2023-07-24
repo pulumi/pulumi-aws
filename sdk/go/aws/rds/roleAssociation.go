@@ -49,13 +49,11 @@ import (
 //
 // ## Import
 //
-// `aws_db_instance_role_association` can be imported using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_db_instance_role_association.example
 //
-//	$ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
-//
-// ```
+//	id = "my-db-instance,arn:aws:iam::123456789012:role/my-role" } Using `pulumi import`, import `aws_db_instance_role_association` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For exampleconsole % pulumi import aws_db_instance_role_association.example my-db-instance,arn:aws:iam::123456789012:role/my-role
 type RoleAssociation struct {
 	pulumi.CustomResourceState
 

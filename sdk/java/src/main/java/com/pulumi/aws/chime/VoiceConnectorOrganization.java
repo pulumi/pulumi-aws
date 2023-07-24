@@ -75,11 +75,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Chime Voice Connector Origination can be imported using the `voice_connector_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
- * ```
+ *  to = aws_chime_voice_connector_origination.default
+ * 
+ *  id = &#34;abcdef1ghij2klmno3pqr4&#34; } Using `pulumi import`, import Chime Voice Connector Origination using the `voice_connector_id`. For exampleconsole % pulumi import aws_chime_voice_connector_origination.default abcdef1ghij2klmno3pqr4
  * 
  */
 @ResourceType(type="aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization")

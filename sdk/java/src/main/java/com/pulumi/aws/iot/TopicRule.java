@@ -127,11 +127,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IoT Topic Rules can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;
- * ```
+ *  to = aws_iot_topic_rule.rule
+ * 
+ *  id = &#34;&lt;name&gt;&#34; } Using `pulumi import`, import IoT Topic Rules using the `name`. For exampleconsole % pulumi import aws_iot_topic_rule.rule &lt;name&gt;
  * 
  */
 @ResourceType(type="aws:iot/topicRule:TopicRule")

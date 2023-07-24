@@ -115,11 +115,11 @@ class ResourceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        RAM Resource Associations can be imported using their Resource Share ARN and Resource ARN separated by a comma, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
-        ```
+         to = aws_ram_resource_association.example
+
+         id = "arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678" } Using `pulumi import`, import RAM Resource Associations using their Resource Share ARN and Resource ARN separated by a comma. For exampleconsole % pulumi import aws_ram_resource_association.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,11 +150,11 @@ class ResourceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        RAM Resource Associations can be imported using their Resource Share ARN and Resource ARN separated by a comma, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
-        ```
+         to = aws_ram_resource_association.example
+
+         id = "arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678" } Using `pulumi import`, import RAM Resource Associations using their Resource Share ARN and Resource ARN separated by a comma. For exampleconsole % pulumi import aws_ram_resource_association.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
 
         :param str resource_name: The name of the resource.
         :param ResourceAssociationArgs args: The arguments to use to populate this resource's properties.

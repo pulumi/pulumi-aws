@@ -60,13 +60,11 @@ import (
 //
 // ## Import
 //
-// `aws_appstream_fleet` can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appstream_fleet.example
 //
-//	$ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
-//
-// ```
+//	id = "fleetNameExample" } Using `pulumi import`, import `aws_appstream_fleet` using the id. For exampleconsole % pulumi import aws_appstream_fleet.example fleetNameExample
 type Fleet struct {
 	pulumi.CustomResourceState
 

@@ -367,11 +367,11 @@ class CustomActionType(pulumi.CustomResource):
 
         ## Import
 
-        CodeDeploy CustomActionType can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:terraform:1
-        ```
+         to = aws_codepipeline_custom_action_type.example
+
+         id = "Build:TODO:1" } Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For exampleconsole % pulumi import aws_codepipeline_custom_action_type.example Build:TODO:1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -415,11 +415,11 @@ class CustomActionType(pulumi.CustomResource):
 
         ## Import
 
-        CodeDeploy CustomActionType can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:terraform:1
-        ```
+         to = aws_codepipeline_custom_action_type.example
+
+         id = "Build:TODO:1" } Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For exampleconsole % pulumi import aws_codepipeline_custom_action_type.example Build:TODO:1
 
         :param str resource_name: The name of the resource.
         :param CustomActionTypeArgs args: The arguments to use to populate this resource's properties.

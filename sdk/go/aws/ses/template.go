@@ -43,13 +43,11 @@ import (
 //
 // ## Import
 //
-// SES templates can be imported using the template name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_template.MyTemplate
 //
-//	$ pulumi import aws:ses/template:Template MyTemplate MyTemplate
-//
-// ```
+//	id = "MyTemplate" } Using `pulumi import`, import SES templates using the template name. For exampleconsole % pulumi import aws_ses_template.MyTemplate MyTemplate
 type Template struct {
 	pulumi.CustomResourceState
 

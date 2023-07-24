@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_location_map` resources can be imported using the map name, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:location/map:Map example example
- * ```
+ *  to = aws_location_map.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import `aws_location_map` resources using the map name. For exampleconsole % pulumi import aws_location_map.example example
  * 
  */
 @ResourceType(type="aws:location/map:Map")

@@ -46,13 +46,11 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_route_response` can be imported by using the API identifier, route identifier and route response identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_apigatewayv2_route_response.example
 //
-//	$ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
-//
-// ```
+//	id = "aabbccddee/1122334/998877" } Using `pulumi import`, import `aws_apigatewayv2_route_response` using the API identifier, route identifier and route response identifier. For exampleconsole % pulumi import aws_apigatewayv2_route_response.example aabbccddee/1122334/998877
 type RouteResponse struct {
 	pulumi.CustomResourceState
 

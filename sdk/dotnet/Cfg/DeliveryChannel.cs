@@ -107,11 +107,11 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Delivery Channel can be imported using the name, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
-    /// ```
+    ///  to = aws_config_delivery_channel.foo
+    /// 
+    ///  id = "example" } Using `pulumi import`, import Delivery Channel using the name. For exampleconsole % pulumi import aws_config_delivery_channel.foo example
     /// </summary>
     [AwsResourceType("aws:cfg/deliveryChannel:DeliveryChannel")]
     public partial class DeliveryChannel : global::Pulumi.CustomResource

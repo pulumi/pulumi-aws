@@ -244,11 +244,11 @@ class TapePool(pulumi.CustomResource):
 
         ## Import
 
-        `aws_storagegateway_tape_pool` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
-        ```
+         to = aws_storagegateway_tape_pool.example
+
+         id = "arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678" } Using `pulumi import`, import `aws_storagegateway_tape_pool` using the volume Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -280,11 +280,11 @@ class TapePool(pulumi.CustomResource):
 
         ## Import
 
-        `aws_storagegateway_tape_pool` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
-        ```
+         to = aws_storagegateway_tape_pool.example
+
+         id = "arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678" } Using `pulumi import`, import `aws_storagegateway_tape_pool` using the volume Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
 
         :param str resource_name: The name of the resource.
         :param TapePoolArgs args: The arguments to use to populate this resource's properties.

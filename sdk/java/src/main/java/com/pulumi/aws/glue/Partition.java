@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Glue Partitions can be imported with their catalog ID (usually AWS account ID), database name, table name and partition values e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2
- * ```
+ *  to = aws_glue_partition.part
+ * 
+ *  id = &#34;123456789012:MyDatabase:MyTable:val1#val2&#34; } Using `pulumi import`, import Glue Partitions using the catalog ID (usually AWS account ID), database name, table name and partition values. For exampleconsole % pulumi import aws_glue_partition.part 123456789012:MyDatabase:MyTable:val1#val2
  * 
  */
 @ResourceType(type="aws:glue/partition:Partition")

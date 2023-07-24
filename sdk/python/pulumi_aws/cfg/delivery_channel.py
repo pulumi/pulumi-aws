@@ -271,11 +271,11 @@ class DeliveryChannel(pulumi.CustomResource):
 
         ## Import
 
-        Delivery Channel can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
-        ```
+         to = aws_config_delivery_channel.foo
+
+         id = "example" } Using `pulumi import`, import Delivery Channel using the name. For exampleconsole % pulumi import aws_config_delivery_channel.foo example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -331,11 +331,11 @@ class DeliveryChannel(pulumi.CustomResource):
 
         ## Import
 
-        Delivery Channel can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
-        ```
+         to = aws_config_delivery_channel.foo
+
+         id = "example" } Using `pulumi import`, import Delivery Channel using the name. For exampleconsole % pulumi import aws_config_delivery_channel.foo example
 
         :param str resource_name: The name of the resource.
         :param DeliveryChannelArgs args: The arguments to use to populate this resource's properties.

@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EKS job templates can be imported using the `id`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
- * ```
+ *  to = aws_emrcontainers_job_template.example
+ * 
+ *  id = &#34;a1b2c3d4e5f6g7h8i9j10k11l&#34; } Using `pulumi import`, import EKS job templates using the `id`. For exampleconsole % pulumi import aws_emrcontainers_job_template.example a1b2c3d4e5f6g7h8i9j10k11l
  * 
  */
 @ResourceType(type="aws:emrcontainers/jobTemplate:JobTemplate")

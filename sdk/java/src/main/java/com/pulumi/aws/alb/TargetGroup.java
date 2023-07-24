@@ -167,11 +167,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Target Groups can be imported using their ARN, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
- * ```
+ *  to = aws_lb_target_group.app_front_end
+ * 
+ *  id = &#34;arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314&#34; } Using `pulumi import`, import Target Groups using their ARN. For exampleconsole % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
  * 
  */
 @ResourceType(type="aws:alb/targetGroup:TargetGroup")

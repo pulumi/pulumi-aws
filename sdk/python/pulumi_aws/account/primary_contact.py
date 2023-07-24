@@ -480,11 +480,11 @@ class PrimaryContact(pulumi.CustomResource):
 
         ## Import
 
-        The Primary Contact can be imported using the `account_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
-        ```
+         to = aws_account_primary_contact.test
+
+         id = "1234567890" } Using `pulumi import`, import the Primary Contact using the `account_id`. For exampleconsole % pulumi import aws_account_primary_contact.test 1234567890
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -532,11 +532,11 @@ class PrimaryContact(pulumi.CustomResource):
 
         ## Import
 
-        The Primary Contact can be imported using the `account_id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
-        ```
+         to = aws_account_primary_contact.test
+
+         id = "1234567890" } Using `pulumi import`, import the Primary Contact using the `account_id`. For exampleconsole % pulumi import aws_account_primary_contact.test 1234567890
 
         :param str resource_name: The name of the resource.
         :param PrimaryContactArgs args: The arguments to use to populate this resource's properties.

@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Endpoints can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
- * ```
+ *  to = aws_sagemaker_endpoint.test_endpoint
+ *
+ *  id = "my-endpoint" } Using `pulumi import`, import endpoints using the `name`. For exampleconsole % pulumi import aws_sagemaker_endpoint.test_endpoint my-endpoint
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

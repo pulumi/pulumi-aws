@@ -105,11 +105,11 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Security Hub invite acceptance can be imported using the account ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
-        ```
+         to = aws_securityhub_invite_accepter.example
+
+         id = "123456789012" } Using `pulumi import`, import Security Hub invite acceptance using the account ID. For exampleconsole % pulumi import aws_securityhub_invite_accepter.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,11 +145,11 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Security Hub invite acceptance can be imported using the account ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
-        ```
+         to = aws_securityhub_invite_accepter.example
+
+         id = "123456789012" } Using `pulumi import`, import Security Hub invite acceptance using the account ID. For exampleconsole % pulumi import aws_securityhub_invite_accepter.example 123456789012
 
         :param str resource_name: The name of the resource.
         :param InviteAccepterArgs args: The arguments to use to populate this resource's properties.

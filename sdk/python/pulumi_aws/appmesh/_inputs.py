@@ -20,6 +20,7 @@ __all__ = [
     'GatewayRouteSpecHttp2RouteActionArgs',
     'GatewayRouteSpecHttp2RouteActionRewriteArgs',
     'GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs',
+    'GatewayRouteSpecHttp2RouteActionRewritePathArgs',
     'GatewayRouteSpecHttp2RouteActionRewritePrefixArgs',
     'GatewayRouteSpecHttp2RouteActionTargetArgs',
     'GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs',
@@ -35,6 +36,7 @@ __all__ = [
     'GatewayRouteSpecHttpRouteActionArgs',
     'GatewayRouteSpecHttpRouteActionRewriteArgs',
     'GatewayRouteSpecHttpRouteActionRewriteHostnameArgs',
+    'GatewayRouteSpecHttpRouteActionRewritePathArgs',
     'GatewayRouteSpecHttpRouteActionRewritePrefixArgs',
     'GatewayRouteSpecHttpRouteActionTargetArgs',
     'GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs',
@@ -520,13 +522,17 @@ class GatewayRouteSpecHttp2RouteActionArgs:
 class GatewayRouteSpecHttp2RouteActionRewriteArgs:
     def __init__(__self__, *,
                  hostname: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs']] = None,
+                 path: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePathArgs']] = None,
                  prefix: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePrefixArgs']] = None):
         """
         :param pulumi.Input['GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs'] hostname: Host name to rewrite.
+        :param pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePathArgs'] path: Exact path to rewrite.
         :param pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePrefixArgs'] prefix: Specified beginning characters to rewrite.
         """
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
 
@@ -541,6 +547,18 @@ class GatewayRouteSpecHttp2RouteActionRewriteArgs:
     @hostname.setter
     def hostname(self, value: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs']]):
         pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePathArgs']]:
+        """
+        Exact path to rewrite.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePathArgs']]):
+        pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter
@@ -575,6 +593,28 @@ class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs:
     @default_target_hostname.setter
     def default_target_hostname(self, value: pulumi.Input[str]):
         pulumi.set(self, "default_target_hostname", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttp2RouteActionRewritePathArgs:
+    def __init__(__self__, *,
+                 exact: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] exact: The exact path to match on.
+        """
+        pulumi.set(__self__, "exact", exact)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> pulumi.Input[str]:
+        """
+        The exact path to match on.
+        """
+        return pulumi.get(self, "exact")
+
+    @exact.setter
+    def exact(self, value: pulumi.Input[str]):
+        pulumi.set(self, "exact", value)
 
 
 @pulumi.input_type
@@ -688,7 +728,7 @@ class GatewayRouteSpecHttp2RouteMatchArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderArgs']]] headers: Client request headers to match on.
         :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchHostnameArgs'] hostname: Host name to rewrite.
-        :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchPathArgs'] path: Client request path to match on.
+        :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchPathArgs'] path: Exact path to rewrite.
         :param pulumi.Input[int] port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         :param pulumi.Input[str] prefix: Specified beginning characters to rewrite.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchQueryParameterArgs']]] query_parameters: Client request query parameters to match on.
@@ -734,7 +774,7 @@ class GatewayRouteSpecHttp2RouteMatchArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input['GatewayRouteSpecHttp2RouteMatchPathArgs']]:
         """
-        Client request path to match on.
+        Exact path to rewrite.
         """
         return pulumi.get(self, "path")
 
@@ -842,7 +882,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs:
                  regex: Optional[pulumi.Input[str]] = None,
                  suffix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: Value used to replace matched path.
         :param pulumi.Input[str] prefix: Specified beginning characters to rewrite.
         :param pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs'] range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param pulumi.Input[str] regex: Header value sent by the client must include the specified characters.
@@ -863,7 +903,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        Value used to replace matched path.
         """
         return pulumi.get(self, "exact")
 
@@ -1078,7 +1118,7 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs:
     def __init__(__self__, *,
                  exact: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: Value used to replace matched path.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -1087,7 +1127,7 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        Value used to replace matched path.
         """
         return pulumi.get(self, "exact")
 
@@ -1175,13 +1215,17 @@ class GatewayRouteSpecHttpRouteActionArgs:
 class GatewayRouteSpecHttpRouteActionRewriteArgs:
     def __init__(__self__, *,
                  hostname: Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewriteHostnameArgs']] = None,
+                 path: Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePathArgs']] = None,
                  prefix: Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePrefixArgs']] = None):
         """
         :param pulumi.Input['GatewayRouteSpecHttpRouteActionRewriteHostnameArgs'] hostname: Host name to rewrite.
+        :param pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePathArgs'] path: Exact path to rewrite.
         :param pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePrefixArgs'] prefix: Specified beginning characters to rewrite.
         """
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
 
@@ -1196,6 +1240,18 @@ class GatewayRouteSpecHttpRouteActionRewriteArgs:
     @hostname.setter
     def hostname(self, value: Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewriteHostnameArgs']]):
         pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePathArgs']]:
+        """
+        Exact path to rewrite.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePathArgs']]):
+        pulumi.set(self, "path", value)
 
     @property
     @pulumi.getter
@@ -1230,6 +1286,28 @@ class GatewayRouteSpecHttpRouteActionRewriteHostnameArgs:
     @default_target_hostname.setter
     def default_target_hostname(self, value: pulumi.Input[str]):
         pulumi.set(self, "default_target_hostname", value)
+
+
+@pulumi.input_type
+class GatewayRouteSpecHttpRouteActionRewritePathArgs:
+    def __init__(__self__, *,
+                 exact: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] exact: The exact path to match on.
+        """
+        pulumi.set(__self__, "exact", exact)
+
+    @property
+    @pulumi.getter
+    def exact(self) -> pulumi.Input[str]:
+        """
+        The exact path to match on.
+        """
+        return pulumi.get(self, "exact")
+
+    @exact.setter
+    def exact(self, value: pulumi.Input[str]):
+        pulumi.set(self, "exact", value)
 
 
 @pulumi.input_type
@@ -1343,7 +1421,7 @@ class GatewayRouteSpecHttpRouteMatchArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderArgs']]] headers: Client request headers to match on.
         :param pulumi.Input['GatewayRouteSpecHttpRouteMatchHostnameArgs'] hostname: Host name to rewrite.
-        :param pulumi.Input['GatewayRouteSpecHttpRouteMatchPathArgs'] path: Client request path to match on.
+        :param pulumi.Input['GatewayRouteSpecHttpRouteMatchPathArgs'] path: Exact path to rewrite.
         :param pulumi.Input[int] port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         :param pulumi.Input[str] prefix: Specified beginning characters to rewrite.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchQueryParameterArgs']]] query_parameters: Client request query parameters to match on.
@@ -1389,7 +1467,7 @@ class GatewayRouteSpecHttpRouteMatchArgs:
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input['GatewayRouteSpecHttpRouteMatchPathArgs']]:
         """
-        Client request path to match on.
+        Exact path to rewrite.
         """
         return pulumi.get(self, "path")
 
@@ -1497,7 +1575,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs:
                  regex: Optional[pulumi.Input[str]] = None,
                  suffix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: Value used to replace matched path.
         :param pulumi.Input[str] prefix: Specified beginning characters to rewrite.
         :param pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs'] range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param pulumi.Input[str] regex: Header value sent by the client must include the specified characters.
@@ -1518,7 +1596,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        Value used to replace matched path.
         """
         return pulumi.get(self, "exact")
 
@@ -1733,7 +1811,7 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs:
     def __init__(__self__, *,
                  exact: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] exact: Header value sent by the client must match the specified value exactly.
+        :param pulumi.Input[str] exact: Value used to replace matched path.
         """
         if exact is not None:
             pulumi.set(__self__, "exact", exact)
@@ -1742,7 +1820,7 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs:
     @pulumi.getter
     def exact(self) -> Optional[pulumi.Input[str]]:
         """
-        Header value sent by the client must match the specified value exactly.
+        Value used to replace matched path.
         """
         return pulumi.get(self, "exact")
 

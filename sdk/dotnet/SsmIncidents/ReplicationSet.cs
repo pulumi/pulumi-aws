@@ -131,11 +131,11 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// ## Import
     /// 
-    /// Use the following command to import an Incident Manager replication set
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
-    /// ```
+    ///  to = aws_ssmincidents_replication_set.replicationSetName
+    /// 
+    ///  id = "import" } Using `pulumi import`, import an Incident Manager replication. For exampleconsole % pulumi import aws_ssmincidents_replication_set.replicationSetName import
     /// </summary>
     [AwsResourceType("aws:ssmincidents/replicationSet:ReplicationSet")]
     public partial class ReplicationSet : global::Pulumi.CustomResource

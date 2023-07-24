@@ -138,11 +138,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
- * ```
+ *  to = aws_elasticache_global_replication_group.my_global_replication_group
+ * 
+ *  id = &#34;okuqm-global-replication-group-1&#34; } Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For exampleconsole % pulumi import aws_elasticache_global_replication_group.my_global_replication_group okuqm-global-replication-group-1
  * 
  */
 @ResourceType(type="aws:elasticache/globalReplicationGroup:GlobalReplicationGroup")
@@ -261,7 +261,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
@@ -275,7 +275,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
      * When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
      * When the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     public Output<String> engineVersion() {

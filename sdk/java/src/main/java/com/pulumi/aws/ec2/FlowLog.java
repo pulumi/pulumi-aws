@@ -266,11 +266,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Flow Logs can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
- * ```
+ *  to = aws_flow_log.test_flow_log
+ * 
+ *  id = &#34;fl-1a2b3c4d&#34; } Using `pulumi import`, import Flow Logs using the `id`. For exampleconsole % pulumi import aws_flow_log.test_flow_log fl-1a2b3c4d
  * 
  */
 @ResourceType(type="aws:ec2/flowLog:FlowLog")

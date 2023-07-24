@@ -53,13 +53,11 @@ import (
 //
 // ## Import
 //
-// AppConfig Configuration Profiles can be imported by using the configuration profile ID and application ID separated by a colon (`:`), e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appconfig_configuration_profile.example
 //
-//	$ pulumi import aws:appconfig/configurationProfile:ConfigurationProfile example 71abcde:11xxxxx
-//
-// ```
+//	id = "71abcde:11xxxxx" } Using `pulumi import`, import AppConfig Configuration Profiles using the configuration profile ID and application ID separated by a colon (`:`). For exampleconsole % pulumi import aws_appconfig_configuration_profile.example 71abcde:11xxxxx
 type ConfigurationProfile struct {
 	pulumi.CustomResourceState
 

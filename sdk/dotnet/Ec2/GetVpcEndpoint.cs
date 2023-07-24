@@ -218,9 +218,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> CidrBlocks;
         /// <summary>
-        /// DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        /// DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcEndpointDnsEntryResult> DnsEntries;
+        /// <summary>
+        /// DNS options for the VPC Endpoint. DNS options blocks are documented below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcEndpointDnsOptionResult> DnsOptions;
         public readonly ImmutableArray<Outputs.GetVpcEndpointFilterResult> Filters;
         public readonly string Id;

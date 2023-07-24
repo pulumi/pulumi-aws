@@ -14,22 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetReplicationInstanceResult {
     /**
-     * @return (Default: 50, Min: 5, Max: 6144) The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+     * @return The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      * 
      */
     private Integer allocatedStorage;
     /**
-     * @return (Default: false) Indicates that major version upgrades are allowed.
-     * 
-     */
-    private Boolean allowMajorVersionUpgrade;
-    /**
-     * @return (Default: false) Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
-     * 
-     */
-    private Boolean applyImmediately;
-    /**
-     * @return (Default: false) Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+     * @return Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      * 
      */
     private Boolean autoMinorVersionUpgrade;
@@ -49,12 +39,12 @@ public final class GetReplicationInstanceResult {
      */
     private String id;
     /**
-     * @return The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * @return The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
      * 
      */
     private String kmsKeyArn;
     /**
-     * @return Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+     * @return Specifies if the replication instance is a multi-az deployment.
      * 
      */
     private Boolean multiAz;
@@ -64,7 +54,7 @@ public final class GetReplicationInstanceResult {
      */
     private String preferredMaintenanceWindow;
     /**
-     * @return (Default: false) Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+     * @return Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      * 
      */
     private Boolean publiclyAccessible;
@@ -74,7 +64,7 @@ public final class GetReplicationInstanceResult {
      */
     private String replicationInstanceArn;
     /**
-     * @return The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
+     * @return The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
      * 
      */
     private String replicationInstanceClass;
@@ -90,41 +80,27 @@ public final class GetReplicationInstanceResult {
      */
     private List<String> replicationInstancePublicIps;
     /**
-     * @return (Optional) A subnet group to associate with the replication instance.
+     * @return A subnet group to associate with the replication instance.
      * 
      */
     private String replicationSubnetGroupId;
     private Map<String,String> tags;
     /**
-     * @return (Optional) A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+     * @return A set of VPC security group IDs that are used with the replication instance.
      * 
      */
     private List<String> vpcSecurityGroupIds;
 
     private GetReplicationInstanceResult() {}
     /**
-     * @return (Default: 50, Min: 5, Max: 6144) The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+     * @return The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      * 
      */
     public Integer allocatedStorage() {
         return this.allocatedStorage;
     }
     /**
-     * @return (Default: false) Indicates that major version upgrades are allowed.
-     * 
-     */
-    public Boolean allowMajorVersionUpgrade() {
-        return this.allowMajorVersionUpgrade;
-    }
-    /**
-     * @return (Default: false) Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
-     * 
-     */
-    public Boolean applyImmediately() {
-        return this.applyImmediately;
-    }
-    /**
-     * @return (Default: false) Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+     * @return Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      * 
      */
     public Boolean autoMinorVersionUpgrade() {
@@ -152,14 +128,14 @@ public final class GetReplicationInstanceResult {
         return this.id;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     * @return The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
      * 
      */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
     /**
-     * @return Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+     * @return Specifies if the replication instance is a multi-az deployment.
      * 
      */
     public Boolean multiAz() {
@@ -173,7 +149,7 @@ public final class GetReplicationInstanceResult {
         return this.preferredMaintenanceWindow;
     }
     /**
-     * @return (Default: false) Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+     * @return Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      * 
      */
     public Boolean publiclyAccessible() {
@@ -187,7 +163,7 @@ public final class GetReplicationInstanceResult {
         return this.replicationInstanceArn;
     }
     /**
-     * @return The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
+     * @return The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
      * 
      */
     public String replicationInstanceClass() {
@@ -211,7 +187,7 @@ public final class GetReplicationInstanceResult {
         return this.replicationInstancePublicIps;
     }
     /**
-     * @return (Optional) A subnet group to associate with the replication instance.
+     * @return A subnet group to associate with the replication instance.
      * 
      */
     public String replicationSubnetGroupId() {
@@ -221,7 +197,7 @@ public final class GetReplicationInstanceResult {
         return this.tags;
     }
     /**
-     * @return (Optional) A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+     * @return A set of VPC security group IDs that are used with the replication instance.
      * 
      */
     public List<String> vpcSecurityGroupIds() {
@@ -238,8 +214,6 @@ public final class GetReplicationInstanceResult {
     @CustomType.Builder
     public static final class Builder {
         private Integer allocatedStorage;
-        private Boolean allowMajorVersionUpgrade;
-        private Boolean applyImmediately;
         private Boolean autoMinorVersionUpgrade;
         private String availabilityZone;
         private String engineVersion;
@@ -260,8 +234,6 @@ public final class GetReplicationInstanceResult {
         public Builder(GetReplicationInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocatedStorage = defaults.allocatedStorage;
-    	      this.allowMajorVersionUpgrade = defaults.allowMajorVersionUpgrade;
-    	      this.applyImmediately = defaults.applyImmediately;
     	      this.autoMinorVersionUpgrade = defaults.autoMinorVersionUpgrade;
     	      this.availabilityZone = defaults.availabilityZone;
     	      this.engineVersion = defaults.engineVersion;
@@ -283,16 +255,6 @@ public final class GetReplicationInstanceResult {
         @CustomType.Setter
         public Builder allocatedStorage(Integer allocatedStorage) {
             this.allocatedStorage = Objects.requireNonNull(allocatedStorage);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder allowMajorVersionUpgrade(Boolean allowMajorVersionUpgrade) {
-            this.allowMajorVersionUpgrade = Objects.requireNonNull(allowMajorVersionUpgrade);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder applyImmediately(Boolean applyImmediately) {
-            this.applyImmediately = Objects.requireNonNull(applyImmediately);
             return this;
         }
         @CustomType.Setter
@@ -387,8 +349,6 @@ public final class GetReplicationInstanceResult {
         public GetReplicationInstanceResult build() {
             final var o = new GetReplicationInstanceResult();
             o.allocatedStorage = allocatedStorage;
-            o.allowMajorVersionUpgrade = allowMajorVersionUpgrade;
-            o.applyImmediately = applyImmediately;
             o.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
             o.availabilityZone = availabilityZone;
             o.engineVersion = engineVersion;

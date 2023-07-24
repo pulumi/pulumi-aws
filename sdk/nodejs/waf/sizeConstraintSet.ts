@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AWS WAF Size Constraint Set can be imported using their ID, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:waf/sizeConstraintSet:SizeConstraintSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
+ *  to = aws_waf_size_constraint_set.example
+ *
+ *  id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import AWS WAF Size Constraint Set using their ID. For exampleconsole % pulumi import aws_waf_size_constraint_set.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
  */
 export class SizeConstraintSet extends pulumi.CustomResource {
     /**

@@ -121,13 +121,11 @@ import (
 //
 // ## Import
 //
-// ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_elasticache_global_replication_group.my_global_replication_group
 //
-//	$ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
-//
-// ```
+//	id = "okuqm-global-replication-group-1" } Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For exampleconsole % pulumi import aws_elasticache_global_replication_group.my_global_replication_group okuqm-global-replication-group-1
 type GlobalReplicationGroup struct {
 	pulumi.CustomResourceState
 
@@ -156,7 +154,7 @@ type GlobalReplicationGroup struct {
 	// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
 	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
@@ -243,7 +241,7 @@ type globalReplicationGroupState struct {
 	// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
 	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
@@ -295,7 +293,7 @@ type GlobalReplicationGroupState struct {
 	// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
 	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringPtrInput
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual pulumi.StringPtrInput
@@ -341,7 +339,7 @@ type globalReplicationGroupArgs struct {
 	// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
 	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription *string `pulumi:"globalReplicationGroupDescription"`
@@ -375,7 +373,7 @@ type GlobalReplicationGroupArgs struct {
 	// When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
 	// When the version is 6, the major and minor version can be set, e.g., `6.2`,
 	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 	EngineVersion pulumi.StringPtrInput
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription pulumi.StringPtrInput
@@ -525,7 +523,7 @@ func (o GlobalReplicationGroupOutput) Engine() pulumi.StringOutput {
 // When the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
 // When the version is 6, the major and minor version can be set, e.g., `6.2`,
 // or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+// The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below.
 func (o GlobalReplicationGroupOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }

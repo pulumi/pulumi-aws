@@ -176,11 +176,11 @@ class ControlPanel(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Recovery Control Config Control Panel can be imported via the control panel arn, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
-        ```
+         to = aws_route53recoverycontrolconfig_control_panel.mypanel
+
+         id = "arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8" } Using `pulumi import`, import Route53 Recovery Control Config Control Panel using the control panel arn. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_control_panel.mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,11 +207,11 @@ class ControlPanel(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Recovery Control Config Control Panel can be imported via the control panel arn, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
-        ```
+         to = aws_route53recoverycontrolconfig_control_panel.mypanel
+
+         id = "arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8" } Using `pulumi import`, import Route53 Recovery Control Config Control Panel using the control panel arn. For exampleconsole % pulumi import aws_route53recoverycontrolconfig_control_panel.mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
 
         :param str resource_name: The name of the resource.
         :param ControlPanelArgs args: The arguments to use to populate this resource's properties.

@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Identity Notification Topics can be imported using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
- * ```
+ *  to = aws_ses_identity_notification_topic.test
+ *
+ *  id = "example.com|Bounce" } Using `pulumi import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For exampleconsole % pulumi import aws_ses_identity_notification_topic.test 'example.com|Bounce'
  */
 export class IdentityNotificationTopic extends pulumi.CustomResource {
     /**

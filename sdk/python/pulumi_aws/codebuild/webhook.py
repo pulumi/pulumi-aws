@@ -272,11 +272,11 @@ class Webhook(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Webhooks can be imported using the CodeBuild Project name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
-        ```
+         to = aws_codebuild_webhook.example
+
+         id = "MyProjectName" } Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For exampleconsole % pulumi import aws_codebuild_webhook.example MyProjectName
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -349,11 +349,11 @@ class Webhook(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Webhooks can be imported using the CodeBuild Project name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
-        ```
+         to = aws_codebuild_webhook.example
+
+         id = "MyProjectName" } Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For exampleconsole % pulumi import aws_codebuild_webhook.example MyProjectName
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.

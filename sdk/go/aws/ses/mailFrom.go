@@ -113,13 +113,11 @@ import (
 //
 // ## Import
 //
-// MAIL FROM domain can be imported using the `domain` attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_domain_mail_from.example
 //
-//	$ pulumi import aws:ses/mailFrom:MailFrom example example.com
-//
-// ```
+//	id = "example.com" } Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For exampleconsole % pulumi import aws_ses_domain_mail_from.example example.com
 type MailFrom struct {
 	pulumi.CustomResourceState
 

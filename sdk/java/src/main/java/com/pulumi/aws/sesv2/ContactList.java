@@ -90,11 +90,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * SESv2 (Simple Email V2) Contact List can be imported using the `example_id_arg`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:sesv2/contactList:ContactList example example
- * ```
+ *  to = aws_sesv2_contact_list.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `example_id_arg`. For exampleconsole % pulumi import aws_sesv2_contact_list.example example
  * 
  */
 @ResourceType(type="aws:sesv2/contactList:ContactList")

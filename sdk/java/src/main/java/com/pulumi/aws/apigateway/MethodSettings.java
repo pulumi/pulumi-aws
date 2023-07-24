@@ -110,11 +110,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
- * ```
+ *  to = aws_api_gateway_method_settings.example
+ * 
+ *  id = &#34;12345abcde/example/test/GET&#34; } Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For exampleconsole % pulumi import aws_api_gateway_method_settings.example 12345abcde/example/test/GET
  * 
  */
 @ResourceType(type="aws:apigateway/methodSettings:MethodSettings")

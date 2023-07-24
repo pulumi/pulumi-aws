@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Backup vault lock configuration can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
- * ```
+ *  to = aws_backup_vault_lock_configuration.test
+ *
+ *  id = "TestVault" } Using `pulumi import`, import Backup vault lock configuration using the `name`. For exampleconsole % pulumi import aws_backup_vault_lock_configuration.test TestVault
  */
 export class VaultLockConfiguration extends pulumi.CustomResource {
     /**

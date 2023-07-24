@@ -75,13 +75,11 @@ import (
 //
 // ## Import
 //
-// IAM Users can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_user.lb
 //
-//	$ pulumi import aws:iam/user:User lb loadbalancer
-//
-// ```
+//	id = "loadbalancer" } Using `pulumi import`, import IAM Users using the `name`. For exampleconsole % pulumi import aws_iam_user.lb loadbalancer
 type User struct {
 	pulumi.CustomResourceState
 

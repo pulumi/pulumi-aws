@@ -180,11 +180,11 @@ class VaultNotifications(pulumi.CustomResource):
 
         ## Import
 
-        Backup vault notifications can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
-        ```
+         to = aws_backup_vault_notifications.test
+
+         id = "TestVault" } Using `pulumi import`, import Backup vault notifications using the `name`. For exampleconsole % pulumi import aws_backup_vault_notifications.test TestVault
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,11 +233,11 @@ class VaultNotifications(pulumi.CustomResource):
 
         ## Import
 
-        Backup vault notifications can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
-        ```
+         to = aws_backup_vault_notifications.test
+
+         id = "TestVault" } Using `pulumi import`, import Backup vault notifications using the `name`. For exampleconsole % pulumi import aws_backup_vault_notifications.test TestVault
 
         :param str resource_name: The name of the resource.
         :param VaultNotificationsArgs args: The arguments to use to populate this resource's properties.

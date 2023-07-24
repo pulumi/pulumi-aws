@@ -183,11 +183,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IVS (Interactive Video) Chat Logging Configuration can be imported using the ARN, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
- * ```
+ *  to = aws_ivschat_logging_configuration.example
+ * 
+ *  id = &#34;arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC&#34; } Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For exampleconsole % pulumi import aws_ivschat_logging_configuration.example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
  * 
  */
 @ResourceType(type="aws:ivschat/loggingConfiguration:LoggingConfiguration")

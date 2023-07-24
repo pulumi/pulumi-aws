@@ -104,13 +104,11 @@ import (
 //
 // ## Import
 //
-// An AWS FinSpace Kx Environment can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_finspace_kx_environment.example
 //
-//	$ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
-//
-// ```
+//	id = "n3ceo7wqxoxcti5tujqwzs" } Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For exampleconsole % pulumi import aws_finspace_kx_environment.example n3ceo7wqxoxcti5tujqwzs
 type KxEnvironment struct {
 	pulumi.CustomResourceState
 

@@ -49,11 +49,11 @@ namespace Pulumi.Aws.Cur
     /// 
     /// ## Import
     /// 
-    /// Report Definitions can be imported using the `report_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
-    /// ```
+    ///  to = aws_cur_report_definition.example_cur_report_definition
+    /// 
+    ///  id = "example-cur-report-definition" } Using `pulumi import`, import Report Definitions using the `report_name`. For exampleconsole % pulumi import aws_cur_report_definition.example_cur_report_definition example-cur-report-definition
     /// </summary>
     [AwsResourceType("aws:cur/reportDefinition:ReportDefinition")]
     public partial class ReportDefinition : global::Pulumi.CustomResource

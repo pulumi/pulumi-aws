@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Signer signing profiles can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
- * ```
+ *  to = aws_signer_signing_profile.test_signer_signing_profile
+ *
+ *  id = "test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK" } Using `pulumi import`, import Signer signing profiles using the `name`. For exampleconsole % pulumi import aws_signer_signing_profile.test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
  */
 export class SigningProfile extends pulumi.CustomResource {
     /**
@@ -95,6 +95,7 @@ export class SigningProfile extends pulumi.CustomResource {
      * The validity period for a signing job.
      */
     public readonly signatureValidityPeriod!: pulumi.Output<outputs.signer.SigningProfileSignatureValidityPeriod>;
+    public readonly signingMaterial!: pulumi.Output<outputs.signer.SigningProfileSigningMaterial>;
     /**
      * The status of the target signing profile.
      */
@@ -136,6 +137,7 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["platformId"] = state ? state.platformId : undefined;
             resourceInputs["revocationRecords"] = state ? state.revocationRecords : undefined;
             resourceInputs["signatureValidityPeriod"] = state ? state.signatureValidityPeriod : undefined;
+            resourceInputs["signingMaterial"] = state ? state.signingMaterial : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -150,6 +152,7 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["platformId"] = args ? args.platformId : undefined;
             resourceInputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
+            resourceInputs["signingMaterial"] = args ? args.signingMaterial : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["platformDisplayName"] = undefined /*out*/;
@@ -196,6 +199,7 @@ export interface SigningProfileState {
      * The validity period for a signing job.
      */
     signatureValidityPeriod?: pulumi.Input<inputs.signer.SigningProfileSignatureValidityPeriod>;
+    signingMaterial?: pulumi.Input<inputs.signer.SigningProfileSigningMaterial>;
     /**
      * The status of the target signing profile.
      */
@@ -238,6 +242,7 @@ export interface SigningProfileArgs {
      * The validity period for a signing job.
      */
     signatureValidityPeriod?: pulumi.Input<inputs.signer.SigningProfileSignatureValidityPeriod>;
+    signingMaterial?: pulumi.Input<inputs.signer.SigningProfileSigningMaterial>;
     /**
      * A list of tags associated with the signing profile. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

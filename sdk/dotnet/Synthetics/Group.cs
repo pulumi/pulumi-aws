@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// ## Import
     /// 
-    /// CloudWatch Synthetics Group can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:synthetics/group:Group example example
-    /// ```
+    ///  to = aws_synthetics_group.example
+    /// 
+    ///  id = "example" } Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For exampleconsole % pulumi import aws_synthetics_group.example example
     /// </summary>
     [AwsResourceType("aws:synthetics/group:Group")]
     public partial class Group : global::Pulumi.CustomResource

@@ -40,6 +40,10 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+     */
+    public readonly associationConfig!: pulumi.Output<outputs.wafv2.WebAclAssociationConfig | undefined>;
+    /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
     public /*out*/ readonly capacity!: pulumi.Output<number>;
@@ -103,6 +107,7 @@ export class WebAcl extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WebAclState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["associationConfig"] = state ? state.associationConfig : undefined;
             resourceInputs["capacity"] = state ? state.capacity : undefined;
             resourceInputs["captchaConfig"] = state ? state.captchaConfig : undefined;
             resourceInputs["customResponseBodies"] = state ? state.customResponseBodies : undefined;
@@ -127,6 +132,7 @@ export class WebAcl extends pulumi.CustomResource {
             if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
+            resourceInputs["associationConfig"] = args ? args.associationConfig : undefined;
             resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
             resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
             resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
@@ -155,6 +161,10 @@ export interface WebAclState {
      * The Amazon Resource Name (ARN) of the IP Set that this statement references.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+     */
+    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfig>;
     /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      */
@@ -210,6 +220,10 @@ export interface WebAclState {
  * The set of arguments for constructing a WebAcl resource.
  */
 export interface WebAclArgs {
+    /**
+     * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+     */
+    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfig>;
     /**
      * Specifies how AWS WAF should handle CAPTCHA evaluations. See `captchaConfig` below for details.
      */

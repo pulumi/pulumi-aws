@@ -32,11 +32,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Elastic Transcoder pipelines can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
- * ```
+ *  to = aws_elastictranscoder_pipeline.basic_pipeline
+ *
+ *  id = "1407981661351-cttk8b" } Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For exampleconsole % pulumi import aws_elastictranscoder_pipeline.basic_pipeline 1407981661351-cttk8b
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

@@ -42,13 +42,11 @@ import (
 //
 // ## Import
 //
-// SES email identities can be imported using the email address.
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_email_identity.example
 //
-//	$ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
-//
-// ```
+//	id = "email@example.com" } Using `pulumi import`, import SES email identities using the email address. For exampleconsole % pulumi import aws_ses_email_identity.example email@example.com
 type EmailIdentity struct {
 	pulumi.CustomResourceState
 

@@ -13,12 +13,23 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetVpcEndpointDnsOptionResult
     {
+        /// <summary>
+        /// The DNS records created for the endpoint.
+        /// </summary>
         public readonly string DnsRecordIpType;
+        /// <summary>
+        /// Indicates whether to enable private DNS only for inbound endpoints.
+        /// </summary>
+        public readonly bool PrivateDnsOnlyForInboundResolverEndpoint;
 
         [OutputConstructor]
-        private GetVpcEndpointDnsOptionResult(string dnsRecordIpType)
+        private GetVpcEndpointDnsOptionResult(
+            string dnsRecordIpType,
+
+            bool privateDnsOnlyForInboundResolverEndpoint)
         {
             DnsRecordIpType = dnsRecordIpType;
+            PrivateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
         }
     }
 }

@@ -52,13 +52,11 @@ import (
 //
 // ## Import
 //
-// WAFv2 IP Sets can be imported using `ID/name/scope`
+// terraform import {
 //
-// ```sh
+//	to = aws_wafv2_ip_set.example
 //
-//	$ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-//
-// ```
+//	id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL" } Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For exampleconsole % pulumi import aws_wafv2_ip_set.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
 type IpSet struct {
 	pulumi.CustomResourceState
 

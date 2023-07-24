@@ -38,11 +38,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker Device Fleets can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
-    /// ```
+    ///  to = aws_sagemaker_device_fleet.example
+    /// 
+    ///  id = "my-fleet" } Using `pulumi import`, import SageMaker Device Fleets using the `name`. For exampleconsole % pulumi import aws_sagemaker_device_fleet.example my-fleet
     /// </summary>
     [AwsResourceType("aws:sagemaker/deviceFleet:DeviceFleet")]
     public partial class DeviceFleet : global::Pulumi.CustomResource

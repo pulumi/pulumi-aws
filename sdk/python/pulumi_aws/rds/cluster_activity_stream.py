@@ -222,13 +222,11 @@ class ClusterActivityStream(pulumi.CustomResource):
 
         ## Import
 
-        RDS Aurora Cluster Database Activity Streams can be imported using the `resource_arn`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
-        ```
+         to = aws_rds_cluster_activity_stream.default
 
-         [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html [2]https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html [3]https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
+         id = "arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo" } Using `pulumi import`, import RDS Aurora Cluster Database Activity Streams using the `resource_arn`. For exampleconsole % pulumi import aws_rds_cluster_activity_stream.default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html [2]https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html [3]https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,13 +285,11 @@ class ClusterActivityStream(pulumi.CustomResource):
 
         ## Import
 
-        RDS Aurora Cluster Database Activity Streams can be imported using the `resource_arn`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
-        ```
+         to = aws_rds_cluster_activity_stream.default
 
-         [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html [2]https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html [3]https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
+         id = "arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo" } Using `pulumi import`, import RDS Aurora Cluster Database Activity Streams using the `resource_arn`. For exampleconsole % pulumi import aws_rds_cluster_activity_stream.default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo [1]https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html [2]https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html [3]https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
 
         :param str resource_name: The name of the resource.
         :param ClusterActivityStreamArgs args: The arguments to use to populate this resource's properties.

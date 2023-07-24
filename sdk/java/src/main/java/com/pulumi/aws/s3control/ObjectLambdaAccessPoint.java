@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Object Lambda Access Points can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
- * ```
+ *  to = aws_s3control_object_lambda_access_point.example
+ * 
+ *  id = &#34;123456789012:example&#34; } Using `pulumi import`, import Object Lambda Access Points using the `account_id` and `name`, separated by a colon (`:`). For exampleconsole % pulumi import aws_s3control_object_lambda_access_point.example 123456789012:example
  * 
  */
 @ResourceType(type="aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint")

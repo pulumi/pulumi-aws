@@ -102,11 +102,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Pipes can be imported using the `name`. For example
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:pipes/pipe:Pipe example my-pipe
- * ```
+ *  to = aws_pipes_pipe.example
+ *
+ *  id = "my-pipe" } Using `pulumi import`, import pipes using the `name`. For exampleconsole % pulumi import aws_pipes_pipe.example my-pipe
  */
 export class Pipe extends pulumi.CustomResource {
     /**

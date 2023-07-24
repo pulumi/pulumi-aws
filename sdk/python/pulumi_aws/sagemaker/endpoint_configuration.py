@@ -355,11 +355,11 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Endpoint configurations can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
-        ```
+         to = aws_sagemaker_endpoint_configuration.test_endpoint_config
+
+         id = "endpoint-config-foo" } Using `pulumi import`, import endpoint configurations using the `name`. For exampleconsole % pulumi import aws_sagemaker_endpoint_configuration.test_endpoint_config endpoint-config-foo
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -403,11 +403,11 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Endpoint configurations can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
-        ```
+         to = aws_sagemaker_endpoint_configuration.test_endpoint_config
+
+         id = "endpoint-config-foo" } Using `pulumi import`, import endpoint configurations using the `name`. For exampleconsole % pulumi import aws_sagemaker_endpoint_configuration.test_endpoint_config endpoint-config-foo
 
         :param str resource_name: The name of the resource.
         :param EndpointConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -78,11 +78,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// S3 bucket analytics configurations can be imported using `bucket:analytics`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
-    /// ```
+    ///  to = aws_s3_bucket_analytics_configuration.my-bucket-entire-bucket
+    /// 
+    ///  id = "my-bucket:EntireBucket" } Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For exampleconsole % pulumi import aws_s3_bucket_analytics_configuration.my-bucket-entire-bucket my-bucket:EntireBucket
     /// </summary>
     [AwsResourceType("aws:s3/analyticsConfiguration:AnalyticsConfiguration")]
     public partial class AnalyticsConfiguration : global::Pulumi.CustomResource

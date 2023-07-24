@@ -19,6 +19,7 @@ __all__ = [
     'SigningJobSourceS3Args',
     'SigningProfileRevocationRecordArgs',
     'SigningProfileSignatureValidityPeriodArgs',
+    'SigningProfileSigningMaterialArgs',
 ]
 
 @pulumi.input_type
@@ -324,5 +325,21 @@ class SigningProfileSignatureValidityPeriodArgs:
     @value.setter
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SigningProfileSigningMaterialArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_arn", value)
 
 

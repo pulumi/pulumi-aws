@@ -13,6 +13,169 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ConnectionAliasTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+	Update *string `pulumi:"update"`
+}
+
+// ConnectionAliasTimeoutsInput is an input type that accepts ConnectionAliasTimeoutsArgs and ConnectionAliasTimeoutsOutput values.
+// You can construct a concrete instance of `ConnectionAliasTimeoutsInput` via:
+//
+//	ConnectionAliasTimeoutsArgs{...}
+type ConnectionAliasTimeoutsInput interface {
+	pulumi.Input
+
+	ToConnectionAliasTimeoutsOutput() ConnectionAliasTimeoutsOutput
+	ToConnectionAliasTimeoutsOutputWithContext(context.Context) ConnectionAliasTimeoutsOutput
+}
+
+type ConnectionAliasTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ConnectionAliasTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasTimeouts)(nil)).Elem()
+}
+
+func (i ConnectionAliasTimeoutsArgs) ToConnectionAliasTimeoutsOutput() ConnectionAliasTimeoutsOutput {
+	return i.ToConnectionAliasTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ConnectionAliasTimeoutsArgs) ToConnectionAliasTimeoutsOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasTimeoutsOutput)
+}
+
+func (i ConnectionAliasTimeoutsArgs) ToConnectionAliasTimeoutsPtrOutput() ConnectionAliasTimeoutsPtrOutput {
+	return i.ToConnectionAliasTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAliasTimeoutsArgs) ToConnectionAliasTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasTimeoutsOutput).ToConnectionAliasTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ConnectionAliasTimeoutsPtrInput is an input type that accepts ConnectionAliasTimeoutsArgs, ConnectionAliasTimeoutsPtr and ConnectionAliasTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ConnectionAliasTimeoutsPtrInput` via:
+//
+//	        ConnectionAliasTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAliasTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAliasTimeoutsPtrOutput() ConnectionAliasTimeoutsPtrOutput
+	ToConnectionAliasTimeoutsPtrOutputWithContext(context.Context) ConnectionAliasTimeoutsPtrOutput
+}
+
+type connectionAliasTimeoutsPtrType ConnectionAliasTimeoutsArgs
+
+func ConnectionAliasTimeoutsPtr(v *ConnectionAliasTimeoutsArgs) ConnectionAliasTimeoutsPtrInput {
+	return (*connectionAliasTimeoutsPtrType)(v)
+}
+
+func (*connectionAliasTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAliasTimeouts)(nil)).Elem()
+}
+
+func (i *connectionAliasTimeoutsPtrType) ToConnectionAliasTimeoutsPtrOutput() ConnectionAliasTimeoutsPtrOutput {
+	return i.ToConnectionAliasTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAliasTimeoutsPtrType) ToConnectionAliasTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasTimeoutsPtrOutput)
+}
+
+type ConnectionAliasTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAliasTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAliasTimeouts)(nil)).Elem()
+}
+
+func (o ConnectionAliasTimeoutsOutput) ToConnectionAliasTimeoutsOutput() ConnectionAliasTimeoutsOutput {
+	return o
+}
+
+func (o ConnectionAliasTimeoutsOutput) ToConnectionAliasTimeoutsOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsOutput {
+	return o
+}
+
+func (o ConnectionAliasTimeoutsOutput) ToConnectionAliasTimeoutsPtrOutput() ConnectionAliasTimeoutsPtrOutput {
+	return o.ToConnectionAliasTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAliasTimeoutsOutput) ToConnectionAliasTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAliasTimeouts) *ConnectionAliasTimeouts {
+		return &v
+	}).(ConnectionAliasTimeoutsPtrOutput)
+}
+
+func (o ConnectionAliasTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAliasTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAliasTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAliasTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAliasTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAliasTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAliasTimeouts)(nil)).Elem()
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) ToConnectionAliasTimeoutsPtrOutput() ConnectionAliasTimeoutsPtrOutput {
+	return o
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) ToConnectionAliasTimeoutsPtrOutputWithContext(ctx context.Context) ConnectionAliasTimeoutsPtrOutput {
+	return o
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) Elem() ConnectionAliasTimeoutsOutput {
+	return o.ApplyT(func(v *ConnectionAliasTimeouts) ConnectionAliasTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAliasTimeouts
+		return ret
+	}).(ConnectionAliasTimeoutsOutput)
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAliasTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAliasTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionAliasTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAliasTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type DirectorySelfServicePermissions struct {
 	// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
 	ChangeComputeType *bool `pulumi:"changeComputeType"`
@@ -1879,6 +2042,8 @@ func (o GetWorkspaceWorkspacePropertyArrayOutput) Index(i pulumi.IntInput) GetWo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTimeoutsInput)(nil)).Elem(), ConnectionAliasTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAliasTimeoutsPtrInput)(nil)).Elem(), ConnectionAliasTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfServicePermissionsInput)(nil)).Elem(), DirectorySelfServicePermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectorySelfServicePermissionsPtrInput)(nil)).Elem(), DirectorySelfServicePermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceAccessPropertiesInput)(nil)).Elem(), DirectoryWorkspaceAccessPropertiesArgs{})
@@ -1903,6 +2068,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryWorkspaceCreationPropertyArrayInput)(nil)).Elem(), GetDirectoryWorkspaceCreationPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceWorkspacePropertyInput)(nil)).Elem(), GetWorkspaceWorkspacePropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceWorkspacePropertyArrayInput)(nil)).Elem(), GetWorkspaceWorkspacePropertyArray{})
+	pulumi.RegisterOutputType(ConnectionAliasTimeoutsOutput{})
+	pulumi.RegisterOutputType(ConnectionAliasTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesOutput{})

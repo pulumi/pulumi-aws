@@ -51,13 +51,11 @@ import (
 //
 // ## Import
 //
-// `aws_vpc_ipv6_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpc_ipv6_cidr_block_association.example
 //
-//	$ pulumi import aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
-//
-// ```
+//	id = "vpc-cidr-assoc-xxxxxxxx" } Using `pulumi import`, import `aws_vpc_ipv6_cidr_block_association` using the VPC CIDR Association ID. For exampleconsole % pulumi import aws_vpc_ipv6_cidr_block_association.example vpc-cidr-assoc-xxxxxxxx
 type VpcIpv6CidrBlockAssociation struct {
 	pulumi.CustomResourceState
 

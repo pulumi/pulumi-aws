@@ -266,11 +266,11 @@ class UserPoolDomain(pulumi.CustomResource):
 
         ## Import
 
-        Cognito User Pool Domains can be imported using the `domain`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
-        ```
+         to = aws_cognito_user_pool_domain.main
+
+         id = "auth.example.org" } Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For exampleconsole % pulumi import aws_cognito_user_pool_domain.main auth.example.org
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -324,11 +324,11 @@ class UserPoolDomain(pulumi.CustomResource):
 
         ## Import
 
-        Cognito User Pool Domains can be imported using the `domain`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
-        ```
+         to = aws_cognito_user_pool_domain.main
+
+         id = "auth.example.org" } Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For exampleconsole % pulumi import aws_cognito_user_pool_domain.main auth.example.org
 
         :param str resource_name: The name of the resource.
         :param UserPoolDomainArgs args: The arguments to use to populate this resource's properties.

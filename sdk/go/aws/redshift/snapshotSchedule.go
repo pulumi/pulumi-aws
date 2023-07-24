@@ -43,13 +43,11 @@ import (
 //
 // ## Import
 //
-// Redshift Snapshot Schedule can be imported using the `identifier`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_redshift_snapshot_schedule.default
 //
-//	$ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
-//
-// ```
+//	id = "tf-redshift-snapshot-schedule" } Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For exampleconsole % pulumi import aws_redshift_snapshot_schedule.default tf-redshift-snapshot-schedule
 type SnapshotSchedule struct {
 	pulumi.CustomResourceState
 

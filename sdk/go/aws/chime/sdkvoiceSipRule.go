@@ -52,13 +52,11 @@ import (
 //
 // ## Import
 //
-// A ChimeSDKVoice SIP Rule can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_chimesdkvoice_sip_rule.example
 //
-//	$ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
-//
-// ```
+//	id = "abcdef123456" } Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_sip_rule.example abcdef123456
 type SdkvoiceSipRule struct {
 	pulumi.CustomResourceState
 

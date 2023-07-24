@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Models can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
-    /// ```
+    ///  to = aws_sagemaker_servicecatalog_portfolio_status.example
+    /// 
+    ///  id = "us-east-1" } Using `pulumi import`, import models using the `id`. For exampleconsole % pulumi import aws_sagemaker_servicecatalog_portfolio_status.example us-east-1
     /// </summary>
     [AwsResourceType("aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus")]
     public partial class ServicecatalogPortfolioStatus : global::Pulumi.CustomResource

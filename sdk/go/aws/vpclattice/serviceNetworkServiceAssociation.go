@@ -44,13 +44,11 @@ import (
 //
 // ## Import
 //
-// VPC Lattice Service Network Service Association can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_vpclattice_service_network_service_association.example
 //
-//	$ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
-//
-// ```
+//	id = "snsa-05e2474658a88f6ba" } Using `pulumi import`, import VPC Lattice Service Network Service Association using the `id`. For exampleconsole % pulumi import aws_vpclattice_service_network_service_association.example snsa-05e2474658a88f6ba
 type ServiceNetworkServiceAssociation struct {
 	pulumi.CustomResourceState
 

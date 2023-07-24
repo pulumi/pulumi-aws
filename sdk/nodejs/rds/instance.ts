@@ -123,11 +123,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DB Instances can be imported using the `identifier`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
- * ```
+ *  to = aws_db_instance.default
+ *
+ *  id = "mydb-rds-instance" } Using `pulumi import`, import DB Instances using the `identifier`. For exampleconsole % pulumi import aws_db_instance.default mydb-rds-instance
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -201,6 +201,10 @@ export class Instance extends pulumi.CustomResource {
      * or will use [RDS Blue/Green deployments][blue-green].
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number>;
+    /**
+     * Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+     */
+    public readonly backupTarget!: pulumi.Output<string>;
     /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
      * Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
@@ -281,7 +285,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string>;
     /**
-     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -545,6 +549,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = state ? state.autoMinorVersionUpgrade : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = state ? state.backupRetentionPeriod : undefined;
+            resourceInputs["backupTarget"] = state ? state.backupTarget : undefined;
             resourceInputs["backupWindow"] = state ? state.backupWindow : undefined;
             resourceInputs["blueGreenUpdate"] = state ? state.blueGreenUpdate : undefined;
             resourceInputs["caCertIdentifier"] = state ? state.caCertIdentifier : undefined;
@@ -621,6 +626,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
+            resourceInputs["backupTarget"] = args ? args.backupTarget : undefined;
             resourceInputs["backupWindow"] = args ? args.backupWindow : undefined;
             resourceInputs["blueGreenUpdate"] = args ? args.blueGreenUpdate : undefined;
             resourceInputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
@@ -745,6 +751,10 @@ export interface InstanceState {
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
+     * Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+     */
+    backupTarget?: pulumi.Input<string>;
+    /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
      * Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
      */
@@ -824,7 +834,7 @@ export interface InstanceState {
      */
     engine?: pulumi.Input<string>;
     /**
-     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -1109,6 +1119,10 @@ export interface InstanceArgs {
      */
     backupRetentionPeriod?: pulumi.Input<number>;
     /**
+     * Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
+     */
+    backupTarget?: pulumi.Input<string>;
+    /**
      * The daily time range (in UTC) during which automated backups are created if they are enabled.
      * Example: "09:46-10:16". Must not overlap with `maintenanceWindow`.
      */
@@ -1184,7 +1198,7 @@ export interface InstanceArgs {
      */
     engine?: pulumi.Input<string>;
     /**
-     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
+     * The engine version to use. If `autoMinorVersionUpgrade` is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`). The actual engine version used is returned in the attribute `engineVersionActual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'.
      */
     engineVersion?: pulumi.Input<string>;
     /**

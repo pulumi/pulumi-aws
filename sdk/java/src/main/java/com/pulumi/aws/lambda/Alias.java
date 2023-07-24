@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Lambda Function Aliases can be imported using the `function_name/alias`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
- * ```
+ *  to = aws_lambda_alias.test_lambda_alias
+ * 
+ *  id = &#34;my_test_lambda_function/my_alias&#34; } Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For exampleconsole % pulumi import aws_lambda_alias.test_lambda_alias my_test_lambda_function/my_alias
  * 
  */
 @ResourceType(type="aws:lambda/alias:Alias")
@@ -155,16 +155,12 @@ public class Alias extends com.pulumi.resources.CustomResource {
     /**
      * The Lambda alias&#39; route configuration settings. Fields documented below
      * 
-     * For **routing_config** the following attributes are supported:
-     * 
      */
     @Export(name="routingConfig", refs={AliasRoutingConfig.class}, tree="[0]")
     private Output</* @Nullable */ AliasRoutingConfig> routingConfig;
 
     /**
      * @return The Lambda alias&#39; route configuration settings. Fields documented below
-     * 
-     * For **routing_config** the following attributes are supported:
      * 
      */
     public Output<Optional<AliasRoutingConfig>> routingConfig() {

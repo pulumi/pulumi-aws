@@ -44,13 +44,11 @@ import (
 //
 // ## Import
 //
-// `aws_connect_lambda_function_association` can be imported using the `instance_id` and `function_arn` separated by a comma (`,`) e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_connect_lambda_function_association.example
 //
-//	$ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
-//
-// ```
+//	id = "aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example" } Using `pulumi import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For exampleconsole % pulumi import aws_connect_lambda_function_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
 type LambdaFunctionAssociation struct {
 	pulumi.CustomResourceState
 

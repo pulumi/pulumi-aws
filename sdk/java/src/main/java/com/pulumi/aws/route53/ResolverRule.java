@@ -90,11 +90,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Route53 Resolver rules can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
- * ```
+ *  to = aws_route53_resolver_rule.sys
+ * 
+ *  id = &#34;rslvr-rr-0123456789abcdef0&#34; } Using `pulumi import`, import Route53 Resolver rules using the `id`. For exampleconsole % pulumi import aws_route53_resolver_rule.sys rslvr-rr-0123456789abcdef0
  * 
  */
 @ResourceType(type="aws:route53/resolverRule:ResolverRule")

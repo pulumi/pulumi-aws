@@ -197,13 +197,11 @@ import (
 //
 // ## Import
 //
-// Glue Triggers can be imported using `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_trigger.MyTrigger
 //
-//	$ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
-//
-// ```
+//	id = "MyTrigger" } Using `pulumi import`, import Glue Triggers using `name`. For exampleconsole % pulumi import aws_glue_trigger.MyTrigger MyTrigger
 type Trigger struct {
 	pulumi.CustomResourceState
 

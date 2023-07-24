@@ -213,11 +213,11 @@ class ThingType(pulumi.CustomResource):
 
         ## Import
 
-        IOT Thing Types can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iot/thingType:ThingType example example
-        ```
+         to = aws_iot_thing_type.example
+
+         id = "example" } Using `pulumi import`, import IOT Thing Types using the name. For exampleconsole % pulumi import aws_iot_thing_type.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,11 +246,11 @@ class ThingType(pulumi.CustomResource):
 
         ## Import
 
-        IOT Thing Types can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iot/thingType:ThingType example example
-        ```
+         to = aws_iot_thing_type.example
+
+         id = "example" } Using `pulumi import`, import IOT Thing Types using the name. For exampleconsole % pulumi import aws_iot_thing_type.example example
 
         :param str resource_name: The name of the resource.
         :param ThingTypeArgs args: The arguments to use to populate this resource's properties.

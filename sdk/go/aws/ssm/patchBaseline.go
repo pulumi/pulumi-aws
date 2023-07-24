@@ -263,13 +263,11 @@ import (
 //
 // ## Import
 //
-// SSM Patch Baselines can be imported by their baseline ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ssm_patch_baseline.example
 //
-//	$ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
-//
-// ```
+//	id = "pb-12345678" } Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For exampleconsole % pulumi import aws_ssm_patch_baseline.example pb-12345678
 type PatchBaseline struct {
 	pulumi.CustomResourceState
 

@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IAM Users can be imported using the `name`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:iam/user:User lb loadbalancer
- * ```
+ *  to = aws_iam_user.lb
+ *
+ *  id = "loadbalancer" } Using `pulumi import`, import IAM Users using the `name`. For exampleconsole % pulumi import aws_iam_user.lb loadbalancer
  */
 export class User extends pulumi.CustomResource {
     /**

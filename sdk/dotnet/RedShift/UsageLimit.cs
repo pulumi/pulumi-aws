@@ -35,11 +35,11 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Redshift usage limits can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
-    /// ```
+    ///  to = aws_redshift_usage_limit.example
+    /// 
+    ///  id = "example-id" } Using `pulumi import`, import Redshift usage limits using the `id`. For exampleconsole % pulumi import aws_redshift_usage_limit.example example-id
     /// </summary>
     [AwsResourceType("aws:redshift/usageLimit:UsageLimit")]
     public partial class UsageLimit : global::Pulumi.CustomResource

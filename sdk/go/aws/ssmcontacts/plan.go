@@ -150,13 +150,11 @@ import (
 //
 // ## Import
 //
-// Import SSM Contact Plan using the Contact ARN. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_ssmcontacts_plan.example
 //
-//	$ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
-//
-// ```
+//	id = "{ARNValue}" } Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For exampleconsole % pulumi import aws_ssmcontacts_plan.example {ARNValue}
 type Plan struct {
 	pulumi.CustomResourceState
 

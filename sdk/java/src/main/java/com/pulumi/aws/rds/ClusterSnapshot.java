@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_db_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
- * ```
+ *  to = aws_db_cluster_snapshot.example
+ * 
+ *  id = &#34;my-cluster-snapshot&#34; } Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For exampleconsole % pulumi import aws_db_cluster_snapshot.example my-cluster-snapshot
  * 
  */
 @ResourceType(type="aws:rds/clusterSnapshot:ClusterSnapshot")

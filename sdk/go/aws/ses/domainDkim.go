@@ -75,13 +75,11 @@ import (
 //
 // ## Import
 //
-// DKIM tokens can be imported using the `domain` attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ses_domain_dkim.example
 //
-//	$ pulumi import aws:ses/domainDkim:DomainDkim example example.com
-//
-// ```
+//	id = "example.com" } Using `pulumi import`, import DKIM tokens using the `domain` attribute. For exampleconsole % pulumi import aws_ses_domain_dkim.example example.com
 type DomainDkim struct {
 	pulumi.CustomResourceState
 

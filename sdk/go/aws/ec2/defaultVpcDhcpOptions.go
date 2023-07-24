@@ -54,13 +54,11 @@ import (
 //
 // ## Import
 //
-// VPC DHCP Options can be imported using the `dhcp options id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_default_vpc_dhcp_options.default_options
 //
-//	$ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
-//
-// ```
+//	id = "dopt-d9070ebb" } Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For exampleconsole % pulumi import aws_default_vpc_dhcp_options.default_options dopt-d9070ebb
 type DefaultVpcDhcpOptions struct {
 	pulumi.CustomResourceState
 

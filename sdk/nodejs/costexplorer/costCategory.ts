@@ -55,11 +55,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_ce_cost_category` can be imported using the id, e.g.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
- * ```
+ *  to = aws_ce_cost_category.example
+ *
+ *  id = "costCategoryARN" } Using `pulumi import`, import `aws_ce_cost_category` using the id. For exampleconsole % pulumi import aws_ce_cost_category.example costCategoryARN
  */
 export class CostCategory extends pulumi.CustomResource {
     /**

@@ -243,13 +243,11 @@ import (
 //
 // ## Import
 //
-// CloudWatch metric streams can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cloudwatch_metric_stream.sample
 //
-//	$ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
-//
-// ```
+//	id = "sample-stream-name" } Using `pulumi import`, import CloudWatch metric streams using the `name`. For exampleconsole % pulumi import aws_cloudwatch_metric_stream.sample sample-stream-name
 type MetricStream struct {
 	pulumi.CustomResourceState
 

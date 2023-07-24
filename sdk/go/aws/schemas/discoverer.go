@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// # EventBridge discoverers can be imported using the `id`, e.g., console
+// terraform import {
 //
-// ```sh
+//	to = aws_schemas_discoverer.test
 //
-//	$ pulumi import aws:schemas/discoverer:Discoverer test 123
-//
-// ```
+//	id = "123" } Using `pulumi import`, import EventBridge discoverers using the `id`. For exampleconsole % pulumi import aws_schemas_discoverer.test 123
 type Discoverer struct {
 	pulumi.CustomResourceState
 

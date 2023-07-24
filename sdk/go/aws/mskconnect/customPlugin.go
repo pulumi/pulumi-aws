@@ -62,13 +62,11 @@ import (
 //
 // ## Import
 //
-// MSK Connect Custom Plugin can be imported using the plugin's `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_mskconnect_custom_plugin.example
 //
-//	$ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
-//
-// ```
+//	id = "arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4" } Using `pulumi import`, import MSK Connect Custom Plugin using the plugin's `arn`. For exampleconsole % pulumi import aws_mskconnect_custom_plugin.example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
 type CustomPlugin struct {
 	pulumi.CustomResourceState
 

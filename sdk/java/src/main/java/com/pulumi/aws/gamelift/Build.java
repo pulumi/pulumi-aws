@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * GameLift Builds can be imported using the ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:gamelift/build:Build example &lt;build-id&gt;
- * ```
+ *  to = aws_gamelift_build.example
+ * 
+ *  id = &#34;&lt;build-id&gt;&#34; } Using `pulumi import`, import GameLift Builds using the ID. For exampleconsole % pulumi import aws_gamelift_build.example &lt;build-id&gt;
  * 
  */
 @ResourceType(type="aws:gamelift/build:Build")

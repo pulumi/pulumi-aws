@@ -37,11 +37,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Pinpoint APNs VoIP Sandbox Channel can be imported using the `application-id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
-    /// ```
+    ///  to = aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox
+    /// 
+    ///  id = "application-id" } Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox application-id
     /// </summary>
     [AwsResourceType("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel")]
     public partial class ApnsVoipSandboxChannel : global::Pulumi.CustomResource

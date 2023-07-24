@@ -506,11 +506,11 @@ class OntapVolume(pulumi.CustomResource):
 
         ## Import
 
-        FSx ONTAP volume can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
-        ```
+         to = aws_fsx_ontap_volume.example
+
+         id = "fsvol-12345678abcdef123" } Using `pulumi import`, import FSx ONTAP volume using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_volume.example fsvol-12345678abcdef123
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -569,11 +569,11 @@ class OntapVolume(pulumi.CustomResource):
 
         ## Import
 
-        FSx ONTAP volume can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
-        ```
+         to = aws_fsx_ontap_volume.example
+
+         id = "fsvol-12345678abcdef123" } Using `pulumi import`, import FSx ONTAP volume using the `id`. For exampleconsole % pulumi import aws_fsx_ontap_volume.example fsvol-12345678abcdef123
 
         :param str resource_name: The name of the resource.
         :param OntapVolumeArgs args: The arguments to use to populate this resource's properties.

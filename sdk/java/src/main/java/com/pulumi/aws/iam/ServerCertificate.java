@@ -158,13 +158,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IAM Server Certificates can be imported using the `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
- * ```
+ *  to = aws_iam_server_certificate.certificate
  * 
- *  [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
+ *  id = &#34;example.com-certificate-until-2018&#34; } Using `pulumi import`, import IAM Server Certificates using the `name`. For exampleconsole % pulumi import aws_iam_server_certificate.certificate example.com-certificate-until-2018 [1]https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html [2]https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
  * 
  */
 @ResourceType(type="aws:iam/serverCertificate:ServerCertificate")

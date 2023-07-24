@@ -360,11 +360,11 @@ class CatalogDatabase(pulumi.CustomResource):
 
         ## Import
 
-        Glue Catalog Databases can be imported using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
-        ```
+         to = aws_glue_catalog_database.database
+
+         id = "123456789012:my_database" } Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For exampleconsole % pulumi import aws_glue_catalog_database.database 123456789012:my_database
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -412,11 +412,11 @@ class CatalogDatabase(pulumi.CustomResource):
 
         ## Import
 
-        Glue Catalog Databases can be imported using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
-        ```
+         to = aws_glue_catalog_database.database
+
+         id = "123456789012:my_database" } Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For exampleconsole % pulumi import aws_glue_catalog_database.database 123456789012:my_database
 
         :param str resource_name: The name of the resource.
         :param CatalogDatabaseArgs args: The arguments to use to populate this resource's properties.

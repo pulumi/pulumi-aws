@@ -146,11 +146,11 @@ class Device(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Devices can be imported using the `device-fleet-name/device-name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
-        ```
+         to = aws_sagemaker_device.example
+
+         id = "my-fleet/my-device" } Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For exampleconsole % pulumi import aws_sagemaker_device.example my-fleet/my-device
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,11 +182,11 @@ class Device(pulumi.CustomResource):
 
         ## Import
 
-        SageMaker Devices can be imported using the `device-fleet-name/device-name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
-        ```
+         to = aws_sagemaker_device.example
+
+         id = "my-fleet/my-device" } Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For exampleconsole % pulumi import aws_sagemaker_device.example my-fleet/my-device
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.

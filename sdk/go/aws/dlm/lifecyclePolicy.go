@@ -18,13 +18,11 @@ import (
 //
 // ## Import
 //
-// # DLM lifecycle policies can be imported by their policy ID
+// terraform import {
 //
-// ```sh
+//	to = aws_dlm_lifecycle_policy.example
 //
-//	$ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-//
-// ```
+//	id = "policy-abcdef12345678901" } Using `pulumi import`, import DLM lifecycle policies using their policy ID. For exampleconsole % pulumi import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 

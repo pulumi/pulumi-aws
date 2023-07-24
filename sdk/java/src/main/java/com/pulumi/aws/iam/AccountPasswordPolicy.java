@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IAM Account Password Policy can be imported using the word `iam-account-password-policy`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
- * ```
+ *  to = aws_iam_account_password_policy.strict
+ * 
+ *  id = &#34;iam-account-password-policy&#34; } Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For exampleconsole % pulumi import aws_iam_account_password_policy.strict iam-account-password-policy
  * 
  */
 @ResourceType(type="aws:iam/accountPasswordPolicy:AccountPasswordPolicy")

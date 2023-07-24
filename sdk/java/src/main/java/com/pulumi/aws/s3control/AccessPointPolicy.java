@@ -80,11 +80,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Access Point policies can be imported using the `access_point_arn`, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
- * ```
+ *  to = aws_s3control_access_point_policy.example
+ * 
+ *  id = &#34;arn:aws:s3:us-west-2:123456789012:accesspoint/example&#34; } Using `pulumi import`, import Access Point policies using the `access_point_arn`. For exampleconsole % pulumi import aws_s3control_access_point_policy.example arn:aws:s3:us-west-2:123456789012:accesspoint/example
  * 
  */
 @ResourceType(type="aws:s3control/accessPointPolicy:AccessPointPolicy")

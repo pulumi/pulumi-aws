@@ -59,13 +59,11 @@ import (
 //
 // ## Import
 //
-// Network Firewall Policies can be imported using their `ARN`.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkfirewall_firewall_policy.example
 //
-//	$ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
-//
-// ```
+//	id = "arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example" } Using `pulumi import`, import Network Firewall Policies using their `arn`. For exampleconsole % pulumi import aws_networkfirewall_firewall_policy.example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 

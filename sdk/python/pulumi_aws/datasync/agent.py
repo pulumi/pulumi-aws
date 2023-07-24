@@ -345,11 +345,11 @@ class Agent(pulumi.CustomResource):
 
         ## Import
 
-        `aws_datasync_agent` can be imported by using the DataSync Agent Amazon Resource Name (ARN), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
-        ```
+         to = aws_datasync_agent.example
+
+         id = "arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567" } Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_agent.example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -384,11 +384,11 @@ class Agent(pulumi.CustomResource):
 
         ## Import
 
-        `aws_datasync_agent` can be imported by using the DataSync Agent Amazon Resource Name (ARN), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
-        ```
+         to = aws_datasync_agent.example
+
+         id = "arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567" } Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For exampleconsole % pulumi import aws_datasync_agent.example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
 
         :param str resource_name: The name of the resource.
         :param AgentArgs args: The arguments to use to populate this resource's properties.
@@ -520,7 +520,7 @@ class Agent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privateLinkEndpoint")
-    def private_link_endpoint(self) -> pulumi.Output[Optional[str]]:
+    def private_link_endpoint(self) -> pulumi.Output[str]:
         """
         The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
         """

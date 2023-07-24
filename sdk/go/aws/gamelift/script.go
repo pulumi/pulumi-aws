@@ -45,13 +45,11 @@ import (
 //
 // ## Import
 //
-// GameLift Scripts can be imported using the ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_gamelift_script.example
 //
-//	$ pulumi import aws:gamelift/script:Script example <script-id>
-//
-// ```
+//	id = "<script-id>" } Using `pulumi import`, import GameLift Scripts using the ID. For exampleconsole % pulumi import aws_gamelift_script.example <script-id>
 type Script struct {
 	pulumi.CustomResourceState
 

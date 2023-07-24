@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
-    /// IoT Thing Group Membership can be imported using the thing group name and thing name.
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
-    /// ```
+    ///  to = aws_iot_thing_group_membership.example
+    /// 
+    ///  id = "thing_group_name/thing_name" } Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For exampleconsole % pulumi import aws_iot_thing_group_membership.example thing_group_name/thing_name
     /// </summary>
     [AwsResourceType("aws:iot/thingGroupMembership:ThingGroupMembership")]
     public partial class ThingGroupMembership : global::Pulumi.CustomResource

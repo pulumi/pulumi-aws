@@ -43,13 +43,11 @@ import (
 //
 // ## Import
 //
-// `aws_appsync_domain_name_api_association` can be imported using the AppSync domain name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appsync_domain_name_api_association.example
 //
-//	$ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
-//
-// ```
+//	id = "example.com" } Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For exampleconsole % pulumi import aws_appsync_domain_name_api_association.example example.com
 type DomainNameApiAssociation struct {
 	pulumi.CustomResourceState
 

@@ -53,13 +53,11 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ec2_fleet.example
 //
-//	$ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
-//
-// ```
+//	id = "fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c" } Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For exampleconsole % pulumi import aws_ec2_fleet.example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
 type Fleet struct {
 	pulumi.CustomResourceState
 

@@ -364,11 +364,11 @@ class Assessment(pulumi.CustomResource):
 
         ## Import
 
-        Audit Manager Assessments can be imported using the assessment `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
-        ```
+         to = aws_auditmanager_assessment.example
+
+         id = "abc123-de45" } Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For exampleconsole % pulumi import aws_auditmanager_assessment.example abc123-de45
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -421,11 +421,11 @@ class Assessment(pulumi.CustomResource):
 
         ## Import
 
-        Audit Manager Assessments can be imported using the assessment `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
-        ```
+         to = aws_auditmanager_assessment.example
+
+         id = "abc123-de45" } Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For exampleconsole % pulumi import aws_auditmanager_assessment.example abc123-de45
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.

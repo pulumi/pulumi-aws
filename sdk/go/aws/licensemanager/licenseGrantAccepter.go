@@ -16,13 +16,11 @@ import (
 //
 // ## Import
 //
-// `aws_licensemanager_grant_accepter` can be imported using the grant arn.
+// terraform import {
 //
-// ```sh
+//	to = aws_licensemanager_grant_accepter.test
 //
-//	$ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
-//
-// ```
+//	id = "arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329" } Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For exampleconsole % pulumi import aws_licensemanager_grant_accepter.test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
 type LicenseGrantAccepter struct {
 	pulumi.CustomResourceState
 

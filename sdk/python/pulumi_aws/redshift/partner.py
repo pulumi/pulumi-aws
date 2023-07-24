@@ -211,11 +211,11 @@ class Partner(pulumi.CustomResource):
 
         ## Import
 
-        Redshift usage limits can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
-        ```
+         to = aws_redshift_partner.example
+
+         id = "01234567910:cluster-example-id:example:example" } Using `pulumi import`, import Redshift usage limits using the `id`. For exampleconsole % pulumi import aws_redshift_partner.example 01234567910:cluster-example-id:example:example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,11 +248,11 @@ class Partner(pulumi.CustomResource):
 
         ## Import
 
-        Redshift usage limits can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
-        ```
+         to = aws_redshift_partner.example
+
+         id = "01234567910:cluster-example-id:example:example" } Using `pulumi import`, import Redshift usage limits using the `id`. For exampleconsole % pulumi import aws_redshift_partner.example 01234567910:cluster-example-id:example:example
 
         :param str resource_name: The name of the resource.
         :param PartnerArgs args: The arguments to use to populate this resource's properties.

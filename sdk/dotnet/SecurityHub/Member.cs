@@ -42,11 +42,11 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// Security Hub members can be imported using their account ID, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:securityhub/member:Member example 123456789012
-    /// ```
+    ///  to = aws_securityhub_member.example
+    /// 
+    ///  id = "123456789012" } Using `pulumi import`, import Security Hub members using their account ID. For exampleconsole % pulumi import aws_securityhub_member.example 123456789012
     /// </summary>
     [AwsResourceType("aws:securityhub/member:Member")]
     public partial class Member : global::Pulumi.CustomResource

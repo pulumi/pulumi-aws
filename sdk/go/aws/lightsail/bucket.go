@@ -42,13 +42,11 @@ import (
 //
 // ## Import
 //
-// `aws_lightsail_bucket` can be imported by using the `name` attribute, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_lightsail_bucket.test
 //
-//	$ pulumi import aws:lightsail/bucket:Bucket test example-bucket
-//
-// ```
+//	id = "example-bucket" } Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For exampleconsole % pulumi import aws_lightsail_bucket.test example-bucket
 type Bucket struct {
 	pulumi.CustomResourceState
 

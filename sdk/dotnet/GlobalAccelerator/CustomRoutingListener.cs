@@ -53,11 +53,11 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// ## Import
     /// 
-    /// Global Accelerator custom routing listeners can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
-    /// ```
+    ///  to = aws_globalaccelerator_custom_routing_listener.example
+    /// 
+    ///  id = "arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx" } Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/customRoutingListener:CustomRoutingListener")]
     public partial class CustomRoutingListener : global::Pulumi.CustomResource
@@ -70,8 +70,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// 
-        /// **port_range** supports the following attributes:
         /// </summary>
         [Output("portRanges")]
         public Output<ImmutableArray<Outputs.CustomRoutingListenerPortRange>> PortRanges { get; private set; } = null!;
@@ -133,8 +131,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// 
-        /// **port_range** supports the following attributes:
         /// </summary>
         public InputList<Inputs.CustomRoutingListenerPortRangeArgs> PortRanges
         {
@@ -161,8 +157,6 @@ namespace Pulumi.Aws.GlobalAccelerator
 
         /// <summary>
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        /// 
-        /// **port_range** supports the following attributes:
         /// </summary>
         public InputList<Inputs.CustomRoutingListenerPortRangeGetArgs> PortRanges
         {

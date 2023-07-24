@@ -42,11 +42,11 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// ## Import
     /// 
-    /// Synthetics Canaries can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:synthetics/canary:Canary some some-canary
-    /// ```
+    ///  to = aws_synthetics_canary.some
+    /// 
+    ///  id = "some-canary" } Using `pulumi import`, import Synthetics Canaries using the `name`. For exampleconsole % pulumi import aws_synthetics_canary.some some-canary
     /// </summary>
     [AwsResourceType("aws:synthetics/canary:Canary")]
     public partial class Canary : global::Pulumi.CustomResource

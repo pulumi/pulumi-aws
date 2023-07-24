@@ -211,11 +211,11 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
 
         ## Import
 
-        AWS Chime SDK Voice Profile Domain can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
-        ```
+         to = aws_chimesdkvoice_voice_profile_domain.example
+
+         id = "abcdef123456" } Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_voice_profile_domain.example abcdef123456
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,11 +255,11 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
 
         ## Import
 
-        AWS Chime SDK Voice Profile Domain can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
-        ```
+         to = aws_chimesdkvoice_voice_profile_domain.example
+
+         id = "abcdef123456" } Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For exampleconsole % pulumi import aws_chimesdkvoice_voice_profile_domain.example abcdef123456
 
         :param str resource_name: The name of the resource.
         :param SdkvoiceVoiceProfileDomainArgs args: The arguments to use to populate this resource's properties.

@@ -535,11 +535,11 @@ class FileCache(pulumi.CustomResource):
 
         ## Import
 
-        Amazon File Cache cache can be imported using the resource `id`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
-        ```
+         to = aws_fsx_file_cache.example
+
+         id = "fc-8012925589" } Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For exampleconsole % pulumi import aws_fsx_file_cache.example fc-8012925589
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -605,11 +605,11 @@ class FileCache(pulumi.CustomResource):
 
         ## Import
 
-        Amazon File Cache cache can be imported using the resource `id`.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
-        ```
+         to = aws_fsx_file_cache.example
+
+         id = "fc-8012925589" } Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For exampleconsole % pulumi import aws_fsx_file_cache.example fc-8012925589
 
         :param str resource_name: The name of the resource.
         :param FileCacheArgs args: The arguments to use to populate this resource's properties.

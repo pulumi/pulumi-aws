@@ -130,13 +130,11 @@ import (
 //
 // ## Import
 //
-// Glue Data Quality Ruleset can be imported using the `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_data_quality_ruleset.example
 //
-//	$ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
-//
-// ```
+//	id = "exampleName" } Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For exampleconsole % pulumi import aws_glue_data_quality_ruleset.example exampleName
 type DataQualityRuleset struct {
 	pulumi.CustomResourceState
 

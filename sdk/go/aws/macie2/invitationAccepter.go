@@ -63,13 +63,11 @@ import (
 //
 // ## Import
 //
-// `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_macie2_invitation_accepter.example
 //
-//	$ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For exampleconsole % pulumi import aws_macie2_invitation_accepter.example 123456789012
 type InvitationAccepter struct {
 	pulumi.CustomResourceState
 

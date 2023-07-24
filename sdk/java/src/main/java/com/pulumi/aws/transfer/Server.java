@@ -224,13 +224,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Transfer Servers can be imported using the `server id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:transfer/server:Server example s-12345678
- * ```
+ *  to = aws_transfer_server.example
  * 
- *  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+ *  id = &#34;s-12345678&#34; } Using `pulumi import`, import Transfer Servers using the server `id`. For exampleconsole % pulumi import aws_transfer_server.example s-12345678 Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
  * 
  */
 @ResourceType(type="aws:transfer/server:Server")

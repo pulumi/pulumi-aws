@@ -237,11 +237,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Backup selection can be imported using the role plan_id and id separated by `|`.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
- * ```
+ *  to = aws_backup_selection.example
+ * 
+ *  id = &#34;plan-id|selection-id&#34; } Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For exampleconsole % pulumi import aws_backup_selection.example plan-id|selection-id
  * 
  */
 @ResourceType(type="aws:backup/selection:Selection")

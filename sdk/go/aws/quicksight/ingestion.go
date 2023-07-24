@@ -45,13 +45,11 @@ import (
 //
 // ## Import
 //
-// QuickSight Ingestion can be imported using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`) e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_quicksight_ingestion.example
 //
-//	$ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
-//
-// ```
+//	id = "123456789012,example-dataset-id,example-ingestion-id" } Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For exampleconsole % pulumi import aws_quicksight_ingestion.example 123456789012,example-dataset-id,example-ingestion-id
 type Ingestion struct {
 	pulumi.CustomResourceState
 

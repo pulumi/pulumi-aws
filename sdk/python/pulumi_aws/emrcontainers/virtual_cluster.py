@@ -188,11 +188,11 @@ class VirtualCluster(pulumi.CustomResource):
 
         ## Import
 
-        EKS Clusters can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
-        ```
+         to = aws_emrcontainers_virtual_cluster.example
+
+         id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `pulumi import`, import EKS Clusters using the `id`. For exampleconsole % pulumi import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,11 +229,11 @@ class VirtualCluster(pulumi.CustomResource):
 
         ## Import
 
-        EKS Clusters can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
-        ```
+         to = aws_emrcontainers_virtual_cluster.example
+
+         id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `pulumi import`, import EKS Clusters using the `id`. For exampleconsole % pulumi import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l
 
         :param str resource_name: The name of the resource.
         :param VirtualClusterArgs args: The arguments to use to populate this resource's properties.

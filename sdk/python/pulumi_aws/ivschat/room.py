@@ -316,11 +316,11 @@ class Room(pulumi.CustomResource):
 
         ## Import
 
-        IVS (Interactive Video) Chat Room can be imported using the ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
-        ```
+         to = aws_ivschat_room.example
+
+         id = "arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb" } Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For exampleconsole % pulumi import aws_ivschat_room.example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -373,11 +373,11 @@ class Room(pulumi.CustomResource):
 
         ## Import
 
-        IVS (Interactive Video) Chat Room can be imported using the ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
-        ```
+         to = aws_ivschat_room.example
+
+         id = "arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb" } Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For exampleconsole % pulumi import aws_ivschat_room.example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
 
         :param str resource_name: The name of the resource.
         :param RoomArgs args: The arguments to use to populate this resource's properties.

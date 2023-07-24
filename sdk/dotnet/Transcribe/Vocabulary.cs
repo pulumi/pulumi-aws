@@ -63,11 +63,11 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// ## Import
     /// 
-    /// Transcribe Vocabulary can be imported using the `vocabulary_name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
-    /// ```
+    ///  to = aws_transcribe_vocabulary.example
+    /// 
+    ///  id = "example-name" } Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For exampleconsole % pulumi import aws_transcribe_vocabulary.example example-name
     /// </summary>
     [AwsResourceType("aws:transcribe/vocabulary:Vocabulary")]
     public partial class Vocabulary : global::Pulumi.CustomResource

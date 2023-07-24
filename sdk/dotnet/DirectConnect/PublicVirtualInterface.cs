@@ -42,11 +42,11 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Import
     /// 
-    /// Direct Connect public virtual interfaces can be imported using the `vif id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
-    /// ```
+    ///  to = aws_dx_public_virtual_interface.test
+    /// 
+    ///  id = "dxvif-33cc44dd" } Using `pulumi import`, import Direct Connect public virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_public_virtual_interface.test dxvif-33cc44dd
     /// </summary>
     [AwsResourceType("aws:directconnect/publicVirtualInterface:PublicVirtualInterface")]
     public partial class PublicVirtualInterface : global::Pulumi.CustomResource

@@ -322,11 +322,11 @@ class ProxyEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
-        ```
+         to = aws_db_proxy_endpoint.example
+
+         id = "example/example" } Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For exampleconsole % pulumi import aws_db_proxy_endpoint.example example/example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,11 +361,11 @@ class ProxyEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
-        ```
+         to = aws_db_proxy_endpoint.example
+
+         id = "example/example" } Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For exampleconsole % pulumi import aws_db_proxy_endpoint.example example/example
 
         :param str resource_name: The name of the resource.
         :param ProxyEndpointArgs args: The arguments to use to populate this resource's properties.

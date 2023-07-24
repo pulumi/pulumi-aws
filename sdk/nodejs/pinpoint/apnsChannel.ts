@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Pinpoint APNs Channel can be imported using the `application-id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
- * ```
+ *  to = aws_pinpoint_apns_channel.apns
+ *
+ *  id = "application-id" } Using `pulumi import`, import Pinpoint APNs Channel using the `application-id`. For exampleconsole % pulumi import aws_pinpoint_apns_channel.apns application-id
  */
 export class ApnsChannel extends pulumi.CustomResource {
     /**

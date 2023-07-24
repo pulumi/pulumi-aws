@@ -146,11 +146,11 @@ class ApplicationSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
-        ```
+         to = aws_kinesisanalyticsv2_application_snapshot.example
+
+         id = "example-application/example-snapshot" } Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For exampleconsole % pulumi import aws_kinesisanalyticsv2_application_snapshot.example example-application/example-snapshot
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,11 +180,11 @@ class ApplicationSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
-        ```
+         to = aws_kinesisanalyticsv2_application_snapshot.example
+
+         id = "example-application/example-snapshot" } Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For exampleconsole % pulumi import aws_kinesisanalyticsv2_application_snapshot.example example-application/example-snapshot
 
         :param str resource_name: The name of the resource.
         :param ApplicationSnapshotArgs args: The arguments to use to populate this resource's properties.

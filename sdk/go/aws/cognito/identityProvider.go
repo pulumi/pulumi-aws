@@ -61,13 +61,11 @@ import (
 //
 // ## Import
 //
-// `aws_cognito_identity_provider` resources can be imported using their User Pool ID and Provider Name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cognito_identity_provider.example
 //
-//	$ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
-//
-// ```
+//	id = "us-west-2_abc123:CorpAD" } Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For exampleconsole % pulumi import aws_cognito_identity_provider.example us-west-2_abc123:CorpAD
 type IdentityProvider struct {
 	pulumi.CustomResourceState
 

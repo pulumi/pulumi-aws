@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// IAM Virtual MFA Devices can be imported using the `arn`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_virtual_mfa_device.example
 //
-//	$ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
-//
-// ```
+//	id = "arn:aws:iam::123456789012:mfa/example" } Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For exampleconsole % pulumi import aws_iam_virtual_mfa_device.example arn:aws:iam::123456789012:mfa/example
 type VirtualMfaDevice struct {
 	pulumi.CustomResourceState
 

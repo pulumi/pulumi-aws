@@ -50,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Key Pairs can be imported using the `key_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_key_pair.deployer
 //
-//	$ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
-//
-// ```
+//	id = "deployer-key" } Using `pulumi import`, import Key Pairs using the `key_name`. For exampleconsole % pulumi import aws_key_pair.deployer deployer-key
 type KeyPair struct {
 	pulumi.CustomResourceState
 

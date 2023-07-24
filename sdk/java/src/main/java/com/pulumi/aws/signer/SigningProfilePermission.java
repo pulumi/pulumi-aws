@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Signer signing profile permission statements can be imported using profile_name/statement_id, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:signer/signingProfilePermission:SigningProfilePermission test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
- * ```
+ *  to = aws_signer_signing_profile_permission.test_signer_signing_profile_permission
+ * 
+ *  id = &#34;prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId&#34; } Using `pulumi import`, import Signer signing profile permission statements using profile_name/statement_id. For exampleconsole % pulumi import aws_signer_signing_profile_permission.test_signer_signing_profile_permission prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK/ProdAccountStartSigningJobStatementId
  * 
  */
 @ResourceType(type="aws:signer/signingProfilePermission:SigningProfilePermission")

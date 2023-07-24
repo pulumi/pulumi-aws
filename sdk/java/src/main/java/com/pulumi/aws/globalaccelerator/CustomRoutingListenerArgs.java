@@ -33,16 +33,12 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      * 
-     * **port_range** supports the following attributes:
-     * 
      */
     @Import(name="portRanges", required=true)
     private Output<List<CustomRoutingListenerPortRangeArgs>> portRanges;
 
     /**
      * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     * 
-     * **port_range** supports the following attributes:
      * 
      */
     public Output<List<CustomRoutingListenerPortRangeArgs>> portRanges() {
@@ -98,8 +94,6 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
         /**
          * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
          * 
-         * **port_range** supports the following attributes:
-         * 
          * @return builder
          * 
          */
@@ -111,8 +105,6 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
         /**
          * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
          * 
-         * **port_range** supports the following attributes:
-         * 
          * @return builder
          * 
          */
@@ -122,8 +114,6 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
 
         /**
          * @param portRanges The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-         * 
-         * **port_range** supports the following attributes:
          * 
          * @return builder
          * 

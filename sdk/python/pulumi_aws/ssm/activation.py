@@ -324,11 +324,11 @@ class Activation(pulumi.CustomResource):
 
         ## Import
 
-        AWS SSM Activation can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
-        ```
+         to = aws_ssm_activation.example
+
+         id = "e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE" } Using `pulumi import`, import AWS SSM Activation using the `id`. For exampleconsole % pulumi import aws_ssm_activation.example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,11 +375,11 @@ class Activation(pulumi.CustomResource):
 
         ## Import
 
-        AWS SSM Activation can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
-        ```
+         to = aws_ssm_activation.example
+
+         id = "e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE" } Using `pulumi import`, import AWS SSM Activation using the `id`. For exampleconsole % pulumi import aws_ssm_activation.example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
 
         :param str resource_name: The name of the resource.
         :param ActivationArgs args: The arguments to use to populate this resource's properties.

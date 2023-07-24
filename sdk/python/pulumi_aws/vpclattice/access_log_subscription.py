@@ -183,11 +183,11 @@ class AccessLogSubscription(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Access Log Subscription can be imported using the access log subscription ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
-        ```
+         to = aws_vpclattice_access_log_subscription.example
+
+         id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For exampleconsole % pulumi import aws_vpclattice_access_log_subscription.example rft-8012925589
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,11 +217,11 @@ class AccessLogSubscription(pulumi.CustomResource):
 
         ## Import
 
-        VPC Lattice Access Log Subscription can be imported using the access log subscription ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
-        ```
+         to = aws_vpclattice_access_log_subscription.example
+
+         id = "rft-8012925589" } Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For exampleconsole % pulumi import aws_vpclattice_access_log_subscription.example rft-8012925589
 
         :param str resource_name: The name of the resource.
         :param AccessLogSubscriptionArgs args: The arguments to use to populate this resource's properties.

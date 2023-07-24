@@ -145,11 +145,11 @@ class ServiceSetting(pulumi.CustomResource):
 
         ## Import
 
-        AWS SSM Service Setting can be imported using the `setting_id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
-        ```
+         to = aws_ssm_service_setting.example
+
+         id = "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" } Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For exampleconsole % pulumi import aws_ssm_service_setting.example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,11 +178,11 @@ class ServiceSetting(pulumi.CustomResource):
 
         ## Import
 
-        AWS SSM Service Setting can be imported using the `setting_id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
-        ```
+         to = aws_ssm_service_setting.example
+
+         id = "arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled" } Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For exampleconsole % pulumi import aws_ssm_service_setting.example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
 
         :param str resource_name: The name of the resource.
         :param ServiceSettingArgs args: The arguments to use to populate this resource's properties.

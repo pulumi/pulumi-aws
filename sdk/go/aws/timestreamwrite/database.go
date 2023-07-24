@@ -72,13 +72,11 @@ import (
 //
 // ## Import
 //
-// Timestream databases can be imported using the `database_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_timestreamwrite_database.example
 //
-//	$ pulumi import aws:timestreamwrite/database:Database example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Timestream databases using the `database_name`. For exampleconsole % pulumi import aws_timestreamwrite_database.example example
 type Database struct {
 	pulumi.CustomResourceState
 

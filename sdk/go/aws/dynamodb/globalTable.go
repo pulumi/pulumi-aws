@@ -101,13 +101,11 @@ import (
 //
 // ## Import
 //
-// DynamoDB Global Tables can be imported using the global table name, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_dynamodb_global_table.MyTable
 //
-//	$ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
-//
-// ```
+//	id = "MyTable" } Using `pulumi import`, import DynamoDB Global Tables using the global table name. For exampleconsole % pulumi import aws_dynamodb_global_table.MyTable MyTable
 type GlobalTable struct {
 	pulumi.CustomResourceState
 

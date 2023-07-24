@@ -258,11 +258,11 @@ class Connection(pulumi.CustomResource):
 
         ## Import
 
-        CodeStar connections can be imported using the ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
-        ```
+         to = aws_codestarconnections_connection.test-connection
+
+         id = "arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448" } Using `pulumi import`, import CodeStar connections using the ARN. For exampleconsole % pulumi import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -322,11 +322,11 @@ class Connection(pulumi.CustomResource):
 
         ## Import
 
-        CodeStar connections can be imported using the ARN, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
-        ```
+         to = aws_codestarconnections_connection.test-connection
+
+         id = "arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448" } Using `pulumi import`, import CodeStar connections using the ARN. For exampleconsole % pulumi import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

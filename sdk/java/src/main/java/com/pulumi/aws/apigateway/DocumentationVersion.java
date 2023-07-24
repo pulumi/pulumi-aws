@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * API Gateway documentation versions can be imported using `REST-API-ID/VERSION`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
- * ```
+ *  to = aws_api_gateway_documentation_version.example
+ * 
+ *  id = &#34;5i4e1ko720/example-version&#34; } Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For exampleconsole % pulumi import aws_api_gateway_documentation_version.example 5i4e1ko720/example-version
  * 
  */
 @ResourceType(type="aws:apigateway/documentationVersion:DocumentationVersion")

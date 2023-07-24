@@ -3609,6 +3609,10 @@ export namespace appmesh {
          */
         hostname?: outputs.appmesh.GatewayRouteSpecHttp2RouteActionRewriteHostname;
         /**
+         * Exact path to rewrite.
+         */
+        path?: outputs.appmesh.GatewayRouteSpecHttp2RouteActionRewritePath;
+        /**
          * Specified beginning characters to rewrite.
          */
         prefix?: outputs.appmesh.GatewayRouteSpecHttp2RouteActionRewritePrefix;
@@ -3619,6 +3623,13 @@ export namespace appmesh {
          * Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
          */
         defaultTargetHostname: string;
+    }
+
+    export interface GatewayRouteSpecHttp2RouteActionRewritePath {
+        /**
+         * The exact path to match on.
+         */
+        exact: string;
     }
 
     export interface GatewayRouteSpecHttp2RouteActionRewritePrefix {
@@ -3660,7 +3671,7 @@ export namespace appmesh {
          */
         hostname?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchHostname;
         /**
-         * Client request path to match on.
+         * Exact path to rewrite.
          */
         path?: outputs.appmesh.GatewayRouteSpecHttp2RouteMatchPath;
         /**
@@ -3694,7 +3705,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatchHeaderMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Value used to replace matched path.
          */
         exact?: string;
         /**
@@ -3761,7 +3772,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttp2RouteMatchQueryParameterMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Value used to replace matched path.
          */
         exact?: string;
     }
@@ -3794,6 +3805,10 @@ export namespace appmesh {
          */
         hostname?: outputs.appmesh.GatewayRouteSpecHttpRouteActionRewriteHostname;
         /**
+         * Exact path to rewrite.
+         */
+        path?: outputs.appmesh.GatewayRouteSpecHttpRouteActionRewritePath;
+        /**
          * Specified beginning characters to rewrite.
          */
         prefix?: outputs.appmesh.GatewayRouteSpecHttpRouteActionRewritePrefix;
@@ -3804,6 +3819,13 @@ export namespace appmesh {
          * Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
          */
         defaultTargetHostname: string;
+    }
+
+    export interface GatewayRouteSpecHttpRouteActionRewritePath {
+        /**
+         * The exact path to match on.
+         */
+        exact: string;
     }
 
     export interface GatewayRouteSpecHttpRouteActionRewritePrefix {
@@ -3845,7 +3867,7 @@ export namespace appmesh {
          */
         hostname?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchHostname;
         /**
-         * Client request path to match on.
+         * Exact path to rewrite.
          */
         path?: outputs.appmesh.GatewayRouteSpecHttpRouteMatchPath;
         /**
@@ -3879,7 +3901,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatchHeaderMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Value used to replace matched path.
          */
         exact?: string;
         /**
@@ -3946,7 +3968,7 @@ export namespace appmesh {
 
     export interface GatewayRouteSpecHttpRouteMatchQueryParameterMatch {
         /**
-         * Header value sent by the client must match the specified value exactly.
+         * Value used to replace matched path.
          */
         exact?: string;
     }
@@ -3993,11 +4015,16 @@ export namespace appmesh {
 
     export interface GetGatewayRouteSpecHttp2RouteActionRewrite {
         hostnames: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionRewriteHostname[];
+        paths: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionRewritePath[];
         prefixes: outputs.appmesh.GetGatewayRouteSpecHttp2RouteActionRewritePrefix[];
     }
 
     export interface GetGatewayRouteSpecHttp2RouteActionRewriteHostname {
         defaultTargetHostname: string;
+    }
+
+    export interface GetGatewayRouteSpecHttp2RouteActionRewritePath {
+        exact: string;
     }
 
     export interface GetGatewayRouteSpecHttp2RouteActionRewritePrefix {
@@ -4079,11 +4106,16 @@ export namespace appmesh {
 
     export interface GetGatewayRouteSpecHttpRouteActionRewrite {
         hostnames: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionRewriteHostname[];
+        paths: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionRewritePath[];
         prefixes: outputs.appmesh.GetGatewayRouteSpecHttpRouteActionRewritePrefix[];
     }
 
     export interface GetGatewayRouteSpecHttpRouteActionRewriteHostname {
         defaultTargetHostname: string;
+    }
+
+    export interface GetGatewayRouteSpecHttpRouteActionRewritePath {
+        exact: string;
     }
 
     export interface GetGatewayRouteSpecHttpRouteActionRewritePrefix {
@@ -8412,7 +8444,7 @@ export namespace autoscaling {
 
     export interface GroupInstanceRefreshPreferences {
         /**
-         * Automatically rollback if instance refresh fails. Defaults to `false`.
+         * Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
          */
         autoRollback?: boolean;
         /**
@@ -9528,7 +9560,7 @@ export namespace backup {
          */
         inputParameters?: outputs.backup.FrameworkControlInputParameter[];
         /**
-         * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * The name of a control. This name is between 1 and 256 characters.
          */
         name: string;
         /**
@@ -9539,7 +9571,7 @@ export namespace backup {
 
     export interface FrameworkControlInputParameter {
         /**
-         * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+         * The name of a parameter, for example, BackupPlanFrequency.
          */
         name?: string;
         /**
@@ -9558,7 +9590,7 @@ export namespace backup {
          */
         complianceResourceTypes?: string[];
         /**
-         * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          */
         tags?: {[key: string]: string};
     }
@@ -9702,7 +9734,7 @@ export namespace backup {
          */
         destinationVaultArn: string;
         /**
-         * The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+         * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
          */
         lifecycle?: outputs.backup.PlanRuleCopyActionLifecycle;
     }
@@ -11032,6 +11064,21 @@ export namespace cloudformation {
          * The order of the Regions in where you want to perform the stack operation.
          */
         regionOrders?: string[];
+    }
+
+    export interface StackSetInstanceStackInstanceSummary {
+        /**
+         * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+         */
+        accountId: string;
+        /**
+         * Organizational unit ID in which the stack is deployed.
+         */
+        organizationalUnitId: string;
+        /**
+         * Stack identifier.
+         */
+        stackId: string;
     }
 
     export interface StackSetManagedExecution {
@@ -12404,7 +12451,7 @@ export namespace cloudtrail {
          */
         fieldSelectors: outputs.cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelector[];
         /**
-         * The name of the event data store.
+         * Specifies the name of the advanced event selector.
          */
         name: string;
     }
@@ -15220,61 +15267,43 @@ export namespace config {
         account?: string;
         acm?: string;
         acmpca?: string;
-        alexaforbusiness?: string;
         amg?: string;
         amp?: string;
         amplify?: string;
-        amplifybackend?: string;
-        amplifyuibuilder?: string;
         apigateway?: string;
-        apigatewaymanagementapi?: string;
         apigatewayv2?: string;
         appautoscaling?: string;
         appconfig?: string;
-        appconfigdata?: string;
         appflow?: string;
         appintegrations?: string;
         appintegrationsservice?: string;
         applicationautoscaling?: string;
-        applicationcostprofiler?: string;
-        applicationdiscovery?: string;
-        applicationdiscoveryservice?: string;
         applicationinsights?: string;
         appmesh?: string;
-        appregistry?: string;
         apprunner?: string;
         appstream?: string;
         appsync?: string;
         athena?: string;
         auditmanager?: string;
-        augmentedairuntime?: string;
         autoscaling?: string;
         autoscalingplans?: string;
         backup?: string;
-        backupgateway?: string;
         batch?: string;
         beanstalk?: string;
-        billingconductor?: string;
-        braket?: string;
         budgets?: string;
         ce?: string;
         chime?: string;
-        chimesdkidentity?: string;
         chimesdkmediapipelines?: string;
-        chimesdkmeetings?: string;
-        chimesdkmessaging?: string;
         chimesdkvoice?: string;
         cleanrooms?: string;
         cloud9?: string;
         cloudcontrol?: string;
         cloudcontrolapi?: string;
-        clouddirectory?: string;
         cloudformation?: string;
         cloudfront?: string;
         cloudhsm?: string;
         cloudhsmv2?: string;
         cloudsearch?: string;
-        cloudsearchdomain?: string;
         cloudtrail?: string;
         cloudwatch?: string;
         cloudwatchevents?: string;
@@ -15287,33 +15316,24 @@ export namespace config {
         codebuild?: string;
         codecommit?: string;
         codedeploy?: string;
-        codeguruprofiler?: string;
         codegurureviewer?: string;
         codepipeline?: string;
-        codestar?: string;
         codestarconnections?: string;
         codestarnotifications?: string;
         cognitoidentity?: string;
         cognitoidentityprovider?: string;
         cognitoidp?: string;
-        cognitosync?: string;
         comprehend?: string;
-        comprehendmedical?: string;
         computeoptimizer?: string;
         config?: string;
         configservice?: string;
         connect?: string;
-        connectcontactlens?: string;
-        connectparticipant?: string;
-        connectwisdomservice?: string;
         controltower?: string;
         costandusagereportservice?: string;
         costexplorer?: string;
         cur?: string;
-        customerprofiles?: string;
         databasemigration?: string;
         databasemigrationservice?: string;
-        databrew?: string;
         dataexchange?: string;
         datapipeline?: string;
         datasync?: string;
@@ -15321,21 +15341,15 @@ export namespace config {
         deploy?: string;
         detective?: string;
         devicefarm?: string;
-        devopsguru?: string;
         directconnect?: string;
         directoryservice?: string;
-        discovery?: string;
         dlm?: string;
         dms?: string;
         docdb?: string;
         docdbelastic?: string;
-        drs?: string;
         ds?: string;
         dynamodb?: string;
-        dynamodbstreams?: string;
-        ebs?: string;
         ec2?: string;
-        ec2instanceconnect?: string;
         ecr?: string;
         ecrpublic?: string;
         ecs?: string;
@@ -15343,7 +15357,6 @@ export namespace config {
         eks?: string;
         elasticache?: string;
         elasticbeanstalk?: string;
-        elasticinference?: string;
         elasticloadbalancing?: string;
         elasticloadbalancingv2?: string;
         elasticsearch?: string;
@@ -15359,29 +15372,18 @@ export namespace config {
         events?: string;
         evidently?: string;
         finspace?: string;
-        finspacedata?: string;
         firehose?: string;
         fis?: string;
         fms?: string;
-        forecast?: string;
-        forecastquery?: string;
-        forecastqueryservice?: string;
-        forecastservice?: string;
-        frauddetector?: string;
         fsx?: string;
         gamelift?: string;
         glacier?: string;
         globalaccelerator?: string;
         glue?: string;
-        gluedatabrew?: string;
         grafana?: string;
         greengrass?: string;
-        greengrassv2?: string;
-        groundstation?: string;
         guardduty?: string;
-        health?: string;
         healthlake?: string;
-        honeycode?: string;
         iam?: string;
         identitystore?: string;
         imagebuilder?: string;
@@ -15390,23 +15392,8 @@ export namespace config {
         inspectorv2?: string;
         internetmonitor?: string;
         iot?: string;
-        iot1clickdevices?: string;
-        iot1clickdevicesservice?: string;
-        iot1clickprojects?: string;
         iotanalytics?: string;
-        iotdata?: string;
-        iotdataplane?: string;
-        iotdeviceadvisor?: string;
         iotevents?: string;
-        ioteventsdata?: string;
-        iotfleethub?: string;
-        iotjobsdata?: string;
-        iotjobsdataplane?: string;
-        iotsecuretunneling?: string;
-        iotsitewise?: string;
-        iotthingsgraph?: string;
-        iottwinmaker?: string;
-        iotwireless?: string;
         ivs?: string;
         ivschat?: string;
         kafka?: string;
@@ -15417,10 +15404,6 @@ export namespace config {
         kinesisanalytics?: string;
         kinesisanalyticsv2?: string;
         kinesisvideo?: string;
-        kinesisvideoarchivedmedia?: string;
-        kinesisvideomedia?: string;
-        kinesisvideosignaling?: string;
-        kinesisvideosignalingchannels?: string;
         kms?: string;
         lakeformation?: string;
         lambda?: string;
@@ -15428,104 +15411,54 @@ export namespace config {
         lexmodelbuilding?: string;
         lexmodelbuildingservice?: string;
         lexmodels?: string;
-        lexmodelsv2?: string;
-        lexruntime?: string;
-        lexruntimeservice?: string;
-        lexruntimev2?: string;
-        lexv2models?: string;
-        lexv2runtime?: string;
         licensemanager?: string;
         lightsail?: string;
         location?: string;
         locationservice?: string;
         logs?: string;
-        lookoutequipment?: string;
-        lookoutforvision?: string;
-        lookoutmetrics?: string;
-        lookoutvision?: string;
-        machinelearning?: string;
-        macie?: string;
         macie2?: string;
-        managedblockchain?: string;
         managedgrafana?: string;
-        marketplacecatalog?: string;
-        marketplacecommerceanalytics?: string;
-        marketplaceentitlement?: string;
-        marketplaceentitlementservice?: string;
-        marketplacemetering?: string;
         mediaconnect?: string;
         mediaconvert?: string;
         medialive?: string;
         mediapackage?: string;
-        mediapackagevod?: string;
         mediastore?: string;
-        mediastoredata?: string;
-        mediatailor?: string;
         memorydb?: string;
-        meteringmarketplace?: string;
-        mgh?: string;
-        mgn?: string;
-        migrationhub?: string;
-        migrationhubconfig?: string;
-        migrationhubrefactorspaces?: string;
-        migrationhubstrategy?: string;
-        migrationhubstrategyrecommendations?: string;
-        mobile?: string;
         mq?: string;
         msk?: string;
-        mturk?: string;
         mwaa?: string;
         neptune?: string;
         networkfirewall?: string;
         networkmanager?: string;
-        nimble?: string;
-        nimblestudio?: string;
         oam?: string;
         opensearch?: string;
         opensearchserverless?: string;
         opensearchservice?: string;
         opsworks?: string;
-        opsworkscm?: string;
         organizations?: string;
         outposts?: string;
-        panorama?: string;
-        personalize?: string;
-        personalizeevents?: string;
-        personalizeruntime?: string;
-        pi?: string;
         pinpoint?: string;
-        pinpointemail?: string;
-        pinpointsmsvoice?: string;
         pipes?: string;
-        polly?: string;
         pricing?: string;
         prometheus?: string;
         prometheusservice?: string;
-        proton?: string;
         qldb?: string;
-        qldbsession?: string;
         quicksight?: string;
         ram?: string;
         rbin?: string;
         rds?: string;
-        rdsdata?: string;
-        rdsdataservice?: string;
         recyclebin?: string;
         redshift?: string;
         redshiftdata?: string;
         redshiftdataapiservice?: string;
         redshiftserverless?: string;
-        rekognition?: string;
-        resiliencehub?: string;
         resourceexplorer2?: string;
         resourcegroups?: string;
         resourcegroupstagging?: string;
         resourcegroupstaggingapi?: string;
-        robomaker?: string;
         rolesanywhere?: string;
         route53?: string;
         route53domains?: string;
-        route53recoverycluster?: string;
         route53recoverycontrolconfig?: string;
         route53recoveryreadiness?: string;
         route53resolver?: string;
@@ -15535,12 +15468,6 @@ export namespace config {
         s3control?: string;
         s3outposts?: string;
         sagemaker?: string;
-        sagemakera2iruntime?: string;
-        sagemakeredge?: string;
-        sagemakeredgemanager?: string;
-        sagemakerfeaturestoreruntime?: string;
-        sagemakerruntime?: string;
-        savingsplans?: string;
         scheduler?: string;
         schemas?: string;
         sdb?: string;
@@ -15551,7 +15478,6 @@ export namespace config {
         serverlessapprepo?: string;
         serverlessrepo?: string;
         servicecatalog?: string;
-        servicecatalogappregistry?: string;
         servicediscovery?: string;
         servicequotas?: string;
         ses?: string;
@@ -15560,46 +15486,28 @@ export namespace config {
         shield?: string;
         signer?: string;
         simpledb?: string;
-        sms?: string;
-        snowball?: string;
-        snowdevicemanagement?: string;
         sns?: string;
         sqs?: string;
         ssm?: string;
         ssmcontacts?: string;
         ssmincidents?: string;
-        sso?: string;
         ssoadmin?: string;
-        ssooidc?: string;
         stepfunctions?: string;
         storagegateway?: string;
         sts?: string;
-        support?: string;
         swf?: string;
         synthetics?: string;
-        textract?: string;
-        timestreamquery?: string;
         timestreamwrite?: string;
         transcribe?: string;
         transcribeservice?: string;
-        transcribestreaming?: string;
-        transcribestreamingservice?: string;
         transfer?: string;
-        translate?: string;
         verifiedpermissions?: string;
-        voiceid?: string;
         vpclattice?: string;
         waf?: string;
         wafregional?: string;
         wafv2?: string;
-        wellarchitected?: string;
-        wisdom?: string;
-        workdocs?: string;
         worklink?: string;
-        workmail?: string;
-        workmailmessageflow?: string;
         workspaces?: string;
-        workspacesweb?: string;
         xray?: string;
     }
 
@@ -22110,7 +22018,14 @@ export namespace ec2 {
     }
 
     export interface GetVpcEndpointDnsOption {
+        /**
+         * The DNS records created for the endpoint.
+         */
         dnsRecordIpType: string;
+        /**
+         * Indicates whether to enable private DNS only for inbound endpoints.
+         */
+        privateDnsOnlyForInboundResolverEndpoint: boolean;
     }
 
     export interface GetVpcEndpointFilter {
@@ -26540,7 +26455,7 @@ export namespace eks {
         controlPlaneInstanceType: string;
         /**
          * An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
-         * The following arguments are supported in the `controlPlanePlacement` configuration block:
+         * The `controlPlanePlacement` configuration block supports the following arguments:
          */
         controlPlanePlacement?: outputs.eks.ClusterOutpostConfigControlPlanePlacement;
         /**
@@ -29530,7 +29445,7 @@ export namespace fsx {
 
     export interface FileCacheLustreConfigurationMetadataConfiguration {
         /**
-         * The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
+         * The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
          */
         storageCapacity: number;
     }
@@ -30144,8 +30059,6 @@ export namespace globalaccelerator {
         protocols: string[];
         /**
          * The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-         *
-         * **endpoint_configuration** supports the following attributes:
          */
         toPort: number;
     }
@@ -30180,8 +30093,6 @@ export namespace globalaccelerator {
         endpointId?: string;
         /**
          * The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-         *
-         * **port_override** supports the following attributes:
          */
         weight?: number;
     }
@@ -42497,6 +42408,7 @@ export namespace mq {
     export interface GetBrokerUser {
         consoleAccess: boolean;
         groups: string[];
+        replicationUser: boolean;
         username: string;
     }
 
@@ -57304,6 +57216,10 @@ export namespace signer {
         value: number;
     }
 
+    export interface SigningProfileSigningMaterial {
+        certificateArn: string;
+    }
+
 }
 
 export namespace ssm {
@@ -62741,6 +62657,27 @@ export namespace wafv2 {
         sampledRequestsEnabled: boolean;
     }
 
+    export interface WebAclAssociationConfig {
+        /**
+         * Customizes the request body that your protected resource forward to AWS WAF for inspection. See `requestBody` below for details.
+         */
+        requestBodies?: outputs.wafv2.WebAclAssociationConfigRequestBody[];
+    }
+
+    export interface WebAclAssociationConfigRequestBody {
+        /**
+         * Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+         */
+        cloudfronts?: outputs.wafv2.WebAclAssociationConfigRequestBodyCloudfront[];
+    }
+
+    export interface WebAclAssociationConfigRequestBodyCloudfront {
+        /**
+         * Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+         */
+        defaultSizeInspectionLimit: string;
+    }
+
     export interface WebAclCaptchaConfig {
         /**
          * Defines custom immunity time. See `immunityTimeProperty` below for details.
@@ -67588,6 +67525,12 @@ export namespace worklink {
 }
 
 export namespace workspaces {
+    export interface ConnectionAliasTimeouts {
+        create?: string;
+        delete?: string;
+        update?: string;
+    }
+
     export interface DirectorySelfServicePermissions {
         /**
          * Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.

@@ -46,11 +46,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Shield protection health check association resources can be imported by specifying the `shield_protection_id` and `health_check_arn` e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
- * ```
+ *  to = aws_shield_protection_health_check_association.example
+ *
+ *  id = "ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b" } Using `pulumi import`, import Shield protection health check association resources using the `shield_protection_id` and `health_check_arn`. For exampleconsole % pulumi import aws_shield_protection_health_check_association.example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
  */
 export class ProtectionHealthCheckAssociation extends pulumi.CustomResource {
     /**

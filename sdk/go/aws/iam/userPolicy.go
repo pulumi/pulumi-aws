@@ -73,13 +73,11 @@ import (
 //
 // ## Import
 //
-// IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_iam_user_policy.mypolicy
 //
-//	$ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
-//
-// ```
+//	id = "user_of_mypolicy_name:mypolicy_name" } Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For exampleconsole % pulumi import aws_iam_user_policy.mypolicy user_of_mypolicy_name:mypolicy_name
 type UserPolicy struct {
 	pulumi.CustomResourceState
 

@@ -322,11 +322,11 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         ## Import
 
-        FIS Experiment Templates can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
-        ```
+         to = aws_fis_experiment_template.template
+
+         id = "EXT123AbCdEfGhIjK" } Using `pulumi import`, import FIS Experiment Templates using the `id`. For exampleconsole % pulumi import aws_fis_experiment_template.template EXT123AbCdEfGhIjK
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -386,11 +386,11 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         ## Import
 
-        FIS Experiment Templates can be imported using the `id`, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
-        ```
+         to = aws_fis_experiment_template.template
+
+         id = "EXT123AbCdEfGhIjK" } Using `pulumi import`, import FIS Experiment Templates using the `id`. For exampleconsole % pulumi import aws_fis_experiment_template.template EXT123AbCdEfGhIjK
 
         :param str resource_name: The name of the resource.
         :param ExperimentTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * OpsWorks PHP Application Layers can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
- * ```
+ *  to = aws_opsworks_php_app_layer.bar
+ *
+ *  id = "00000000-0000-0000-0000-000000000000" } Using `pulumi import`, import OpsWorks PHP Application Layers using the `id`. For exampleconsole % pulumi import aws_opsworks_php_app_layer.bar 00000000-0000-0000-0000-000000000000
  */
 export class PhpAppLayer extends pulumi.CustomResource {
     /**

@@ -136,11 +136,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker Domains can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
-    /// ```
+    ///  to = aws_sagemaker_domain.test_domain
+    /// 
+    ///  id = "d-8jgsjtilstu8" } Using `pulumi import`, import SageMaker Domains using the `id`. For exampleconsole % pulumi import aws_sagemaker_domain.test_domain d-8jgsjtilstu8
     /// </summary>
     [AwsResourceType("aws:sagemaker/domain:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

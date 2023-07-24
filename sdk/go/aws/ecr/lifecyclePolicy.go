@@ -120,13 +120,11 @@ import (
 //
 // ## Import
 //
-// ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_ecr_lifecycle_policy.example
 //
-//	$ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
-//
-// ```
+//	id = "tf-example" } Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For exampleconsole % pulumi import aws_ecr_lifecycle_policy.example tf-example
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 

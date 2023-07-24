@@ -59,13 +59,11 @@ import (
 //
 // ## Import
 //
-// WAF Regex Match Set can be imported using their ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_waf_regex_match_set.example
 //
-//	$ pulumi import aws:waf/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
+//	id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Regex Match Set using their ID. For exampleconsole % pulumi import aws_waf_regex_match_set.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 type RegexMatchSet struct {
 	pulumi.CustomResourceState
 

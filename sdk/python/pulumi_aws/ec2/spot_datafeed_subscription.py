@@ -118,11 +118,11 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
         ## Import
 
-        A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
-        ```
+         to = aws_spot_datafeed_subscription.mysubscription
+
+         id = "spot-datafeed-subscription" } Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For exampleconsole % pulumi import aws_spot_datafeed_subscription.mysubscription spot-datafeed-subscription
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,11 +155,11 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
         ## Import
 
-        A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
-        ```
+         to = aws_spot_datafeed_subscription.mysubscription
+
+         id = "spot-datafeed-subscription" } Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For exampleconsole % pulumi import aws_spot_datafeed_subscription.mysubscription spot-datafeed-subscription
 
         :param str resource_name: The name of the resource.
         :param SpotDatafeedSubscriptionArgs args: The arguments to use to populate this resource's properties.

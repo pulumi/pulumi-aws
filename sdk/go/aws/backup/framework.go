@@ -125,13 +125,11 @@ import (
 //
 // ## Import
 //
-// Backup Framework can be imported using the `id` which corresponds to the name of the Backup Framework, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_backup_framework.test
 //
-//	$ pulumi import aws:backup/framework:Framework test <id>
-//
-// ```
+//	id = "<id>" } Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For exampleconsole % pulumi import aws_backup_framework.test <id>
 type Framework struct {
 	pulumi.CustomResourceState
 

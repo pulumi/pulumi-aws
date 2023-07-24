@@ -69,11 +69,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Global Accelerator custom routing listeners can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
- * ```
+ *  to = aws_globalaccelerator_custom_routing_listener.example
+ * 
+ *  id = &#34;arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx&#34; } Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For exampleconsole % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
  * 
  */
 @ResourceType(type="aws:globalaccelerator/customRoutingListener:CustomRoutingListener")
@@ -95,16 +95,12 @@ public class CustomRoutingListener extends com.pulumi.resources.CustomResource {
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      * 
-     * **port_range** supports the following attributes:
-     * 
      */
     @Export(name="portRanges", refs={List.class,CustomRoutingListenerPortRange.class}, tree="[0,1]")
     private Output<List<CustomRoutingListenerPortRange>> portRanges;
 
     /**
      * @return The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-     * 
-     * **port_range** supports the following attributes:
      * 
      */
     public Output<List<CustomRoutingListenerPortRange>> portRanges() {

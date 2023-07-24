@@ -44,13 +44,11 @@ import (
 //
 // ## Import
 //
-// SageMaker Spaces can be imported using the `id`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_sagemaker_space.test_space
 //
-//	$ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
-//
-// ```
+//	id = "arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name" } Using `pulumi import`, import SageMaker Spaces using the `id`. For exampleconsole % pulumi import aws_sagemaker_space.test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
 type Space struct {
 	pulumi.CustomResourceState
 

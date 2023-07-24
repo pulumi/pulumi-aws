@@ -70,13 +70,11 @@ import (
 //
 // ## Import
 //
-// ApplicationInsights Applications can be imported using the `resource_group_name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_applicationinsights_application.some
 //
-//	$ pulumi import aws:applicationinsights/application:Application some some-application
-//
-// ```
+//	id = "some-application" } Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For exampleconsole % pulumi import aws_applicationinsights_application.some some-application
 type Application struct {
 	pulumi.CustomResourceState
 

@@ -71,7 +71,7 @@ import (
 //
 // ## Import
 //
-// DynamoDB table items cannot be imported.
+// You cannot import DynamoDB table items.
 type TableItem struct {
 	pulumi.CustomResourceState
 

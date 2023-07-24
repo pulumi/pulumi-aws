@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_location_tracker` resources can be imported using the tracker name, e.g.
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:location/tracker:Tracker example example
- * ```
+ *  to = aws_location_tracker.example
+ * 
+ *  id = &#34;example&#34; } Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For exampleconsole % pulumi import aws_location_tracker.example example
  * 
  */
 @ResourceType(type="aws:location/tracker:Tracker")

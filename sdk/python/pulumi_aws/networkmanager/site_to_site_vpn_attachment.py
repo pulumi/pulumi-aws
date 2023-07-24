@@ -315,11 +315,11 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
         ## Import
 
-        `aws_networkmanager_site_to_site_vpn_attachment` can be imported using the attachment ID, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
-        ```
+         to = aws_networkmanager_site_to_site_vpn_attachment.example
+
+         id = "attachment-0f8fa60d2238d1bd8" } Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For exampleconsole % pulumi import aws_networkmanager_site_to_site_vpn_attachment.example attachment-0f8fa60d2238d1bd8
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -352,11 +352,11 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
         ## Import
 
-        `aws_networkmanager_site_to_site_vpn_attachment` can be imported using the attachment ID, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
-        ```
+         to = aws_networkmanager_site_to_site_vpn_attachment.example
+
+         id = "attachment-0f8fa60d2238d1bd8" } Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For exampleconsole % pulumi import aws_networkmanager_site_to_site_vpn_attachment.example attachment-0f8fa60d2238d1bd8
 
         :param str resource_name: The name of the resource.
         :param SiteToSiteVpnAttachmentArgs args: The arguments to use to populate this resource's properties.

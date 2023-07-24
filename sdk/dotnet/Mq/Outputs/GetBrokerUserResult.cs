@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Mq.Outputs
     {
         public readonly bool ConsoleAccess;
         public readonly ImmutableArray<string> Groups;
+        public readonly bool ReplicationUser;
         public readonly string Username;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.Aws.Mq.Outputs
 
             ImmutableArray<string> groups,
 
+            bool replicationUser,
+
             string username)
         {
             ConsoleAccess = consoleAccess;
             Groups = groups;
+            ReplicationUser = replicationUser;
             Username = username;
         }
     }

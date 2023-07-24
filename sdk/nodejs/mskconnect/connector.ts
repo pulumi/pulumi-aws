@@ -68,11 +68,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MSK Connect Connector can be imported using the connector's `arn`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
- * ```
+ *  to = aws_mskconnect_connector.example
+ *
+ *  id = "arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3" } Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For exampleconsole % pulumi import aws_mskconnect_connector.example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
  */
 export class Connector extends pulumi.CustomResource {
     /**

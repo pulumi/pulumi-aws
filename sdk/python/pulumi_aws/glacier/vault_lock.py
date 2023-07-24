@@ -206,11 +206,11 @@ class VaultLock(pulumi.CustomResource):
 
         ## Import
 
-        Glacier Vault Locks can be imported using the Glacier Vault name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
-        ```
+         to = aws_glacier_vault_lock.example
+
+         id = "example-vault" } Using `pulumi import`, import Glacier Vault Locks using the Glacier Vault name. For exampleconsole % pulumi import aws_glacier_vault_lock.example example-vault
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,11 +269,11 @@ class VaultLock(pulumi.CustomResource):
 
         ## Import
 
-        Glacier Vault Locks can be imported using the Glacier Vault name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
-        ```
+         to = aws_glacier_vault_lock.example
+
+         id = "example-vault" } Using `pulumi import`, import Glacier Vault Locks using the Glacier Vault name. For exampleconsole % pulumi import aws_glacier_vault_lock.example example-vault
 
         :param str resource_name: The name of the resource.
         :param VaultLockArgs args: The arguments to use to populate this resource's properties.

@@ -714,11 +714,11 @@ class DevEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        A Glue Development Endpoint can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-        ```
+         to = aws_glue_dev_endpoint.example
+
+         id = "foo" } Using `pulumi import`, import a Glue Development Endpoint using the `name`. For exampleconsole % pulumi import aws_glue_dev_endpoint.example foo
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -771,11 +771,11 @@ class DevEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        A Glue Development Endpoint can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
-        ```
+         to = aws_glue_dev_endpoint.example
+
+         id = "foo" } Using `pulumi import`, import a Glue Development Endpoint using the `name`. For exampleconsole % pulumi import aws_glue_dev_endpoint.example foo
 
         :param str resource_name: The name of the resource.
         :param DevEndpointArgs args: The arguments to use to populate this resource's properties.

@@ -156,11 +156,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Import
     /// 
-    /// ECS services can be imported using the `name` together with ecs cluster `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
-    /// ```
+    ///  to = aws_ecs_service.imported
+    /// 
+    ///  id = "cluster-name/service-name" } Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For exampleconsole % pulumi import aws_ecs_service.imported cluster-name/service-name
     /// </summary>
     [AwsResourceType("aws:ecs/service:Service")]
     public partial class Service : global::Pulumi.CustomResource

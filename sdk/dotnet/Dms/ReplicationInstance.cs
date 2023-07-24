@@ -120,11 +120,11 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Import
     /// 
-    /// Replication instances can be imported using the `replication_instance_id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
-    /// ```
+    ///  to = aws_dms_replication_instance.test
+    /// 
+    ///  id = "test-dms-replication-instance-tf" } Using `pulumi import`, import replication instances using the `replication_instance_id`. For exampleconsole % pulumi import aws_dms_replication_instance.test test-dms-replication-instance-tf
     /// </summary>
     [AwsResourceType("aws:dms/replicationInstance:ReplicationInstance")]
     public partial class ReplicationInstance : global::Pulumi.CustomResource

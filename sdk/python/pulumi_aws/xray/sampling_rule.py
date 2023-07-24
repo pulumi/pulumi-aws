@@ -512,11 +512,11 @@ class SamplingRule(pulumi.CustomResource):
 
         ## Import
 
-        XRay Sampling Rules can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:xray/samplingRule:SamplingRule example example
-        ```
+         to = aws_xray_sampling_rule.example
+
+         id = "example" } Using `pulumi import`, import XRay Sampling Rules using the name. For exampleconsole % pulumi import aws_xray_sampling_rule.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -568,11 +568,11 @@ class SamplingRule(pulumi.CustomResource):
 
         ## Import
 
-        XRay Sampling Rules can be imported using the name, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:xray/samplingRule:SamplingRule example example
-        ```
+         to = aws_xray_sampling_rule.example
+
+         id = "example" } Using `pulumi import`, import XRay Sampling Rules using the name. For exampleconsole % pulumi import aws_xray_sampling_rule.example example
 
         :param str resource_name: The name of the resource.
         :param SamplingRuleArgs args: The arguments to use to populate this resource's properties.

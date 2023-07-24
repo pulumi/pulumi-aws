@@ -67,11 +67,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// S3 bucket policies can be imported using the bucket name, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
-    /// ```
+    ///  to = aws_s3_bucket_policy.allow_access_from_another_account
+    /// 
+    ///  id = "my-tf-test-bucket" } Using `pulumi import`, import S3 bucket policies using the bucket name. For exampleconsole % pulumi import aws_s3_bucket_policy.allow_access_from_another_account my-tf-test-bucket
     /// </summary>
     [AwsResourceType("aws:s3/bucketPolicy:BucketPolicy")]
     public partial class BucketPolicy : global::Pulumi.CustomResource

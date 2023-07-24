@@ -168,11 +168,11 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// ## Import
     /// 
-    /// Pipes can be imported using the `name`. For example
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:pipes/pipe:Pipe example my-pipe
-    /// ```
+    ///  to = aws_pipes_pipe.example
+    /// 
+    ///  id = "my-pipe" } Using `pulumi import`, import pipes using the `name`. For exampleconsole % pulumi import aws_pipes_pipe.example my-pipe
     /// </summary>
     [AwsResourceType("aws:pipes/pipe:Pipe")]
     public partial class Pipe : global::Pulumi.CustomResource

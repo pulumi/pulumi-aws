@@ -40,11 +40,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Grafana Workspace SAML configuration can be imported using the workspace's `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
- * ```
+ *  to = aws_grafana_workspace_saml_configuration.example
+ *
+ *  id = "g-2054c75a02" } Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For exampleconsole % pulumi import aws_grafana_workspace_saml_configuration.example g-2054c75a02
  */
 export class WorkspaceSamlConfiguration extends pulumi.CustomResource {
     /**

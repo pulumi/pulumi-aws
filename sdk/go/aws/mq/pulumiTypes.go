@@ -1760,9 +1760,10 @@ func (o GetBrokerMaintenanceWindowStartTimeOutput) TimeZone() pulumi.StringOutpu
 }
 
 type GetBrokerUser struct {
-	ConsoleAccess bool     `pulumi:"consoleAccess"`
-	Groups        []string `pulumi:"groups"`
-	Username      string   `pulumi:"username"`
+	ConsoleAccess   bool     `pulumi:"consoleAccess"`
+	Groups          []string `pulumi:"groups"`
+	ReplicationUser bool     `pulumi:"replicationUser"`
+	Username        string   `pulumi:"username"`
 }
 
 // GetBrokerUserInput is an input type that accepts GetBrokerUserArgs and GetBrokerUserOutput values.
@@ -1777,9 +1778,10 @@ type GetBrokerUserInput interface {
 }
 
 type GetBrokerUserArgs struct {
-	ConsoleAccess pulumi.BoolInput        `pulumi:"consoleAccess"`
-	Groups        pulumi.StringArrayInput `pulumi:"groups"`
-	Username      pulumi.StringInput      `pulumi:"username"`
+	ConsoleAccess   pulumi.BoolInput        `pulumi:"consoleAccess"`
+	Groups          pulumi.StringArrayInput `pulumi:"groups"`
+	ReplicationUser pulumi.BoolInput        `pulumi:"replicationUser"`
+	Username        pulumi.StringInput      `pulumi:"username"`
 }
 
 func (GetBrokerUserArgs) ElementType() reflect.Type {
@@ -1839,6 +1841,10 @@ func (o GetBrokerUserOutput) ConsoleAccess() pulumi.BoolOutput {
 
 func (o GetBrokerUserOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetBrokerUser) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+func (o GetBrokerUserOutput) ReplicationUser() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetBrokerUser) bool { return v.ReplicationUser }).(pulumi.BoolOutput)
 }
 
 func (o GetBrokerUserOutput) Username() pulumi.StringOutput {

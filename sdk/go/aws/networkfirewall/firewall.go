@@ -52,13 +52,11 @@ import (
 //
 // ## Import
 //
-// Network Firewall Firewalls can be imported using their `ARN`.
+// terraform import {
 //
-// ```sh
+//	to = aws_networkfirewall_firewall.example
 //
-//	$ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-//
-// ```
+//	id = "arn:aws:network-firewall:us-west-1:123456789012:firewall/example" } Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For exampleconsole % pulumi import aws_networkfirewall_firewall.example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
 type Firewall struct {
 	pulumi.CustomResourceState
 

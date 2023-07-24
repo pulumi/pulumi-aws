@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EBS Volumes can be imported using the `id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
- * ```
+ *  to = aws_ebs_volume.id
+ * 
+ *  id = &#34;vol-049df61146c4d7901&#34; } Using `pulumi import`, import EBS Volumes using the `id`. For exampleconsole % pulumi import aws_ebs_volume.id vol-049df61146c4d7901
  * 
  */
 @ResourceType(type="aws:ebs/volume:Volume")

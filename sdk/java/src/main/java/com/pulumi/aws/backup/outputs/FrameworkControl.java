@@ -20,7 +20,7 @@ public final class FrameworkControl {
      */
     private @Nullable List<FrameworkControlInputParameter> inputParameters;
     /**
-     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * @return The name of a control. This name is between 1 and 256 characters.
      * 
      */
     private String name;
@@ -39,7 +39,7 @@ public final class FrameworkControl {
         return this.inputParameters == null ? List.of() : this.inputParameters;
     }
     /**
-     * @return The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
+     * @return The name of a control. This name is between 1 and 256 characters.
      * 
      */
     public String name() {

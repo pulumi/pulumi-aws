@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Directory Service Shared Directories can be imported using the shared directory ID, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
- * ```
+ *  to = aws_directory_service_shared_directory_accepter.example
+ *
+ *  id = "d-9267633ece" } Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For exampleconsole % pulumi import aws_directory_service_shared_directory_accepter.example d-9267633ece
  */
 export class SharedDirectoryAccepter extends pulumi.CustomResource {
     /**

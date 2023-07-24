@@ -902,11 +902,11 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB tables can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
-        ```
+         to = aws_dynamodb_table.basic-dynamodb-table
+
+         id = "GameScores" } Using `pulumi import`, import DynamoDB tables using the `name`. For exampleconsole % pulumi import aws_dynamodb_table.basic-dynamodb-table GameScores
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1036,11 +1036,11 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB tables can be imported using the `name`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
-        ```
+         to = aws_dynamodb_table.basic-dynamodb-table
+
+         id = "GameScores" } Using `pulumi import`, import DynamoDB tables using the `name`. For exampleconsole % pulumi import aws_dynamodb_table.basic-dynamodb-table GameScores
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

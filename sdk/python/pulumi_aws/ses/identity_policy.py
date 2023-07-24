@@ -158,11 +158,11 @@ class IdentityPolicy(pulumi.CustomResource):
 
         ## Import
 
-        SES Identity Policies can be imported using the identity and policy name, separated by a pipe character (`|`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
-        ```
+         to = aws_ses_identity_policy.example
+
+         id = "example.com|example" } Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For exampleconsole % pulumi import aws_ses_identity_policy.example 'example.com|example'
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,11 +204,11 @@ class IdentityPolicy(pulumi.CustomResource):
 
         ## Import
 
-        SES Identity Policies can be imported using the identity and policy name, separated by a pipe character (`|`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
-        ```
+         to = aws_ses_identity_policy.example
+
+         id = "example.com|example" } Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For exampleconsole % pulumi import aws_ses_identity_policy.example 'example.com|example'
 
         :param str resource_name: The name of the resource.
         :param IdentityPolicyArgs args: The arguments to use to populate this resource's properties.

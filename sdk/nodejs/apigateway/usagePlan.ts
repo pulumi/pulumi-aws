@@ -79,11 +79,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AWS API Gateway Usage Plan can be imported using the `id`, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
- * ```
+ *  to = aws_api_gateway_usage_plan.myusageplan
+ *
+ *  id = "<usage_plan_id>" } Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For exampleconsole % pulumi import aws_api_gateway_usage_plan.myusageplan <usage_plan_id>
  */
 export class UsagePlan extends pulumi.CustomResource {
     /**

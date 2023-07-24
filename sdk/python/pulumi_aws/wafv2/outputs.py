@@ -283,6 +283,9 @@ __all__ = [
     'RuleGroupRuleStatementXssMatchStatementTextTransformation',
     'RuleGroupRuleVisibilityConfig',
     'RuleGroupVisibilityConfig',
+    'WebAclAssociationConfig',
+    'WebAclAssociationConfigRequestBody',
+    'WebAclAssociationConfigRequestBodyCloudfront',
     'WebAclCaptchaConfig',
     'WebAclCaptchaConfigImmunityTimeProperty',
     'WebAclCustomResponseBody',
@@ -11482,6 +11485,96 @@ class RuleGroupVisibilityConfig(dict):
         A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         """
         return pulumi.get(self, "sampled_requests_enabled")
+
+
+@pulumi.output_type
+class WebAclAssociationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestBodies":
+            suggest = "request_bodies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAssociationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclAssociationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclAssociationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 request_bodies: Optional[Sequence['outputs.WebAclAssociationConfigRequestBody']] = None):
+        """
+        :param Sequence['WebAclAssociationConfigRequestBodyArgs'] request_bodies: Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
+        """
+        if request_bodies is not None:
+            pulumi.set(__self__, "request_bodies", request_bodies)
+
+    @property
+    @pulumi.getter(name="requestBodies")
+    def request_bodies(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBody']]:
+        """
+        Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
+        """
+        return pulumi.get(self, "request_bodies")
+
+
+@pulumi.output_type
+class WebAclAssociationConfigRequestBody(dict):
+    def __init__(__self__, *,
+                 cloudfronts: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCloudfront']] = None):
+        """
+        :param Sequence['WebAclAssociationConfigRequestBodyCloudfrontArgs'] cloudfronts: Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+        """
+        if cloudfronts is not None:
+            pulumi.set(__self__, "cloudfronts", cloudfronts)
+
+    @property
+    @pulumi.getter
+    def cloudfronts(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCloudfront']]:
+        """
+        Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+        """
+        return pulumi.get(self, "cloudfronts")
+
+
+@pulumi.output_type
+class WebAclAssociationConfigRequestBodyCloudfront(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultSizeInspectionLimit":
+            suggest = "default_size_inspection_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclAssociationConfigRequestBodyCloudfront. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclAssociationConfigRequestBodyCloudfront.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclAssociationConfigRequestBodyCloudfront.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_size_inspection_limit: str):
+        """
+        :param str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
+
+    @property
+    @pulumi.getter(name="defaultSizeInspectionLimit")
+    def default_size_inspection_limit(self) -> str:
+        """
+        Specifies the maximum size of the web request body component that an associated CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        """
+        return pulumi.get(self, "default_size_inspection_limit")
 
 
 @pulumi.output_type

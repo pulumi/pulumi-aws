@@ -57,13 +57,11 @@ import (
 //
 // ## Import
 //
-// WAF Rule Group can be imported using the id, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_waf_rule_group.example
 //
-//	$ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
+//	id = "a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc" } Using `pulumi import`, import WAF Rule Group using the id. For exampleconsole % pulumi import aws_waf_rule_group.example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 type RuleGroup struct {
 	pulumi.CustomResourceState
 

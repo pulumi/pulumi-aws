@@ -14,6 +14,7 @@ __all__ = [
     'StackSetAutoDeploymentArgs',
     'StackSetInstanceDeploymentTargetsArgs',
     'StackSetInstanceOperationPreferencesArgs',
+    'StackSetInstanceStackInstanceSummaryArgs',
     'StackSetManagedExecutionArgs',
     'StackSetOperationPreferencesArgs',
 ]
@@ -218,6 +219,61 @@ class StackSetInstanceOperationPreferencesArgs:
     @region_orders.setter
     def region_orders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "region_orders", value)
+
+
+@pulumi.input_type
+class StackSetInstanceStackInstanceSummaryArgs:
+    def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[str]] = None,
+                 organizational_unit_id: Optional[pulumi.Input[str]] = None,
+                 stack_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+        :param pulumi.Input[str] organizational_unit_id: Organizational unit ID in which the stack is deployed.
+        :param pulumi.Input[str] stack_id: Stack identifier.
+        """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
+        if organizational_unit_id is not None:
+            pulumi.set(__self__, "organizational_unit_id", organizational_unit_id)
+        if stack_id is not None:
+            pulumi.set(__self__, "stack_id", stack_id)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
+    @pulumi.getter(name="organizationalUnitId")
+    def organizational_unit_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Organizational unit ID in which the stack is deployed.
+        """
+        return pulumi.get(self, "organizational_unit_id")
+
+    @organizational_unit_id.setter
+    def organizational_unit_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organizational_unit_id", value)
+
+    @property
+    @pulumi.getter(name="stackId")
+    def stack_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Stack identifier.
+        """
+        return pulumi.get(self, "stack_id")
+
+    @stack_id.setter
+    def stack_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stack_id", value)
 
 
 @pulumi.input_type

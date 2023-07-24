@@ -19,6 +19,12 @@ namespace Pulumi.Aws.WafV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        /// </summary>
+        [Output("associationConfig")]
+        public Output<Outputs.WebAclAssociationConfig?> AssociationConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Web ACL capacity units (WCUs) currently being used by this web ACL.
         /// </summary>
         [Output("capacity")]
@@ -140,6 +146,12 @@ namespace Pulumi.Aws.WafV2
     public sealed class WebAclArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        /// </summary>
+        [Input("associationConfig")]
+        public Input<Inputs.WebAclAssociationConfigArgs>? AssociationConfig { get; set; }
+
+        /// <summary>
         /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
         /// </summary>
         [Input("captchaConfig")]
@@ -236,6 +248,12 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
+        /// </summary>
+        [Input("associationConfig")]
+        public Input<Inputs.WebAclAssociationConfigGetArgs>? AssociationConfig { get; set; }
 
         /// <summary>
         /// Web ACL capacity units (WCUs) currently being used by this web ACL.

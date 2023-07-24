@@ -138,11 +138,11 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
 
         ## Import
 
-        Egress-only Internet gateways can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
-        ```
+         to = aws_egress_only_internet_gateway.example
+
+         id = "eigw-015e0e244e24dfe8a" } Using `pulumi import`, import Egress-only Internet gateways using the `id`. For exampleconsole % pulumi import aws_egress_only_internet_gateway.example eigw-015e0e244e24dfe8a
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,11 +179,11 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
 
         ## Import
 
-        Egress-only Internet gateways can be imported using the `id`, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
-        ```
+         to = aws_egress_only_internet_gateway.example
+
+         id = "eigw-015e0e244e24dfe8a" } Using `pulumi import`, import Egress-only Internet gateways using the `id`. For exampleconsole % pulumi import aws_egress_only_internet_gateway.example eigw-015e0e244e24dfe8a
 
         :param str resource_name: The name of the resource.
         :param EgressOnlyInternetGatewayArgs args: The arguments to use to populate this resource's properties.

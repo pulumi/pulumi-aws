@@ -147,11 +147,11 @@ class ThingGroupMembership(pulumi.CustomResource):
 
         ## Import
 
-        IoT Thing Group Membership can be imported using the thing group name and thing name.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
-        ```
+         to = aws_iot_thing_group_membership.example
+
+         id = "thing_group_name/thing_name" } Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For exampleconsole % pulumi import aws_iot_thing_group_membership.example thing_group_name/thing_name
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,11 +182,11 @@ class ThingGroupMembership(pulumi.CustomResource):
 
         ## Import
 
-        IoT Thing Group Membership can be imported using the thing group name and thing name.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
-        ```
+         to = aws_iot_thing_group_membership.example
+
+         id = "thing_group_name/thing_name" } Using `pulumi import`, import IoT Thing Group Membership using the thing group name and thing name. For exampleconsole % pulumi import aws_iot_thing_group_membership.example thing_group_name/thing_name
 
         :param str resource_name: The name of the resource.
         :param ThingGroupMembershipArgs args: The arguments to use to populate this resource's properties.

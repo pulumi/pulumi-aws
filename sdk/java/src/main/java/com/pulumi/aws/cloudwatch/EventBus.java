@@ -83,11 +83,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
- * ```
+ *  to = aws_cloudwatch_event_bus.messenger
+ * 
+ *  id = &#34;chat-messages&#34; } Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For exampleconsole % pulumi import aws_cloudwatch_event_bus.messenger chat-messages
  * 
  */
 @ResourceType(type="aws:cloudwatch/eventBus:EventBus")

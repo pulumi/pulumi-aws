@@ -331,11 +331,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
- * ```
+ *  to = aws_kinesisanalyticsv2_application.example
+ * 
+ *  id = &#34;arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application&#34; } Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For exampleconsole % pulumi import aws_kinesisanalyticsv2_application.example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
  * 
  */
 @ResourceType(type="aws:kinesisanalyticsv2/application:Application")

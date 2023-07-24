@@ -51,13 +51,11 @@ import (
 //
 // ## Import
 //
-// `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_appsync_api_cache.example
 //
-//	$ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
-//
-// ```
+//	id = "xxxxx" } Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For exampleconsole % pulumi import aws_appsync_api_cache.example xxxxx
 type ApiCache struct {
 	pulumi.CustomResourceState
 

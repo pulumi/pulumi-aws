@@ -230,11 +230,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * App Mesh virtual routes can be imported using `mesh_name` and `virtual_router_name` together with the route&#39;s `name`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
- * ```
+ *  to = aws_appmesh_route.serviceb
+ * 
+ *  id = &#34;simpleapp/serviceB/serviceB-route&#34; } Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route&#39;s `name`. For exampleconsole % pulumi import aws_appmesh_route.serviceb simpleapp/serviceB/serviceB-route
  * 
  */
 @ResourceType(type="aws:appmesh/route:Route")

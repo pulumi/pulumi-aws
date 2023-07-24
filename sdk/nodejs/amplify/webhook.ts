@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Amplify webhook can be imported using a webhook ID, e.g.,
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
- * ```
+ *  to = aws_amplify_webhook.master
+ *
+ *  id = "a26b22a0-748b-4b57-b9a0-ae7e601fe4b1" } Using `pulumi import`, import Amplify webhook using a webhook ID. For exampleconsole % pulumi import aws_amplify_webhook.master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
  */
 export class Webhook extends pulumi.CustomResource {
     /**

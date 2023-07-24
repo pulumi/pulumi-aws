@@ -150,7 +150,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     @Import(name="engineVersion")
@@ -162,7 +162,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
      * If the version is 6, the major and minor version can be set, e.g., `6.2`,
      * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
      * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -789,7 +789,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          * If the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * Otherwise, specify the full version desired, e.g., `5.0.6`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
          * 
          * @return builder
          * 
@@ -805,7 +805,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          * If the version is 6, the major and minor version can be set, e.g., `6.2`,
          * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
          * Otherwise, specify the full version desired, e.g., `5.0.6`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
          * 
          * @return builder
          * 

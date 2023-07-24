@@ -131,11 +131,11 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Import
     /// 
-    /// CloudFormation StackSets can be imported using the `name`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cloudformation/stackSet:StackSet example example
-    /// ```
+    ///  to = aws_cloudformation_stack_set.example
+    /// 
+    ///  id = "example" } Using `pulumi import`, import CloudFormation StackSets using the `name`. For exampleconsole % pulumi import aws_cloudformation_stack_set.example example
     /// </summary>
     [AwsResourceType("aws:cloudformation/stackSet:StackSet")]
     public partial class StackSet : global::Pulumi.CustomResource

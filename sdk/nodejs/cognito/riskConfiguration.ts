@@ -26,15 +26,15 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cognito Risk Configurations can be imported using the `id`, e.g.,
+ * Import using the user pool IDterraform import {
  *
- * ```sh
- *  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
- * ```
+ *  to = aws_cognito_risk_configuration.main
  *
- * ```sh
- *  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
- * ```
+ *  id = "example" } Import using the user pool ID and Client ID separated by a `:`terraform import {
+ *
+ *  to = aws_cognito_risk_configuration.main
+ *
+ *  id = "example:example" } **Using `pulumi import` to import** Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For exampleImport using the user pool IDconsole % pulumi import aws_cognito_risk_configuration.main example Import using the user pool ID and Client ID separated by a `:`console % pulumi import aws_cognito_risk_configuration.main example:example
  */
 export class RiskConfiguration extends pulumi.CustomResource {
     /**

@@ -124,13 +124,11 @@ import (
 //
 // ## Import
 //
-// To import Cognito User Pool Clients, use the `id` of the Cognito User Pool and the `id` of the Cognito User Pool Client. For example
+// terraform import {
 //
-// ```sh
+//	to = aws_cognito_managed_user_pool_client.client
 //
-//	$ pulumi import aws:cognito/managedUserPoolClient:ManagedUserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
-//
-// ```
+//	id = "us-west-2_abc123/3ho4ek12345678909nh3fmhpko" } Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool and the `id` of the Cognito User Pool Client. For exampleconsole % pulumi import aws_cognito_managed_user_pool_client.client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
 type ManagedUserPoolClient struct {
 	pulumi.CustomResourceState
 

@@ -293,11 +293,11 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
-        ```
+         to = aws_appconfig_environment.example
+
+         id = "71abcde:11xxxxx" } Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For exampleconsole % pulumi import aws_appconfig_environment.example 71abcde:11xxxxx
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -341,11 +341,11 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
-        ```
+         to = aws_appconfig_environment.example
+
+         id = "71abcde:11xxxxx" } Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For exampleconsole % pulumi import aws_appconfig_environment.example 71abcde:11xxxxx
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

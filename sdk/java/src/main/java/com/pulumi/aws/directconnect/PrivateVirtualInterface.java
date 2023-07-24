@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Direct Connect private virtual interfaces can be imported using the `vif id`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
- * ```
+ *  to = aws_dx_private_virtual_interface.test
+ * 
+ *  id = &#34;dxvif-33cc44dd&#34; } Using `pulumi import`, import Direct Connect private virtual interfaces using the VIF `id`. For exampleconsole % pulumi import aws_dx_private_virtual_interface.test dxvif-33cc44dd
  * 
  */
 @ResourceType(type="aws:directconnect/privateVirtualInterface:PrivateVirtualInterface")

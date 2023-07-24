@@ -53,13 +53,11 @@ import (
 //
 // ## Import
 //
-// Glue Security Configurations can be imported using `name`, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_glue_security_configuration.example
 //
-//	$ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
-//
-// ```
+//	id = "example" } Using `pulumi import`, import Glue Security Configurations using `name`. For exampleconsole % pulumi import aws_glue_security_configuration.example example
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState
 

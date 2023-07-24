@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
- * ```
+ *  to = aws_db_proxy_endpoint.example
+ * 
+ *  id = &#34;example/example&#34; } Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For exampleconsole % pulumi import aws_db_proxy_endpoint.example example/example
  * 
  */
 @ResourceType(type="aws:rds/proxyEndpoint:ProxyEndpoint")

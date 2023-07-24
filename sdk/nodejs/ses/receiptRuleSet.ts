@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SES receipt rule sets can be imported using the rule set name.
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
- * ```
+ *  to = aws_ses_receipt_rule_set.my_rule_set
+ *
+ *  id = "my_rule_set_name" } Using `pulumi import`, import SES receipt rule sets using the rule set name. For exampleconsole % pulumi import aws_ses_receipt_rule_set.my_rule_set my_rule_set_name
  */
 export class ReceiptRuleSet extends pulumi.CustomResource {
     /**

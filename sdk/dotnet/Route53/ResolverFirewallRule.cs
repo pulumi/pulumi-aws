@@ -53,11 +53,13 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    ///  Route 53 Resolver DNS Firewall rules can be imported using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':', e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
-    /// ```
+    ///  to = aws_route53_resolver_firewall_rule.example
+    /// 
+    ///  id = "rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef" } Using `pulumi import`, import
+    /// 
+    /// Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For exampleconsole % pulumi import aws_route53_resolver_firewall_rule.example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
     /// </summary>
     [AwsResourceType("aws:route53/resolverFirewallRule:ResolverFirewallRule")]
     public partial class ResolverFirewallRule : global::Pulumi.CustomResource

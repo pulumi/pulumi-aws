@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// SageMaker User Profiles can be imported using the `arn`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
-    /// ```
+    ///  to = aws_sagemaker_user_profile.test_user_profile
+    /// 
+    ///  id = "arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name" } Using `pulumi import`, import SageMaker User Profiles using the `arn`. For exampleconsole % pulumi import aws_sagemaker_user_profile.test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
     /// </summary>
     [AwsResourceType("aws:sagemaker/userProfile:UserProfile")]
     public partial class UserProfile : global::Pulumi.CustomResource

@@ -276,11 +276,11 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// A QuickSight Data Set can be imported using the AWS account ID and data set ID separated by a comma (`,`) e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
-    /// ```
+    ///  to = aws_quicksight_data_set.example
+    /// 
+    ///  id = "123456789012,example-id" } Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For exampleconsole % pulumi import aws_quicksight_data_set.example 123456789012,example-id
     /// </summary>
     [AwsResourceType("aws:quicksight/dataSet:DataSet")]
     public partial class DataSet : global::Pulumi.CustomResource

@@ -125,11 +125,11 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Import
 
-        `aws_guardduty_invite_accepter` can be imported using the member GuardDuty detector ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
-        ```
+         to = aws_guardduty_invite_accepter.member
+
+         id = "00b00fd5aecc0ab60a708659477e9617" } Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For exampleconsole % pulumi import aws_guardduty_invite_accepter.member 00b00fd5aecc0ab60a708659477e9617
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,11 +170,11 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Import
 
-        `aws_guardduty_invite_accepter` can be imported using the member GuardDuty detector ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
-        ```
+         to = aws_guardduty_invite_accepter.member
+
+         id = "00b00fd5aecc0ab60a708659477e9617" } Using `pulumi import`, import `aws_guardduty_invite_accepter` using the member GuardDuty detector ID. For exampleconsole % pulumi import aws_guardduty_invite_accepter.member 00b00fd5aecc0ab60a708659477e9617
 
         :param str resource_name: The name of the resource.
         :param InviteAccepterArgs args: The arguments to use to populate this resource's properties.

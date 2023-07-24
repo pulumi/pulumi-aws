@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * VPC Lattice Access Log Subscription can be imported using the access log subscription ID, e.g.,
+ * terraform import {
  * 
- * ```sh
- *  $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
- * ```
+ *  to = aws_vpclattice_access_log_subscription.example
+ * 
+ *  id = &#34;rft-8012925589&#34; } Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For exampleconsole % pulumi import aws_vpclattice_access_log_subscription.example rft-8012925589
  * 
  */
 @ResourceType(type="aws:vpclattice/accessLogSubscription:AccessLogSubscription")

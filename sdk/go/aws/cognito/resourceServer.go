@@ -84,13 +84,11 @@ import (
 //
 // ## Import
 //
-// `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
+// terraform import {
 //
-// ```sh
+//	to = aws_cognito_resource_server.example
 //
-//	$ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
-//
-// ```
+//	id = "us-west-2_abc123|https://example.com" } Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For exampleconsole % pulumi import aws_cognito_resource_server.example "us-west-2_abc123|https://example.com"
 type ResourceServer struct {
 	pulumi.CustomResourceState
 

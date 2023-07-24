@@ -42,11 +42,11 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
-    /// ```
+    ///  to = aws_appstream_user_stack_association.example
+    /// 
+    ///  id = "userName/auhtenticationType/stackName" } Using `pulumi import`, import AppStream User Stack Association using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`). For exampleconsole % pulumi import aws_appstream_user_stack_association.example userName/auhtenticationType/stackName
     /// </summary>
     [AwsResourceType("aws:appstream/userStackAssociation:UserStackAssociation")]
     public partial class UserStackAssociation : global::Pulumi.CustomResource

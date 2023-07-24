@@ -311,11 +311,11 @@ class PortfolioShare(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
-        ```
+         to = aws_servicecatalog_portfolio_share.example
+
+         id = "port-12344321:ACCOUNT:123456789012" } Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For exampleconsole % pulumi import aws_servicecatalog_portfolio_share.example port-12344321:ACCOUNT:123456789012
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -361,11 +361,11 @@ class PortfolioShare(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.,
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
-        ```
+         to = aws_servicecatalog_portfolio_share.example
+
+         id = "port-12344321:ACCOUNT:123456789012" } Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For exampleconsole % pulumi import aws_servicecatalog_portfolio_share.example port-12344321:ACCOUNT:123456789012
 
         :param str resource_name: The name of the resource.
         :param PortfolioShareArgs args: The arguments to use to populate this resource's properties.

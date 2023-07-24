@@ -33,11 +33,11 @@ namespace Pulumi.Aws.Rum
     /// 
     /// ## Import
     /// 
-    /// Cloudwatch RUM Metrics Destination can be imported using the `id`, e.g.,
+    /// terraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
-    /// ```
+    ///  to = aws_rum_metrics_destination.example
+    /// 
+    ///  id = "example" } Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For exampleconsole % pulumi import aws_rum_metrics_destination.example example
     /// </summary>
     [AwsResourceType("aws:rum/metricsDestination:MetricsDestination")]
     public partial class MetricsDestination : global::Pulumi.CustomResource

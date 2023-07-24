@@ -50,25 +50,16 @@ func LookupReplicationInstance(ctx *pulumi.Context, args *LookupReplicationInsta
 
 // A collection of arguments for invoking getReplicationInstance.
 type LookupReplicationInstanceArgs struct {
-	// The replication instance identifier. This parameter is stored as a lowercase string.
-	//
-	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
-	// - First character must be a letter.
-	// - Cannot end with a hyphen
-	// - Cannot contain two consecutive hyphens.
+	// The replication instance identifier.
 	ReplicationInstanceId string            `pulumi:"replicationInstanceId"`
 	Tags                  map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getReplicationInstance.
 type LookupReplicationInstanceResult struct {
-	// (Default: 50, Min: 5, Max: 6144) The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+	// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 	AllocatedStorage int `pulumi:"allocatedStorage"`
-	// (Default: false) Indicates that major version upgrades are allowed.
-	AllowMajorVersionUpgrade bool `pulumi:"allowMajorVersionUpgrade"`
-	// (Default: false) Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
-	ApplyImmediately bool `pulumi:"applyImmediately"`
-	// (Default: false) Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+	// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
 	AutoMinorVersionUpgrade bool `pulumi:"autoMinorVersionUpgrade"`
 	// The EC2 Availability Zone that the replication instance will be created in.
 	AvailabilityZone string `pulumi:"availabilityZone"`
@@ -76,27 +67,27 @@ type LookupReplicationInstanceResult struct {
 	EngineVersion string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	// The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
-	// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
+	// Specifies if the replication instance is a multi-az deployment.
 	MultiAz bool `pulumi:"multiAz"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
-	// (Default: false) Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
 	// The Amazon Resource Name (ARN) of the replication instance.
 	ReplicationInstanceArn string `pulumi:"replicationInstanceArn"`
-	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
+	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
 	ReplicationInstanceClass string `pulumi:"replicationInstanceClass"`
 	ReplicationInstanceId    string `pulumi:"replicationInstanceId"`
 	// A list of the private IP addresses of the replication instance.
 	ReplicationInstancePrivateIps []string `pulumi:"replicationInstancePrivateIps"`
 	// A list of the public IP addresses of the replication instance.
 	ReplicationInstancePublicIps []string `pulumi:"replicationInstancePublicIps"`
-	// (Optional) A subnet group to associate with the replication instance.
+	// A subnet group to associate with the replication instance.
 	ReplicationSubnetGroupId string            `pulumi:"replicationSubnetGroupId"`
 	Tags                     map[string]string `pulumi:"tags"`
-	// (Optional) A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+	// A set of VPC security group IDs that are used with the replication instance.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -115,12 +106,7 @@ func LookupReplicationInstanceOutput(ctx *pulumi.Context, args LookupReplication
 
 // A collection of arguments for invoking getReplicationInstance.
 type LookupReplicationInstanceOutputArgs struct {
-	// The replication instance identifier. This parameter is stored as a lowercase string.
-	//
-	// - Must contain from 1 to 63 alphanumeric characters or hyphens.
-	// - First character must be a letter.
-	// - Cannot end with a hyphen
-	// - Cannot contain two consecutive hyphens.
+	// The replication instance identifier.
 	ReplicationInstanceId pulumi.StringInput    `pulumi:"replicationInstanceId"`
 	Tags                  pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -144,22 +130,12 @@ func (o LookupReplicationInstanceResultOutput) ToLookupReplicationInstanceResult
 	return o
 }
 
-// (Default: 50, Min: 5, Max: 6144) The amount of storage (in gigabytes) to be initially allocated for the replication instance.
+// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 func (o LookupReplicationInstanceResultOutput) AllocatedStorage() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) int { return v.AllocatedStorage }).(pulumi.IntOutput)
 }
 
-// (Default: false) Indicates that major version upgrades are allowed.
-func (o LookupReplicationInstanceResultOutput) AllowMajorVersionUpgrade() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupReplicationInstanceResult) bool { return v.AllowMajorVersionUpgrade }).(pulumi.BoolOutput)
-}
-
-// (Default: false) Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
-func (o LookupReplicationInstanceResultOutput) ApplyImmediately() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupReplicationInstanceResult) bool { return v.ApplyImmediately }).(pulumi.BoolOutput)
-}
-
-// (Default: false) Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
+// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
 func (o LookupReplicationInstanceResultOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
 }
@@ -179,12 +155,12 @@ func (o LookupReplicationInstanceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+// The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
 func (o LookupReplicationInstanceResultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
-// Specifies if the replication instance is a multi-az deployment. You cannot set the `availabilityZone` parameter if the `multiAz` parameter is set to `true`.
+// Specifies if the replication instance is a multi-az deployment.
 func (o LookupReplicationInstanceResultOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) bool { return v.MultiAz }).(pulumi.BoolOutput)
 }
@@ -194,7 +170,7 @@ func (o LookupReplicationInstanceResultOutput) PreferredMaintenanceWindow() pulu
 	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }
 
-// (Default: false) Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
+// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 func (o LookupReplicationInstanceResultOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
@@ -204,7 +180,7 @@ func (o LookupReplicationInstanceResultOutput) ReplicationInstanceArn() pulumi.S
 	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.ReplicationInstanceArn }).(pulumi.StringOutput)
 }
 
-// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
+// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
 func (o LookupReplicationInstanceResultOutput) ReplicationInstanceClass() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.ReplicationInstanceClass }).(pulumi.StringOutput)
 }
@@ -223,7 +199,7 @@ func (o LookupReplicationInstanceResultOutput) ReplicationInstancePublicIps() pu
 	return o.ApplyT(func(v LookupReplicationInstanceResult) []string { return v.ReplicationInstancePublicIps }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) A subnet group to associate with the replication instance.
+// A subnet group to associate with the replication instance.
 func (o LookupReplicationInstanceResultOutput) ReplicationSubnetGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.ReplicationSubnetGroupId }).(pulumi.StringOutput)
 }
@@ -232,7 +208,7 @@ func (o LookupReplicationInstanceResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// (Optional) A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
+// A set of VPC security group IDs that are used with the replication instance.
 func (o LookupReplicationInstanceResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

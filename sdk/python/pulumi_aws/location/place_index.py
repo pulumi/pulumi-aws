@@ -286,11 +286,11 @@ class PlaceIndex(pulumi.CustomResource):
 
         ## Import
 
-        `aws_location_place_index` resources can be imported using the place index name, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:location/placeIndex:PlaceIndex example example
-        ```
+         to = aws_location_place_index.example
+
+         id = "example" } Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For exampleconsole % pulumi import aws_location_place_index.example example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -324,11 +324,11 @@ class PlaceIndex(pulumi.CustomResource):
 
         ## Import
 
-        `aws_location_place_index` resources can be imported using the place index name, e.g.
+        terraform import {
 
-        ```sh
-         $ pulumi import aws:location/placeIndex:PlaceIndex example example
-        ```
+         to = aws_location_place_index.example
+
+         id = "example" } Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For exampleconsole % pulumi import aws_location_place_index.example example
 
         :param str resource_name: The name of the resource.
         :param PlaceIndexArgs args: The arguments to use to populate this resource's properties.

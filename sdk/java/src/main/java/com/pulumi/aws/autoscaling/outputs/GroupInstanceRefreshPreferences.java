@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GroupInstanceRefreshPreferences {
     /**
-     * @return Automatically rollback if instance refresh fails. Defaults to `false`.
+     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
      * 
      */
     private @Nullable Boolean autoRollback;
@@ -47,7 +47,7 @@ public final class GroupInstanceRefreshPreferences {
 
     private GroupInstanceRefreshPreferences() {}
     /**
-     * @return Automatically rollback if instance refresh fails. Defaults to `false`.
+     * @return Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
      * 
      */
     public Optional<Boolean> autoRollback() {
