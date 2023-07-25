@@ -90,3 +90,11 @@ type definition into their own program.
 - `aws:organizations/getOrganizationalUnits:getOrganizationalUnits`: We have changed the
   name of property `childrens` to `children` and the name of the associated type from
   `children` to `child.  See https://github.com/pulumi/pulumi-aws/pull/2634 for details.
+- We have changed the function signature for 3 generated Functions. For each function, the
+  signature has changed from `(pulumi.InvokeOptions) -> T` to `(Args,
+  pulumi.InvokeOptions) -> T`. Where each function is called, you will need to change the
+  call site to accommodate the new argument. The new argument is optional, so passing an
+  empty argument block is sufficient. These are the effected functions:
+  - "aws:index/getBillingServiceAccount:getBillingServiceAccount"
+  - "aws:index/getCallerIdentity:getCallerIdentity"
+  - "aws:index/getPartition:getPartition"
