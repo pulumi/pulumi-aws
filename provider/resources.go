@@ -6827,11 +6827,6 @@ func Provider() *tfbridge.ProviderInfo {
 							"s3Mixins.ts",
 						},
 					},
-					"serverless": {
-						DestFiles: []string{
-							"function.ts",
-						},
-					},
 					"sns": {
 						DestFiles: []string{
 							"snsMixins.ts",

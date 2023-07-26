@@ -1723,8 +1723,6 @@
         "securityhub/productSubscription.ts",
         "securityhub/standardsControl.ts",
         "securityhub/standardsSubscription.ts",
-        "serverless/function.ts",
-        "serverless/index.ts",
         "serverlessrepository/cloudFormationStack.ts",
         "serverlessrepository/getApplication.ts",
         "serverlessrepository/index.ts",
