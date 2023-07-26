@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** The `s3.BucketObject` data source is DEPRECATED and will be removed in a future version! Use `s3.BucketObjectv2` instead, where new features and fixes will be added.
@@ -99,6 +101,7 @@ import (
 //
 // ```
 func LookupBucketObject(ctx *pulumi.Context, args *LookupBucketObjectArgs, opts ...pulumi.InvokeOption) (*LookupBucketObjectResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBucketObjectResult
 	err := ctx.Invoke("aws:s3/getBucketObject:getBucketObject", args, &rv, opts...)
 	if err != nil {
@@ -221,6 +224,12 @@ func (o LookupBucketObjectResultOutput) ToLookupBucketObjectResultOutput() Looku
 
 func (o LookupBucketObjectResultOutput) ToLookupBucketObjectResultOutputWithContext(ctx context.Context) LookupBucketObjectResultOutput {
 	return o
+}
+
+func (o LookupBucketObjectResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBucketObjectResult] {
+	return pulumix.Output[LookupBucketObjectResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Object data (see **limitations above** to understand cases in which this field is actually available)

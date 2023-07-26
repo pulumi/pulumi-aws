@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS CloudWatch Observability Access Manager Sink.
@@ -73,6 +75,7 @@ func NewSink(ctx *pulumi.Context,
 		args = &SinkArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Sink
 	err := ctx.RegisterResource("aws:oam/sink:Sink", name, args, &resource, opts...)
 	if err != nil {
@@ -168,6 +171,12 @@ func (i *Sink) ToSinkOutputWithContext(ctx context.Context) SinkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SinkOutput)
 }
 
+func (i *Sink) ToOutput(ctx context.Context) pulumix.Output[*Sink] {
+	return pulumix.Output[*Sink]{
+		OutputState: i.ToSinkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SinkArrayInput is an input type that accepts SinkArray and SinkArrayOutput values.
 // You can construct a concrete instance of `SinkArrayInput` via:
 //
@@ -191,6 +200,12 @@ func (i SinkArray) ToSinkArrayOutput() SinkArrayOutput {
 
 func (i SinkArray) ToSinkArrayOutputWithContext(ctx context.Context) SinkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SinkArrayOutput)
+}
+
+func (i SinkArray) ToOutput(ctx context.Context) pulumix.Output[[]*Sink] {
+	return pulumix.Output[[]*Sink]{
+		OutputState: i.ToSinkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SinkMapInput is an input type that accepts SinkMap and SinkMapOutput values.
@@ -218,6 +233,12 @@ func (i SinkMap) ToSinkMapOutputWithContext(ctx context.Context) SinkMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SinkMapOutput)
 }
 
+func (i SinkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Sink] {
+	return pulumix.Output[map[string]*Sink]{
+		OutputState: i.ToSinkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SinkOutput struct{ *pulumi.OutputState }
 
 func (SinkOutput) ElementType() reflect.Type {
@@ -230,6 +251,12 @@ func (o SinkOutput) ToSinkOutput() SinkOutput {
 
 func (o SinkOutput) ToSinkOutputWithContext(ctx context.Context) SinkOutput {
 	return o
+}
+
+func (o SinkOutput) ToOutput(ctx context.Context) pulumix.Output[*Sink] {
+	return pulumix.Output[*Sink]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Sink.
@@ -272,6 +299,12 @@ func (o SinkArrayOutput) ToSinkArrayOutputWithContext(ctx context.Context) SinkA
 	return o
 }
 
+func (o SinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Sink] {
+	return pulumix.Output[[]*Sink]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SinkArrayOutput) Index(i pulumi.IntInput) SinkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Sink {
 		return vs[0].([]*Sink)[vs[1].(int)]
@@ -290,6 +323,12 @@ func (o SinkMapOutput) ToSinkMapOutput() SinkMapOutput {
 
 func (o SinkMapOutput) ToSinkMapOutputWithContext(ctx context.Context) SinkMapOutput {
 	return o
+}
+
+func (o SinkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Sink] {
+	return pulumix.Output[map[string]*Sink]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SinkMapOutput) MapIndex(k pulumi.StringInput) SinkOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a customer gateway with a device and optionally, with a link.
@@ -133,6 +135,7 @@ func NewCustomerGatewayAssociation(ctx *pulumi.Context,
 	if args.GlobalNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'GlobalNetworkId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomerGatewayAssociation
 	err := ctx.RegisterResource("aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -226,6 +229,12 @@ func (i *CustomerGatewayAssociation) ToCustomerGatewayAssociationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayAssociationOutput)
 }
 
+func (i *CustomerGatewayAssociation) ToOutput(ctx context.Context) pulumix.Output[*CustomerGatewayAssociation] {
+	return pulumix.Output[*CustomerGatewayAssociation]{
+		OutputState: i.ToCustomerGatewayAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomerGatewayAssociationArrayInput is an input type that accepts CustomerGatewayAssociationArray and CustomerGatewayAssociationArrayOutput values.
 // You can construct a concrete instance of `CustomerGatewayAssociationArrayInput` via:
 //
@@ -249,6 +258,12 @@ func (i CustomerGatewayAssociationArray) ToCustomerGatewayAssociationArrayOutput
 
 func (i CustomerGatewayAssociationArray) ToCustomerGatewayAssociationArrayOutputWithContext(ctx context.Context) CustomerGatewayAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayAssociationArrayOutput)
+}
+
+func (i CustomerGatewayAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomerGatewayAssociation] {
+	return pulumix.Output[[]*CustomerGatewayAssociation]{
+		OutputState: i.ToCustomerGatewayAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomerGatewayAssociationMapInput is an input type that accepts CustomerGatewayAssociationMap and CustomerGatewayAssociationMapOutput values.
@@ -276,6 +291,12 @@ func (i CustomerGatewayAssociationMap) ToCustomerGatewayAssociationMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerGatewayAssociationMapOutput)
 }
 
+func (i CustomerGatewayAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomerGatewayAssociation] {
+	return pulumix.Output[map[string]*CustomerGatewayAssociation]{
+		OutputState: i.ToCustomerGatewayAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomerGatewayAssociationOutput struct{ *pulumi.OutputState }
 
 func (CustomerGatewayAssociationOutput) ElementType() reflect.Type {
@@ -288,6 +309,12 @@ func (o CustomerGatewayAssociationOutput) ToCustomerGatewayAssociationOutput() C
 
 func (o CustomerGatewayAssociationOutput) ToCustomerGatewayAssociationOutputWithContext(ctx context.Context) CustomerGatewayAssociationOutput {
 	return o
+}
+
+func (o CustomerGatewayAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomerGatewayAssociation] {
+	return pulumix.Output[*CustomerGatewayAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the customer gateway.
@@ -324,6 +351,12 @@ func (o CustomerGatewayAssociationArrayOutput) ToCustomerGatewayAssociationArray
 	return o
 }
 
+func (o CustomerGatewayAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomerGatewayAssociation] {
+	return pulumix.Output[[]*CustomerGatewayAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomerGatewayAssociationArrayOutput) Index(i pulumi.IntInput) CustomerGatewayAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomerGatewayAssociation {
 		return vs[0].([]*CustomerGatewayAssociation)[vs[1].(int)]
@@ -342,6 +375,12 @@ func (o CustomerGatewayAssociationMapOutput) ToCustomerGatewayAssociationMapOutp
 
 func (o CustomerGatewayAssociationMapOutput) ToCustomerGatewayAssociationMapOutputWithContext(ctx context.Context) CustomerGatewayAssociationMapOutput {
 	return o
+}
+
+func (o CustomerGatewayAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomerGatewayAssociation] {
+	return pulumix.Output[map[string]*CustomerGatewayAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomerGatewayAssociationMapOutput) MapIndex(k pulumi.StringInput) CustomerGatewayAssociationOutput {

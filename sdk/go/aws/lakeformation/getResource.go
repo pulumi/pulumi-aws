@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a Lake Formation resource.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceResult
 	err := ctx.Invoke("aws:lakeformation/getResource:getResource", args, &rv, opts...)
 	if err != nil {
@@ -99,6 +102,12 @@ func (o LookupResourceResultOutput) ToLookupResourceResultOutput() LookupResourc
 
 func (o LookupResourceResultOutput) ToLookupResourceResultOutputWithContext(ctx context.Context) LookupResourceResultOutput {
 	return o
+}
+
+func (o LookupResourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResourceResult] {
+	return pulumix.Output[LookupResourceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupResourceResultOutput) Arn() pulumi.StringOutput {

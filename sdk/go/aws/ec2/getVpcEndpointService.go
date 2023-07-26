@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The VPC Endpoint Service data source details about a specific service that
@@ -111,6 +113,7 @@ import (
 //
 // ```
 func LookupVpcEndpointService(ctx *pulumi.Context, args *LookupVpcEndpointServiceArgs, opts ...pulumi.InvokeOption) (*LookupVpcEndpointServiceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcEndpointServiceResult
 	err := ctx.Invoke("aws:ec2/getVpcEndpointService:getVpcEndpointService", args, &rv, opts...)
 	if err != nil {
@@ -213,6 +216,12 @@ func (o LookupVpcEndpointServiceResultOutput) ToLookupVpcEndpointServiceResultOu
 
 func (o LookupVpcEndpointServiceResultOutput) ToLookupVpcEndpointServiceResultOutputWithContext(ctx context.Context) LookupVpcEndpointServiceResultOutput {
 	return o
+}
+
+func (o LookupVpcEndpointServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcEndpointServiceResult] {
+	return pulumix.Output[LookupVpcEndpointServiceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.

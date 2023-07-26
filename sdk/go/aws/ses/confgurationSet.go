@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SES configuration set resource.
@@ -102,6 +104,7 @@ func NewConfgurationSet(ctx *pulumi.Context,
 		args = &ConfgurationSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConfgurationSet
 	err := ctx.RegisterResource("aws:ses/confgurationSet:ConfgurationSet", name, args, &resource, opts...)
 	if err != nil {
@@ -219,6 +222,12 @@ func (i *ConfgurationSet) ToConfgurationSetOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetOutput)
 }
 
+func (i *ConfgurationSet) ToOutput(ctx context.Context) pulumix.Output[*ConfgurationSet] {
+	return pulumix.Output[*ConfgurationSet]{
+		OutputState: i.ToConfgurationSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfgurationSetArrayInput is an input type that accepts ConfgurationSetArray and ConfgurationSetArrayOutput values.
 // You can construct a concrete instance of `ConfgurationSetArrayInput` via:
 //
@@ -242,6 +251,12 @@ func (i ConfgurationSetArray) ToConfgurationSetArrayOutput() ConfgurationSetArra
 
 func (i ConfgurationSetArray) ToConfgurationSetArrayOutputWithContext(ctx context.Context) ConfgurationSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetArrayOutput)
+}
+
+func (i ConfgurationSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConfgurationSet] {
+	return pulumix.Output[[]*ConfgurationSet]{
+		OutputState: i.ToConfgurationSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConfgurationSetMapInput is an input type that accepts ConfgurationSetMap and ConfgurationSetMapOutput values.
@@ -269,6 +284,12 @@ func (i ConfgurationSetMap) ToConfgurationSetMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetMapOutput)
 }
 
+func (i ConfgurationSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfgurationSet] {
+	return pulumix.Output[map[string]*ConfgurationSet]{
+		OutputState: i.ToConfgurationSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfgurationSetOutput struct{ *pulumi.OutputState }
 
 func (ConfgurationSetOutput) ElementType() reflect.Type {
@@ -281,6 +302,12 @@ func (o ConfgurationSetOutput) ToConfgurationSetOutput() ConfgurationSetOutput {
 
 func (o ConfgurationSetOutput) ToConfgurationSetOutputWithContext(ctx context.Context) ConfgurationSetOutput {
 	return o
+}
+
+func (o ConfgurationSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfgurationSet] {
+	return pulumix.Output[*ConfgurationSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // SES configuration set ARN.
@@ -334,6 +361,12 @@ func (o ConfgurationSetArrayOutput) ToConfgurationSetArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ConfgurationSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConfgurationSet] {
+	return pulumix.Output[[]*ConfgurationSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConfgurationSetArrayOutput) Index(i pulumi.IntInput) ConfgurationSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfgurationSet {
 		return vs[0].([]*ConfgurationSet)[vs[1].(int)]
@@ -352,6 +385,12 @@ func (o ConfgurationSetMapOutput) ToConfgurationSetMapOutput() ConfgurationSetMa
 
 func (o ConfgurationSetMapOutput) ToConfgurationSetMapOutputWithContext(ctx context.Context) ConfgurationSetMapOutput {
 	return o
+}
+
+func (o ConfgurationSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfgurationSet] {
+	return pulumix.Output[map[string]*ConfgurationSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfgurationSetMapOutput) MapIndex(k pulumi.StringInput) ConfgurationSetOutput {

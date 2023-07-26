@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates and manages an AWS IoT Thing.
@@ -73,6 +75,7 @@ func NewThing(ctx *pulumi.Context,
 		args = &ThingArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Thing
 	err := ctx.RegisterResource("aws:iot/thing:Thing", name, args, &resource, opts...)
 	if err != nil {
@@ -170,6 +173,12 @@ func (i *Thing) ToThingOutputWithContext(ctx context.Context) ThingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingOutput)
 }
 
+func (i *Thing) ToOutput(ctx context.Context) pulumix.Output[*Thing] {
+	return pulumix.Output[*Thing]{
+		OutputState: i.ToThingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ThingArrayInput is an input type that accepts ThingArray and ThingArrayOutput values.
 // You can construct a concrete instance of `ThingArrayInput` via:
 //
@@ -193,6 +202,12 @@ func (i ThingArray) ToThingArrayOutput() ThingArrayOutput {
 
 func (i ThingArray) ToThingArrayOutputWithContext(ctx context.Context) ThingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingArrayOutput)
+}
+
+func (i ThingArray) ToOutput(ctx context.Context) pulumix.Output[[]*Thing] {
+	return pulumix.Output[[]*Thing]{
+		OutputState: i.ToThingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ThingMapInput is an input type that accepts ThingMap and ThingMapOutput values.
@@ -220,6 +235,12 @@ func (i ThingMap) ToThingMapOutputWithContext(ctx context.Context) ThingMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ThingMapOutput)
 }
 
+func (i ThingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Thing] {
+	return pulumix.Output[map[string]*Thing]{
+		OutputState: i.ToThingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThingOutput struct{ *pulumi.OutputState }
 
 func (ThingOutput) ElementType() reflect.Type {
@@ -232,6 +253,12 @@ func (o ThingOutput) ToThingOutput() ThingOutput {
 
 func (o ThingOutput) ToThingOutputWithContext(ctx context.Context) ThingOutput {
 	return o
+}
+
+func (o ThingOutput) ToOutput(ctx context.Context) pulumix.Output[*Thing] {
+	return pulumix.Output[*Thing]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the thing.
@@ -278,6 +305,12 @@ func (o ThingArrayOutput) ToThingArrayOutputWithContext(ctx context.Context) Thi
 	return o
 }
 
+func (o ThingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Thing] {
+	return pulumix.Output[[]*Thing]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ThingArrayOutput) Index(i pulumi.IntInput) ThingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Thing {
 		return vs[0].([]*Thing)[vs[1].(int)]
@@ -296,6 +329,12 @@ func (o ThingMapOutput) ToThingMapOutput() ThingMapOutput {
 
 func (o ThingMapOutput) ToThingMapOutputWithContext(ctx context.Context) ThingMapOutput {
 	return o
+}
+
+func (o ThingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Thing] {
+	return pulumix.Output[map[string]*Thing]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThingMapOutput) MapIndex(k pulumi.StringInput) ThingOutput {

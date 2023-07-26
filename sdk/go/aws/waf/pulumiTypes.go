@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ByteMatchSetByteMatchTuple struct {
 	// The part of a web request that you want to search, such as a specified header or a query string.
@@ -75,6 +79,12 @@ func (i ByteMatchSetByteMatchTupleArgs) ToByteMatchSetByteMatchTupleOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetByteMatchTupleOutput)
 }
 
+func (i ByteMatchSetByteMatchTupleArgs) ToOutput(ctx context.Context) pulumix.Output[ByteMatchSetByteMatchTuple] {
+	return pulumix.Output[ByteMatchSetByteMatchTuple]{
+		OutputState: i.ToByteMatchSetByteMatchTupleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ByteMatchSetByteMatchTupleArrayInput is an input type that accepts ByteMatchSetByteMatchTupleArray and ByteMatchSetByteMatchTupleArrayOutput values.
 // You can construct a concrete instance of `ByteMatchSetByteMatchTupleArrayInput` via:
 //
@@ -100,6 +110,12 @@ func (i ByteMatchSetByteMatchTupleArray) ToByteMatchSetByteMatchTupleArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetByteMatchTupleArrayOutput)
 }
 
+func (i ByteMatchSetByteMatchTupleArray) ToOutput(ctx context.Context) pulumix.Output[[]ByteMatchSetByteMatchTuple] {
+	return pulumix.Output[[]ByteMatchSetByteMatchTuple]{
+		OutputState: i.ToByteMatchSetByteMatchTupleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ByteMatchSetByteMatchTupleOutput struct{ *pulumi.OutputState }
 
 func (ByteMatchSetByteMatchTupleOutput) ElementType() reflect.Type {
@@ -112,6 +128,12 @@ func (o ByteMatchSetByteMatchTupleOutput) ToByteMatchSetByteMatchTupleOutput() B
 
 func (o ByteMatchSetByteMatchTupleOutput) ToByteMatchSetByteMatchTupleOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTupleOutput {
 	return o
+}
+
+func (o ByteMatchSetByteMatchTupleOutput) ToOutput(ctx context.Context) pulumix.Output[ByteMatchSetByteMatchTuple] {
+	return pulumix.Output[ByteMatchSetByteMatchTuple]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The part of a web request that you want to search, such as a specified header or a query string.
@@ -156,6 +178,12 @@ func (o ByteMatchSetByteMatchTupleArrayOutput) ToByteMatchSetByteMatchTupleArray
 
 func (o ByteMatchSetByteMatchTupleArrayOutput) ToByteMatchSetByteMatchTupleArrayOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTupleArrayOutput {
 	return o
+}
+
+func (o ByteMatchSetByteMatchTupleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ByteMatchSetByteMatchTuple] {
+	return pulumix.Output[[]ByteMatchSetByteMatchTuple]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ByteMatchSetByteMatchTupleArrayOutput) Index(i pulumi.IntInput) ByteMatchSetByteMatchTupleOutput {
@@ -209,6 +237,12 @@ func (i ByteMatchSetByteMatchTupleFieldToMatchArgs) ToByteMatchSetByteMatchTuple
 	return pulumi.ToOutputWithContext(ctx, i).(ByteMatchSetByteMatchTupleFieldToMatchOutput)
 }
 
+func (i ByteMatchSetByteMatchTupleFieldToMatchArgs) ToOutput(ctx context.Context) pulumix.Output[ByteMatchSetByteMatchTupleFieldToMatch] {
+	return pulumix.Output[ByteMatchSetByteMatchTupleFieldToMatch]{
+		OutputState: i.ToByteMatchSetByteMatchTupleFieldToMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ByteMatchSetByteMatchTupleFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (ByteMatchSetByteMatchTupleFieldToMatchOutput) ElementType() reflect.Type {
@@ -221,6 +255,12 @@ func (o ByteMatchSetByteMatchTupleFieldToMatchOutput) ToByteMatchSetByteMatchTup
 
 func (o ByteMatchSetByteMatchTupleFieldToMatchOutput) ToByteMatchSetByteMatchTupleFieldToMatchOutputWithContext(ctx context.Context) ByteMatchSetByteMatchTupleFieldToMatchOutput {
 	return o
+}
+
+func (o ByteMatchSetByteMatchTupleFieldToMatchOutput) ToOutput(ctx context.Context) pulumix.Output[ByteMatchSetByteMatchTupleFieldToMatch] {
+	return pulumix.Output[ByteMatchSetByteMatchTupleFieldToMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
@@ -278,6 +318,12 @@ func (i GeoMatchSetGeoMatchConstraintArgs) ToGeoMatchSetGeoMatchConstraintOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetGeoMatchConstraintOutput)
 }
 
+func (i GeoMatchSetGeoMatchConstraintArgs) ToOutput(ctx context.Context) pulumix.Output[GeoMatchSetGeoMatchConstraint] {
+	return pulumix.Output[GeoMatchSetGeoMatchConstraint]{
+		OutputState: i.ToGeoMatchSetGeoMatchConstraintOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GeoMatchSetGeoMatchConstraintArrayInput is an input type that accepts GeoMatchSetGeoMatchConstraintArray and GeoMatchSetGeoMatchConstraintArrayOutput values.
 // You can construct a concrete instance of `GeoMatchSetGeoMatchConstraintArrayInput` via:
 //
@@ -303,6 +349,12 @@ func (i GeoMatchSetGeoMatchConstraintArray) ToGeoMatchSetGeoMatchConstraintArray
 	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetGeoMatchConstraintArrayOutput)
 }
 
+func (i GeoMatchSetGeoMatchConstraintArray) ToOutput(ctx context.Context) pulumix.Output[[]GeoMatchSetGeoMatchConstraint] {
+	return pulumix.Output[[]GeoMatchSetGeoMatchConstraint]{
+		OutputState: i.ToGeoMatchSetGeoMatchConstraintArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GeoMatchSetGeoMatchConstraintOutput struct{ *pulumi.OutputState }
 
 func (GeoMatchSetGeoMatchConstraintOutput) ElementType() reflect.Type {
@@ -315,6 +367,12 @@ func (o GeoMatchSetGeoMatchConstraintOutput) ToGeoMatchSetGeoMatchConstraintOutp
 
 func (o GeoMatchSetGeoMatchConstraintOutput) ToGeoMatchSetGeoMatchConstraintOutputWithContext(ctx context.Context) GeoMatchSetGeoMatchConstraintOutput {
 	return o
+}
+
+func (o GeoMatchSetGeoMatchConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[GeoMatchSetGeoMatchConstraint] {
+	return pulumix.Output[GeoMatchSetGeoMatchConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
@@ -341,6 +399,12 @@ func (o GeoMatchSetGeoMatchConstraintArrayOutput) ToGeoMatchSetGeoMatchConstrain
 
 func (o GeoMatchSetGeoMatchConstraintArrayOutput) ToGeoMatchSetGeoMatchConstraintArrayOutputWithContext(ctx context.Context) GeoMatchSetGeoMatchConstraintArrayOutput {
 	return o
+}
+
+func (o GeoMatchSetGeoMatchConstraintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GeoMatchSetGeoMatchConstraint] {
+	return pulumix.Output[[]GeoMatchSetGeoMatchConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GeoMatchSetGeoMatchConstraintArrayOutput) Index(i pulumi.IntInput) GeoMatchSetGeoMatchConstraintOutput {
@@ -386,6 +450,12 @@ func (i IpSetIpSetDescriptorArgs) ToIpSetIpSetDescriptorOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IpSetIpSetDescriptorOutput)
 }
 
+func (i IpSetIpSetDescriptorArgs) ToOutput(ctx context.Context) pulumix.Output[IpSetIpSetDescriptor] {
+	return pulumix.Output[IpSetIpSetDescriptor]{
+		OutputState: i.ToIpSetIpSetDescriptorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IpSetIpSetDescriptorArrayInput is an input type that accepts IpSetIpSetDescriptorArray and IpSetIpSetDescriptorArrayOutput values.
 // You can construct a concrete instance of `IpSetIpSetDescriptorArrayInput` via:
 //
@@ -411,6 +481,12 @@ func (i IpSetIpSetDescriptorArray) ToIpSetIpSetDescriptorArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IpSetIpSetDescriptorArrayOutput)
 }
 
+func (i IpSetIpSetDescriptorArray) ToOutput(ctx context.Context) pulumix.Output[[]IpSetIpSetDescriptor] {
+	return pulumix.Output[[]IpSetIpSetDescriptor]{
+		OutputState: i.ToIpSetIpSetDescriptorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IpSetIpSetDescriptorOutput struct{ *pulumi.OutputState }
 
 func (IpSetIpSetDescriptorOutput) ElementType() reflect.Type {
@@ -423,6 +499,12 @@ func (o IpSetIpSetDescriptorOutput) ToIpSetIpSetDescriptorOutput() IpSetIpSetDes
 
 func (o IpSetIpSetDescriptorOutput) ToIpSetIpSetDescriptorOutputWithContext(ctx context.Context) IpSetIpSetDescriptorOutput {
 	return o
+}
+
+func (o IpSetIpSetDescriptorOutput) ToOutput(ctx context.Context) pulumix.Output[IpSetIpSetDescriptor] {
+	return pulumix.Output[IpSetIpSetDescriptor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Type of the IP address - `IPV4` or `IPV6`.
@@ -447,6 +529,12 @@ func (o IpSetIpSetDescriptorArrayOutput) ToIpSetIpSetDescriptorArrayOutput() IpS
 
 func (o IpSetIpSetDescriptorArrayOutput) ToIpSetIpSetDescriptorArrayOutputWithContext(ctx context.Context) IpSetIpSetDescriptorArrayOutput {
 	return o
+}
+
+func (o IpSetIpSetDescriptorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IpSetIpSetDescriptor] {
+	return pulumix.Output[[]IpSetIpSetDescriptor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IpSetIpSetDescriptorArrayOutput) Index(i pulumi.IntInput) IpSetIpSetDescriptorOutput {
@@ -502,6 +590,12 @@ func (i RateBasedRulePredicateArgs) ToRateBasedRulePredicateOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRulePredicateOutput)
 }
 
+func (i RateBasedRulePredicateArgs) ToOutput(ctx context.Context) pulumix.Output[RateBasedRulePredicate] {
+	return pulumix.Output[RateBasedRulePredicate]{
+		OutputState: i.ToRateBasedRulePredicateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RateBasedRulePredicateArrayInput is an input type that accepts RateBasedRulePredicateArray and RateBasedRulePredicateArrayOutput values.
 // You can construct a concrete instance of `RateBasedRulePredicateArrayInput` via:
 //
@@ -527,6 +621,12 @@ func (i RateBasedRulePredicateArray) ToRateBasedRulePredicateArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRulePredicateArrayOutput)
 }
 
+func (i RateBasedRulePredicateArray) ToOutput(ctx context.Context) pulumix.Output[[]RateBasedRulePredicate] {
+	return pulumix.Output[[]RateBasedRulePredicate]{
+		OutputState: i.ToRateBasedRulePredicateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RateBasedRulePredicateOutput struct{ *pulumi.OutputState }
 
 func (RateBasedRulePredicateOutput) ElementType() reflect.Type {
@@ -539,6 +639,12 @@ func (o RateBasedRulePredicateOutput) ToRateBasedRulePredicateOutput() RateBased
 
 func (o RateBasedRulePredicateOutput) ToRateBasedRulePredicateOutputWithContext(ctx context.Context) RateBasedRulePredicateOutput {
 	return o
+}
+
+func (o RateBasedRulePredicateOutput) ToOutput(ctx context.Context) pulumix.Output[RateBasedRulePredicate] {
+	return pulumix.Output[RateBasedRulePredicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
@@ -571,6 +677,12 @@ func (o RateBasedRulePredicateArrayOutput) ToRateBasedRulePredicateArrayOutput()
 
 func (o RateBasedRulePredicateArrayOutput) ToRateBasedRulePredicateArrayOutputWithContext(ctx context.Context) RateBasedRulePredicateArrayOutput {
 	return o
+}
+
+func (o RateBasedRulePredicateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RateBasedRulePredicate] {
+	return pulumix.Output[[]RateBasedRulePredicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RateBasedRulePredicateArrayOutput) Index(i pulumi.IntInput) RateBasedRulePredicateOutput {
@@ -626,6 +738,12 @@ func (i RegexMatchSetRegexMatchTupleArgs) ToRegexMatchSetRegexMatchTupleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetRegexMatchTupleOutput)
 }
 
+func (i RegexMatchSetRegexMatchTupleArgs) ToOutput(ctx context.Context) pulumix.Output[RegexMatchSetRegexMatchTuple] {
+	return pulumix.Output[RegexMatchSetRegexMatchTuple]{
+		OutputState: i.ToRegexMatchSetRegexMatchTupleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegexMatchSetRegexMatchTupleArrayInput is an input type that accepts RegexMatchSetRegexMatchTupleArray and RegexMatchSetRegexMatchTupleArrayOutput values.
 // You can construct a concrete instance of `RegexMatchSetRegexMatchTupleArrayInput` via:
 //
@@ -651,6 +769,12 @@ func (i RegexMatchSetRegexMatchTupleArray) ToRegexMatchSetRegexMatchTupleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetRegexMatchTupleArrayOutput)
 }
 
+func (i RegexMatchSetRegexMatchTupleArray) ToOutput(ctx context.Context) pulumix.Output[[]RegexMatchSetRegexMatchTuple] {
+	return pulumix.Output[[]RegexMatchSetRegexMatchTuple]{
+		OutputState: i.ToRegexMatchSetRegexMatchTupleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegexMatchSetRegexMatchTupleOutput struct{ *pulumi.OutputState }
 
 func (RegexMatchSetRegexMatchTupleOutput) ElementType() reflect.Type {
@@ -663,6 +787,12 @@ func (o RegexMatchSetRegexMatchTupleOutput) ToRegexMatchSetRegexMatchTupleOutput
 
 func (o RegexMatchSetRegexMatchTupleOutput) ToRegexMatchSetRegexMatchTupleOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTupleOutput {
 	return o
+}
+
+func (o RegexMatchSetRegexMatchTupleOutput) ToOutput(ctx context.Context) pulumix.Output[RegexMatchSetRegexMatchTuple] {
+	return pulumix.Output[RegexMatchSetRegexMatchTuple]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The part of a web request that you want to search, such as a specified header or a query string.
@@ -695,6 +825,12 @@ func (o RegexMatchSetRegexMatchTupleArrayOutput) ToRegexMatchSetRegexMatchTupleA
 
 func (o RegexMatchSetRegexMatchTupleArrayOutput) ToRegexMatchSetRegexMatchTupleArrayOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTupleArrayOutput {
 	return o
+}
+
+func (o RegexMatchSetRegexMatchTupleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RegexMatchSetRegexMatchTuple] {
+	return pulumix.Output[[]RegexMatchSetRegexMatchTuple]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegexMatchSetRegexMatchTupleArrayOutput) Index(i pulumi.IntInput) RegexMatchSetRegexMatchTupleOutput {
@@ -748,6 +884,12 @@ func (i RegexMatchSetRegexMatchTupleFieldToMatchArgs) ToRegexMatchSetRegexMatchT
 	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetRegexMatchTupleFieldToMatchOutput)
 }
 
+func (i RegexMatchSetRegexMatchTupleFieldToMatchArgs) ToOutput(ctx context.Context) pulumix.Output[RegexMatchSetRegexMatchTupleFieldToMatch] {
+	return pulumix.Output[RegexMatchSetRegexMatchTupleFieldToMatch]{
+		OutputState: i.ToRegexMatchSetRegexMatchTupleFieldToMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegexMatchSetRegexMatchTupleFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (RegexMatchSetRegexMatchTupleFieldToMatchOutput) ElementType() reflect.Type {
@@ -760,6 +902,12 @@ func (o RegexMatchSetRegexMatchTupleFieldToMatchOutput) ToRegexMatchSetRegexMatc
 
 func (o RegexMatchSetRegexMatchTupleFieldToMatchOutput) ToRegexMatchSetRegexMatchTupleFieldToMatchOutputWithContext(ctx context.Context) RegexMatchSetRegexMatchTupleFieldToMatchOutput {
 	return o
+}
+
+func (o RegexMatchSetRegexMatchTupleFieldToMatchOutput) ToOutput(ctx context.Context) pulumix.Output[RegexMatchSetRegexMatchTupleFieldToMatch] {
+	return pulumix.Output[RegexMatchSetRegexMatchTupleFieldToMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
@@ -821,6 +969,12 @@ func (i RuleGroupActivatedRuleArgs) ToRuleGroupActivatedRuleOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupActivatedRuleOutput)
 }
 
+func (i RuleGroupActivatedRuleArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupActivatedRule] {
+	return pulumix.Output[RuleGroupActivatedRule]{
+		OutputState: i.ToRuleGroupActivatedRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleGroupActivatedRuleArrayInput is an input type that accepts RuleGroupActivatedRuleArray and RuleGroupActivatedRuleArrayOutput values.
 // You can construct a concrete instance of `RuleGroupActivatedRuleArrayInput` via:
 //
@@ -846,6 +1000,12 @@ func (i RuleGroupActivatedRuleArray) ToRuleGroupActivatedRuleArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupActivatedRuleArrayOutput)
 }
 
+func (i RuleGroupActivatedRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupActivatedRule] {
+	return pulumix.Output[[]RuleGroupActivatedRule]{
+		OutputState: i.ToRuleGroupActivatedRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupActivatedRuleOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupActivatedRuleOutput) ElementType() reflect.Type {
@@ -858,6 +1018,12 @@ func (o RuleGroupActivatedRuleOutput) ToRuleGroupActivatedRuleOutput() RuleGroup
 
 func (o RuleGroupActivatedRuleOutput) ToRuleGroupActivatedRuleOutputWithContext(ctx context.Context) RuleGroupActivatedRuleOutput {
 	return o
+}
+
+func (o RuleGroupActivatedRuleOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupActivatedRule] {
+	return pulumix.Output[RuleGroupActivatedRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
@@ -892,6 +1058,12 @@ func (o RuleGroupActivatedRuleArrayOutput) ToRuleGroupActivatedRuleArrayOutput()
 
 func (o RuleGroupActivatedRuleArrayOutput) ToRuleGroupActivatedRuleArrayOutputWithContext(ctx context.Context) RuleGroupActivatedRuleArrayOutput {
 	return o
+}
+
+func (o RuleGroupActivatedRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleGroupActivatedRule] {
+	return pulumix.Output[[]RuleGroupActivatedRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleGroupActivatedRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupActivatedRuleOutput {
@@ -933,6 +1105,12 @@ func (i RuleGroupActivatedRuleActionArgs) ToRuleGroupActivatedRuleActionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupActivatedRuleActionOutput)
 }
 
+func (i RuleGroupActivatedRuleActionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleGroupActivatedRuleAction] {
+	return pulumix.Output[RuleGroupActivatedRuleAction]{
+		OutputState: i.ToRuleGroupActivatedRuleActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleGroupActivatedRuleActionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupActivatedRuleActionOutput) ElementType() reflect.Type {
@@ -945,6 +1123,12 @@ func (o RuleGroupActivatedRuleActionOutput) ToRuleGroupActivatedRuleActionOutput
 
 func (o RuleGroupActivatedRuleActionOutput) ToRuleGroupActivatedRuleActionOutputWithContext(ctx context.Context) RuleGroupActivatedRuleActionOutput {
 	return o
+}
+
+func (o RuleGroupActivatedRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleGroupActivatedRuleAction] {
+	return pulumix.Output[RuleGroupActivatedRuleAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // e.g., `BLOCK`, `ALLOW`, or `COUNT`
@@ -999,6 +1183,12 @@ func (i RulePredicateArgs) ToRulePredicateOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RulePredicateOutput)
 }
 
+func (i RulePredicateArgs) ToOutput(ctx context.Context) pulumix.Output[RulePredicate] {
+	return pulumix.Output[RulePredicate]{
+		OutputState: i.ToRulePredicateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RulePredicateArrayInput is an input type that accepts RulePredicateArray and RulePredicateArrayOutput values.
 // You can construct a concrete instance of `RulePredicateArrayInput` via:
 //
@@ -1024,6 +1214,12 @@ func (i RulePredicateArray) ToRulePredicateArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RulePredicateArrayOutput)
 }
 
+func (i RulePredicateArray) ToOutput(ctx context.Context) pulumix.Output[[]RulePredicate] {
+	return pulumix.Output[[]RulePredicate]{
+		OutputState: i.ToRulePredicateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RulePredicateOutput struct{ *pulumi.OutputState }
 
 func (RulePredicateOutput) ElementType() reflect.Type {
@@ -1036,6 +1232,12 @@ func (o RulePredicateOutput) ToRulePredicateOutput() RulePredicateOutput {
 
 func (o RulePredicateOutput) ToRulePredicateOutputWithContext(ctx context.Context) RulePredicateOutput {
 	return o
+}
+
+func (o RulePredicateOutput) ToOutput(ctx context.Context) pulumix.Output[RulePredicate] {
+	return pulumix.Output[RulePredicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
@@ -1068,6 +1270,12 @@ func (o RulePredicateArrayOutput) ToRulePredicateArrayOutput() RulePredicateArra
 
 func (o RulePredicateArrayOutput) ToRulePredicateArrayOutputWithContext(ctx context.Context) RulePredicateArrayOutput {
 	return o
+}
+
+func (o RulePredicateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulePredicate] {
+	return pulumix.Output[[]RulePredicate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RulePredicateArrayOutput) Index(i pulumi.IntInput) RulePredicateOutput {
@@ -1137,6 +1345,12 @@ func (i SizeConstraintSetSizeConstraintArgs) ToSizeConstraintSetSizeConstraintOu
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetSizeConstraintOutput)
 }
 
+func (i SizeConstraintSetSizeConstraintArgs) ToOutput(ctx context.Context) pulumix.Output[SizeConstraintSetSizeConstraint] {
+	return pulumix.Output[SizeConstraintSetSizeConstraint]{
+		OutputState: i.ToSizeConstraintSetSizeConstraintOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SizeConstraintSetSizeConstraintArrayInput is an input type that accepts SizeConstraintSetSizeConstraintArray and SizeConstraintSetSizeConstraintArrayOutput values.
 // You can construct a concrete instance of `SizeConstraintSetSizeConstraintArrayInput` via:
 //
@@ -1162,6 +1376,12 @@ func (i SizeConstraintSetSizeConstraintArray) ToSizeConstraintSetSizeConstraintA
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetSizeConstraintArrayOutput)
 }
 
+func (i SizeConstraintSetSizeConstraintArray) ToOutput(ctx context.Context) pulumix.Output[[]SizeConstraintSetSizeConstraint] {
+	return pulumix.Output[[]SizeConstraintSetSizeConstraint]{
+		OutputState: i.ToSizeConstraintSetSizeConstraintArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SizeConstraintSetSizeConstraintOutput struct{ *pulumi.OutputState }
 
 func (SizeConstraintSetSizeConstraintOutput) ElementType() reflect.Type {
@@ -1174,6 +1394,12 @@ func (o SizeConstraintSetSizeConstraintOutput) ToSizeConstraintSetSizeConstraint
 
 func (o SizeConstraintSetSizeConstraintOutput) ToSizeConstraintSetSizeConstraintOutputWithContext(ctx context.Context) SizeConstraintSetSizeConstraintOutput {
 	return o
+}
+
+func (o SizeConstraintSetSizeConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[SizeConstraintSetSizeConstraint] {
+	return pulumix.Output[SizeConstraintSetSizeConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of comparison you want to perform.
@@ -1218,6 +1444,12 @@ func (o SizeConstraintSetSizeConstraintArrayOutput) ToSizeConstraintSetSizeConst
 
 func (o SizeConstraintSetSizeConstraintArrayOutput) ToSizeConstraintSetSizeConstraintArrayOutputWithContext(ctx context.Context) SizeConstraintSetSizeConstraintArrayOutput {
 	return o
+}
+
+func (o SizeConstraintSetSizeConstraintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SizeConstraintSetSizeConstraint] {
+	return pulumix.Output[[]SizeConstraintSetSizeConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SizeConstraintSetSizeConstraintArrayOutput) Index(i pulumi.IntInput) SizeConstraintSetSizeConstraintOutput {
@@ -1271,6 +1503,12 @@ func (i SizeConstraintSetSizeConstraintFieldToMatchArgs) ToSizeConstraintSetSize
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetSizeConstraintFieldToMatchOutput)
 }
 
+func (i SizeConstraintSetSizeConstraintFieldToMatchArgs) ToOutput(ctx context.Context) pulumix.Output[SizeConstraintSetSizeConstraintFieldToMatch] {
+	return pulumix.Output[SizeConstraintSetSizeConstraintFieldToMatch]{
+		OutputState: i.ToSizeConstraintSetSizeConstraintFieldToMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SizeConstraintSetSizeConstraintFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (SizeConstraintSetSizeConstraintFieldToMatchOutput) ElementType() reflect.Type {
@@ -1283,6 +1521,12 @@ func (o SizeConstraintSetSizeConstraintFieldToMatchOutput) ToSizeConstraintSetSi
 
 func (o SizeConstraintSetSizeConstraintFieldToMatchOutput) ToSizeConstraintSetSizeConstraintFieldToMatchOutputWithContext(ctx context.Context) SizeConstraintSetSizeConstraintFieldToMatchOutput {
 	return o
+}
+
+func (o SizeConstraintSetSizeConstraintFieldToMatchOutput) ToOutput(ctx context.Context) pulumix.Output[SizeConstraintSetSizeConstraintFieldToMatch] {
+	return pulumix.Output[SizeConstraintSetSizeConstraintFieldToMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
@@ -1344,6 +1588,12 @@ func (i SqlInjectionMatchSetSqlInjectionMatchTupleArgs) ToSqlInjectionMatchSetSq
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetSqlInjectionMatchTupleOutput)
 }
 
+func (i SqlInjectionMatchSetSqlInjectionMatchTupleArgs) ToOutput(ctx context.Context) pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTuple] {
+	return pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTuple]{
+		OutputState: i.ToSqlInjectionMatchSetSqlInjectionMatchTupleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput is an input type that accepts SqlInjectionMatchSetSqlInjectionMatchTupleArray and SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput values.
 // You can construct a concrete instance of `SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput` via:
 //
@@ -1369,6 +1619,12 @@ func (i SqlInjectionMatchSetSqlInjectionMatchTupleArray) ToSqlInjectionMatchSetS
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput)
 }
 
+func (i SqlInjectionMatchSetSqlInjectionMatchTupleArray) ToOutput(ctx context.Context) pulumix.Output[[]SqlInjectionMatchSetSqlInjectionMatchTuple] {
+	return pulumix.Output[[]SqlInjectionMatchSetSqlInjectionMatchTuple]{
+		OutputState: i.ToSqlInjectionMatchSetSqlInjectionMatchTupleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlInjectionMatchSetSqlInjectionMatchTupleOutput struct{ *pulumi.OutputState }
 
 func (SqlInjectionMatchSetSqlInjectionMatchTupleOutput) ElementType() reflect.Type {
@@ -1381,6 +1637,12 @@ func (o SqlInjectionMatchSetSqlInjectionMatchTupleOutput) ToSqlInjectionMatchSet
 
 func (o SqlInjectionMatchSetSqlInjectionMatchTupleOutput) ToSqlInjectionMatchSetSqlInjectionMatchTupleOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTupleOutput {
 	return o
+}
+
+func (o SqlInjectionMatchSetSqlInjectionMatchTupleOutput) ToOutput(ctx context.Context) pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTuple] {
+	return pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTuple]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies where in a web request to look for snippets of malicious SQL code.
@@ -1411,6 +1673,12 @@ func (o SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput) ToSqlInjectionMat
 
 func (o SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput) ToSqlInjectionMatchSetSqlInjectionMatchTupleArrayOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput {
 	return o
+}
+
+func (o SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SqlInjectionMatchSetSqlInjectionMatchTuple] {
+	return pulumix.Output[[]SqlInjectionMatchSetSqlInjectionMatchTuple]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput) Index(i pulumi.IntInput) SqlInjectionMatchSetSqlInjectionMatchTupleOutput {
@@ -1464,6 +1732,12 @@ func (i SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs) ToSqlInjecti
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput)
 }
 
+func (i SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs) ToOutput(ctx context.Context) pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch] {
+	return pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch]{
+		OutputState: i.ToSqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput) ElementType() reflect.Type {
@@ -1476,6 +1750,12 @@ func (o SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput) ToSqlInjec
 
 func (o SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput) ToSqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutputWithContext(ctx context.Context) SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput {
 	return o
+}
+
+func (o SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput) ToOutput(ctx context.Context) pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch] {
+	return pulumix.Output[SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
@@ -1527,6 +1807,12 @@ func (i WebAclDefaultActionArgs) ToWebAclDefaultActionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclDefaultActionOutput)
 }
 
+func (i WebAclDefaultActionArgs) ToOutput(ctx context.Context) pulumix.Output[WebAclDefaultAction] {
+	return pulumix.Output[WebAclDefaultAction]{
+		OutputState: i.ToWebAclDefaultActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WebAclDefaultActionArgs) ToWebAclDefaultActionPtrOutput() WebAclDefaultActionPtrOutput {
 	return i.ToWebAclDefaultActionPtrOutputWithContext(context.Background())
 }
@@ -1568,6 +1854,12 @@ func (i *webAclDefaultActionPtrType) ToWebAclDefaultActionPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclDefaultActionPtrOutput)
 }
 
+func (i *webAclDefaultActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*WebAclDefaultAction] {
+	return pulumix.Output[*WebAclDefaultAction]{
+		OutputState: i.ToWebAclDefaultActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebAclDefaultActionOutput struct{ *pulumi.OutputState }
 
 func (WebAclDefaultActionOutput) ElementType() reflect.Type {
@@ -1592,6 +1884,12 @@ func (o WebAclDefaultActionOutput) ToWebAclDefaultActionPtrOutputWithContext(ctx
 	}).(WebAclDefaultActionPtrOutput)
 }
 
+func (o WebAclDefaultActionOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclDefaultAction] {
+	return pulumix.Output[WebAclDefaultAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
 // e.g., `ALLOW` or `BLOCK`
 func (o WebAclDefaultActionOutput) Type() pulumi.StringOutput {
@@ -1610,6 +1908,12 @@ func (o WebAclDefaultActionPtrOutput) ToWebAclDefaultActionPtrOutput() WebAclDef
 
 func (o WebAclDefaultActionPtrOutput) ToWebAclDefaultActionPtrOutputWithContext(ctx context.Context) WebAclDefaultActionPtrOutput {
 	return o
+}
+
+func (o WebAclDefaultActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclDefaultAction] {
+	return pulumix.Output[*WebAclDefaultAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebAclDefaultActionPtrOutput) Elem() WebAclDefaultActionOutput {
@@ -1670,6 +1974,12 @@ func (i WebAclLoggingConfigurationArgs) ToWebAclLoggingConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationOutput)
 }
 
+func (i WebAclLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WebAclLoggingConfiguration] {
+	return pulumix.Output[WebAclLoggingConfiguration]{
+		OutputState: i.ToWebAclLoggingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WebAclLoggingConfigurationArgs) ToWebAclLoggingConfigurationPtrOutput() WebAclLoggingConfigurationPtrOutput {
 	return i.ToWebAclLoggingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1711,6 +2021,12 @@ func (i *webAclLoggingConfigurationPtrType) ToWebAclLoggingConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationPtrOutput)
 }
 
+func (i *webAclLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WebAclLoggingConfiguration] {
+	return pulumix.Output[*WebAclLoggingConfiguration]{
+		OutputState: i.ToWebAclLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebAclLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebAclLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -1735,6 +2051,12 @@ func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationPtrOutputW
 	}).(WebAclLoggingConfigurationPtrOutput)
 }
 
+func (o WebAclLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclLoggingConfiguration] {
+	return pulumix.Output[WebAclLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
 func (o WebAclLoggingConfigurationOutput) LogDestination() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclLoggingConfiguration) string { return v.LogDestination }).(pulumi.StringOutput)
@@ -1757,6 +2079,12 @@ func (o WebAclLoggingConfigurationPtrOutput) ToWebAclLoggingConfigurationPtrOutp
 
 func (o WebAclLoggingConfigurationPtrOutput) ToWebAclLoggingConfigurationPtrOutputWithContext(ctx context.Context) WebAclLoggingConfigurationPtrOutput {
 	return o
+}
+
+func (o WebAclLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclLoggingConfiguration] {
+	return pulumix.Output[*WebAclLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebAclLoggingConfigurationPtrOutput) Elem() WebAclLoggingConfigurationOutput {
@@ -1822,6 +2150,12 @@ func (i WebAclLoggingConfigurationRedactedFieldsArgs) ToWebAclLoggingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationRedactedFieldsOutput)
 }
 
+func (i WebAclLoggingConfigurationRedactedFieldsArgs) ToOutput(ctx context.Context) pulumix.Output[WebAclLoggingConfigurationRedactedFields] {
+	return pulumix.Output[WebAclLoggingConfigurationRedactedFields]{
+		OutputState: i.ToWebAclLoggingConfigurationRedactedFieldsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WebAclLoggingConfigurationRedactedFieldsArgs) ToWebAclLoggingConfigurationRedactedFieldsPtrOutput() WebAclLoggingConfigurationRedactedFieldsPtrOutput {
 	return i.ToWebAclLoggingConfigurationRedactedFieldsPtrOutputWithContext(context.Background())
 }
@@ -1863,6 +2197,12 @@ func (i *webAclLoggingConfigurationRedactedFieldsPtrType) ToWebAclLoggingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationRedactedFieldsPtrOutput)
 }
 
+func (i *webAclLoggingConfigurationRedactedFieldsPtrType) ToOutput(ctx context.Context) pulumix.Output[*WebAclLoggingConfigurationRedactedFields] {
+	return pulumix.Output[*WebAclLoggingConfigurationRedactedFields]{
+		OutputState: i.ToWebAclLoggingConfigurationRedactedFieldsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebAclLoggingConfigurationRedactedFieldsOutput struct{ *pulumi.OutputState }
 
 func (WebAclLoggingConfigurationRedactedFieldsOutput) ElementType() reflect.Type {
@@ -1887,6 +2227,12 @@ func (o WebAclLoggingConfigurationRedactedFieldsOutput) ToWebAclLoggingConfigura
 	}).(WebAclLoggingConfigurationRedactedFieldsPtrOutput)
 }
 
+func (o WebAclLoggingConfigurationRedactedFieldsOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclLoggingConfigurationRedactedFields] {
+	return pulumix.Output[WebAclLoggingConfigurationRedactedFields]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Set of configuration blocks for fields to redact. Detailed below.
 func (o WebAclLoggingConfigurationRedactedFieldsOutput) FieldToMatches() WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput {
 	return o.ApplyT(func(v WebAclLoggingConfigurationRedactedFields) []WebAclLoggingConfigurationRedactedFieldsFieldToMatch {
@@ -1906,6 +2252,12 @@ func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) ToWebAclLoggingConfig
 
 func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) ToWebAclLoggingConfigurationRedactedFieldsPtrOutputWithContext(ctx context.Context) WebAclLoggingConfigurationRedactedFieldsPtrOutput {
 	return o
+}
+
+func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclLoggingConfigurationRedactedFields] {
+	return pulumix.Output[*WebAclLoggingConfigurationRedactedFields]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) Elem() WebAclLoggingConfigurationRedactedFieldsOutput {
@@ -1965,6 +2317,12 @@ func (i WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs) ToWebAclLoggin
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput)
 }
 
+func (i WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs) ToOutput(ctx context.Context) pulumix.Output[WebAclLoggingConfigurationRedactedFieldsFieldToMatch] {
+	return pulumix.Output[WebAclLoggingConfigurationRedactedFieldsFieldToMatch]{
+		OutputState: i.ToWebAclLoggingConfigurationRedactedFieldsFieldToMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayInput is an input type that accepts WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray and WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput values.
 // You can construct a concrete instance of `WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayInput` via:
 //
@@ -1990,6 +2348,12 @@ func (i WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray) ToWebAclLoggi
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput)
 }
 
+func (i WebAclLoggingConfigurationRedactedFieldsFieldToMatchArray) ToOutput(ctx context.Context) pulumix.Output[[]WebAclLoggingConfigurationRedactedFieldsFieldToMatch] {
+	return pulumix.Output[[]WebAclLoggingConfigurationRedactedFieldsFieldToMatch]{
+		OutputState: i.ToWebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput) ElementType() reflect.Type {
@@ -2002,6 +2366,12 @@ func (o WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput) ToWebAclLogg
 
 func (o WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput) ToWebAclLoggingConfigurationRedactedFieldsFieldToMatchOutputWithContext(ctx context.Context) WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput {
 	return o
+}
+
+func (o WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclLoggingConfigurationRedactedFieldsFieldToMatch] {
+	return pulumix.Output[WebAclLoggingConfigurationRedactedFieldsFieldToMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
@@ -2026,6 +2396,12 @@ func (o WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput) ToWebAc
 
 func (o WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput) ToWebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutputWithContext(ctx context.Context) WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput {
 	return o
+}
+
+func (o WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WebAclLoggingConfigurationRedactedFieldsFieldToMatch] {
+	return pulumix.Output[[]WebAclLoggingConfigurationRedactedFieldsFieldToMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrayOutput) Index(i pulumi.IntInput) WebAclLoggingConfigurationRedactedFieldsFieldToMatchOutput {
@@ -2085,6 +2461,12 @@ func (i WebAclRuleArgs) ToWebAclRuleOutputWithContext(ctx context.Context) WebAc
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleOutput)
 }
 
+func (i WebAclRuleArgs) ToOutput(ctx context.Context) pulumix.Output[WebAclRule] {
+	return pulumix.Output[WebAclRule]{
+		OutputState: i.ToWebAclRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebAclRuleArrayInput is an input type that accepts WebAclRuleArray and WebAclRuleArrayOutput values.
 // You can construct a concrete instance of `WebAclRuleArrayInput` via:
 //
@@ -2110,6 +2492,12 @@ func (i WebAclRuleArray) ToWebAclRuleArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleArrayOutput)
 }
 
+func (i WebAclRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]WebAclRule] {
+	return pulumix.Output[[]WebAclRule]{
+		OutputState: i.ToWebAclRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebAclRuleOutput struct{ *pulumi.OutputState }
 
 func (WebAclRuleOutput) ElementType() reflect.Type {
@@ -2122,6 +2510,12 @@ func (o WebAclRuleOutput) ToWebAclRuleOutput() WebAclRuleOutput {
 
 func (o WebAclRuleOutput) ToWebAclRuleOutputWithContext(ctx context.Context) WebAclRuleOutput {
 	return o
+}
+
+func (o WebAclRuleOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclRule] {
+	return pulumix.Output[WebAclRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Not used if `type` is `GROUP`.
@@ -2162,6 +2556,12 @@ func (o WebAclRuleArrayOutput) ToWebAclRuleArrayOutput() WebAclRuleArrayOutput {
 
 func (o WebAclRuleArrayOutput) ToWebAclRuleArrayOutputWithContext(ctx context.Context) WebAclRuleArrayOutput {
 	return o
+}
+
+func (o WebAclRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WebAclRule] {
+	return pulumix.Output[[]WebAclRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebAclRuleArrayOutput) Index(i pulumi.IntInput) WebAclRuleOutput {
@@ -2205,6 +2605,12 @@ func (i WebAclRuleActionArgs) ToWebAclRuleActionOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleActionOutput)
 }
 
+func (i WebAclRuleActionArgs) ToOutput(ctx context.Context) pulumix.Output[WebAclRuleAction] {
+	return pulumix.Output[WebAclRuleAction]{
+		OutputState: i.ToWebAclRuleActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WebAclRuleActionArgs) ToWebAclRuleActionPtrOutput() WebAclRuleActionPtrOutput {
 	return i.ToWebAclRuleActionPtrOutputWithContext(context.Background())
 }
@@ -2246,6 +2652,12 @@ func (i *webAclRuleActionPtrType) ToWebAclRuleActionPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleActionPtrOutput)
 }
 
+func (i *webAclRuleActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*WebAclRuleAction] {
+	return pulumix.Output[*WebAclRuleAction]{
+		OutputState: i.ToWebAclRuleActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebAclRuleActionOutput struct{ *pulumi.OutputState }
 
 func (WebAclRuleActionOutput) ElementType() reflect.Type {
@@ -2270,6 +2682,12 @@ func (o WebAclRuleActionOutput) ToWebAclRuleActionPtrOutputWithContext(ctx conte
 	}).(WebAclRuleActionPtrOutput)
 }
 
+func (o WebAclRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclRuleAction] {
+	return pulumix.Output[WebAclRuleAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
 // e.g., `ALLOW` or `BLOCK`
 func (o WebAclRuleActionOutput) Type() pulumi.StringOutput {
@@ -2288,6 +2706,12 @@ func (o WebAclRuleActionPtrOutput) ToWebAclRuleActionPtrOutput() WebAclRuleActio
 
 func (o WebAclRuleActionPtrOutput) ToWebAclRuleActionPtrOutputWithContext(ctx context.Context) WebAclRuleActionPtrOutput {
 	return o
+}
+
+func (o WebAclRuleActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclRuleAction] {
+	return pulumix.Output[*WebAclRuleAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebAclRuleActionPtrOutput) Elem() WebAclRuleActionOutput {
@@ -2346,6 +2770,12 @@ func (i WebAclRuleOverrideActionArgs) ToWebAclRuleOverrideActionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleOverrideActionOutput)
 }
 
+func (i WebAclRuleOverrideActionArgs) ToOutput(ctx context.Context) pulumix.Output[WebAclRuleOverrideAction] {
+	return pulumix.Output[WebAclRuleOverrideAction]{
+		OutputState: i.ToWebAclRuleOverrideActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i WebAclRuleOverrideActionArgs) ToWebAclRuleOverrideActionPtrOutput() WebAclRuleOverrideActionPtrOutput {
 	return i.ToWebAclRuleOverrideActionPtrOutputWithContext(context.Background())
 }
@@ -2387,6 +2817,12 @@ func (i *webAclRuleOverrideActionPtrType) ToWebAclRuleOverrideActionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclRuleOverrideActionPtrOutput)
 }
 
+func (i *webAclRuleOverrideActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*WebAclRuleOverrideAction] {
+	return pulumix.Output[*WebAclRuleOverrideAction]{
+		OutputState: i.ToWebAclRuleOverrideActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebAclRuleOverrideActionOutput struct{ *pulumi.OutputState }
 
 func (WebAclRuleOverrideActionOutput) ElementType() reflect.Type {
@@ -2411,6 +2847,12 @@ func (o WebAclRuleOverrideActionOutput) ToWebAclRuleOverrideActionPtrOutputWithC
 	}).(WebAclRuleOverrideActionPtrOutput)
 }
 
+func (o WebAclRuleOverrideActionOutput) ToOutput(ctx context.Context) pulumix.Output[WebAclRuleOverrideAction] {
+	return pulumix.Output[WebAclRuleOverrideAction]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies how you want AWS WAF to respond to requests that don't match the criteria in any of the `rules`.
 // e.g., `ALLOW` or `BLOCK`
 func (o WebAclRuleOverrideActionOutput) Type() pulumi.StringOutput {
@@ -2429,6 +2871,12 @@ func (o WebAclRuleOverrideActionPtrOutput) ToWebAclRuleOverrideActionPtrOutput()
 
 func (o WebAclRuleOverrideActionPtrOutput) ToWebAclRuleOverrideActionPtrOutputWithContext(ctx context.Context) WebAclRuleOverrideActionPtrOutput {
 	return o
+}
+
+func (o WebAclRuleOverrideActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAclRuleOverrideAction] {
+	return pulumix.Output[*WebAclRuleOverrideAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebAclRuleOverrideActionPtrOutput) Elem() WebAclRuleOverrideActionOutput {
@@ -2497,6 +2945,12 @@ func (i XssMatchSetXssMatchTupleArgs) ToXssMatchSetXssMatchTupleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetXssMatchTupleOutput)
 }
 
+func (i XssMatchSetXssMatchTupleArgs) ToOutput(ctx context.Context) pulumix.Output[XssMatchSetXssMatchTuple] {
+	return pulumix.Output[XssMatchSetXssMatchTuple]{
+		OutputState: i.ToXssMatchSetXssMatchTupleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // XssMatchSetXssMatchTupleArrayInput is an input type that accepts XssMatchSetXssMatchTupleArray and XssMatchSetXssMatchTupleArrayOutput values.
 // You can construct a concrete instance of `XssMatchSetXssMatchTupleArrayInput` via:
 //
@@ -2522,6 +2976,12 @@ func (i XssMatchSetXssMatchTupleArray) ToXssMatchSetXssMatchTupleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetXssMatchTupleArrayOutput)
 }
 
+func (i XssMatchSetXssMatchTupleArray) ToOutput(ctx context.Context) pulumix.Output[[]XssMatchSetXssMatchTuple] {
+	return pulumix.Output[[]XssMatchSetXssMatchTuple]{
+		OutputState: i.ToXssMatchSetXssMatchTupleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type XssMatchSetXssMatchTupleOutput struct{ *pulumi.OutputState }
 
 func (XssMatchSetXssMatchTupleOutput) ElementType() reflect.Type {
@@ -2534,6 +2994,12 @@ func (o XssMatchSetXssMatchTupleOutput) ToXssMatchSetXssMatchTupleOutput() XssMa
 
 func (o XssMatchSetXssMatchTupleOutput) ToXssMatchSetXssMatchTupleOutputWithContext(ctx context.Context) XssMatchSetXssMatchTupleOutput {
 	return o
+}
+
+func (o XssMatchSetXssMatchTupleOutput) ToOutput(ctx context.Context) pulumix.Output[XssMatchSetXssMatchTuple] {
+	return pulumix.Output[XssMatchSetXssMatchTuple]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies where in a web request to look for cross-site scripting attacks.
@@ -2562,6 +3028,12 @@ func (o XssMatchSetXssMatchTupleArrayOutput) ToXssMatchSetXssMatchTupleArrayOutp
 
 func (o XssMatchSetXssMatchTupleArrayOutput) ToXssMatchSetXssMatchTupleArrayOutputWithContext(ctx context.Context) XssMatchSetXssMatchTupleArrayOutput {
 	return o
+}
+
+func (o XssMatchSetXssMatchTupleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]XssMatchSetXssMatchTuple] {
+	return pulumix.Output[[]XssMatchSetXssMatchTuple]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o XssMatchSetXssMatchTupleArrayOutput) Index(i pulumi.IntInput) XssMatchSetXssMatchTupleOutput {
@@ -2615,6 +3087,12 @@ func (i XssMatchSetXssMatchTupleFieldToMatchArgs) ToXssMatchSetXssMatchTupleFiel
 	return pulumi.ToOutputWithContext(ctx, i).(XssMatchSetXssMatchTupleFieldToMatchOutput)
 }
 
+func (i XssMatchSetXssMatchTupleFieldToMatchArgs) ToOutput(ctx context.Context) pulumix.Output[XssMatchSetXssMatchTupleFieldToMatch] {
+	return pulumix.Output[XssMatchSetXssMatchTupleFieldToMatch]{
+		OutputState: i.ToXssMatchSetXssMatchTupleFieldToMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
 type XssMatchSetXssMatchTupleFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (XssMatchSetXssMatchTupleFieldToMatchOutput) ElementType() reflect.Type {
@@ -2627,6 +3105,12 @@ func (o XssMatchSetXssMatchTupleFieldToMatchOutput) ToXssMatchSetXssMatchTupleFi
 
 func (o XssMatchSetXssMatchTupleFieldToMatchOutput) ToXssMatchSetXssMatchTupleFieldToMatchOutputWithContext(ctx context.Context) XssMatchSetXssMatchTupleFieldToMatchOutput {
 	return o
+}
+
+func (o XssMatchSetXssMatchTupleFieldToMatchOutput) ToOutput(ctx context.Context) pulumix.Output[XssMatchSetXssMatchTupleFieldToMatch] {
+	return pulumix.Output[XssMatchSetXssMatchTupleFieldToMatch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.

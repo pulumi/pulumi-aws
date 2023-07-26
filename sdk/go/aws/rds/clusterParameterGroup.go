@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an RDS DB cluster parameter group resource. Documentation of the available parameters for various Aurora engines can be found at:
@@ -96,6 +98,7 @@ func NewClusterParameterGroup(ctx *pulumi.Context,
 	if args.Description == nil {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ClusterParameterGroup
 	err := ctx.RegisterResource("aws:rds/clusterParameterGroup:ClusterParameterGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -213,6 +216,12 @@ func (i *ClusterParameterGroup) ToClusterParameterGroupOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupOutput)
 }
 
+func (i *ClusterParameterGroup) ToOutput(ctx context.Context) pulumix.Output[*ClusterParameterGroup] {
+	return pulumix.Output[*ClusterParameterGroup]{
+		OutputState: i.ToClusterParameterGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterParameterGroupArrayInput is an input type that accepts ClusterParameterGroupArray and ClusterParameterGroupArrayOutput values.
 // You can construct a concrete instance of `ClusterParameterGroupArrayInput` via:
 //
@@ -236,6 +245,12 @@ func (i ClusterParameterGroupArray) ToClusterParameterGroupArrayOutput() Cluster
 
 func (i ClusterParameterGroupArray) ToClusterParameterGroupArrayOutputWithContext(ctx context.Context) ClusterParameterGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupArrayOutput)
+}
+
+func (i ClusterParameterGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterParameterGroup] {
+	return pulumix.Output[[]*ClusterParameterGroup]{
+		OutputState: i.ToClusterParameterGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterParameterGroupMapInput is an input type that accepts ClusterParameterGroupMap and ClusterParameterGroupMapOutput values.
@@ -263,6 +278,12 @@ func (i ClusterParameterGroupMap) ToClusterParameterGroupMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupMapOutput)
 }
 
+func (i ClusterParameterGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterParameterGroup] {
+	return pulumix.Output[map[string]*ClusterParameterGroup]{
+		OutputState: i.ToClusterParameterGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (ClusterParameterGroupOutput) ElementType() reflect.Type {
@@ -275,6 +296,12 @@ func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutput() ClusterPara
 
 func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutputWithContext(ctx context.Context) ClusterParameterGroupOutput {
 	return o
+}
+
+func (o ClusterParameterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterParameterGroup] {
+	return pulumix.Output[*ClusterParameterGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the db cluster parameter group.
@@ -331,6 +358,12 @@ func (o ClusterParameterGroupArrayOutput) ToClusterParameterGroupArrayOutputWith
 	return o
 }
 
+func (o ClusterParameterGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterParameterGroup] {
+	return pulumix.Output[[]*ClusterParameterGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterParameterGroupArrayOutput) Index(i pulumi.IntInput) ClusterParameterGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterParameterGroup {
 		return vs[0].([]*ClusterParameterGroup)[vs[1].(int)]
@@ -349,6 +382,12 @@ func (o ClusterParameterGroupMapOutput) ToClusterParameterGroupMapOutput() Clust
 
 func (o ClusterParameterGroupMapOutput) ToClusterParameterGroupMapOutputWithContext(ctx context.Context) ClusterParameterGroupMapOutput {
 	return o
+}
+
+func (o ClusterParameterGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterParameterGroup] {
+	return pulumix.Output[map[string]*ClusterParameterGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterParameterGroupMapOutput) MapIndex(k pulumi.StringInput) ClusterParameterGroupOutput {

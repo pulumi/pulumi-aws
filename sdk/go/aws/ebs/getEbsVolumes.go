@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
@@ -46,6 +48,7 @@ import (
 //
 // ```
 func GetEbsVolumes(ctx *pulumi.Context, args *GetEbsVolumesArgs, opts ...pulumi.InvokeOption) (*GetEbsVolumesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEbsVolumesResult
 	err := ctx.Invoke("aws:ebs/getEbsVolumes:getEbsVolumes", args, &rv, opts...)
 	if err != nil {
@@ -119,6 +122,12 @@ func (o GetEbsVolumesResultOutput) ToGetEbsVolumesResultOutput() GetEbsVolumesRe
 
 func (o GetEbsVolumesResultOutput) ToGetEbsVolumesResultOutputWithContext(ctx context.Context) GetEbsVolumesResultOutput {
 	return o
+}
+
+func (o GetEbsVolumesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEbsVolumesResult] {
+	return pulumix.Output[GetEbsVolumesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEbsVolumesResultOutput) Filters() GetEbsVolumesFilterArrayOutput {

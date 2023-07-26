@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get IDs of Amazon VPC peering connections
@@ -47,6 +49,7 @@ import (
 // }
 // ```
 func GetVpcPeeringConnections(ctx *pulumi.Context, args *GetVpcPeeringConnectionsArgs, opts ...pulumi.InvokeOption) (*GetVpcPeeringConnectionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcPeeringConnectionsResult
 	err := ctx.Invoke("aws:ec2/getVpcPeeringConnections:getVpcPeeringConnections", args, &rv, opts...)
 	if err != nil {
@@ -119,6 +122,12 @@ func (o GetVpcPeeringConnectionsResultOutput) ToGetVpcPeeringConnectionsResultOu
 
 func (o GetVpcPeeringConnectionsResultOutput) ToGetVpcPeeringConnectionsResultOutputWithContext(ctx context.Context) GetVpcPeeringConnectionsResultOutput {
 	return o
+}
+
+func (o GetVpcPeeringConnectionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcPeeringConnectionsResult] {
+	return pulumix.Output[GetVpcPeeringConnectionsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVpcPeeringConnectionsResultOutput) Filters() GetVpcPeeringConnectionsFilterArrayOutput {

@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ConnectorCapacity struct {
 	// Information about the auto scaling parameters for the connector. See below.
@@ -45,6 +49,12 @@ func (i ConnectorCapacityArgs) ToConnectorCapacityOutput() ConnectorCapacityOutp
 
 func (i ConnectorCapacityArgs) ToConnectorCapacityOutputWithContext(ctx context.Context) ConnectorCapacityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityOutput)
+}
+
+func (i ConnectorCapacityArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacity] {
+	return pulumix.Output[ConnectorCapacity]{
+		OutputState: i.ToConnectorCapacityOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ConnectorCapacityArgs) ToConnectorCapacityPtrOutput() ConnectorCapacityPtrOutput {
@@ -88,6 +98,12 @@ func (i *connectorCapacityPtrType) ToConnectorCapacityPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityPtrOutput)
 }
 
+func (i *connectorCapacityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCapacity] {
+	return pulumix.Output[*ConnectorCapacity]{
+		OutputState: i.ToConnectorCapacityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorCapacityOutput struct{ *pulumi.OutputState }
 
 func (ConnectorCapacityOutput) ElementType() reflect.Type {
@@ -112,6 +128,12 @@ func (o ConnectorCapacityOutput) ToConnectorCapacityPtrOutputWithContext(ctx con
 	}).(ConnectorCapacityPtrOutput)
 }
 
+func (o ConnectorCapacityOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacity] {
+	return pulumix.Output[ConnectorCapacity]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Information about the auto scaling parameters for the connector. See below.
 func (o ConnectorCapacityOutput) Autoscaling() ConnectorCapacityAutoscalingPtrOutput {
 	return o.ApplyT(func(v ConnectorCapacity) *ConnectorCapacityAutoscaling { return v.Autoscaling }).(ConnectorCapacityAutoscalingPtrOutput)
@@ -134,6 +156,12 @@ func (o ConnectorCapacityPtrOutput) ToConnectorCapacityPtrOutput() ConnectorCapa
 
 func (o ConnectorCapacityPtrOutput) ToConnectorCapacityPtrOutputWithContext(ctx context.Context) ConnectorCapacityPtrOutput {
 	return o
+}
+
+func (o ConnectorCapacityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCapacity] {
+	return pulumix.Output[*ConnectorCapacity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorCapacityPtrOutput) Elem() ConnectorCapacityOutput {
@@ -215,6 +243,12 @@ func (i ConnectorCapacityAutoscalingArgs) ToConnectorCapacityAutoscalingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityAutoscalingOutput)
 }
 
+func (i ConnectorCapacityAutoscalingArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacityAutoscaling] {
+	return pulumix.Output[ConnectorCapacityAutoscaling]{
+		OutputState: i.ToConnectorCapacityAutoscalingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorCapacityAutoscalingArgs) ToConnectorCapacityAutoscalingPtrOutput() ConnectorCapacityAutoscalingPtrOutput {
 	return i.ToConnectorCapacityAutoscalingPtrOutputWithContext(context.Background())
 }
@@ -256,6 +290,12 @@ func (i *connectorCapacityAutoscalingPtrType) ToConnectorCapacityAutoscalingPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityAutoscalingPtrOutput)
 }
 
+func (i *connectorCapacityAutoscalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCapacityAutoscaling] {
+	return pulumix.Output[*ConnectorCapacityAutoscaling]{
+		OutputState: i.ToConnectorCapacityAutoscalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorCapacityAutoscalingOutput struct{ *pulumi.OutputState }
 
 func (ConnectorCapacityAutoscalingOutput) ElementType() reflect.Type {
@@ -278,6 +318,12 @@ func (o ConnectorCapacityAutoscalingOutput) ToConnectorCapacityAutoscalingPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorCapacityAutoscaling) *ConnectorCapacityAutoscaling {
 		return &v
 	}).(ConnectorCapacityAutoscalingPtrOutput)
+}
+
+func (o ConnectorCapacityAutoscalingOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacityAutoscaling] {
+	return pulumix.Output[ConnectorCapacityAutoscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The maximum number of workers allocated to the connector.
@@ -321,6 +367,12 @@ func (o ConnectorCapacityAutoscalingPtrOutput) ToConnectorCapacityAutoscalingPtr
 
 func (o ConnectorCapacityAutoscalingPtrOutput) ToConnectorCapacityAutoscalingPtrOutputWithContext(ctx context.Context) ConnectorCapacityAutoscalingPtrOutput {
 	return o
+}
+
+func (o ConnectorCapacityAutoscalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCapacityAutoscaling] {
+	return pulumix.Output[*ConnectorCapacityAutoscaling]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorCapacityAutoscalingPtrOutput) Elem() ConnectorCapacityAutoscalingOutput {
@@ -416,6 +468,12 @@ func (i ConnectorCapacityAutoscalingScaleInPolicyArgs) ToConnectorCapacityAutosc
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityAutoscalingScaleInPolicyOutput)
 }
 
+func (i ConnectorCapacityAutoscalingScaleInPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacityAutoscalingScaleInPolicy] {
+	return pulumix.Output[ConnectorCapacityAutoscalingScaleInPolicy]{
+		OutputState: i.ToConnectorCapacityAutoscalingScaleInPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorCapacityAutoscalingScaleInPolicyArgs) ToConnectorCapacityAutoscalingScaleInPolicyPtrOutput() ConnectorCapacityAutoscalingScaleInPolicyPtrOutput {
 	return i.ToConnectorCapacityAutoscalingScaleInPolicyPtrOutputWithContext(context.Background())
 }
@@ -457,6 +515,12 @@ func (i *connectorCapacityAutoscalingScaleInPolicyPtrType) ToConnectorCapacityAu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityAutoscalingScaleInPolicyPtrOutput)
 }
 
+func (i *connectorCapacityAutoscalingScaleInPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCapacityAutoscalingScaleInPolicy] {
+	return pulumix.Output[*ConnectorCapacityAutoscalingScaleInPolicy]{
+		OutputState: i.ToConnectorCapacityAutoscalingScaleInPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorCapacityAutoscalingScaleInPolicyOutput struct{ *pulumi.OutputState }
 
 func (ConnectorCapacityAutoscalingScaleInPolicyOutput) ElementType() reflect.Type {
@@ -481,6 +545,12 @@ func (o ConnectorCapacityAutoscalingScaleInPolicyOutput) ToConnectorCapacityAuto
 	}).(ConnectorCapacityAutoscalingScaleInPolicyPtrOutput)
 }
 
+func (o ConnectorCapacityAutoscalingScaleInPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacityAutoscalingScaleInPolicy] {
+	return pulumix.Output[ConnectorCapacityAutoscalingScaleInPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
 func (o ConnectorCapacityAutoscalingScaleInPolicyOutput) CpuUtilizationPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectorCapacityAutoscalingScaleInPolicy) *int { return v.CpuUtilizationPercentage }).(pulumi.IntPtrOutput)
@@ -498,6 +568,12 @@ func (o ConnectorCapacityAutoscalingScaleInPolicyPtrOutput) ToConnectorCapacityA
 
 func (o ConnectorCapacityAutoscalingScaleInPolicyPtrOutput) ToConnectorCapacityAutoscalingScaleInPolicyPtrOutputWithContext(ctx context.Context) ConnectorCapacityAutoscalingScaleInPolicyPtrOutput {
 	return o
+}
+
+func (o ConnectorCapacityAutoscalingScaleInPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCapacityAutoscalingScaleInPolicy] {
+	return pulumix.Output[*ConnectorCapacityAutoscalingScaleInPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorCapacityAutoscalingScaleInPolicyPtrOutput) Elem() ConnectorCapacityAutoscalingScaleInPolicyOutput {
@@ -553,6 +629,12 @@ func (i ConnectorCapacityAutoscalingScaleOutPolicyArgs) ToConnectorCapacityAutos
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityAutoscalingScaleOutPolicyOutput)
 }
 
+func (i ConnectorCapacityAutoscalingScaleOutPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacityAutoscalingScaleOutPolicy] {
+	return pulumix.Output[ConnectorCapacityAutoscalingScaleOutPolicy]{
+		OutputState: i.ToConnectorCapacityAutoscalingScaleOutPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorCapacityAutoscalingScaleOutPolicyArgs) ToConnectorCapacityAutoscalingScaleOutPolicyPtrOutput() ConnectorCapacityAutoscalingScaleOutPolicyPtrOutput {
 	return i.ToConnectorCapacityAutoscalingScaleOutPolicyPtrOutputWithContext(context.Background())
 }
@@ -594,6 +676,12 @@ func (i *connectorCapacityAutoscalingScaleOutPolicyPtrType) ToConnectorCapacityA
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityAutoscalingScaleOutPolicyPtrOutput)
 }
 
+func (i *connectorCapacityAutoscalingScaleOutPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCapacityAutoscalingScaleOutPolicy] {
+	return pulumix.Output[*ConnectorCapacityAutoscalingScaleOutPolicy]{
+		OutputState: i.ToConnectorCapacityAutoscalingScaleOutPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorCapacityAutoscalingScaleOutPolicyOutput struct{ *pulumi.OutputState }
 
 func (ConnectorCapacityAutoscalingScaleOutPolicyOutput) ElementType() reflect.Type {
@@ -618,6 +706,12 @@ func (o ConnectorCapacityAutoscalingScaleOutPolicyOutput) ToConnectorCapacityAut
 	}).(ConnectorCapacityAutoscalingScaleOutPolicyPtrOutput)
 }
 
+func (o ConnectorCapacityAutoscalingScaleOutPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacityAutoscalingScaleOutPolicy] {
+	return pulumix.Output[ConnectorCapacityAutoscalingScaleOutPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The CPU utilization percentage threshold at which you want connector scale out to be triggered.
 func (o ConnectorCapacityAutoscalingScaleOutPolicyOutput) CpuUtilizationPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectorCapacityAutoscalingScaleOutPolicy) *int { return v.CpuUtilizationPercentage }).(pulumi.IntPtrOutput)
@@ -635,6 +729,12 @@ func (o ConnectorCapacityAutoscalingScaleOutPolicyPtrOutput) ToConnectorCapacity
 
 func (o ConnectorCapacityAutoscalingScaleOutPolicyPtrOutput) ToConnectorCapacityAutoscalingScaleOutPolicyPtrOutputWithContext(ctx context.Context) ConnectorCapacityAutoscalingScaleOutPolicyPtrOutput {
 	return o
+}
+
+func (o ConnectorCapacityAutoscalingScaleOutPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCapacityAutoscalingScaleOutPolicy] {
+	return pulumix.Output[*ConnectorCapacityAutoscalingScaleOutPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorCapacityAutoscalingScaleOutPolicyPtrOutput) Elem() ConnectorCapacityAutoscalingScaleOutPolicyOutput {
@@ -694,6 +794,12 @@ func (i ConnectorCapacityProvisionedCapacityArgs) ToConnectorCapacityProvisioned
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityProvisionedCapacityOutput)
 }
 
+func (i ConnectorCapacityProvisionedCapacityArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacityProvisionedCapacity] {
+	return pulumix.Output[ConnectorCapacityProvisionedCapacity]{
+		OutputState: i.ToConnectorCapacityProvisionedCapacityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorCapacityProvisionedCapacityArgs) ToConnectorCapacityProvisionedCapacityPtrOutput() ConnectorCapacityProvisionedCapacityPtrOutput {
 	return i.ToConnectorCapacityProvisionedCapacityPtrOutputWithContext(context.Background())
 }
@@ -735,6 +841,12 @@ func (i *connectorCapacityProvisionedCapacityPtrType) ToConnectorCapacityProvisi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityProvisionedCapacityPtrOutput)
 }
 
+func (i *connectorCapacityProvisionedCapacityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCapacityProvisionedCapacity] {
+	return pulumix.Output[*ConnectorCapacityProvisionedCapacity]{
+		OutputState: i.ToConnectorCapacityProvisionedCapacityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorCapacityProvisionedCapacityOutput struct{ *pulumi.OutputState }
 
 func (ConnectorCapacityProvisionedCapacityOutput) ElementType() reflect.Type {
@@ -759,6 +871,12 @@ func (o ConnectorCapacityProvisionedCapacityOutput) ToConnectorCapacityProvision
 	}).(ConnectorCapacityProvisionedCapacityPtrOutput)
 }
 
+func (o ConnectorCapacityProvisionedCapacityOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacityProvisionedCapacity] {
+	return pulumix.Output[ConnectorCapacityProvisionedCapacity]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
 func (o ConnectorCapacityProvisionedCapacityOutput) McuCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectorCapacityProvisionedCapacity) *int { return v.McuCount }).(pulumi.IntPtrOutput)
@@ -781,6 +899,12 @@ func (o ConnectorCapacityProvisionedCapacityPtrOutput) ToConnectorCapacityProvis
 
 func (o ConnectorCapacityProvisionedCapacityPtrOutput) ToConnectorCapacityProvisionedCapacityPtrOutputWithContext(ctx context.Context) ConnectorCapacityProvisionedCapacityPtrOutput {
 	return o
+}
+
+func (o ConnectorCapacityProvisionedCapacityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCapacityProvisionedCapacity] {
+	return pulumix.Output[*ConnectorCapacityProvisionedCapacity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorCapacityProvisionedCapacityPtrOutput) Elem() ConnectorCapacityProvisionedCapacityOutput {
@@ -846,6 +970,12 @@ func (i ConnectorKafkaClusterArgs) ToConnectorKafkaClusterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterOutput)
 }
 
+func (i ConnectorKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaCluster] {
+	return pulumix.Output[ConnectorKafkaCluster]{
+		OutputState: i.ToConnectorKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorKafkaClusterArgs) ToConnectorKafkaClusterPtrOutput() ConnectorKafkaClusterPtrOutput {
 	return i.ToConnectorKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -887,6 +1017,12 @@ func (i *connectorKafkaClusterPtrType) ToConnectorKafkaClusterPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterPtrOutput)
 }
 
+func (i *connectorKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaCluster] {
+	return pulumix.Output[*ConnectorKafkaCluster]{
+		OutputState: i.ToConnectorKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (ConnectorKafkaClusterOutput) ElementType() reflect.Type {
@@ -911,6 +1047,12 @@ func (o ConnectorKafkaClusterOutput) ToConnectorKafkaClusterPtrOutputWithContext
 	}).(ConnectorKafkaClusterPtrOutput)
 }
 
+func (o ConnectorKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaCluster] {
+	return pulumix.Output[ConnectorKafkaCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Apache Kafka cluster to which the connector is connected.
 func (o ConnectorKafkaClusterOutput) ApacheKafkaCluster() ConnectorKafkaClusterApacheKafkaClusterOutput {
 	return o.ApplyT(func(v ConnectorKafkaCluster) ConnectorKafkaClusterApacheKafkaCluster { return v.ApacheKafkaCluster }).(ConnectorKafkaClusterApacheKafkaClusterOutput)
@@ -928,6 +1070,12 @@ func (o ConnectorKafkaClusterPtrOutput) ToConnectorKafkaClusterPtrOutput() Conne
 
 func (o ConnectorKafkaClusterPtrOutput) ToConnectorKafkaClusterPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterPtrOutput {
 	return o
+}
+
+func (o ConnectorKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaCluster] {
+	return pulumix.Output[*ConnectorKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorKafkaClusterPtrOutput) Elem() ConnectorKafkaClusterOutput {
@@ -987,6 +1135,12 @@ func (i ConnectorKafkaClusterApacheKafkaClusterArgs) ToConnectorKafkaClusterApac
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterApacheKafkaClusterOutput)
 }
 
+func (i ConnectorKafkaClusterApacheKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterApacheKafkaCluster] {
+	return pulumix.Output[ConnectorKafkaClusterApacheKafkaCluster]{
+		OutputState: i.ToConnectorKafkaClusterApacheKafkaClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorKafkaClusterApacheKafkaClusterArgs) ToConnectorKafkaClusterApacheKafkaClusterPtrOutput() ConnectorKafkaClusterApacheKafkaClusterPtrOutput {
 	return i.ToConnectorKafkaClusterApacheKafkaClusterPtrOutputWithContext(context.Background())
 }
@@ -1028,6 +1182,12 @@ func (i *connectorKafkaClusterApacheKafkaClusterPtrType) ToConnectorKafkaCluster
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterApacheKafkaClusterPtrOutput)
 }
 
+func (i *connectorKafkaClusterApacheKafkaClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterApacheKafkaCluster] {
+	return pulumix.Output[*ConnectorKafkaClusterApacheKafkaCluster]{
+		OutputState: i.ToConnectorKafkaClusterApacheKafkaClusterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorKafkaClusterApacheKafkaClusterOutput struct{ *pulumi.OutputState }
 
 func (ConnectorKafkaClusterApacheKafkaClusterOutput) ElementType() reflect.Type {
@@ -1050,6 +1210,12 @@ func (o ConnectorKafkaClusterApacheKafkaClusterOutput) ToConnectorKafkaClusterAp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorKafkaClusterApacheKafkaCluster) *ConnectorKafkaClusterApacheKafkaCluster {
 		return &v
 	}).(ConnectorKafkaClusterApacheKafkaClusterPtrOutput)
+}
+
+func (o ConnectorKafkaClusterApacheKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterApacheKafkaCluster] {
+	return pulumix.Output[ConnectorKafkaClusterApacheKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The bootstrap servers of the cluster.
@@ -1076,6 +1242,12 @@ func (o ConnectorKafkaClusterApacheKafkaClusterPtrOutput) ToConnectorKafkaCluste
 
 func (o ConnectorKafkaClusterApacheKafkaClusterPtrOutput) ToConnectorKafkaClusterApacheKafkaClusterPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterApacheKafkaClusterPtrOutput {
 	return o
+}
+
+func (o ConnectorKafkaClusterApacheKafkaClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterApacheKafkaCluster] {
+	return pulumix.Output[*ConnectorKafkaClusterApacheKafkaCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorKafkaClusterApacheKafkaClusterPtrOutput) Elem() ConnectorKafkaClusterApacheKafkaClusterOutput {
@@ -1145,6 +1317,12 @@ func (i ConnectorKafkaClusterApacheKafkaClusterVpcArgs) ToConnectorKafkaClusterA
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterApacheKafkaClusterVpcOutput)
 }
 
+func (i ConnectorKafkaClusterApacheKafkaClusterVpcArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterApacheKafkaClusterVpc] {
+	return pulumix.Output[ConnectorKafkaClusterApacheKafkaClusterVpc]{
+		OutputState: i.ToConnectorKafkaClusterApacheKafkaClusterVpcOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorKafkaClusterApacheKafkaClusterVpcArgs) ToConnectorKafkaClusterApacheKafkaClusterVpcPtrOutput() ConnectorKafkaClusterApacheKafkaClusterVpcPtrOutput {
 	return i.ToConnectorKafkaClusterApacheKafkaClusterVpcPtrOutputWithContext(context.Background())
 }
@@ -1186,6 +1364,12 @@ func (i *connectorKafkaClusterApacheKafkaClusterVpcPtrType) ToConnectorKafkaClus
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterApacheKafkaClusterVpcPtrOutput)
 }
 
+func (i *connectorKafkaClusterApacheKafkaClusterVpcPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterApacheKafkaClusterVpc] {
+	return pulumix.Output[*ConnectorKafkaClusterApacheKafkaClusterVpc]{
+		OutputState: i.ToConnectorKafkaClusterApacheKafkaClusterVpcPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorKafkaClusterApacheKafkaClusterVpcOutput struct{ *pulumi.OutputState }
 
 func (ConnectorKafkaClusterApacheKafkaClusterVpcOutput) ElementType() reflect.Type {
@@ -1210,6 +1394,12 @@ func (o ConnectorKafkaClusterApacheKafkaClusterVpcOutput) ToConnectorKafkaCluste
 	}).(ConnectorKafkaClusterApacheKafkaClusterVpcPtrOutput)
 }
 
+func (o ConnectorKafkaClusterApacheKafkaClusterVpcOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterApacheKafkaClusterVpc] {
+	return pulumix.Output[ConnectorKafkaClusterApacheKafkaClusterVpc]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The security groups for the connector.
 func (o ConnectorKafkaClusterApacheKafkaClusterVpcOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorKafkaClusterApacheKafkaClusterVpc) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
@@ -1232,6 +1422,12 @@ func (o ConnectorKafkaClusterApacheKafkaClusterVpcPtrOutput) ToConnectorKafkaClu
 
 func (o ConnectorKafkaClusterApacheKafkaClusterVpcPtrOutput) ToConnectorKafkaClusterApacheKafkaClusterVpcPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterApacheKafkaClusterVpcPtrOutput {
 	return o
+}
+
+func (o ConnectorKafkaClusterApacheKafkaClusterVpcPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterApacheKafkaClusterVpc] {
+	return pulumix.Output[*ConnectorKafkaClusterApacheKafkaClusterVpc]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorKafkaClusterApacheKafkaClusterVpcPtrOutput) Elem() ConnectorKafkaClusterApacheKafkaClusterVpcOutput {
@@ -1297,6 +1493,12 @@ func (i ConnectorKafkaClusterClientAuthenticationArgs) ToConnectorKafkaClusterCl
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterClientAuthenticationOutput)
 }
 
+func (i ConnectorKafkaClusterClientAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterClientAuthentication] {
+	return pulumix.Output[ConnectorKafkaClusterClientAuthentication]{
+		OutputState: i.ToConnectorKafkaClusterClientAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorKafkaClusterClientAuthenticationArgs) ToConnectorKafkaClusterClientAuthenticationPtrOutput() ConnectorKafkaClusterClientAuthenticationPtrOutput {
 	return i.ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(context.Background())
 }
@@ -1338,6 +1540,12 @@ func (i *connectorKafkaClusterClientAuthenticationPtrType) ToConnectorKafkaClust
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterClientAuthenticationPtrOutput)
 }
 
+func (i *connectorKafkaClusterClientAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterClientAuthentication] {
+	return pulumix.Output[*ConnectorKafkaClusterClientAuthentication]{
+		OutputState: i.ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorKafkaClusterClientAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ConnectorKafkaClusterClientAuthenticationOutput) ElementType() reflect.Type {
@@ -1362,6 +1570,12 @@ func (o ConnectorKafkaClusterClientAuthenticationOutput) ToConnectorKafkaCluster
 	}).(ConnectorKafkaClusterClientAuthenticationPtrOutput)
 }
 
+func (o ConnectorKafkaClusterClientAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterClientAuthentication] {
+	return pulumix.Output[ConnectorKafkaClusterClientAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
 func (o ConnectorKafkaClusterClientAuthenticationOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorKafkaClusterClientAuthentication) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
@@ -1379,6 +1593,12 @@ func (o ConnectorKafkaClusterClientAuthenticationPtrOutput) ToConnectorKafkaClus
 
 func (o ConnectorKafkaClusterClientAuthenticationPtrOutput) ToConnectorKafkaClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterClientAuthenticationPtrOutput {
 	return o
+}
+
+func (o ConnectorKafkaClusterClientAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterClientAuthentication] {
+	return pulumix.Output[*ConnectorKafkaClusterClientAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorKafkaClusterClientAuthenticationPtrOutput) Elem() ConnectorKafkaClusterClientAuthenticationOutput {
@@ -1434,6 +1654,12 @@ func (i ConnectorKafkaClusterEncryptionInTransitArgs) ToConnectorKafkaClusterEnc
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterEncryptionInTransitOutput)
 }
 
+func (i ConnectorKafkaClusterEncryptionInTransitArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterEncryptionInTransit] {
+	return pulumix.Output[ConnectorKafkaClusterEncryptionInTransit]{
+		OutputState: i.ToConnectorKafkaClusterEncryptionInTransitOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorKafkaClusterEncryptionInTransitArgs) ToConnectorKafkaClusterEncryptionInTransitPtrOutput() ConnectorKafkaClusterEncryptionInTransitPtrOutput {
 	return i.ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(context.Background())
 }
@@ -1475,6 +1701,12 @@ func (i *connectorKafkaClusterEncryptionInTransitPtrType) ToConnectorKafkaCluste
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterEncryptionInTransitPtrOutput)
 }
 
+func (i *connectorKafkaClusterEncryptionInTransitPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterEncryptionInTransit] {
+	return pulumix.Output[*ConnectorKafkaClusterEncryptionInTransit]{
+		OutputState: i.ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorKafkaClusterEncryptionInTransitOutput struct{ *pulumi.OutputState }
 
 func (ConnectorKafkaClusterEncryptionInTransitOutput) ElementType() reflect.Type {
@@ -1499,6 +1731,12 @@ func (o ConnectorKafkaClusterEncryptionInTransitOutput) ToConnectorKafkaClusterE
 	}).(ConnectorKafkaClusterEncryptionInTransitPtrOutput)
 }
 
+func (o ConnectorKafkaClusterEncryptionInTransitOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterEncryptionInTransit] {
+	return pulumix.Output[ConnectorKafkaClusterEncryptionInTransit]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
 func (o ConnectorKafkaClusterEncryptionInTransitOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorKafkaClusterEncryptionInTransit) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
@@ -1516,6 +1754,12 @@ func (o ConnectorKafkaClusterEncryptionInTransitPtrOutput) ToConnectorKafkaClust
 
 func (o ConnectorKafkaClusterEncryptionInTransitPtrOutput) ToConnectorKafkaClusterEncryptionInTransitPtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterEncryptionInTransitPtrOutput {
 	return o
+}
+
+func (o ConnectorKafkaClusterEncryptionInTransitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterEncryptionInTransit] {
+	return pulumix.Output[*ConnectorKafkaClusterEncryptionInTransit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorKafkaClusterEncryptionInTransitPtrOutput) Elem() ConnectorKafkaClusterEncryptionInTransitOutput {
@@ -1571,6 +1815,12 @@ func (i ConnectorLogDeliveryArgs) ToConnectorLogDeliveryOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryOutput)
 }
 
+func (i ConnectorLogDeliveryArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDelivery] {
+	return pulumix.Output[ConnectorLogDelivery]{
+		OutputState: i.ToConnectorLogDeliveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorLogDeliveryArgs) ToConnectorLogDeliveryPtrOutput() ConnectorLogDeliveryPtrOutput {
 	return i.ToConnectorLogDeliveryPtrOutputWithContext(context.Background())
 }
@@ -1612,6 +1862,12 @@ func (i *connectorLogDeliveryPtrType) ToConnectorLogDeliveryPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryPtrOutput)
 }
 
+func (i *connectorLogDeliveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDelivery] {
+	return pulumix.Output[*ConnectorLogDelivery]{
+		OutputState: i.ToConnectorLogDeliveryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorLogDeliveryOutput struct{ *pulumi.OutputState }
 
 func (ConnectorLogDeliveryOutput) ElementType() reflect.Type {
@@ -1636,6 +1892,12 @@ func (o ConnectorLogDeliveryOutput) ToConnectorLogDeliveryPtrOutputWithContext(c
 	}).(ConnectorLogDeliveryPtrOutput)
 }
 
+func (o ConnectorLogDeliveryOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDelivery] {
+	return pulumix.Output[ConnectorLogDelivery]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
 func (o ConnectorLogDeliveryOutput) WorkerLogDelivery() ConnectorLogDeliveryWorkerLogDeliveryOutput {
 	return o.ApplyT(func(v ConnectorLogDelivery) ConnectorLogDeliveryWorkerLogDelivery { return v.WorkerLogDelivery }).(ConnectorLogDeliveryWorkerLogDeliveryOutput)
@@ -1653,6 +1915,12 @@ func (o ConnectorLogDeliveryPtrOutput) ToConnectorLogDeliveryPtrOutput() Connect
 
 func (o ConnectorLogDeliveryPtrOutput) ToConnectorLogDeliveryPtrOutputWithContext(ctx context.Context) ConnectorLogDeliveryPtrOutput {
 	return o
+}
+
+func (o ConnectorLogDeliveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDelivery] {
+	return pulumix.Output[*ConnectorLogDelivery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorLogDeliveryPtrOutput) Elem() ConnectorLogDeliveryOutput {
@@ -1716,6 +1984,12 @@ func (i ConnectorLogDeliveryWorkerLogDeliveryArgs) ToConnectorLogDeliveryWorkerL
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryWorkerLogDeliveryOutput)
 }
 
+func (i ConnectorLogDeliveryWorkerLogDeliveryArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDeliveryWorkerLogDelivery] {
+	return pulumix.Output[ConnectorLogDeliveryWorkerLogDelivery]{
+		OutputState: i.ToConnectorLogDeliveryWorkerLogDeliveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorLogDeliveryWorkerLogDeliveryArgs) ToConnectorLogDeliveryWorkerLogDeliveryPtrOutput() ConnectorLogDeliveryWorkerLogDeliveryPtrOutput {
 	return i.ToConnectorLogDeliveryWorkerLogDeliveryPtrOutputWithContext(context.Background())
 }
@@ -1757,6 +2031,12 @@ func (i *connectorLogDeliveryWorkerLogDeliveryPtrType) ToConnectorLogDeliveryWor
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryWorkerLogDeliveryPtrOutput)
 }
 
+func (i *connectorLogDeliveryWorkerLogDeliveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDeliveryWorkerLogDelivery] {
+	return pulumix.Output[*ConnectorLogDeliveryWorkerLogDelivery]{
+		OutputState: i.ToConnectorLogDeliveryWorkerLogDeliveryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorLogDeliveryWorkerLogDeliveryOutput struct{ *pulumi.OutputState }
 
 func (ConnectorLogDeliveryWorkerLogDeliveryOutput) ElementType() reflect.Type {
@@ -1779,6 +2059,12 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryOutput) ToConnectorLogDeliveryWorke
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorLogDeliveryWorkerLogDelivery) *ConnectorLogDeliveryWorkerLogDelivery {
 		return &v
 	}).(ConnectorLogDeliveryWorkerLogDeliveryPtrOutput)
+}
+
+func (o ConnectorLogDeliveryWorkerLogDeliveryOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDeliveryWorkerLogDelivery] {
+	return pulumix.Output[ConnectorLogDeliveryWorkerLogDelivery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Details about delivering logs to Amazon CloudWatch Logs. See below.
@@ -1812,6 +2098,12 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryPtrOutput) ToConnectorLogDeliveryWo
 
 func (o ConnectorLogDeliveryWorkerLogDeliveryPtrOutput) ToConnectorLogDeliveryWorkerLogDeliveryPtrOutputWithContext(ctx context.Context) ConnectorLogDeliveryWorkerLogDeliveryPtrOutput {
 	return o
+}
+
+func (o ConnectorLogDeliveryWorkerLogDeliveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDeliveryWorkerLogDelivery] {
+	return pulumix.Output[*ConnectorLogDeliveryWorkerLogDelivery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorLogDeliveryWorkerLogDeliveryPtrOutput) Elem() ConnectorLogDeliveryWorkerLogDeliveryOutput {
@@ -1891,6 +2183,12 @@ func (i ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs) ToConnectorLogD
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput)
 }
 
+func (i ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs] {
+	return pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs]{
+		OutputState: i.ToConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs) ToConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput() ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput {
 	return i.ToConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutputWithContext(context.Background())
 }
@@ -1932,6 +2230,12 @@ func (i *connectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrType) ToConnector
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput)
 }
 
+func (i *connectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs] {
+	return pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs]{
+		OutputState: i.ToConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput) ElementType() reflect.Type {
@@ -1956,6 +2260,12 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput) ToConnectorLo
 	}).(ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput)
 }
 
+func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs] {
+	return pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether log delivery to Amazon CloudWatch Logs is enabled.
 func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -1978,6 +2288,12 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput) ToConnecto
 
 func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput) ToConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutputWithContext(ctx context.Context) ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput {
 	return o
+}
+
+func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs] {
+	return pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsPtrOutput) Elem() ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsOutput {
@@ -2047,6 +2363,12 @@ func (i ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs) ToConnectorLogDeliver
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryWorkerLogDeliveryFirehoseOutput)
 }
 
+func (i ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryFirehose] {
+	return pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryFirehose]{
+		OutputState: i.ToConnectorLogDeliveryWorkerLogDeliveryFirehoseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs) ToConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput() ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput {
 	return i.ToConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutputWithContext(context.Background())
 }
@@ -2088,6 +2410,12 @@ func (i *connectorLogDeliveryWorkerLogDeliveryFirehosePtrType) ToConnectorLogDel
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput)
 }
 
+func (i *connectorLogDeliveryWorkerLogDeliveryFirehosePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryFirehose] {
+	return pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryFirehose]{
+		OutputState: i.ToConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorLogDeliveryWorkerLogDeliveryFirehoseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorLogDeliveryWorkerLogDeliveryFirehoseOutput) ElementType() reflect.Type {
@@ -2112,6 +2440,12 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryFirehoseOutput) ToConnectorLogDeliv
 	}).(ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput)
 }
 
+func (o ConnectorLogDeliveryWorkerLogDeliveryFirehoseOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryFirehose] {
+	return pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryFirehose]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
 func (o ConnectorLogDeliveryWorkerLogDeliveryFirehoseOutput) DeliveryStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorLogDeliveryWorkerLogDeliveryFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
@@ -2134,6 +2468,12 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput) ToConnectorLogDe
 
 func (o ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput) ToConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutputWithContext(ctx context.Context) ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput {
 	return o
+}
+
+func (o ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryFirehose] {
+	return pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryFirehose]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorLogDeliveryWorkerLogDeliveryFirehosePtrOutput) Elem() ConnectorLogDeliveryWorkerLogDeliveryFirehoseOutput {
@@ -2207,6 +2547,12 @@ func (i ConnectorLogDeliveryWorkerLogDeliveryS3Args) ToConnectorLogDeliveryWorke
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryWorkerLogDeliveryS3Output)
 }
 
+func (i ConnectorLogDeliveryWorkerLogDeliveryS3Args) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryS3] {
+	return pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryS3]{
+		OutputState: i.ToConnectorLogDeliveryWorkerLogDeliveryS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorLogDeliveryWorkerLogDeliveryS3Args) ToConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput() ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput {
 	return i.ToConnectorLogDeliveryWorkerLogDeliveryS3PtrOutputWithContext(context.Background())
 }
@@ -2248,6 +2594,12 @@ func (i *connectorLogDeliveryWorkerLogDeliveryS3PtrType) ToConnectorLogDeliveryW
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput)
 }
 
+func (i *connectorLogDeliveryWorkerLogDeliveryS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryS3] {
+	return pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryS3]{
+		OutputState: i.ToConnectorLogDeliveryWorkerLogDeliveryS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorLogDeliveryWorkerLogDeliveryS3Output struct{ *pulumi.OutputState }
 
 func (ConnectorLogDeliveryWorkerLogDeliveryS3Output) ElementType() reflect.Type {
@@ -2270,6 +2622,12 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryS3Output) ToConnectorLogDeliveryWor
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorLogDeliveryWorkerLogDeliveryS3) *ConnectorLogDeliveryWorkerLogDeliveryS3 {
 		return &v
 	}).(ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput)
+}
+
+func (o ConnectorLogDeliveryWorkerLogDeliveryS3Output) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryS3] {
+	return pulumix.Output[ConnectorLogDeliveryWorkerLogDeliveryS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the S3 bucket that is the destination for log delivery.
@@ -2299,6 +2657,12 @@ func (o ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput) ToConnectorLogDelivery
 
 func (o ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput) ToConnectorLogDeliveryWorkerLogDeliveryS3PtrOutputWithContext(ctx context.Context) ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput {
 	return o
+}
+
+func (o ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryS3] {
+	return pulumix.Output[*ConnectorLogDeliveryWorkerLogDeliveryS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorLogDeliveryWorkerLogDeliveryS3PtrOutput) Elem() ConnectorLogDeliveryWorkerLogDeliveryS3Output {
@@ -2374,6 +2738,12 @@ func (i ConnectorPluginArgs) ToConnectorPluginOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorPluginOutput)
 }
 
+func (i ConnectorPluginArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorPlugin] {
+	return pulumix.Output[ConnectorPlugin]{
+		OutputState: i.ToConnectorPluginOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectorPluginArrayInput is an input type that accepts ConnectorPluginArray and ConnectorPluginArrayOutput values.
 // You can construct a concrete instance of `ConnectorPluginArrayInput` via:
 //
@@ -2399,6 +2769,12 @@ func (i ConnectorPluginArray) ToConnectorPluginArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorPluginArrayOutput)
 }
 
+func (i ConnectorPluginArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectorPlugin] {
+	return pulumix.Output[[]ConnectorPlugin]{
+		OutputState: i.ToConnectorPluginArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorPluginOutput struct{ *pulumi.OutputState }
 
 func (ConnectorPluginOutput) ElementType() reflect.Type {
@@ -2411,6 +2787,12 @@ func (o ConnectorPluginOutput) ToConnectorPluginOutput() ConnectorPluginOutput {
 
 func (o ConnectorPluginOutput) ToConnectorPluginOutputWithContext(ctx context.Context) ConnectorPluginOutput {
 	return o
+}
+
+func (o ConnectorPluginOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorPlugin] {
+	return pulumix.Output[ConnectorPlugin]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Details about a custom plugin. See below.
@@ -2430,6 +2812,12 @@ func (o ConnectorPluginArrayOutput) ToConnectorPluginArrayOutput() ConnectorPlug
 
 func (o ConnectorPluginArrayOutput) ToConnectorPluginArrayOutputWithContext(ctx context.Context) ConnectorPluginArrayOutput {
 	return o
+}
+
+func (o ConnectorPluginArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectorPlugin] {
+	return pulumix.Output[[]ConnectorPlugin]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorPluginArrayOutput) Index(i pulumi.IntInput) ConnectorPluginOutput {
@@ -2475,6 +2863,12 @@ func (i ConnectorPluginCustomPluginArgs) ToConnectorPluginCustomPluginOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorPluginCustomPluginOutput)
 }
 
+func (i ConnectorPluginCustomPluginArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorPluginCustomPlugin] {
+	return pulumix.Output[ConnectorPluginCustomPlugin]{
+		OutputState: i.ToConnectorPluginCustomPluginOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorPluginCustomPluginOutput struct{ *pulumi.OutputState }
 
 func (ConnectorPluginCustomPluginOutput) ElementType() reflect.Type {
@@ -2487,6 +2881,12 @@ func (o ConnectorPluginCustomPluginOutput) ToConnectorPluginCustomPluginOutput()
 
 func (o ConnectorPluginCustomPluginOutput) ToConnectorPluginCustomPluginOutputWithContext(ctx context.Context) ConnectorPluginCustomPluginOutput {
 	return o
+}
+
+func (o ConnectorPluginCustomPluginOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorPluginCustomPlugin] {
+	return pulumix.Output[ConnectorPluginCustomPlugin]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the custom plugin.
@@ -2536,6 +2936,12 @@ func (i ConnectorWorkerConfigurationArgs) ToConnectorWorkerConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorWorkerConfigurationOutput)
 }
 
+func (i ConnectorWorkerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorWorkerConfiguration] {
+	return pulumix.Output[ConnectorWorkerConfiguration]{
+		OutputState: i.ToConnectorWorkerConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ConnectorWorkerConfigurationArgs) ToConnectorWorkerConfigurationPtrOutput() ConnectorWorkerConfigurationPtrOutput {
 	return i.ToConnectorWorkerConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2577,6 +2983,12 @@ func (i *connectorWorkerConfigurationPtrType) ToConnectorWorkerConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorWorkerConfigurationPtrOutput)
 }
 
+func (i *connectorWorkerConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorWorkerConfiguration] {
+	return pulumix.Output[*ConnectorWorkerConfiguration]{
+		OutputState: i.ToConnectorWorkerConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorWorkerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConnectorWorkerConfigurationOutput) ElementType() reflect.Type {
@@ -2601,6 +3013,12 @@ func (o ConnectorWorkerConfigurationOutput) ToConnectorWorkerConfigurationPtrOut
 	}).(ConnectorWorkerConfigurationPtrOutput)
 }
 
+func (o ConnectorWorkerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorWorkerConfiguration] {
+	return pulumix.Output[ConnectorWorkerConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of the worker configuration.
 func (o ConnectorWorkerConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorWorkerConfiguration) string { return v.Arn }).(pulumi.StringOutput)
@@ -2623,6 +3041,12 @@ func (o ConnectorWorkerConfigurationPtrOutput) ToConnectorWorkerConfigurationPtr
 
 func (o ConnectorWorkerConfigurationPtrOutput) ToConnectorWorkerConfigurationPtrOutputWithContext(ctx context.Context) ConnectorWorkerConfigurationPtrOutput {
 	return o
+}
+
+func (o ConnectorWorkerConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorWorkerConfiguration] {
+	return pulumix.Output[*ConnectorWorkerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorWorkerConfigurationPtrOutput) Elem() ConnectorWorkerConfigurationOutput {
@@ -2688,6 +3112,12 @@ func (i CustomPluginLocationArgs) ToCustomPluginLocationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginLocationOutput)
 }
 
+func (i CustomPluginLocationArgs) ToOutput(ctx context.Context) pulumix.Output[CustomPluginLocation] {
+	return pulumix.Output[CustomPluginLocation]{
+		OutputState: i.ToCustomPluginLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CustomPluginLocationArgs) ToCustomPluginLocationPtrOutput() CustomPluginLocationPtrOutput {
 	return i.ToCustomPluginLocationPtrOutputWithContext(context.Background())
 }
@@ -2729,6 +3159,12 @@ func (i *customPluginLocationPtrType) ToCustomPluginLocationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginLocationPtrOutput)
 }
 
+func (i *customPluginLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomPluginLocation] {
+	return pulumix.Output[*CustomPluginLocation]{
+		OutputState: i.ToCustomPluginLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomPluginLocationOutput struct{ *pulumi.OutputState }
 
 func (CustomPluginLocationOutput) ElementType() reflect.Type {
@@ -2753,6 +3189,12 @@ func (o CustomPluginLocationOutput) ToCustomPluginLocationPtrOutputWithContext(c
 	}).(CustomPluginLocationPtrOutput)
 }
 
+func (o CustomPluginLocationOutput) ToOutput(ctx context.Context) pulumix.Output[CustomPluginLocation] {
+	return pulumix.Output[CustomPluginLocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Information of the plugin file stored in Amazon S3. See below.
 func (o CustomPluginLocationOutput) S3() CustomPluginLocationS3Output {
 	return o.ApplyT(func(v CustomPluginLocation) CustomPluginLocationS3 { return v.S3 }).(CustomPluginLocationS3Output)
@@ -2770,6 +3212,12 @@ func (o CustomPluginLocationPtrOutput) ToCustomPluginLocationPtrOutput() CustomP
 
 func (o CustomPluginLocationPtrOutput) ToCustomPluginLocationPtrOutputWithContext(ctx context.Context) CustomPluginLocationPtrOutput {
 	return o
+}
+
+func (o CustomPluginLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomPluginLocation] {
+	return pulumix.Output[*CustomPluginLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomPluginLocationPtrOutput) Elem() CustomPluginLocationOutput {
@@ -2833,6 +3281,12 @@ func (i CustomPluginLocationS3Args) ToCustomPluginLocationS3OutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginLocationS3Output)
 }
 
+func (i CustomPluginLocationS3Args) ToOutput(ctx context.Context) pulumix.Output[CustomPluginLocationS3] {
+	return pulumix.Output[CustomPluginLocationS3]{
+		OutputState: i.ToCustomPluginLocationS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i CustomPluginLocationS3Args) ToCustomPluginLocationS3PtrOutput() CustomPluginLocationS3PtrOutput {
 	return i.ToCustomPluginLocationS3PtrOutputWithContext(context.Background())
 }
@@ -2874,6 +3328,12 @@ func (i *customPluginLocationS3PtrType) ToCustomPluginLocationS3PtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginLocationS3PtrOutput)
 }
 
+func (i *customPluginLocationS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomPluginLocationS3] {
+	return pulumix.Output[*CustomPluginLocationS3]{
+		OutputState: i.ToCustomPluginLocationS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomPluginLocationS3Output struct{ *pulumi.OutputState }
 
 func (CustomPluginLocationS3Output) ElementType() reflect.Type {
@@ -2896,6 +3356,12 @@ func (o CustomPluginLocationS3Output) ToCustomPluginLocationS3PtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomPluginLocationS3) *CustomPluginLocationS3 {
 		return &v
 	}).(CustomPluginLocationS3PtrOutput)
+}
+
+func (o CustomPluginLocationS3Output) ToOutput(ctx context.Context) pulumix.Output[CustomPluginLocationS3] {
+	return pulumix.Output[CustomPluginLocationS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of an S3 bucket.
@@ -2925,6 +3391,12 @@ func (o CustomPluginLocationS3PtrOutput) ToCustomPluginLocationS3PtrOutput() Cus
 
 func (o CustomPluginLocationS3PtrOutput) ToCustomPluginLocationS3PtrOutputWithContext(ctx context.Context) CustomPluginLocationS3PtrOutput {
 	return o
+}
+
+func (o CustomPluginLocationS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomPluginLocationS3] {
+	return pulumix.Output[*CustomPluginLocationS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomPluginLocationS3PtrOutput) Elem() CustomPluginLocationS3Output {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Step Function Activity resource
@@ -65,6 +67,7 @@ func NewActivity(ctx *pulumi.Context,
 		args = &ActivityArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Activity
 	err := ctx.RegisterResource("aws:sfn/activity:Activity", name, args, &resource, opts...)
 	if err != nil {
@@ -150,6 +153,12 @@ func (i *Activity) ToActivityOutputWithContext(ctx context.Context) ActivityOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityOutput)
 }
 
+func (i *Activity) ToOutput(ctx context.Context) pulumix.Output[*Activity] {
+	return pulumix.Output[*Activity]{
+		OutputState: i.ToActivityOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActivityArrayInput is an input type that accepts ActivityArray and ActivityArrayOutput values.
 // You can construct a concrete instance of `ActivityArrayInput` via:
 //
@@ -173,6 +182,12 @@ func (i ActivityArray) ToActivityArrayOutput() ActivityArrayOutput {
 
 func (i ActivityArray) ToActivityArrayOutputWithContext(ctx context.Context) ActivityArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityArrayOutput)
+}
+
+func (i ActivityArray) ToOutput(ctx context.Context) pulumix.Output[[]*Activity] {
+	return pulumix.Output[[]*Activity]{
+		OutputState: i.ToActivityArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActivityMapInput is an input type that accepts ActivityMap and ActivityMapOutput values.
@@ -200,6 +215,12 @@ func (i ActivityMap) ToActivityMapOutputWithContext(ctx context.Context) Activit
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityMapOutput)
 }
 
+func (i ActivityMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Activity] {
+	return pulumix.Output[map[string]*Activity]{
+		OutputState: i.ToActivityMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActivityOutput struct{ *pulumi.OutputState }
 
 func (ActivityOutput) ElementType() reflect.Type {
@@ -212,6 +233,12 @@ func (o ActivityOutput) ToActivityOutput() ActivityOutput {
 
 func (o ActivityOutput) ToActivityOutputWithContext(ctx context.Context) ActivityOutput {
 	return o
+}
+
+func (o ActivityOutput) ToOutput(ctx context.Context) pulumix.Output[*Activity] {
+	return pulumix.Output[*Activity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The date the activity was created.
@@ -248,6 +275,12 @@ func (o ActivityArrayOutput) ToActivityArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ActivityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Activity] {
+	return pulumix.Output[[]*Activity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActivityArrayOutput) Index(i pulumi.IntInput) ActivityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Activity {
 		return vs[0].([]*Activity)[vs[1].(int)]
@@ -266,6 +299,12 @@ func (o ActivityMapOutput) ToActivityMapOutput() ActivityMapOutput {
 
 func (o ActivityMapOutput) ToActivityMapOutputWithContext(ctx context.Context) ActivityMapOutput {
 	return o
+}
+
+func (o ActivityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Activity] {
+	return pulumix.Output[map[string]*Activity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActivityMapOutput) MapIndex(k pulumi.StringInput) ActivityOutput {

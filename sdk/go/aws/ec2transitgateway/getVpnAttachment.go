@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Transit Gateway VPN Attachment.
@@ -74,6 +76,7 @@ import (
 //
 // ```
 func GetVpnAttachment(ctx *pulumi.Context, args *GetVpnAttachmentArgs, opts ...pulumi.InvokeOption) (*GetVpnAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpnAttachmentResult
 	err := ctx.Invoke("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args, &rv, opts...)
 	if err != nil {
@@ -147,6 +150,12 @@ func (o GetVpnAttachmentResultOutput) ToGetVpnAttachmentResultOutput() GetVpnAtt
 
 func (o GetVpnAttachmentResultOutput) ToGetVpnAttachmentResultOutputWithContext(ctx context.Context) GetVpnAttachmentResultOutput {
 	return o
+}
+
+func (o GetVpnAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpnAttachmentResult] {
+	return pulumix.Output[GetVpnAttachmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVpnAttachmentResultOutput) Filters() GetVpnAttachmentFilterArrayOutput {

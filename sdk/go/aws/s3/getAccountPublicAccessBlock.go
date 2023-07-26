@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The S3 account public access block data source returns account-level public access block configuration.
@@ -36,6 +38,7 @@ import (
 //
 // ```
 func LookupAccountPublicAccessBlock(ctx *pulumi.Context, args *LookupAccountPublicAccessBlockArgs, opts ...pulumi.InvokeOption) (*LookupAccountPublicAccessBlockResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountPublicAccessBlockResult
 	err := ctx.Invoke("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args, &rv, opts...)
 	if err != nil {
@@ -101,6 +104,12 @@ func (o LookupAccountPublicAccessBlockResultOutput) ToLookupAccountPublicAccessB
 
 func (o LookupAccountPublicAccessBlockResultOutput) ToLookupAccountPublicAccessBlockResultOutputWithContext(ctx context.Context) LookupAccountPublicAccessBlockResultOutput {
 	return o
+}
+
+func (o LookupAccountPublicAccessBlockResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccountPublicAccessBlockResult] {
+	return pulumix.Output[LookupAccountPublicAccessBlockResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAccountPublicAccessBlockResultOutput) AccountId() pulumi.StringPtrOutput {

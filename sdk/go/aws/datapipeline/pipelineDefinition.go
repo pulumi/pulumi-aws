@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DataPipeline Pipeline Definition resource.
@@ -136,6 +138,7 @@ func NewPipelineDefinition(ctx *pulumi.Context,
 	if args.PipelineObjects == nil {
 		return nil, errors.New("invalid value for required argument 'PipelineObjects'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PipelineDefinition
 	err := ctx.RegisterResource("aws:datapipeline/pipelineDefinition:PipelineDefinition", name, args, &resource, opts...)
 	if err != nil {
@@ -237,6 +240,12 @@ func (i *PipelineDefinition) ToPipelineDefinitionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDefinitionOutput)
 }
 
+func (i *PipelineDefinition) ToOutput(ctx context.Context) pulumix.Output[*PipelineDefinition] {
+	return pulumix.Output[*PipelineDefinition]{
+		OutputState: i.ToPipelineDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineDefinitionArrayInput is an input type that accepts PipelineDefinitionArray and PipelineDefinitionArrayOutput values.
 // You can construct a concrete instance of `PipelineDefinitionArrayInput` via:
 //
@@ -260,6 +269,12 @@ func (i PipelineDefinitionArray) ToPipelineDefinitionArrayOutput() PipelineDefin
 
 func (i PipelineDefinitionArray) ToPipelineDefinitionArrayOutputWithContext(ctx context.Context) PipelineDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDefinitionArrayOutput)
+}
+
+func (i PipelineDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*PipelineDefinition] {
+	return pulumix.Output[[]*PipelineDefinition]{
+		OutputState: i.ToPipelineDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PipelineDefinitionMapInput is an input type that accepts PipelineDefinitionMap and PipelineDefinitionMapOutput values.
@@ -287,6 +302,12 @@ func (i PipelineDefinitionMap) ToPipelineDefinitionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineDefinitionMapOutput)
 }
 
+func (i PipelineDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PipelineDefinition] {
+	return pulumix.Output[map[string]*PipelineDefinition]{
+		OutputState: i.ToPipelineDefinitionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PipelineDefinitionOutput) ElementType() reflect.Type {
@@ -299,6 +320,12 @@ func (o PipelineDefinitionOutput) ToPipelineDefinitionOutput() PipelineDefinitio
 
 func (o PipelineDefinitionOutput) ToPipelineDefinitionOutputWithContext(ctx context.Context) PipelineDefinitionOutput {
 	return o
+}
+
+func (o PipelineDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineDefinition] {
+	return pulumix.Output[*PipelineDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block for the parameter objects used in the pipeline definition. See below
@@ -337,6 +364,12 @@ func (o PipelineDefinitionArrayOutput) ToPipelineDefinitionArrayOutputWithContex
 	return o
 }
 
+func (o PipelineDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PipelineDefinition] {
+	return pulumix.Output[[]*PipelineDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipelineDefinitionArrayOutput) Index(i pulumi.IntInput) PipelineDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PipelineDefinition {
 		return vs[0].([]*PipelineDefinition)[vs[1].(int)]
@@ -355,6 +388,12 @@ func (o PipelineDefinitionMapOutput) ToPipelineDefinitionMapOutput() PipelineDef
 
 func (o PipelineDefinitionMapOutput) ToPipelineDefinitionMapOutputWithContext(ctx context.Context) PipelineDefinitionMapOutput {
 	return o
+}
+
+func (o PipelineDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PipelineDefinition] {
+	return pulumix.Output[map[string]*PipelineDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineDefinitionMapOutput) MapIndex(k pulumi.StringInput) PipelineDefinitionOutput {

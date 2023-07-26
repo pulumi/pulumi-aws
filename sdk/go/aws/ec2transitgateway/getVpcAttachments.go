@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on EC2 Transit Gateway VPC Attachments.
@@ -47,6 +49,7 @@ import (
 //
 // ```
 func GetVpcAttachments(ctx *pulumi.Context, args *GetVpcAttachmentsArgs, opts ...pulumi.InvokeOption) (*GetVpcAttachmentsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcAttachmentsResult
 	err := ctx.Invoke("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args, &rv, opts...)
 	if err != nil {
@@ -106,6 +109,12 @@ func (o GetVpcAttachmentsResultOutput) ToGetVpcAttachmentsResultOutput() GetVpcA
 
 func (o GetVpcAttachmentsResultOutput) ToGetVpcAttachmentsResultOutputWithContext(ctx context.Context) GetVpcAttachmentsResultOutput {
 	return o
+}
+
+func (o GetVpcAttachmentsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcAttachmentsResult] {
+	return pulumix.Output[GetVpcAttachmentsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVpcAttachmentsResultOutput) Filters() GetVpcAttachmentsFilterArrayOutput {

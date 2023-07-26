@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches a resource based policy to a private CA.
@@ -126,6 +128,7 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.ResourceArn == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("aws:acmpca/policy:Policy", name, args, &resource, opts...)
 	if err != nil {
@@ -203,6 +206,12 @@ func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyOutput)
 }
 
+func (i *Policy) ToOutput(ctx context.Context) pulumix.Output[*Policy] {
+	return pulumix.Output[*Policy]{
+		OutputState: i.ToPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyArrayInput is an input type that accepts PolicyArray and PolicyArrayOutput values.
 // You can construct a concrete instance of `PolicyArrayInput` via:
 //
@@ -226,6 +235,12 @@ func (i PolicyArray) ToPolicyArrayOutput() PolicyArrayOutput {
 
 func (i PolicyArray) ToPolicyArrayOutputWithContext(ctx context.Context) PolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyArrayOutput)
+}
+
+func (i PolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*Policy] {
+	return pulumix.Output[[]*Policy]{
+		OutputState: i.ToPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PolicyMapInput is an input type that accepts PolicyMap and PolicyMapOutput values.
@@ -253,6 +268,12 @@ func (i PolicyMap) ToPolicyMapOutputWithContext(ctx context.Context) PolicyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyMapOutput)
 }
 
+func (i PolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Policy] {
+	return pulumix.Output[map[string]*Policy]{
+		OutputState: i.ToPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicyOutput) ElementType() reflect.Type {
@@ -265,6 +286,12 @@ func (o PolicyOutput) ToPolicyOutput() PolicyOutput {
 
 func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return o
+}
+
+func (o PolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*Policy] {
+	return pulumix.Output[*Policy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // JSON-formatted IAM policy to attach to the specified private CA resource.
@@ -291,6 +318,12 @@ func (o PolicyArrayOutput) ToPolicyArrayOutputWithContext(ctx context.Context) P
 	return o
 }
 
+func (o PolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Policy] {
+	return pulumix.Output[[]*Policy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyArrayOutput) Index(i pulumi.IntInput) PolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Policy {
 		return vs[0].([]*Policy)[vs[1].(int)]
@@ -309,6 +342,12 @@ func (o PolicyMapOutput) ToPolicyMapOutput() PolicyMapOutput {
 
 func (o PolicyMapOutput) ToPolicyMapOutputWithContext(ctx context.Context) PolicyMapOutput {
 	return o
+}
+
+func (o PolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Policy] {
+	return pulumix.Output[map[string]*Policy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyMapOutput) MapIndex(k pulumi.StringInput) PolicyOutput {

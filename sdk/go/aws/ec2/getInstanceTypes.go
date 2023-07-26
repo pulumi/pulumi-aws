@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about EC2 Instance Types.
@@ -64,6 +66,7 @@ import (
 //
 // ```
 func GetInstanceTypes(ctx *pulumi.Context, args *GetInstanceTypesArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceTypesResult
 	err := ctx.Invoke("aws:ec2/getInstanceTypes:getInstanceTypes", args, &rv, opts...)
 	if err != nil {
@@ -123,6 +126,12 @@ func (o GetInstanceTypesResultOutput) ToGetInstanceTypesResultOutput() GetInstan
 
 func (o GetInstanceTypesResultOutput) ToGetInstanceTypesResultOutputWithContext(ctx context.Context) GetInstanceTypesResultOutput {
 	return o
+}
+
+func (o GetInstanceTypesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstanceTypesResult] {
+	return pulumix.Output[GetInstanceTypesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetInstanceTypesResultOutput) Filters() GetInstanceTypesFilterArrayOutput {

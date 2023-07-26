@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ApplicationApplicationConfiguration struct {
 	// The code location and type parameters for the application.
@@ -67,6 +71,12 @@ func (i ApplicationApplicationConfigurationArgs) ToApplicationApplicationConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationArgs) ToApplicationApplicationConfigurationPtrOutput() ApplicationApplicationConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -108,6 +118,12 @@ func (i *applicationApplicationConfigurationPtrType) ToApplicationApplicationCon
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationOutput) ElementType() reflect.Type {
@@ -130,6 +146,12 @@ func (o ApplicationApplicationConfigurationOutput) ToApplicationApplicationConfi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfiguration) *ApplicationApplicationConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The code location and type parameters for the application.
@@ -193,6 +215,12 @@ func (o ApplicationApplicationConfigurationPtrOutput) ToApplicationApplicationCo
 
 func (o ApplicationApplicationConfigurationPtrOutput) ToApplicationApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationOutput {
@@ -312,6 +340,12 @@ func (i ApplicationApplicationConfigurationApplicationCodeConfigurationArgs) ToA
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationApplicationCodeConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationApplicationCodeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationApplicationCodeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationApplicationCodeConfigurationArgs) ToApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput() ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutputWithContext(context.Background())
 }
@@ -353,6 +387,12 @@ func (i *applicationApplicationConfigurationApplicationCodeConfigurationPtrType)
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationApplicationCodeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationApplicationCodeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationApplicationCodeConfigurationOutput) ElementType() reflect.Type {
@@ -375,6 +415,12 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationOutput) T
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationApplicationCodeConfiguration) *ApplicationApplicationConfigurationApplicationCodeConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationApplicationCodeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The location and type of the application code.
@@ -403,6 +449,12 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput) ToApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationApplicationCodeConfigurationOutput {
@@ -476,6 +528,12 @@ func (i ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput)
 }
 
+func (i ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent] {
+	return pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent]{
+		OutputState: i.ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs) ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput() ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput {
 	return i.ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutputWithContext(context.Background())
 }
@@ -517,6 +575,12 @@ func (i *applicationApplicationConfigurationApplicationCodeConfigurationCodeCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent] {
+	return pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent]{
+		OutputState: i.ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput) ElementType() reflect.Type {
@@ -539,6 +603,12 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent {
 		return &v
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent] {
+	return pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Information about the Amazon S3 bucket containing the application code.
@@ -569,6 +639,12 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput) ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent] {
+	return pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput) Elem() ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput {
@@ -644,6 +720,12 @@ func (i ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput)
 }
 
+func (i ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation] {
+	return pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation]{
+		OutputState: i.ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs) ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput() ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput {
 	return i.ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutputWithContext(context.Background())
 }
@@ -685,6 +767,12 @@ func (i *applicationApplicationConfigurationApplicationCodeConfigurationCodeCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation] {
+	return pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation]{
+		OutputState: i.ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput) ElementType() reflect.Type {
@@ -707,6 +795,12 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation) *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation {
 		return &v
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation] {
+	return pulumix.Output[ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN for the S3 bucket containing the application code.
@@ -742,6 +836,12 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput) ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation] {
+	return pulumix.Output[*ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput) Elem() ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput {
@@ -817,6 +917,12 @@ func (i ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationApplicationSnapshotConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationApplicationSnapshotConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationApplicationSnapshotConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs) ToApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput() ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutputWithContext(context.Background())
 }
@@ -858,6 +964,12 @@ func (i *applicationApplicationConfigurationApplicationSnapshotConfigurationPtrT
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationApplicationSnapshotConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationApplicationSnapshotConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationApplicationSnapshotConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput) ElementType() reflect.Type {
@@ -882,6 +994,12 @@ func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutpu
 	}).(ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationApplicationSnapshotConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationApplicationSnapshotConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
 func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput) SnapshotsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationSnapshotConfiguration) bool {
@@ -901,6 +1019,12 @@ func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOu
 
 func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput) ToApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationApplicationSnapshotConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationApplicationSnapshotConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput {
@@ -956,6 +1080,12 @@ func (i ApplicationApplicationConfigurationEnvironmentPropertiesArgs) ToApplicat
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationEnvironmentPropertiesOutput)
 }
 
+func (i ApplicationApplicationConfigurationEnvironmentPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationEnvironmentProperties] {
+	return pulumix.Output[ApplicationApplicationConfigurationEnvironmentProperties]{
+		OutputState: i.ToApplicationApplicationConfigurationEnvironmentPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationEnvironmentPropertiesArgs) ToApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput() ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput {
 	return i.ToApplicationApplicationConfigurationEnvironmentPropertiesPtrOutputWithContext(context.Background())
 }
@@ -997,6 +1127,12 @@ func (i *applicationApplicationConfigurationEnvironmentPropertiesPtrType) ToAppl
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationEnvironmentPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationEnvironmentProperties] {
+	return pulumix.Output[*ApplicationApplicationConfigurationEnvironmentProperties]{
+		OutputState: i.ToApplicationApplicationConfigurationEnvironmentPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationEnvironmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationEnvironmentPropertiesOutput) ElementType() reflect.Type {
@@ -1021,6 +1157,12 @@ func (o ApplicationApplicationConfigurationEnvironmentPropertiesOutput) ToApplic
 	}).(ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationEnvironmentPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationEnvironmentProperties] {
+	return pulumix.Output[ApplicationApplicationConfigurationEnvironmentProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Describes the execution property groups.
 func (o ApplicationApplicationConfigurationEnvironmentPropertiesOutput) PropertyGroups() ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationEnvironmentProperties) []ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup {
@@ -1040,6 +1182,12 @@ func (o ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput) ToApp
 
 func (o ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput) ToApplicationApplicationConfigurationEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationEnvironmentProperties] {
+	return pulumix.Output[*ApplicationApplicationConfigurationEnvironmentProperties]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput) Elem() ApplicationApplicationConfigurationEnvironmentPropertiesOutput {
@@ -1099,6 +1247,12 @@ func (i ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArg
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOutput)
 }
 
+func (i ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup] {
+	return pulumix.Output[ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup]{
+		OutputState: i.ToApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayInput is an input type that accepts ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArray and ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayInput` via:
 //
@@ -1124,6 +1278,12 @@ func (i ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArr
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutput)
 }
 
+func (i ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup] {
+	return pulumix.Output[[]ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup]{
+		OutputState: i.ToApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOutput) ElementType() reflect.Type {
@@ -1136,6 +1296,12 @@ func (o ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOut
 
 func (o ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOutput) ToApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup] {
+	return pulumix.Output[ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key of the application execution property key-value map.
@@ -1164,6 +1330,12 @@ func (o ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArr
 
 func (o ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutput) ToApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup] {
+	return pulumix.Output[[]ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutput) Index(i pulumi.IntInput) ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOutput {
@@ -1213,6 +1385,12 @@ func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs) ToApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput() ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1254,6 +1432,12 @@ func (i *applicationApplicationConfigurationFlinkApplicationConfigurationPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationFlinkApplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput) ElementType() reflect.Type {
@@ -1276,6 +1460,12 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationFlinkApplicationConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes an application's checkpointing configuration.
@@ -1311,6 +1501,12 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutpu
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput) ToApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput {
@@ -1404,6 +1600,12 @@ func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs) ToApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput() ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1445,6 +1647,12 @@ func (i *applicationApplicationConfigurationFlinkApplicationConfigurationCheckpo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput) ElementType() reflect.Type {
@@ -1467,6 +1675,12 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes the interval in milliseconds between checkpoint operations.
@@ -1512,6 +1726,12 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput) ToApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput {
@@ -1608,6 +1828,12 @@ func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitori
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs) ToApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput() ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1649,6 +1875,12 @@ func (i *applicationApplicationConfigurationFlinkApplicationConfigurationMonitor
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput) ElementType() reflect.Type {
@@ -1671,6 +1903,12 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitori
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
@@ -1706,6 +1944,12 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitori
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput) ToApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput {
@@ -1793,6 +2037,12 @@ func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs) ToApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput() ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1834,6 +2084,12 @@ func (i *applicationApplicationConfigurationFlinkApplicationConfigurationParalle
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput) ElementType() reflect.Type {
@@ -1856,6 +2112,12 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
@@ -1898,6 +2160,12 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput) ToApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput {
@@ -1987,6 +2255,12 @@ func (i ApplicationApplicationConfigurationRunConfigurationArgs) ToApplicationAp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationRunConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationRunConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationRunConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationRunConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationRunConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationRunConfigurationArgs) ToApplicationApplicationConfigurationRunConfigurationPtrOutput() ApplicationApplicationConfigurationRunConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationRunConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2028,6 +2302,12 @@ func (i *applicationApplicationConfigurationRunConfigurationPtrType) ToApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationRunConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationRunConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationRunConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationRunConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationRunConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationRunConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationRunConfigurationOutput) ElementType() reflect.Type {
@@ -2050,6 +2330,12 @@ func (o ApplicationApplicationConfigurationRunConfigurationOutput) ToApplication
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationRunConfiguration) *ApplicationApplicationConfigurationRunConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationRunConfigurationPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationRunConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationRunConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationRunConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The restore behavior of a restarting application.
@@ -2078,6 +2364,12 @@ func (o ApplicationApplicationConfigurationRunConfigurationPtrOutput) ToApplicat
 
 func (o ApplicationApplicationConfigurationRunConfigurationPtrOutput) ToApplicationApplicationConfigurationRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationRunConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationRunConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationRunConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationRunConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationRunConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationRunConfigurationOutput {
@@ -2147,6 +2439,12 @@ func (i ApplicationApplicationConfigurationRunConfigurationApplicationRestoreCon
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs) ToApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput() ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2188,6 +2486,12 @@ func (i *applicationApplicationConfigurationRunConfigurationApplicationRestoreCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput) ElementType() reflect.Type {
@@ -2210,6 +2514,12 @@ func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration) *ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
@@ -2238,6 +2548,12 @@ func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreCon
 
 func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput) ToApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput {
@@ -2303,6 +2619,12 @@ func (i ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs) ToApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput() ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2344,6 +2666,12 @@ func (i *applicationApplicationConfigurationRunConfigurationFlinkRunConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput) ElementType() reflect.Type {
@@ -2368,6 +2696,12 @@ func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration
 	}).(ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
 func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput) AllowNonRestoredState() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration) *bool {
@@ -2387,6 +2721,12 @@ func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration
 
 func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput) ToApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput {
@@ -2450,6 +2790,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationArgs) ToAp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2491,6 +2837,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) ElementType() reflect.Type {
@@ -2513,6 +2865,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) To
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The input stream used by the application.
@@ -2548,6 +2906,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationOutput {
@@ -2653,6 +3017,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeA
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputType] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputType]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(context.Background())
 }
@@ -2694,6 +3064,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputType
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputType] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputType]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) ElementType() reflect.Type {
@@ -2716,6 +3092,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputType] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InAppStreamNames() pulumi.StringArrayOutput {
@@ -2792,6 +3174,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputType] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput {
@@ -2926,6 +3314,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutputWithContext(context.Background())
 }
@@ -2967,6 +3361,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput) ElementType() reflect.Type {
@@ -2991,6 +3391,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The number of in-application streams to create.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism) *int {
@@ -3010,6 +3416,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput {
@@ -3065,6 +3477,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3106,6 +3524,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput) ElementType() reflect.Type {
@@ -3130,6 +3554,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput) InputLambdaProcessor() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor {
@@ -3149,6 +3579,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput {
@@ -3204,6 +3640,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutputWithContext(context.Background())
 }
@@ -3245,6 +3687,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput) ElementType() reflect.Type {
@@ -3269,6 +3717,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Lambda function that operates on records in the stream.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor) string {
@@ -3288,6 +3742,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput {
@@ -3351,6 +3811,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutputWithContext(context.Background())
 }
@@ -3392,6 +3858,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput) ElementType() reflect.Type {
@@ -3414,6 +3886,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
@@ -3449,6 +3927,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput {
@@ -3532,6 +4016,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArray and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayInput` via:
 //
@@ -3557,6 +4047,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn] {
+	return pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutput) ElementType() reflect.Type {
@@ -3569,6 +4065,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A reference to the data element in the streaming input or the reference data source.
@@ -3604,6 +4106,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn] {
+	return pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutput) Index(i pulumi.IntInput) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutput {
@@ -3649,6 +4157,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutputWithContext(context.Background())
 }
@@ -3690,6 +4204,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput) ElementType() reflect.Type {
@@ -3712,6 +4232,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
@@ -3740,6 +4266,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput {
@@ -3809,6 +4341,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -3850,6 +4388,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput) ElementType() reflect.Type {
@@ -3872,6 +4416,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Provides additional mapping information when the record format uses delimiters (for example, CSV).
@@ -3900,6 +4450,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput {
@@ -3969,6 +4525,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -4010,6 +4572,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput) ElementType() reflect.Type {
@@ -4032,6 +4600,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
@@ -4060,6 +4634,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput {
@@ -4125,6 +4705,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -4166,6 +4752,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInpu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput) ElementType() reflect.Type {
@@ -4190,6 +4782,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The path to the top-level parent that contains the records.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters) string {
@@ -4209,6 +4807,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput {
@@ -4264,6 +4868,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArray and ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayInput` via:
 //
@@ -4289,6 +4899,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration] {
+	return pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationOutput) ElementType() reflect.Type {
@@ -4301,6 +4917,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
@@ -4322,6 +4944,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration] {
+	return pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput) Index(i pulumi.IntInput) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationOutput {
@@ -4361,6 +4989,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput)
+}
+
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput {
@@ -4404,6 +5038,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputKine
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput) ElementType() reflect.Type {
@@ -4428,6 +5068,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the delivery stream.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput) string {
@@ -4447,6 +5093,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput {
@@ -4502,6 +5154,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutputWithContext(context.Background())
 }
@@ -4543,6 +5201,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputKine
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput) ElementType() reflect.Type {
@@ -4567,6 +5231,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the input Kinesis data stream to read.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput) string {
@@ -4586,6 +5256,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput {
@@ -4659,6 +5335,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayInput` via:
 //
@@ -4684,6 +5366,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType] {
+	return pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) ElementType() reflect.Type {
@@ -4696,6 +5384,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes the data format when records are written to the destination.
@@ -4751,6 +5445,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType
 	return o
 }
 
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType] {
+	return pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput) Index(i pulumi.IntInput) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType {
 		return vs[0].([]ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType)[vs[1].(int)]
@@ -4790,6 +5490,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDest
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput) ElementType() reflect.Type {
@@ -4802,6 +5508,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDest
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
@@ -4842,6 +5554,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput)
+}
+
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput {
@@ -4885,6 +5603,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationOutputKin
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput) ElementType() reflect.Type {
@@ -4909,6 +5633,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the destination delivery stream to write to.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput) string {
@@ -4928,6 +5658,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput {
@@ -4983,6 +5719,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutputWithContext(context.Background())
 }
@@ -5024,6 +5766,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationOutputKin
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput) ElementType() reflect.Type {
@@ -5048,6 +5796,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the destination Kinesis data stream to write to.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput) string {
@@ -5067,6 +5821,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput {
@@ -5122,6 +5882,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLamb
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutputWithContext(context.Background())
 }
@@ -5163,6 +5929,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationOutputLam
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput) ElementType() reflect.Type {
@@ -5187,6 +5959,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLamb
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the destination Lambda function to write to.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput) string {
@@ -5206,6 +5984,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLamb
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput {
@@ -5271,6 +6055,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutputWithContext(context.Background())
 }
@@ -5312,6 +6102,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationReference
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput) ElementType() reflect.Type {
@@ -5334,6 +6130,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput) ReferenceId() pulumi.StringPtrOutput {
@@ -5375,6 +6177,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput {
@@ -5471,6 +6279,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutputWithContext(context.Background())
 }
@@ -5512,6 +6326,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationReference
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput) ElementType() reflect.Type {
@@ -5534,6 +6354,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
@@ -5571,6 +6397,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput {
@@ -5656,6 +6488,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArray and ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutput values.
 // You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayInput` via:
 //
@@ -5681,6 +6519,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn] {
+	return pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutput) ElementType() reflect.Type {
@@ -5693,6 +6537,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A reference to the data element in the streaming input or the reference data source.
@@ -5728,6 +6578,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn] {
+	return pulumix.Output[[]ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutput) Index(i pulumi.IntInput) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutput {
@@ -5773,6 +6629,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutputWithContext(context.Background())
 }
@@ -5814,6 +6676,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationReference
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput) ElementType() reflect.Type {
@@ -5836,6 +6704,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
@@ -5864,6 +6738,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput {
@@ -5933,6 +6813,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -5974,6 +6860,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationReference
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput) ElementType() reflect.Type {
@@ -5996,6 +6888,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Provides additional mapping information when the record format uses delimiters (for example, CSV).
@@ -6024,6 +6922,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput {
@@ -6093,6 +6997,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -6134,6 +7044,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationReference
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput) ElementType() reflect.Type {
@@ -6156,6 +7072,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
@@ -6184,6 +7106,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput {
@@ -6249,6 +7177,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -6290,6 +7224,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationReference
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput) ElementType() reflect.Type {
@@ -6314,6 +7254,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput)
 }
 
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The path to the top-level parent that contains the records.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters) string {
@@ -6333,6 +7279,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput {
@@ -6392,6 +7344,12 @@ func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput)
 }
 
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput {
 	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutputWithContext(context.Background())
 }
@@ -6433,6 +7391,12 @@ func (i *applicationApplicationConfigurationSqlApplicationConfigurationReference
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
 }
 
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: i.ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput) ElementType() reflect.Type {
@@ -6455,6 +7419,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN for the S3 bucket containing the application code.
@@ -6483,6 +7453,12 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource] {
+	return pulumix.Output[*ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput {
@@ -6556,6 +7532,12 @@ func (i ApplicationApplicationConfigurationVpcConfigurationArgs) ToApplicationAp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationVpcConfigurationOutput)
 }
 
+func (i ApplicationApplicationConfigurationVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationVpcConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationVpcConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationVpcConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationApplicationConfigurationVpcConfigurationArgs) ToApplicationApplicationConfigurationVpcConfigurationPtrOutput() ApplicationApplicationConfigurationVpcConfigurationPtrOutput {
 	return i.ToApplicationApplicationConfigurationVpcConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6597,6 +7579,12 @@ func (i *applicationApplicationConfigurationVpcConfigurationPtrType) ToApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationVpcConfigurationPtrOutput)
 }
 
+func (i *applicationApplicationConfigurationVpcConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationVpcConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationVpcConfiguration]{
+		OutputState: i.ToApplicationApplicationConfigurationVpcConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationApplicationConfigurationVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationApplicationConfigurationVpcConfigurationOutput) ElementType() reflect.Type {
@@ -6619,6 +7607,12 @@ func (o ApplicationApplicationConfigurationVpcConfigurationOutput) ToApplication
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationVpcConfiguration) *ApplicationApplicationConfigurationVpcConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationVpcConfigurationPtrOutput)
+}
+
+func (o ApplicationApplicationConfigurationVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationApplicationConfigurationVpcConfiguration] {
+	return pulumix.Output[ApplicationApplicationConfigurationVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Security Group IDs used by the VPC configuration.
@@ -6651,6 +7645,12 @@ func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) ToApplicat
 
 func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) ToApplicationApplicationConfigurationVpcConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationVpcConfigurationPtrOutput {
 	return o
+}
+
+func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationApplicationConfigurationVpcConfiguration] {
+	return pulumix.Output[*ApplicationApplicationConfigurationVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationVpcConfigurationOutput {
@@ -6736,6 +7736,12 @@ func (i ApplicationCloudwatchLoggingOptionsArgs) ToApplicationCloudwatchLoggingO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCloudwatchLoggingOptionsOutput)
 }
 
+func (i ApplicationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCloudwatchLoggingOptions] {
+	return pulumix.Output[ApplicationCloudwatchLoggingOptions]{
+		OutputState: i.ToApplicationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ApplicationCloudwatchLoggingOptionsArgs) ToApplicationCloudwatchLoggingOptionsPtrOutput() ApplicationCloudwatchLoggingOptionsPtrOutput {
 	return i.ToApplicationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
 }
@@ -6777,6 +7783,12 @@ func (i *applicationCloudwatchLoggingOptionsPtrType) ToApplicationCloudwatchLogg
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (i *applicationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCloudwatchLoggingOptions] {
+	return pulumix.Output[*ApplicationCloudwatchLoggingOptions]{
+		OutputState: i.ToApplicationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApplicationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -6801,6 +7813,12 @@ func (o ApplicationCloudwatchLoggingOptionsOutput) ToApplicationCloudwatchLoggin
 	}).(ApplicationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (o ApplicationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCloudwatchLoggingOptions] {
+	return pulumix.Output[ApplicationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApplicationCloudwatchLoggingOptionsOutput) CloudwatchLoggingOptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCloudwatchLoggingOptions) *string { return v.CloudwatchLoggingOptionId }).(pulumi.StringPtrOutput)
 }
@@ -6822,6 +7840,12 @@ func (o ApplicationCloudwatchLoggingOptionsPtrOutput) ToApplicationCloudwatchLog
 
 func (o ApplicationCloudwatchLoggingOptionsPtrOutput) ToApplicationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) ApplicationCloudwatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o ApplicationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCloudwatchLoggingOptions] {
+	return pulumix.Output[*ApplicationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApplicationCloudwatchLoggingOptionsPtrOutput) Elem() ApplicationCloudwatchLoggingOptionsOutput {

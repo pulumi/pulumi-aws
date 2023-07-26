@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `getRegion` provides details about a specific AWS region.
@@ -44,6 +46,7 @@ import (
 //
 // ```
 func GetRegion(ctx *pulumi.Context, args *GetRegionArgs, opts ...pulumi.InvokeOption) (*GetRegionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegionResult
 	err := ctx.Invoke("aws:index/getRegion:getRegion", args, &rv, opts...)
 	if err != nil {
@@ -110,6 +113,12 @@ func (o GetRegionResultOutput) ToGetRegionResultOutput() GetRegionResultOutput {
 
 func (o GetRegionResultOutput) ToGetRegionResultOutputWithContext(ctx context.Context) GetRegionResultOutput {
 	return o
+}
+
+func (o GetRegionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRegionResult] {
+	return pulumix.Output[GetRegionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Region's description in this format: "Location (Region name)".

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -64,6 +66,7 @@ import (
 //
 // ```
 func GetEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs, opts ...pulumi.InvokeOption) (*GetEventCategoriesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventCategoriesResult
 	err := ctx.Invoke("aws:rds/getEventCategories:getEventCategories", args, &rv, opts...)
 	if err != nil {
@@ -123,6 +126,12 @@ func (o GetEventCategoriesResultOutput) ToGetEventCategoriesResultOutput() GetEv
 
 func (o GetEventCategoriesResultOutput) ToGetEventCategoriesResultOutputWithContext(ctx context.Context) GetEventCategoriesResultOutput {
 	return o
+}
+
+func (o GetEventCategoriesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventCategoriesResult] {
+	return pulumix.Output[GetEventCategoriesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of the event categories.

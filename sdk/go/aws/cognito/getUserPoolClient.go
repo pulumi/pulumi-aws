@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Cognito User Pool Client resource.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupUserPoolClient(ctx *pulumi.Context, args *LookupUserPoolClientArgs, opts ...pulumi.InvokeOption) (*LookupUserPoolClientResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserPoolClientResult
 	err := ctx.Invoke("aws:cognito/getUserPoolClient:getUserPoolClient", args, &rv, opts...)
 	if err != nil {
@@ -141,6 +144,12 @@ func (o LookupUserPoolClientResultOutput) ToLookupUserPoolClientResultOutput() L
 
 func (o LookupUserPoolClientResultOutput) ToLookupUserPoolClientResultOutputWithContext(ctx context.Context) LookupUserPoolClientResultOutput {
 	return o
+}
+
+func (o LookupUserPoolClientResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserPoolClientResult] {
+	return pulumix.Output[LookupUserPoolClientResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.

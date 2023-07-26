@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Kinesis Stream resource. Amazon Kinesis is a managed service that
@@ -98,6 +100,7 @@ func NewStream(ctx *pulumi.Context,
 		args = &StreamArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Stream
 	err := ctx.RegisterResource("aws:kinesis/stream:Stream", name, args, &resource, opts...)
 	if err != nil {
@@ -247,6 +250,12 @@ func (i *Stream) ToStreamOutputWithContext(ctx context.Context) StreamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamOutput)
 }
 
+func (i *Stream) ToOutput(ctx context.Context) pulumix.Output[*Stream] {
+	return pulumix.Output[*Stream]{
+		OutputState: i.ToStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StreamArrayInput is an input type that accepts StreamArray and StreamArrayOutput values.
 // You can construct a concrete instance of `StreamArrayInput` via:
 //
@@ -270,6 +279,12 @@ func (i StreamArray) ToStreamArrayOutput() StreamArrayOutput {
 
 func (i StreamArray) ToStreamArrayOutputWithContext(ctx context.Context) StreamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamArrayOutput)
+}
+
+func (i StreamArray) ToOutput(ctx context.Context) pulumix.Output[[]*Stream] {
+	return pulumix.Output[[]*Stream]{
+		OutputState: i.ToStreamArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StreamMapInput is an input type that accepts StreamMap and StreamMapOutput values.
@@ -297,6 +312,12 @@ func (i StreamMap) ToStreamMapOutputWithContext(ctx context.Context) StreamMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(StreamMapOutput)
 }
 
+func (i StreamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stream] {
+	return pulumix.Output[map[string]*Stream]{
+		OutputState: i.ToStreamMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamOutput struct{ *pulumi.OutputState }
 
 func (StreamOutput) ElementType() reflect.Type {
@@ -309,6 +330,12 @@ func (o StreamOutput) ToStreamOutput() StreamOutput {
 
 func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutput {
 	return o
+}
+
+func (o StreamOutput) ToOutput(ctx context.Context) pulumix.Output[*Stream] {
+	return pulumix.Output[*Stream]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
@@ -381,6 +408,12 @@ func (o StreamArrayOutput) ToStreamArrayOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o StreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Stream] {
+	return pulumix.Output[[]*Stream]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StreamArrayOutput) Index(i pulumi.IntInput) StreamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Stream {
 		return vs[0].([]*Stream)[vs[1].(int)]
@@ -399,6 +432,12 @@ func (o StreamMapOutput) ToStreamMapOutput() StreamMapOutput {
 
 func (o StreamMapOutput) ToStreamMapOutputWithContext(ctx context.Context) StreamMapOutput {
 	return o
+}
+
+func (o StreamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Stream] {
+	return pulumix.Output[map[string]*Stream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamMapOutput) MapIndex(k pulumi.StringInput) StreamOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
@@ -64,6 +66,7 @@ import (
 //
 // ```
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretResult
 	err := ctx.Invoke("aws:secretsmanager/getSecret:getSecret", args, &rv, opts...)
 	if err != nil {
@@ -147,6 +150,12 @@ func (o LookupSecretResultOutput) ToLookupSecretResultOutput() LookupSecretResul
 
 func (o LookupSecretResultOutput) ToLookupSecretResultOutputWithContext(ctx context.Context) LookupSecretResultOutput {
 	return o
+}
+
+func (o LookupSecretResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecretResult] {
+	return pulumix.Output[LookupSecretResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the secret.

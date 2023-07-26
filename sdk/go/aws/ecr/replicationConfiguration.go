@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic Container Registry Replication Configuration.
@@ -184,6 +186,7 @@ func NewReplicationConfiguration(ctx *pulumi.Context,
 		args = &ReplicationConfigurationArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationConfiguration
 	err := ctx.RegisterResource("aws:ecr/replicationConfiguration:ReplicationConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -257,6 +260,12 @@ func (i *ReplicationConfiguration) ToReplicationConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationOutput)
 }
 
+func (i *ReplicationConfiguration) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfiguration] {
+	return pulumix.Output[*ReplicationConfiguration]{
+		OutputState: i.ToReplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicationConfigurationArrayInput is an input type that accepts ReplicationConfigurationArray and ReplicationConfigurationArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigurationArrayInput` via:
 //
@@ -280,6 +289,12 @@ func (i ReplicationConfigurationArray) ToReplicationConfigurationArrayOutput() R
 
 func (i ReplicationConfigurationArray) ToReplicationConfigurationArrayOutputWithContext(ctx context.Context) ReplicationConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationArrayOutput)
+}
+
+func (i ReplicationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationConfiguration] {
+	return pulumix.Output[[]*ReplicationConfiguration]{
+		OutputState: i.ToReplicationConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReplicationConfigurationMapInput is an input type that accepts ReplicationConfigurationMap and ReplicationConfigurationMapOutput values.
@@ -307,6 +322,12 @@ func (i ReplicationConfigurationMap) ToReplicationConfigurationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationMapOutput)
 }
 
+func (i ReplicationConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationConfiguration] {
+	return pulumix.Output[map[string]*ReplicationConfiguration]{
+		OutputState: i.ToReplicationConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationOutput) ElementType() reflect.Type {
@@ -319,6 +340,12 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutput() Repli
 
 func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithContext(ctx context.Context) ReplicationConfigurationOutput {
 	return o
+}
+
+func (o ReplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfiguration] {
+	return pulumix.Output[*ReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account ID of the destination registry to replicate to.
@@ -347,6 +374,12 @@ func (o ReplicationConfigurationArrayOutput) ToReplicationConfigurationArrayOutp
 	return o
 }
 
+func (o ReplicationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationConfiguration] {
+	return pulumix.Output[[]*ReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicationConfigurationArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationConfiguration {
 		return vs[0].([]*ReplicationConfiguration)[vs[1].(int)]
@@ -365,6 +398,12 @@ func (o ReplicationConfigurationMapOutput) ToReplicationConfigurationMapOutput()
 
 func (o ReplicationConfigurationMapOutput) ToReplicationConfigurationMapOutputWithContext(ctx context.Context) ReplicationConfigurationMapOutput {
 	return o
+}
+
+func (o ReplicationConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationConfiguration] {
+	return pulumix.Output[map[string]*ReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationConfigurationMapOutput) MapIndex(k pulumi.StringInput) ReplicationConfigurationOutput {

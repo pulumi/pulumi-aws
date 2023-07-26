@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Catalog Portfolio Share. Shares the specified portfolio with the specified account or organization node. You can share portfolios to an organization, an organizational unit, or a specific account.
@@ -98,6 +100,7 @@ func NewPortfolioShare(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PortfolioShare
 	err := ctx.RegisterResource("aws:servicecatalog/portfolioShare:PortfolioShare", name, args, &resource, opts...)
 	if err != nil {
@@ -227,6 +230,12 @@ func (i *PortfolioShare) ToPortfolioShareOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioShareOutput)
 }
 
+func (i *PortfolioShare) ToOutput(ctx context.Context) pulumix.Output[*PortfolioShare] {
+	return pulumix.Output[*PortfolioShare]{
+		OutputState: i.ToPortfolioShareOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PortfolioShareArrayInput is an input type that accepts PortfolioShareArray and PortfolioShareArrayOutput values.
 // You can construct a concrete instance of `PortfolioShareArrayInput` via:
 //
@@ -250,6 +259,12 @@ func (i PortfolioShareArray) ToPortfolioShareArrayOutput() PortfolioShareArrayOu
 
 func (i PortfolioShareArray) ToPortfolioShareArrayOutputWithContext(ctx context.Context) PortfolioShareArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioShareArrayOutput)
+}
+
+func (i PortfolioShareArray) ToOutput(ctx context.Context) pulumix.Output[[]*PortfolioShare] {
+	return pulumix.Output[[]*PortfolioShare]{
+		OutputState: i.ToPortfolioShareArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PortfolioShareMapInput is an input type that accepts PortfolioShareMap and PortfolioShareMapOutput values.
@@ -277,6 +292,12 @@ func (i PortfolioShareMap) ToPortfolioShareMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioShareMapOutput)
 }
 
+func (i PortfolioShareMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PortfolioShare] {
+	return pulumix.Output[map[string]*PortfolioShare]{
+		OutputState: i.ToPortfolioShareMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PortfolioShareOutput struct{ *pulumi.OutputState }
 
 func (PortfolioShareOutput) ElementType() reflect.Type {
@@ -289,6 +310,12 @@ func (o PortfolioShareOutput) ToPortfolioShareOutput() PortfolioShareOutput {
 
 func (o PortfolioShareOutput) ToPortfolioShareOutputWithContext(ctx context.Context) PortfolioShareOutput {
 	return o
+}
+
+func (o PortfolioShareOutput) ToOutput(ctx context.Context) pulumix.Output[*PortfolioShare] {
+	return pulumix.Output[*PortfolioShare]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -347,6 +374,12 @@ func (o PortfolioShareArrayOutput) ToPortfolioShareArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o PortfolioShareArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PortfolioShare] {
+	return pulumix.Output[[]*PortfolioShare]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PortfolioShareArrayOutput) Index(i pulumi.IntInput) PortfolioShareOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PortfolioShare {
 		return vs[0].([]*PortfolioShare)[vs[1].(int)]
@@ -365,6 +398,12 @@ func (o PortfolioShareMapOutput) ToPortfolioShareMapOutput() PortfolioShareMapOu
 
 func (o PortfolioShareMapOutput) ToPortfolioShareMapOutputWithContext(ctx context.Context) PortfolioShareMapOutput {
 	return o
+}
+
+func (o PortfolioShareMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PortfolioShare] {
+	return pulumix.Output[map[string]*PortfolioShare]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PortfolioShareMapOutput) MapIndex(k pulumi.StringInput) PortfolioShareOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an network ACL association resource which allows you to associate your network ACL with any subnet(s).
@@ -65,6 +67,7 @@ func NewNetworkAclAssociation(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkAclAssociation
 	err := ctx.RegisterResource("aws:ec2/networkAclAssociation:NetworkAclAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -142,6 +145,12 @@ func (i *NetworkAclAssociation) ToNetworkAclAssociationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclAssociationOutput)
 }
 
+func (i *NetworkAclAssociation) ToOutput(ctx context.Context) pulumix.Output[*NetworkAclAssociation] {
+	return pulumix.Output[*NetworkAclAssociation]{
+		OutputState: i.ToNetworkAclAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkAclAssociationArrayInput is an input type that accepts NetworkAclAssociationArray and NetworkAclAssociationArrayOutput values.
 // You can construct a concrete instance of `NetworkAclAssociationArrayInput` via:
 //
@@ -165,6 +174,12 @@ func (i NetworkAclAssociationArray) ToNetworkAclAssociationArrayOutput() Network
 
 func (i NetworkAclAssociationArray) ToNetworkAclAssociationArrayOutputWithContext(ctx context.Context) NetworkAclAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclAssociationArrayOutput)
+}
+
+func (i NetworkAclAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkAclAssociation] {
+	return pulumix.Output[[]*NetworkAclAssociation]{
+		OutputState: i.ToNetworkAclAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkAclAssociationMapInput is an input type that accepts NetworkAclAssociationMap and NetworkAclAssociationMapOutput values.
@@ -192,6 +207,12 @@ func (i NetworkAclAssociationMap) ToNetworkAclAssociationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclAssociationMapOutput)
 }
 
+func (i NetworkAclAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkAclAssociation] {
+	return pulumix.Output[map[string]*NetworkAclAssociation]{
+		OutputState: i.ToNetworkAclAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkAclAssociationOutput struct{ *pulumi.OutputState }
 
 func (NetworkAclAssociationOutput) ElementType() reflect.Type {
@@ -204,6 +225,12 @@ func (o NetworkAclAssociationOutput) ToNetworkAclAssociationOutput() NetworkAclA
 
 func (o NetworkAclAssociationOutput) ToNetworkAclAssociationOutputWithContext(ctx context.Context) NetworkAclAssociationOutput {
 	return o
+}
+
+func (o NetworkAclAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAclAssociation] {
+	return pulumix.Output[*NetworkAclAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the network ACL.
@@ -230,6 +257,12 @@ func (o NetworkAclAssociationArrayOutput) ToNetworkAclAssociationArrayOutputWith
 	return o
 }
 
+func (o NetworkAclAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkAclAssociation] {
+	return pulumix.Output[[]*NetworkAclAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkAclAssociationArrayOutput) Index(i pulumi.IntInput) NetworkAclAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkAclAssociation {
 		return vs[0].([]*NetworkAclAssociation)[vs[1].(int)]
@@ -248,6 +281,12 @@ func (o NetworkAclAssociationMapOutput) ToNetworkAclAssociationMapOutput() Netwo
 
 func (o NetworkAclAssociationMapOutput) ToNetworkAclAssociationMapOutputWithContext(ctx context.Context) NetworkAclAssociationMapOutput {
 	return o
+}
+
+func (o NetworkAclAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkAclAssociation] {
+	return pulumix.Output[map[string]*NetworkAclAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkAclAssociationMapOutput) MapIndex(k pulumi.StringInput) NetworkAclAssociationOutput {

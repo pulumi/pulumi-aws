@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Location Tracker Association.
@@ -83,6 +85,7 @@ func NewTrackerAssociation(ctx *pulumi.Context,
 	if args.TrackerName == nil {
 		return nil, errors.New("invalid value for required argument 'TrackerName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrackerAssociation
 	err := ctx.RegisterResource("aws:location/trackerAssociation:TrackerAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -160,6 +163,12 @@ func (i *TrackerAssociation) ToTrackerAssociationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(TrackerAssociationOutput)
 }
 
+func (i *TrackerAssociation) ToOutput(ctx context.Context) pulumix.Output[*TrackerAssociation] {
+	return pulumix.Output[*TrackerAssociation]{
+		OutputState: i.ToTrackerAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TrackerAssociationArrayInput is an input type that accepts TrackerAssociationArray and TrackerAssociationArrayOutput values.
 // You can construct a concrete instance of `TrackerAssociationArrayInput` via:
 //
@@ -183,6 +192,12 @@ func (i TrackerAssociationArray) ToTrackerAssociationArrayOutput() TrackerAssoci
 
 func (i TrackerAssociationArray) ToTrackerAssociationArrayOutputWithContext(ctx context.Context) TrackerAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrackerAssociationArrayOutput)
+}
+
+func (i TrackerAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrackerAssociation] {
+	return pulumix.Output[[]*TrackerAssociation]{
+		OutputState: i.ToTrackerAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TrackerAssociationMapInput is an input type that accepts TrackerAssociationMap and TrackerAssociationMapOutput values.
@@ -210,6 +225,12 @@ func (i TrackerAssociationMap) ToTrackerAssociationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TrackerAssociationMapOutput)
 }
 
+func (i TrackerAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrackerAssociation] {
+	return pulumix.Output[map[string]*TrackerAssociation]{
+		OutputState: i.ToTrackerAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrackerAssociationOutput struct{ *pulumi.OutputState }
 
 func (TrackerAssociationOutput) ElementType() reflect.Type {
@@ -222,6 +243,12 @@ func (o TrackerAssociationOutput) ToTrackerAssociationOutput() TrackerAssociatio
 
 func (o TrackerAssociationOutput) ToTrackerAssociationOutputWithContext(ctx context.Context) TrackerAssociationOutput {
 	return o
+}
+
+func (o TrackerAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*TrackerAssociation] {
+	return pulumix.Output[*TrackerAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
@@ -248,6 +275,12 @@ func (o TrackerAssociationArrayOutput) ToTrackerAssociationArrayOutputWithContex
 	return o
 }
 
+func (o TrackerAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrackerAssociation] {
+	return pulumix.Output[[]*TrackerAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrackerAssociationArrayOutput) Index(i pulumi.IntInput) TrackerAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrackerAssociation {
 		return vs[0].([]*TrackerAssociation)[vs[1].(int)]
@@ -266,6 +299,12 @@ func (o TrackerAssociationMapOutput) ToTrackerAssociationMapOutput() TrackerAsso
 
 func (o TrackerAssociationMapOutput) ToTrackerAssociationMapOutputWithContext(ctx context.Context) TrackerAssociationMapOutput {
 	return o
+}
+
+func (o TrackerAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrackerAssociation] {
+	return pulumix.Output[map[string]*TrackerAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrackerAssociationMapOutput) MapIndex(k pulumi.StringInput) TrackerAssociationOutput {

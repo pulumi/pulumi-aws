@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Transit Gateway's attachment to a resource.
@@ -48,6 +50,7 @@ import (
 // }
 // ```
 func GetAttachment(ctx *pulumi.Context, args *GetAttachmentArgs, opts ...pulumi.InvokeOption) (*GetAttachmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAttachmentResult
 	err := ctx.Invoke("aws:ec2transitgateway/getAttachment:getAttachment", args, &rv, opts...)
 	if err != nil {
@@ -134,6 +137,12 @@ func (o GetAttachmentResultOutput) ToGetAttachmentResultOutput() GetAttachmentRe
 
 func (o GetAttachmentResultOutput) ToGetAttachmentResultOutputWithContext(ctx context.Context) GetAttachmentResultOutput {
 	return o
+}
+
+func (o GetAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAttachmentResult] {
+	return pulumix.Output[GetAttachmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the attachment.

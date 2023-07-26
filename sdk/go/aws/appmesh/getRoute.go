@@ -7,11 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The App Mesh Route data source allows details of an App Mesh Route to be retrieved by its name, mesh_name, virtual_router_name, and optionally the mesh_owner.
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteResult
 	err := ctx.Invoke("aws:appmesh/getRoute:getRoute", args, &rv, opts...)
 	if err != nil {
@@ -100,6 +103,12 @@ func (o LookupRouteResultOutput) ToLookupRouteResultOutput() LookupRouteResultOu
 
 func (o LookupRouteResultOutput) ToLookupRouteResultOutputWithContext(ctx context.Context) LookupRouteResultOutput {
 	return o
+}
+
+func (o LookupRouteResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRouteResult] {
+	return pulumix.Output[LookupRouteResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the route.

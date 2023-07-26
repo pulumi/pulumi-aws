@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type RepositoryCatalogData struct {
 	// A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
@@ -63,6 +67,12 @@ func (i RepositoryCatalogDataArgs) ToRepositoryCatalogDataOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCatalogDataOutput)
 }
 
+func (i RepositoryCatalogDataArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryCatalogData] {
+	return pulumix.Output[RepositoryCatalogData]{
+		OutputState: i.ToRepositoryCatalogDataOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RepositoryCatalogDataArgs) ToRepositoryCatalogDataPtrOutput() RepositoryCatalogDataPtrOutput {
 	return i.ToRepositoryCatalogDataPtrOutputWithContext(context.Background())
 }
@@ -104,6 +114,12 @@ func (i *repositoryCatalogDataPtrType) ToRepositoryCatalogDataPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCatalogDataPtrOutput)
 }
 
+func (i *repositoryCatalogDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryCatalogData] {
+	return pulumix.Output[*RepositoryCatalogData]{
+		OutputState: i.ToRepositoryCatalogDataPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryCatalogDataOutput struct{ *pulumi.OutputState }
 
 func (RepositoryCatalogDataOutput) ElementType() reflect.Type {
@@ -126,6 +142,12 @@ func (o RepositoryCatalogDataOutput) ToRepositoryCatalogDataPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryCatalogData) *RepositoryCatalogData {
 		return &v
 	}).(RepositoryCatalogDataPtrOutput)
+}
+
+func (o RepositoryCatalogDataOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryCatalogData] {
+	return pulumix.Output[RepositoryCatalogData]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
@@ -170,6 +192,12 @@ func (o RepositoryCatalogDataPtrOutput) ToRepositoryCatalogDataPtrOutput() Repos
 
 func (o RepositoryCatalogDataPtrOutput) ToRepositoryCatalogDataPtrOutputWithContext(ctx context.Context) RepositoryCatalogDataPtrOutput {
 	return o
+}
+
+func (o RepositoryCatalogDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryCatalogData] {
+	return pulumix.Output[*RepositoryCatalogData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryCatalogDataPtrOutput) Elem() RepositoryCatalogDataOutput {

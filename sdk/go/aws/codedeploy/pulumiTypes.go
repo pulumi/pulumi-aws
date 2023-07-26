@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DeploymentConfigMinimumHealthyHosts struct {
 	// The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
@@ -53,6 +57,12 @@ func (i DeploymentConfigMinimumHealthyHostsArgs) ToDeploymentConfigMinimumHealth
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigMinimumHealthyHostsOutput)
 }
 
+func (i DeploymentConfigMinimumHealthyHostsArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigMinimumHealthyHosts] {
+	return pulumix.Output[DeploymentConfigMinimumHealthyHosts]{
+		OutputState: i.ToDeploymentConfigMinimumHealthyHostsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentConfigMinimumHealthyHostsArgs) ToDeploymentConfigMinimumHealthyHostsPtrOutput() DeploymentConfigMinimumHealthyHostsPtrOutput {
 	return i.ToDeploymentConfigMinimumHealthyHostsPtrOutputWithContext(context.Background())
 }
@@ -94,6 +104,12 @@ func (i *deploymentConfigMinimumHealthyHostsPtrType) ToDeploymentConfigMinimumHe
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigMinimumHealthyHostsPtrOutput)
 }
 
+func (i *deploymentConfigMinimumHealthyHostsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigMinimumHealthyHosts] {
+	return pulumix.Output[*DeploymentConfigMinimumHealthyHosts]{
+		OutputState: i.ToDeploymentConfigMinimumHealthyHostsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentConfigMinimumHealthyHostsOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigMinimumHealthyHostsOutput) ElementType() reflect.Type {
@@ -116,6 +132,12 @@ func (o DeploymentConfigMinimumHealthyHostsOutput) ToDeploymentConfigMinimumHeal
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigMinimumHealthyHosts) *DeploymentConfigMinimumHealthyHosts {
 		return &v
 	}).(DeploymentConfigMinimumHealthyHostsPtrOutput)
+}
+
+func (o DeploymentConfigMinimumHealthyHostsOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigMinimumHealthyHosts] {
+	return pulumix.Output[DeploymentConfigMinimumHealthyHosts]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
@@ -143,6 +165,12 @@ func (o DeploymentConfigMinimumHealthyHostsPtrOutput) ToDeploymentConfigMinimumH
 
 func (o DeploymentConfigMinimumHealthyHostsPtrOutput) ToDeploymentConfigMinimumHealthyHostsPtrOutputWithContext(ctx context.Context) DeploymentConfigMinimumHealthyHostsPtrOutput {
 	return o
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigMinimumHealthyHosts] {
+	return pulumix.Output[*DeploymentConfigMinimumHealthyHosts]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentConfigMinimumHealthyHostsPtrOutput) Elem() DeploymentConfigMinimumHealthyHostsOutput {
@@ -219,6 +247,12 @@ func (i DeploymentConfigTrafficRoutingConfigArgs) ToDeploymentConfigTrafficRouti
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigOutput)
 }
 
+func (i DeploymentConfigTrafficRoutingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigTrafficRoutingConfig] {
+	return pulumix.Output[DeploymentConfigTrafficRoutingConfig]{
+		OutputState: i.ToDeploymentConfigTrafficRoutingConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentConfigTrafficRoutingConfigArgs) ToDeploymentConfigTrafficRoutingConfigPtrOutput() DeploymentConfigTrafficRoutingConfigPtrOutput {
 	return i.ToDeploymentConfigTrafficRoutingConfigPtrOutputWithContext(context.Background())
 }
@@ -260,6 +294,12 @@ func (i *deploymentConfigTrafficRoutingConfigPtrType) ToDeploymentConfigTrafficR
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigPtrOutput)
 }
 
+func (i *deploymentConfigTrafficRoutingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigTrafficRoutingConfig] {
+	return pulumix.Output[*DeploymentConfigTrafficRoutingConfig]{
+		OutputState: i.ToDeploymentConfigTrafficRoutingConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentConfigTrafficRoutingConfigOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigTrafficRoutingConfigOutput) ElementType() reflect.Type {
@@ -282,6 +322,12 @@ func (o DeploymentConfigTrafficRoutingConfigOutput) ToDeploymentConfigTrafficRou
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTrafficRoutingConfig {
 		return &v
 	}).(DeploymentConfigTrafficRoutingConfigPtrOutput)
+}
+
+func (o DeploymentConfigTrafficRoutingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigTrafficRoutingConfig] {
+	return pulumix.Output[DeploymentConfigTrafficRoutingConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The time based canary configuration information. If `type` is `TimeBasedLinear`, use `timeBasedLinear` instead.
@@ -315,6 +361,12 @@ func (o DeploymentConfigTrafficRoutingConfigPtrOutput) ToDeploymentConfigTraffic
 
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) ToDeploymentConfigTrafficRoutingConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigTrafficRoutingConfigPtrOutput {
 	return o
+}
+
+func (o DeploymentConfigTrafficRoutingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigTrafficRoutingConfig] {
+	return pulumix.Output[*DeploymentConfigTrafficRoutingConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) Elem() DeploymentConfigTrafficRoutingConfigOutput {
@@ -394,6 +446,12 @@ func (i DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs) ToDeploymentCon
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput)
 }
 
+func (i DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigTrafficRoutingConfigTimeBasedCanary] {
+	return pulumix.Output[DeploymentConfigTrafficRoutingConfigTimeBasedCanary]{
+		OutputState: i.ToDeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs) ToDeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput() DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput {
 	return i.ToDeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutputWithContext(context.Background())
 }
@@ -435,6 +493,12 @@ func (i *deploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrType) ToDeploymen
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput)
 }
 
+func (i *deploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigTrafficRoutingConfigTimeBasedCanary] {
+	return pulumix.Output[*DeploymentConfigTrafficRoutingConfigTimeBasedCanary]{
+		OutputState: i.ToDeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput) ElementType() reflect.Type {
@@ -459,6 +523,12 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput) ToDeploymentC
 	}).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput)
 }
 
+func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigTrafficRoutingConfigTimeBasedCanary] {
+	return pulumix.Output[DeploymentConfigTrafficRoutingConfigTimeBasedCanary]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedCanary) *int { return v.Interval }).(pulumi.IntPtrOutput)
@@ -481,6 +551,12 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput) ToDeployme
 
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput) ToDeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutputWithContext(ctx context.Context) DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput {
 	return o
+}
+
+func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigTrafficRoutingConfigTimeBasedCanary] {
+	return pulumix.Output[*DeploymentConfigTrafficRoutingConfigTimeBasedCanary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput) Elem() DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput {
@@ -550,6 +626,12 @@ func (i DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs) ToDeploymentCon
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput)
 }
 
+func (i DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigTrafficRoutingConfigTimeBasedLinear] {
+	return pulumix.Output[DeploymentConfigTrafficRoutingConfigTimeBasedLinear]{
+		OutputState: i.ToDeploymentConfigTrafficRoutingConfigTimeBasedLinearOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs) ToDeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput() DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput {
 	return i.ToDeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutputWithContext(context.Background())
 }
@@ -591,6 +673,12 @@ func (i *deploymentConfigTrafficRoutingConfigTimeBasedLinearPtrType) ToDeploymen
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput)
 }
 
+func (i *deploymentConfigTrafficRoutingConfigTimeBasedLinearPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigTrafficRoutingConfigTimeBasedLinear] {
+	return pulumix.Output[*DeploymentConfigTrafficRoutingConfigTimeBasedLinear]{
+		OutputState: i.ToDeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput) ElementType() reflect.Type {
@@ -615,6 +703,12 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput) ToDeploymentC
 	}).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput)
 }
 
+func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigTrafficRoutingConfigTimeBasedLinear] {
+	return pulumix.Output[DeploymentConfigTrafficRoutingConfigTimeBasedLinear]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedLinear) *int { return v.Interval }).(pulumi.IntPtrOutput)
@@ -637,6 +731,12 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) ToDeployme
 
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) ToDeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutputWithContext(ctx context.Context) DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput {
 	return o
+}
+
+func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigTrafficRoutingConfigTimeBasedLinear] {
+	return pulumix.Output[*DeploymentConfigTrafficRoutingConfigTimeBasedLinear]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) Elem() DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput {
@@ -710,6 +810,12 @@ func (i DeploymentGroupAlarmConfigurationArgs) ToDeploymentGroupAlarmConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAlarmConfigurationOutput)
 }
 
+func (i DeploymentGroupAlarmConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupAlarmConfiguration] {
+	return pulumix.Output[DeploymentGroupAlarmConfiguration]{
+		OutputState: i.ToDeploymentGroupAlarmConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentGroupAlarmConfigurationArgs) ToDeploymentGroupAlarmConfigurationPtrOutput() DeploymentGroupAlarmConfigurationPtrOutput {
 	return i.ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(context.Background())
 }
@@ -751,6 +857,12 @@ func (i *deploymentGroupAlarmConfigurationPtrType) ToDeploymentGroupAlarmConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAlarmConfigurationPtrOutput)
 }
 
+func (i *deploymentGroupAlarmConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupAlarmConfiguration] {
+	return pulumix.Output[*DeploymentGroupAlarmConfiguration]{
+		OutputState: i.ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupAlarmConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupAlarmConfigurationOutput) ElementType() reflect.Type {
@@ -773,6 +885,12 @@ func (o DeploymentGroupAlarmConfigurationOutput) ToDeploymentGroupAlarmConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupAlarmConfiguration) *DeploymentGroupAlarmConfiguration {
 		return &v
 	}).(DeploymentGroupAlarmConfigurationPtrOutput)
+}
+
+func (o DeploymentGroupAlarmConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupAlarmConfiguration] {
+	return pulumix.Output[DeploymentGroupAlarmConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
@@ -802,6 +920,12 @@ func (o DeploymentGroupAlarmConfigurationPtrOutput) ToDeploymentGroupAlarmConfig
 
 func (o DeploymentGroupAlarmConfigurationPtrOutput) ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAlarmConfigurationPtrOutput {
 	return o
+}
+
+func (o DeploymentGroupAlarmConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupAlarmConfiguration] {
+	return pulumix.Output[*DeploymentGroupAlarmConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupAlarmConfigurationPtrOutput) Elem() DeploymentGroupAlarmConfigurationOutput {
@@ -885,6 +1009,12 @@ func (i DeploymentGroupAutoRollbackConfigurationArgs) ToDeploymentGroupAutoRollb
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAutoRollbackConfigurationOutput)
 }
 
+func (i DeploymentGroupAutoRollbackConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupAutoRollbackConfiguration] {
+	return pulumix.Output[DeploymentGroupAutoRollbackConfiguration]{
+		OutputState: i.ToDeploymentGroupAutoRollbackConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentGroupAutoRollbackConfigurationArgs) ToDeploymentGroupAutoRollbackConfigurationPtrOutput() DeploymentGroupAutoRollbackConfigurationPtrOutput {
 	return i.ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(context.Background())
 }
@@ -926,6 +1056,12 @@ func (i *deploymentGroupAutoRollbackConfigurationPtrType) ToDeploymentGroupAutoR
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupAutoRollbackConfigurationPtrOutput)
 }
 
+func (i *deploymentGroupAutoRollbackConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupAutoRollbackConfiguration] {
+	return pulumix.Output[*DeploymentGroupAutoRollbackConfiguration]{
+		OutputState: i.ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupAutoRollbackConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupAutoRollbackConfigurationOutput) ElementType() reflect.Type {
@@ -948,6 +1084,12 @@ func (o DeploymentGroupAutoRollbackConfigurationOutput) ToDeploymentGroupAutoRol
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupAutoRollbackConfiguration) *DeploymentGroupAutoRollbackConfiguration {
 		return &v
 	}).(DeploymentGroupAutoRollbackConfigurationPtrOutput)
+}
+
+func (o DeploymentGroupAutoRollbackConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupAutoRollbackConfiguration] {
+	return pulumix.Output[DeploymentGroupAutoRollbackConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
@@ -974,6 +1116,12 @@ func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) ToDeploymentGroupAuto
 
 func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAutoRollbackConfigurationPtrOutput {
 	return o
+}
+
+func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupAutoRollbackConfiguration] {
+	return pulumix.Output[*DeploymentGroupAutoRollbackConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Elem() DeploymentGroupAutoRollbackConfigurationOutput {
@@ -1053,6 +1201,12 @@ func (i DeploymentGroupBlueGreenDeploymentConfigArgs) ToDeploymentGroupBlueGreen
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigOutput)
 }
 
+func (i DeploymentGroupBlueGreenDeploymentConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupBlueGreenDeploymentConfig] {
+	return pulumix.Output[DeploymentGroupBlueGreenDeploymentConfig]{
+		OutputState: i.ToDeploymentGroupBlueGreenDeploymentConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentGroupBlueGreenDeploymentConfigArgs) ToDeploymentGroupBlueGreenDeploymentConfigPtrOutput() DeploymentGroupBlueGreenDeploymentConfigPtrOutput {
 	return i.ToDeploymentGroupBlueGreenDeploymentConfigPtrOutputWithContext(context.Background())
 }
@@ -1094,6 +1248,12 @@ func (i *deploymentGroupBlueGreenDeploymentConfigPtrType) ToDeploymentGroupBlueG
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigPtrOutput)
 }
 
+func (i *deploymentGroupBlueGreenDeploymentConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfig] {
+	return pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfig]{
+		OutputState: i.ToDeploymentGroupBlueGreenDeploymentConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupBlueGreenDeploymentConfigOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigOutput) ElementType() reflect.Type {
@@ -1116,6 +1276,12 @@ func (o DeploymentGroupBlueGreenDeploymentConfigOutput) ToDeploymentGroupBlueGre
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfig {
 		return &v
 	}).(DeploymentGroupBlueGreenDeploymentConfigPtrOutput)
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupBlueGreenDeploymentConfig] {
+	return pulumix.Output[DeploymentGroupBlueGreenDeploymentConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
@@ -1153,6 +1319,12 @@ func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) ToDeploymentGroupBlue
 
 func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) ToDeploymentGroupBlueGreenDeploymentConfigPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigPtrOutput {
 	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfig] {
+	return pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigOutput {
@@ -1234,6 +1406,12 @@ func (i DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs) ToDep
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput)
 }
 
+func (i DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption] {
+	return pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption]{
+		OutputState: i.ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs) ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput() DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput {
 	return i.ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutputWithContext(context.Background())
 }
@@ -1275,6 +1453,12 @@ func (i *deploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput)
 }
 
+func (i *deploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption] {
+	return pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption]{
+		OutputState: i.ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ElementType() reflect.Type {
@@ -1297,6 +1481,12 @@ func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ToD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
 		return &v
 	}).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput)
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption] {
+	return pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
@@ -1323,6 +1513,12 @@ func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) 
 
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput {
 	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption] {
+	return pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput {
@@ -1388,6 +1584,12 @@ func (i DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput)
 }
 
+func (i DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption] {
+	return pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption]{
+		OutputState: i.ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs) ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput() DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput {
 	return i.ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutputWithContext(context.Background())
 }
@@ -1429,6 +1631,12 @@ func (i *deploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtr
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput)
 }
 
+func (i *deploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption] {
+	return pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption]{
+		OutputState: i.ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput) ElementType() reflect.Type {
@@ -1453,6 +1661,12 @@ func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutp
 	}).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput)
 }
 
+func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption] {
+	return pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The method used to add instances to a replacement environment.
 func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) *string { return v.Action }).(pulumi.StringPtrOutput)
@@ -1470,6 +1684,12 @@ func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrO
 
 func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput) ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput {
 	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption] {
+	return pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput {
@@ -1529,6 +1749,12 @@ func (i DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployme
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput)
 }
 
+func (i DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess] {
+	return pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess]{
+		OutputState: i.ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs) ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput {
 	return i.ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutputWithContext(context.Background())
 }
@@ -1570,6 +1796,12 @@ func (i *deploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploym
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput)
 }
 
+func (i *deploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess] {
+	return pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess]{
+		OutputState: i.ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) ElementType() reflect.Type {
@@ -1592,6 +1824,12 @@ func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployme
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
 		return &v
 	}).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput)
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess] {
+	return pulumix.Output[DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action to take on instances in the original environment after a successful blue/green deployment.
@@ -1620,6 +1858,12 @@ func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployme
 
 func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput) ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput {
 	return o
+}
+
+func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess] {
+	return pulumix.Output[*DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput {
@@ -1693,6 +1937,12 @@ func (i DeploymentGroupDeploymentStyleArgs) ToDeploymentGroupDeploymentStyleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentStyleOutput)
 }
 
+func (i DeploymentGroupDeploymentStyleArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupDeploymentStyle] {
+	return pulumix.Output[DeploymentGroupDeploymentStyle]{
+		OutputState: i.ToDeploymentGroupDeploymentStyleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentGroupDeploymentStyleArgs) ToDeploymentGroupDeploymentStylePtrOutput() DeploymentGroupDeploymentStylePtrOutput {
 	return i.ToDeploymentGroupDeploymentStylePtrOutputWithContext(context.Background())
 }
@@ -1734,6 +1984,12 @@ func (i *deploymentGroupDeploymentStylePtrType) ToDeploymentGroupDeploymentStyle
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupDeploymentStylePtrOutput)
 }
 
+func (i *deploymentGroupDeploymentStylePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupDeploymentStyle] {
+	return pulumix.Output[*DeploymentGroupDeploymentStyle]{
+		OutputState: i.ToDeploymentGroupDeploymentStylePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupDeploymentStyleOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupDeploymentStyleOutput) ElementType() reflect.Type {
@@ -1756,6 +2012,12 @@ func (o DeploymentGroupDeploymentStyleOutput) ToDeploymentGroupDeploymentStylePt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupDeploymentStyle) *DeploymentGroupDeploymentStyle {
 		return &v
 	}).(DeploymentGroupDeploymentStylePtrOutput)
+}
+
+func (o DeploymentGroupDeploymentStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupDeploymentStyle] {
+	return pulumix.Output[DeploymentGroupDeploymentStyle]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
@@ -1782,6 +2044,12 @@ func (o DeploymentGroupDeploymentStylePtrOutput) ToDeploymentGroupDeploymentStyl
 
 func (o DeploymentGroupDeploymentStylePtrOutput) ToDeploymentGroupDeploymentStylePtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentStylePtrOutput {
 	return o
+}
+
+func (o DeploymentGroupDeploymentStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupDeploymentStyle] {
+	return pulumix.Output[*DeploymentGroupDeploymentStyle]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupDeploymentStylePtrOutput) Elem() DeploymentGroupDeploymentStyleOutput {
@@ -1861,6 +2129,12 @@ func (i DeploymentGroupEc2TagFilterArgs) ToDeploymentGroupEc2TagFilterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagFilterOutput)
 }
 
+func (i DeploymentGroupEc2TagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupEc2TagFilter] {
+	return pulumix.Output[DeploymentGroupEc2TagFilter]{
+		OutputState: i.ToDeploymentGroupEc2TagFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentGroupEc2TagFilterArrayInput is an input type that accepts DeploymentGroupEc2TagFilterArray and DeploymentGroupEc2TagFilterArrayOutput values.
 // You can construct a concrete instance of `DeploymentGroupEc2TagFilterArrayInput` via:
 //
@@ -1886,6 +2160,12 @@ func (i DeploymentGroupEc2TagFilterArray) ToDeploymentGroupEc2TagFilterArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagFilterArrayOutput)
 }
 
+func (i DeploymentGroupEc2TagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupEc2TagFilter] {
+	return pulumix.Output[[]DeploymentGroupEc2TagFilter]{
+		OutputState: i.ToDeploymentGroupEc2TagFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupEc2TagFilterOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEc2TagFilterOutput) ElementType() reflect.Type {
@@ -1898,6 +2178,12 @@ func (o DeploymentGroupEc2TagFilterOutput) ToDeploymentGroupEc2TagFilterOutput()
 
 func (o DeploymentGroupEc2TagFilterOutput) ToDeploymentGroupEc2TagFilterOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFilterOutput {
 	return o
+}
+
+func (o DeploymentGroupEc2TagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupEc2TagFilter] {
+	return pulumix.Output[DeploymentGroupEc2TagFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key of the tag filter.
@@ -1929,6 +2215,12 @@ func (o DeploymentGroupEc2TagFilterArrayOutput) ToDeploymentGroupEc2TagFilterArr
 
 func (o DeploymentGroupEc2TagFilterArrayOutput) ToDeploymentGroupEc2TagFilterArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagFilterArrayOutput {
 	return o
+}
+
+func (o DeploymentGroupEc2TagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupEc2TagFilter] {
+	return pulumix.Output[[]DeploymentGroupEc2TagFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupEc2TagFilterArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagFilterOutput {
@@ -1970,6 +2262,12 @@ func (i DeploymentGroupEc2TagSetArgs) ToDeploymentGroupEc2TagSetOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetOutput)
 }
 
+func (i DeploymentGroupEc2TagSetArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupEc2TagSet] {
+	return pulumix.Output[DeploymentGroupEc2TagSet]{
+		OutputState: i.ToDeploymentGroupEc2TagSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentGroupEc2TagSetArrayInput is an input type that accepts DeploymentGroupEc2TagSetArray and DeploymentGroupEc2TagSetArrayOutput values.
 // You can construct a concrete instance of `DeploymentGroupEc2TagSetArrayInput` via:
 //
@@ -1995,6 +2293,12 @@ func (i DeploymentGroupEc2TagSetArray) ToDeploymentGroupEc2TagSetArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetArrayOutput)
 }
 
+func (i DeploymentGroupEc2TagSetArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupEc2TagSet] {
+	return pulumix.Output[[]DeploymentGroupEc2TagSet]{
+		OutputState: i.ToDeploymentGroupEc2TagSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupEc2TagSetOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEc2TagSetOutput) ElementType() reflect.Type {
@@ -2007,6 +2311,12 @@ func (o DeploymentGroupEc2TagSetOutput) ToDeploymentGroupEc2TagSetOutput() Deplo
 
 func (o DeploymentGroupEc2TagSetOutput) ToDeploymentGroupEc2TagSetOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetOutput {
 	return o
+}
+
+func (o DeploymentGroupEc2TagSetOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupEc2TagSet] {
+	return pulumix.Output[DeploymentGroupEc2TagSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Tag filters associated with the deployment group. See the AWS docs for details.
@@ -2026,6 +2336,12 @@ func (o DeploymentGroupEc2TagSetArrayOutput) ToDeploymentGroupEc2TagSetArrayOutp
 
 func (o DeploymentGroupEc2TagSetArrayOutput) ToDeploymentGroupEc2TagSetArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetArrayOutput {
 	return o
+}
+
+func (o DeploymentGroupEc2TagSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupEc2TagSet] {
+	return pulumix.Output[[]DeploymentGroupEc2TagSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupEc2TagSetArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagSetOutput {
@@ -2079,6 +2395,12 @@ func (i DeploymentGroupEc2TagSetEc2TagFilterArgs) ToDeploymentGroupEc2TagSetEc2T
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetEc2TagFilterOutput)
 }
 
+func (i DeploymentGroupEc2TagSetEc2TagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupEc2TagSetEc2TagFilter] {
+	return pulumix.Output[DeploymentGroupEc2TagSetEc2TagFilter]{
+		OutputState: i.ToDeploymentGroupEc2TagSetEc2TagFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentGroupEc2TagSetEc2TagFilterArrayInput is an input type that accepts DeploymentGroupEc2TagSetEc2TagFilterArray and DeploymentGroupEc2TagSetEc2TagFilterArrayOutput values.
 // You can construct a concrete instance of `DeploymentGroupEc2TagSetEc2TagFilterArrayInput` via:
 //
@@ -2104,6 +2426,12 @@ func (i DeploymentGroupEc2TagSetEc2TagFilterArray) ToDeploymentGroupEc2TagSetEc2
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEc2TagSetEc2TagFilterArrayOutput)
 }
 
+func (i DeploymentGroupEc2TagSetEc2TagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupEc2TagSetEc2TagFilter] {
+	return pulumix.Output[[]DeploymentGroupEc2TagSetEc2TagFilter]{
+		OutputState: i.ToDeploymentGroupEc2TagSetEc2TagFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupEc2TagSetEc2TagFilterOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEc2TagSetEc2TagFilterOutput) ElementType() reflect.Type {
@@ -2116,6 +2444,12 @@ func (o DeploymentGroupEc2TagSetEc2TagFilterOutput) ToDeploymentGroupEc2TagSetEc
 
 func (o DeploymentGroupEc2TagSetEc2TagFilterOutput) ToDeploymentGroupEc2TagSetEc2TagFilterOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetEc2TagFilterOutput {
 	return o
+}
+
+func (o DeploymentGroupEc2TagSetEc2TagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupEc2TagSetEc2TagFilter] {
+	return pulumix.Output[DeploymentGroupEc2TagSetEc2TagFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key of the tag filter.
@@ -2147,6 +2481,12 @@ func (o DeploymentGroupEc2TagSetEc2TagFilterArrayOutput) ToDeploymentGroupEc2Tag
 
 func (o DeploymentGroupEc2TagSetEc2TagFilterArrayOutput) ToDeploymentGroupEc2TagSetEc2TagFilterArrayOutputWithContext(ctx context.Context) DeploymentGroupEc2TagSetEc2TagFilterArrayOutput {
 	return o
+}
+
+func (o DeploymentGroupEc2TagSetEc2TagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupEc2TagSetEc2TagFilter] {
+	return pulumix.Output[[]DeploymentGroupEc2TagSetEc2TagFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupEc2TagSetEc2TagFilterArrayOutput) Index(i pulumi.IntInput) DeploymentGroupEc2TagSetEc2TagFilterOutput {
@@ -2192,6 +2532,12 @@ func (i DeploymentGroupEcsServiceArgs) ToDeploymentGroupEcsServiceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEcsServiceOutput)
 }
 
+func (i DeploymentGroupEcsServiceArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupEcsService] {
+	return pulumix.Output[DeploymentGroupEcsService]{
+		OutputState: i.ToDeploymentGroupEcsServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentGroupEcsServiceArgs) ToDeploymentGroupEcsServicePtrOutput() DeploymentGroupEcsServicePtrOutput {
 	return i.ToDeploymentGroupEcsServicePtrOutputWithContext(context.Background())
 }
@@ -2233,6 +2579,12 @@ func (i *deploymentGroupEcsServicePtrType) ToDeploymentGroupEcsServicePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupEcsServicePtrOutput)
 }
 
+func (i *deploymentGroupEcsServicePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupEcsService] {
+	return pulumix.Output[*DeploymentGroupEcsService]{
+		OutputState: i.ToDeploymentGroupEcsServicePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupEcsServiceOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupEcsServiceOutput) ElementType() reflect.Type {
@@ -2257,6 +2609,12 @@ func (o DeploymentGroupEcsServiceOutput) ToDeploymentGroupEcsServicePtrOutputWit
 	}).(DeploymentGroupEcsServicePtrOutput)
 }
 
+func (o DeploymentGroupEcsServiceOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupEcsService] {
+	return pulumix.Output[DeploymentGroupEcsService]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the ECS cluster.
 func (o DeploymentGroupEcsServiceOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentGroupEcsService) string { return v.ClusterName }).(pulumi.StringOutput)
@@ -2279,6 +2637,12 @@ func (o DeploymentGroupEcsServicePtrOutput) ToDeploymentGroupEcsServicePtrOutput
 
 func (o DeploymentGroupEcsServicePtrOutput) ToDeploymentGroupEcsServicePtrOutputWithContext(ctx context.Context) DeploymentGroupEcsServicePtrOutput {
 	return o
+}
+
+func (o DeploymentGroupEcsServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupEcsService] {
+	return pulumix.Output[*DeploymentGroupEcsService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupEcsServicePtrOutput) Elem() DeploymentGroupEcsServiceOutput {
@@ -2352,6 +2716,12 @@ func (i DeploymentGroupLoadBalancerInfoArgs) ToDeploymentGroupLoadBalancerInfoOu
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoOutput)
 }
 
+func (i DeploymentGroupLoadBalancerInfoArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfo] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfo]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentGroupLoadBalancerInfoArgs) ToDeploymentGroupLoadBalancerInfoPtrOutput() DeploymentGroupLoadBalancerInfoPtrOutput {
 	return i.ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(context.Background())
 }
@@ -2393,6 +2763,12 @@ func (i *deploymentGroupLoadBalancerInfoPtrType) ToDeploymentGroupLoadBalancerIn
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoPtrOutput)
 }
 
+func (i *deploymentGroupLoadBalancerInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupLoadBalancerInfo] {
+	return pulumix.Output[*DeploymentGroupLoadBalancerInfo]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupLoadBalancerInfoOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoOutput) ElementType() reflect.Type {
@@ -2415,6 +2791,12 @@ func (o DeploymentGroupLoadBalancerInfoOutput) ToDeploymentGroupLoadBalancerInfo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupLoadBalancerInfo) *DeploymentGroupLoadBalancerInfo {
 		return &v
 	}).(DeploymentGroupLoadBalancerInfoPtrOutput)
+}
+
+func (o DeploymentGroupLoadBalancerInfoOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfo] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
@@ -2448,6 +2830,12 @@ func (o DeploymentGroupLoadBalancerInfoPtrOutput) ToDeploymentGroupLoadBalancerI
 
 func (o DeploymentGroupLoadBalancerInfoPtrOutput) ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoPtrOutput {
 	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupLoadBalancerInfo] {
+	return pulumix.Output[*DeploymentGroupLoadBalancerInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupLoadBalancerInfoPtrOutput) Elem() DeploymentGroupLoadBalancerInfoOutput {
@@ -2523,6 +2911,12 @@ func (i DeploymentGroupLoadBalancerInfoElbInfoArgs) ToDeploymentGroupLoadBalance
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoElbInfoOutput)
 }
 
+func (i DeploymentGroupLoadBalancerInfoElbInfoArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoElbInfo] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoElbInfo]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoElbInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentGroupLoadBalancerInfoElbInfoArrayInput is an input type that accepts DeploymentGroupLoadBalancerInfoElbInfoArray and DeploymentGroupLoadBalancerInfoElbInfoArrayOutput values.
 // You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoElbInfoArrayInput` via:
 //
@@ -2548,6 +2942,12 @@ func (i DeploymentGroupLoadBalancerInfoElbInfoArray) ToDeploymentGroupLoadBalanc
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoElbInfoArrayOutput)
 }
 
+func (i DeploymentGroupLoadBalancerInfoElbInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupLoadBalancerInfoElbInfo] {
+	return pulumix.Output[[]DeploymentGroupLoadBalancerInfoElbInfo]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoElbInfoArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupLoadBalancerInfoElbInfoOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoElbInfoOutput) ElementType() reflect.Type {
@@ -2560,6 +2960,12 @@ func (o DeploymentGroupLoadBalancerInfoElbInfoOutput) ToDeploymentGroupLoadBalan
 
 func (o DeploymentGroupLoadBalancerInfoElbInfoOutput) ToDeploymentGroupLoadBalancerInfoElbInfoOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoElbInfoOutput {
 	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoElbInfoOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoElbInfo] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoElbInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
@@ -2579,6 +2985,12 @@ func (o DeploymentGroupLoadBalancerInfoElbInfoArrayOutput) ToDeploymentGroupLoad
 
 func (o DeploymentGroupLoadBalancerInfoElbInfoArrayOutput) ToDeploymentGroupLoadBalancerInfoElbInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoElbInfoArrayOutput {
 	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoElbInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupLoadBalancerInfoElbInfo] {
+	return pulumix.Output[[]DeploymentGroupLoadBalancerInfoElbInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupLoadBalancerInfoElbInfoArrayOutput) Index(i pulumi.IntInput) DeploymentGroupLoadBalancerInfoElbInfoOutput {
@@ -2620,6 +3032,12 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs) ToDeploymentGroupLoa
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput)
 }
 
+func (i DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupInfo] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupInfo]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayInput is an input type that accepts DeploymentGroupLoadBalancerInfoTargetGroupInfoArray and DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput values.
 // You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayInput` via:
 //
@@ -2645,6 +3063,12 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupInfoArray) ToDeploymentGroupLo
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput)
 }
 
+func (i DeploymentGroupLoadBalancerInfoTargetGroupInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupLoadBalancerInfoTargetGroupInfo] {
+	return pulumix.Output[[]DeploymentGroupLoadBalancerInfoTargetGroupInfo]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput) ElementType() reflect.Type {
@@ -2657,6 +3081,12 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput) ToDeploymentGroupL
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupInfoOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput {
 	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupInfo] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
@@ -2676,6 +3106,12 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput) ToDeploymentG
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput {
 	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupLoadBalancerInfoTargetGroupInfo] {
+	return pulumix.Output[[]DeploymentGroupLoadBalancerInfoTargetGroupInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupInfoArrayOutput) Index(i pulumi.IntInput) DeploymentGroupLoadBalancerInfoTargetGroupInfoOutput {
@@ -2725,6 +3161,12 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs) ToDeploymentGrou
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput)
 }
 
+func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfo] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfo]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput {
 	return i.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutputWithContext(context.Background())
 }
@@ -2766,6 +3208,12 @@ func (i *deploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrType) ToDeployment
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput)
 }
 
+func (i *deploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfo] {
+	return pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfo]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ElementType() reflect.Type {
@@ -2788,6 +3236,12 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ToDeploymentGr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
 		return &v
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput)
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfo] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block for the production traffic route (documented below).
@@ -2823,6 +3277,12 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) ToDeploymen
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput {
 	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfo] {
+	return pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) Elem() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput {
@@ -2898,6 +3358,12 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
 }
 
+func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput {
 	return i.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutputWithContext(context.Background())
 }
@@ -2939,6 +3405,12 @@ func (i *deploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput)
 }
 
+func (i *deploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute] {
+	return pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ElementType() reflect.Type {
@@ -2963,6 +3435,12 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput)
 }
 
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute]{
+		OutputState: o.OutputState,
+	}
+}
+
 // List of Amazon Resource Names (ARNs) of the load balancer listeners.
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ListenerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) []string {
@@ -2982,6 +3460,12 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOut
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput {
 	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute] {
+	return pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput) Elem() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput {
@@ -3037,6 +3521,12 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs) ToDep
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput)
 }
 
+func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayInput is an input type that accepts DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray and DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput values.
 // You can construct a concrete instance of `DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayInput` via:
 //
@@ -3062,6 +3552,12 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray) ToDe
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput)
 }
 
+func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup] {
+	return pulumix.Output[[]DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput) ElementType() reflect.Type {
@@ -3074,6 +3570,12 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput) ToD
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput {
 	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the target group.
@@ -3093,6 +3595,12 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput {
 	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup] {
+	return pulumix.Output[[]DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrayOutput) Index(i pulumi.IntInput) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupOutput {
@@ -3132,6 +3640,12 @@ func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs) 
 
 func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput)
+}
+
+func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput {
@@ -3175,6 +3689,12 @@ func (i *deploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput)
 }
 
+func (i *deploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute] {
+	return pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute]{
+		OutputState: i.ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput) ElementType() reflect.Type {
@@ -3199,6 +3719,12 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput)
 }
 
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute] {
+	return pulumix.Output[DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute]{
+		OutputState: o.OutputState,
+	}
+}
+
 // List of Amazon Resource Names (ARNs) of the load balancer listeners.
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput) ListenerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) []string {
@@ -3218,6 +3744,12 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOut
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput {
 	return o
+}
+
+func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute] {
+	return pulumix.Output[*DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput) Elem() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput {
@@ -3281,6 +3813,12 @@ func (i DeploymentGroupOnPremisesInstanceTagFilterArgs) ToDeploymentGroupOnPremi
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOnPremisesInstanceTagFilterOutput)
 }
 
+func (i DeploymentGroupOnPremisesInstanceTagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupOnPremisesInstanceTagFilter] {
+	return pulumix.Output[DeploymentGroupOnPremisesInstanceTagFilter]{
+		OutputState: i.ToDeploymentGroupOnPremisesInstanceTagFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentGroupOnPremisesInstanceTagFilterArrayInput is an input type that accepts DeploymentGroupOnPremisesInstanceTagFilterArray and DeploymentGroupOnPremisesInstanceTagFilterArrayOutput values.
 // You can construct a concrete instance of `DeploymentGroupOnPremisesInstanceTagFilterArrayInput` via:
 //
@@ -3306,6 +3844,12 @@ func (i DeploymentGroupOnPremisesInstanceTagFilterArray) ToDeploymentGroupOnPrem
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOnPremisesInstanceTagFilterArrayOutput)
 }
 
+func (i DeploymentGroupOnPremisesInstanceTagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupOnPremisesInstanceTagFilter] {
+	return pulumix.Output[[]DeploymentGroupOnPremisesInstanceTagFilter]{
+		OutputState: i.ToDeploymentGroupOnPremisesInstanceTagFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupOnPremisesInstanceTagFilterOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupOnPremisesInstanceTagFilterOutput) ElementType() reflect.Type {
@@ -3318,6 +3862,12 @@ func (o DeploymentGroupOnPremisesInstanceTagFilterOutput) ToDeploymentGroupOnPre
 
 func (o DeploymentGroupOnPremisesInstanceTagFilterOutput) ToDeploymentGroupOnPremisesInstanceTagFilterOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesInstanceTagFilterOutput {
 	return o
+}
+
+func (o DeploymentGroupOnPremisesInstanceTagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupOnPremisesInstanceTagFilter] {
+	return pulumix.Output[DeploymentGroupOnPremisesInstanceTagFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key of the tag filter.
@@ -3347,6 +3897,12 @@ func (o DeploymentGroupOnPremisesInstanceTagFilterArrayOutput) ToDeploymentGroup
 
 func (o DeploymentGroupOnPremisesInstanceTagFilterArrayOutput) ToDeploymentGroupOnPremisesInstanceTagFilterArrayOutputWithContext(ctx context.Context) DeploymentGroupOnPremisesInstanceTagFilterArrayOutput {
 	return o
+}
+
+func (o DeploymentGroupOnPremisesInstanceTagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupOnPremisesInstanceTagFilter] {
+	return pulumix.Output[[]DeploymentGroupOnPremisesInstanceTagFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupOnPremisesInstanceTagFilterArrayOutput) Index(i pulumi.IntInput) DeploymentGroupOnPremisesInstanceTagFilterOutput {
@@ -3396,6 +3952,12 @@ func (i DeploymentGroupTriggerConfigurationArgs) ToDeploymentGroupTriggerConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTriggerConfigurationOutput)
 }
 
+func (i DeploymentGroupTriggerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupTriggerConfiguration] {
+	return pulumix.Output[DeploymentGroupTriggerConfiguration]{
+		OutputState: i.ToDeploymentGroupTriggerConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeploymentGroupTriggerConfigurationArrayInput is an input type that accepts DeploymentGroupTriggerConfigurationArray and DeploymentGroupTriggerConfigurationArrayOutput values.
 // You can construct a concrete instance of `DeploymentGroupTriggerConfigurationArrayInput` via:
 //
@@ -3421,6 +3983,12 @@ func (i DeploymentGroupTriggerConfigurationArray) ToDeploymentGroupTriggerConfig
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupTriggerConfigurationArrayOutput)
 }
 
+func (i DeploymentGroupTriggerConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupTriggerConfiguration] {
+	return pulumix.Output[[]DeploymentGroupTriggerConfiguration]{
+		OutputState: i.ToDeploymentGroupTriggerConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeploymentGroupTriggerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupTriggerConfigurationOutput) ElementType() reflect.Type {
@@ -3433,6 +4001,12 @@ func (o DeploymentGroupTriggerConfigurationOutput) ToDeploymentGroupTriggerConfi
 
 func (o DeploymentGroupTriggerConfigurationOutput) ToDeploymentGroupTriggerConfigurationOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigurationOutput {
 	return o
+}
+
+func (o DeploymentGroupTriggerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentGroupTriggerConfiguration] {
+	return pulumix.Output[DeploymentGroupTriggerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
@@ -3462,6 +4036,12 @@ func (o DeploymentGroupTriggerConfigurationArrayOutput) ToDeploymentGroupTrigger
 
 func (o DeploymentGroupTriggerConfigurationArrayOutput) ToDeploymentGroupTriggerConfigurationArrayOutputWithContext(ctx context.Context) DeploymentGroupTriggerConfigurationArrayOutput {
 	return o
+}
+
+func (o DeploymentGroupTriggerConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentGroupTriggerConfiguration] {
+	return pulumix.Output[[]DeploymentGroupTriggerConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeploymentGroupTriggerConfigurationArrayOutput) Index(i pulumi.IntInput) DeploymentGroupTriggerConfigurationOutput {

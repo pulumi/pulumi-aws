@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupNetworkInsightsAnalysis(ctx *pulumi.Context, args *LookupNetworkInsightsAnalysisArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInsightsAnalysisResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkInsightsAnalysisResult
 	err := ctx.Invoke("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", args, &rv, opts...)
 	if err != nil {
@@ -127,6 +130,12 @@ func (o LookupNetworkInsightsAnalysisResultOutput) ToLookupNetworkInsightsAnalys
 
 func (o LookupNetworkInsightsAnalysisResultOutput) ToLookupNetworkInsightsAnalysisResultOutputWithContext(ctx context.Context) LookupNetworkInsightsAnalysisResultOutput {
 	return o
+}
+
+func (o LookupNetworkInsightsAnalysisResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkInsightsAnalysisResult] {
+	return pulumix.Output[LookupNetworkInsightsAnalysisResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Potential intermediate components of a feasible path.

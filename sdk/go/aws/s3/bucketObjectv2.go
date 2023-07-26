@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an S3 object resource.
@@ -291,6 +293,7 @@ func NewBucketObjectv2(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketObjectv2
 	err := ctx.RegisterResource("aws:s3/bucketObjectv2:BucketObjectv2", name, args, &resource, opts...)
 	if err != nil {
@@ -576,6 +579,12 @@ func (i *BucketObjectv2) ToBucketObjectv2OutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2Output)
 }
 
+func (i *BucketObjectv2) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectv2] {
+	return pulumix.Output[*BucketObjectv2]{
+		OutputState: i.ToBucketObjectv2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketObjectv2ArrayInput is an input type that accepts BucketObjectv2Array and BucketObjectv2ArrayOutput values.
 // You can construct a concrete instance of `BucketObjectv2ArrayInput` via:
 //
@@ -599,6 +608,12 @@ func (i BucketObjectv2Array) ToBucketObjectv2ArrayOutput() BucketObjectv2ArrayOu
 
 func (i BucketObjectv2Array) ToBucketObjectv2ArrayOutputWithContext(ctx context.Context) BucketObjectv2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2ArrayOutput)
+}
+
+func (i BucketObjectv2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketObjectv2] {
+	return pulumix.Output[[]*BucketObjectv2]{
+		OutputState: i.ToBucketObjectv2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketObjectv2MapInput is an input type that accepts BucketObjectv2Map and BucketObjectv2MapOutput values.
@@ -626,6 +641,12 @@ func (i BucketObjectv2Map) ToBucketObjectv2MapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectv2MapOutput)
 }
 
+func (i BucketObjectv2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketObjectv2] {
+	return pulumix.Output[map[string]*BucketObjectv2]{
+		OutputState: i.ToBucketObjectv2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketObjectv2Output struct{ *pulumi.OutputState }
 
 func (BucketObjectv2Output) ElementType() reflect.Type {
@@ -638,6 +659,12 @@ func (o BucketObjectv2Output) ToBucketObjectv2Output() BucketObjectv2Output {
 
 func (o BucketObjectv2Output) ToBucketObjectv2OutputWithContext(ctx context.Context) BucketObjectv2Output {
 	return o
+}
+
+func (o BucketObjectv2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectv2] {
+	return pulumix.Output[*BucketObjectv2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
@@ -790,6 +817,12 @@ func (o BucketObjectv2ArrayOutput) ToBucketObjectv2ArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o BucketObjectv2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketObjectv2] {
+	return pulumix.Output[[]*BucketObjectv2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketObjectv2ArrayOutput) Index(i pulumi.IntInput) BucketObjectv2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketObjectv2 {
 		return vs[0].([]*BucketObjectv2)[vs[1].(int)]
@@ -808,6 +841,12 @@ func (o BucketObjectv2MapOutput) ToBucketObjectv2MapOutput() BucketObjectv2MapOu
 
 func (o BucketObjectv2MapOutput) ToBucketObjectv2MapOutputWithContext(ctx context.Context) BucketObjectv2MapOutput {
 	return o
+}
+
+func (o BucketObjectv2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketObjectv2] {
+	return pulumix.Output[map[string]*BucketObjectv2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketObjectv2MapOutput) MapIndex(k pulumi.StringInput) BucketObjectv2Output {

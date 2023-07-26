@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARNs and Names of IAM Roles.
@@ -143,6 +145,7 @@ import (
 //
 // ```
 func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOption) (*GetRolesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRolesResult
 	err := ctx.Invoke("aws:iam/getRoles:getRoles", args, &rv, opts...)
 	if err != nil {
@@ -209,6 +212,12 @@ func (o GetRolesResultOutput) ToGetRolesResultOutput() GetRolesResultOutput {
 
 func (o GetRolesResultOutput) ToGetRolesResultOutputWithContext(ctx context.Context) GetRolesResultOutput {
 	return o
+}
+
+func (o GetRolesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRolesResult] {
+	return pulumix.Output[GetRolesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of ARNs of the matched IAM roles.

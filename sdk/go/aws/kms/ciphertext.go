@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
@@ -82,6 +84,7 @@ func NewCiphertext(ctx *pulumi.Context,
 		"plaintext",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Ciphertext
 	err := ctx.RegisterResource("aws:kms/ciphertext:Ciphertext", name, args, &resource, opts...)
 	if err != nil {
@@ -171,6 +174,12 @@ func (i *Ciphertext) ToCiphertextOutputWithContext(ctx context.Context) Cipherte
 	return pulumi.ToOutputWithContext(ctx, i).(CiphertextOutput)
 }
 
+func (i *Ciphertext) ToOutput(ctx context.Context) pulumix.Output[*Ciphertext] {
+	return pulumix.Output[*Ciphertext]{
+		OutputState: i.ToCiphertextOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CiphertextArrayInput is an input type that accepts CiphertextArray and CiphertextArrayOutput values.
 // You can construct a concrete instance of `CiphertextArrayInput` via:
 //
@@ -194,6 +203,12 @@ func (i CiphertextArray) ToCiphertextArrayOutput() CiphertextArrayOutput {
 
 func (i CiphertextArray) ToCiphertextArrayOutputWithContext(ctx context.Context) CiphertextArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CiphertextArrayOutput)
+}
+
+func (i CiphertextArray) ToOutput(ctx context.Context) pulumix.Output[[]*Ciphertext] {
+	return pulumix.Output[[]*Ciphertext]{
+		OutputState: i.ToCiphertextArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CiphertextMapInput is an input type that accepts CiphertextMap and CiphertextMapOutput values.
@@ -221,6 +236,12 @@ func (i CiphertextMap) ToCiphertextMapOutputWithContext(ctx context.Context) Cip
 	return pulumi.ToOutputWithContext(ctx, i).(CiphertextMapOutput)
 }
 
+func (i CiphertextMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ciphertext] {
+	return pulumix.Output[map[string]*Ciphertext]{
+		OutputState: i.ToCiphertextMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CiphertextOutput struct{ *pulumi.OutputState }
 
 func (CiphertextOutput) ElementType() reflect.Type {
@@ -233,6 +254,12 @@ func (o CiphertextOutput) ToCiphertextOutput() CiphertextOutput {
 
 func (o CiphertextOutput) ToCiphertextOutputWithContext(ctx context.Context) CiphertextOutput {
 	return o
+}
+
+func (o CiphertextOutput) ToOutput(ctx context.Context) pulumix.Output[*Ciphertext] {
+	return pulumix.Output[*Ciphertext]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Base64 encoded ciphertext
@@ -269,6 +296,12 @@ func (o CiphertextArrayOutput) ToCiphertextArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o CiphertextArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Ciphertext] {
+	return pulumix.Output[[]*Ciphertext]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CiphertextArrayOutput) Index(i pulumi.IntInput) CiphertextOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Ciphertext {
 		return vs[0].([]*Ciphertext)[vs[1].(int)]
@@ -287,6 +320,12 @@ func (o CiphertextMapOutput) ToCiphertextMapOutput() CiphertextMapOutput {
 
 func (o CiphertextMapOutput) ToCiphertextMapOutputWithContext(ctx context.Context) CiphertextMapOutput {
 	return o
+}
+
+func (o CiphertextMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ciphertext] {
+	return pulumix.Output[map[string]*Ciphertext]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CiphertextMapOutput) MapIndex(k pulumi.StringInput) CiphertextOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Athena data catalog.
@@ -182,6 +184,7 @@ func NewDataCatalog(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DataCatalog
 	err := ctx.RegisterResource("aws:athena/dataCatalog:DataCatalog", name, args, &resource, opts...)
 	if err != nil {
@@ -291,6 +294,12 @@ func (i *DataCatalog) ToDataCatalogOutputWithContext(ctx context.Context) DataCa
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogOutput)
 }
 
+func (i *DataCatalog) ToOutput(ctx context.Context) pulumix.Output[*DataCatalog] {
+	return pulumix.Output[*DataCatalog]{
+		OutputState: i.ToDataCatalogOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataCatalogArrayInput is an input type that accepts DataCatalogArray and DataCatalogArrayOutput values.
 // You can construct a concrete instance of `DataCatalogArrayInput` via:
 //
@@ -314,6 +323,12 @@ func (i DataCatalogArray) ToDataCatalogArrayOutput() DataCatalogArrayOutput {
 
 func (i DataCatalogArray) ToDataCatalogArrayOutputWithContext(ctx context.Context) DataCatalogArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogArrayOutput)
+}
+
+func (i DataCatalogArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataCatalog] {
+	return pulumix.Output[[]*DataCatalog]{
+		OutputState: i.ToDataCatalogArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataCatalogMapInput is an input type that accepts DataCatalogMap and DataCatalogMapOutput values.
@@ -341,6 +356,12 @@ func (i DataCatalogMap) ToDataCatalogMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogMapOutput)
 }
 
+func (i DataCatalogMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataCatalog] {
+	return pulumix.Output[map[string]*DataCatalog]{
+		OutputState: i.ToDataCatalogMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataCatalogOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogOutput) ElementType() reflect.Type {
@@ -353,6 +374,12 @@ func (o DataCatalogOutput) ToDataCatalogOutput() DataCatalogOutput {
 
 func (o DataCatalogOutput) ToDataCatalogOutputWithContext(ctx context.Context) DataCatalogOutput {
 	return o
+}
+
+func (o DataCatalogOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCatalog] {
+	return pulumix.Output[*DataCatalog]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the data catalog.
@@ -404,6 +431,12 @@ func (o DataCatalogArrayOutput) ToDataCatalogArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o DataCatalogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataCatalog] {
+	return pulumix.Output[[]*DataCatalog]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataCatalogArrayOutput) Index(i pulumi.IntInput) DataCatalogOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataCatalog {
 		return vs[0].([]*DataCatalog)[vs[1].(int)]
@@ -422,6 +455,12 @@ func (o DataCatalogMapOutput) ToDataCatalogMapOutput() DataCatalogMapOutput {
 
 func (o DataCatalogMapOutput) ToDataCatalogMapOutputWithContext(ctx context.Context) DataCatalogMapOutput {
 	return o
+}
+
+func (o DataCatalogMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataCatalog] {
+	return pulumix.Output[map[string]*DataCatalog]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataCatalogMapOutput) MapIndex(k pulumi.StringInput) DataCatalogOutput {

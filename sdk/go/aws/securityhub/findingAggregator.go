@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
@@ -150,6 +152,7 @@ func NewFindingAggregator(ctx *pulumi.Context,
 	if args.LinkingMode == nil {
 		return nil, errors.New("invalid value for required argument 'LinkingMode'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FindingAggregator
 	err := ctx.RegisterResource("aws:securityhub/findingAggregator:FindingAggregator", name, args, &resource, opts...)
 	if err != nil {
@@ -227,6 +230,12 @@ func (i *FindingAggregator) ToFindingAggregatorOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(FindingAggregatorOutput)
 }
 
+func (i *FindingAggregator) ToOutput(ctx context.Context) pulumix.Output[*FindingAggregator] {
+	return pulumix.Output[*FindingAggregator]{
+		OutputState: i.ToFindingAggregatorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FindingAggregatorArrayInput is an input type that accepts FindingAggregatorArray and FindingAggregatorArrayOutput values.
 // You can construct a concrete instance of `FindingAggregatorArrayInput` via:
 //
@@ -250,6 +259,12 @@ func (i FindingAggregatorArray) ToFindingAggregatorArrayOutput() FindingAggregat
 
 func (i FindingAggregatorArray) ToFindingAggregatorArrayOutputWithContext(ctx context.Context) FindingAggregatorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FindingAggregatorArrayOutput)
+}
+
+func (i FindingAggregatorArray) ToOutput(ctx context.Context) pulumix.Output[[]*FindingAggregator] {
+	return pulumix.Output[[]*FindingAggregator]{
+		OutputState: i.ToFindingAggregatorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FindingAggregatorMapInput is an input type that accepts FindingAggregatorMap and FindingAggregatorMapOutput values.
@@ -277,6 +292,12 @@ func (i FindingAggregatorMap) ToFindingAggregatorMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FindingAggregatorMapOutput)
 }
 
+func (i FindingAggregatorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FindingAggregator] {
+	return pulumix.Output[map[string]*FindingAggregator]{
+		OutputState: i.ToFindingAggregatorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FindingAggregatorOutput struct{ *pulumi.OutputState }
 
 func (FindingAggregatorOutput) ElementType() reflect.Type {
@@ -289,6 +310,12 @@ func (o FindingAggregatorOutput) ToFindingAggregatorOutput() FindingAggregatorOu
 
 func (o FindingAggregatorOutput) ToFindingAggregatorOutputWithContext(ctx context.Context) FindingAggregatorOutput {
 	return o
+}
+
+func (o FindingAggregatorOutput) ToOutput(ctx context.Context) pulumix.Output[*FindingAggregator] {
+	return pulumix.Output[*FindingAggregator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
@@ -315,6 +342,12 @@ func (o FindingAggregatorArrayOutput) ToFindingAggregatorArrayOutputWithContext(
 	return o
 }
 
+func (o FindingAggregatorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FindingAggregator] {
+	return pulumix.Output[[]*FindingAggregator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FindingAggregatorArrayOutput) Index(i pulumi.IntInput) FindingAggregatorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FindingAggregator {
 		return vs[0].([]*FindingAggregator)[vs[1].(int)]
@@ -333,6 +366,12 @@ func (o FindingAggregatorMapOutput) ToFindingAggregatorMapOutput() FindingAggreg
 
 func (o FindingAggregatorMapOutput) ToFindingAggregatorMapOutputWithContext(ctx context.Context) FindingAggregatorMapOutput {
 	return o
+}
+
+func (o FindingAggregatorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FindingAggregator] {
+	return pulumix.Output[map[string]*FindingAggregator]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FindingAggregatorMapOutput) MapIndex(k pulumi.StringInput) FindingAggregatorOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about a specific
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.InvokeOption) (*LookupRoleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoleResult
 	err := ctx.Invoke("aws:iam/getRole:getRole", args, &rv, opts...)
 	if err != nil {
@@ -121,6 +124,12 @@ func (o LookupRoleResultOutput) ToLookupRoleResultOutput() LookupRoleResultOutpu
 
 func (o LookupRoleResultOutput) ToLookupRoleResultOutputWithContext(ctx context.Context) LookupRoleResultOutput {
 	return o
+}
+
+func (o LookupRoleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRoleResult] {
+	return pulumix.Output[LookupRoleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the role.

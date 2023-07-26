@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect Routing Profile.
@@ -68,6 +70,7 @@ import (
 //
 // ```
 func LookupRoutingProfile(ctx *pulumi.Context, args *LookupRoutingProfileArgs, opts ...pulumi.InvokeOption) (*LookupRoutingProfileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoutingProfileResult
 	err := ctx.Invoke("aws:connect/getRoutingProfile:getRoutingProfile", args, &rv, opts...)
 	if err != nil {
@@ -151,6 +154,12 @@ func (o LookupRoutingProfileResultOutput) ToLookupRoutingProfileResultOutput() L
 
 func (o LookupRoutingProfileResultOutput) ToLookupRoutingProfileResultOutputWithContext(ctx context.Context) LookupRoutingProfileResultOutput {
 	return o
+}
+
+func (o LookupRoutingProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRoutingProfileResult] {
+	return pulumix.Output[LookupRoutingProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Routing Profile.

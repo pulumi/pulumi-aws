@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
@@ -105,6 +106,12 @@ func (o RuntimeOutput) ToRuntimePtrOutputWithContext(ctx context.Context) Runtim
 	}).(RuntimePtrOutput)
 }
 
+func (o RuntimeOutput) ToOutput(ctx context.Context) pulumix.Output[Runtime] {
+	return pulumix.Output[Runtime]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RuntimeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -138,6 +145,12 @@ func (o RuntimePtrOutput) ToRuntimePtrOutput() RuntimePtrOutput {
 
 func (o RuntimePtrOutput) ToRuntimePtrOutputWithContext(ctx context.Context) RuntimePtrOutput {
 	return o
+}
+
+func (o RuntimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Runtime] {
+	return pulumix.Output[*Runtime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuntimePtrOutput) Elem() RuntimeOutput {
@@ -200,6 +213,12 @@ func (in *runtimePtr) ToRuntimePtrOutput() RuntimePtrOutput {
 
 func (in *runtimePtr) ToRuntimePtrOutputWithContext(ctx context.Context) RuntimePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuntimePtrOutput)
+}
+
+func (in *runtimePtr) ToOutput(ctx context.Context) pulumix.Output[*Runtime] {
+	return pulumix.Output[*Runtime]{
+		OutputState: in.ToRuntimePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

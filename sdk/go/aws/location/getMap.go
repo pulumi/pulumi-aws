@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Location Service Map.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupMap(ctx *pulumi.Context, args *LookupMapArgs, opts ...pulumi.InvokeOption) (*LookupMapResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMapResult
 	err := ctx.Invoke("aws:location/getMap:getMap", args, &rv, opts...)
 	if err != nil {
@@ -111,6 +114,12 @@ func (o LookupMapResultOutput) ToLookupMapResultOutput() LookupMapResultOutput {
 
 func (o LookupMapResultOutput) ToLookupMapResultOutputWithContext(ctx context.Context) LookupMapResultOutput {
 	return o
+}
+
+func (o LookupMapResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMapResult] {
+	return pulumix.Output[LookupMapResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of configurations that specify the map tile style selected from a partner data provider.

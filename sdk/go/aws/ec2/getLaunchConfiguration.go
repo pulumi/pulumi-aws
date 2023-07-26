@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Launch Configuration.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupLaunchConfiguration(ctx *pulumi.Context, args *LookupLaunchConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupLaunchConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLaunchConfigurationResult
 	err := ctx.Invoke("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -136,6 +139,12 @@ func (o LookupLaunchConfigurationResultOutput) ToLookupLaunchConfigurationResult
 
 func (o LookupLaunchConfigurationResultOutput) ToLookupLaunchConfigurationResultOutputWithContext(ctx context.Context) LookupLaunchConfigurationResultOutput {
 	return o
+}
+
+func (o LookupLaunchConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLaunchConfigurationResult] {
+	return pulumix.Output[LookupLaunchConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name of the launch configuration.

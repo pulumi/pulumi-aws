@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Image Builder Image Pipeline.
@@ -105,6 +107,7 @@ func NewImagePipeline(ctx *pulumi.Context,
 	if args.InfrastructureConfigurationArn == nil {
 		return nil, errors.New("invalid value for required argument 'InfrastructureConfigurationArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ImagePipeline
 	err := ctx.RegisterResource("aws:imagebuilder/imagePipeline:ImagePipeline", name, args, &resource, opts...)
 	if err != nil {
@@ -290,6 +293,12 @@ func (i *ImagePipeline) ToImagePipelineOutputWithContext(ctx context.Context) Im
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineOutput)
 }
 
+func (i *ImagePipeline) ToOutput(ctx context.Context) pulumix.Output[*ImagePipeline] {
+	return pulumix.Output[*ImagePipeline]{
+		OutputState: i.ToImagePipelineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImagePipelineArrayInput is an input type that accepts ImagePipelineArray and ImagePipelineArrayOutput values.
 // You can construct a concrete instance of `ImagePipelineArrayInput` via:
 //
@@ -313,6 +322,12 @@ func (i ImagePipelineArray) ToImagePipelineArrayOutput() ImagePipelineArrayOutpu
 
 func (i ImagePipelineArray) ToImagePipelineArrayOutputWithContext(ctx context.Context) ImagePipelineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineArrayOutput)
+}
+
+func (i ImagePipelineArray) ToOutput(ctx context.Context) pulumix.Output[[]*ImagePipeline] {
+	return pulumix.Output[[]*ImagePipeline]{
+		OutputState: i.ToImagePipelineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ImagePipelineMapInput is an input type that accepts ImagePipelineMap and ImagePipelineMapOutput values.
@@ -340,6 +355,12 @@ func (i ImagePipelineMap) ToImagePipelineMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineMapOutput)
 }
 
+func (i ImagePipelineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImagePipeline] {
+	return pulumix.Output[map[string]*ImagePipeline]{
+		OutputState: i.ToImagePipelineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImagePipelineOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineOutput) ElementType() reflect.Type {
@@ -352,6 +373,12 @@ func (o ImagePipelineOutput) ToImagePipelineOutput() ImagePipelineOutput {
 
 func (o ImagePipelineOutput) ToImagePipelineOutputWithContext(ctx context.Context) ImagePipelineOutput {
 	return o
+}
+
+func (o ImagePipelineOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipeline] {
+	return pulumix.Output[*ImagePipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the image pipeline.
@@ -460,6 +487,12 @@ func (o ImagePipelineArrayOutput) ToImagePipelineArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o ImagePipelineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ImagePipeline] {
+	return pulumix.Output[[]*ImagePipeline]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ImagePipelineArrayOutput) Index(i pulumi.IntInput) ImagePipelineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ImagePipeline {
 		return vs[0].([]*ImagePipeline)[vs[1].(int)]
@@ -478,6 +511,12 @@ func (o ImagePipelineMapOutput) ToImagePipelineMapOutput() ImagePipelineMapOutpu
 
 func (o ImagePipelineMapOutput) ToImagePipelineMapOutputWithContext(ctx context.Context) ImagePipelineMapOutput {
 	return o
+}
+
+func (o ImagePipelineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ImagePipeline] {
+	return pulumix.Output[map[string]*ImagePipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImagePipelineMapOutput) MapIndex(k pulumi.StringInput) ImagePipelineOutput {

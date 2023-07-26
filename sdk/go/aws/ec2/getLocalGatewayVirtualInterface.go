@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
@@ -33,6 +35,7 @@ import (
 //
 // ```
 func GetLocalGatewayVirtualInterface(ctx *pulumi.Context, args *GetLocalGatewayVirtualInterfaceArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayVirtualInterfaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayVirtualInterfaceResult
 	err := ctx.Invoke("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", args, &rv, opts...)
 	if err != nil {
@@ -111,6 +114,12 @@ func (o GetLocalGatewayVirtualInterfaceResultOutput) ToGetLocalGatewayVirtualInt
 
 func (o GetLocalGatewayVirtualInterfaceResultOutput) ToGetLocalGatewayVirtualInterfaceResultOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceResultOutput {
 	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalGatewayVirtualInterfaceResult] {
+	return pulumix.Output[GetLocalGatewayVirtualInterfaceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLocalGatewayVirtualInterfaceResultOutput) Filters() GetLocalGatewayVirtualInterfaceFilterArrayOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an Amazon File Cache cache.
@@ -146,6 +148,7 @@ func NewFileCache(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileCache
 	err := ctx.RegisterResource("aws:fsx/fileCache:FileCache", name, args, &resource, opts...)
 	if err != nil {
@@ -327,6 +330,12 @@ func (i *FileCache) ToFileCacheOutputWithContext(ctx context.Context) FileCacheO
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheOutput)
 }
 
+func (i *FileCache) ToOutput(ctx context.Context) pulumix.Output[*FileCache] {
+	return pulumix.Output[*FileCache]{
+		OutputState: i.ToFileCacheOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FileCacheArrayInput is an input type that accepts FileCacheArray and FileCacheArrayOutput values.
 // You can construct a concrete instance of `FileCacheArrayInput` via:
 //
@@ -350,6 +359,12 @@ func (i FileCacheArray) ToFileCacheArrayOutput() FileCacheArrayOutput {
 
 func (i FileCacheArray) ToFileCacheArrayOutputWithContext(ctx context.Context) FileCacheArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheArrayOutput)
+}
+
+func (i FileCacheArray) ToOutput(ctx context.Context) pulumix.Output[[]*FileCache] {
+	return pulumix.Output[[]*FileCache]{
+		OutputState: i.ToFileCacheArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FileCacheMapInput is an input type that accepts FileCacheMap and FileCacheMapOutput values.
@@ -377,6 +392,12 @@ func (i FileCacheMap) ToFileCacheMapOutputWithContext(ctx context.Context) FileC
 	return pulumi.ToOutputWithContext(ctx, i).(FileCacheMapOutput)
 }
 
+func (i FileCacheMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileCache] {
+	return pulumix.Output[map[string]*FileCache]{
+		OutputState: i.ToFileCacheMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FileCacheOutput struct{ *pulumi.OutputState }
 
 func (FileCacheOutput) ElementType() reflect.Type {
@@ -389,6 +410,12 @@ func (o FileCacheOutput) ToFileCacheOutput() FileCacheOutput {
 
 func (o FileCacheOutput) ToFileCacheOutputWithContext(ctx context.Context) FileCacheOutput {
 	return o
+}
+
+func (o FileCacheOutput) ToOutput(ctx context.Context) pulumix.Output[*FileCache] {
+	return pulumix.Output[*FileCache]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) for the resource.
@@ -496,6 +523,12 @@ func (o FileCacheArrayOutput) ToFileCacheArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o FileCacheArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FileCache] {
+	return pulumix.Output[[]*FileCache]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FileCacheArrayOutput) Index(i pulumi.IntInput) FileCacheOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FileCache {
 		return vs[0].([]*FileCache)[vs[1].(int)]
@@ -514,6 +547,12 @@ func (o FileCacheMapOutput) ToFileCacheMapOutput() FileCacheMapOutput {
 
 func (o FileCacheMapOutput) ToFileCacheMapOutputWithContext(ctx context.Context) FileCacheMapOutput {
 	return o
+}
+
+func (o FileCacheMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileCache] {
+	return pulumix.Output[map[string]*FileCache]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FileCacheMapOutput) MapIndex(k pulumi.StringInput) FileCacheOutput {

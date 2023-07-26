@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Service Quota.
@@ -48,6 +50,7 @@ import (
 //
 // ```
 func LookupServiceQuota(ctx *pulumi.Context, args *LookupServiceQuotaArgs, opts ...pulumi.InvokeOption) (*LookupServiceQuotaResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceQuotaResult
 	err := ctx.Invoke("aws:servicequotas/getServiceQuota:getServiceQuota", args, &rv, opts...)
 	if err != nil {
@@ -129,6 +132,12 @@ func (o LookupServiceQuotaResultOutput) ToLookupServiceQuotaResultOutput() Looku
 
 func (o LookupServiceQuotaResultOutput) ToLookupServiceQuotaResultOutputWithContext(ctx context.Context) LookupServiceQuotaResultOutput {
 	return o
+}
+
+func (o LookupServiceQuotaResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceQuotaResult] {
+	return pulumix.Output[LookupServiceQuotaResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the service quota is adjustable.

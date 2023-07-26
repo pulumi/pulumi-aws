@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Location Service Route Calculator.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetRouteCalculator(ctx *pulumi.Context, args *GetRouteCalculatorArgs, opts ...pulumi.InvokeOption) (*GetRouteCalculatorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteCalculatorResult
 	err := ctx.Invoke("aws:location/getRouteCalculator:getRouteCalculator", args, &rv, opts...)
 	if err != nil {
@@ -111,6 +114,12 @@ func (o GetRouteCalculatorResultOutput) ToGetRouteCalculatorResultOutput() GetRo
 
 func (o GetRouteCalculatorResultOutput) ToGetRouteCalculatorResultOutputWithContext(ctx context.Context) GetRouteCalculatorResultOutput {
 	return o
+}
+
+func (o GetRouteCalculatorResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRouteCalculatorResult] {
+	return pulumix.Output[GetRouteCalculatorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.

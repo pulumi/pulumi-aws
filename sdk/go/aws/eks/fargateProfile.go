@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EKS Fargate Profile.
@@ -158,6 +160,7 @@ func NewFargateProfile(ctx *pulumi.Context,
 	if args.Selectors == nil {
 		return nil, errors.New("invalid value for required argument 'Selectors'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FargateProfile
 	err := ctx.RegisterResource("aws:eks/fargateProfile:FargateProfile", name, args, &resource, opts...)
 	if err != nil {
@@ -287,6 +290,12 @@ func (i *FargateProfile) ToFargateProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileOutput)
 }
 
+func (i *FargateProfile) ToOutput(ctx context.Context) pulumix.Output[*FargateProfile] {
+	return pulumix.Output[*FargateProfile]{
+		OutputState: i.ToFargateProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FargateProfileArrayInput is an input type that accepts FargateProfileArray and FargateProfileArrayOutput values.
 // You can construct a concrete instance of `FargateProfileArrayInput` via:
 //
@@ -310,6 +319,12 @@ func (i FargateProfileArray) ToFargateProfileArrayOutput() FargateProfileArrayOu
 
 func (i FargateProfileArray) ToFargateProfileArrayOutputWithContext(ctx context.Context) FargateProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileArrayOutput)
+}
+
+func (i FargateProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*FargateProfile] {
+	return pulumix.Output[[]*FargateProfile]{
+		OutputState: i.ToFargateProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FargateProfileMapInput is an input type that accepts FargateProfileMap and FargateProfileMapOutput values.
@@ -337,6 +352,12 @@ func (i FargateProfileMap) ToFargateProfileMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileMapOutput)
 }
 
+func (i FargateProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FargateProfile] {
+	return pulumix.Output[map[string]*FargateProfile]{
+		OutputState: i.ToFargateProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FargateProfileOutput struct{ *pulumi.OutputState }
 
 func (FargateProfileOutput) ElementType() reflect.Type {
@@ -349,6 +370,12 @@ func (o FargateProfileOutput) ToFargateProfileOutput() FargateProfileOutput {
 
 func (o FargateProfileOutput) ToFargateProfileOutputWithContext(ctx context.Context) FargateProfileOutput {
 	return o
+}
+
+func (o FargateProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*FargateProfile] {
+	return pulumix.Output[*FargateProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the EKS Fargate Profile.
@@ -412,6 +439,12 @@ func (o FargateProfileArrayOutput) ToFargateProfileArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o FargateProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FargateProfile] {
+	return pulumix.Output[[]*FargateProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FargateProfileArrayOutput) Index(i pulumi.IntInput) FargateProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FargateProfile {
 		return vs[0].([]*FargateProfile)[vs[1].(int)]
@@ -430,6 +463,12 @@ func (o FargateProfileMapOutput) ToFargateProfileMapOutput() FargateProfileMapOu
 
 func (o FargateProfileMapOutput) ToFargateProfileMapOutputWithContext(ctx context.Context) FargateProfileMapOutput {
 	return o
+}
+
+func (o FargateProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FargateProfile] {
+	return pulumix.Output[map[string]*FargateProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FargateProfileMapOutput) MapIndex(k pulumi.StringInput) FargateProfileOutput {

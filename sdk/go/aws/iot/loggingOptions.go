@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
@@ -63,6 +65,7 @@ func NewLoggingOptions(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoggingOptions
 	err := ctx.RegisterResource("aws:iot/loggingOptions:LoggingOptions", name, args, &resource, opts...)
 	if err != nil {
@@ -148,6 +151,12 @@ func (i *LoggingOptions) ToLoggingOptionsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingOptionsOutput)
 }
 
+func (i *LoggingOptions) ToOutput(ctx context.Context) pulumix.Output[*LoggingOptions] {
+	return pulumix.Output[*LoggingOptions]{
+		OutputState: i.ToLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoggingOptionsArrayInput is an input type that accepts LoggingOptionsArray and LoggingOptionsArrayOutput values.
 // You can construct a concrete instance of `LoggingOptionsArrayInput` via:
 //
@@ -171,6 +180,12 @@ func (i LoggingOptionsArray) ToLoggingOptionsArrayOutput() LoggingOptionsArrayOu
 
 func (i LoggingOptionsArray) ToLoggingOptionsArrayOutputWithContext(ctx context.Context) LoggingOptionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingOptionsArrayOutput)
+}
+
+func (i LoggingOptionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*LoggingOptions] {
+	return pulumix.Output[[]*LoggingOptions]{
+		OutputState: i.ToLoggingOptionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LoggingOptionsMapInput is an input type that accepts LoggingOptionsMap and LoggingOptionsMapOutput values.
@@ -198,6 +213,12 @@ func (i LoggingOptionsMap) ToLoggingOptionsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingOptionsMapOutput)
 }
 
+func (i LoggingOptionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoggingOptions] {
+	return pulumix.Output[map[string]*LoggingOptions]{
+		OutputState: i.ToLoggingOptionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (LoggingOptionsOutput) ElementType() reflect.Type {
@@ -210,6 +231,12 @@ func (o LoggingOptionsOutput) ToLoggingOptionsOutput() LoggingOptionsOutput {
 
 func (o LoggingOptionsOutput) ToLoggingOptionsOutputWithContext(ctx context.Context) LoggingOptionsOutput {
 	return o
+}
+
+func (o LoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingOptions] {
+	return pulumix.Output[*LoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
@@ -241,6 +268,12 @@ func (o LoggingOptionsArrayOutput) ToLoggingOptionsArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o LoggingOptionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LoggingOptions] {
+	return pulumix.Output[[]*LoggingOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoggingOptionsArrayOutput) Index(i pulumi.IntInput) LoggingOptionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoggingOptions {
 		return vs[0].([]*LoggingOptions)[vs[1].(int)]
@@ -259,6 +292,12 @@ func (o LoggingOptionsMapOutput) ToLoggingOptionsMapOutput() LoggingOptionsMapOu
 
 func (o LoggingOptionsMapOutput) ToLoggingOptionsMapOutputWithContext(ctx context.Context) LoggingOptionsMapOutput {
 	return o
+}
+
+func (o LoggingOptionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoggingOptions] {
+	return pulumix.Output[map[string]*LoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoggingOptionsMapOutput) MapIndex(k pulumi.StringInput) LoggingOptionsOutput {

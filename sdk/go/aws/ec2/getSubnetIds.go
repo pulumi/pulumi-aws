@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.getSubnetIds` provides a set of ids for a vpcId
@@ -89,6 +91,7 @@ import (
 //
 // ```
 func GetSubnetIds(ctx *pulumi.Context, args *GetSubnetIdsArgs, opts ...pulumi.InvokeOption) (*GetSubnetIdsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSubnetIdsResult
 	err := ctx.Invoke("aws:ec2/getSubnetIds:getSubnetIds", args, &rv, opts...)
 	if err != nil {
@@ -166,6 +169,12 @@ func (o GetSubnetIdsResultOutput) ToGetSubnetIdsResultOutput() GetSubnetIdsResul
 
 func (o GetSubnetIdsResultOutput) ToGetSubnetIdsResultOutputWithContext(ctx context.Context) GetSubnetIdsResultOutput {
 	return o
+}
+
+func (o GetSubnetIdsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSubnetIdsResult] {
+	return pulumix.Output[GetSubnetIdsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSubnetIdsResultOutput) Filters() GetSubnetIdsFilterArrayOutput {

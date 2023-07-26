@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing a QuickSight Data Set.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.InvokeOption) (*LookupDataSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataSetResult
 	err := ctx.Invoke("aws:quicksight/getDataSet:getDataSet", args, &rv, opts...)
 	if err != nil {
@@ -123,6 +126,12 @@ func (o LookupDataSetResultOutput) ToLookupDataSetResultOutput() LookupDataSetRe
 
 func (o LookupDataSetResultOutput) ToLookupDataSetResultOutputWithContext(ctx context.Context) LookupDataSetResultOutput {
 	return o
+}
+
+func (o LookupDataSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataSetResult] {
+	return pulumix.Output[LookupDataSetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDataSetResultOutput) Arn() pulumi.StringOutput {

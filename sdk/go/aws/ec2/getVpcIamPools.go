@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.getVpcIamPools` provides details about IPAM pools.
@@ -55,6 +57,7 @@ import (
 //
 // ```
 func GetVpcIamPools(ctx *pulumi.Context, args *GetVpcIamPoolsArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIamPoolsResult
 	err := ctx.Invoke("aws:ec2/getVpcIamPools:getVpcIamPools", args, &rv, opts...)
 	if err != nil {
@@ -114,6 +117,12 @@ func (o GetVpcIamPoolsResultOutput) ToGetVpcIamPoolsResultOutput() GetVpcIamPool
 
 func (o GetVpcIamPoolsResultOutput) ToGetVpcIamPoolsResultOutputWithContext(ctx context.Context) GetVpcIamPoolsResultOutput {
 	return o
+}
+
+func (o GetVpcIamPoolsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcIamPoolsResult] {
+	return pulumix.Output[GetVpcIamPoolsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVpcIamPoolsResultOutput) Filters() GetVpcIamPoolsFilterArrayOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS SSM Contacts Contact Channel.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupContactChannel(ctx *pulumi.Context, args *LookupContactChannelArgs, opts ...pulumi.InvokeOption) (*LookupContactChannelResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupContactChannelResult
 	err := ctx.Invoke("aws:ssmcontacts/getContactChannel:getContactChannel", args, &rv, opts...)
 	if err != nil {
@@ -106,6 +109,12 @@ func (o LookupContactChannelResultOutput) ToLookupContactChannelResultOutput() L
 
 func (o LookupContactChannelResultOutput) ToLookupContactChannelResultOutputWithContext(ctx context.Context) LookupContactChannelResultOutput {
 	return o
+}
+
+func (o LookupContactChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupContactChannelResult] {
+	return pulumix.Output[LookupContactChannelResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether the contact channel is activated.

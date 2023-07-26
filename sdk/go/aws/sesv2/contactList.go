@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
@@ -114,6 +116,7 @@ func NewContactList(ctx *pulumi.Context,
 	if args.ContactListName == nil {
 		return nil, errors.New("invalid value for required argument 'ContactListName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactList
 	err := ctx.RegisterResource("aws:sesv2/contactList:ContactList", name, args, &resource, opts...)
 	if err != nil {
@@ -227,6 +230,12 @@ func (i *ContactList) ToContactListOutputWithContext(ctx context.Context) Contac
 	return pulumi.ToOutputWithContext(ctx, i).(ContactListOutput)
 }
 
+func (i *ContactList) ToOutput(ctx context.Context) pulumix.Output[*ContactList] {
+	return pulumix.Output[*ContactList]{
+		OutputState: i.ToContactListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContactListArrayInput is an input type that accepts ContactListArray and ContactListArrayOutput values.
 // You can construct a concrete instance of `ContactListArrayInput` via:
 //
@@ -250,6 +259,12 @@ func (i ContactListArray) ToContactListArrayOutput() ContactListArrayOutput {
 
 func (i ContactListArray) ToContactListArrayOutputWithContext(ctx context.Context) ContactListArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContactListArrayOutput)
+}
+
+func (i ContactListArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContactList] {
+	return pulumix.Output[[]*ContactList]{
+		OutputState: i.ToContactListArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ContactListMapInput is an input type that accepts ContactListMap and ContactListMapOutput values.
@@ -277,6 +292,12 @@ func (i ContactListMap) ToContactListMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ContactListMapOutput)
 }
 
+func (i ContactListMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContactList] {
+	return pulumix.Output[map[string]*ContactList]{
+		OutputState: i.ToContactListMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContactListOutput struct{ *pulumi.OutputState }
 
 func (ContactListOutput) ElementType() reflect.Type {
@@ -289,6 +310,12 @@ func (o ContactListOutput) ToContactListOutput() ContactListOutput {
 
 func (o ContactListOutput) ToContactListOutputWithContext(ctx context.Context) ContactListOutput {
 	return o
+}
+
+func (o ContactListOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactList] {
+	return pulumix.Output[*ContactList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactListOutput) Arn() pulumi.StringOutput {
@@ -345,6 +372,12 @@ func (o ContactListArrayOutput) ToContactListArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ContactListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContactList] {
+	return pulumix.Output[[]*ContactList]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactListArrayOutput) Index(i pulumi.IntInput) ContactListOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContactList {
 		return vs[0].([]*ContactList)[vs[1].(int)]
@@ -363,6 +396,12 @@ func (o ContactListMapOutput) ToContactListMapOutput() ContactListMapOutput {
 
 func (o ContactListMapOutput) ToContactListMapOutputWithContext(ctx context.Context) ContactListMapOutput {
 	return o
+}
+
+func (o ContactListMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContactList] {
+	return pulumix.Output[map[string]*ContactList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactListMapOutput) MapIndex(k pulumi.StringInput) ContactListOutput {

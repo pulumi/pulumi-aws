@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Kendra Experience.
@@ -100,6 +102,7 @@ func NewExperience(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Experience
 	err := ctx.RegisterResource("aws:kendra/experience:Experience", name, args, &resource, opts...)
 	if err != nil {
@@ -225,6 +228,12 @@ func (i *Experience) ToExperienceOutputWithContext(ctx context.Context) Experien
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceOutput)
 }
 
+func (i *Experience) ToOutput(ctx context.Context) pulumix.Output[*Experience] {
+	return pulumix.Output[*Experience]{
+		OutputState: i.ToExperienceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExperienceArrayInput is an input type that accepts ExperienceArray and ExperienceArrayOutput values.
 // You can construct a concrete instance of `ExperienceArrayInput` via:
 //
@@ -248,6 +257,12 @@ func (i ExperienceArray) ToExperienceArrayOutput() ExperienceArrayOutput {
 
 func (i ExperienceArray) ToExperienceArrayOutputWithContext(ctx context.Context) ExperienceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceArrayOutput)
+}
+
+func (i ExperienceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Experience] {
+	return pulumix.Output[[]*Experience]{
+		OutputState: i.ToExperienceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ExperienceMapInput is an input type that accepts ExperienceMap and ExperienceMapOutput values.
@@ -275,6 +290,12 @@ func (i ExperienceMap) ToExperienceMapOutputWithContext(ctx context.Context) Exp
 	return pulumi.ToOutputWithContext(ctx, i).(ExperienceMapOutput)
 }
 
+func (i ExperienceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Experience] {
+	return pulumix.Output[map[string]*Experience]{
+		OutputState: i.ToExperienceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperienceOutput struct{ *pulumi.OutputState }
 
 func (ExperienceOutput) ElementType() reflect.Type {
@@ -287,6 +308,12 @@ func (o ExperienceOutput) ToExperienceOutput() ExperienceOutput {
 
 func (o ExperienceOutput) ToExperienceOutputWithContext(ctx context.Context) ExperienceOutput {
 	return o
+}
+
+func (o ExperienceOutput) ToOutput(ctx context.Context) pulumix.Output[*Experience] {
+	return pulumix.Output[*Experience]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Experience.
@@ -350,6 +377,12 @@ func (o ExperienceArrayOutput) ToExperienceArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ExperienceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Experience] {
+	return pulumix.Output[[]*Experience]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ExperienceArrayOutput) Index(i pulumi.IntInput) ExperienceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Experience {
 		return vs[0].([]*Experience)[vs[1].(int)]
@@ -368,6 +401,12 @@ func (o ExperienceMapOutput) ToExperienceMapOutput() ExperienceMapOutput {
 
 func (o ExperienceMapOutput) ToExperienceMapOutputWithContext(ctx context.Context) ExperienceMapOutput {
 	return o
+}
+
+func (o ExperienceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Experience] {
+	return pulumix.Output[map[string]*Experience]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperienceMapOutput) MapIndex(k pulumi.StringInput) ExperienceOutput {

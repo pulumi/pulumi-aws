@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows the specified Amazon Connect instance to access the specified Amazon Lex (V1) bot. For more information see
@@ -157,6 +159,7 @@ func NewBotAssociation(ctx *pulumi.Context,
 	if args.LexBot == nil {
 		return nil, errors.New("invalid value for required argument 'LexBot'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BotAssociation
 	err := ctx.RegisterResource("aws:connect/botAssociation:BotAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -234,6 +237,12 @@ func (i *BotAssociation) ToBotAssociationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(BotAssociationOutput)
 }
 
+func (i *BotAssociation) ToOutput(ctx context.Context) pulumix.Output[*BotAssociation] {
+	return pulumix.Output[*BotAssociation]{
+		OutputState: i.ToBotAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotAssociationArrayInput is an input type that accepts BotAssociationArray and BotAssociationArrayOutput values.
 // You can construct a concrete instance of `BotAssociationArrayInput` via:
 //
@@ -257,6 +266,12 @@ func (i BotAssociationArray) ToBotAssociationArrayOutput() BotAssociationArrayOu
 
 func (i BotAssociationArray) ToBotAssociationArrayOutputWithContext(ctx context.Context) BotAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotAssociationArrayOutput)
+}
+
+func (i BotAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*BotAssociation] {
+	return pulumix.Output[[]*BotAssociation]{
+		OutputState: i.ToBotAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BotAssociationMapInput is an input type that accepts BotAssociationMap and BotAssociationMapOutput values.
@@ -284,6 +299,12 @@ func (i BotAssociationMap) ToBotAssociationMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BotAssociationMapOutput)
 }
 
+func (i BotAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BotAssociation] {
+	return pulumix.Output[map[string]*BotAssociation]{
+		OutputState: i.ToBotAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotAssociationOutput struct{ *pulumi.OutputState }
 
 func (BotAssociationOutput) ElementType() reflect.Type {
@@ -296,6 +317,12 @@ func (o BotAssociationOutput) ToBotAssociationOutput() BotAssociationOutput {
 
 func (o BotAssociationOutput) ToBotAssociationOutputWithContext(ctx context.Context) BotAssociationOutput {
 	return o
+}
+
+func (o BotAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAssociation] {
+	return pulumix.Output[*BotAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
@@ -322,6 +349,12 @@ func (o BotAssociationArrayOutput) ToBotAssociationArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o BotAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BotAssociation] {
+	return pulumix.Output[[]*BotAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotAssociationArrayOutput) Index(i pulumi.IntInput) BotAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BotAssociation {
 		return vs[0].([]*BotAssociation)[vs[1].(int)]
@@ -340,6 +373,12 @@ func (o BotAssociationMapOutput) ToBotAssociationMapOutput() BotAssociationMapOu
 
 func (o BotAssociationMapOutput) ToBotAssociationMapOutputWithContext(ctx context.Context) BotAssociationMapOutput {
 	return o
+}
+
+func (o BotAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BotAssociation] {
+	return pulumix.Output[map[string]*BotAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAssociationMapOutput) MapIndex(k pulumi.StringInput) BotAssociationOutput {

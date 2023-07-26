@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -64,6 +66,7 @@ import (
 //
 // ```
 func LookupOriginRequestPolicy(ctx *pulumi.Context, args *LookupOriginRequestPolicyArgs, opts ...pulumi.InvokeOption) (*LookupOriginRequestPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOriginRequestPolicyResult
 	err := ctx.Invoke("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args, &rv, opts...)
 	if err != nil {
@@ -134,6 +137,12 @@ func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResult
 
 func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResultOutputWithContext(ctx context.Context) LookupOriginRequestPolicyResultOutput {
 	return o
+}
+
+func (o LookupOriginRequestPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOriginRequestPolicyResult] {
+	return pulumix.Output[LookupOriginRequestPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Comment to describe the origin request policy.

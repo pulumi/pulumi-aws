@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The VPN Gateway data source provides details about
@@ -47,6 +49,7 @@ import (
 //
 // ```
 func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVpnGatewayResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpnGatewayResult
 	err := ctx.Invoke("aws:ec2/getVpnGateway:getVpnGateway", args, &rv, opts...)
 	if err != nil {
@@ -141,6 +144,12 @@ func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutput() LookupVpn
 
 func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutputWithContext(ctx context.Context) LookupVpnGatewayResultOutput {
 	return o
+}
+
+func (o LookupVpnGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpnGatewayResult] {
+	return pulumix.Output[LookupVpnGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupVpnGatewayResultOutput) AmazonSideAsn() pulumi.StringOutput {

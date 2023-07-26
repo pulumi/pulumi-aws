@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Global Accelerator accelerator.
@@ -49,6 +51,7 @@ import (
 //
 // ```
 func LookupAccelerator(ctx *pulumi.Context, args *LookupAcceleratorArgs, opts ...pulumi.InvokeOption) (*LookupAcceleratorResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAcceleratorResult
 	err := ctx.Invoke("aws:globalaccelerator/getAccelerator:getAccelerator", args, &rv, opts...)
 	if err != nil {
@@ -124,6 +127,12 @@ func (o LookupAcceleratorResultOutput) ToLookupAcceleratorResultOutput() LookupA
 
 func (o LookupAcceleratorResultOutput) ToLookupAcceleratorResultOutputWithContext(ctx context.Context) LookupAcceleratorResultOutput {
 	return o
+}
+
+func (o LookupAcceleratorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAcceleratorResult] {
+	return pulumix.Output[LookupAcceleratorResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAcceleratorResultOutput) Arn() pulumi.StringOutput {

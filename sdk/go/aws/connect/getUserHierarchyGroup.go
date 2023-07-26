@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect User Hierarchy Group.
@@ -68,6 +70,7 @@ import (
 //
 // ```
 func LookupUserHierarchyGroup(ctx *pulumi.Context, args *LookupUserHierarchyGroupArgs, opts ...pulumi.InvokeOption) (*LookupUserHierarchyGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserHierarchyGroupResult
 	err := ctx.Invoke("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", args, &rv, opts...)
 	if err != nil {
@@ -148,6 +151,12 @@ func (o LookupUserHierarchyGroupResultOutput) ToLookupUserHierarchyGroupResultOu
 
 func (o LookupUserHierarchyGroupResultOutput) ToLookupUserHierarchyGroupResultOutputWithContext(ctx context.Context) LookupUserHierarchyGroupResultOutput {
 	return o
+}
+
+func (o LookupUserHierarchyGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserHierarchyGroupResult] {
+	return pulumix.Output[LookupUserHierarchyGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the hierarchy group.

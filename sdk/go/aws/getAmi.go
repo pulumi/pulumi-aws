@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ID of a registered AMI for use in other
@@ -68,6 +70,7 @@ import (
 //
 // Deprecated: aws.getAmi has been deprecated in favor of aws.ec2.getAmi
 func GetAmi(ctx *pulumi.Context, args *GetAmiArgs, opts ...pulumi.InvokeOption) (*GetAmiResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAmiResult
 	err := ctx.Invoke("aws:index/getAmi:getAmi", args, &rv, opts...)
 	if err != nil {
@@ -261,6 +264,12 @@ func (o GetAmiResultOutput) ToGetAmiResultOutput() GetAmiResultOutput {
 
 func (o GetAmiResultOutput) ToGetAmiResultOutputWithContext(ctx context.Context) GetAmiResultOutput {
 	return o
+}
+
+func (o GetAmiResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAmiResult] {
+	return pulumix.Output[GetAmiResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // OS architecture of the AMI (ie: `i386` or `x8664`).

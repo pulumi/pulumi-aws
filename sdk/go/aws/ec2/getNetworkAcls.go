@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -101,6 +103,7 @@ import (
 // }
 // ```
 func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulumi.InvokeOption) (*GetNetworkAclsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkAclsResult
 	err := ctx.Invoke("aws:ec2/getNetworkAcls:getNetworkAcls", args, &rv, opts...)
 	if err != nil {
@@ -178,6 +181,12 @@ func (o GetNetworkAclsResultOutput) ToGetNetworkAclsResultOutput() GetNetworkAcl
 
 func (o GetNetworkAclsResultOutput) ToGetNetworkAclsResultOutputWithContext(ctx context.Context) GetNetworkAclsResultOutput {
 	return o
+}
+
+func (o GetNetworkAclsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkAclsResult] {
+	return pulumix.Output[GetNetworkAclsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkAclsResultOutput) Filters() GetNetworkAclsFilterArrayOutput {

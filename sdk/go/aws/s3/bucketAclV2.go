@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an S3 bucket ACL resource.
@@ -236,6 +238,7 @@ func NewBucketAclV2(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketAclV2
 	err := ctx.RegisterResource("aws:s3/bucketAclV2:BucketAclV2", name, args, &resource, opts...)
 	if err != nil {
@@ -329,6 +332,12 @@ func (i *BucketAclV2) ToBucketAclV2OutputWithContext(ctx context.Context) Bucket
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2Output)
 }
 
+func (i *BucketAclV2) ToOutput(ctx context.Context) pulumix.Output[*BucketAclV2] {
+	return pulumix.Output[*BucketAclV2]{
+		OutputState: i.ToBucketAclV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketAclV2ArrayInput is an input type that accepts BucketAclV2Array and BucketAclV2ArrayOutput values.
 // You can construct a concrete instance of `BucketAclV2ArrayInput` via:
 //
@@ -352,6 +361,12 @@ func (i BucketAclV2Array) ToBucketAclV2ArrayOutput() BucketAclV2ArrayOutput {
 
 func (i BucketAclV2Array) ToBucketAclV2ArrayOutputWithContext(ctx context.Context) BucketAclV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2ArrayOutput)
+}
+
+func (i BucketAclV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketAclV2] {
+	return pulumix.Output[[]*BucketAclV2]{
+		OutputState: i.ToBucketAclV2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketAclV2MapInput is an input type that accepts BucketAclV2Map and BucketAclV2MapOutput values.
@@ -379,6 +394,12 @@ func (i BucketAclV2Map) ToBucketAclV2MapOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2MapOutput)
 }
 
+func (i BucketAclV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketAclV2] {
+	return pulumix.Output[map[string]*BucketAclV2]{
+		OutputState: i.ToBucketAclV2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketAclV2Output struct{ *pulumi.OutputState }
 
 func (BucketAclV2Output) ElementType() reflect.Type {
@@ -391,6 +412,12 @@ func (o BucketAclV2Output) ToBucketAclV2Output() BucketAclV2Output {
 
 func (o BucketAclV2Output) ToBucketAclV2OutputWithContext(ctx context.Context) BucketAclV2Output {
 	return o
+}
+
+func (o BucketAclV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketAclV2] {
+	return pulumix.Output[*BucketAclV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block that sets the ACL permissions for an object per grantee. See below.
@@ -427,6 +454,12 @@ func (o BucketAclV2ArrayOutput) ToBucketAclV2ArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o BucketAclV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketAclV2] {
+	return pulumix.Output[[]*BucketAclV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketAclV2ArrayOutput) Index(i pulumi.IntInput) BucketAclV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketAclV2 {
 		return vs[0].([]*BucketAclV2)[vs[1].(int)]
@@ -445,6 +478,12 @@ func (o BucketAclV2MapOutput) ToBucketAclV2MapOutput() BucketAclV2MapOutput {
 
 func (o BucketAclV2MapOutput) ToBucketAclV2MapOutputWithContext(ctx context.Context) BucketAclV2MapOutput {
 	return o
+}
+
+func (o BucketAclV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketAclV2] {
+	return pulumix.Output[map[string]*BucketAclV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketAclV2MapOutput) MapIndex(k pulumi.StringInput) BucketAclV2Output {

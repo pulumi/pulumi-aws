@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an GameLift Build resource.
@@ -85,6 +87,7 @@ func NewBuild(ctx *pulumi.Context,
 	if args.StorageLocation == nil {
 		return nil, errors.New("invalid value for required argument 'StorageLocation'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Build
 	err := ctx.RegisterResource("aws:gamelift/build:Build", name, args, &resource, opts...)
 	if err != nil {
@@ -194,6 +197,12 @@ func (i *Build) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildOutput)
 }
 
+func (i *Build) ToOutput(ctx context.Context) pulumix.Output[*Build] {
+	return pulumix.Output[*Build]{
+		OutputState: i.ToBuildOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BuildArrayInput is an input type that accepts BuildArray and BuildArrayOutput values.
 // You can construct a concrete instance of `BuildArrayInput` via:
 //
@@ -217,6 +226,12 @@ func (i BuildArray) ToBuildArrayOutput() BuildArrayOutput {
 
 func (i BuildArray) ToBuildArrayOutputWithContext(ctx context.Context) BuildArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildArrayOutput)
+}
+
+func (i BuildArray) ToOutput(ctx context.Context) pulumix.Output[[]*Build] {
+	return pulumix.Output[[]*Build]{
+		OutputState: i.ToBuildArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BuildMapInput is an input type that accepts BuildMap and BuildMapOutput values.
@@ -244,6 +259,12 @@ func (i BuildMap) ToBuildMapOutputWithContext(ctx context.Context) BuildMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BuildMapOutput)
 }
 
+func (i BuildMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Build] {
+	return pulumix.Output[map[string]*Build]{
+		OutputState: i.ToBuildMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BuildOutput struct{ *pulumi.OutputState }
 
 func (BuildOutput) ElementType() reflect.Type {
@@ -256,6 +277,12 @@ func (o BuildOutput) ToBuildOutput() BuildOutput {
 
 func (o BuildOutput) ToBuildOutputWithContext(ctx context.Context) BuildOutput {
 	return o
+}
+
+func (o BuildOutput) ToOutput(ctx context.Context) pulumix.Output[*Build] {
+	return pulumix.Output[*Build]{
+		OutputState: o.OutputState,
+	}
 }
 
 // GameLift Build ARN.
@@ -307,6 +334,12 @@ func (o BuildArrayOutput) ToBuildArrayOutputWithContext(ctx context.Context) Bui
 	return o
 }
 
+func (o BuildArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Build] {
+	return pulumix.Output[[]*Build]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BuildArrayOutput) Index(i pulumi.IntInput) BuildOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Build {
 		return vs[0].([]*Build)[vs[1].(int)]
@@ -325,6 +358,12 @@ func (o BuildMapOutput) ToBuildMapOutput() BuildMapOutput {
 
 func (o BuildMapOutput) ToBuildMapOutputWithContext(ctx context.Context) BuildMapOutput {
 	return o
+}
+
+func (o BuildMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Build] {
+	return pulumix.Output[map[string]*Build]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BuildMapOutput) MapIndex(k pulumi.StringInput) BuildOutput {

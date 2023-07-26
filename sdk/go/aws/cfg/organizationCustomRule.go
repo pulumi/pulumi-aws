@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Config Organization Custom Rule. More information about these rules can be found in the [Enabling AWS Config Rules Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. For working with Organization Managed Rules (those invoking an AWS managed rule), see the `aws_config_organization_managed__rule` resource.
@@ -119,6 +121,7 @@ func NewOrganizationCustomRule(ctx *pulumi.Context,
 	if args.TriggerTypes == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerTypes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationCustomRule
 	err := ctx.RegisterResource("aws:cfg/organizationCustomRule:OrganizationCustomRule", name, args, &resource, opts...)
 	if err != nil {
@@ -272,6 +275,12 @@ func (i *OrganizationCustomRule) ToOrganizationCustomRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCustomRuleOutput)
 }
 
+func (i *OrganizationCustomRule) ToOutput(ctx context.Context) pulumix.Output[*OrganizationCustomRule] {
+	return pulumix.Output[*OrganizationCustomRule]{
+		OutputState: i.ToOrganizationCustomRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationCustomRuleArrayInput is an input type that accepts OrganizationCustomRuleArray and OrganizationCustomRuleArrayOutput values.
 // You can construct a concrete instance of `OrganizationCustomRuleArrayInput` via:
 //
@@ -295,6 +304,12 @@ func (i OrganizationCustomRuleArray) ToOrganizationCustomRuleArrayOutput() Organ
 
 func (i OrganizationCustomRuleArray) ToOrganizationCustomRuleArrayOutputWithContext(ctx context.Context) OrganizationCustomRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCustomRuleArrayOutput)
+}
+
+func (i OrganizationCustomRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationCustomRule] {
+	return pulumix.Output[[]*OrganizationCustomRule]{
+		OutputState: i.ToOrganizationCustomRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrganizationCustomRuleMapInput is an input type that accepts OrganizationCustomRuleMap and OrganizationCustomRuleMapOutput values.
@@ -322,6 +337,12 @@ func (i OrganizationCustomRuleMap) ToOrganizationCustomRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCustomRuleMapOutput)
 }
 
+func (i OrganizationCustomRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationCustomRule] {
+	return pulumix.Output[map[string]*OrganizationCustomRule]{
+		OutputState: i.ToOrganizationCustomRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationCustomRuleOutput struct{ *pulumi.OutputState }
 
 func (OrganizationCustomRuleOutput) ElementType() reflect.Type {
@@ -334,6 +355,12 @@ func (o OrganizationCustomRuleOutput) ToOrganizationCustomRuleOutput() Organizat
 
 func (o OrganizationCustomRuleOutput) ToOrganizationCustomRuleOutputWithContext(ctx context.Context) OrganizationCustomRuleOutput {
 	return o
+}
+
+func (o OrganizationCustomRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationCustomRule] {
+	return pulumix.Output[*OrganizationCustomRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the rule
@@ -410,6 +437,12 @@ func (o OrganizationCustomRuleArrayOutput) ToOrganizationCustomRuleArrayOutputWi
 	return o
 }
 
+func (o OrganizationCustomRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationCustomRule] {
+	return pulumix.Output[[]*OrganizationCustomRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationCustomRuleArrayOutput) Index(i pulumi.IntInput) OrganizationCustomRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationCustomRule {
 		return vs[0].([]*OrganizationCustomRule)[vs[1].(int)]
@@ -428,6 +461,12 @@ func (o OrganizationCustomRuleMapOutput) ToOrganizationCustomRuleMapOutput() Org
 
 func (o OrganizationCustomRuleMapOutput) ToOrganizationCustomRuleMapOutputWithContext(ctx context.Context) OrganizationCustomRuleMapOutput {
 	return o
+}
+
+func (o OrganizationCustomRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationCustomRule] {
+	return pulumix.Output[map[string]*OrganizationCustomRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationCustomRuleMapOutput) MapIndex(k pulumi.StringInput) OrganizationCustomRuleOutput {

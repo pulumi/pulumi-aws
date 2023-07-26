@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
@@ -123,6 +125,7 @@ func NewReplicationTask(ctx *pulumi.Context,
 	if args.TargetEndpointArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetEndpointArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationTask
 	err := ctx.RegisterResource("aws:dms/replicationTask:ReplicationTask", name, args, &resource, opts...)
 	if err != nil {
@@ -304,6 +307,12 @@ func (i *ReplicationTask) ToReplicationTaskOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTaskOutput)
 }
 
+func (i *ReplicationTask) ToOutput(ctx context.Context) pulumix.Output[*ReplicationTask] {
+	return pulumix.Output[*ReplicationTask]{
+		OutputState: i.ToReplicationTaskOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicationTaskArrayInput is an input type that accepts ReplicationTaskArray and ReplicationTaskArrayOutput values.
 // You can construct a concrete instance of `ReplicationTaskArrayInput` via:
 //
@@ -327,6 +336,12 @@ func (i ReplicationTaskArray) ToReplicationTaskArrayOutput() ReplicationTaskArra
 
 func (i ReplicationTaskArray) ToReplicationTaskArrayOutputWithContext(ctx context.Context) ReplicationTaskArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTaskArrayOutput)
+}
+
+func (i ReplicationTaskArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationTask] {
+	return pulumix.Output[[]*ReplicationTask]{
+		OutputState: i.ToReplicationTaskArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReplicationTaskMapInput is an input type that accepts ReplicationTaskMap and ReplicationTaskMapOutput values.
@@ -354,6 +369,12 @@ func (i ReplicationTaskMap) ToReplicationTaskMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTaskMapOutput)
 }
 
+func (i ReplicationTaskMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationTask] {
+	return pulumix.Output[map[string]*ReplicationTask]{
+		OutputState: i.ToReplicationTaskMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicationTaskOutput struct{ *pulumi.OutputState }
 
 func (ReplicationTaskOutput) ElementType() reflect.Type {
@@ -366,6 +387,12 @@ func (o ReplicationTaskOutput) ToReplicationTaskOutput() ReplicationTaskOutput {
 
 func (o ReplicationTaskOutput) ToReplicationTaskOutputWithContext(ctx context.Context) ReplicationTaskOutput {
 	return o
+}
+
+func (o ReplicationTaskOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationTask] {
+	return pulumix.Output[*ReplicationTask]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
@@ -457,6 +484,12 @@ func (o ReplicationTaskArrayOutput) ToReplicationTaskArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ReplicationTaskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationTask] {
+	return pulumix.Output[[]*ReplicationTask]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicationTaskArrayOutput) Index(i pulumi.IntInput) ReplicationTaskOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationTask {
 		return vs[0].([]*ReplicationTask)[vs[1].(int)]
@@ -475,6 +508,12 @@ func (o ReplicationTaskMapOutput) ToReplicationTaskMapOutput() ReplicationTaskMa
 
 func (o ReplicationTaskMapOutput) ToReplicationTaskMapOutputWithContext(ctx context.Context) ReplicationTaskMapOutput {
 	return o
+}
+
+func (o ReplicationTaskMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationTask] {
+	return pulumix.Output[map[string]*ReplicationTask]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicationTaskMapOutput) MapIndex(k pulumi.StringInput) ReplicationTaskOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.VpcIpamPool` provides details about an IPAM pool.
@@ -66,6 +68,7 @@ import (
 //
 // ```
 func GetVpcIamPool(ctx *pulumi.Context, args *GetVpcIamPoolArgs, opts ...pulumi.InvokeOption) (*GetVpcIamPoolResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIamPoolResult
 	err := ctx.Invoke("aws:ec2/getVpcIamPool:getVpcIamPool", args, &rv, opts...)
 	if err != nil {
@@ -171,6 +174,12 @@ func (o GetVpcIamPoolResultOutput) ToGetVpcIamPoolResultOutput() GetVpcIamPoolRe
 
 func (o GetVpcIamPoolResultOutput) ToGetVpcIamPoolResultOutputWithContext(ctx context.Context) GetVpcIamPoolResultOutput {
 	return o
+}
+
+func (o GetVpcIamPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcIamPoolResult] {
+	return pulumix.Output[GetVpcIamPoolResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IP protocol assigned to this pool.

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource attaches a security group to an Elastic Network Interface (ENI).
@@ -164,6 +166,7 @@ func NewNetworkInterfaceSecurityGroupAttachment(ctx *pulumi.Context,
 	if args.SecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkInterfaceSecurityGroupAttachment
 	err := ctx.RegisterResource("aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -241,6 +244,12 @@ func (i *NetworkInterfaceSecurityGroupAttachment) ToNetworkInterfaceSecurityGrou
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceSecurityGroupAttachmentOutput)
 }
 
+func (i *NetworkInterfaceSecurityGroupAttachment) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceSecurityGroupAttachment] {
+	return pulumix.Output[*NetworkInterfaceSecurityGroupAttachment]{
+		OutputState: i.ToNetworkInterfaceSecurityGroupAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkInterfaceSecurityGroupAttachmentArrayInput is an input type that accepts NetworkInterfaceSecurityGroupAttachmentArray and NetworkInterfaceSecurityGroupAttachmentArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceSecurityGroupAttachmentArrayInput` via:
 //
@@ -264,6 +273,12 @@ func (i NetworkInterfaceSecurityGroupAttachmentArray) ToNetworkInterfaceSecurity
 
 func (i NetworkInterfaceSecurityGroupAttachmentArray) ToNetworkInterfaceSecurityGroupAttachmentArrayOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceSecurityGroupAttachmentArrayOutput)
+}
+
+func (i NetworkInterfaceSecurityGroupAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterfaceSecurityGroupAttachment] {
+	return pulumix.Output[[]*NetworkInterfaceSecurityGroupAttachment]{
+		OutputState: i.ToNetworkInterfaceSecurityGroupAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkInterfaceSecurityGroupAttachmentMapInput is an input type that accepts NetworkInterfaceSecurityGroupAttachmentMap and NetworkInterfaceSecurityGroupAttachmentMapOutput values.
@@ -291,6 +306,12 @@ func (i NetworkInterfaceSecurityGroupAttachmentMap) ToNetworkInterfaceSecurityGr
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceSecurityGroupAttachmentMapOutput)
 }
 
+func (i NetworkInterfaceSecurityGroupAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterfaceSecurityGroupAttachment] {
+	return pulumix.Output[map[string]*NetworkInterfaceSecurityGroupAttachment]{
+		OutputState: i.ToNetworkInterfaceSecurityGroupAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkInterfaceSecurityGroupAttachmentOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceSecurityGroupAttachmentOutput) ElementType() reflect.Type {
@@ -303,6 +324,12 @@ func (o NetworkInterfaceSecurityGroupAttachmentOutput) ToNetworkInterfaceSecurit
 
 func (o NetworkInterfaceSecurityGroupAttachmentOutput) ToNetworkInterfaceSecurityGroupAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAttachmentOutput {
 	return o
+}
+
+func (o NetworkInterfaceSecurityGroupAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceSecurityGroupAttachment] {
+	return pulumix.Output[*NetworkInterfaceSecurityGroupAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the network interface to attach to.
@@ -329,6 +356,12 @@ func (o NetworkInterfaceSecurityGroupAttachmentArrayOutput) ToNetworkInterfaceSe
 	return o
 }
 
+func (o NetworkInterfaceSecurityGroupAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterfaceSecurityGroupAttachment] {
+	return pulumix.Output[[]*NetworkInterfaceSecurityGroupAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkInterfaceSecurityGroupAttachmentArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceSecurityGroupAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkInterfaceSecurityGroupAttachment {
 		return vs[0].([]*NetworkInterfaceSecurityGroupAttachment)[vs[1].(int)]
@@ -347,6 +380,12 @@ func (o NetworkInterfaceSecurityGroupAttachmentMapOutput) ToNetworkInterfaceSecu
 
 func (o NetworkInterfaceSecurityGroupAttachmentMapOutput) ToNetworkInterfaceSecurityGroupAttachmentMapOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAttachmentMapOutput {
 	return o
+}
+
+func (o NetworkInterfaceSecurityGroupAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterfaceSecurityGroupAttachment] {
+	return pulumix.Output[map[string]*NetworkInterfaceSecurityGroupAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkInterfaceSecurityGroupAttachmentMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfaceSecurityGroupAttachmentOutput {

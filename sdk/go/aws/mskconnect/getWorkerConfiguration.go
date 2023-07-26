@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an Amazon MSK Connect Worker Configuration.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupWorkerConfiguration(ctx *pulumi.Context, args *LookupWorkerConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupWorkerConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkerConfigurationResult
 	err := ctx.Invoke("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -103,6 +106,12 @@ func (o LookupWorkerConfigurationResultOutput) ToLookupWorkerConfigurationResult
 
 func (o LookupWorkerConfigurationResultOutput) ToLookupWorkerConfigurationResultOutputWithContext(ctx context.Context) LookupWorkerConfigurationResultOutput {
 	return o
+}
+
+func (o LookupWorkerConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWorkerConfigurationResult] {
+	return pulumix.Output[LookupWorkerConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // the ARN of the worker configuration.

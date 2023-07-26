@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Lambda Provisioned Concurrency Configuration.
@@ -105,6 +107,7 @@ func NewProvisionedConcurrencyConfig(ctx *pulumi.Context,
 	if args.Qualifier == nil {
 		return nil, errors.New("invalid value for required argument 'Qualifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisionedConcurrencyConfig
 	err := ctx.RegisterResource("aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -190,6 +193,12 @@ func (i *ProvisionedConcurrencyConfig) ToProvisionedConcurrencyConfigOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigOutput)
 }
 
+func (i *ProvisionedConcurrencyConfig) ToOutput(ctx context.Context) pulumix.Output[*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[*ProvisionedConcurrencyConfig]{
+		OutputState: i.ToProvisionedConcurrencyConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProvisionedConcurrencyConfigArrayInput is an input type that accepts ProvisionedConcurrencyConfigArray and ProvisionedConcurrencyConfigArrayOutput values.
 // You can construct a concrete instance of `ProvisionedConcurrencyConfigArrayInput` via:
 //
@@ -213,6 +222,12 @@ func (i ProvisionedConcurrencyConfigArray) ToProvisionedConcurrencyConfigArrayOu
 
 func (i ProvisionedConcurrencyConfigArray) ToProvisionedConcurrencyConfigArrayOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigArrayOutput)
+}
+
+func (i ProvisionedConcurrencyConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[[]*ProvisionedConcurrencyConfig]{
+		OutputState: i.ToProvisionedConcurrencyConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProvisionedConcurrencyConfigMapInput is an input type that accepts ProvisionedConcurrencyConfigMap and ProvisionedConcurrencyConfigMapOutput values.
@@ -240,6 +255,12 @@ func (i ProvisionedConcurrencyConfigMap) ToProvisionedConcurrencyConfigMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigMapOutput)
 }
 
+func (i ProvisionedConcurrencyConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[map[string]*ProvisionedConcurrencyConfig]{
+		OutputState: i.ToProvisionedConcurrencyConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProvisionedConcurrencyConfigOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedConcurrencyConfigOutput) ElementType() reflect.Type {
@@ -252,6 +273,12 @@ func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigOutput
 
 func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigOutput {
 	return o
+}
+
+func (o ProvisionedConcurrencyConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[*ProvisionedConcurrencyConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name or Amazon Resource Name (ARN) of the Lambda Function.
@@ -283,6 +310,12 @@ func (o ProvisionedConcurrencyConfigArrayOutput) ToProvisionedConcurrencyConfigA
 	return o
 }
 
+func (o ProvisionedConcurrencyConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[[]*ProvisionedConcurrencyConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProvisionedConcurrencyConfigArrayOutput) Index(i pulumi.IntInput) ProvisionedConcurrencyConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProvisionedConcurrencyConfig {
 		return vs[0].([]*ProvisionedConcurrencyConfig)[vs[1].(int)]
@@ -301,6 +334,12 @@ func (o ProvisionedConcurrencyConfigMapOutput) ToProvisionedConcurrencyConfigMap
 
 func (o ProvisionedConcurrencyConfigMapOutput) ToProvisionedConcurrencyConfigMapOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigMapOutput {
 	return o
+}
+
+func (o ProvisionedConcurrencyConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProvisionedConcurrencyConfig] {
+	return pulumix.Output[map[string]*ProvisionedConcurrencyConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProvisionedConcurrencyConfigMapOutput) MapIndex(k pulumi.StringInput) ProvisionedConcurrencyConfigOutput {

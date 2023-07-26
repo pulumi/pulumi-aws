@@ -4,11 +4,13 @@
 package ssoadmin
 
 import (
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
 func GetInstances(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstancesResult
 	err := ctx.Invoke("aws:ssoadmin/getInstances:getInstances", nil, &rv, opts...)
 	if err != nil {

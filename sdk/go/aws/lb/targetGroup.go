@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Target Group resource for use with Load Balancer resources.
@@ -219,6 +221,7 @@ func NewTargetGroup(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TargetGroup
 	err := ctx.RegisterResource("aws:lb/targetGroup:TargetGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -484,6 +487,12 @@ func (i *TargetGroup) ToTargetGroupOutputWithContext(ctx context.Context) Target
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupOutput)
 }
 
+func (i *TargetGroup) ToOutput(ctx context.Context) pulumix.Output[*TargetGroup] {
+	return pulumix.Output[*TargetGroup]{
+		OutputState: i.ToTargetGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TargetGroupArrayInput is an input type that accepts TargetGroupArray and TargetGroupArrayOutput values.
 // You can construct a concrete instance of `TargetGroupArrayInput` via:
 //
@@ -507,6 +516,12 @@ func (i TargetGroupArray) ToTargetGroupArrayOutput() TargetGroupArrayOutput {
 
 func (i TargetGroupArray) ToTargetGroupArrayOutputWithContext(ctx context.Context) TargetGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupArrayOutput)
+}
+
+func (i TargetGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*TargetGroup] {
+	return pulumix.Output[[]*TargetGroup]{
+		OutputState: i.ToTargetGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TargetGroupMapInput is an input type that accepts TargetGroupMap and TargetGroupMapOutput values.
@@ -534,6 +549,12 @@ func (i TargetGroupMap) ToTargetGroupMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupMapOutput)
 }
 
+func (i TargetGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TargetGroup] {
+	return pulumix.Output[map[string]*TargetGroup]{
+		OutputState: i.ToTargetGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TargetGroupOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupOutput) ElementType() reflect.Type {
@@ -546,6 +567,12 @@ func (o TargetGroupOutput) ToTargetGroupOutput() TargetGroupOutput {
 
 func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) TargetGroupOutput {
 	return o
+}
+
+func (o TargetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroup] {
+	return pulumix.Output[*TargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Target Group (matches `id`).
@@ -685,6 +712,12 @@ func (o TargetGroupArrayOutput) ToTargetGroupArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o TargetGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TargetGroup] {
+	return pulumix.Output[[]*TargetGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TargetGroupArrayOutput) Index(i pulumi.IntInput) TargetGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TargetGroup {
 		return vs[0].([]*TargetGroup)[vs[1].(int)]
@@ -703,6 +736,12 @@ func (o TargetGroupMapOutput) ToTargetGroupMapOutput() TargetGroupMapOutput {
 
 func (o TargetGroupMapOutput) ToTargetGroupMapOutputWithContext(ctx context.Context) TargetGroupMapOutput {
 	return o
+}
+
+func (o TargetGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TargetGroup] {
+	return pulumix.Output[map[string]*TargetGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupMapOutput) MapIndex(k pulumi.StringInput) TargetGroupOutput {

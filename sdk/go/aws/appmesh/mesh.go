@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS App Mesh service mesh resource.
@@ -105,6 +107,7 @@ func NewMesh(ctx *pulumi.Context,
 		args = &MeshArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Mesh
 	err := ctx.RegisterResource("aws:appmesh/mesh:Mesh", name, args, &resource, opts...)
 	if err != nil {
@@ -214,6 +217,12 @@ func (i *Mesh) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MeshOutput)
 }
 
+func (i *Mesh) ToOutput(ctx context.Context) pulumix.Output[*Mesh] {
+	return pulumix.Output[*Mesh]{
+		OutputState: i.ToMeshOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MeshArrayInput is an input type that accepts MeshArray and MeshArrayOutput values.
 // You can construct a concrete instance of `MeshArrayInput` via:
 //
@@ -237,6 +246,12 @@ func (i MeshArray) ToMeshArrayOutput() MeshArrayOutput {
 
 func (i MeshArray) ToMeshArrayOutputWithContext(ctx context.Context) MeshArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MeshArrayOutput)
+}
+
+func (i MeshArray) ToOutput(ctx context.Context) pulumix.Output[[]*Mesh] {
+	return pulumix.Output[[]*Mesh]{
+		OutputState: i.ToMeshArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MeshMapInput is an input type that accepts MeshMap and MeshMapOutput values.
@@ -264,6 +279,12 @@ func (i MeshMap) ToMeshMapOutputWithContext(ctx context.Context) MeshMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MeshMapOutput)
 }
 
+func (i MeshMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Mesh] {
+	return pulumix.Output[map[string]*Mesh]{
+		OutputState: i.ToMeshMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MeshOutput struct{ *pulumi.OutputState }
 
 func (MeshOutput) ElementType() reflect.Type {
@@ -276,6 +297,12 @@ func (o MeshOutput) ToMeshOutput() MeshOutput {
 
 func (o MeshOutput) ToMeshOutputWithContext(ctx context.Context) MeshOutput {
 	return o
+}
+
+func (o MeshOutput) ToOutput(ctx context.Context) pulumix.Output[*Mesh] {
+	return pulumix.Output[*Mesh]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the service mesh.
@@ -337,6 +364,12 @@ func (o MeshArrayOutput) ToMeshArrayOutputWithContext(ctx context.Context) MeshA
 	return o
 }
 
+func (o MeshArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Mesh] {
+	return pulumix.Output[[]*Mesh]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MeshArrayOutput) Index(i pulumi.IntInput) MeshOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Mesh {
 		return vs[0].([]*Mesh)[vs[1].(int)]
@@ -355,6 +388,12 @@ func (o MeshMapOutput) ToMeshMapOutput() MeshMapOutput {
 
 func (o MeshMapOutput) ToMeshMapOutputWithContext(ctx context.Context) MeshMapOutput {
 	return o
+}
+
+func (o MeshMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Mesh] {
+	return pulumix.Output[map[string]*Mesh]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MeshMapOutput) MapIndex(k pulumi.StringInput) MeshOutput {

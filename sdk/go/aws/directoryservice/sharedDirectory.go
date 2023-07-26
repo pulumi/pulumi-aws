@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a directory in your account (directory owner) shared with another account (directory consumer).
@@ -99,6 +101,7 @@ func NewSharedDirectory(ctx *pulumi.Context,
 		"notes",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SharedDirectory
 	err := ctx.RegisterResource("aws:directoryservice/sharedDirectory:SharedDirectory", name, args, &resource, opts...)
 	if err != nil {
@@ -204,6 +207,12 @@ func (i *SharedDirectory) ToSharedDirectoryOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryOutput)
 }
 
+func (i *SharedDirectory) ToOutput(ctx context.Context) pulumix.Output[*SharedDirectory] {
+	return pulumix.Output[*SharedDirectory]{
+		OutputState: i.ToSharedDirectoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SharedDirectoryArrayInput is an input type that accepts SharedDirectoryArray and SharedDirectoryArrayOutput values.
 // You can construct a concrete instance of `SharedDirectoryArrayInput` via:
 //
@@ -227,6 +236,12 @@ func (i SharedDirectoryArray) ToSharedDirectoryArrayOutput() SharedDirectoryArra
 
 func (i SharedDirectoryArray) ToSharedDirectoryArrayOutputWithContext(ctx context.Context) SharedDirectoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryArrayOutput)
+}
+
+func (i SharedDirectoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*SharedDirectory] {
+	return pulumix.Output[[]*SharedDirectory]{
+		OutputState: i.ToSharedDirectoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SharedDirectoryMapInput is an input type that accepts SharedDirectoryMap and SharedDirectoryMapOutput values.
@@ -254,6 +269,12 @@ func (i SharedDirectoryMap) ToSharedDirectoryMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryMapOutput)
 }
 
+func (i SharedDirectoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedDirectory] {
+	return pulumix.Output[map[string]*SharedDirectory]{
+		OutputState: i.ToSharedDirectoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SharedDirectoryOutput struct{ *pulumi.OutputState }
 
 func (SharedDirectoryOutput) ElementType() reflect.Type {
@@ -266,6 +287,12 @@ func (o SharedDirectoryOutput) ToSharedDirectoryOutput() SharedDirectoryOutput {
 
 func (o SharedDirectoryOutput) ToSharedDirectoryOutputWithContext(ctx context.Context) SharedDirectoryOutput {
 	return o
+}
+
+func (o SharedDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[*SharedDirectory] {
+	return pulumix.Output[*SharedDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
@@ -309,6 +336,12 @@ func (o SharedDirectoryArrayOutput) ToSharedDirectoryArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o SharedDirectoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SharedDirectory] {
+	return pulumix.Output[[]*SharedDirectory]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SharedDirectoryArrayOutput) Index(i pulumi.IntInput) SharedDirectoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SharedDirectory {
 		return vs[0].([]*SharedDirectory)[vs[1].(int)]
@@ -327,6 +360,12 @@ func (o SharedDirectoryMapOutput) ToSharedDirectoryMapOutput() SharedDirectoryMa
 
 func (o SharedDirectoryMapOutput) ToSharedDirectoryMapOutputWithContext(ctx context.Context) SharedDirectoryMapOutput {
 	return o
+}
+
+func (o SharedDirectoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedDirectory] {
+	return pulumix.Output[map[string]*SharedDirectory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SharedDirectoryMapOutput) MapIndex(k pulumi.StringInput) SharedDirectoryOutput {

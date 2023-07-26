@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudFront real-time log configuration resource.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupRealtimeLogConfig(ctx *pulumi.Context, args *LookupRealtimeLogConfigArgs, opts ...pulumi.InvokeOption) (*LookupRealtimeLogConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRealtimeLogConfigResult
 	err := ctx.Invoke("aws:cloudfront/getRealtimeLogConfig:getRealtimeLogConfig", args, &rv, opts...)
 	if err != nil {
@@ -103,6 +106,12 @@ func (o LookupRealtimeLogConfigResultOutput) ToLookupRealtimeLogConfigResultOutp
 
 func (o LookupRealtimeLogConfigResultOutput) ToLookupRealtimeLogConfigResultOutputWithContext(ctx context.Context) LookupRealtimeLogConfigResultOutput {
 	return o
+}
+
+func (o LookupRealtimeLogConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRealtimeLogConfigResult] {
+	return pulumix.Output[LookupRealtimeLogConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN (Amazon Resource Name) of the CloudFront real-time log configuration.

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides the ability to register instances and containers with an Application Load Balancer (ALB) or Network Load Balancer (NLB) target group. For attaching resources with Elastic Load Balancer (ELB), see the `elb.Attachment` resource.
@@ -135,6 +137,7 @@ func NewTargetGroupAttachment(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TargetGroupAttachment
 	err := ctx.RegisterResource("aws:alb/targetGroupAttachment:TargetGroupAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -228,6 +231,12 @@ func (i *TargetGroupAttachment) ToTargetGroupAttachmentOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentOutput)
 }
 
+func (i *TargetGroupAttachment) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupAttachment] {
+	return pulumix.Output[*TargetGroupAttachment]{
+		OutputState: i.ToTargetGroupAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TargetGroupAttachmentArrayInput is an input type that accepts TargetGroupAttachmentArray and TargetGroupAttachmentArrayOutput values.
 // You can construct a concrete instance of `TargetGroupAttachmentArrayInput` via:
 //
@@ -251,6 +260,12 @@ func (i TargetGroupAttachmentArray) ToTargetGroupAttachmentArrayOutput() TargetG
 
 func (i TargetGroupAttachmentArray) ToTargetGroupAttachmentArrayOutputWithContext(ctx context.Context) TargetGroupAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentArrayOutput)
+}
+
+func (i TargetGroupAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*TargetGroupAttachment] {
+	return pulumix.Output[[]*TargetGroupAttachment]{
+		OutputState: i.ToTargetGroupAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TargetGroupAttachmentMapInput is an input type that accepts TargetGroupAttachmentMap and TargetGroupAttachmentMapOutput values.
@@ -278,6 +293,12 @@ func (i TargetGroupAttachmentMap) ToTargetGroupAttachmentMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentMapOutput)
 }
 
+func (i TargetGroupAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TargetGroupAttachment] {
+	return pulumix.Output[map[string]*TargetGroupAttachment]{
+		OutputState: i.ToTargetGroupAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TargetGroupAttachmentOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupAttachmentOutput) ElementType() reflect.Type {
@@ -290,6 +311,12 @@ func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentOutput() TargetGroup
 
 func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentOutputWithContext(ctx context.Context) TargetGroupAttachmentOutput {
 	return o
+}
+
+func (o TargetGroupAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupAttachment] {
+	return pulumix.Output[*TargetGroupAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
@@ -326,6 +353,12 @@ func (o TargetGroupAttachmentArrayOutput) ToTargetGroupAttachmentArrayOutputWith
 	return o
 }
 
+func (o TargetGroupAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TargetGroupAttachment] {
+	return pulumix.Output[[]*TargetGroupAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TargetGroupAttachmentArrayOutput) Index(i pulumi.IntInput) TargetGroupAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TargetGroupAttachment {
 		return vs[0].([]*TargetGroupAttachment)[vs[1].(int)]
@@ -344,6 +377,12 @@ func (o TargetGroupAttachmentMapOutput) ToTargetGroupAttachmentMapOutput() Targe
 
 func (o TargetGroupAttachmentMapOutput) ToTargetGroupAttachmentMapOutputWithContext(ctx context.Context) TargetGroupAttachmentMapOutput {
 	return o
+}
+
+func (o TargetGroupAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TargetGroupAttachment] {
+	return pulumix.Output[map[string]*TargetGroupAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetGroupAttachmentMapOutput) MapIndex(k pulumi.StringInput) TargetGroupAttachmentOutput {

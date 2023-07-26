@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Service Catalog AWS Organizations Access, a portfolio sharing feature through AWS Organizations. This allows Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This resource will prompt AWS to set `organizations:EnableAWSServiceAccess` on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.
@@ -58,6 +60,7 @@ func NewOrganizationsAccess(ctx *pulumi.Context,
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationsAccess
 	err := ctx.RegisterResource("aws:servicecatalog/organizationsAccess:OrganizationsAccess", name, args, &resource, opts...)
 	if err != nil {
@@ -127,6 +130,12 @@ func (i *OrganizationsAccess) ToOrganizationsAccessOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationsAccessOutput)
 }
 
+func (i *OrganizationsAccess) ToOutput(ctx context.Context) pulumix.Output[*OrganizationsAccess] {
+	return pulumix.Output[*OrganizationsAccess]{
+		OutputState: i.ToOrganizationsAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationsAccessArrayInput is an input type that accepts OrganizationsAccessArray and OrganizationsAccessArrayOutput values.
 // You can construct a concrete instance of `OrganizationsAccessArrayInput` via:
 //
@@ -150,6 +159,12 @@ func (i OrganizationsAccessArray) ToOrganizationsAccessArrayOutput() Organizatio
 
 func (i OrganizationsAccessArray) ToOrganizationsAccessArrayOutputWithContext(ctx context.Context) OrganizationsAccessArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationsAccessArrayOutput)
+}
+
+func (i OrganizationsAccessArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationsAccess] {
+	return pulumix.Output[[]*OrganizationsAccess]{
+		OutputState: i.ToOrganizationsAccessArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrganizationsAccessMapInput is an input type that accepts OrganizationsAccessMap and OrganizationsAccessMapOutput values.
@@ -177,6 +192,12 @@ func (i OrganizationsAccessMap) ToOrganizationsAccessMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationsAccessMapOutput)
 }
 
+func (i OrganizationsAccessMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationsAccess] {
+	return pulumix.Output[map[string]*OrganizationsAccess]{
+		OutputState: i.ToOrganizationsAccessMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationsAccessOutput struct{ *pulumi.OutputState }
 
 func (OrganizationsAccessOutput) ElementType() reflect.Type {
@@ -189,6 +210,12 @@ func (o OrganizationsAccessOutput) ToOrganizationsAccessOutput() OrganizationsAc
 
 func (o OrganizationsAccessOutput) ToOrganizationsAccessOutputWithContext(ctx context.Context) OrganizationsAccessOutput {
 	return o
+}
+
+func (o OrganizationsAccessOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationsAccess] {
+	return pulumix.Output[*OrganizationsAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether to enable AWS Organizations access.
@@ -210,6 +237,12 @@ func (o OrganizationsAccessArrayOutput) ToOrganizationsAccessArrayOutputWithCont
 	return o
 }
 
+func (o OrganizationsAccessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationsAccess] {
+	return pulumix.Output[[]*OrganizationsAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationsAccessArrayOutput) Index(i pulumi.IntInput) OrganizationsAccessOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationsAccess {
 		return vs[0].([]*OrganizationsAccess)[vs[1].(int)]
@@ -228,6 +261,12 @@ func (o OrganizationsAccessMapOutput) ToOrganizationsAccessMapOutput() Organizat
 
 func (o OrganizationsAccessMapOutput) ToOrganizationsAccessMapOutputWithContext(ctx context.Context) OrganizationsAccessMapOutput {
 	return o
+}
+
+func (o OrganizationsAccessMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationsAccess] {
+	return pulumix.Output[map[string]*OrganizationsAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationsAccessMapOutput) MapIndex(k pulumi.StringInput) OrganizationsAccessOutput {

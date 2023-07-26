@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a CloudFront Function.
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulumi.InvokeOption) (*LookupFunctionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionResult
 	err := ctx.Invoke("aws:cloudfront/getFunction:getFunction", args, &rv, opts...)
 	if err != nil {
@@ -117,6 +120,12 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutput() LookupFunctio
 
 func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx context.Context) LookupFunctionResultOutput {
 	return o
+}
+
+func (o LookupFunctionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFunctionResult] {
+	return pulumix.Output[LookupFunctionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN identifying your CloudFront Function.

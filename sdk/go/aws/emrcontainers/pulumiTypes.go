@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type VirtualClusterContainerProvider struct {
 	// The name of the container provider that is running your EMR Containers cluster
@@ -49,6 +53,12 @@ func (i VirtualClusterContainerProviderArgs) ToVirtualClusterContainerProviderOu
 
 func (i VirtualClusterContainerProviderArgs) ToVirtualClusterContainerProviderOutputWithContext(ctx context.Context) VirtualClusterContainerProviderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderOutput)
+}
+
+func (i VirtualClusterContainerProviderArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProvider] {
+	return pulumix.Output[VirtualClusterContainerProvider]{
+		OutputState: i.ToVirtualClusterContainerProviderOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i VirtualClusterContainerProviderArgs) ToVirtualClusterContainerProviderPtrOutput() VirtualClusterContainerProviderPtrOutput {
@@ -92,6 +102,12 @@ func (i *virtualClusterContainerProviderPtrType) ToVirtualClusterContainerProvid
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderPtrOutput)
 }
 
+func (i *virtualClusterContainerProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProvider] {
+	return pulumix.Output[*VirtualClusterContainerProvider]{
+		OutputState: i.ToVirtualClusterContainerProviderPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualClusterContainerProviderOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterContainerProviderOutput) ElementType() reflect.Type {
@@ -114,6 +130,12 @@ func (o VirtualClusterContainerProviderOutput) ToVirtualClusterContainerProvider
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualClusterContainerProvider) *VirtualClusterContainerProvider {
 		return &v
 	}).(VirtualClusterContainerProviderPtrOutput)
+}
+
+func (o VirtualClusterContainerProviderOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProvider] {
+	return pulumix.Output[VirtualClusterContainerProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the container provider that is running your EMR Containers cluster
@@ -143,6 +165,12 @@ func (o VirtualClusterContainerProviderPtrOutput) ToVirtualClusterContainerProvi
 
 func (o VirtualClusterContainerProviderPtrOutput) ToVirtualClusterContainerProviderPtrOutputWithContext(ctx context.Context) VirtualClusterContainerProviderPtrOutput {
 	return o
+}
+
+func (o VirtualClusterContainerProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProvider] {
+	return pulumix.Output[*VirtualClusterContainerProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualClusterContainerProviderPtrOutput) Elem() VirtualClusterContainerProviderOutput {
@@ -218,6 +246,12 @@ func (i VirtualClusterContainerProviderInfoArgs) ToVirtualClusterContainerProvid
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderInfoOutput)
 }
 
+func (i VirtualClusterContainerProviderInfoArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProviderInfo] {
+	return pulumix.Output[VirtualClusterContainerProviderInfo]{
+		OutputState: i.ToVirtualClusterContainerProviderInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualClusterContainerProviderInfoArgs) ToVirtualClusterContainerProviderInfoPtrOutput() VirtualClusterContainerProviderInfoPtrOutput {
 	return i.ToVirtualClusterContainerProviderInfoPtrOutputWithContext(context.Background())
 }
@@ -259,6 +293,12 @@ func (i *virtualClusterContainerProviderInfoPtrType) ToVirtualClusterContainerPr
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderInfoPtrOutput)
 }
 
+func (i *virtualClusterContainerProviderInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProviderInfo] {
+	return pulumix.Output[*VirtualClusterContainerProviderInfo]{
+		OutputState: i.ToVirtualClusterContainerProviderInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualClusterContainerProviderInfoOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterContainerProviderInfoOutput) ElementType() reflect.Type {
@@ -283,6 +323,12 @@ func (o VirtualClusterContainerProviderInfoOutput) ToVirtualClusterContainerProv
 	}).(VirtualClusterContainerProviderInfoPtrOutput)
 }
 
+func (o VirtualClusterContainerProviderInfoOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProviderInfo] {
+	return pulumix.Output[VirtualClusterContainerProviderInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoOutput) EksInfo() VirtualClusterContainerProviderInfoEksInfoOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProviderInfo) VirtualClusterContainerProviderInfoEksInfo {
@@ -302,6 +348,12 @@ func (o VirtualClusterContainerProviderInfoPtrOutput) ToVirtualClusterContainerP
 
 func (o VirtualClusterContainerProviderInfoPtrOutput) ToVirtualClusterContainerProviderInfoPtrOutputWithContext(ctx context.Context) VirtualClusterContainerProviderInfoPtrOutput {
 	return o
+}
+
+func (o VirtualClusterContainerProviderInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProviderInfo] {
+	return pulumix.Output[*VirtualClusterContainerProviderInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualClusterContainerProviderInfoPtrOutput) Elem() VirtualClusterContainerProviderInfoOutput {
@@ -357,6 +409,12 @@ func (i VirtualClusterContainerProviderInfoEksInfoArgs) ToVirtualClusterContaine
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderInfoEksInfoOutput)
 }
 
+func (i VirtualClusterContainerProviderInfoEksInfoArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProviderInfoEksInfo] {
+	return pulumix.Output[VirtualClusterContainerProviderInfoEksInfo]{
+		OutputState: i.ToVirtualClusterContainerProviderInfoEksInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i VirtualClusterContainerProviderInfoEksInfoArgs) ToVirtualClusterContainerProviderInfoEksInfoPtrOutput() VirtualClusterContainerProviderInfoEksInfoPtrOutput {
 	return i.ToVirtualClusterContainerProviderInfoEksInfoPtrOutputWithContext(context.Background())
 }
@@ -398,6 +456,12 @@ func (i *virtualClusterContainerProviderInfoEksInfoPtrType) ToVirtualClusterCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderInfoEksInfoPtrOutput)
 }
 
+func (i *virtualClusterContainerProviderInfoEksInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProviderInfoEksInfo] {
+	return pulumix.Output[*VirtualClusterContainerProviderInfoEksInfo]{
+		OutputState: i.ToVirtualClusterContainerProviderInfoEksInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualClusterContainerProviderInfoEksInfoOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterContainerProviderInfoEksInfoOutput) ElementType() reflect.Type {
@@ -422,6 +486,12 @@ func (o VirtualClusterContainerProviderInfoEksInfoOutput) ToVirtualClusterContai
 	}).(VirtualClusterContainerProviderInfoEksInfoPtrOutput)
 }
 
+func (o VirtualClusterContainerProviderInfoEksInfoOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProviderInfoEksInfo] {
+	return pulumix.Output[VirtualClusterContainerProviderInfoEksInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The namespace where the EMR Containers cluster is running
 func (o VirtualClusterContainerProviderInfoEksInfoOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProviderInfoEksInfo) *string { return v.Namespace }).(pulumi.StringPtrOutput)
@@ -439,6 +509,12 @@ func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) ToVirtualClusterCon
 
 func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) ToVirtualClusterContainerProviderInfoEksInfoPtrOutputWithContext(ctx context.Context) VirtualClusterContainerProviderInfoEksInfoPtrOutput {
 	return o
+}
+
+func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualClusterContainerProviderInfoEksInfo] {
+	return pulumix.Output[*VirtualClusterContainerProviderInfoEksInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualClusterContainerProviderInfoEksInfoPtrOutput) Elem() VirtualClusterContainerProviderInfoEksInfoOutput {
@@ -502,6 +578,12 @@ func (i GetVirtualClusterContainerProviderArgs) ToGetVirtualClusterContainerProv
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderOutput)
 }
 
+func (i GetVirtualClusterContainerProviderArgs) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProvider] {
+	return pulumix.Output[GetVirtualClusterContainerProvider]{
+		OutputState: i.ToGetVirtualClusterContainerProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetVirtualClusterContainerProviderArrayInput is an input type that accepts GetVirtualClusterContainerProviderArray and GetVirtualClusterContainerProviderArrayOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderArrayInput` via:
 //
@@ -527,6 +609,12 @@ func (i GetVirtualClusterContainerProviderArray) ToGetVirtualClusterContainerPro
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderArrayOutput)
 }
 
+func (i GetVirtualClusterContainerProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProvider] {
+	return pulumix.Output[[]GetVirtualClusterContainerProvider]{
+		OutputState: i.ToGetVirtualClusterContainerProviderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetVirtualClusterContainerProviderOutput struct{ *pulumi.OutputState }
 
 func (GetVirtualClusterContainerProviderOutput) ElementType() reflect.Type {
@@ -539,6 +627,12 @@ func (o GetVirtualClusterContainerProviderOutput) ToGetVirtualClusterContainerPr
 
 func (o GetVirtualClusterContainerProviderOutput) ToGetVirtualClusterContainerProviderOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderOutput {
 	return o
+}
+
+func (o GetVirtualClusterContainerProviderOutput) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProvider] {
+	return pulumix.Output[GetVirtualClusterContainerProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the container provider that is running your EMR Containers cluster
@@ -568,6 +662,12 @@ func (o GetVirtualClusterContainerProviderArrayOutput) ToGetVirtualClusterContai
 
 func (o GetVirtualClusterContainerProviderArrayOutput) ToGetVirtualClusterContainerProviderArrayOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderArrayOutput {
 	return o
+}
+
+func (o GetVirtualClusterContainerProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProvider] {
+	return pulumix.Output[[]GetVirtualClusterContainerProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVirtualClusterContainerProviderArrayOutput) Index(i pulumi.IntInput) GetVirtualClusterContainerProviderOutput {
@@ -609,6 +709,12 @@ func (i GetVirtualClusterContainerProviderInfoArgs) ToGetVirtualClusterContainer
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderInfoOutput)
 }
 
+func (i GetVirtualClusterContainerProviderInfoArgs) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProviderInfo] {
+	return pulumix.Output[GetVirtualClusterContainerProviderInfo]{
+		OutputState: i.ToGetVirtualClusterContainerProviderInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetVirtualClusterContainerProviderInfoArrayInput is an input type that accepts GetVirtualClusterContainerProviderInfoArray and GetVirtualClusterContainerProviderInfoArrayOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderInfoArrayInput` via:
 //
@@ -634,6 +740,12 @@ func (i GetVirtualClusterContainerProviderInfoArray) ToGetVirtualClusterContaine
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderInfoArrayOutput)
 }
 
+func (i GetVirtualClusterContainerProviderInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProviderInfo] {
+	return pulumix.Output[[]GetVirtualClusterContainerProviderInfo]{
+		OutputState: i.ToGetVirtualClusterContainerProviderInfoArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetVirtualClusterContainerProviderInfoOutput struct{ *pulumi.OutputState }
 
 func (GetVirtualClusterContainerProviderInfoOutput) ElementType() reflect.Type {
@@ -646,6 +758,12 @@ func (o GetVirtualClusterContainerProviderInfoOutput) ToGetVirtualClusterContain
 
 func (o GetVirtualClusterContainerProviderInfoOutput) ToGetVirtualClusterContainerProviderInfoOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderInfoOutput {
 	return o
+}
+
+func (o GetVirtualClusterContainerProviderInfoOutput) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProviderInfo] {
+	return pulumix.Output[GetVirtualClusterContainerProviderInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
@@ -667,6 +785,12 @@ func (o GetVirtualClusterContainerProviderInfoArrayOutput) ToGetVirtualClusterCo
 
 func (o GetVirtualClusterContainerProviderInfoArrayOutput) ToGetVirtualClusterContainerProviderInfoArrayOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderInfoArrayOutput {
 	return o
+}
+
+func (o GetVirtualClusterContainerProviderInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProviderInfo] {
+	return pulumix.Output[[]GetVirtualClusterContainerProviderInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVirtualClusterContainerProviderInfoArrayOutput) Index(i pulumi.IntInput) GetVirtualClusterContainerProviderInfoOutput {
@@ -708,6 +832,12 @@ func (i GetVirtualClusterContainerProviderInfoEksInfoArgs) ToGetVirtualClusterCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderInfoEksInfoOutput)
 }
 
+func (i GetVirtualClusterContainerProviderInfoEksInfoArgs) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProviderInfoEksInfo] {
+	return pulumix.Output[GetVirtualClusterContainerProviderInfoEksInfo]{
+		OutputState: i.ToGetVirtualClusterContainerProviderInfoEksInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetVirtualClusterContainerProviderInfoEksInfoArrayInput is an input type that accepts GetVirtualClusterContainerProviderInfoEksInfoArray and GetVirtualClusterContainerProviderInfoEksInfoArrayOutput values.
 // You can construct a concrete instance of `GetVirtualClusterContainerProviderInfoEksInfoArrayInput` via:
 //
@@ -733,6 +863,12 @@ func (i GetVirtualClusterContainerProviderInfoEksInfoArray) ToGetVirtualClusterC
 	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualClusterContainerProviderInfoEksInfoArrayOutput)
 }
 
+func (i GetVirtualClusterContainerProviderInfoEksInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProviderInfoEksInfo] {
+	return pulumix.Output[[]GetVirtualClusterContainerProviderInfoEksInfo]{
+		OutputState: i.ToGetVirtualClusterContainerProviderInfoEksInfoArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetVirtualClusterContainerProviderInfoEksInfoOutput struct{ *pulumi.OutputState }
 
 func (GetVirtualClusterContainerProviderInfoEksInfoOutput) ElementType() reflect.Type {
@@ -745,6 +881,12 @@ func (o GetVirtualClusterContainerProviderInfoEksInfoOutput) ToGetVirtualCluster
 
 func (o GetVirtualClusterContainerProviderInfoEksInfoOutput) ToGetVirtualClusterContainerProviderInfoEksInfoOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderInfoEksInfoOutput {
 	return o
+}
+
+func (o GetVirtualClusterContainerProviderInfoEksInfoOutput) ToOutput(ctx context.Context) pulumix.Output[GetVirtualClusterContainerProviderInfoEksInfo] {
+	return pulumix.Output[GetVirtualClusterContainerProviderInfoEksInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The namespace where the EMR Containers cluster is running
@@ -764,6 +906,12 @@ func (o GetVirtualClusterContainerProviderInfoEksInfoArrayOutput) ToGetVirtualCl
 
 func (o GetVirtualClusterContainerProviderInfoEksInfoArrayOutput) ToGetVirtualClusterContainerProviderInfoEksInfoArrayOutputWithContext(ctx context.Context) GetVirtualClusterContainerProviderInfoEksInfoArrayOutput {
 	return o
+}
+
+func (o GetVirtualClusterContainerProviderInfoEksInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVirtualClusterContainerProviderInfoEksInfo] {
+	return pulumix.Output[[]GetVirtualClusterContainerProviderInfoEksInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVirtualClusterContainerProviderInfoEksInfoArrayOutput) Index(i pulumi.IntInput) GetVirtualClusterContainerProviderInfoEksInfoOutput {

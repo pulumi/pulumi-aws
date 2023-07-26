@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS DMS (Database Migration) Endpoint.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEndpointResult
 	err := ctx.Invoke("aws:dms/getEndpoint:getEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -129,6 +132,12 @@ func (o LookupEndpointResultOutput) ToLookupEndpointResultOutput() LookupEndpoin
 
 func (o LookupEndpointResultOutput) ToLookupEndpointResultOutputWithContext(ctx context.Context) LookupEndpointResultOutput {
 	return o
+}
+
+func (o LookupEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEndpointResult] {
+	return pulumix.Output[LookupEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupEndpointResultOutput) CertificateArn() pulumi.StringOutput {

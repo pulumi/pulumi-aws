@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Metric Stream resource.
@@ -302,6 +304,7 @@ func NewMetricStream(ctx *pulumi.Context,
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MetricStream
 	err := ctx.RegisterResource("aws:cloudwatch/metricStream:MetricStream", name, args, &resource, opts...)
 	if err != nil {
@@ -471,6 +474,12 @@ func (i *MetricStream) ToMetricStreamOutputWithContext(ctx context.Context) Metr
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamOutput)
 }
 
+func (i *MetricStream) ToOutput(ctx context.Context) pulumix.Output[*MetricStream] {
+	return pulumix.Output[*MetricStream]{
+		OutputState: i.ToMetricStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricStreamArrayInput is an input type that accepts MetricStreamArray and MetricStreamArrayOutput values.
 // You can construct a concrete instance of `MetricStreamArrayInput` via:
 //
@@ -494,6 +503,12 @@ func (i MetricStreamArray) ToMetricStreamArrayOutput() MetricStreamArrayOutput {
 
 func (i MetricStreamArray) ToMetricStreamArrayOutputWithContext(ctx context.Context) MetricStreamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamArrayOutput)
+}
+
+func (i MetricStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]*MetricStream] {
+	return pulumix.Output[[]*MetricStream]{
+		OutputState: i.ToMetricStreamArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MetricStreamMapInput is an input type that accepts MetricStreamMap and MetricStreamMapOutput values.
@@ -521,6 +536,12 @@ func (i MetricStreamMap) ToMetricStreamMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamMapOutput)
 }
 
+func (i MetricStreamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricStream] {
+	return pulumix.Output[map[string]*MetricStream]{
+		OutputState: i.ToMetricStreamMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricStreamOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamOutput) ElementType() reflect.Type {
@@ -533,6 +554,12 @@ func (o MetricStreamOutput) ToMetricStreamOutput() MetricStreamOutput {
 
 func (o MetricStreamOutput) ToMetricStreamOutputWithContext(ctx context.Context) MetricStreamOutput {
 	return o
+}
+
+func (o MetricStreamOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricStream] {
+	return pulumix.Output[*MetricStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the metric stream.
@@ -628,6 +655,12 @@ func (o MetricStreamArrayOutput) ToMetricStreamArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o MetricStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MetricStream] {
+	return pulumix.Output[[]*MetricStream]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MetricStreamArrayOutput) Index(i pulumi.IntInput) MetricStreamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MetricStream {
 		return vs[0].([]*MetricStream)[vs[1].(int)]
@@ -646,6 +679,12 @@ func (o MetricStreamMapOutput) ToMetricStreamMapOutput() MetricStreamMapOutput {
 
 func (o MetricStreamMapOutput) ToMetricStreamMapOutputWithContext(ctx context.Context) MetricStreamMapOutput {
 	return o
+}
+
+func (o MetricStreamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricStream] {
+	return pulumix.Output[map[string]*MetricStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricStreamMapOutput) MapIndex(k pulumi.StringInput) MetricStreamOutput {

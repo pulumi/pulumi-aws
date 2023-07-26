@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM Virtual MFA Device.
@@ -80,6 +82,7 @@ func NewVirtualMfaDevice(ctx *pulumi.Context,
 	if args.VirtualMfaDeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMfaDeviceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualMfaDevice
 	err := ctx.RegisterResource("aws:iam/virtualMfaDevice:VirtualMfaDevice", name, args, &resource, opts...)
 	if err != nil {
@@ -181,6 +184,12 @@ func (i *VirtualMfaDevice) ToVirtualMfaDeviceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMfaDeviceOutput)
 }
 
+func (i *VirtualMfaDevice) ToOutput(ctx context.Context) pulumix.Output[*VirtualMfaDevice] {
+	return pulumix.Output[*VirtualMfaDevice]{
+		OutputState: i.ToVirtualMfaDeviceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualMfaDeviceArrayInput is an input type that accepts VirtualMfaDeviceArray and VirtualMfaDeviceArrayOutput values.
 // You can construct a concrete instance of `VirtualMfaDeviceArrayInput` via:
 //
@@ -204,6 +213,12 @@ func (i VirtualMfaDeviceArray) ToVirtualMfaDeviceArrayOutput() VirtualMfaDeviceA
 
 func (i VirtualMfaDeviceArray) ToVirtualMfaDeviceArrayOutputWithContext(ctx context.Context) VirtualMfaDeviceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMfaDeviceArrayOutput)
+}
+
+func (i VirtualMfaDeviceArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMfaDevice] {
+	return pulumix.Output[[]*VirtualMfaDevice]{
+		OutputState: i.ToVirtualMfaDeviceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualMfaDeviceMapInput is an input type that accepts VirtualMfaDeviceMap and VirtualMfaDeviceMapOutput values.
@@ -231,6 +246,12 @@ func (i VirtualMfaDeviceMap) ToVirtualMfaDeviceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMfaDeviceMapOutput)
 }
 
+func (i VirtualMfaDeviceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMfaDevice] {
+	return pulumix.Output[map[string]*VirtualMfaDevice]{
+		OutputState: i.ToVirtualMfaDeviceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualMfaDeviceOutput struct{ *pulumi.OutputState }
 
 func (VirtualMfaDeviceOutput) ElementType() reflect.Type {
@@ -243,6 +264,12 @@ func (o VirtualMfaDeviceOutput) ToVirtualMfaDeviceOutput() VirtualMfaDeviceOutpu
 
 func (o VirtualMfaDeviceOutput) ToVirtualMfaDeviceOutputWithContext(ctx context.Context) VirtualMfaDeviceOutput {
 	return o
+}
+
+func (o VirtualMfaDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMfaDevice] {
+	return pulumix.Output[*VirtualMfaDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) specifying the virtual mfa device.
@@ -294,6 +321,12 @@ func (o VirtualMfaDeviceArrayOutput) ToVirtualMfaDeviceArrayOutputWithContext(ct
 	return o
 }
 
+func (o VirtualMfaDeviceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMfaDevice] {
+	return pulumix.Output[[]*VirtualMfaDevice]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualMfaDeviceArrayOutput) Index(i pulumi.IntInput) VirtualMfaDeviceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualMfaDevice {
 		return vs[0].([]*VirtualMfaDevice)[vs[1].(int)]
@@ -312,6 +345,12 @@ func (o VirtualMfaDeviceMapOutput) ToVirtualMfaDeviceMapOutput() VirtualMfaDevic
 
 func (o VirtualMfaDeviceMapOutput) ToVirtualMfaDeviceMapOutputWithContext(ctx context.Context) VirtualMfaDeviceMapOutput {
 	return o
+}
+
+func (o VirtualMfaDeviceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMfaDevice] {
+	return pulumix.Output[map[string]*VirtualMfaDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualMfaDeviceMapOutput) MapIndex(k pulumi.StringInput) VirtualMfaDeviceOutput {

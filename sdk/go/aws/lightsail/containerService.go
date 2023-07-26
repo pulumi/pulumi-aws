@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An Amazon Lightsail container service is a highly scalable compute and networking resource on which you can deploy, run,
@@ -219,6 +221,7 @@ func NewContainerService(ctx *pulumi.Context,
 	if args.Scale == nil {
 		return nil, errors.New("invalid value for required argument 'Scale'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContainerService
 	err := ctx.RegisterResource("aws:lightsail/containerService:ContainerService", name, args, &resource, opts...)
 	if err != nil {
@@ -428,6 +431,12 @@ func (i *ContainerService) ToContainerServiceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOutput)
 }
 
+func (i *ContainerService) ToOutput(ctx context.Context) pulumix.Output[*ContainerService] {
+	return pulumix.Output[*ContainerService]{
+		OutputState: i.ToContainerServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContainerServiceArrayInput is an input type that accepts ContainerServiceArray and ContainerServiceArrayOutput values.
 // You can construct a concrete instance of `ContainerServiceArrayInput` via:
 //
@@ -451,6 +460,12 @@ func (i ContainerServiceArray) ToContainerServiceArrayOutput() ContainerServiceA
 
 func (i ContainerServiceArray) ToContainerServiceArrayOutputWithContext(ctx context.Context) ContainerServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceArrayOutput)
+}
+
+func (i ContainerServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerService] {
+	return pulumix.Output[[]*ContainerService]{
+		OutputState: i.ToContainerServiceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ContainerServiceMapInput is an input type that accepts ContainerServiceMap and ContainerServiceMapOutput values.
@@ -478,6 +493,12 @@ func (i ContainerServiceMap) ToContainerServiceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceMapOutput)
 }
 
+func (i ContainerServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerService] {
+	return pulumix.Output[map[string]*ContainerService]{
+		OutputState: i.ToContainerServiceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerServiceOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceOutput) ElementType() reflect.Type {
@@ -490,6 +511,12 @@ func (o ContainerServiceOutput) ToContainerServiceOutput() ContainerServiceOutpu
 
 func (o ContainerServiceOutput) ToContainerServiceOutputWithContext(ctx context.Context) ContainerServiceOutput {
 	return o
+}
+
+func (o ContainerServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerService] {
+	return pulumix.Output[*ContainerService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the container service.
@@ -606,6 +633,12 @@ func (o ContainerServiceArrayOutput) ToContainerServiceArrayOutputWithContext(ct
 	return o
 }
 
+func (o ContainerServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerService] {
+	return pulumix.Output[[]*ContainerService]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContainerServiceArrayOutput) Index(i pulumi.IntInput) ContainerServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContainerService {
 		return vs[0].([]*ContainerService)[vs[1].(int)]
@@ -624,6 +657,12 @@ func (o ContainerServiceMapOutput) ToContainerServiceMapOutput() ContainerServic
 
 func (o ContainerServiceMapOutput) ToContainerServiceMapOutputWithContext(ctx context.Context) ContainerServiceMapOutput {
 	return o
+}
+
+func (o ContainerServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerService] {
+	return pulumix.Output[map[string]*ContainerService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerServiceMapOutput) MapIndex(k pulumi.StringInput) ContainerServiceOutput {

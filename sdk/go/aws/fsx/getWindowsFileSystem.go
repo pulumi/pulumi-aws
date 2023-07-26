@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information on FSx Windows File System.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupWindowsFileSystem(ctx *pulumi.Context, args *LookupWindowsFileSystemArgs, opts ...pulumi.InvokeOption) (*LookupWindowsFileSystemResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWindowsFileSystemResult
 	err := ctx.Invoke("aws:fsx/getWindowsFileSystem:getWindowsFileSystem", args, &rv, opts...)
 	if err != nil {
@@ -143,6 +146,12 @@ func (o LookupWindowsFileSystemResultOutput) ToLookupWindowsFileSystemResultOutp
 
 func (o LookupWindowsFileSystemResultOutput) ToLookupWindowsFileSystemResultOutputWithContext(ctx context.Context) LookupWindowsFileSystemResultOutput {
 	return o
+}
+
+func (o LookupWindowsFileSystemResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWindowsFileSystemResult] {
+	return pulumix.Output[LookupWindowsFileSystemResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID for Microsoft Active Directory instance that the file system is join to.

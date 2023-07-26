@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Outposts Outpost.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetOutpost(ctx *pulumi.Context, args *GetOutpostArgs, opts ...pulumi.InvokeOption) (*GetOutpostResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostResult
 	err := ctx.Invoke("aws:outposts/getOutpost:getOutpost", args, &rv, opts...)
 	if err != nil {
@@ -128,6 +131,12 @@ func (o GetOutpostResultOutput) ToGetOutpostResultOutput() GetOutpostResultOutpu
 
 func (o GetOutpostResultOutput) ToGetOutpostResultOutputWithContext(ctx context.Context) GetOutpostResultOutput {
 	return o
+}
+
+func (o GetOutpostResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOutpostResult] {
+	return pulumix.Output[GetOutpostResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOutpostResultOutput) Arn() pulumi.StringOutput {

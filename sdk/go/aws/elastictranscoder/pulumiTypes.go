@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type PipelineContentConfig struct {
 	// The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
@@ -45,6 +49,12 @@ func (i PipelineContentConfigArgs) ToPipelineContentConfigOutput() PipelineConte
 
 func (i PipelineContentConfigArgs) ToPipelineContentConfigOutputWithContext(ctx context.Context) PipelineContentConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineContentConfigOutput)
+}
+
+func (i PipelineContentConfigArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineContentConfig] {
+	return pulumix.Output[PipelineContentConfig]{
+		OutputState: i.ToPipelineContentConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PipelineContentConfigArgs) ToPipelineContentConfigPtrOutput() PipelineContentConfigPtrOutput {
@@ -88,6 +98,12 @@ func (i *pipelineContentConfigPtrType) ToPipelineContentConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineContentConfigPtrOutput)
 }
 
+func (i *pipelineContentConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineContentConfig] {
+	return pulumix.Output[*PipelineContentConfig]{
+		OutputState: i.ToPipelineContentConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineContentConfigOutput struct{ *pulumi.OutputState }
 
 func (PipelineContentConfigOutput) ElementType() reflect.Type {
@@ -112,6 +128,12 @@ func (o PipelineContentConfigOutput) ToPipelineContentConfigPtrOutputWithContext
 	}).(PipelineContentConfigPtrOutput)
 }
 
+func (o PipelineContentConfigOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineContentConfig] {
+	return pulumix.Output[PipelineContentConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
 func (o PipelineContentConfigOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineContentConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
@@ -134,6 +156,12 @@ func (o PipelineContentConfigPtrOutput) ToPipelineContentConfigPtrOutput() Pipel
 
 func (o PipelineContentConfigPtrOutput) ToPipelineContentConfigPtrOutputWithContext(ctx context.Context) PipelineContentConfigPtrOutput {
 	return o
+}
+
+func (o PipelineContentConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineContentConfig] {
+	return pulumix.Output[*PipelineContentConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineContentConfigPtrOutput) Elem() PipelineContentConfigOutput {
@@ -207,6 +235,12 @@ func (i PipelineContentConfigPermissionArgs) ToPipelineContentConfigPermissionOu
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineContentConfigPermissionOutput)
 }
 
+func (i PipelineContentConfigPermissionArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineContentConfigPermission] {
+	return pulumix.Output[PipelineContentConfigPermission]{
+		OutputState: i.ToPipelineContentConfigPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineContentConfigPermissionArrayInput is an input type that accepts PipelineContentConfigPermissionArray and PipelineContentConfigPermissionArrayOutput values.
 // You can construct a concrete instance of `PipelineContentConfigPermissionArrayInput` via:
 //
@@ -232,6 +266,12 @@ func (i PipelineContentConfigPermissionArray) ToPipelineContentConfigPermissionA
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineContentConfigPermissionArrayOutput)
 }
 
+func (i PipelineContentConfigPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineContentConfigPermission] {
+	return pulumix.Output[[]PipelineContentConfigPermission]{
+		OutputState: i.ToPipelineContentConfigPermissionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineContentConfigPermissionOutput struct{ *pulumi.OutputState }
 
 func (PipelineContentConfigPermissionOutput) ElementType() reflect.Type {
@@ -244,6 +284,12 @@ func (o PipelineContentConfigPermissionOutput) ToPipelineContentConfigPermission
 
 func (o PipelineContentConfigPermissionOutput) ToPipelineContentConfigPermissionOutputWithContext(ctx context.Context) PipelineContentConfigPermissionOutput {
 	return o
+}
+
+func (o PipelineContentConfigPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineContentConfigPermission] {
+	return pulumix.Output[PipelineContentConfigPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
@@ -273,6 +319,12 @@ func (o PipelineContentConfigPermissionArrayOutput) ToPipelineContentConfigPermi
 
 func (o PipelineContentConfigPermissionArrayOutput) ToPipelineContentConfigPermissionArrayOutputWithContext(ctx context.Context) PipelineContentConfigPermissionArrayOutput {
 	return o
+}
+
+func (o PipelineContentConfigPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineContentConfigPermission] {
+	return pulumix.Output[[]PipelineContentConfigPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineContentConfigPermissionArrayOutput) Index(i pulumi.IntInput) PipelineContentConfigPermissionOutput {
@@ -346,6 +398,12 @@ func (i PipelineNotificationsArgs) ToPipelineNotificationsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineNotificationsOutput)
 }
 
+func (i PipelineNotificationsArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineNotifications] {
+	return pulumix.Output[PipelineNotifications]{
+		OutputState: i.ToPipelineNotificationsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipelineNotificationsArgs) ToPipelineNotificationsPtrOutput() PipelineNotificationsPtrOutput {
 	return i.ToPipelineNotificationsPtrOutputWithContext(context.Background())
 }
@@ -387,6 +445,12 @@ func (i *pipelineNotificationsPtrType) ToPipelineNotificationsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineNotificationsPtrOutput)
 }
 
+func (i *pipelineNotificationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineNotifications] {
+	return pulumix.Output[*PipelineNotifications]{
+		OutputState: i.ToPipelineNotificationsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineNotificationsOutput struct{ *pulumi.OutputState }
 
 func (PipelineNotificationsOutput) ElementType() reflect.Type {
@@ -409,6 +473,12 @@ func (o PipelineNotificationsOutput) ToPipelineNotificationsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineNotifications) *PipelineNotifications {
 		return &v
 	}).(PipelineNotificationsPtrOutput)
+}
+
+func (o PipelineNotificationsOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineNotifications] {
+	return pulumix.Output[PipelineNotifications]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
@@ -453,6 +523,12 @@ func (o PipelineNotificationsPtrOutput) ToPipelineNotificationsPtrOutput() Pipel
 
 func (o PipelineNotificationsPtrOutput) ToPipelineNotificationsPtrOutputWithContext(ctx context.Context) PipelineNotificationsPtrOutput {
 	return o
+}
+
+func (o PipelineNotificationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineNotifications] {
+	return pulumix.Output[*PipelineNotifications]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineNotificationsPtrOutput) Elem() PipelineNotificationsOutput {
@@ -552,6 +628,12 @@ func (i PipelineThumbnailConfigArgs) ToPipelineThumbnailConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineThumbnailConfigOutput)
 }
 
+func (i PipelineThumbnailConfigArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineThumbnailConfig] {
+	return pulumix.Output[PipelineThumbnailConfig]{
+		OutputState: i.ToPipelineThumbnailConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipelineThumbnailConfigArgs) ToPipelineThumbnailConfigPtrOutput() PipelineThumbnailConfigPtrOutput {
 	return i.ToPipelineThumbnailConfigPtrOutputWithContext(context.Background())
 }
@@ -593,6 +675,12 @@ func (i *pipelineThumbnailConfigPtrType) ToPipelineThumbnailConfigPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineThumbnailConfigPtrOutput)
 }
 
+func (i *pipelineThumbnailConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineThumbnailConfig] {
+	return pulumix.Output[*PipelineThumbnailConfig]{
+		OutputState: i.ToPipelineThumbnailConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineThumbnailConfigOutput struct{ *pulumi.OutputState }
 
 func (PipelineThumbnailConfigOutput) ElementType() reflect.Type {
@@ -617,6 +705,12 @@ func (o PipelineThumbnailConfigOutput) ToPipelineThumbnailConfigPtrOutputWithCon
 	}).(PipelineThumbnailConfigPtrOutput)
 }
 
+func (o PipelineThumbnailConfigOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineThumbnailConfig] {
+	return pulumix.Output[PipelineThumbnailConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
 func (o PipelineThumbnailConfigOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineThumbnailConfig) *string { return v.Bucket }).(pulumi.StringPtrOutput)
@@ -639,6 +733,12 @@ func (o PipelineThumbnailConfigPtrOutput) ToPipelineThumbnailConfigPtrOutput() P
 
 func (o PipelineThumbnailConfigPtrOutput) ToPipelineThumbnailConfigPtrOutputWithContext(ctx context.Context) PipelineThumbnailConfigPtrOutput {
 	return o
+}
+
+func (o PipelineThumbnailConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineThumbnailConfig] {
+	return pulumix.Output[*PipelineThumbnailConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineThumbnailConfigPtrOutput) Elem() PipelineThumbnailConfigOutput {
@@ -712,6 +812,12 @@ func (i PipelineThumbnailConfigPermissionArgs) ToPipelineThumbnailConfigPermissi
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineThumbnailConfigPermissionOutput)
 }
 
+func (i PipelineThumbnailConfigPermissionArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineThumbnailConfigPermission] {
+	return pulumix.Output[PipelineThumbnailConfigPermission]{
+		OutputState: i.ToPipelineThumbnailConfigPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineThumbnailConfigPermissionArrayInput is an input type that accepts PipelineThumbnailConfigPermissionArray and PipelineThumbnailConfigPermissionArrayOutput values.
 // You can construct a concrete instance of `PipelineThumbnailConfigPermissionArrayInput` via:
 //
@@ -737,6 +843,12 @@ func (i PipelineThumbnailConfigPermissionArray) ToPipelineThumbnailConfigPermiss
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineThumbnailConfigPermissionArrayOutput)
 }
 
+func (i PipelineThumbnailConfigPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineThumbnailConfigPermission] {
+	return pulumix.Output[[]PipelineThumbnailConfigPermission]{
+		OutputState: i.ToPipelineThumbnailConfigPermissionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineThumbnailConfigPermissionOutput struct{ *pulumi.OutputState }
 
 func (PipelineThumbnailConfigPermissionOutput) ElementType() reflect.Type {
@@ -749,6 +861,12 @@ func (o PipelineThumbnailConfigPermissionOutput) ToPipelineThumbnailConfigPermis
 
 func (o PipelineThumbnailConfigPermissionOutput) ToPipelineThumbnailConfigPermissionOutputWithContext(ctx context.Context) PipelineThumbnailConfigPermissionOutput {
 	return o
+}
+
+func (o PipelineThumbnailConfigPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineThumbnailConfigPermission] {
+	return pulumix.Output[PipelineThumbnailConfigPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
@@ -778,6 +896,12 @@ func (o PipelineThumbnailConfigPermissionArrayOutput) ToPipelineThumbnailConfigP
 
 func (o PipelineThumbnailConfigPermissionArrayOutput) ToPipelineThumbnailConfigPermissionArrayOutputWithContext(ctx context.Context) PipelineThumbnailConfigPermissionArrayOutput {
 	return o
+}
+
+func (o PipelineThumbnailConfigPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineThumbnailConfigPermission] {
+	return pulumix.Output[[]PipelineThumbnailConfigPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineThumbnailConfigPermissionArrayOutput) Index(i pulumi.IntInput) PipelineThumbnailConfigPermissionOutput {
@@ -835,6 +959,12 @@ func (i PresetAudioArgs) ToPresetAudioOutputWithContext(ctx context.Context) Pre
 	return pulumi.ToOutputWithContext(ctx, i).(PresetAudioOutput)
 }
 
+func (i PresetAudioArgs) ToOutput(ctx context.Context) pulumix.Output[PresetAudio] {
+	return pulumix.Output[PresetAudio]{
+		OutputState: i.ToPresetAudioOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PresetAudioArgs) ToPresetAudioPtrOutput() PresetAudioPtrOutput {
 	return i.ToPresetAudioPtrOutputWithContext(context.Background())
 }
@@ -876,6 +1006,12 @@ func (i *presetAudioPtrType) ToPresetAudioPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PresetAudioPtrOutput)
 }
 
+func (i *presetAudioPtrType) ToOutput(ctx context.Context) pulumix.Output[*PresetAudio] {
+	return pulumix.Output[*PresetAudio]{
+		OutputState: i.ToPresetAudioPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PresetAudioOutput struct{ *pulumi.OutputState }
 
 func (PresetAudioOutput) ElementType() reflect.Type {
@@ -898,6 +1034,12 @@ func (o PresetAudioOutput) ToPresetAudioPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PresetAudio) *PresetAudio {
 		return &v
 	}).(PresetAudioPtrOutput)
+}
+
+func (o PresetAudioOutput) ToOutput(ctx context.Context) pulumix.Output[PresetAudio] {
+	return pulumix.Output[PresetAudio]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
@@ -937,6 +1079,12 @@ func (o PresetAudioPtrOutput) ToPresetAudioPtrOutput() PresetAudioPtrOutput {
 
 func (o PresetAudioPtrOutput) ToPresetAudioPtrOutputWithContext(ctx context.Context) PresetAudioPtrOutput {
 	return o
+}
+
+func (o PresetAudioPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PresetAudio] {
+	return pulumix.Output[*PresetAudio]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PresetAudioPtrOutput) Elem() PresetAudioOutput {
@@ -1044,6 +1192,12 @@ func (i PresetAudioCodecOptionsArgs) ToPresetAudioCodecOptionsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PresetAudioCodecOptionsOutput)
 }
 
+func (i PresetAudioCodecOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[PresetAudioCodecOptions] {
+	return pulumix.Output[PresetAudioCodecOptions]{
+		OutputState: i.ToPresetAudioCodecOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PresetAudioCodecOptionsArgs) ToPresetAudioCodecOptionsPtrOutput() PresetAudioCodecOptionsPtrOutput {
 	return i.ToPresetAudioCodecOptionsPtrOutputWithContext(context.Background())
 }
@@ -1085,6 +1239,12 @@ func (i *presetAudioCodecOptionsPtrType) ToPresetAudioCodecOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PresetAudioCodecOptionsPtrOutput)
 }
 
+func (i *presetAudioCodecOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PresetAudioCodecOptions] {
+	return pulumix.Output[*PresetAudioCodecOptions]{
+		OutputState: i.ToPresetAudioCodecOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PresetAudioCodecOptionsOutput struct{ *pulumi.OutputState }
 
 func (PresetAudioCodecOptionsOutput) ElementType() reflect.Type {
@@ -1107,6 +1267,12 @@ func (o PresetAudioCodecOptionsOutput) ToPresetAudioCodecOptionsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PresetAudioCodecOptions) *PresetAudioCodecOptions {
 		return &v
 	}).(PresetAudioCodecOptionsPtrOutput)
+}
+
+func (o PresetAudioCodecOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[PresetAudioCodecOptions] {
+	return pulumix.Output[PresetAudioCodecOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
@@ -1141,6 +1307,12 @@ func (o PresetAudioCodecOptionsPtrOutput) ToPresetAudioCodecOptionsPtrOutput() P
 
 func (o PresetAudioCodecOptionsPtrOutput) ToPresetAudioCodecOptionsPtrOutputWithContext(ctx context.Context) PresetAudioCodecOptionsPtrOutput {
 	return o
+}
+
+func (o PresetAudioCodecOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PresetAudioCodecOptions] {
+	return pulumix.Output[*PresetAudioCodecOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PresetAudioCodecOptionsPtrOutput) Elem() PresetAudioCodecOptionsOutput {
@@ -1254,6 +1426,12 @@ func (i PresetThumbnailsArgs) ToPresetThumbnailsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PresetThumbnailsOutput)
 }
 
+func (i PresetThumbnailsArgs) ToOutput(ctx context.Context) pulumix.Output[PresetThumbnails] {
+	return pulumix.Output[PresetThumbnails]{
+		OutputState: i.ToPresetThumbnailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PresetThumbnailsArgs) ToPresetThumbnailsPtrOutput() PresetThumbnailsPtrOutput {
 	return i.ToPresetThumbnailsPtrOutputWithContext(context.Background())
 }
@@ -1295,6 +1473,12 @@ func (i *presetThumbnailsPtrType) ToPresetThumbnailsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PresetThumbnailsPtrOutput)
 }
 
+func (i *presetThumbnailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PresetThumbnails] {
+	return pulumix.Output[*PresetThumbnails]{
+		OutputState: i.ToPresetThumbnailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PresetThumbnailsOutput struct{ *pulumi.OutputState }
 
 func (PresetThumbnailsOutput) ElementType() reflect.Type {
@@ -1317,6 +1501,12 @@ func (o PresetThumbnailsOutput) ToPresetThumbnailsPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PresetThumbnails) *PresetThumbnails {
 		return &v
 	}).(PresetThumbnailsPtrOutput)
+}
+
+func (o PresetThumbnailsOutput) ToOutput(ctx context.Context) pulumix.Output[PresetThumbnails] {
+	return pulumix.Output[PresetThumbnails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
@@ -1371,6 +1561,12 @@ func (o PresetThumbnailsPtrOutput) ToPresetThumbnailsPtrOutput() PresetThumbnail
 
 func (o PresetThumbnailsPtrOutput) ToPresetThumbnailsPtrOutputWithContext(ctx context.Context) PresetThumbnailsPtrOutput {
 	return o
+}
+
+func (o PresetThumbnailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PresetThumbnails] {
+	return pulumix.Output[*PresetThumbnails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PresetThumbnailsPtrOutput) Elem() PresetThumbnailsOutput {
@@ -1544,6 +1740,12 @@ func (i PresetVideoArgs) ToPresetVideoOutputWithContext(ctx context.Context) Pre
 	return pulumi.ToOutputWithContext(ctx, i).(PresetVideoOutput)
 }
 
+func (i PresetVideoArgs) ToOutput(ctx context.Context) pulumix.Output[PresetVideo] {
+	return pulumix.Output[PresetVideo]{
+		OutputState: i.ToPresetVideoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PresetVideoArgs) ToPresetVideoPtrOutput() PresetVideoPtrOutput {
 	return i.ToPresetVideoPtrOutputWithContext(context.Background())
 }
@@ -1585,6 +1787,12 @@ func (i *presetVideoPtrType) ToPresetVideoPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PresetVideoPtrOutput)
 }
 
+func (i *presetVideoPtrType) ToOutput(ctx context.Context) pulumix.Output[*PresetVideo] {
+	return pulumix.Output[*PresetVideo]{
+		OutputState: i.ToPresetVideoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PresetVideoOutput struct{ *pulumi.OutputState }
 
 func (PresetVideoOutput) ElementType() reflect.Type {
@@ -1607,6 +1815,12 @@ func (o PresetVideoOutput) ToPresetVideoPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PresetVideo) *PresetVideo {
 		return &v
 	}).(PresetVideoPtrOutput)
+}
+
+func (o PresetVideoOutput) ToOutput(ctx context.Context) pulumix.Output[PresetVideo] {
+	return pulumix.Output[PresetVideo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)
@@ -1686,6 +1900,12 @@ func (o PresetVideoPtrOutput) ToPresetVideoPtrOutput() PresetVideoPtrOutput {
 
 func (o PresetVideoPtrOutput) ToPresetVideoPtrOutputWithContext(ctx context.Context) PresetVideoPtrOutput {
 	return o
+}
+
+func (o PresetVideoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PresetVideo] {
+	return pulumix.Output[*PresetVideo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PresetVideoPtrOutput) Elem() PresetVideoOutput {
@@ -1897,6 +2117,12 @@ func (i PresetVideoWatermarkArgs) ToPresetVideoWatermarkOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PresetVideoWatermarkOutput)
 }
 
+func (i PresetVideoWatermarkArgs) ToOutput(ctx context.Context) pulumix.Output[PresetVideoWatermark] {
+	return pulumix.Output[PresetVideoWatermark]{
+		OutputState: i.ToPresetVideoWatermarkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PresetVideoWatermarkArrayInput is an input type that accepts PresetVideoWatermarkArray and PresetVideoWatermarkArrayOutput values.
 // You can construct a concrete instance of `PresetVideoWatermarkArrayInput` via:
 //
@@ -1922,6 +2148,12 @@ func (i PresetVideoWatermarkArray) ToPresetVideoWatermarkArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PresetVideoWatermarkArrayOutput)
 }
 
+func (i PresetVideoWatermarkArray) ToOutput(ctx context.Context) pulumix.Output[[]PresetVideoWatermark] {
+	return pulumix.Output[[]PresetVideoWatermark]{
+		OutputState: i.ToPresetVideoWatermarkArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PresetVideoWatermarkOutput struct{ *pulumi.OutputState }
 
 func (PresetVideoWatermarkOutput) ElementType() reflect.Type {
@@ -1934,6 +2166,12 @@ func (o PresetVideoWatermarkOutput) ToPresetVideoWatermarkOutput() PresetVideoWa
 
 func (o PresetVideoWatermarkOutput) ToPresetVideoWatermarkOutputWithContext(ctx context.Context) PresetVideoWatermarkOutput {
 	return o
+}
+
+func (o PresetVideoWatermarkOutput) ToOutput(ctx context.Context) pulumix.Output[PresetVideoWatermark] {
+	return pulumix.Output[PresetVideoWatermark]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The horizontal position of the watermark unless you specify a nonzero value for `horzontalOffset`.
@@ -1998,6 +2236,12 @@ func (o PresetVideoWatermarkArrayOutput) ToPresetVideoWatermarkArrayOutput() Pre
 
 func (o PresetVideoWatermarkArrayOutput) ToPresetVideoWatermarkArrayOutputWithContext(ctx context.Context) PresetVideoWatermarkArrayOutput {
 	return o
+}
+
+func (o PresetVideoWatermarkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PresetVideoWatermark] {
+	return pulumix.Output[[]PresetVideoWatermark]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PresetVideoWatermarkArrayOutput) Index(i pulumi.IntInput) PresetVideoWatermarkOutput {

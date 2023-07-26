@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `waf.IpSet` Retrieves a WAF IP Set Resource Id.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetIpset(ctx *pulumi.Context, args *GetIpsetArgs, opts ...pulumi.InvokeOption) (*GetIpsetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpsetResult
 	err := ctx.Invoke("aws:waf/getIpset:getIpset", args, &rv, opts...)
 	if err != nil {
@@ -95,6 +98,12 @@ func (o GetIpsetResultOutput) ToGetIpsetResultOutput() GetIpsetResultOutput {
 
 func (o GetIpsetResultOutput) ToGetIpsetResultOutputWithContext(ctx context.Context) GetIpsetResultOutput {
 	return o
+}
+
+func (o GetIpsetResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIpsetResult] {
+	return pulumix.Output[GetIpsetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

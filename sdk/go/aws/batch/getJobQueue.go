@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The Batch Job Queue data source allows access to details of a specific
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulumi.InvokeOption) (*LookupJobQueueResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupJobQueueResult
 	err := ctx.Invoke("aws:batch/getJobQueue:getJobQueue", args, &rv, opts...)
 	if err != nil {
@@ -121,6 +124,12 @@ func (o LookupJobQueueResultOutput) ToLookupJobQueueResultOutput() LookupJobQueu
 
 func (o LookupJobQueueResultOutput) ToLookupJobQueueResultOutputWithContext(ctx context.Context) LookupJobQueueResultOutput {
 	return o
+}
+
+func (o LookupJobQueueResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupJobQueueResult] {
+	return pulumix.Output[LookupJobQueueResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the job queue.

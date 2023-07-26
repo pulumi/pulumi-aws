@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a Kinesis Stream Consumer.
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func LookupStreamConsumer(ctx *pulumi.Context, args *LookupStreamConsumerArgs, opts ...pulumi.InvokeOption) (*LookupStreamConsumerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStreamConsumerResult
 	err := ctx.Invoke("aws:kinesis/getStreamConsumer:getStreamConsumer", args, &rv, opts...)
 	if err != nil {
@@ -112,6 +115,12 @@ func (o LookupStreamConsumerResultOutput) ToLookupStreamConsumerResultOutput() L
 
 func (o LookupStreamConsumerResultOutput) ToLookupStreamConsumerResultOutputWithContext(ctx context.Context) LookupStreamConsumerResultOutput {
 	return o
+}
+
+func (o LookupStreamConsumerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStreamConsumerResult] {
+	return pulumix.Output[LookupStreamConsumerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupStreamConsumerResultOutput) Arn() pulumi.StringOutput {

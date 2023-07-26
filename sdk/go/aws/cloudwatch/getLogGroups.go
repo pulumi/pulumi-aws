@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get a list of AWS Cloudwatch Log Groups
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetLogGroups(ctx *pulumi.Context, args *GetLogGroupsArgs, opts ...pulumi.InvokeOption) (*GetLogGroupsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogGroupsResult
 	err := ctx.Invoke("aws:cloudwatch/getLogGroups:getLogGroups", args, &rv, opts...)
 	if err != nil {
@@ -99,6 +102,12 @@ func (o GetLogGroupsResultOutput) ToGetLogGroupsResultOutput() GetLogGroupsResul
 
 func (o GetLogGroupsResultOutput) ToGetLogGroupsResultOutputWithContext(ctx context.Context) GetLogGroupsResultOutput {
 	return o
+}
+
+func (o GetLogGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogGroupsResult] {
+	return pulumix.Output[GetLogGroupsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of ARNs of the Cloudwatch log groups

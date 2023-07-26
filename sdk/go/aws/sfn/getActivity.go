@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Step Functions Activity data source
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupActivity(ctx *pulumi.Context, args *LookupActivityArgs, opts ...pulumi.InvokeOption) (*LookupActivityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActivityResult
 	err := ctx.Invoke("aws:sfn/getActivity:getActivity", args, &rv, opts...)
 	if err != nil {
@@ -102,6 +105,12 @@ func (o LookupActivityResultOutput) ToLookupActivityResultOutput() LookupActivit
 
 func (o LookupActivityResultOutput) ToLookupActivityResultOutputWithContext(ctx context.Context) LookupActivityResultOutput {
 	return o
+}
+
+func (o LookupActivityResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupActivityResult] {
+	return pulumix.Output[LookupActivityResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupActivityResultOutput) Arn() pulumi.StringOutput {

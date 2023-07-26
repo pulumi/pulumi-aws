@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about multiple Amazon API Gateway Version 2 APIs.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetApis(ctx *pulumi.Context, args *GetApisArgs, opts ...pulumi.InvokeOption) (*GetApisResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApisResult
 	err := ctx.Invoke("aws:apigatewayv2/getApis:getApis", args, &rv, opts...)
 	if err != nil {
@@ -109,6 +112,12 @@ func (o GetApisResultOutput) ToGetApisResultOutput() GetApisResultOutput {
 
 func (o GetApisResultOutput) ToGetApisResultOutputWithContext(ctx context.Context) GetApisResultOutput {
 	return o
+}
+
+func (o GetApisResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetApisResult] {
+	return pulumix.Output[GetApisResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

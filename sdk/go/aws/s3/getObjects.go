@@ -7,13 +7,16 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect the provider's performance.
 //
 // The objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
 func GetObjects(ctx *pulumi.Context, args *GetObjectsArgs, opts ...pulumi.InvokeOption) (*GetObjectsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetObjectsResult
 	err := ctx.Invoke("aws:s3/getObjects:getObjects", args, &rv, opts...)
 	if err != nil {
@@ -107,6 +110,12 @@ func (o GetObjectsResultOutput) ToGetObjectsResultOutput() GetObjectsResultOutpu
 
 func (o GetObjectsResultOutput) ToGetObjectsResultOutputWithContext(ctx context.Context) GetObjectsResultOutput {
 	return o
+}
+
+func (o GetObjectsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetObjectsResult] {
+	return pulumix.Output[GetObjectsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetObjectsResultOutput) Bucket() pulumi.StringOutput {

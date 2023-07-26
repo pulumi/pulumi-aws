@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Lex Bot.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOption) (*LookupBotResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotResult
 	err := ctx.Invoke("aws:lex/getBot:getBot", args, &rv, opts...)
 	if err != nil {
@@ -131,6 +134,12 @@ func (o LookupBotResultOutput) ToLookupBotResultOutput() LookupBotResultOutput {
 
 func (o LookupBotResultOutput) ToLookupBotResultOutputWithContext(ctx context.Context) LookupBotResultOutput {
 	return o
+}
+
+func (o LookupBotResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBotResult] {
+	return pulumix.Output[LookupBotResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the bot.

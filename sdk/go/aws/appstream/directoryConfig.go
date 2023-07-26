@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppStream Directory Config.
@@ -84,6 +86,7 @@ func NewDirectoryConfig(ctx *pulumi.Context,
 	if args.ServiceAccountCredentials == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceAccountCredentials'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DirectoryConfig
 	err := ctx.RegisterResource("aws:appstream/directoryConfig:DirectoryConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -173,6 +176,12 @@ func (i *DirectoryConfig) ToDirectoryConfigOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigOutput)
 }
 
+func (i *DirectoryConfig) ToOutput(ctx context.Context) pulumix.Output[*DirectoryConfig] {
+	return pulumix.Output[*DirectoryConfig]{
+		OutputState: i.ToDirectoryConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DirectoryConfigArrayInput is an input type that accepts DirectoryConfigArray and DirectoryConfigArrayOutput values.
 // You can construct a concrete instance of `DirectoryConfigArrayInput` via:
 //
@@ -196,6 +205,12 @@ func (i DirectoryConfigArray) ToDirectoryConfigArrayOutput() DirectoryConfigArra
 
 func (i DirectoryConfigArray) ToDirectoryConfigArrayOutputWithContext(ctx context.Context) DirectoryConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigArrayOutput)
+}
+
+func (i DirectoryConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*DirectoryConfig] {
+	return pulumix.Output[[]*DirectoryConfig]{
+		OutputState: i.ToDirectoryConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DirectoryConfigMapInput is an input type that accepts DirectoryConfigMap and DirectoryConfigMapOutput values.
@@ -223,6 +238,12 @@ func (i DirectoryConfigMap) ToDirectoryConfigMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigMapOutput)
 }
 
+func (i DirectoryConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DirectoryConfig] {
+	return pulumix.Output[map[string]*DirectoryConfig]{
+		OutputState: i.ToDirectoryConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DirectoryConfigOutput struct{ *pulumi.OutputState }
 
 func (DirectoryConfigOutput) ElementType() reflect.Type {
@@ -235,6 +256,12 @@ func (o DirectoryConfigOutput) ToDirectoryConfigOutput() DirectoryConfigOutput {
 
 func (o DirectoryConfigOutput) ToDirectoryConfigOutputWithContext(ctx context.Context) DirectoryConfigOutput {
 	return o
+}
+
+func (o DirectoryConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectoryConfig] {
+	return pulumix.Output[*DirectoryConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
@@ -273,6 +300,12 @@ func (o DirectoryConfigArrayOutput) ToDirectoryConfigArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o DirectoryConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DirectoryConfig] {
+	return pulumix.Output[[]*DirectoryConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DirectoryConfigArrayOutput) Index(i pulumi.IntInput) DirectoryConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DirectoryConfig {
 		return vs[0].([]*DirectoryConfig)[vs[1].(int)]
@@ -291,6 +324,12 @@ func (o DirectoryConfigMapOutput) ToDirectoryConfigMapOutput() DirectoryConfigMa
 
 func (o DirectoryConfigMapOutput) ToDirectoryConfigMapOutputWithContext(ctx context.Context) DirectoryConfigMapOutput {
 	return o
+}
+
+func (o DirectoryConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DirectoryConfig] {
+	return pulumix.Output[map[string]*DirectoryConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DirectoryConfigMapOutput) MapIndex(k pulumi.StringInput) DirectoryConfigOutput {

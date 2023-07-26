@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.
@@ -74,6 +76,7 @@ func NewDedicatedIpAssignment(ctx *pulumi.Context,
 	if args.Ip == nil {
 		return nil, errors.New("invalid value for required argument 'Ip'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DedicatedIpAssignment
 	err := ctx.RegisterResource("aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment", name, args, &resource, opts...)
 	if err != nil {
@@ -151,6 +154,12 @@ func (i *DedicatedIpAssignment) ToDedicatedIpAssignmentOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpAssignmentOutput)
 }
 
+func (i *DedicatedIpAssignment) ToOutput(ctx context.Context) pulumix.Output[*DedicatedIpAssignment] {
+	return pulumix.Output[*DedicatedIpAssignment]{
+		OutputState: i.ToDedicatedIpAssignmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DedicatedIpAssignmentArrayInput is an input type that accepts DedicatedIpAssignmentArray and DedicatedIpAssignmentArrayOutput values.
 // You can construct a concrete instance of `DedicatedIpAssignmentArrayInput` via:
 //
@@ -174,6 +183,12 @@ func (i DedicatedIpAssignmentArray) ToDedicatedIpAssignmentArrayOutput() Dedicat
 
 func (i DedicatedIpAssignmentArray) ToDedicatedIpAssignmentArrayOutputWithContext(ctx context.Context) DedicatedIpAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpAssignmentArrayOutput)
+}
+
+func (i DedicatedIpAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*DedicatedIpAssignment] {
+	return pulumix.Output[[]*DedicatedIpAssignment]{
+		OutputState: i.ToDedicatedIpAssignmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DedicatedIpAssignmentMapInput is an input type that accepts DedicatedIpAssignmentMap and DedicatedIpAssignmentMapOutput values.
@@ -201,6 +216,12 @@ func (i DedicatedIpAssignmentMap) ToDedicatedIpAssignmentMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpAssignmentMapOutput)
 }
 
+func (i DedicatedIpAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DedicatedIpAssignment] {
+	return pulumix.Output[map[string]*DedicatedIpAssignment]{
+		OutputState: i.ToDedicatedIpAssignmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DedicatedIpAssignmentOutput struct{ *pulumi.OutputState }
 
 func (DedicatedIpAssignmentOutput) ElementType() reflect.Type {
@@ -213,6 +234,12 @@ func (o DedicatedIpAssignmentOutput) ToDedicatedIpAssignmentOutput() DedicatedIp
 
 func (o DedicatedIpAssignmentOutput) ToDedicatedIpAssignmentOutputWithContext(ctx context.Context) DedicatedIpAssignmentOutput {
 	return o
+}
+
+func (o DedicatedIpAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*DedicatedIpAssignment] {
+	return pulumix.Output[*DedicatedIpAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Dedicated IP address.
@@ -239,6 +266,12 @@ func (o DedicatedIpAssignmentArrayOutput) ToDedicatedIpAssignmentArrayOutputWith
 	return o
 }
 
+func (o DedicatedIpAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DedicatedIpAssignment] {
+	return pulumix.Output[[]*DedicatedIpAssignment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DedicatedIpAssignmentArrayOutput) Index(i pulumi.IntInput) DedicatedIpAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DedicatedIpAssignment {
 		return vs[0].([]*DedicatedIpAssignment)[vs[1].(int)]
@@ -257,6 +290,12 @@ func (o DedicatedIpAssignmentMapOutput) ToDedicatedIpAssignmentMapOutput() Dedic
 
 func (o DedicatedIpAssignmentMapOutput) ToDedicatedIpAssignmentMapOutputWithContext(ctx context.Context) DedicatedIpAssignmentMapOutput {
 	return o
+}
+
+func (o DedicatedIpAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DedicatedIpAssignment] {
+	return pulumix.Output[map[string]*DedicatedIpAssignment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DedicatedIpAssignmentMapOutput) MapIndex(k pulumi.StringInput) DedicatedIpAssignmentOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppStream fleet.
@@ -127,6 +129,7 @@ func NewFleet(ctx *pulumi.Context,
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws:appstream/fleet:Fleet", name, args, &resource, opts...)
 	if err != nil {
@@ -346,6 +349,12 @@ func (i *Fleet) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FleetOutput)
 }
 
+func (i *Fleet) ToOutput(ctx context.Context) pulumix.Output[*Fleet] {
+	return pulumix.Output[*Fleet]{
+		OutputState: i.ToFleetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FleetArrayInput is an input type that accepts FleetArray and FleetArrayOutput values.
 // You can construct a concrete instance of `FleetArrayInput` via:
 //
@@ -369,6 +378,12 @@ func (i FleetArray) ToFleetArrayOutput() FleetArrayOutput {
 
 func (i FleetArray) ToFleetArrayOutputWithContext(ctx context.Context) FleetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FleetArrayOutput)
+}
+
+func (i FleetArray) ToOutput(ctx context.Context) pulumix.Output[[]*Fleet] {
+	return pulumix.Output[[]*Fleet]{
+		OutputState: i.ToFleetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FleetMapInput is an input type that accepts FleetMap and FleetMapOutput values.
@@ -396,6 +411,12 @@ func (i FleetMap) ToFleetMapOutputWithContext(ctx context.Context) FleetMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(FleetMapOutput)
 }
 
+func (i FleetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Fleet] {
+	return pulumix.Output[map[string]*Fleet]{
+		OutputState: i.ToFleetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FleetOutput struct{ *pulumi.OutputState }
 
 func (FleetOutput) ElementType() reflect.Type {
@@ -408,6 +429,12 @@ func (o FleetOutput) ToFleetOutput() FleetOutput {
 
 func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
+}
+
+func (o FleetOutput) ToOutput(ctx context.Context) pulumix.Output[*Fleet] {
+	return pulumix.Output[*Fleet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the appstream fleet.
@@ -530,6 +557,12 @@ func (o FleetArrayOutput) ToFleetArrayOutputWithContext(ctx context.Context) Fle
 	return o
 }
 
+func (o FleetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Fleet] {
+	return pulumix.Output[[]*Fleet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FleetArrayOutput) Index(i pulumi.IntInput) FleetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Fleet {
 		return vs[0].([]*Fleet)[vs[1].(int)]
@@ -548,6 +581,12 @@ func (o FleetMapOutput) ToFleetMapOutput() FleetMapOutput {
 
 func (o FleetMapOutput) ToFleetMapOutputWithContext(ctx context.Context) FleetMapOutput {
 	return o
+}
+
+func (o FleetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Fleet] {
+	return pulumix.Output[map[string]*Fleet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetMapOutput) MapIndex(k pulumi.StringInput) FleetOutput {

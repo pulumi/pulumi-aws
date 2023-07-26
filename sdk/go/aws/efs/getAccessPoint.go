@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about an Elastic File System (EFS) Access Point.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ...pulumi.InvokeOption) (*LookupAccessPointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccessPointResult
 	err := ctx.Invoke("aws:efs/getAccessPoint:getAccessPoint", args, &rv, opts...)
 	if err != nil {
@@ -112,6 +115,12 @@ func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutput() LookupA
 
 func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutputWithContext(ctx context.Context) LookupAccessPointResultOutput {
 	return o
+}
+
+func (o LookupAccessPointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccessPointResult] {
+	return pulumix.Output[LookupAccessPointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAccessPointResultOutput) AccessPointId() pulumi.StringOutput {

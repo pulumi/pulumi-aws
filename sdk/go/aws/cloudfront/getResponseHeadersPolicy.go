@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a CloudFront cache policy.
@@ -66,6 +68,7 @@ import (
 //
 // ```
 func LookupResponseHeadersPolicy(ctx *pulumi.Context, args *LookupResponseHeadersPolicyArgs, opts ...pulumi.InvokeOption) (*LookupResponseHeadersPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResponseHeadersPolicyResult
 	err := ctx.Invoke("aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy", args, &rv, opts...)
 	if err != nil {
@@ -140,6 +143,12 @@ func (o LookupResponseHeadersPolicyResultOutput) ToLookupResponseHeadersPolicyRe
 
 func (o LookupResponseHeadersPolicyResultOutput) ToLookupResponseHeadersPolicyResultOutputWithContext(ctx context.Context) LookupResponseHeadersPolicyResultOutput {
 	return o
+}
+
+func (o LookupResponseHeadersPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResponseHeadersPolicyResult] {
+	return pulumix.Output[LookupResponseHeadersPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Comment to describe the response headers policy. The comment cannot be longer than 128 characters.

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Evidently Launch resource.
@@ -442,6 +444,7 @@ func NewLaunch(ctx *pulumi.Context,
 	if args.Project == nil {
 		return nil, errors.New("invalid value for required argument 'Project'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Launch
 	err := ctx.RegisterResource("aws:evidently/launch:Launch", name, args, &resource, opts...)
 	if err != nil {
@@ -599,6 +602,12 @@ func (i *Launch) ToLaunchOutputWithContext(ctx context.Context) LaunchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchOutput)
 }
 
+func (i *Launch) ToOutput(ctx context.Context) pulumix.Output[*Launch] {
+	return pulumix.Output[*Launch]{
+		OutputState: i.ToLaunchOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LaunchArrayInput is an input type that accepts LaunchArray and LaunchArrayOutput values.
 // You can construct a concrete instance of `LaunchArrayInput` via:
 //
@@ -622,6 +631,12 @@ func (i LaunchArray) ToLaunchArrayOutput() LaunchArrayOutput {
 
 func (i LaunchArray) ToLaunchArrayOutputWithContext(ctx context.Context) LaunchArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchArrayOutput)
+}
+
+func (i LaunchArray) ToOutput(ctx context.Context) pulumix.Output[[]*Launch] {
+	return pulumix.Output[[]*Launch]{
+		OutputState: i.ToLaunchArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LaunchMapInput is an input type that accepts LaunchMap and LaunchMapOutput values.
@@ -649,6 +664,12 @@ func (i LaunchMap) ToLaunchMapOutputWithContext(ctx context.Context) LaunchMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchMapOutput)
 }
 
+func (i LaunchMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Launch] {
+	return pulumix.Output[map[string]*Launch]{
+		OutputState: i.ToLaunchMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LaunchOutput struct{ *pulumi.OutputState }
 
 func (LaunchOutput) ElementType() reflect.Type {
@@ -661,6 +682,12 @@ func (o LaunchOutput) ToLaunchOutput() LaunchOutput {
 
 func (o LaunchOutput) ToLaunchOutputWithContext(ctx context.Context) LaunchOutput {
 	return o
+}
+
+func (o LaunchOutput) ToOutput(ctx context.Context) pulumix.Output[*Launch] {
+	return pulumix.Output[*Launch]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the launch.
@@ -757,6 +784,12 @@ func (o LaunchArrayOutput) ToLaunchArrayOutputWithContext(ctx context.Context) L
 	return o
 }
 
+func (o LaunchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Launch] {
+	return pulumix.Output[[]*Launch]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LaunchArrayOutput) Index(i pulumi.IntInput) LaunchOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Launch {
 		return vs[0].([]*Launch)[vs[1].(int)]
@@ -775,6 +808,12 @@ func (o LaunchMapOutput) ToLaunchMapOutput() LaunchMapOutput {
 
 func (o LaunchMapOutput) ToLaunchMapOutputWithContext(ctx context.Context) LaunchMapOutput {
 	return o
+}
+
+func (o LaunchMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Launch] {
+	return pulumix.Output[map[string]*Launch]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LaunchMapOutput) MapIndex(k pulumi.StringInput) LaunchOutput {

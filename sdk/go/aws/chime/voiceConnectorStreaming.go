@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Amazon Kinesis.
@@ -184,6 +186,7 @@ func NewVoiceConnectorStreaming(ctx *pulumi.Context,
 	if args.VoiceConnectorId == nil {
 		return nil, errors.New("invalid value for required argument 'VoiceConnectorId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VoiceConnectorStreaming
 	err := ctx.RegisterResource("aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming", name, args, &resource, opts...)
 	if err != nil {
@@ -285,6 +288,12 @@ func (i *VoiceConnectorStreaming) ToVoiceConnectorStreamingOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorStreamingOutput)
 }
 
+func (i *VoiceConnectorStreaming) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorStreaming] {
+	return pulumix.Output[*VoiceConnectorStreaming]{
+		OutputState: i.ToVoiceConnectorStreamingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VoiceConnectorStreamingArrayInput is an input type that accepts VoiceConnectorStreamingArray and VoiceConnectorStreamingArrayOutput values.
 // You can construct a concrete instance of `VoiceConnectorStreamingArrayInput` via:
 //
@@ -308,6 +317,12 @@ func (i VoiceConnectorStreamingArray) ToVoiceConnectorStreamingArrayOutput() Voi
 
 func (i VoiceConnectorStreamingArray) ToVoiceConnectorStreamingArrayOutputWithContext(ctx context.Context) VoiceConnectorStreamingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorStreamingArrayOutput)
+}
+
+func (i VoiceConnectorStreamingArray) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorStreaming] {
+	return pulumix.Output[[]*VoiceConnectorStreaming]{
+		OutputState: i.ToVoiceConnectorStreamingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VoiceConnectorStreamingMapInput is an input type that accepts VoiceConnectorStreamingMap and VoiceConnectorStreamingMapOutput values.
@@ -335,6 +350,12 @@ func (i VoiceConnectorStreamingMap) ToVoiceConnectorStreamingMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorStreamingMapOutput)
 }
 
+func (i VoiceConnectorStreamingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorStreaming] {
+	return pulumix.Output[map[string]*VoiceConnectorStreaming]{
+		OutputState: i.ToVoiceConnectorStreamingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VoiceConnectorStreamingOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorStreamingOutput) ElementType() reflect.Type {
@@ -347,6 +368,12 @@ func (o VoiceConnectorStreamingOutput) ToVoiceConnectorStreamingOutput() VoiceCo
 
 func (o VoiceConnectorStreamingOutput) ToVoiceConnectorStreamingOutputWithContext(ctx context.Context) VoiceConnectorStreamingOutput {
 	return o
+}
+
+func (o VoiceConnectorStreamingOutput) ToOutput(ctx context.Context) pulumix.Output[*VoiceConnectorStreaming] {
+	return pulumix.Output[*VoiceConnectorStreaming]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The retention period, in hours, for the Amazon Kinesis data.
@@ -390,6 +417,12 @@ func (o VoiceConnectorStreamingArrayOutput) ToVoiceConnectorStreamingArrayOutput
 	return o
 }
 
+func (o VoiceConnectorStreamingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VoiceConnectorStreaming] {
+	return pulumix.Output[[]*VoiceConnectorStreaming]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VoiceConnectorStreamingArrayOutput) Index(i pulumi.IntInput) VoiceConnectorStreamingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnectorStreaming {
 		return vs[0].([]*VoiceConnectorStreaming)[vs[1].(int)]
@@ -408,6 +441,12 @@ func (o VoiceConnectorStreamingMapOutput) ToVoiceConnectorStreamingMapOutput() V
 
 func (o VoiceConnectorStreamingMapOutput) ToVoiceConnectorStreamingMapOutputWithContext(ctx context.Context) VoiceConnectorStreamingMapOutput {
 	return o
+}
+
+func (o VoiceConnectorStreamingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VoiceConnectorStreaming] {
+	return pulumix.Output[map[string]*VoiceConnectorStreaming]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VoiceConnectorStreamingMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorStreamingOutput {

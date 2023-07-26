@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about an EC2 DHCP Options configuration.
@@ -77,6 +79,7 @@ import (
 //
 // ```
 func LookupVpcDhcpOptions(ctx *pulumi.Context, args *LookupVpcDhcpOptionsArgs, opts ...pulumi.InvokeOption) (*LookupVpcDhcpOptionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcDhcpOptionsResult
 	err := ctx.Invoke("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args, &rv, opts...)
 	if err != nil {
@@ -160,6 +163,12 @@ func (o LookupVpcDhcpOptionsResultOutput) ToLookupVpcDhcpOptionsResultOutput() L
 
 func (o LookupVpcDhcpOptionsResultOutput) ToLookupVpcDhcpOptionsResultOutputWithContext(ctx context.Context) LookupVpcDhcpOptionsResultOutput {
 	return o
+}
+
+func (o LookupVpcDhcpOptionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcDhcpOptionsResult] {
+	return pulumix.Output[LookupVpcDhcpOptionsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the DHCP Options Set.

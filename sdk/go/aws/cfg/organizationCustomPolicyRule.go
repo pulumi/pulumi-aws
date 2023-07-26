@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Config Organization Custom Policy Rule. More information about these rules can be found in the [Enabling AWS Config Rules Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. For working with Organization Managed Rules (those invoking an AWS managed rule), see the `aws_config_organization_managed__rule` resource.
@@ -121,6 +123,7 @@ func NewOrganizationCustomPolicyRule(ctx *pulumi.Context,
 	if args.TriggerTypes == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerTypes'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationCustomPolicyRule
 	err := ctx.RegisterResource("aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule", name, args, &resource, opts...)
 	if err != nil {
@@ -298,6 +301,12 @@ func (i *OrganizationCustomPolicyRule) ToOrganizationCustomPolicyRuleOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCustomPolicyRuleOutput)
 }
 
+func (i *OrganizationCustomPolicyRule) ToOutput(ctx context.Context) pulumix.Output[*OrganizationCustomPolicyRule] {
+	return pulumix.Output[*OrganizationCustomPolicyRule]{
+		OutputState: i.ToOrganizationCustomPolicyRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationCustomPolicyRuleArrayInput is an input type that accepts OrganizationCustomPolicyRuleArray and OrganizationCustomPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `OrganizationCustomPolicyRuleArrayInput` via:
 //
@@ -321,6 +330,12 @@ func (i OrganizationCustomPolicyRuleArray) ToOrganizationCustomPolicyRuleArrayOu
 
 func (i OrganizationCustomPolicyRuleArray) ToOrganizationCustomPolicyRuleArrayOutputWithContext(ctx context.Context) OrganizationCustomPolicyRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCustomPolicyRuleArrayOutput)
+}
+
+func (i OrganizationCustomPolicyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationCustomPolicyRule] {
+	return pulumix.Output[[]*OrganizationCustomPolicyRule]{
+		OutputState: i.ToOrganizationCustomPolicyRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrganizationCustomPolicyRuleMapInput is an input type that accepts OrganizationCustomPolicyRuleMap and OrganizationCustomPolicyRuleMapOutput values.
@@ -348,6 +363,12 @@ func (i OrganizationCustomPolicyRuleMap) ToOrganizationCustomPolicyRuleMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCustomPolicyRuleMapOutput)
 }
 
+func (i OrganizationCustomPolicyRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationCustomPolicyRule] {
+	return pulumix.Output[map[string]*OrganizationCustomPolicyRule]{
+		OutputState: i.ToOrganizationCustomPolicyRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationCustomPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (OrganizationCustomPolicyRuleOutput) ElementType() reflect.Type {
@@ -360,6 +381,12 @@ func (o OrganizationCustomPolicyRuleOutput) ToOrganizationCustomPolicyRuleOutput
 
 func (o OrganizationCustomPolicyRuleOutput) ToOrganizationCustomPolicyRuleOutputWithContext(ctx context.Context) OrganizationCustomPolicyRuleOutput {
 	return o
+}
+
+func (o OrganizationCustomPolicyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationCustomPolicyRule] {
+	return pulumix.Output[*OrganizationCustomPolicyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the rule
@@ -448,6 +475,12 @@ func (o OrganizationCustomPolicyRuleArrayOutput) ToOrganizationCustomPolicyRuleA
 	return o
 }
 
+func (o OrganizationCustomPolicyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationCustomPolicyRule] {
+	return pulumix.Output[[]*OrganizationCustomPolicyRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationCustomPolicyRuleArrayOutput) Index(i pulumi.IntInput) OrganizationCustomPolicyRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationCustomPolicyRule {
 		return vs[0].([]*OrganizationCustomPolicyRule)[vs[1].(int)]
@@ -466,6 +499,12 @@ func (o OrganizationCustomPolicyRuleMapOutput) ToOrganizationCustomPolicyRuleMap
 
 func (o OrganizationCustomPolicyRuleMapOutput) ToOrganizationCustomPolicyRuleMapOutputWithContext(ctx context.Context) OrganizationCustomPolicyRuleMapOutput {
 	return o
+}
+
+func (o OrganizationCustomPolicyRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationCustomPolicyRule] {
+	return pulumix.Output[map[string]*OrganizationCustomPolicyRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationCustomPolicyRuleMapOutput) MapIndex(k pulumi.StringInput) OrganizationCustomPolicyRuleOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a load balancer SSL negotiation policy, which allows an ELB to control the ciphers and protocols that are supported during SSL negotiations between a client and a load balancer.
@@ -123,6 +125,7 @@ func NewSslNegotiationPolicy(ctx *pulumi.Context,
 	if args.LoadBalancer == nil {
 		return nil, errors.New("invalid value for required argument 'LoadBalancer'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SslNegotiationPolicy
 	err := ctx.RegisterResource("aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -252,6 +255,12 @@ func (i *SslNegotiationPolicy) ToSslNegotiationPolicyOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyOutput)
 }
 
+func (i *SslNegotiationPolicy) ToOutput(ctx context.Context) pulumix.Output[*SslNegotiationPolicy] {
+	return pulumix.Output[*SslNegotiationPolicy]{
+		OutputState: i.ToSslNegotiationPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SslNegotiationPolicyArrayInput is an input type that accepts SslNegotiationPolicyArray and SslNegotiationPolicyArrayOutput values.
 // You can construct a concrete instance of `SslNegotiationPolicyArrayInput` via:
 //
@@ -275,6 +284,12 @@ func (i SslNegotiationPolicyArray) ToSslNegotiationPolicyArrayOutput() SslNegoti
 
 func (i SslNegotiationPolicyArray) ToSslNegotiationPolicyArrayOutputWithContext(ctx context.Context) SslNegotiationPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyArrayOutput)
+}
+
+func (i SslNegotiationPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SslNegotiationPolicy] {
+	return pulumix.Output[[]*SslNegotiationPolicy]{
+		OutputState: i.ToSslNegotiationPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SslNegotiationPolicyMapInput is an input type that accepts SslNegotiationPolicyMap and SslNegotiationPolicyMapOutput values.
@@ -302,6 +317,12 @@ func (i SslNegotiationPolicyMap) ToSslNegotiationPolicyMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyMapOutput)
 }
 
+func (i SslNegotiationPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SslNegotiationPolicy] {
+	return pulumix.Output[map[string]*SslNegotiationPolicy]{
+		OutputState: i.ToSslNegotiationPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SslNegotiationPolicyOutput struct{ *pulumi.OutputState }
 
 func (SslNegotiationPolicyOutput) ElementType() reflect.Type {
@@ -314,6 +335,12 @@ func (o SslNegotiationPolicyOutput) ToSslNegotiationPolicyOutput() SslNegotiatio
 
 func (o SslNegotiationPolicyOutput) ToSslNegotiationPolicyOutputWithContext(ctx context.Context) SslNegotiationPolicyOutput {
 	return o
+}
+
+func (o SslNegotiationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SslNegotiationPolicy] {
+	return pulumix.Output[*SslNegotiationPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An SSL Negotiation policy attribute. Each has two properties:
@@ -362,6 +389,12 @@ func (o SslNegotiationPolicyArrayOutput) ToSslNegotiationPolicyArrayOutputWithCo
 	return o
 }
 
+func (o SslNegotiationPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SslNegotiationPolicy] {
+	return pulumix.Output[[]*SslNegotiationPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SslNegotiationPolicyArrayOutput) Index(i pulumi.IntInput) SslNegotiationPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SslNegotiationPolicy {
 		return vs[0].([]*SslNegotiationPolicy)[vs[1].(int)]
@@ -380,6 +413,12 @@ func (o SslNegotiationPolicyMapOutput) ToSslNegotiationPolicyMapOutput() SslNego
 
 func (o SslNegotiationPolicyMapOutput) ToSslNegotiationPolicyMapOutputWithContext(ctx context.Context) SslNegotiationPolicyMapOutput {
 	return o
+}
+
+func (o SslNegotiationPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SslNegotiationPolicy] {
+	return pulumix.Output[map[string]*SslNegotiationPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SslNegotiationPolicyMapOutput) MapIndex(k pulumi.StringInput) SslNegotiationPolicyOutput {

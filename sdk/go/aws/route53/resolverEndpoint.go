@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route 53 Resolver endpoint resource.
@@ -104,6 +106,7 @@ func NewResolverEndpoint(ctx *pulumi.Context,
 	if args.SecurityGroupIds == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverEndpoint
 	err := ctx.RegisterResource("aws:route53/resolverEndpoint:ResolverEndpoint", name, args, &resource, opts...)
 	if err != nil {
@@ -229,6 +232,12 @@ func (i *ResolverEndpoint) ToResolverEndpointOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointOutput)
 }
 
+func (i *ResolverEndpoint) ToOutput(ctx context.Context) pulumix.Output[*ResolverEndpoint] {
+	return pulumix.Output[*ResolverEndpoint]{
+		OutputState: i.ToResolverEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverEndpointArrayInput is an input type that accepts ResolverEndpointArray and ResolverEndpointArrayOutput values.
 // You can construct a concrete instance of `ResolverEndpointArrayInput` via:
 //
@@ -252,6 +261,12 @@ func (i ResolverEndpointArray) ToResolverEndpointArrayOutput() ResolverEndpointA
 
 func (i ResolverEndpointArray) ToResolverEndpointArrayOutputWithContext(ctx context.Context) ResolverEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointArrayOutput)
+}
+
+func (i ResolverEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverEndpoint] {
+	return pulumix.Output[[]*ResolverEndpoint]{
+		OutputState: i.ToResolverEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverEndpointMapInput is an input type that accepts ResolverEndpointMap and ResolverEndpointMapOutput values.
@@ -279,6 +294,12 @@ func (i ResolverEndpointMap) ToResolverEndpointMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointMapOutput)
 }
 
+func (i ResolverEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverEndpoint] {
+	return pulumix.Output[map[string]*ResolverEndpoint]{
+		OutputState: i.ToResolverEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverEndpointOutput struct{ *pulumi.OutputState }
 
 func (ResolverEndpointOutput) ElementType() reflect.Type {
@@ -291,6 +312,12 @@ func (o ResolverEndpointOutput) ToResolverEndpointOutput() ResolverEndpointOutpu
 
 func (o ResolverEndpointOutput) ToResolverEndpointOutputWithContext(ctx context.Context) ResolverEndpointOutput {
 	return o
+}
+
+func (o ResolverEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverEndpoint] {
+	return pulumix.Output[*ResolverEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Route 53 Resolver endpoint.
@@ -350,6 +377,12 @@ func (o ResolverEndpointArrayOutput) ToResolverEndpointArrayOutputWithContext(ct
 	return o
 }
 
+func (o ResolverEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverEndpoint] {
+	return pulumix.Output[[]*ResolverEndpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverEndpointArrayOutput) Index(i pulumi.IntInput) ResolverEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverEndpoint {
 		return vs[0].([]*ResolverEndpoint)[vs[1].(int)]
@@ -368,6 +401,12 @@ func (o ResolverEndpointMapOutput) ToResolverEndpointMapOutput() ResolverEndpoin
 
 func (o ResolverEndpointMapOutput) ToResolverEndpointMapOutputWithContext(ctx context.Context) ResolverEndpointMapOutput {
 	return o
+}
+
+func (o ResolverEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverEndpoint] {
+	return pulumix.Output[map[string]*ResolverEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverEndpointMapOutput) MapIndex(k pulumi.StringInput) ResolverEndpointOutput {

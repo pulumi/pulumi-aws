@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic MapReduce Studio.
@@ -125,6 +127,7 @@ func NewStudio(ctx *pulumi.Context,
 	if args.WorkspaceSecurityGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceSecurityGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Studio
 	err := ctx.RegisterResource("aws:emr/studio:Studio", name, args, &resource, opts...)
 	if err != nil {
@@ -308,6 +311,12 @@ func (i *Studio) ToStudioOutputWithContext(ctx context.Context) StudioOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StudioOutput)
 }
 
+func (i *Studio) ToOutput(ctx context.Context) pulumix.Output[*Studio] {
+	return pulumix.Output[*Studio]{
+		OutputState: i.ToStudioOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StudioArrayInput is an input type that accepts StudioArray and StudioArrayOutput values.
 // You can construct a concrete instance of `StudioArrayInput` via:
 //
@@ -331,6 +340,12 @@ func (i StudioArray) ToStudioArrayOutput() StudioArrayOutput {
 
 func (i StudioArray) ToStudioArrayOutputWithContext(ctx context.Context) StudioArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StudioArrayOutput)
+}
+
+func (i StudioArray) ToOutput(ctx context.Context) pulumix.Output[[]*Studio] {
+	return pulumix.Output[[]*Studio]{
+		OutputState: i.ToStudioArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StudioMapInput is an input type that accepts StudioMap and StudioMapOutput values.
@@ -358,6 +373,12 @@ func (i StudioMap) ToStudioMapOutputWithContext(ctx context.Context) StudioMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(StudioMapOutput)
 }
 
+func (i StudioMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Studio] {
+	return pulumix.Output[map[string]*Studio]{
+		OutputState: i.ToStudioMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StudioOutput struct{ *pulumi.OutputState }
 
 func (StudioOutput) ElementType() reflect.Type {
@@ -370,6 +391,12 @@ func (o StudioOutput) ToStudioOutput() StudioOutput {
 
 func (o StudioOutput) ToStudioOutputWithContext(ctx context.Context) StudioOutput {
 	return o
+}
+
+func (o StudioOutput) ToOutput(ctx context.Context) pulumix.Output[*Studio] {
+	return pulumix.Output[*Studio]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the studio.
@@ -467,6 +494,12 @@ func (o StudioArrayOutput) ToStudioArrayOutputWithContext(ctx context.Context) S
 	return o
 }
 
+func (o StudioArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Studio] {
+	return pulumix.Output[[]*Studio]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StudioArrayOutput) Index(i pulumi.IntInput) StudioOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Studio {
 		return vs[0].([]*Studio)[vs[1].(int)]
@@ -485,6 +518,12 @@ func (o StudioMapOutput) ToStudioMapOutput() StudioMapOutput {
 
 func (o StudioMapOutput) ToStudioMapOutputWithContext(ctx context.Context) StudioMapOutput {
 	return o
+}
+
+func (o StudioMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Studio] {
+	return pulumix.Output[map[string]*Studio]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StudioMapOutput) MapIndex(k pulumi.StringInput) StudioOutput {

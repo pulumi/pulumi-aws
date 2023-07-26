@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
@@ -45,6 +47,7 @@ import (
 //
 // ```
 func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.InvokeOption) (*GetSecretsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecretsResult
 	err := ctx.Invoke("aws:secretsmanager/getSecrets:getSecrets", args, &rv, opts...)
 	if err != nil {
@@ -106,6 +109,12 @@ func (o GetSecretsResultOutput) ToGetSecretsResultOutput() GetSecretsResultOutpu
 
 func (o GetSecretsResultOutput) ToGetSecretsResultOutputWithContext(ctx context.Context) GetSecretsResultOutput {
 	return o
+}
+
+func (o GetSecretsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecretsResult] {
+	return pulumix.Output[GetSecretsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of ARNs of the matched Secrets Manager secrets.

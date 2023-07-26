@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to compose and decompose AWS service DNS names.
@@ -94,6 +96,7 @@ import (
 //
 // ```
 func GetService(ctx *pulumi.Context, args *GetServiceArgs, opts ...pulumi.InvokeOption) (*GetServiceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceResult
 	err := ctx.Invoke("aws:index/getService:getService", args, &rv, opts...)
 	if err != nil {
@@ -174,6 +177,12 @@ func (o GetServiceResultOutput) ToGetServiceResultOutput() GetServiceResultOutpu
 
 func (o GetServiceResultOutput) ToGetServiceResultOutputWithContext(ctx context.Context) GetServiceResultOutput {
 	return o
+}
+
+func (o GetServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceResult] {
+	return pulumix.Output[GetServiceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetServiceResultOutput) DnsName() pulumi.StringOutput {

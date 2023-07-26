@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ExperimentTemplateAction struct {
 	// ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
@@ -63,6 +67,12 @@ func (i ExperimentTemplateActionArgs) ToExperimentTemplateActionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionOutput)
 }
 
+func (i ExperimentTemplateActionArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateAction] {
+	return pulumix.Output[ExperimentTemplateAction]{
+		OutputState: i.ToExperimentTemplateActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExperimentTemplateActionArrayInput is an input type that accepts ExperimentTemplateActionArray and ExperimentTemplateActionArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateActionArrayInput` via:
 //
@@ -88,6 +98,12 @@ func (i ExperimentTemplateActionArray) ToExperimentTemplateActionArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionArrayOutput)
 }
 
+func (i ExperimentTemplateActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateAction] {
+	return pulumix.Output[[]ExperimentTemplateAction]{
+		OutputState: i.ToExperimentTemplateActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateActionOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateActionOutput) ElementType() reflect.Type {
@@ -100,6 +116,12 @@ func (o ExperimentTemplateActionOutput) ToExperimentTemplateActionOutput() Exper
 
 func (o ExperimentTemplateActionOutput) ToExperimentTemplateActionOutputWithContext(ctx context.Context) ExperimentTemplateActionOutput {
 	return o
+}
+
+func (o ExperimentTemplateActionOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateAction] {
+	return pulumix.Output[ExperimentTemplateAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
@@ -144,6 +166,12 @@ func (o ExperimentTemplateActionArrayOutput) ToExperimentTemplateActionArrayOutp
 
 func (o ExperimentTemplateActionArrayOutput) ToExperimentTemplateActionArrayOutputWithContext(ctx context.Context) ExperimentTemplateActionArrayOutput {
 	return o
+}
+
+func (o ExperimentTemplateActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateAction] {
+	return pulumix.Output[[]ExperimentTemplateAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateActionArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateActionOutput {
@@ -193,6 +221,12 @@ func (i ExperimentTemplateActionParameterArgs) ToExperimentTemplateActionParamet
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionParameterOutput)
 }
 
+func (i ExperimentTemplateActionParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateActionParameter] {
+	return pulumix.Output[ExperimentTemplateActionParameter]{
+		OutputState: i.ToExperimentTemplateActionParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExperimentTemplateActionParameterArrayInput is an input type that accepts ExperimentTemplateActionParameterArray and ExperimentTemplateActionParameterArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateActionParameterArrayInput` via:
 //
@@ -218,6 +252,12 @@ func (i ExperimentTemplateActionParameterArray) ToExperimentTemplateActionParame
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionParameterArrayOutput)
 }
 
+func (i ExperimentTemplateActionParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateActionParameter] {
+	return pulumix.Output[[]ExperimentTemplateActionParameter]{
+		OutputState: i.ToExperimentTemplateActionParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateActionParameterOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateActionParameterOutput) ElementType() reflect.Type {
@@ -230,6 +270,12 @@ func (o ExperimentTemplateActionParameterOutput) ToExperimentTemplateActionParam
 
 func (o ExperimentTemplateActionParameterOutput) ToExperimentTemplateActionParameterOutputWithContext(ctx context.Context) ExperimentTemplateActionParameterOutput {
 	return o
+}
+
+func (o ExperimentTemplateActionParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateActionParameter] {
+	return pulumix.Output[ExperimentTemplateActionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Parameter name.
@@ -256,6 +302,12 @@ func (o ExperimentTemplateActionParameterArrayOutput) ToExperimentTemplateAction
 
 func (o ExperimentTemplateActionParameterArrayOutput) ToExperimentTemplateActionParameterArrayOutputWithContext(ctx context.Context) ExperimentTemplateActionParameterArrayOutput {
 	return o
+}
+
+func (o ExperimentTemplateActionParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateActionParameter] {
+	return pulumix.Output[[]ExperimentTemplateActionParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateActionParameterArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateActionParameterOutput {
@@ -301,6 +353,12 @@ func (i ExperimentTemplateActionTargetArgs) ToExperimentTemplateActionTargetOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionTargetOutput)
 }
 
+func (i ExperimentTemplateActionTargetArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateActionTarget] {
+	return pulumix.Output[ExperimentTemplateActionTarget]{
+		OutputState: i.ToExperimentTemplateActionTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ExperimentTemplateActionTargetArgs) ToExperimentTemplateActionTargetPtrOutput() ExperimentTemplateActionTargetPtrOutput {
 	return i.ToExperimentTemplateActionTargetPtrOutputWithContext(context.Background())
 }
@@ -342,6 +400,12 @@ func (i *experimentTemplateActionTargetPtrType) ToExperimentTemplateActionTarget
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateActionTargetPtrOutput)
 }
 
+func (i *experimentTemplateActionTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateActionTarget] {
+	return pulumix.Output[*ExperimentTemplateActionTarget]{
+		OutputState: i.ToExperimentTemplateActionTargetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateActionTargetOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateActionTargetOutput) ElementType() reflect.Type {
@@ -366,6 +430,12 @@ func (o ExperimentTemplateActionTargetOutput) ToExperimentTemplateActionTargetPt
 	}).(ExperimentTemplateActionTargetPtrOutput)
 }
 
+func (o ExperimentTemplateActionTargetOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateActionTarget] {
+	return pulumix.Output[ExperimentTemplateActionTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Target type. Valid values are `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets).
 func (o ExperimentTemplateActionTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateActionTarget) string { return v.Key }).(pulumi.StringOutput)
@@ -388,6 +458,12 @@ func (o ExperimentTemplateActionTargetPtrOutput) ToExperimentTemplateActionTarge
 
 func (o ExperimentTemplateActionTargetPtrOutput) ToExperimentTemplateActionTargetPtrOutputWithContext(ctx context.Context) ExperimentTemplateActionTargetPtrOutput {
 	return o
+}
+
+func (o ExperimentTemplateActionTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateActionTarget] {
+	return pulumix.Output[*ExperimentTemplateActionTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateActionTargetPtrOutput) Elem() ExperimentTemplateActionTargetOutput {
@@ -457,6 +533,12 @@ func (i ExperimentTemplateStopConditionArgs) ToExperimentTemplateStopConditionOu
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateStopConditionOutput)
 }
 
+func (i ExperimentTemplateStopConditionArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateStopCondition] {
+	return pulumix.Output[ExperimentTemplateStopCondition]{
+		OutputState: i.ToExperimentTemplateStopConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExperimentTemplateStopConditionArrayInput is an input type that accepts ExperimentTemplateStopConditionArray and ExperimentTemplateStopConditionArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateStopConditionArrayInput` via:
 //
@@ -482,6 +564,12 @@ func (i ExperimentTemplateStopConditionArray) ToExperimentTemplateStopConditionA
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateStopConditionArrayOutput)
 }
 
+func (i ExperimentTemplateStopConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateStopCondition] {
+	return pulumix.Output[[]ExperimentTemplateStopCondition]{
+		OutputState: i.ToExperimentTemplateStopConditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateStopConditionOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateStopConditionOutput) ElementType() reflect.Type {
@@ -494,6 +582,12 @@ func (o ExperimentTemplateStopConditionOutput) ToExperimentTemplateStopCondition
 
 func (o ExperimentTemplateStopConditionOutput) ToExperimentTemplateStopConditionOutputWithContext(ctx context.Context) ExperimentTemplateStopConditionOutput {
 	return o
+}
+
+func (o ExperimentTemplateStopConditionOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateStopCondition] {
+	return pulumix.Output[ExperimentTemplateStopCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
@@ -518,6 +612,12 @@ func (o ExperimentTemplateStopConditionArrayOutput) ToExperimentTemplateStopCond
 
 func (o ExperimentTemplateStopConditionArrayOutput) ToExperimentTemplateStopConditionArrayOutputWithContext(ctx context.Context) ExperimentTemplateStopConditionArrayOutput {
 	return o
+}
+
+func (o ExperimentTemplateStopConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateStopCondition] {
+	return pulumix.Output[[]ExperimentTemplateStopCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateStopConditionArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateStopConditionOutput {
@@ -583,6 +683,12 @@ func (i ExperimentTemplateTargetArgs) ToExperimentTemplateTargetOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateTargetOutput)
 }
 
+func (i ExperimentTemplateTargetArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateTarget] {
+	return pulumix.Output[ExperimentTemplateTarget]{
+		OutputState: i.ToExperimentTemplateTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExperimentTemplateTargetArrayInput is an input type that accepts ExperimentTemplateTargetArray and ExperimentTemplateTargetArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateTargetArrayInput` via:
 //
@@ -608,6 +714,12 @@ func (i ExperimentTemplateTargetArray) ToExperimentTemplateTargetArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateTargetArrayOutput)
 }
 
+func (i ExperimentTemplateTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateTarget] {
+	return pulumix.Output[[]ExperimentTemplateTarget]{
+		OutputState: i.ToExperimentTemplateTargetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateTargetOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateTargetOutput) ElementType() reflect.Type {
@@ -620,6 +732,12 @@ func (o ExperimentTemplateTargetOutput) ToExperimentTemplateTargetOutput() Exper
 
 func (o ExperimentTemplateTargetOutput) ToExperimentTemplateTargetOutputWithContext(ctx context.Context) ExperimentTemplateTargetOutput {
 	return o
+}
+
+func (o ExperimentTemplateTargetOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateTarget] {
+	return pulumix.Output[ExperimentTemplateTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
@@ -666,6 +784,12 @@ func (o ExperimentTemplateTargetArrayOutput) ToExperimentTemplateTargetArrayOutp
 
 func (o ExperimentTemplateTargetArrayOutput) ToExperimentTemplateTargetArrayOutputWithContext(ctx context.Context) ExperimentTemplateTargetArrayOutput {
 	return o
+}
+
+func (o ExperimentTemplateTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateTarget] {
+	return pulumix.Output[[]ExperimentTemplateTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateTargetArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateTargetOutput {
@@ -715,6 +839,12 @@ func (i ExperimentTemplateTargetFilterArgs) ToExperimentTemplateTargetFilterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateTargetFilterOutput)
 }
 
+func (i ExperimentTemplateTargetFilterArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateTargetFilter] {
+	return pulumix.Output[ExperimentTemplateTargetFilter]{
+		OutputState: i.ToExperimentTemplateTargetFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExperimentTemplateTargetFilterArrayInput is an input type that accepts ExperimentTemplateTargetFilterArray and ExperimentTemplateTargetFilterArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateTargetFilterArrayInput` via:
 //
@@ -740,6 +870,12 @@ func (i ExperimentTemplateTargetFilterArray) ToExperimentTemplateTargetFilterArr
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateTargetFilterArrayOutput)
 }
 
+func (i ExperimentTemplateTargetFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateTargetFilter] {
+	return pulumix.Output[[]ExperimentTemplateTargetFilter]{
+		OutputState: i.ToExperimentTemplateTargetFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateTargetFilterOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateTargetFilterOutput) ElementType() reflect.Type {
@@ -752,6 +888,12 @@ func (o ExperimentTemplateTargetFilterOutput) ToExperimentTemplateTargetFilterOu
 
 func (o ExperimentTemplateTargetFilterOutput) ToExperimentTemplateTargetFilterOutputWithContext(ctx context.Context) ExperimentTemplateTargetFilterOutput {
 	return o
+}
+
+func (o ExperimentTemplateTargetFilterOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateTargetFilter] {
+	return pulumix.Output[ExperimentTemplateTargetFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Attribute path for the filter.
@@ -778,6 +920,12 @@ func (o ExperimentTemplateTargetFilterArrayOutput) ToExperimentTemplateTargetFil
 
 func (o ExperimentTemplateTargetFilterArrayOutput) ToExperimentTemplateTargetFilterArrayOutputWithContext(ctx context.Context) ExperimentTemplateTargetFilterArrayOutput {
 	return o
+}
+
+func (o ExperimentTemplateTargetFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateTargetFilter] {
+	return pulumix.Output[[]ExperimentTemplateTargetFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateTargetFilterArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateTargetFilterOutput {
@@ -823,6 +971,12 @@ func (i ExperimentTemplateTargetResourceTagArgs) ToExperimentTemplateTargetResou
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateTargetResourceTagOutput)
 }
 
+func (i ExperimentTemplateTargetResourceTagArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateTargetResourceTag] {
+	return pulumix.Output[ExperimentTemplateTargetResourceTag]{
+		OutputState: i.ToExperimentTemplateTargetResourceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ExperimentTemplateTargetResourceTagArrayInput is an input type that accepts ExperimentTemplateTargetResourceTagArray and ExperimentTemplateTargetResourceTagArrayOutput values.
 // You can construct a concrete instance of `ExperimentTemplateTargetResourceTagArrayInput` via:
 //
@@ -848,6 +1002,12 @@ func (i ExperimentTemplateTargetResourceTagArray) ToExperimentTemplateTargetReso
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateTargetResourceTagArrayOutput)
 }
 
+func (i ExperimentTemplateTargetResourceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateTargetResourceTag] {
+	return pulumix.Output[[]ExperimentTemplateTargetResourceTag]{
+		OutputState: i.ToExperimentTemplateTargetResourceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ExperimentTemplateTargetResourceTagOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateTargetResourceTagOutput) ElementType() reflect.Type {
@@ -860,6 +1020,12 @@ func (o ExperimentTemplateTargetResourceTagOutput) ToExperimentTemplateTargetRes
 
 func (o ExperimentTemplateTargetResourceTagOutput) ToExperimentTemplateTargetResourceTagOutputWithContext(ctx context.Context) ExperimentTemplateTargetResourceTagOutput {
 	return o
+}
+
+func (o ExperimentTemplateTargetResourceTagOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateTargetResourceTag] {
+	return pulumix.Output[ExperimentTemplateTargetResourceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Tag key.
@@ -884,6 +1050,12 @@ func (o ExperimentTemplateTargetResourceTagArrayOutput) ToExperimentTemplateTarg
 
 func (o ExperimentTemplateTargetResourceTagArrayOutput) ToExperimentTemplateTargetResourceTagArrayOutputWithContext(ctx context.Context) ExperimentTemplateTargetResourceTagArrayOutput {
 	return o
+}
+
+func (o ExperimentTemplateTargetResourceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ExperimentTemplateTargetResourceTag] {
+	return pulumix.Output[[]ExperimentTemplateTargetResourceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ExperimentTemplateTargetResourceTagArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateTargetResourceTagOutput {

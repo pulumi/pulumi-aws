@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an API Gateway Authorizer.
@@ -58,6 +60,7 @@ func NewAuthorizer(ctx *pulumi.Context,
 	if args.RestApi == nil {
 		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Authorizer
 	err := ctx.RegisterResource("aws:apigateway/authorizer:Authorizer", name, args, &resource, opts...)
 	if err != nil {
@@ -199,6 +202,12 @@ func (i *Authorizer) ToAuthorizerOutputWithContext(ctx context.Context) Authoriz
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerOutput)
 }
 
+func (i *Authorizer) ToOutput(ctx context.Context) pulumix.Output[*Authorizer] {
+	return pulumix.Output[*Authorizer]{
+		OutputState: i.ToAuthorizerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AuthorizerArrayInput is an input type that accepts AuthorizerArray and AuthorizerArrayOutput values.
 // You can construct a concrete instance of `AuthorizerArrayInput` via:
 //
@@ -222,6 +231,12 @@ func (i AuthorizerArray) ToAuthorizerArrayOutput() AuthorizerArrayOutput {
 
 func (i AuthorizerArray) ToAuthorizerArrayOutputWithContext(ctx context.Context) AuthorizerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerArrayOutput)
+}
+
+func (i AuthorizerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Authorizer] {
+	return pulumix.Output[[]*Authorizer]{
+		OutputState: i.ToAuthorizerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AuthorizerMapInput is an input type that accepts AuthorizerMap and AuthorizerMapOutput values.
@@ -249,6 +264,12 @@ func (i AuthorizerMap) ToAuthorizerMapOutputWithContext(ctx context.Context) Aut
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerMapOutput)
 }
 
+func (i AuthorizerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Authorizer] {
+	return pulumix.Output[map[string]*Authorizer]{
+		OutputState: i.ToAuthorizerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AuthorizerOutput struct{ *pulumi.OutputState }
 
 func (AuthorizerOutput) ElementType() reflect.Type {
@@ -261,6 +282,12 @@ func (o AuthorizerOutput) ToAuthorizerOutput() AuthorizerOutput {
 
 func (o AuthorizerOutput) ToAuthorizerOutputWithContext(ctx context.Context) AuthorizerOutput {
 	return o
+}
+
+func (o AuthorizerOutput) ToOutput(ctx context.Context) pulumix.Output[*Authorizer] {
+	return pulumix.Output[*Authorizer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the API Gateway Authorizer
@@ -328,6 +355,12 @@ func (o AuthorizerArrayOutput) ToAuthorizerArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o AuthorizerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Authorizer] {
+	return pulumix.Output[[]*Authorizer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AuthorizerArrayOutput) Index(i pulumi.IntInput) AuthorizerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Authorizer {
 		return vs[0].([]*Authorizer)[vs[1].(int)]
@@ -346,6 +379,12 @@ func (o AuthorizerMapOutput) ToAuthorizerMapOutput() AuthorizerMapOutput {
 
 func (o AuthorizerMapOutput) ToAuthorizerMapOutputWithContext(ctx context.Context) AuthorizerMapOutput {
 	return o
+}
+
+func (o AuthorizerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Authorizer] {
+	return pulumix.Output[map[string]*Authorizer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AuthorizerMapOutput) MapIndex(k pulumi.StringInput) AuthorizerOutput {

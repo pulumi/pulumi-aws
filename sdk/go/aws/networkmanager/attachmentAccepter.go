@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS NetworkManager Attachment Accepter.
@@ -104,6 +106,7 @@ func NewAttachmentAccepter(ctx *pulumi.Context,
 	if args.AttachmentType == nil {
 		return nil, errors.New("invalid value for required argument 'AttachmentType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AttachmentAccepter
 	err := ctx.RegisterResource("aws:networkmanager/attachmentAccepter:AttachmentAccepter", name, args, &resource, opts...)
 	if err != nil {
@@ -213,6 +216,12 @@ func (i *AttachmentAccepter) ToAttachmentAccepterOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AttachmentAccepterOutput)
 }
 
+func (i *AttachmentAccepter) ToOutput(ctx context.Context) pulumix.Output[*AttachmentAccepter] {
+	return pulumix.Output[*AttachmentAccepter]{
+		OutputState: i.ToAttachmentAccepterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AttachmentAccepterArrayInput is an input type that accepts AttachmentAccepterArray and AttachmentAccepterArrayOutput values.
 // You can construct a concrete instance of `AttachmentAccepterArrayInput` via:
 //
@@ -236,6 +245,12 @@ func (i AttachmentAccepterArray) ToAttachmentAccepterArrayOutput() AttachmentAcc
 
 func (i AttachmentAccepterArray) ToAttachmentAccepterArrayOutputWithContext(ctx context.Context) AttachmentAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AttachmentAccepterArrayOutput)
+}
+
+func (i AttachmentAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*AttachmentAccepter] {
+	return pulumix.Output[[]*AttachmentAccepter]{
+		OutputState: i.ToAttachmentAccepterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AttachmentAccepterMapInput is an input type that accepts AttachmentAccepterMap and AttachmentAccepterMapOutput values.
@@ -263,6 +278,12 @@ func (i AttachmentAccepterMap) ToAttachmentAccepterMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AttachmentAccepterMapOutput)
 }
 
+func (i AttachmentAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AttachmentAccepter] {
+	return pulumix.Output[map[string]*AttachmentAccepter]{
+		OutputState: i.ToAttachmentAccepterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AttachmentAccepterOutput struct{ *pulumi.OutputState }
 
 func (AttachmentAccepterOutput) ElementType() reflect.Type {
@@ -275,6 +296,12 @@ func (o AttachmentAccepterOutput) ToAttachmentAccepterOutput() AttachmentAccepte
 
 func (o AttachmentAccepterOutput) ToAttachmentAccepterOutputWithContext(ctx context.Context) AttachmentAccepterOutput {
 	return o
+}
+
+func (o AttachmentAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*AttachmentAccepter] {
+	return pulumix.Output[*AttachmentAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the attachment.
@@ -341,6 +368,12 @@ func (o AttachmentAccepterArrayOutput) ToAttachmentAccepterArrayOutputWithContex
 	return o
 }
 
+func (o AttachmentAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AttachmentAccepter] {
+	return pulumix.Output[[]*AttachmentAccepter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AttachmentAccepterArrayOutput) Index(i pulumi.IntInput) AttachmentAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AttachmentAccepter {
 		return vs[0].([]*AttachmentAccepter)[vs[1].(int)]
@@ -359,6 +392,12 @@ func (o AttachmentAccepterMapOutput) ToAttachmentAccepterMapOutput() AttachmentA
 
 func (o AttachmentAccepterMapOutput) ToAttachmentAccepterMapOutputWithContext(ctx context.Context) AttachmentAccepterMapOutput {
 	return o
+}
+
+func (o AttachmentAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AttachmentAccepter] {
+	return pulumix.Output[map[string]*AttachmentAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AttachmentAccepterMapOutput) MapIndex(k pulumi.StringInput) AttachmentAccepterOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
@@ -84,6 +86,7 @@ func NewRecordingConfiguration(ctx *pulumi.Context,
 	if args.DestinationConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecordingConfiguration
 	err := ctx.RegisterResource("aws:ivs/recordingConfiguration:RecordingConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -197,6 +200,12 @@ func (i *RecordingConfiguration) ToRecordingConfigurationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationOutput)
 }
 
+func (i *RecordingConfiguration) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfiguration] {
+	return pulumix.Output[*RecordingConfiguration]{
+		OutputState: i.ToRecordingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RecordingConfigurationArrayInput is an input type that accepts RecordingConfigurationArray and RecordingConfigurationArrayOutput values.
 // You can construct a concrete instance of `RecordingConfigurationArrayInput` via:
 //
@@ -220,6 +229,12 @@ func (i RecordingConfigurationArray) ToRecordingConfigurationArrayOutput() Recor
 
 func (i RecordingConfigurationArray) ToRecordingConfigurationArrayOutputWithContext(ctx context.Context) RecordingConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationArrayOutput)
+}
+
+func (i RecordingConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*RecordingConfiguration] {
+	return pulumix.Output[[]*RecordingConfiguration]{
+		OutputState: i.ToRecordingConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RecordingConfigurationMapInput is an input type that accepts RecordingConfigurationMap and RecordingConfigurationMapOutput values.
@@ -247,6 +262,12 @@ func (i RecordingConfigurationMap) ToRecordingConfigurationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationMapOutput)
 }
 
+func (i RecordingConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RecordingConfiguration] {
+	return pulumix.Output[map[string]*RecordingConfiguration]{
+		OutputState: i.ToRecordingConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecordingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RecordingConfigurationOutput) ElementType() reflect.Type {
@@ -259,6 +280,12 @@ func (o RecordingConfigurationOutput) ToRecordingConfigurationOutput() Recording
 
 func (o RecordingConfigurationOutput) ToRecordingConfigurationOutputWithContext(ctx context.Context) RecordingConfigurationOutput {
 	return o
+}
+
+func (o RecordingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*RecordingConfiguration] {
+	return pulumix.Output[*RecordingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Recording Configuration.
@@ -319,6 +346,12 @@ func (o RecordingConfigurationArrayOutput) ToRecordingConfigurationArrayOutputWi
 	return o
 }
 
+func (o RecordingConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RecordingConfiguration] {
+	return pulumix.Output[[]*RecordingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RecordingConfigurationArrayOutput) Index(i pulumi.IntInput) RecordingConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RecordingConfiguration {
 		return vs[0].([]*RecordingConfiguration)[vs[1].(int)]
@@ -337,6 +370,12 @@ func (o RecordingConfigurationMapOutput) ToRecordingConfigurationMapOutput() Rec
 
 func (o RecordingConfigurationMapOutput) ToRecordingConfigurationMapOutputWithContext(ctx context.Context) RecordingConfigurationMapOutput {
 	return o
+}
+
+func (o RecordingConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RecordingConfiguration] {
+	return pulumix.Output[map[string]*RecordingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecordingConfigurationMapOutput) MapIndex(k pulumi.StringInput) RecordingConfigurationOutput {

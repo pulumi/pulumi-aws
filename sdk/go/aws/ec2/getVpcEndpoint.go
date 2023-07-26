@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The VPC Endpoint data source provides details about
@@ -47,6 +49,7 @@ import (
 //
 // ```
 func LookupVpcEndpoint(ctx *pulumi.Context, args *LookupVpcEndpointArgs, opts ...pulumi.InvokeOption) (*LookupVpcEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcEndpointResult
 	err := ctx.Invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -163,6 +166,12 @@ func (o LookupVpcEndpointResultOutput) ToLookupVpcEndpointResultOutput() LookupV
 
 func (o LookupVpcEndpointResultOutput) ToLookupVpcEndpointResultOutputWithContext(ctx context.Context) LookupVpcEndpointResultOutput {
 	return o
+}
+
+func (o LookupVpcEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcEndpointResult] {
+	return pulumix.Output[LookupVpcEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the VPC endpoint.

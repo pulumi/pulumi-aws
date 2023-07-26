@@ -4,6 +4,7 @@
 package oam
 
 import (
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +35,7 @@ import (
 //
 // ```
 func GetSinks(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSinksResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSinksResult
 	err := ctx.Invoke("aws:oam/getSinks:getSinks", nil, &rv, opts...)
 	if err != nil {

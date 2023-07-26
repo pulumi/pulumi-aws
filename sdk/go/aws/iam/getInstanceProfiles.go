@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about all
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func GetInstanceProfiles(ctx *pulumi.Context, args *GetInstanceProfilesArgs, opts ...pulumi.InvokeOption) (*GetInstanceProfilesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceProfilesResult
 	err := ctx.Invoke("aws:iam/getInstanceProfiles:getInstanceProfiles", args, &rv, opts...)
 	if err != nil {
@@ -103,6 +106,12 @@ func (o GetInstanceProfilesResultOutput) ToGetInstanceProfilesResultOutput() Get
 
 func (o GetInstanceProfilesResultOutput) ToGetInstanceProfilesResultOutputWithContext(ctx context.Context) GetInstanceProfilesResultOutput {
 	return o
+}
+
+func (o GetInstanceProfilesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstanceProfilesResult] {
+	return pulumix.Output[GetInstanceProfilesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of ARNs of instance profiles.

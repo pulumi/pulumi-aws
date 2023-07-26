@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway Peering Attachment.
@@ -121,6 +123,7 @@ func NewPeeringAttachment(ctx *pulumi.Context,
 	if args.TransitGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PeeringAttachment
 	err := ctx.RegisterResource("aws:ec2transitgateway/peeringAttachment:PeeringAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -226,6 +229,12 @@ func (i *PeeringAttachment) ToPeeringAttachmentOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentOutput)
 }
 
+func (i *PeeringAttachment) ToOutput(ctx context.Context) pulumix.Output[*PeeringAttachment] {
+	return pulumix.Output[*PeeringAttachment]{
+		OutputState: i.ToPeeringAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PeeringAttachmentArrayInput is an input type that accepts PeeringAttachmentArray and PeeringAttachmentArrayOutput values.
 // You can construct a concrete instance of `PeeringAttachmentArrayInput` via:
 //
@@ -249,6 +258,12 @@ func (i PeeringAttachmentArray) ToPeeringAttachmentArrayOutput() PeeringAttachme
 
 func (i PeeringAttachmentArray) ToPeeringAttachmentArrayOutputWithContext(ctx context.Context) PeeringAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentArrayOutput)
+}
+
+func (i PeeringAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*PeeringAttachment] {
+	return pulumix.Output[[]*PeeringAttachment]{
+		OutputState: i.ToPeeringAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PeeringAttachmentMapInput is an input type that accepts PeeringAttachmentMap and PeeringAttachmentMapOutput values.
@@ -276,6 +291,12 @@ func (i PeeringAttachmentMap) ToPeeringAttachmentMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentMapOutput)
 }
 
+func (i PeeringAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PeeringAttachment] {
+	return pulumix.Output[map[string]*PeeringAttachment]{
+		OutputState: i.ToPeeringAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PeeringAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PeeringAttachmentOutput) ElementType() reflect.Type {
@@ -288,6 +309,12 @@ func (o PeeringAttachmentOutput) ToPeeringAttachmentOutput() PeeringAttachmentOu
 
 func (o PeeringAttachmentOutput) ToPeeringAttachmentOutputWithContext(ctx context.Context) PeeringAttachmentOutput {
 	return o
+}
+
+func (o PeeringAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*PeeringAttachment] {
+	return pulumix.Output[*PeeringAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
@@ -334,6 +361,12 @@ func (o PeeringAttachmentArrayOutput) ToPeeringAttachmentArrayOutputWithContext(
 	return o
 }
 
+func (o PeeringAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PeeringAttachment] {
+	return pulumix.Output[[]*PeeringAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PeeringAttachmentArrayOutput) Index(i pulumi.IntInput) PeeringAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PeeringAttachment {
 		return vs[0].([]*PeeringAttachment)[vs[1].(int)]
@@ -352,6 +385,12 @@ func (o PeeringAttachmentMapOutput) ToPeeringAttachmentMapOutput() PeeringAttach
 
 func (o PeeringAttachmentMapOutput) ToPeeringAttachmentMapOutputWithContext(ctx context.Context) PeeringAttachmentMapOutput {
 	return o
+}
+
+func (o PeeringAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PeeringAttachment] {
+	return pulumix.Output[map[string]*PeeringAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PeeringAttachmentMapOutput) MapIndex(k pulumi.StringInput) PeeringAttachmentOutput {

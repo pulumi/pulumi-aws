@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
@@ -89,6 +90,12 @@ func (o MetricOutput) ToMetricPtrOutputWithContext(ctx context.Context) MetricPt
 	}).(MetricPtrOutput)
 }
 
+func (o MetricOutput) ToOutput(ctx context.Context) pulumix.Output[Metric] {
+	return pulumix.Output[Metric]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MetricOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -122,6 +129,12 @@ func (o MetricPtrOutput) ToMetricPtrOutput() MetricPtrOutput {
 
 func (o MetricPtrOutput) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtrOutput {
 	return o
+}
+
+func (o MetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Metric] {
+	return pulumix.Output[*Metric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricPtrOutput) Elem() MetricOutput {
@@ -184,6 +197,12 @@ func (in *metricPtr) ToMetricPtrOutput() MetricPtrOutput {
 
 func (in *metricPtr) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricPtrOutput)
+}
+
+func (in *metricPtr) ToOutput(ctx context.Context) pulumix.Output[*Metric] {
+	return pulumix.Output[*Metric]{
+		OutputState: in.ToMetricPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
@@ -253,6 +272,12 @@ func (o MetricsGranularityOutput) ToMetricsGranularityPtrOutputWithContext(ctx c
 	}).(MetricsGranularityPtrOutput)
 }
 
+func (o MetricsGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[MetricsGranularity] {
+	return pulumix.Output[MetricsGranularity]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MetricsGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -286,6 +311,12 @@ func (o MetricsGranularityPtrOutput) ToMetricsGranularityPtrOutput() MetricsGran
 
 func (o MetricsGranularityPtrOutput) ToMetricsGranularityPtrOutputWithContext(ctx context.Context) MetricsGranularityPtrOutput {
 	return o
+}
+
+func (o MetricsGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricsGranularity] {
+	return pulumix.Output[*MetricsGranularity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricsGranularityPtrOutput) Elem() MetricsGranularityOutput {
@@ -348,6 +379,12 @@ func (in *metricsGranularityPtr) ToMetricsGranularityPtrOutput() MetricsGranular
 
 func (in *metricsGranularityPtr) ToMetricsGranularityPtrOutputWithContext(ctx context.Context) MetricsGranularityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricsGranularityPtrOutput)
+}
+
+func (in *metricsGranularityPtr) ToOutput(ctx context.Context) pulumix.Output[*MetricsGranularity] {
+	return pulumix.Output[*MetricsGranularity]{
+		OutputState: in.ToMetricsGranularityPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_NotificationConfiguration.html
@@ -421,6 +458,12 @@ func (o NotificationTypeOutput) ToNotificationTypePtrOutputWithContext(ctx conte
 	}).(NotificationTypePtrOutput)
 }
 
+func (o NotificationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationType] {
+	return pulumix.Output[NotificationType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotificationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -454,6 +497,12 @@ func (o NotificationTypePtrOutput) ToNotificationTypePtrOutput() NotificationTyp
 
 func (o NotificationTypePtrOutput) ToNotificationTypePtrOutputWithContext(ctx context.Context) NotificationTypePtrOutput {
 	return o
+}
+
+func (o NotificationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationType] {
+	return pulumix.Output[*NotificationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationTypePtrOutput) Elem() NotificationTypeOutput {
@@ -516,6 +565,12 @@ func (in *notificationTypePtr) ToNotificationTypePtrOutput() NotificationTypePtr
 
 func (in *notificationTypePtr) ToNotificationTypePtrOutputWithContext(ctx context.Context) NotificationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NotificationTypePtrOutput)
+}
+
+func (in *notificationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*NotificationType] {
+	return pulumix.Output[*NotificationType]{
+		OutputState: in.ToNotificationTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

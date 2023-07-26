@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Gateway REST API. The REST API can be configured via [importing an OpenAPI specification](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html) in the `body` argument (with other arguments serving as overrides) or via other provider resources to manage the resources (`apigateway.Resource` resource), methods (`apigateway.Method` resource), integrations (`apigateway.Integration` resource), etc. of the REST API. Once the REST API is configured, the `apigateway.Deployment` resource can be used along with the `apigateway.Stage` resource to publish the REST API.
@@ -169,6 +171,7 @@ func NewRestApi(ctx *pulumi.Context,
 		args = &RestApiArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RestApi
 	err := ctx.RegisterResource("aws:apigateway/restApi:RestApi", name, args, &resource, opts...)
 	if err != nil {
@@ -358,6 +361,12 @@ func (i *RestApi) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiOutput)
 }
 
+func (i *RestApi) ToOutput(ctx context.Context) pulumix.Output[*RestApi] {
+	return pulumix.Output[*RestApi]{
+		OutputState: i.ToRestApiOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RestApiArrayInput is an input type that accepts RestApiArray and RestApiArrayOutput values.
 // You can construct a concrete instance of `RestApiArrayInput` via:
 //
@@ -381,6 +390,12 @@ func (i RestApiArray) ToRestApiArrayOutput() RestApiArrayOutput {
 
 func (i RestApiArray) ToRestApiArrayOutputWithContext(ctx context.Context) RestApiArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiArrayOutput)
+}
+
+func (i RestApiArray) ToOutput(ctx context.Context) pulumix.Output[[]*RestApi] {
+	return pulumix.Output[[]*RestApi]{
+		OutputState: i.ToRestApiArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RestApiMapInput is an input type that accepts RestApiMap and RestApiMapOutput values.
@@ -408,6 +423,12 @@ func (i RestApiMap) ToRestApiMapOutputWithContext(ctx context.Context) RestApiMa
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiMapOutput)
 }
 
+func (i RestApiMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RestApi] {
+	return pulumix.Output[map[string]*RestApi]{
+		OutputState: i.ToRestApiMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RestApiOutput struct{ *pulumi.OutputState }
 
 func (RestApiOutput) ElementType() reflect.Type {
@@ -420,6 +441,12 @@ func (o RestApiOutput) ToRestApiOutput() RestApiOutput {
 
 func (o RestApiOutput) ToRestApiOutputWithContext(ctx context.Context) RestApiOutput {
 	return o
+}
+
+func (o RestApiOutput) ToOutput(ctx context.Context) pulumix.Output[*RestApi] {
+	return pulumix.Output[*RestApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -528,6 +555,12 @@ func (o RestApiArrayOutput) ToRestApiArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o RestApiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RestApi] {
+	return pulumix.Output[[]*RestApi]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RestApiArrayOutput) Index(i pulumi.IntInput) RestApiOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RestApi {
 		return vs[0].([]*RestApi)[vs[1].(int)]
@@ -546,6 +579,12 @@ func (o RestApiMapOutput) ToRestApiMapOutput() RestApiMapOutput {
 
 func (o RestApiMapOutput) ToRestApiMapOutputWithContext(ctx context.Context) RestApiMapOutput {
 	return o
+}
+
+func (o RestApiMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RestApi] {
+	return pulumix.Output[map[string]*RestApi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RestApiMapOutput) MapIndex(k pulumi.StringInput) RestApiOutput {

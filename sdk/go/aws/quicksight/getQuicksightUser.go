@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about a specific
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func GetQuicksightUser(ctx *pulumi.Context, args *GetQuicksightUserArgs, opts ...pulumi.InvokeOption) (*GetQuicksightUserResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQuicksightUserResult
 	err := ctx.Invoke("aws:quicksight/getQuicksightUser:getQuicksightUser", args, &rv, opts...)
 	if err != nil {
@@ -124,6 +127,12 @@ func (o GetQuicksightUserResultOutput) ToGetQuicksightUserResultOutput() GetQuic
 
 func (o GetQuicksightUserResultOutput) ToGetQuicksightUserResultOutputWithContext(ctx context.Context) GetQuicksightUserResultOutput {
 	return o
+}
+
+func (o GetQuicksightUserResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetQuicksightUserResult] {
+	return pulumix.Output[GetQuicksightUserResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.

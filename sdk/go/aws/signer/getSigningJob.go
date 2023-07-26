@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Signer Signing Job.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupSigningJob(ctx *pulumi.Context, args *LookupSigningJobArgs, opts ...pulumi.InvokeOption) (*LookupSigningJobResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSigningJobResult
 	err := ctx.Invoke("aws:signer/getSigningJob:getSigningJob", args, &rv, opts...)
 	if err != nil {
@@ -125,6 +128,12 @@ func (o LookupSigningJobResultOutput) ToLookupSigningJobResultOutput() LookupSig
 
 func (o LookupSigningJobResultOutput) ToLookupSigningJobResultOutputWithContext(ctx context.Context) LookupSigningJobResultOutput {
 	return o
+}
+
+func (o LookupSigningJobResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSigningJobResult] {
+	return pulumix.Output[LookupSigningJobResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.

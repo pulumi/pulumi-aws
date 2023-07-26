@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get an authentication token to communicate with an EKS cluster.
@@ -17,6 +19,7 @@ import (
 // This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
 // server configured.
 func GetClusterAuth(ctx *pulumi.Context, args *GetClusterAuthArgs, opts ...pulumi.InvokeOption) (*GetClusterAuthResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClusterAuthResult
 	err := ctx.Invoke("aws:eks/getClusterAuth:getClusterAuth", args, &rv, opts...)
 	if err != nil {
@@ -76,6 +79,12 @@ func (o GetClusterAuthResultOutput) ToGetClusterAuthResultOutput() GetClusterAut
 
 func (o GetClusterAuthResultOutput) ToGetClusterAuthResultOutputWithContext(ctx context.Context) GetClusterAuthResultOutput {
 	return o
+}
+
+func (o GetClusterAuthResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterAuthResult] {
+	return pulumix.Output[GetClusterAuthResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

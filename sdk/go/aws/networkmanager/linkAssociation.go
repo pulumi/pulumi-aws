@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a link to a device.
@@ -79,6 +81,7 @@ func NewLinkAssociation(ctx *pulumi.Context,
 	if args.LinkId == nil {
 		return nil, errors.New("invalid value for required argument 'LinkId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkAssociation
 	err := ctx.RegisterResource("aws:networkmanager/linkAssociation:LinkAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -164,6 +167,12 @@ func (i *LinkAssociation) ToLinkAssociationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(LinkAssociationOutput)
 }
 
+func (i *LinkAssociation) ToOutput(ctx context.Context) pulumix.Output[*LinkAssociation] {
+	return pulumix.Output[*LinkAssociation]{
+		OutputState: i.ToLinkAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LinkAssociationArrayInput is an input type that accepts LinkAssociationArray and LinkAssociationArrayOutput values.
 // You can construct a concrete instance of `LinkAssociationArrayInput` via:
 //
@@ -187,6 +196,12 @@ func (i LinkAssociationArray) ToLinkAssociationArrayOutput() LinkAssociationArra
 
 func (i LinkAssociationArray) ToLinkAssociationArrayOutputWithContext(ctx context.Context) LinkAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkAssociationArrayOutput)
+}
+
+func (i LinkAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkAssociation] {
+	return pulumix.Output[[]*LinkAssociation]{
+		OutputState: i.ToLinkAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LinkAssociationMapInput is an input type that accepts LinkAssociationMap and LinkAssociationMapOutput values.
@@ -214,6 +229,12 @@ func (i LinkAssociationMap) ToLinkAssociationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(LinkAssociationMapOutput)
 }
 
+func (i LinkAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkAssociation] {
+	return pulumix.Output[map[string]*LinkAssociation]{
+		OutputState: i.ToLinkAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LinkAssociationOutput struct{ *pulumi.OutputState }
 
 func (LinkAssociationOutput) ElementType() reflect.Type {
@@ -226,6 +247,12 @@ func (o LinkAssociationOutput) ToLinkAssociationOutput() LinkAssociationOutput {
 
 func (o LinkAssociationOutput) ToLinkAssociationOutputWithContext(ctx context.Context) LinkAssociationOutput {
 	return o
+}
+
+func (o LinkAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkAssociation] {
+	return pulumix.Output[*LinkAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the device.
@@ -257,6 +284,12 @@ func (o LinkAssociationArrayOutput) ToLinkAssociationArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o LinkAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkAssociation] {
+	return pulumix.Output[[]*LinkAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LinkAssociationArrayOutput) Index(i pulumi.IntInput) LinkAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkAssociation {
 		return vs[0].([]*LinkAssociation)[vs[1].(int)]
@@ -275,6 +308,12 @@ func (o LinkAssociationMapOutput) ToLinkAssociationMapOutput() LinkAssociationMa
 
 func (o LinkAssociationMapOutput) ToLinkAssociationMapOutputWithContext(ctx context.Context) LinkAssociationMapOutput {
 	return o
+}
+
+func (o LinkAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkAssociation] {
+	return pulumix.Output[map[string]*LinkAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LinkAssociationMapOutput) MapIndex(k pulumi.StringInput) LinkAssociationOutput {

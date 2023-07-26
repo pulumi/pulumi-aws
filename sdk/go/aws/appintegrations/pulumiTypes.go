@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DataIntegrationScheduleConfig struct {
 	// The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
@@ -49,6 +53,12 @@ func (i DataIntegrationScheduleConfigArgs) ToDataIntegrationScheduleConfigOutput
 
 func (i DataIntegrationScheduleConfigArgs) ToDataIntegrationScheduleConfigOutputWithContext(ctx context.Context) DataIntegrationScheduleConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationScheduleConfigOutput)
+}
+
+func (i DataIntegrationScheduleConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataIntegrationScheduleConfig] {
+	return pulumix.Output[DataIntegrationScheduleConfig]{
+		OutputState: i.ToDataIntegrationScheduleConfigOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DataIntegrationScheduleConfigArgs) ToDataIntegrationScheduleConfigPtrOutput() DataIntegrationScheduleConfigPtrOutput {
@@ -92,6 +102,12 @@ func (i *dataIntegrationScheduleConfigPtrType) ToDataIntegrationScheduleConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationScheduleConfigPtrOutput)
 }
 
+func (i *dataIntegrationScheduleConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataIntegrationScheduleConfig] {
+	return pulumix.Output[*DataIntegrationScheduleConfig]{
+		OutputState: i.ToDataIntegrationScheduleConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataIntegrationScheduleConfigOutput struct{ *pulumi.OutputState }
 
 func (DataIntegrationScheduleConfigOutput) ElementType() reflect.Type {
@@ -114,6 +130,12 @@ func (o DataIntegrationScheduleConfigOutput) ToDataIntegrationScheduleConfigPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataIntegrationScheduleConfig) *DataIntegrationScheduleConfig {
 		return &v
 	}).(DataIntegrationScheduleConfigPtrOutput)
+}
+
+func (o DataIntegrationScheduleConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataIntegrationScheduleConfig] {
+	return pulumix.Output[DataIntegrationScheduleConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
@@ -143,6 +165,12 @@ func (o DataIntegrationScheduleConfigPtrOutput) ToDataIntegrationScheduleConfigP
 
 func (o DataIntegrationScheduleConfigPtrOutput) ToDataIntegrationScheduleConfigPtrOutputWithContext(ctx context.Context) DataIntegrationScheduleConfigPtrOutput {
 	return o
+}
+
+func (o DataIntegrationScheduleConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataIntegrationScheduleConfig] {
+	return pulumix.Output[*DataIntegrationScheduleConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataIntegrationScheduleConfigPtrOutput) Elem() DataIntegrationScheduleConfigOutput {
@@ -218,6 +246,12 @@ func (i GetEventIntegrationEventFilterArgs) ToGetEventIntegrationEventFilterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventIntegrationEventFilterOutput)
 }
 
+func (i GetEventIntegrationEventFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetEventIntegrationEventFilter] {
+	return pulumix.Output[GetEventIntegrationEventFilter]{
+		OutputState: i.ToGetEventIntegrationEventFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEventIntegrationEventFilterArrayInput is an input type that accepts GetEventIntegrationEventFilterArray and GetEventIntegrationEventFilterArrayOutput values.
 // You can construct a concrete instance of `GetEventIntegrationEventFilterArrayInput` via:
 //
@@ -243,6 +277,12 @@ func (i GetEventIntegrationEventFilterArray) ToGetEventIntegrationEventFilterArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetEventIntegrationEventFilterArrayOutput)
 }
 
+func (i GetEventIntegrationEventFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEventIntegrationEventFilter] {
+	return pulumix.Output[[]GetEventIntegrationEventFilter]{
+		OutputState: i.ToGetEventIntegrationEventFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEventIntegrationEventFilterOutput struct{ *pulumi.OutputState }
 
 func (GetEventIntegrationEventFilterOutput) ElementType() reflect.Type {
@@ -255,6 +295,12 @@ func (o GetEventIntegrationEventFilterOutput) ToGetEventIntegrationEventFilterOu
 
 func (o GetEventIntegrationEventFilterOutput) ToGetEventIntegrationEventFilterOutputWithContext(ctx context.Context) GetEventIntegrationEventFilterOutput {
 	return o
+}
+
+func (o GetEventIntegrationEventFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventIntegrationEventFilter] {
+	return pulumix.Output[GetEventIntegrationEventFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The source of the events.
@@ -274,6 +320,12 @@ func (o GetEventIntegrationEventFilterArrayOutput) ToGetEventIntegrationEventFil
 
 func (o GetEventIntegrationEventFilterArrayOutput) ToGetEventIntegrationEventFilterArrayOutputWithContext(ctx context.Context) GetEventIntegrationEventFilterArrayOutput {
 	return o
+}
+
+func (o GetEventIntegrationEventFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEventIntegrationEventFilter] {
+	return pulumix.Output[[]GetEventIntegrationEventFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEventIntegrationEventFilterArrayOutput) Index(i pulumi.IntInput) GetEventIntegrationEventFilterOutput {

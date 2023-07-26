@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an API Gateway Gateway Response for a REST API Gateway.
@@ -88,6 +90,7 @@ func NewResponse(ctx *pulumi.Context,
 	if args.RestApiId == nil {
 		return nil, errors.New("invalid value for required argument 'RestApiId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Response
 	err := ctx.RegisterResource("aws:apigateway/response:Response", name, args, &resource, opts...)
 	if err != nil {
@@ -189,6 +192,12 @@ func (i *Response) ToResponseOutputWithContext(ctx context.Context) ResponseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseOutput)
 }
 
+func (i *Response) ToOutput(ctx context.Context) pulumix.Output[*Response] {
+	return pulumix.Output[*Response]{
+		OutputState: i.ToResponseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResponseArrayInput is an input type that accepts ResponseArray and ResponseArrayOutput values.
 // You can construct a concrete instance of `ResponseArrayInput` via:
 //
@@ -212,6 +221,12 @@ func (i ResponseArray) ToResponseArrayOutput() ResponseArrayOutput {
 
 func (i ResponseArray) ToResponseArrayOutputWithContext(ctx context.Context) ResponseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseArrayOutput)
+}
+
+func (i ResponseArray) ToOutput(ctx context.Context) pulumix.Output[[]*Response] {
+	return pulumix.Output[[]*Response]{
+		OutputState: i.ToResponseArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResponseMapInput is an input type that accepts ResponseMap and ResponseMapOutput values.
@@ -239,6 +254,12 @@ func (i ResponseMap) ToResponseMapOutputWithContext(ctx context.Context) Respons
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseMapOutput)
 }
 
+func (i ResponseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Response] {
+	return pulumix.Output[map[string]*Response]{
+		OutputState: i.ToResponseMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResponseOutput struct{ *pulumi.OutputState }
 
 func (ResponseOutput) ElementType() reflect.Type {
@@ -251,6 +272,12 @@ func (o ResponseOutput) ToResponseOutput() ResponseOutput {
 
 func (o ResponseOutput) ToResponseOutputWithContext(ctx context.Context) ResponseOutput {
 	return o
+}
+
+func (o ResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*Response] {
+	return pulumix.Output[*Response]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Map of parameters (paths, query strings and headers) of the Gateway Response.
@@ -292,6 +319,12 @@ func (o ResponseArrayOutput) ToResponseArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ResponseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Response] {
+	return pulumix.Output[[]*Response]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResponseArrayOutput) Index(i pulumi.IntInput) ResponseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Response {
 		return vs[0].([]*Response)[vs[1].(int)]
@@ -310,6 +343,12 @@ func (o ResponseMapOutput) ToResponseMapOutput() ResponseMapOutput {
 
 func (o ResponseMapOutput) ToResponseMapOutputWithContext(ctx context.Context) ResponseMapOutput {
 	return o
+}
+
+func (o ResponseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Response] {
+	return pulumix.Output[map[string]*Response]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResponseMapOutput) MapIndex(k pulumi.StringInput) ResponseOutput {

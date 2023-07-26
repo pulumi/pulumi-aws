@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -36,6 +38,7 @@ import (
 //
 // ```
 func LookupHttpNamespace(ctx *pulumi.Context, args *LookupHttpNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupHttpNamespaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHttpNamespaceResult
 	err := ctx.Invoke("aws:servicediscovery/getHttpNamespace:getHttpNamespace", args, &rv, opts...)
 	if err != nil {
@@ -105,6 +108,12 @@ func (o LookupHttpNamespaceResultOutput) ToLookupHttpNamespaceResultOutput() Loo
 
 func (o LookupHttpNamespaceResultOutput) ToLookupHttpNamespaceResultOutputWithContext(ctx context.Context) LookupHttpNamespaceResultOutput {
 	return o
+}
+
+func (o LookupHttpNamespaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHttpNamespaceResult] {
+	return pulumix.Output[LookupHttpNamespaceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN that Amazon Route 53 assigns to the namespace when you create it.

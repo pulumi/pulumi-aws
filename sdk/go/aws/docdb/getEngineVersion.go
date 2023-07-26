@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about a DocumentDB engine version.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetEngineVersion(ctx *pulumi.Context, args *GetEngineVersionArgs, opts ...pulumi.InvokeOption) (*GetEngineVersionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEngineVersionResult
 	err := ctx.Invoke("aws:docdb/getEngineVersion:getEngineVersion", args, &rv, opts...)
 	if err != nil {
@@ -120,6 +123,12 @@ func (o GetEngineVersionResultOutput) ToGetEngineVersionResultOutput() GetEngine
 
 func (o GetEngineVersionResultOutput) ToGetEngineVersionResultOutputWithContext(ctx context.Context) GetEngineVersionResultOutput {
 	return o
+}
+
+func (o GetEngineVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEngineVersionResult] {
+	return pulumix.Output[GetEngineVersionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEngineVersionResultOutput) Engine() pulumi.StringPtrOutput {

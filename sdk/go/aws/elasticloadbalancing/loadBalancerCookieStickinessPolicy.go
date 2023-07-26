@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
@@ -88,6 +90,7 @@ func NewLoadBalancerCookieStickinessPolicy(ctx *pulumi.Context,
 	if args.LoadBalancer == nil {
 		return nil, errors.New("invalid value for required argument 'LoadBalancer'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LoadBalancerCookieStickinessPolicy
 	err := ctx.RegisterResource("aws:elasticloadbalancing/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -197,6 +200,12 @@ func (i *LoadBalancerCookieStickinessPolicy) ToLoadBalancerCookieStickinessPolic
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerCookieStickinessPolicyOutput)
 }
 
+func (i *LoadBalancerCookieStickinessPolicy) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerCookieStickinessPolicy] {
+	return pulumix.Output[*LoadBalancerCookieStickinessPolicy]{
+		OutputState: i.ToLoadBalancerCookieStickinessPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoadBalancerCookieStickinessPolicyArrayInput is an input type that accepts LoadBalancerCookieStickinessPolicyArray and LoadBalancerCookieStickinessPolicyArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerCookieStickinessPolicyArrayInput` via:
 //
@@ -220,6 +229,12 @@ func (i LoadBalancerCookieStickinessPolicyArray) ToLoadBalancerCookieStickinessP
 
 func (i LoadBalancerCookieStickinessPolicyArray) ToLoadBalancerCookieStickinessPolicyArrayOutputWithContext(ctx context.Context) LoadBalancerCookieStickinessPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerCookieStickinessPolicyArrayOutput)
+}
+
+func (i LoadBalancerCookieStickinessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerCookieStickinessPolicy] {
+	return pulumix.Output[[]*LoadBalancerCookieStickinessPolicy]{
+		OutputState: i.ToLoadBalancerCookieStickinessPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LoadBalancerCookieStickinessPolicyMapInput is an input type that accepts LoadBalancerCookieStickinessPolicyMap and LoadBalancerCookieStickinessPolicyMapOutput values.
@@ -247,6 +262,12 @@ func (i LoadBalancerCookieStickinessPolicyMap) ToLoadBalancerCookieStickinessPol
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerCookieStickinessPolicyMapOutput)
 }
 
+func (i LoadBalancerCookieStickinessPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerCookieStickinessPolicy] {
+	return pulumix.Output[map[string]*LoadBalancerCookieStickinessPolicy]{
+		OutputState: i.ToLoadBalancerCookieStickinessPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoadBalancerCookieStickinessPolicyOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerCookieStickinessPolicyOutput) ElementType() reflect.Type {
@@ -259,6 +280,12 @@ func (o LoadBalancerCookieStickinessPolicyOutput) ToLoadBalancerCookieStickiness
 
 func (o LoadBalancerCookieStickinessPolicyOutput) ToLoadBalancerCookieStickinessPolicyOutputWithContext(ctx context.Context) LoadBalancerCookieStickinessPolicyOutput {
 	return o
+}
+
+func (o LoadBalancerCookieStickinessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerCookieStickinessPolicy] {
+	return pulumix.Output[*LoadBalancerCookieStickinessPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The time period after which
@@ -299,6 +326,12 @@ func (o LoadBalancerCookieStickinessPolicyArrayOutput) ToLoadBalancerCookieStick
 	return o
 }
 
+func (o LoadBalancerCookieStickinessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LoadBalancerCookieStickinessPolicy] {
+	return pulumix.Output[[]*LoadBalancerCookieStickinessPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoadBalancerCookieStickinessPolicyArrayOutput) Index(i pulumi.IntInput) LoadBalancerCookieStickinessPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LoadBalancerCookieStickinessPolicy {
 		return vs[0].([]*LoadBalancerCookieStickinessPolicy)[vs[1].(int)]
@@ -317,6 +350,12 @@ func (o LoadBalancerCookieStickinessPolicyMapOutput) ToLoadBalancerCookieStickin
 
 func (o LoadBalancerCookieStickinessPolicyMapOutput) ToLoadBalancerCookieStickinessPolicyMapOutputWithContext(ctx context.Context) LoadBalancerCookieStickinessPolicyMapOutput {
 	return o
+}
+
+func (o LoadBalancerCookieStickinessPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LoadBalancerCookieStickinessPolicy] {
+	return pulumix.Output[map[string]*LoadBalancerCookieStickinessPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoadBalancerCookieStickinessPolicyMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerCookieStickinessPolicyOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Device resource.
@@ -77,6 +79,7 @@ func NewDevice(ctx *pulumi.Context,
 	if args.DeviceFleetName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceFleetName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Device
 	err := ctx.RegisterResource("aws:sagemaker/device:Device", name, args, &resource, opts...)
 	if err != nil {
@@ -160,6 +163,12 @@ func (i *Device) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceOutput)
 }
 
+func (i *Device) ToOutput(ctx context.Context) pulumix.Output[*Device] {
+	return pulumix.Output[*Device]{
+		OutputState: i.ToDeviceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeviceArrayInput is an input type that accepts DeviceArray and DeviceArrayOutput values.
 // You can construct a concrete instance of `DeviceArrayInput` via:
 //
@@ -183,6 +192,12 @@ func (i DeviceArray) ToDeviceArrayOutput() DeviceArrayOutput {
 
 func (i DeviceArray) ToDeviceArrayOutputWithContext(ctx context.Context) DeviceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceArrayOutput)
+}
+
+func (i DeviceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Device] {
+	return pulumix.Output[[]*Device]{
+		OutputState: i.ToDeviceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DeviceMapInput is an input type that accepts DeviceMap and DeviceMapOutput values.
@@ -210,6 +225,12 @@ func (i DeviceMap) ToDeviceMapOutputWithContext(ctx context.Context) DeviceMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceMapOutput)
 }
 
+func (i DeviceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Device] {
+	return pulumix.Output[map[string]*Device]{
+		OutputState: i.ToDeviceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeviceOutput struct{ *pulumi.OutputState }
 
 func (DeviceOutput) ElementType() reflect.Type {
@@ -222,6 +243,12 @@ func (o DeviceOutput) ToDeviceOutput() DeviceOutput {
 
 func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
 	return o
+}
+
+func (o DeviceOutput) ToOutput(ctx context.Context) pulumix.Output[*Device] {
+	return pulumix.Output[*Device]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeviceOutput) AgentVersion() pulumi.StringOutput {
@@ -257,6 +284,12 @@ func (o DeviceArrayOutput) ToDeviceArrayOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DeviceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Device] {
+	return pulumix.Output[[]*Device]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DeviceArrayOutput) Index(i pulumi.IntInput) DeviceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Device {
 		return vs[0].([]*Device)[vs[1].(int)]
@@ -275,6 +308,12 @@ func (o DeviceMapOutput) ToDeviceMapOutput() DeviceMapOutput {
 
 func (o DeviceMapOutput) ToDeviceMapOutputWithContext(ctx context.Context) DeviceMapOutput {
 	return o
+}
+
+func (o DeviceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Device] {
+	return pulumix.Output[map[string]*Device]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeviceMapOutput) MapIndex(k pulumi.StringInput) DeviceOutput {

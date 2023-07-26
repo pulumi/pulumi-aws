@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type GrantConstraint struct {
 	// A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
@@ -47,6 +51,12 @@ func (i GrantConstraintArgs) ToGrantConstraintOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GrantConstraintOutput)
 }
 
+func (i GrantConstraintArgs) ToOutput(ctx context.Context) pulumix.Output[GrantConstraint] {
+	return pulumix.Output[GrantConstraint]{
+		OutputState: i.ToGrantConstraintOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GrantConstraintArrayInput is an input type that accepts GrantConstraintArray and GrantConstraintArrayOutput values.
 // You can construct a concrete instance of `GrantConstraintArrayInput` via:
 //
@@ -72,6 +82,12 @@ func (i GrantConstraintArray) ToGrantConstraintArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GrantConstraintArrayOutput)
 }
 
+func (i GrantConstraintArray) ToOutput(ctx context.Context) pulumix.Output[[]GrantConstraint] {
+	return pulumix.Output[[]GrantConstraint]{
+		OutputState: i.ToGrantConstraintArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GrantConstraintOutput struct{ *pulumi.OutputState }
 
 func (GrantConstraintOutput) ElementType() reflect.Type {
@@ -84,6 +100,12 @@ func (o GrantConstraintOutput) ToGrantConstraintOutput() GrantConstraintOutput {
 
 func (o GrantConstraintOutput) ToGrantConstraintOutputWithContext(ctx context.Context) GrantConstraintOutput {
 	return o
+}
+
+func (o GrantConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[GrantConstraint] {
+	return pulumix.Output[GrantConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
@@ -108,6 +130,12 @@ func (o GrantConstraintArrayOutput) ToGrantConstraintArrayOutput() GrantConstrai
 
 func (o GrantConstraintArrayOutput) ToGrantConstraintArrayOutputWithContext(ctx context.Context) GrantConstraintArrayOutput {
 	return o
+}
+
+func (o GrantConstraintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GrantConstraint] {
+	return pulumix.Output[[]GrantConstraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GrantConstraintArrayOutput) Index(i pulumi.IntInput) GrantConstraintOutput {
@@ -157,6 +185,12 @@ func (i GetKeyMultiRegionConfigurationArgs) ToGetKeyMultiRegionConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationOutput)
 }
 
+func (i GetKeyMultiRegionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetKeyMultiRegionConfiguration] {
+	return pulumix.Output[GetKeyMultiRegionConfiguration]{
+		OutputState: i.ToGetKeyMultiRegionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKeyMultiRegionConfigurationArrayInput is an input type that accepts GetKeyMultiRegionConfigurationArray and GetKeyMultiRegionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetKeyMultiRegionConfigurationArrayInput` via:
 //
@@ -182,6 +216,12 @@ func (i GetKeyMultiRegionConfigurationArray) ToGetKeyMultiRegionConfigurationArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationArrayOutput)
 }
 
+func (i GetKeyMultiRegionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyMultiRegionConfiguration] {
+	return pulumix.Output[[]GetKeyMultiRegionConfiguration]{
+		OutputState: i.ToGetKeyMultiRegionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKeyMultiRegionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetKeyMultiRegionConfigurationOutput) ElementType() reflect.Type {
@@ -194,6 +234,12 @@ func (o GetKeyMultiRegionConfigurationOutput) ToGetKeyMultiRegionConfigurationOu
 
 func (o GetKeyMultiRegionConfigurationOutput) ToGetKeyMultiRegionConfigurationOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationOutput {
 	return o
+}
+
+func (o GetKeyMultiRegionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetKeyMultiRegionConfiguration] {
+	return pulumix.Output[GetKeyMultiRegionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
@@ -227,6 +273,12 @@ func (o GetKeyMultiRegionConfigurationArrayOutput) ToGetKeyMultiRegionConfigurat
 
 func (o GetKeyMultiRegionConfigurationArrayOutput) ToGetKeyMultiRegionConfigurationArrayOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationArrayOutput {
 	return o
+}
+
+func (o GetKeyMultiRegionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyMultiRegionConfiguration] {
+	return pulumix.Output[[]GetKeyMultiRegionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKeyMultiRegionConfigurationArrayOutput) Index(i pulumi.IntInput) GetKeyMultiRegionConfigurationOutput {
@@ -272,6 +324,12 @@ func (i GetKeyMultiRegionConfigurationPrimaryKeyArgs) ToGetKeyMultiRegionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationPrimaryKeyOutput)
 }
 
+func (i GetKeyMultiRegionConfigurationPrimaryKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetKeyMultiRegionConfigurationPrimaryKey] {
+	return pulumix.Output[GetKeyMultiRegionConfigurationPrimaryKey]{
+		OutputState: i.ToGetKeyMultiRegionConfigurationPrimaryKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKeyMultiRegionConfigurationPrimaryKeyArrayInput is an input type that accepts GetKeyMultiRegionConfigurationPrimaryKeyArray and GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput values.
 // You can construct a concrete instance of `GetKeyMultiRegionConfigurationPrimaryKeyArrayInput` via:
 //
@@ -297,6 +355,12 @@ func (i GetKeyMultiRegionConfigurationPrimaryKeyArray) ToGetKeyMultiRegionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput)
 }
 
+func (i GetKeyMultiRegionConfigurationPrimaryKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyMultiRegionConfigurationPrimaryKey] {
+	return pulumix.Output[[]GetKeyMultiRegionConfigurationPrimaryKey]{
+		OutputState: i.ToGetKeyMultiRegionConfigurationPrimaryKeyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKeyMultiRegionConfigurationPrimaryKeyOutput struct{ *pulumi.OutputState }
 
 func (GetKeyMultiRegionConfigurationPrimaryKeyOutput) ElementType() reflect.Type {
@@ -309,6 +373,12 @@ func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) ToGetKeyMultiRegionConfi
 
 func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) ToGetKeyMultiRegionConfigurationPrimaryKeyOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationPrimaryKeyOutput {
 	return o
+}
+
+func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetKeyMultiRegionConfigurationPrimaryKey] {
+	return pulumix.Output[GetKeyMultiRegionConfigurationPrimaryKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key ARN of a primary or replica key of a multi-Region key.
@@ -333,6 +403,12 @@ func (o GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput) ToGetKeyMultiRegion
 
 func (o GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput) ToGetKeyMultiRegionConfigurationPrimaryKeyArrayOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput {
 	return o
+}
+
+func (o GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyMultiRegionConfigurationPrimaryKey] {
+	return pulumix.Output[[]GetKeyMultiRegionConfigurationPrimaryKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput) Index(i pulumi.IntInput) GetKeyMultiRegionConfigurationPrimaryKeyOutput {
@@ -378,6 +454,12 @@ func (i GetKeyMultiRegionConfigurationReplicaKeyArgs) ToGetKeyMultiRegionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationReplicaKeyOutput)
 }
 
+func (i GetKeyMultiRegionConfigurationReplicaKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetKeyMultiRegionConfigurationReplicaKey] {
+	return pulumix.Output[GetKeyMultiRegionConfigurationReplicaKey]{
+		OutputState: i.ToGetKeyMultiRegionConfigurationReplicaKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKeyMultiRegionConfigurationReplicaKeyArrayInput is an input type that accepts GetKeyMultiRegionConfigurationReplicaKeyArray and GetKeyMultiRegionConfigurationReplicaKeyArrayOutput values.
 // You can construct a concrete instance of `GetKeyMultiRegionConfigurationReplicaKeyArrayInput` via:
 //
@@ -403,6 +485,12 @@ func (i GetKeyMultiRegionConfigurationReplicaKeyArray) ToGetKeyMultiRegionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationReplicaKeyArrayOutput)
 }
 
+func (i GetKeyMultiRegionConfigurationReplicaKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyMultiRegionConfigurationReplicaKey] {
+	return pulumix.Output[[]GetKeyMultiRegionConfigurationReplicaKey]{
+		OutputState: i.ToGetKeyMultiRegionConfigurationReplicaKeyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKeyMultiRegionConfigurationReplicaKeyOutput struct{ *pulumi.OutputState }
 
 func (GetKeyMultiRegionConfigurationReplicaKeyOutput) ElementType() reflect.Type {
@@ -415,6 +503,12 @@ func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) ToGetKeyMultiRegionConfi
 
 func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) ToGetKeyMultiRegionConfigurationReplicaKeyOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationReplicaKeyOutput {
 	return o
+}
+
+func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetKeyMultiRegionConfigurationReplicaKey] {
+	return pulumix.Output[GetKeyMultiRegionConfigurationReplicaKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key ARN of a primary or replica key of a multi-Region key.
@@ -439,6 +533,12 @@ func (o GetKeyMultiRegionConfigurationReplicaKeyArrayOutput) ToGetKeyMultiRegion
 
 func (o GetKeyMultiRegionConfigurationReplicaKeyArrayOutput) ToGetKeyMultiRegionConfigurationReplicaKeyArrayOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationReplicaKeyArrayOutput {
 	return o
+}
+
+func (o GetKeyMultiRegionConfigurationReplicaKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyMultiRegionConfigurationReplicaKey] {
+	return pulumix.Output[[]GetKeyMultiRegionConfigurationReplicaKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKeyMultiRegionConfigurationReplicaKeyArrayOutput) Index(i pulumi.IntInput) GetKeyMultiRegionConfigurationReplicaKeyOutput {
@@ -480,6 +580,12 @@ func (i GetKeyXksKeyConfigurationArgs) ToGetKeyXksKeyConfigurationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyXksKeyConfigurationOutput)
 }
 
+func (i GetKeyXksKeyConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetKeyXksKeyConfiguration] {
+	return pulumix.Output[GetKeyXksKeyConfiguration]{
+		OutputState: i.ToGetKeyXksKeyConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetKeyXksKeyConfigurationArrayInput is an input type that accepts GetKeyXksKeyConfigurationArray and GetKeyXksKeyConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetKeyXksKeyConfigurationArrayInput` via:
 //
@@ -505,6 +611,12 @@ func (i GetKeyXksKeyConfigurationArray) ToGetKeyXksKeyConfigurationArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyXksKeyConfigurationArrayOutput)
 }
 
+func (i GetKeyXksKeyConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyXksKeyConfiguration] {
+	return pulumix.Output[[]GetKeyXksKeyConfiguration]{
+		OutputState: i.ToGetKeyXksKeyConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetKeyXksKeyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetKeyXksKeyConfigurationOutput) ElementType() reflect.Type {
@@ -517,6 +629,12 @@ func (o GetKeyXksKeyConfigurationOutput) ToGetKeyXksKeyConfigurationOutput() Get
 
 func (o GetKeyXksKeyConfigurationOutput) ToGetKeyXksKeyConfigurationOutputWithContext(ctx context.Context) GetKeyXksKeyConfigurationOutput {
 	return o
+}
+
+func (o GetKeyXksKeyConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetKeyXksKeyConfiguration] {
+	return pulumix.Output[GetKeyXksKeyConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The globally unique identifier for the key
@@ -536,6 +654,12 @@ func (o GetKeyXksKeyConfigurationArrayOutput) ToGetKeyXksKeyConfigurationArrayOu
 
 func (o GetKeyXksKeyConfigurationArrayOutput) ToGetKeyXksKeyConfigurationArrayOutputWithContext(ctx context.Context) GetKeyXksKeyConfigurationArrayOutput {
 	return o
+}
+
+func (o GetKeyXksKeyConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyXksKeyConfiguration] {
+	return pulumix.Output[[]GetKeyXksKeyConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetKeyXksKeyConfigurationArrayOutput) Index(i pulumi.IntInput) GetKeyXksKeyConfigurationOutput {
@@ -581,6 +705,12 @@ func (i GetSecretSecretArgs) ToGetSecretSecretOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretSecretOutput)
 }
 
+func (i GetSecretSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetSecretSecret] {
+	return pulumix.Output[GetSecretSecret]{
+		OutputState: i.ToGetSecretSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSecretSecretArrayInput is an input type that accepts GetSecretSecretArray and GetSecretSecretArrayOutput values.
 // You can construct a concrete instance of `GetSecretSecretArrayInput` via:
 //
@@ -606,6 +736,12 @@ func (i GetSecretSecretArray) ToGetSecretSecretArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretSecretArrayOutput)
 }
 
+func (i GetSecretSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSecretSecret] {
+	return pulumix.Output[[]GetSecretSecret]{
+		OutputState: i.ToGetSecretSecretArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSecretSecretOutput struct{ *pulumi.OutputState }
 
 func (GetSecretSecretOutput) ElementType() reflect.Type {
@@ -618,6 +754,12 @@ func (o GetSecretSecretOutput) ToGetSecretSecretOutput() GetSecretSecretOutput {
 
 func (o GetSecretSecretOutput) ToGetSecretSecretOutputWithContext(ctx context.Context) GetSecretSecretOutput {
 	return o
+}
+
+func (o GetSecretSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecretSecret] {
+	return pulumix.Output[GetSecretSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSecretSecretOutput) Context() pulumi.StringMapOutput {
@@ -648,6 +790,12 @@ func (o GetSecretSecretArrayOutput) ToGetSecretSecretArrayOutput() GetSecretSecr
 
 func (o GetSecretSecretArrayOutput) ToGetSecretSecretArrayOutputWithContext(ctx context.Context) GetSecretSecretArrayOutput {
 	return o
+}
+
+func (o GetSecretSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSecretSecret] {
+	return pulumix.Output[[]GetSecretSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSecretSecretArrayOutput) Index(i pulumi.IntInput) GetSecretSecretOutput {
@@ -715,6 +863,12 @@ func (i GetSecretsSecretArgs) ToGetSecretsSecretOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretsSecretOutput)
 }
 
+func (i GetSecretsSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetSecretsSecret] {
+	return pulumix.Output[GetSecretsSecret]{
+		OutputState: i.ToGetSecretsSecretOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetSecretsSecretArrayInput is an input type that accepts GetSecretsSecretArray and GetSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetSecretsSecretArrayInput` via:
 //
@@ -740,6 +894,12 @@ func (i GetSecretsSecretArray) ToGetSecretsSecretArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretsSecretArrayOutput)
 }
 
+func (i GetSecretsSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSecretsSecret] {
+	return pulumix.Output[[]GetSecretsSecret]{
+		OutputState: i.ToGetSecretsSecretArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetSecretsSecretOutput struct{ *pulumi.OutputState }
 
 func (GetSecretsSecretOutput) ElementType() reflect.Type {
@@ -752,6 +912,12 @@ func (o GetSecretsSecretOutput) ToGetSecretsSecretOutput() GetSecretsSecretOutpu
 
 func (o GetSecretsSecretOutput) ToGetSecretsSecretOutputWithContext(ctx context.Context) GetSecretsSecretOutput {
 	return o
+}
+
+func (o GetSecretsSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecretsSecret] {
+	return pulumix.Output[GetSecretsSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An optional mapping that makes up the Encryption Context for the secret.
@@ -799,6 +965,12 @@ func (o GetSecretsSecretArrayOutput) ToGetSecretsSecretArrayOutput() GetSecretsS
 
 func (o GetSecretsSecretArrayOutput) ToGetSecretsSecretArrayOutputWithContext(ctx context.Context) GetSecretsSecretArrayOutput {
 	return o
+}
+
+func (o GetSecretsSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSecretsSecret] {
+	return pulumix.Output[[]GetSecretsSecret]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetSecretsSecretOutput {

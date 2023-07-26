@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Generates a CloudWatch Log Group Data Protection Policy document in JSON format for use with the `cloudwatch.LogDataProtectionPolicy` resource.
@@ -83,6 +85,7 @@ import (
 //
 // ```
 func GetLogDataProtectionPolicyDocument(ctx *pulumi.Context, args *GetLogDataProtectionPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetLogDataProtectionPolicyDocumentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogDataProtectionPolicyDocumentResult
 	err := ctx.Invoke("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, &rv, opts...)
 	if err != nil {
@@ -161,6 +164,12 @@ func (o GetLogDataProtectionPolicyDocumentResultOutput) ToGetLogDataProtectionPo
 
 func (o GetLogDataProtectionPolicyDocumentResultOutput) ToGetLogDataProtectionPolicyDocumentResultOutputWithContext(ctx context.Context) GetLogDataProtectionPolicyDocumentResultOutput {
 	return o
+}
+
+func (o GetLogDataProtectionPolicyDocumentResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogDataProtectionPolicyDocumentResult] {
+	return pulumix.Output[GetLogDataProtectionPolicyDocumentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLogDataProtectionPolicyDocumentResultOutput) Description() pulumi.StringPtrOutput {

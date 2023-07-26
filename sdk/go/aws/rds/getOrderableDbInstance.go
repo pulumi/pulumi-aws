@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about RDS orderable DB instances and valid parameter combinations.
@@ -83,6 +85,7 @@ import (
 //
 // ```
 func GetOrderableDbInstance(ctx *pulumi.Context, args *GetOrderableDbInstanceArgs, opts ...pulumi.InvokeOption) (*GetOrderableDbInstanceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrderableDbInstanceResult
 	err := ctx.Invoke("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args, &rv, opts...)
 	if err != nil {
@@ -244,6 +247,12 @@ func (o GetOrderableDbInstanceResultOutput) ToGetOrderableDbInstanceResultOutput
 
 func (o GetOrderableDbInstanceResultOutput) ToGetOrderableDbInstanceResultOutputWithContext(ctx context.Context) GetOrderableDbInstanceResultOutput {
 	return o
+}
+
+func (o GetOrderableDbInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrderableDbInstanceResult] {
+	return pulumix.Output[GetOrderableDbInstanceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOrderableDbInstanceResultOutput) AvailabilityZoneGroup() pulumi.StringOutput {

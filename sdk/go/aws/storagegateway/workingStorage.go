@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Storage Gateway working storage.
@@ -73,6 +75,7 @@ func NewWorkingStorage(ctx *pulumi.Context,
 	if args.GatewayArn == nil {
 		return nil, errors.New("invalid value for required argument 'GatewayArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WorkingStorage
 	err := ctx.RegisterResource("aws:storagegateway/workingStorage:WorkingStorage", name, args, &resource, opts...)
 	if err != nil {
@@ -150,6 +153,12 @@ func (i *WorkingStorage) ToWorkingStorageOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(WorkingStorageOutput)
 }
 
+func (i *WorkingStorage) ToOutput(ctx context.Context) pulumix.Output[*WorkingStorage] {
+	return pulumix.Output[*WorkingStorage]{
+		OutputState: i.ToWorkingStorageOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkingStorageArrayInput is an input type that accepts WorkingStorageArray and WorkingStorageArrayOutput values.
 // You can construct a concrete instance of `WorkingStorageArrayInput` via:
 //
@@ -173,6 +182,12 @@ func (i WorkingStorageArray) ToWorkingStorageArrayOutput() WorkingStorageArrayOu
 
 func (i WorkingStorageArray) ToWorkingStorageArrayOutputWithContext(ctx context.Context) WorkingStorageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkingStorageArrayOutput)
+}
+
+func (i WorkingStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkingStorage] {
+	return pulumix.Output[[]*WorkingStorage]{
+		OutputState: i.ToWorkingStorageArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkingStorageMapInput is an input type that accepts WorkingStorageMap and WorkingStorageMapOutput values.
@@ -200,6 +215,12 @@ func (i WorkingStorageMap) ToWorkingStorageMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkingStorageMapOutput)
 }
 
+func (i WorkingStorageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkingStorage] {
+	return pulumix.Output[map[string]*WorkingStorage]{
+		OutputState: i.ToWorkingStorageMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkingStorageOutput struct{ *pulumi.OutputState }
 
 func (WorkingStorageOutput) ElementType() reflect.Type {
@@ -212,6 +233,12 @@ func (o WorkingStorageOutput) ToWorkingStorageOutput() WorkingStorageOutput {
 
 func (o WorkingStorageOutput) ToWorkingStorageOutputWithContext(ctx context.Context) WorkingStorageOutput {
 	return o
+}
+
+func (o WorkingStorageOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkingStorage] {
+	return pulumix.Output[*WorkingStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
@@ -238,6 +265,12 @@ func (o WorkingStorageArrayOutput) ToWorkingStorageArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o WorkingStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkingStorage] {
+	return pulumix.Output[[]*WorkingStorage]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkingStorageArrayOutput) Index(i pulumi.IntInput) WorkingStorageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkingStorage {
 		return vs[0].([]*WorkingStorage)[vs[1].(int)]
@@ -256,6 +289,12 @@ func (o WorkingStorageMapOutput) ToWorkingStorageMapOutput() WorkingStorageMapOu
 
 func (o WorkingStorageMapOutput) ToWorkingStorageMapOutputWithContext(ctx context.Context) WorkingStorageMapOutput {
 	return o
+}
+
+func (o WorkingStorageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkingStorage] {
+	return pulumix.Output[map[string]*WorkingStorage]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkingStorageMapOutput) MapIndex(k pulumi.StringInput) WorkingStorageOutput {

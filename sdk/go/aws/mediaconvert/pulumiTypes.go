@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type QueueReservationPlanSettings struct {
 	// The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
@@ -49,6 +53,12 @@ func (i QueueReservationPlanSettingsArgs) ToQueueReservationPlanSettingsOutput()
 
 func (i QueueReservationPlanSettingsArgs) ToQueueReservationPlanSettingsOutputWithContext(ctx context.Context) QueueReservationPlanSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueReservationPlanSettingsOutput)
+}
+
+func (i QueueReservationPlanSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[QueueReservationPlanSettings] {
+	return pulumix.Output[QueueReservationPlanSettings]{
+		OutputState: i.ToQueueReservationPlanSettingsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i QueueReservationPlanSettingsArgs) ToQueueReservationPlanSettingsPtrOutput() QueueReservationPlanSettingsPtrOutput {
@@ -92,6 +102,12 @@ func (i *queueReservationPlanSettingsPtrType) ToQueueReservationPlanSettingsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(QueueReservationPlanSettingsPtrOutput)
 }
 
+func (i *queueReservationPlanSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*QueueReservationPlanSettings] {
+	return pulumix.Output[*QueueReservationPlanSettings]{
+		OutputState: i.ToQueueReservationPlanSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type QueueReservationPlanSettingsOutput struct{ *pulumi.OutputState }
 
 func (QueueReservationPlanSettingsOutput) ElementType() reflect.Type {
@@ -114,6 +130,12 @@ func (o QueueReservationPlanSettingsOutput) ToQueueReservationPlanSettingsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueReservationPlanSettings) *QueueReservationPlanSettings {
 		return &v
 	}).(QueueReservationPlanSettingsPtrOutput)
+}
+
+func (o QueueReservationPlanSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[QueueReservationPlanSettings] {
+	return pulumix.Output[QueueReservationPlanSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
@@ -143,6 +165,12 @@ func (o QueueReservationPlanSettingsPtrOutput) ToQueueReservationPlanSettingsPtr
 
 func (o QueueReservationPlanSettingsPtrOutput) ToQueueReservationPlanSettingsPtrOutputWithContext(ctx context.Context) QueueReservationPlanSettingsPtrOutput {
 	return o
+}
+
+func (o QueueReservationPlanSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*QueueReservationPlanSettings] {
+	return pulumix.Output[*QueueReservationPlanSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o QueueReservationPlanSettingsPtrOutput) Elem() QueueReservationPlanSettingsOutput {

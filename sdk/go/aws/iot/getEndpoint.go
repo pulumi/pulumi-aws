@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Returns a unique endpoint specific to the AWS account making the call.
@@ -63,6 +65,7 @@ import (
 //
 // ```
 func GetEndpoint(ctx *pulumi.Context, args *GetEndpointArgs, opts ...pulumi.InvokeOption) (*GetEndpointResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEndpointResult
 	err := ctx.Invoke("aws:iot/getEndpoint:getEndpoint", args, &rv, opts...)
 	if err != nil {
@@ -127,6 +130,12 @@ func (o GetEndpointResultOutput) ToGetEndpointResultOutput() GetEndpointResultOu
 
 func (o GetEndpointResultOutput) ToGetEndpointResultOutputWithContext(ctx context.Context) GetEndpointResultOutput {
 	return o
+}
+
+func (o GetEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointResult] {
+	return pulumix.Output[GetEndpointResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Endpoint based on `endpointType`:

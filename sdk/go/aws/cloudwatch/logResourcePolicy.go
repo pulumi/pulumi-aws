@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a CloudWatch log resource policy.
@@ -149,6 +151,7 @@ func NewLogResourcePolicy(ctx *pulumi.Context,
 	if args.PolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LogResourcePolicy
 	err := ctx.RegisterResource("aws:cloudwatch/logResourcePolicy:LogResourcePolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -226,6 +229,12 @@ func (i *LogResourcePolicy) ToLogResourcePolicyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LogResourcePolicyOutput)
 }
 
+func (i *LogResourcePolicy) ToOutput(ctx context.Context) pulumix.Output[*LogResourcePolicy] {
+	return pulumix.Output[*LogResourcePolicy]{
+		OutputState: i.ToLogResourcePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogResourcePolicyArrayInput is an input type that accepts LogResourcePolicyArray and LogResourcePolicyArrayOutput values.
 // You can construct a concrete instance of `LogResourcePolicyArrayInput` via:
 //
@@ -249,6 +258,12 @@ func (i LogResourcePolicyArray) ToLogResourcePolicyArrayOutput() LogResourcePoli
 
 func (i LogResourcePolicyArray) ToLogResourcePolicyArrayOutputWithContext(ctx context.Context) LogResourcePolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogResourcePolicyArrayOutput)
+}
+
+func (i LogResourcePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogResourcePolicy] {
+	return pulumix.Output[[]*LogResourcePolicy]{
+		OutputState: i.ToLogResourcePolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LogResourcePolicyMapInput is an input type that accepts LogResourcePolicyMap and LogResourcePolicyMapOutput values.
@@ -276,6 +291,12 @@ func (i LogResourcePolicyMap) ToLogResourcePolicyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LogResourcePolicyMapOutput)
 }
 
+func (i LogResourcePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogResourcePolicy] {
+	return pulumix.Output[map[string]*LogResourcePolicy]{
+		OutputState: i.ToLogResourcePolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogResourcePolicyOutput struct{ *pulumi.OutputState }
 
 func (LogResourcePolicyOutput) ElementType() reflect.Type {
@@ -288,6 +309,12 @@ func (o LogResourcePolicyOutput) ToLogResourcePolicyOutput() LogResourcePolicyOu
 
 func (o LogResourcePolicyOutput) ToLogResourcePolicyOutputWithContext(ctx context.Context) LogResourcePolicyOutput {
 	return o
+}
+
+func (o LogResourcePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LogResourcePolicy] {
+	return pulumix.Output[*LogResourcePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
@@ -314,6 +341,12 @@ func (o LogResourcePolicyArrayOutput) ToLogResourcePolicyArrayOutputWithContext(
 	return o
 }
 
+func (o LogResourcePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogResourcePolicy] {
+	return pulumix.Output[[]*LogResourcePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LogResourcePolicyArrayOutput) Index(i pulumi.IntInput) LogResourcePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogResourcePolicy {
 		return vs[0].([]*LogResourcePolicy)[vs[1].(int)]
@@ -332,6 +365,12 @@ func (o LogResourcePolicyMapOutput) ToLogResourcePolicyMapOutput() LogResourcePo
 
 func (o LogResourcePolicyMapOutput) ToLogResourcePolicyMapOutputWithContext(ctx context.Context) LogResourcePolicyMapOutput {
 	return o
+}
+
+func (o LogResourcePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogResourcePolicy] {
+	return pulumix.Output[map[string]*LogResourcePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogResourcePolicyMapOutput) MapIndex(k pulumi.StringInput) LogResourcePolicyOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Traffic mirror filter rule.\
@@ -141,6 +143,7 @@ func NewTrafficMirrorFilterRule(ctx *pulumi.Context,
 	if args.TrafficMirrorFilterId == nil {
 		return nil, errors.New("invalid value for required argument 'TrafficMirrorFilterId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficMirrorFilterRule
 	err := ctx.RegisterResource("aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule", name, args, &resource, opts...)
 	if err != nil {
@@ -294,6 +297,12 @@ func (i *TrafficMirrorFilterRule) ToTrafficMirrorFilterRuleOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleOutput)
 }
 
+func (i *TrafficMirrorFilterRule) ToOutput(ctx context.Context) pulumix.Output[*TrafficMirrorFilterRule] {
+	return pulumix.Output[*TrafficMirrorFilterRule]{
+		OutputState: i.ToTrafficMirrorFilterRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TrafficMirrorFilterRuleArrayInput is an input type that accepts TrafficMirrorFilterRuleArray and TrafficMirrorFilterRuleArrayOutput values.
 // You can construct a concrete instance of `TrafficMirrorFilterRuleArrayInput` via:
 //
@@ -317,6 +326,12 @@ func (i TrafficMirrorFilterRuleArray) ToTrafficMirrorFilterRuleArrayOutput() Tra
 
 func (i TrafficMirrorFilterRuleArray) ToTrafficMirrorFilterRuleArrayOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleArrayOutput)
+}
+
+func (i TrafficMirrorFilterRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficMirrorFilterRule] {
+	return pulumix.Output[[]*TrafficMirrorFilterRule]{
+		OutputState: i.ToTrafficMirrorFilterRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TrafficMirrorFilterRuleMapInput is an input type that accepts TrafficMirrorFilterRuleMap and TrafficMirrorFilterRuleMapOutput values.
@@ -344,6 +359,12 @@ func (i TrafficMirrorFilterRuleMap) ToTrafficMirrorFilterRuleMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterRuleMapOutput)
 }
 
+func (i TrafficMirrorFilterRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficMirrorFilterRule] {
+	return pulumix.Output[map[string]*TrafficMirrorFilterRule]{
+		OutputState: i.ToTrafficMirrorFilterRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrafficMirrorFilterRuleOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorFilterRuleOutput) ElementType() reflect.Type {
@@ -356,6 +377,12 @@ func (o TrafficMirrorFilterRuleOutput) ToTrafficMirrorFilterRuleOutput() Traffic
 
 func (o TrafficMirrorFilterRuleOutput) ToTrafficMirrorFilterRuleOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleOutput {
 	return o
+}
+
+func (o TrafficMirrorFilterRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficMirrorFilterRule] {
+	return pulumix.Output[*TrafficMirrorFilterRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the traffic mirror filter rule.
@@ -433,6 +460,12 @@ func (o TrafficMirrorFilterRuleArrayOutput) ToTrafficMirrorFilterRuleArrayOutput
 	return o
 }
 
+func (o TrafficMirrorFilterRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficMirrorFilterRule] {
+	return pulumix.Output[[]*TrafficMirrorFilterRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrafficMirrorFilterRuleArrayOutput) Index(i pulumi.IntInput) TrafficMirrorFilterRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficMirrorFilterRule {
 		return vs[0].([]*TrafficMirrorFilterRule)[vs[1].(int)]
@@ -451,6 +484,12 @@ func (o TrafficMirrorFilterRuleMapOutput) ToTrafficMirrorFilterRuleMapOutput() T
 
 func (o TrafficMirrorFilterRuleMapOutput) ToTrafficMirrorFilterRuleMapOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleMapOutput {
 	return o
+}
+
+func (o TrafficMirrorFilterRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficMirrorFilterRule] {
+	return pulumix.Output[map[string]*TrafficMirrorFilterRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrafficMirrorFilterRuleMapOutput) MapIndex(k pulumi.StringInput) TrafficMirrorFilterRuleOutput {

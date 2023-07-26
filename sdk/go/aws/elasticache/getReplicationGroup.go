@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about an ElastiCache Replication Group.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupReplicationGroup(ctx *pulumi.Context, args *LookupReplicationGroupArgs, opts ...pulumi.InvokeOption) (*LookupReplicationGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationGroupResult
 	err := ctx.Invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", args, &rv, opts...)
 	if err != nil {
@@ -137,6 +140,12 @@ func (o LookupReplicationGroupResultOutput) ToLookupReplicationGroupResultOutput
 
 func (o LookupReplicationGroupResultOutput) ToLookupReplicationGroupResultOutputWithContext(ctx context.Context) LookupReplicationGroupResultOutput {
 	return o
+}
+
+func (o LookupReplicationGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationGroupResult] {
+	return pulumix.Output[LookupReplicationGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the created ElastiCache Replication Group.

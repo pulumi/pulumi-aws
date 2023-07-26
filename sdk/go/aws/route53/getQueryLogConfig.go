@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
@@ -75,6 +77,7 @@ import (
 //
 // ```
 func GetQueryLogConfig(ctx *pulumi.Context, args *GetQueryLogConfigArgs, opts ...pulumi.InvokeOption) (*GetQueryLogConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetQueryLogConfigResult
 	err := ctx.Invoke("aws:route53/getQueryLogConfig:getQueryLogConfig", args, &rv, opts...)
 	if err != nil {
@@ -163,6 +166,12 @@ func (o GetQueryLogConfigResultOutput) ToGetQueryLogConfigResultOutput() GetQuer
 
 func (o GetQueryLogConfigResultOutput) ToGetQueryLogConfigResultOutputWithContext(ctx context.Context) GetQueryLogConfigResultOutput {
 	return o
+}
+
+func (o GetQueryLogConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetQueryLogConfigResult] {
+	return pulumix.Output[GetQueryLogConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetQueryLogConfigResultOutput) Arn() pulumi.StringOutput {

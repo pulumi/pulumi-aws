@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about a specific
@@ -64,6 +66,7 @@ import (
 //
 // ```
 func GetOpenidConnectProvider(ctx *pulumi.Context, args *GetOpenidConnectProviderArgs, opts ...pulumi.InvokeOption) (*GetOpenidConnectProviderResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOpenidConnectProviderResult
 	err := ctx.Invoke("aws:iam/getOpenidConnectProvider:getOpenidConnectProvider", args, &rv, opts...)
 	if err != nil {
@@ -136,6 +139,12 @@ func (o GetOpenidConnectProviderResultOutput) ToGetOpenidConnectProviderResultOu
 
 func (o GetOpenidConnectProviderResultOutput) ToGetOpenidConnectProviderResultOutputWithContext(ctx context.Context) GetOpenidConnectProviderResultOutput {
 	return o
+}
+
+func (o GetOpenidConnectProviderResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOpenidConnectProviderResult] {
+	return pulumix.Output[GetOpenidConnectProviderResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOpenidConnectProviderResultOutput) Arn() pulumi.StringOutput {

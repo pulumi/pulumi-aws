@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetTransitGatewayRouteTables(ctx *pulumi.Context, args *GetTransitGatewayRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetTransitGatewayRouteTablesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTransitGatewayRouteTablesResult
 	err := ctx.Invoke("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", args, &rv, opts...)
 	if err != nil {
@@ -111,6 +114,12 @@ func (o GetTransitGatewayRouteTablesResultOutput) ToGetTransitGatewayRouteTables
 
 func (o GetTransitGatewayRouteTablesResultOutput) ToGetTransitGatewayRouteTablesResultOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesResultOutput {
 	return o
+}
+
+func (o GetTransitGatewayRouteTablesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTransitGatewayRouteTablesResult] {
+	return pulumix.Output[GetTransitGatewayRouteTablesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTransitGatewayRouteTablesResultOutput) Filters() GetTransitGatewayRouteTablesFilterArrayOutput {

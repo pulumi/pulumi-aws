@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Kendra block list used for query suggestions for an index.
@@ -99,6 +101,7 @@ func NewQuerySuggestionsBlockList(ctx *pulumi.Context,
 	if args.SourceS3Path == nil {
 		return nil, errors.New("invalid value for required argument 'SourceS3Path'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource QuerySuggestionsBlockList
 	err := ctx.RegisterResource("aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList", name, args, &resource, opts...)
 	if err != nil {
@@ -230,6 +233,12 @@ func (i *QuerySuggestionsBlockList) ToQuerySuggestionsBlockListOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(QuerySuggestionsBlockListOutput)
 }
 
+func (i *QuerySuggestionsBlockList) ToOutput(ctx context.Context) pulumix.Output[*QuerySuggestionsBlockList] {
+	return pulumix.Output[*QuerySuggestionsBlockList]{
+		OutputState: i.ToQuerySuggestionsBlockListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // QuerySuggestionsBlockListArrayInput is an input type that accepts QuerySuggestionsBlockListArray and QuerySuggestionsBlockListArrayOutput values.
 // You can construct a concrete instance of `QuerySuggestionsBlockListArrayInput` via:
 //
@@ -253,6 +262,12 @@ func (i QuerySuggestionsBlockListArray) ToQuerySuggestionsBlockListArrayOutput()
 
 func (i QuerySuggestionsBlockListArray) ToQuerySuggestionsBlockListArrayOutputWithContext(ctx context.Context) QuerySuggestionsBlockListArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QuerySuggestionsBlockListArrayOutput)
+}
+
+func (i QuerySuggestionsBlockListArray) ToOutput(ctx context.Context) pulumix.Output[[]*QuerySuggestionsBlockList] {
+	return pulumix.Output[[]*QuerySuggestionsBlockList]{
+		OutputState: i.ToQuerySuggestionsBlockListArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // QuerySuggestionsBlockListMapInput is an input type that accepts QuerySuggestionsBlockListMap and QuerySuggestionsBlockListMapOutput values.
@@ -280,6 +295,12 @@ func (i QuerySuggestionsBlockListMap) ToQuerySuggestionsBlockListMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(QuerySuggestionsBlockListMapOutput)
 }
 
+func (i QuerySuggestionsBlockListMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*QuerySuggestionsBlockList] {
+	return pulumix.Output[map[string]*QuerySuggestionsBlockList]{
+		OutputState: i.ToQuerySuggestionsBlockListMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type QuerySuggestionsBlockListOutput struct{ *pulumi.OutputState }
 
 func (QuerySuggestionsBlockListOutput) ElementType() reflect.Type {
@@ -292,6 +313,12 @@ func (o QuerySuggestionsBlockListOutput) ToQuerySuggestionsBlockListOutput() Que
 
 func (o QuerySuggestionsBlockListOutput) ToQuerySuggestionsBlockListOutputWithContext(ctx context.Context) QuerySuggestionsBlockListOutput {
 	return o
+}
+
+func (o QuerySuggestionsBlockListOutput) ToOutput(ctx context.Context) pulumix.Output[*QuerySuggestionsBlockList] {
+	return pulumix.Output[*QuerySuggestionsBlockList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the block list.
@@ -359,6 +386,12 @@ func (o QuerySuggestionsBlockListArrayOutput) ToQuerySuggestionsBlockListArrayOu
 	return o
 }
 
+func (o QuerySuggestionsBlockListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*QuerySuggestionsBlockList] {
+	return pulumix.Output[[]*QuerySuggestionsBlockList]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o QuerySuggestionsBlockListArrayOutput) Index(i pulumi.IntInput) QuerySuggestionsBlockListOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *QuerySuggestionsBlockList {
 		return vs[0].([]*QuerySuggestionsBlockList)[vs[1].(int)]
@@ -377,6 +410,12 @@ func (o QuerySuggestionsBlockListMapOutput) ToQuerySuggestionsBlockListMapOutput
 
 func (o QuerySuggestionsBlockListMapOutput) ToQuerySuggestionsBlockListMapOutputWithContext(ctx context.Context) QuerySuggestionsBlockListMapOutput {
 	return o
+}
+
+func (o QuerySuggestionsBlockListMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*QuerySuggestionsBlockList] {
+	return pulumix.Output[map[string]*QuerySuggestionsBlockList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o QuerySuggestionsBlockListMapOutput) MapIndex(k pulumi.StringInput) QuerySuggestionsBlockListOutput {

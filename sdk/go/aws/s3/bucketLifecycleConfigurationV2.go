@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an independent configuration resource for S3 bucket [lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
@@ -536,6 +538,7 @@ func NewBucketLifecycleConfigurationV2(ctx *pulumi.Context,
 	if args.Rules == nil {
 		return nil, errors.New("invalid value for required argument 'Rules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketLifecycleConfigurationV2
 	err := ctx.RegisterResource("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2", name, args, &resource, opts...)
 	if err != nil {
@@ -621,6 +624,12 @@ func (i *BucketLifecycleConfigurationV2) ToBucketLifecycleConfigurationV2OutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2Output)
 }
 
+func (i *BucketLifecycleConfigurationV2) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2]{
+		OutputState: i.ToBucketLifecycleConfigurationV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketLifecycleConfigurationV2ArrayInput is an input type that accepts BucketLifecycleConfigurationV2Array and BucketLifecycleConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2ArrayInput` via:
 //
@@ -644,6 +653,12 @@ func (i BucketLifecycleConfigurationV2Array) ToBucketLifecycleConfigurationV2Arr
 
 func (i BucketLifecycleConfigurationV2Array) ToBucketLifecycleConfigurationV2ArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2ArrayOutput)
+}
+
+func (i BucketLifecycleConfigurationV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketLifecycleConfigurationV2] {
+	return pulumix.Output[[]*BucketLifecycleConfigurationV2]{
+		OutputState: i.ToBucketLifecycleConfigurationV2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketLifecycleConfigurationV2MapInput is an input type that accepts BucketLifecycleConfigurationV2Map and BucketLifecycleConfigurationV2MapOutput values.
@@ -671,6 +686,12 @@ func (i BucketLifecycleConfigurationV2Map) ToBucketLifecycleConfigurationV2MapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2MapOutput)
 }
 
+func (i BucketLifecycleConfigurationV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketLifecycleConfigurationV2] {
+	return pulumix.Output[map[string]*BucketLifecycleConfigurationV2]{
+		OutputState: i.ToBucketLifecycleConfigurationV2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleConfigurationV2Output struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationV2Output) ElementType() reflect.Type {
@@ -683,6 +704,12 @@ func (o BucketLifecycleConfigurationV2Output) ToBucketLifecycleConfigurationV2Ou
 
 func (o BucketLifecycleConfigurationV2Output) ToBucketLifecycleConfigurationV2OutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2Output {
 	return o
+}
+
+func (o BucketLifecycleConfigurationV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the source S3 bucket you want Amazon S3 to monitor.
@@ -714,6 +741,12 @@ func (o BucketLifecycleConfigurationV2ArrayOutput) ToBucketLifecycleConfiguratio
 	return o
 }
 
+func (o BucketLifecycleConfigurationV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketLifecycleConfigurationV2] {
+	return pulumix.Output[[]*BucketLifecycleConfigurationV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketLifecycleConfigurationV2ArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketLifecycleConfigurationV2 {
 		return vs[0].([]*BucketLifecycleConfigurationV2)[vs[1].(int)]
@@ -732,6 +765,12 @@ func (o BucketLifecycleConfigurationV2MapOutput) ToBucketLifecycleConfigurationV
 
 func (o BucketLifecycleConfigurationV2MapOutput) ToBucketLifecycleConfigurationV2MapOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2MapOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketLifecycleConfigurationV2] {
+	return pulumix.Output[map[string]*BucketLifecycleConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleConfigurationV2MapOutput) MapIndex(k pulumi.StringInput) BucketLifecycleConfigurationV2Output {

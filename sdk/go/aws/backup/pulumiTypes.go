@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type FrameworkControl struct {
 	// One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
@@ -51,6 +55,12 @@ func (i FrameworkControlArgs) ToFrameworkControlOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlOutput)
 }
 
+func (i FrameworkControlArgs) ToOutput(ctx context.Context) pulumix.Output[FrameworkControl] {
+	return pulumix.Output[FrameworkControl]{
+		OutputState: i.ToFrameworkControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrameworkControlArrayInput is an input type that accepts FrameworkControlArray and FrameworkControlArrayOutput values.
 // You can construct a concrete instance of `FrameworkControlArrayInput` via:
 //
@@ -76,6 +86,12 @@ func (i FrameworkControlArray) ToFrameworkControlArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlArrayOutput)
 }
 
+func (i FrameworkControlArray) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControl] {
+	return pulumix.Output[[]FrameworkControl]{
+		OutputState: i.ToFrameworkControlArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrameworkControlOutput struct{ *pulumi.OutputState }
 
 func (FrameworkControlOutput) ElementType() reflect.Type {
@@ -88,6 +104,12 @@ func (o FrameworkControlOutput) ToFrameworkControlOutput() FrameworkControlOutpu
 
 func (o FrameworkControlOutput) ToFrameworkControlOutputWithContext(ctx context.Context) FrameworkControlOutput {
 	return o
+}
+
+func (o FrameworkControlOutput) ToOutput(ctx context.Context) pulumix.Output[FrameworkControl] {
+	return pulumix.Output[FrameworkControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
@@ -117,6 +139,12 @@ func (o FrameworkControlArrayOutput) ToFrameworkControlArrayOutput() FrameworkCo
 
 func (o FrameworkControlArrayOutput) ToFrameworkControlArrayOutputWithContext(ctx context.Context) FrameworkControlArrayOutput {
 	return o
+}
+
+func (o FrameworkControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControl] {
+	return pulumix.Output[[]FrameworkControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrameworkControlArrayOutput) Index(i pulumi.IntInput) FrameworkControlOutput {
@@ -162,6 +190,12 @@ func (i FrameworkControlInputParameterArgs) ToFrameworkControlInputParameterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlInputParameterOutput)
 }
 
+func (i FrameworkControlInputParameterArgs) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlInputParameter] {
+	return pulumix.Output[FrameworkControlInputParameter]{
+		OutputState: i.ToFrameworkControlInputParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrameworkControlInputParameterArrayInput is an input type that accepts FrameworkControlInputParameterArray and FrameworkControlInputParameterArrayOutput values.
 // You can construct a concrete instance of `FrameworkControlInputParameterArrayInput` via:
 //
@@ -187,6 +221,12 @@ func (i FrameworkControlInputParameterArray) ToFrameworkControlInputParameterArr
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlInputParameterArrayOutput)
 }
 
+func (i FrameworkControlInputParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControlInputParameter] {
+	return pulumix.Output[[]FrameworkControlInputParameter]{
+		OutputState: i.ToFrameworkControlInputParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrameworkControlInputParameterOutput struct{ *pulumi.OutputState }
 
 func (FrameworkControlInputParameterOutput) ElementType() reflect.Type {
@@ -199,6 +239,12 @@ func (o FrameworkControlInputParameterOutput) ToFrameworkControlInputParameterOu
 
 func (o FrameworkControlInputParameterOutput) ToFrameworkControlInputParameterOutputWithContext(ctx context.Context) FrameworkControlInputParameterOutput {
 	return o
+}
+
+func (o FrameworkControlInputParameterOutput) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlInputParameter] {
+	return pulumix.Output[FrameworkControlInputParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
@@ -223,6 +269,12 @@ func (o FrameworkControlInputParameterArrayOutput) ToFrameworkControlInputParame
 
 func (o FrameworkControlInputParameterArrayOutput) ToFrameworkControlInputParameterArrayOutputWithContext(ctx context.Context) FrameworkControlInputParameterArrayOutput {
 	return o
+}
+
+func (o FrameworkControlInputParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControlInputParameter] {
+	return pulumix.Output[[]FrameworkControlInputParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrameworkControlInputParameterArrayOutput) Index(i pulumi.IntInput) FrameworkControlInputParameterOutput {
@@ -272,6 +324,12 @@ func (i FrameworkControlScopeArgs) ToFrameworkControlScopeOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlScopeOutput)
 }
 
+func (i FrameworkControlScopeArgs) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlScope] {
+	return pulumix.Output[FrameworkControlScope]{
+		OutputState: i.ToFrameworkControlScopeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FrameworkControlScopeArgs) ToFrameworkControlScopePtrOutput() FrameworkControlScopePtrOutput {
 	return i.ToFrameworkControlScopePtrOutputWithContext(context.Background())
 }
@@ -313,6 +371,12 @@ func (i *frameworkControlScopePtrType) ToFrameworkControlScopePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlScopePtrOutput)
 }
 
+func (i *frameworkControlScopePtrType) ToOutput(ctx context.Context) pulumix.Output[*FrameworkControlScope] {
+	return pulumix.Output[*FrameworkControlScope]{
+		OutputState: i.ToFrameworkControlScopePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrameworkControlScopeOutput struct{ *pulumi.OutputState }
 
 func (FrameworkControlScopeOutput) ElementType() reflect.Type {
@@ -335,6 +399,12 @@ func (o FrameworkControlScopeOutput) ToFrameworkControlScopePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrameworkControlScope) *FrameworkControlScope {
 		return &v
 	}).(FrameworkControlScopePtrOutput)
+}
+
+func (o FrameworkControlScopeOutput) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlScope] {
+	return pulumix.Output[FrameworkControlScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
@@ -364,6 +434,12 @@ func (o FrameworkControlScopePtrOutput) ToFrameworkControlScopePtrOutput() Frame
 
 func (o FrameworkControlScopePtrOutput) ToFrameworkControlScopePtrOutputWithContext(ctx context.Context) FrameworkControlScopePtrOutput {
 	return o
+}
+
+func (o FrameworkControlScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FrameworkControlScope] {
+	return pulumix.Output[*FrameworkControlScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrameworkControlScopePtrOutput) Elem() FrameworkControlScopeOutput {
@@ -443,6 +519,12 @@ func (i PlanAdvancedBackupSettingArgs) ToPlanAdvancedBackupSettingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PlanAdvancedBackupSettingOutput)
 }
 
+func (i PlanAdvancedBackupSettingArgs) ToOutput(ctx context.Context) pulumix.Output[PlanAdvancedBackupSetting] {
+	return pulumix.Output[PlanAdvancedBackupSetting]{
+		OutputState: i.ToPlanAdvancedBackupSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PlanAdvancedBackupSettingArrayInput is an input type that accepts PlanAdvancedBackupSettingArray and PlanAdvancedBackupSettingArrayOutput values.
 // You can construct a concrete instance of `PlanAdvancedBackupSettingArrayInput` via:
 //
@@ -468,6 +550,12 @@ func (i PlanAdvancedBackupSettingArray) ToPlanAdvancedBackupSettingArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PlanAdvancedBackupSettingArrayOutput)
 }
 
+func (i PlanAdvancedBackupSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]PlanAdvancedBackupSetting] {
+	return pulumix.Output[[]PlanAdvancedBackupSetting]{
+		OutputState: i.ToPlanAdvancedBackupSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlanAdvancedBackupSettingOutput struct{ *pulumi.OutputState }
 
 func (PlanAdvancedBackupSettingOutput) ElementType() reflect.Type {
@@ -480,6 +568,12 @@ func (o PlanAdvancedBackupSettingOutput) ToPlanAdvancedBackupSettingOutput() Pla
 
 func (o PlanAdvancedBackupSettingOutput) ToPlanAdvancedBackupSettingOutputWithContext(ctx context.Context) PlanAdvancedBackupSettingOutput {
 	return o
+}
+
+func (o PlanAdvancedBackupSettingOutput) ToOutput(ctx context.Context) pulumix.Output[PlanAdvancedBackupSetting] {
+	return pulumix.Output[PlanAdvancedBackupSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = "enabled" }` to enable Windows VSS backup option and create a VSS Windows backup.
@@ -504,6 +598,12 @@ func (o PlanAdvancedBackupSettingArrayOutput) ToPlanAdvancedBackupSettingArrayOu
 
 func (o PlanAdvancedBackupSettingArrayOutput) ToPlanAdvancedBackupSettingArrayOutputWithContext(ctx context.Context) PlanAdvancedBackupSettingArrayOutput {
 	return o
+}
+
+func (o PlanAdvancedBackupSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PlanAdvancedBackupSetting] {
+	return pulumix.Output[[]PlanAdvancedBackupSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlanAdvancedBackupSettingArrayOutput) Index(i pulumi.IntInput) PlanAdvancedBackupSettingOutput {
@@ -577,6 +677,12 @@ func (i PlanRuleArgs) ToPlanRuleOutputWithContext(ctx context.Context) PlanRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleOutput)
 }
 
+func (i PlanRuleArgs) ToOutput(ctx context.Context) pulumix.Output[PlanRule] {
+	return pulumix.Output[PlanRule]{
+		OutputState: i.ToPlanRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PlanRuleArrayInput is an input type that accepts PlanRuleArray and PlanRuleArrayOutput values.
 // You can construct a concrete instance of `PlanRuleArrayInput` via:
 //
@@ -602,6 +708,12 @@ func (i PlanRuleArray) ToPlanRuleArrayOutputWithContext(ctx context.Context) Pla
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleArrayOutput)
 }
 
+func (i PlanRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]PlanRule] {
+	return pulumix.Output[[]PlanRule]{
+		OutputState: i.ToPlanRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlanRuleOutput struct{ *pulumi.OutputState }
 
 func (PlanRuleOutput) ElementType() reflect.Type {
@@ -614,6 +726,12 @@ func (o PlanRuleOutput) ToPlanRuleOutput() PlanRuleOutput {
 
 func (o PlanRuleOutput) ToPlanRuleOutputWithContext(ctx context.Context) PlanRuleOutput {
 	return o
+}
+
+func (o PlanRuleOutput) ToOutput(ctx context.Context) pulumix.Output[PlanRule] {
+	return pulumix.Output[PlanRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
@@ -675,6 +793,12 @@ func (o PlanRuleArrayOutput) ToPlanRuleArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o PlanRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PlanRule] {
+	return pulumix.Output[[]PlanRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlanRuleArrayOutput) Index(i pulumi.IntInput) PlanRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanRule {
 		return vs[0].([]PlanRule)[vs[1].(int)]
@@ -718,6 +842,12 @@ func (i PlanRuleCopyActionArgs) ToPlanRuleCopyActionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleCopyActionOutput)
 }
 
+func (i PlanRuleCopyActionArgs) ToOutput(ctx context.Context) pulumix.Output[PlanRuleCopyAction] {
+	return pulumix.Output[PlanRuleCopyAction]{
+		OutputState: i.ToPlanRuleCopyActionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PlanRuleCopyActionArrayInput is an input type that accepts PlanRuleCopyActionArray and PlanRuleCopyActionArrayOutput values.
 // You can construct a concrete instance of `PlanRuleCopyActionArrayInput` via:
 //
@@ -743,6 +873,12 @@ func (i PlanRuleCopyActionArray) ToPlanRuleCopyActionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleCopyActionArrayOutput)
 }
 
+func (i PlanRuleCopyActionArray) ToOutput(ctx context.Context) pulumix.Output[[]PlanRuleCopyAction] {
+	return pulumix.Output[[]PlanRuleCopyAction]{
+		OutputState: i.ToPlanRuleCopyActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlanRuleCopyActionOutput struct{ *pulumi.OutputState }
 
 func (PlanRuleCopyActionOutput) ElementType() reflect.Type {
@@ -755,6 +891,12 @@ func (o PlanRuleCopyActionOutput) ToPlanRuleCopyActionOutput() PlanRuleCopyActio
 
 func (o PlanRuleCopyActionOutput) ToPlanRuleCopyActionOutputWithContext(ctx context.Context) PlanRuleCopyActionOutput {
 	return o
+}
+
+func (o PlanRuleCopyActionOutput) ToOutput(ctx context.Context) pulumix.Output[PlanRuleCopyAction] {
+	return pulumix.Output[PlanRuleCopyAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
@@ -779,6 +921,12 @@ func (o PlanRuleCopyActionArrayOutput) ToPlanRuleCopyActionArrayOutput() PlanRul
 
 func (o PlanRuleCopyActionArrayOutput) ToPlanRuleCopyActionArrayOutputWithContext(ctx context.Context) PlanRuleCopyActionArrayOutput {
 	return o
+}
+
+func (o PlanRuleCopyActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PlanRuleCopyAction] {
+	return pulumix.Output[[]PlanRuleCopyAction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlanRuleCopyActionArrayOutput) Index(i pulumi.IntInput) PlanRuleCopyActionOutput {
@@ -824,6 +972,12 @@ func (i PlanRuleCopyActionLifecycleArgs) ToPlanRuleCopyActionLifecycleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleCopyActionLifecycleOutput)
 }
 
+func (i PlanRuleCopyActionLifecycleArgs) ToOutput(ctx context.Context) pulumix.Output[PlanRuleCopyActionLifecycle] {
+	return pulumix.Output[PlanRuleCopyActionLifecycle]{
+		OutputState: i.ToPlanRuleCopyActionLifecycleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlanRuleCopyActionLifecycleArgs) ToPlanRuleCopyActionLifecyclePtrOutput() PlanRuleCopyActionLifecyclePtrOutput {
 	return i.ToPlanRuleCopyActionLifecyclePtrOutputWithContext(context.Background())
 }
@@ -865,6 +1019,12 @@ func (i *planRuleCopyActionLifecyclePtrType) ToPlanRuleCopyActionLifecyclePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleCopyActionLifecyclePtrOutput)
 }
 
+func (i *planRuleCopyActionLifecyclePtrType) ToOutput(ctx context.Context) pulumix.Output[*PlanRuleCopyActionLifecycle] {
+	return pulumix.Output[*PlanRuleCopyActionLifecycle]{
+		OutputState: i.ToPlanRuleCopyActionLifecyclePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlanRuleCopyActionLifecycleOutput struct{ *pulumi.OutputState }
 
 func (PlanRuleCopyActionLifecycleOutput) ElementType() reflect.Type {
@@ -889,6 +1049,12 @@ func (o PlanRuleCopyActionLifecycleOutput) ToPlanRuleCopyActionLifecyclePtrOutpu
 	}).(PlanRuleCopyActionLifecyclePtrOutput)
 }
 
+func (o PlanRuleCopyActionLifecycleOutput) ToOutput(ctx context.Context) pulumix.Output[PlanRuleCopyActionLifecycle] {
+	return pulumix.Output[PlanRuleCopyActionLifecycle]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the number of days after creation that a recovery point is moved to cold storage.
 func (o PlanRuleCopyActionLifecycleOutput) ColdStorageAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *int { return v.ColdStorageAfter }).(pulumi.IntPtrOutput)
@@ -911,6 +1077,12 @@ func (o PlanRuleCopyActionLifecyclePtrOutput) ToPlanRuleCopyActionLifecyclePtrOu
 
 func (o PlanRuleCopyActionLifecyclePtrOutput) ToPlanRuleCopyActionLifecyclePtrOutputWithContext(ctx context.Context) PlanRuleCopyActionLifecyclePtrOutput {
 	return o
+}
+
+func (o PlanRuleCopyActionLifecyclePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlanRuleCopyActionLifecycle] {
+	return pulumix.Output[*PlanRuleCopyActionLifecycle]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlanRuleCopyActionLifecyclePtrOutput) Elem() PlanRuleCopyActionLifecycleOutput {
@@ -980,6 +1152,12 @@ func (i PlanRuleLifecycleArgs) ToPlanRuleLifecycleOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleLifecycleOutput)
 }
 
+func (i PlanRuleLifecycleArgs) ToOutput(ctx context.Context) pulumix.Output[PlanRuleLifecycle] {
+	return pulumix.Output[PlanRuleLifecycle]{
+		OutputState: i.ToPlanRuleLifecycleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PlanRuleLifecycleArgs) ToPlanRuleLifecyclePtrOutput() PlanRuleLifecyclePtrOutput {
 	return i.ToPlanRuleLifecyclePtrOutputWithContext(context.Background())
 }
@@ -1021,6 +1199,12 @@ func (i *planRuleLifecyclePtrType) ToPlanRuleLifecyclePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PlanRuleLifecyclePtrOutput)
 }
 
+func (i *planRuleLifecyclePtrType) ToOutput(ctx context.Context) pulumix.Output[*PlanRuleLifecycle] {
+	return pulumix.Output[*PlanRuleLifecycle]{
+		OutputState: i.ToPlanRuleLifecyclePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlanRuleLifecycleOutput struct{ *pulumi.OutputState }
 
 func (PlanRuleLifecycleOutput) ElementType() reflect.Type {
@@ -1045,6 +1229,12 @@ func (o PlanRuleLifecycleOutput) ToPlanRuleLifecyclePtrOutputWithContext(ctx con
 	}).(PlanRuleLifecyclePtrOutput)
 }
 
+func (o PlanRuleLifecycleOutput) ToOutput(ctx context.Context) pulumix.Output[PlanRuleLifecycle] {
+	return pulumix.Output[PlanRuleLifecycle]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the number of days after creation that a recovery point is moved to cold storage.
 func (o PlanRuleLifecycleOutput) ColdStorageAfter() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanRuleLifecycle) *int { return v.ColdStorageAfter }).(pulumi.IntPtrOutput)
@@ -1067,6 +1257,12 @@ func (o PlanRuleLifecyclePtrOutput) ToPlanRuleLifecyclePtrOutput() PlanRuleLifec
 
 func (o PlanRuleLifecyclePtrOutput) ToPlanRuleLifecyclePtrOutputWithContext(ctx context.Context) PlanRuleLifecyclePtrOutput {
 	return o
+}
+
+func (o PlanRuleLifecyclePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PlanRuleLifecycle] {
+	return pulumix.Output[*PlanRuleLifecycle]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlanRuleLifecyclePtrOutput) Elem() PlanRuleLifecycleOutput {
@@ -1140,6 +1336,12 @@ func (i ReportPlanReportDeliveryChannelArgs) ToReportPlanReportDeliveryChannelOu
 	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanReportDeliveryChannelOutput)
 }
 
+func (i ReportPlanReportDeliveryChannelArgs) ToOutput(ctx context.Context) pulumix.Output[ReportPlanReportDeliveryChannel] {
+	return pulumix.Output[ReportPlanReportDeliveryChannel]{
+		OutputState: i.ToReportPlanReportDeliveryChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ReportPlanReportDeliveryChannelArgs) ToReportPlanReportDeliveryChannelPtrOutput() ReportPlanReportDeliveryChannelPtrOutput {
 	return i.ToReportPlanReportDeliveryChannelPtrOutputWithContext(context.Background())
 }
@@ -1181,6 +1383,12 @@ func (i *reportPlanReportDeliveryChannelPtrType) ToReportPlanReportDeliveryChann
 	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanReportDeliveryChannelPtrOutput)
 }
 
+func (i *reportPlanReportDeliveryChannelPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReportPlanReportDeliveryChannel] {
+	return pulumix.Output[*ReportPlanReportDeliveryChannel]{
+		OutputState: i.ToReportPlanReportDeliveryChannelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReportPlanReportDeliveryChannelOutput struct{ *pulumi.OutputState }
 
 func (ReportPlanReportDeliveryChannelOutput) ElementType() reflect.Type {
@@ -1203,6 +1411,12 @@ func (o ReportPlanReportDeliveryChannelOutput) ToReportPlanReportDeliveryChannel
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportPlanReportDeliveryChannel) *ReportPlanReportDeliveryChannel {
 		return &v
 	}).(ReportPlanReportDeliveryChannelPtrOutput)
+}
+
+func (o ReportPlanReportDeliveryChannelOutput) ToOutput(ctx context.Context) pulumix.Output[ReportPlanReportDeliveryChannel] {
+	return pulumix.Output[ReportPlanReportDeliveryChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
@@ -1232,6 +1446,12 @@ func (o ReportPlanReportDeliveryChannelPtrOutput) ToReportPlanReportDeliveryChan
 
 func (o ReportPlanReportDeliveryChannelPtrOutput) ToReportPlanReportDeliveryChannelPtrOutputWithContext(ctx context.Context) ReportPlanReportDeliveryChannelPtrOutput {
 	return o
+}
+
+func (o ReportPlanReportDeliveryChannelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportPlanReportDeliveryChannel] {
+	return pulumix.Output[*ReportPlanReportDeliveryChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportPlanReportDeliveryChannelPtrOutput) Elem() ReportPlanReportDeliveryChannelOutput {
@@ -1327,6 +1547,12 @@ func (i ReportPlanReportSettingArgs) ToReportPlanReportSettingOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanReportSettingOutput)
 }
 
+func (i ReportPlanReportSettingArgs) ToOutput(ctx context.Context) pulumix.Output[ReportPlanReportSetting] {
+	return pulumix.Output[ReportPlanReportSetting]{
+		OutputState: i.ToReportPlanReportSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ReportPlanReportSettingArgs) ToReportPlanReportSettingPtrOutput() ReportPlanReportSettingPtrOutput {
 	return i.ToReportPlanReportSettingPtrOutputWithContext(context.Background())
 }
@@ -1368,6 +1594,12 @@ func (i *reportPlanReportSettingPtrType) ToReportPlanReportSettingPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanReportSettingPtrOutput)
 }
 
+func (i *reportPlanReportSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReportPlanReportSetting] {
+	return pulumix.Output[*ReportPlanReportSetting]{
+		OutputState: i.ToReportPlanReportSettingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReportPlanReportSettingOutput struct{ *pulumi.OutputState }
 
 func (ReportPlanReportSettingOutput) ElementType() reflect.Type {
@@ -1390,6 +1622,12 @@ func (o ReportPlanReportSettingOutput) ToReportPlanReportSettingPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportPlanReportSetting) *ReportPlanReportSetting {
 		return &v
 	}).(ReportPlanReportSettingPtrOutput)
+}
+
+func (o ReportPlanReportSettingOutput) ToOutput(ctx context.Context) pulumix.Output[ReportPlanReportSetting] {
+	return pulumix.Output[ReportPlanReportSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the list of accounts a report covers.
@@ -1434,6 +1672,12 @@ func (o ReportPlanReportSettingPtrOutput) ToReportPlanReportSettingPtrOutput() R
 
 func (o ReportPlanReportSettingPtrOutput) ToReportPlanReportSettingPtrOutputWithContext(ctx context.Context) ReportPlanReportSettingPtrOutput {
 	return o
+}
+
+func (o ReportPlanReportSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportPlanReportSetting] {
+	return pulumix.Output[*ReportPlanReportSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportPlanReportSettingPtrOutput) Elem() ReportPlanReportSettingOutput {
@@ -1543,6 +1787,12 @@ func (i SelectionConditionArgs) ToSelectionConditionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionOutput)
 }
 
+func (i SelectionConditionArgs) ToOutput(ctx context.Context) pulumix.Output[SelectionCondition] {
+	return pulumix.Output[SelectionCondition]{
+		OutputState: i.ToSelectionConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SelectionConditionArrayInput is an input type that accepts SelectionConditionArray and SelectionConditionArrayOutput values.
 // You can construct a concrete instance of `SelectionConditionArrayInput` via:
 //
@@ -1568,6 +1818,12 @@ func (i SelectionConditionArray) ToSelectionConditionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionArrayOutput)
 }
 
+func (i SelectionConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]SelectionCondition] {
+	return pulumix.Output[[]SelectionCondition]{
+		OutputState: i.ToSelectionConditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SelectionConditionOutput struct{ *pulumi.OutputState }
 
 func (SelectionConditionOutput) ElementType() reflect.Type {
@@ -1580,6 +1836,12 @@ func (o SelectionConditionOutput) ToSelectionConditionOutput() SelectionConditio
 
 func (o SelectionConditionOutput) ToSelectionConditionOutputWithContext(ctx context.Context) SelectionConditionOutput {
 	return o
+}
+
+func (o SelectionConditionOutput) ToOutput(ctx context.Context) pulumix.Output[SelectionCondition] {
+	return pulumix.Output[SelectionCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SelectionConditionOutput) StringEquals() SelectionConditionStringEqualArrayOutput {
@@ -1610,6 +1872,12 @@ func (o SelectionConditionArrayOutput) ToSelectionConditionArrayOutput() Selecti
 
 func (o SelectionConditionArrayOutput) ToSelectionConditionArrayOutputWithContext(ctx context.Context) SelectionConditionArrayOutput {
 	return o
+}
+
+func (o SelectionConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SelectionCondition] {
+	return pulumix.Output[[]SelectionCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SelectionConditionArrayOutput) Index(i pulumi.IntInput) SelectionConditionOutput {
@@ -1655,6 +1923,12 @@ func (i SelectionConditionStringEqualArgs) ToSelectionConditionStringEqualOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringEqualOutput)
 }
 
+func (i SelectionConditionStringEqualArgs) ToOutput(ctx context.Context) pulumix.Output[SelectionConditionStringEqual] {
+	return pulumix.Output[SelectionConditionStringEqual]{
+		OutputState: i.ToSelectionConditionStringEqualOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SelectionConditionStringEqualArrayInput is an input type that accepts SelectionConditionStringEqualArray and SelectionConditionStringEqualArrayOutput values.
 // You can construct a concrete instance of `SelectionConditionStringEqualArrayInput` via:
 //
@@ -1680,6 +1954,12 @@ func (i SelectionConditionStringEqualArray) ToSelectionConditionStringEqualArray
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringEqualArrayOutput)
 }
 
+func (i SelectionConditionStringEqualArray) ToOutput(ctx context.Context) pulumix.Output[[]SelectionConditionStringEqual] {
+	return pulumix.Output[[]SelectionConditionStringEqual]{
+		OutputState: i.ToSelectionConditionStringEqualArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SelectionConditionStringEqualOutput struct{ *pulumi.OutputState }
 
 func (SelectionConditionStringEqualOutput) ElementType() reflect.Type {
@@ -1692,6 +1972,12 @@ func (o SelectionConditionStringEqualOutput) ToSelectionConditionStringEqualOutp
 
 func (o SelectionConditionStringEqualOutput) ToSelectionConditionStringEqualOutputWithContext(ctx context.Context) SelectionConditionStringEqualOutput {
 	return o
+}
+
+func (o SelectionConditionStringEqualOutput) ToOutput(ctx context.Context) pulumix.Output[SelectionConditionStringEqual] {
+	return pulumix.Output[SelectionConditionStringEqual]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key in a key-value pair.
@@ -1716,6 +2002,12 @@ func (o SelectionConditionStringEqualArrayOutput) ToSelectionConditionStringEqua
 
 func (o SelectionConditionStringEqualArrayOutput) ToSelectionConditionStringEqualArrayOutputWithContext(ctx context.Context) SelectionConditionStringEqualArrayOutput {
 	return o
+}
+
+func (o SelectionConditionStringEqualArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SelectionConditionStringEqual] {
+	return pulumix.Output[[]SelectionConditionStringEqual]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SelectionConditionStringEqualArrayOutput) Index(i pulumi.IntInput) SelectionConditionStringEqualOutput {
@@ -1761,6 +2053,12 @@ func (i SelectionConditionStringLikeArgs) ToSelectionConditionStringLikeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringLikeOutput)
 }
 
+func (i SelectionConditionStringLikeArgs) ToOutput(ctx context.Context) pulumix.Output[SelectionConditionStringLike] {
+	return pulumix.Output[SelectionConditionStringLike]{
+		OutputState: i.ToSelectionConditionStringLikeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SelectionConditionStringLikeArrayInput is an input type that accepts SelectionConditionStringLikeArray and SelectionConditionStringLikeArrayOutput values.
 // You can construct a concrete instance of `SelectionConditionStringLikeArrayInput` via:
 //
@@ -1786,6 +2084,12 @@ func (i SelectionConditionStringLikeArray) ToSelectionConditionStringLikeArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringLikeArrayOutput)
 }
 
+func (i SelectionConditionStringLikeArray) ToOutput(ctx context.Context) pulumix.Output[[]SelectionConditionStringLike] {
+	return pulumix.Output[[]SelectionConditionStringLike]{
+		OutputState: i.ToSelectionConditionStringLikeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SelectionConditionStringLikeOutput struct{ *pulumi.OutputState }
 
 func (SelectionConditionStringLikeOutput) ElementType() reflect.Type {
@@ -1798,6 +2102,12 @@ func (o SelectionConditionStringLikeOutput) ToSelectionConditionStringLikeOutput
 
 func (o SelectionConditionStringLikeOutput) ToSelectionConditionStringLikeOutputWithContext(ctx context.Context) SelectionConditionStringLikeOutput {
 	return o
+}
+
+func (o SelectionConditionStringLikeOutput) ToOutput(ctx context.Context) pulumix.Output[SelectionConditionStringLike] {
+	return pulumix.Output[SelectionConditionStringLike]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key in a key-value pair.
@@ -1822,6 +2132,12 @@ func (o SelectionConditionStringLikeArrayOutput) ToSelectionConditionStringLikeA
 
 func (o SelectionConditionStringLikeArrayOutput) ToSelectionConditionStringLikeArrayOutputWithContext(ctx context.Context) SelectionConditionStringLikeArrayOutput {
 	return o
+}
+
+func (o SelectionConditionStringLikeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SelectionConditionStringLike] {
+	return pulumix.Output[[]SelectionConditionStringLike]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SelectionConditionStringLikeArrayOutput) Index(i pulumi.IntInput) SelectionConditionStringLikeOutput {
@@ -1867,6 +2183,12 @@ func (i SelectionConditionStringNotEqualArgs) ToSelectionConditionStringNotEqual
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringNotEqualOutput)
 }
 
+func (i SelectionConditionStringNotEqualArgs) ToOutput(ctx context.Context) pulumix.Output[SelectionConditionStringNotEqual] {
+	return pulumix.Output[SelectionConditionStringNotEqual]{
+		OutputState: i.ToSelectionConditionStringNotEqualOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SelectionConditionStringNotEqualArrayInput is an input type that accepts SelectionConditionStringNotEqualArray and SelectionConditionStringNotEqualArrayOutput values.
 // You can construct a concrete instance of `SelectionConditionStringNotEqualArrayInput` via:
 //
@@ -1892,6 +2214,12 @@ func (i SelectionConditionStringNotEqualArray) ToSelectionConditionStringNotEqua
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringNotEqualArrayOutput)
 }
 
+func (i SelectionConditionStringNotEqualArray) ToOutput(ctx context.Context) pulumix.Output[[]SelectionConditionStringNotEqual] {
+	return pulumix.Output[[]SelectionConditionStringNotEqual]{
+		OutputState: i.ToSelectionConditionStringNotEqualArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SelectionConditionStringNotEqualOutput struct{ *pulumi.OutputState }
 
 func (SelectionConditionStringNotEqualOutput) ElementType() reflect.Type {
@@ -1904,6 +2232,12 @@ func (o SelectionConditionStringNotEqualOutput) ToSelectionConditionStringNotEqu
 
 func (o SelectionConditionStringNotEqualOutput) ToSelectionConditionStringNotEqualOutputWithContext(ctx context.Context) SelectionConditionStringNotEqualOutput {
 	return o
+}
+
+func (o SelectionConditionStringNotEqualOutput) ToOutput(ctx context.Context) pulumix.Output[SelectionConditionStringNotEqual] {
+	return pulumix.Output[SelectionConditionStringNotEqual]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key in a key-value pair.
@@ -1928,6 +2262,12 @@ func (o SelectionConditionStringNotEqualArrayOutput) ToSelectionConditionStringN
 
 func (o SelectionConditionStringNotEqualArrayOutput) ToSelectionConditionStringNotEqualArrayOutputWithContext(ctx context.Context) SelectionConditionStringNotEqualArrayOutput {
 	return o
+}
+
+func (o SelectionConditionStringNotEqualArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SelectionConditionStringNotEqual] {
+	return pulumix.Output[[]SelectionConditionStringNotEqual]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SelectionConditionStringNotEqualArrayOutput) Index(i pulumi.IntInput) SelectionConditionStringNotEqualOutput {
@@ -1973,6 +2313,12 @@ func (i SelectionConditionStringNotLikeArgs) ToSelectionConditionStringNotLikeOu
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringNotLikeOutput)
 }
 
+func (i SelectionConditionStringNotLikeArgs) ToOutput(ctx context.Context) pulumix.Output[SelectionConditionStringNotLike] {
+	return pulumix.Output[SelectionConditionStringNotLike]{
+		OutputState: i.ToSelectionConditionStringNotLikeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SelectionConditionStringNotLikeArrayInput is an input type that accepts SelectionConditionStringNotLikeArray and SelectionConditionStringNotLikeArrayOutput values.
 // You can construct a concrete instance of `SelectionConditionStringNotLikeArrayInput` via:
 //
@@ -1998,6 +2344,12 @@ func (i SelectionConditionStringNotLikeArray) ToSelectionConditionStringNotLikeA
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionConditionStringNotLikeArrayOutput)
 }
 
+func (i SelectionConditionStringNotLikeArray) ToOutput(ctx context.Context) pulumix.Output[[]SelectionConditionStringNotLike] {
+	return pulumix.Output[[]SelectionConditionStringNotLike]{
+		OutputState: i.ToSelectionConditionStringNotLikeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SelectionConditionStringNotLikeOutput struct{ *pulumi.OutputState }
 
 func (SelectionConditionStringNotLikeOutput) ElementType() reflect.Type {
@@ -2010,6 +2362,12 @@ func (o SelectionConditionStringNotLikeOutput) ToSelectionConditionStringNotLike
 
 func (o SelectionConditionStringNotLikeOutput) ToSelectionConditionStringNotLikeOutputWithContext(ctx context.Context) SelectionConditionStringNotLikeOutput {
 	return o
+}
+
+func (o SelectionConditionStringNotLikeOutput) ToOutput(ctx context.Context) pulumix.Output[SelectionConditionStringNotLike] {
+	return pulumix.Output[SelectionConditionStringNotLike]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key in a key-value pair.
@@ -2034,6 +2392,12 @@ func (o SelectionConditionStringNotLikeArrayOutput) ToSelectionConditionStringNo
 
 func (o SelectionConditionStringNotLikeArrayOutput) ToSelectionConditionStringNotLikeArrayOutputWithContext(ctx context.Context) SelectionConditionStringNotLikeArrayOutput {
 	return o
+}
+
+func (o SelectionConditionStringNotLikeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SelectionConditionStringNotLike] {
+	return pulumix.Output[[]SelectionConditionStringNotLike]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SelectionConditionStringNotLikeArrayOutput) Index(i pulumi.IntInput) SelectionConditionStringNotLikeOutput {
@@ -2083,6 +2447,12 @@ func (i SelectionSelectionTagArgs) ToSelectionSelectionTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionSelectionTagOutput)
 }
 
+func (i SelectionSelectionTagArgs) ToOutput(ctx context.Context) pulumix.Output[SelectionSelectionTag] {
+	return pulumix.Output[SelectionSelectionTag]{
+		OutputState: i.ToSelectionSelectionTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SelectionSelectionTagArrayInput is an input type that accepts SelectionSelectionTagArray and SelectionSelectionTagArrayOutput values.
 // You can construct a concrete instance of `SelectionSelectionTagArrayInput` via:
 //
@@ -2108,6 +2478,12 @@ func (i SelectionSelectionTagArray) ToSelectionSelectionTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionSelectionTagArrayOutput)
 }
 
+func (i SelectionSelectionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SelectionSelectionTag] {
+	return pulumix.Output[[]SelectionSelectionTag]{
+		OutputState: i.ToSelectionSelectionTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SelectionSelectionTagOutput struct{ *pulumi.OutputState }
 
 func (SelectionSelectionTagOutput) ElementType() reflect.Type {
@@ -2120,6 +2496,12 @@ func (o SelectionSelectionTagOutput) ToSelectionSelectionTagOutput() SelectionSe
 
 func (o SelectionSelectionTagOutput) ToSelectionSelectionTagOutputWithContext(ctx context.Context) SelectionSelectionTagOutput {
 	return o
+}
+
+func (o SelectionSelectionTagOutput) ToOutput(ctx context.Context) pulumix.Output[SelectionSelectionTag] {
+	return pulumix.Output[SelectionSelectionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The key in a key-value pair.
@@ -2149,6 +2531,12 @@ func (o SelectionSelectionTagArrayOutput) ToSelectionSelectionTagArrayOutput() S
 
 func (o SelectionSelectionTagArrayOutput) ToSelectionSelectionTagArrayOutputWithContext(ctx context.Context) SelectionSelectionTagArrayOutput {
 	return o
+}
+
+func (o SelectionSelectionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SelectionSelectionTag] {
+	return pulumix.Output[[]SelectionSelectionTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SelectionSelectionTagArrayOutput) Index(i pulumi.IntInput) SelectionSelectionTagOutput {
@@ -2198,6 +2586,12 @@ func (i GetFrameworkControlArgs) ToGetFrameworkControlOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetFrameworkControlOutput)
 }
 
+func (i GetFrameworkControlArgs) ToOutput(ctx context.Context) pulumix.Output[GetFrameworkControl] {
+	return pulumix.Output[GetFrameworkControl]{
+		OutputState: i.ToGetFrameworkControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFrameworkControlArrayInput is an input type that accepts GetFrameworkControlArray and GetFrameworkControlArrayOutput values.
 // You can construct a concrete instance of `GetFrameworkControlArrayInput` via:
 //
@@ -2223,6 +2617,12 @@ func (i GetFrameworkControlArray) ToGetFrameworkControlArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetFrameworkControlArrayOutput)
 }
 
+func (i GetFrameworkControlArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFrameworkControl] {
+	return pulumix.Output[[]GetFrameworkControl]{
+		OutputState: i.ToGetFrameworkControlArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFrameworkControlOutput struct{ *pulumi.OutputState }
 
 func (GetFrameworkControlOutput) ElementType() reflect.Type {
@@ -2235,6 +2635,12 @@ func (o GetFrameworkControlOutput) ToGetFrameworkControlOutput() GetFrameworkCon
 
 func (o GetFrameworkControlOutput) ToGetFrameworkControlOutputWithContext(ctx context.Context) GetFrameworkControlOutput {
 	return o
+}
+
+func (o GetFrameworkControlOutput) ToOutput(ctx context.Context) pulumix.Output[GetFrameworkControl] {
+	return pulumix.Output[GetFrameworkControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
@@ -2264,6 +2670,12 @@ func (o GetFrameworkControlArrayOutput) ToGetFrameworkControlArrayOutput() GetFr
 
 func (o GetFrameworkControlArrayOutput) ToGetFrameworkControlArrayOutputWithContext(ctx context.Context) GetFrameworkControlArrayOutput {
 	return o
+}
+
+func (o GetFrameworkControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFrameworkControl] {
+	return pulumix.Output[[]GetFrameworkControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFrameworkControlArrayOutput) Index(i pulumi.IntInput) GetFrameworkControlOutput {
@@ -2309,6 +2721,12 @@ func (i GetFrameworkControlInputParameterArgs) ToGetFrameworkControlInputParamet
 	return pulumi.ToOutputWithContext(ctx, i).(GetFrameworkControlInputParameterOutput)
 }
 
+func (i GetFrameworkControlInputParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GetFrameworkControlInputParameter] {
+	return pulumix.Output[GetFrameworkControlInputParameter]{
+		OutputState: i.ToGetFrameworkControlInputParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFrameworkControlInputParameterArrayInput is an input type that accepts GetFrameworkControlInputParameterArray and GetFrameworkControlInputParameterArrayOutput values.
 // You can construct a concrete instance of `GetFrameworkControlInputParameterArrayInput` via:
 //
@@ -2334,6 +2752,12 @@ func (i GetFrameworkControlInputParameterArray) ToGetFrameworkControlInputParame
 	return pulumi.ToOutputWithContext(ctx, i).(GetFrameworkControlInputParameterArrayOutput)
 }
 
+func (i GetFrameworkControlInputParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFrameworkControlInputParameter] {
+	return pulumix.Output[[]GetFrameworkControlInputParameter]{
+		OutputState: i.ToGetFrameworkControlInputParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFrameworkControlInputParameterOutput struct{ *pulumi.OutputState }
 
 func (GetFrameworkControlInputParameterOutput) ElementType() reflect.Type {
@@ -2346,6 +2770,12 @@ func (o GetFrameworkControlInputParameterOutput) ToGetFrameworkControlInputParam
 
 func (o GetFrameworkControlInputParameterOutput) ToGetFrameworkControlInputParameterOutputWithContext(ctx context.Context) GetFrameworkControlInputParameterOutput {
 	return o
+}
+
+func (o GetFrameworkControlInputParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GetFrameworkControlInputParameter] {
+	return pulumix.Output[GetFrameworkControlInputParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Backup framework name.
@@ -2370,6 +2800,12 @@ func (o GetFrameworkControlInputParameterArrayOutput) ToGetFrameworkControlInput
 
 func (o GetFrameworkControlInputParameterArrayOutput) ToGetFrameworkControlInputParameterArrayOutputWithContext(ctx context.Context) GetFrameworkControlInputParameterArrayOutput {
 	return o
+}
+
+func (o GetFrameworkControlInputParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFrameworkControlInputParameter] {
+	return pulumix.Output[[]GetFrameworkControlInputParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFrameworkControlInputParameterArrayOutput) Index(i pulumi.IntInput) GetFrameworkControlInputParameterOutput {
@@ -2419,6 +2855,12 @@ func (i GetFrameworkControlScopeArgs) ToGetFrameworkControlScopeOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetFrameworkControlScopeOutput)
 }
 
+func (i GetFrameworkControlScopeArgs) ToOutput(ctx context.Context) pulumix.Output[GetFrameworkControlScope] {
+	return pulumix.Output[GetFrameworkControlScope]{
+		OutputState: i.ToGetFrameworkControlScopeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFrameworkControlScopeArrayInput is an input type that accepts GetFrameworkControlScopeArray and GetFrameworkControlScopeArrayOutput values.
 // You can construct a concrete instance of `GetFrameworkControlScopeArrayInput` via:
 //
@@ -2444,6 +2886,12 @@ func (i GetFrameworkControlScopeArray) ToGetFrameworkControlScopeArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetFrameworkControlScopeArrayOutput)
 }
 
+func (i GetFrameworkControlScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFrameworkControlScope] {
+	return pulumix.Output[[]GetFrameworkControlScope]{
+		OutputState: i.ToGetFrameworkControlScopeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFrameworkControlScopeOutput struct{ *pulumi.OutputState }
 
 func (GetFrameworkControlScopeOutput) ElementType() reflect.Type {
@@ -2456,6 +2904,12 @@ func (o GetFrameworkControlScopeOutput) ToGetFrameworkControlScopeOutput() GetFr
 
 func (o GetFrameworkControlScopeOutput) ToGetFrameworkControlScopeOutputWithContext(ctx context.Context) GetFrameworkControlScopeOutput {
 	return o
+}
+
+func (o GetFrameworkControlScopeOutput) ToOutput(ctx context.Context) pulumix.Output[GetFrameworkControlScope] {
+	return pulumix.Output[GetFrameworkControlScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the only AWS resource that you want your control scope to contain.
@@ -2485,6 +2939,12 @@ func (o GetFrameworkControlScopeArrayOutput) ToGetFrameworkControlScopeArrayOutp
 
 func (o GetFrameworkControlScopeArrayOutput) ToGetFrameworkControlScopeArrayOutputWithContext(ctx context.Context) GetFrameworkControlScopeArrayOutput {
 	return o
+}
+
+func (o GetFrameworkControlScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFrameworkControlScope] {
+	return pulumix.Output[[]GetFrameworkControlScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFrameworkControlScopeArrayOutput) Index(i pulumi.IntInput) GetFrameworkControlScopeOutput {
@@ -2534,6 +2994,12 @@ func (i GetReportPlanReportDeliveryChannelArgs) ToGetReportPlanReportDeliveryCha
 	return pulumi.ToOutputWithContext(ctx, i).(GetReportPlanReportDeliveryChannelOutput)
 }
 
+func (i GetReportPlanReportDeliveryChannelArgs) ToOutput(ctx context.Context) pulumix.Output[GetReportPlanReportDeliveryChannel] {
+	return pulumix.Output[GetReportPlanReportDeliveryChannel]{
+		OutputState: i.ToGetReportPlanReportDeliveryChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetReportPlanReportDeliveryChannelArrayInput is an input type that accepts GetReportPlanReportDeliveryChannelArray and GetReportPlanReportDeliveryChannelArrayOutput values.
 // You can construct a concrete instance of `GetReportPlanReportDeliveryChannelArrayInput` via:
 //
@@ -2559,6 +3025,12 @@ func (i GetReportPlanReportDeliveryChannelArray) ToGetReportPlanReportDeliveryCh
 	return pulumi.ToOutputWithContext(ctx, i).(GetReportPlanReportDeliveryChannelArrayOutput)
 }
 
+func (i GetReportPlanReportDeliveryChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReportPlanReportDeliveryChannel] {
+	return pulumix.Output[[]GetReportPlanReportDeliveryChannel]{
+		OutputState: i.ToGetReportPlanReportDeliveryChannelArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReportPlanReportDeliveryChannelOutput struct{ *pulumi.OutputState }
 
 func (GetReportPlanReportDeliveryChannelOutput) ElementType() reflect.Type {
@@ -2571,6 +3043,12 @@ func (o GetReportPlanReportDeliveryChannelOutput) ToGetReportPlanReportDeliveryC
 
 func (o GetReportPlanReportDeliveryChannelOutput) ToGetReportPlanReportDeliveryChannelOutputWithContext(ctx context.Context) GetReportPlanReportDeliveryChannelOutput {
 	return o
+}
+
+func (o GetReportPlanReportDeliveryChannelOutput) ToOutput(ctx context.Context) pulumix.Output[GetReportPlanReportDeliveryChannel] {
+	return pulumix.Output[GetReportPlanReportDeliveryChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of the format of your reports: CSV, JSON, or both.
@@ -2600,6 +3078,12 @@ func (o GetReportPlanReportDeliveryChannelArrayOutput) ToGetReportPlanReportDeli
 
 func (o GetReportPlanReportDeliveryChannelArrayOutput) ToGetReportPlanReportDeliveryChannelArrayOutputWithContext(ctx context.Context) GetReportPlanReportDeliveryChannelArrayOutput {
 	return o
+}
+
+func (o GetReportPlanReportDeliveryChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReportPlanReportDeliveryChannel] {
+	return pulumix.Output[[]GetReportPlanReportDeliveryChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReportPlanReportDeliveryChannelArrayOutput) Index(i pulumi.IntInput) GetReportPlanReportDeliveryChannelOutput {
@@ -2661,6 +3145,12 @@ func (i GetReportPlanReportSettingArgs) ToGetReportPlanReportSettingOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetReportPlanReportSettingOutput)
 }
 
+func (i GetReportPlanReportSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetReportPlanReportSetting] {
+	return pulumix.Output[GetReportPlanReportSetting]{
+		OutputState: i.ToGetReportPlanReportSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetReportPlanReportSettingArrayInput is an input type that accepts GetReportPlanReportSettingArray and GetReportPlanReportSettingArrayOutput values.
 // You can construct a concrete instance of `GetReportPlanReportSettingArrayInput` via:
 //
@@ -2686,6 +3176,12 @@ func (i GetReportPlanReportSettingArray) ToGetReportPlanReportSettingArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetReportPlanReportSettingArrayOutput)
 }
 
+func (i GetReportPlanReportSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReportPlanReportSetting] {
+	return pulumix.Output[[]GetReportPlanReportSetting]{
+		OutputState: i.ToGetReportPlanReportSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetReportPlanReportSettingOutput struct{ *pulumi.OutputState }
 
 func (GetReportPlanReportSettingOutput) ElementType() reflect.Type {
@@ -2698,6 +3194,12 @@ func (o GetReportPlanReportSettingOutput) ToGetReportPlanReportSettingOutput() G
 
 func (o GetReportPlanReportSettingOutput) ToGetReportPlanReportSettingOutputWithContext(ctx context.Context) GetReportPlanReportSettingOutput {
 	return o
+}
+
+func (o GetReportPlanReportSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetReportPlanReportSetting] {
+	return pulumix.Output[GetReportPlanReportSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Optional) Specifies the list of accounts a report covers.
@@ -2742,6 +3244,12 @@ func (o GetReportPlanReportSettingArrayOutput) ToGetReportPlanReportSettingArray
 
 func (o GetReportPlanReportSettingArrayOutput) ToGetReportPlanReportSettingArrayOutputWithContext(ctx context.Context) GetReportPlanReportSettingArrayOutput {
 	return o
+}
+
+func (o GetReportPlanReportSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReportPlanReportSetting] {
+	return pulumix.Output[[]GetReportPlanReportSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetReportPlanReportSettingArrayOutput) Index(i pulumi.IntInput) GetReportPlanReportSettingOutput {

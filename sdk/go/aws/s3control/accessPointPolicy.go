@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an S3 Access Point resource policy.
@@ -115,6 +117,7 @@ func NewAccessPointPolicy(ctx *pulumi.Context,
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AccessPointPolicy
 	err := ctx.RegisterResource("aws:s3control/accessPointPolicy:AccessPointPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -196,6 +199,12 @@ func (i *AccessPointPolicy) ToAccessPointPolicyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPolicyOutput)
 }
 
+func (i *AccessPointPolicy) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPolicy] {
+	return pulumix.Output[*AccessPointPolicy]{
+		OutputState: i.ToAccessPointPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccessPointPolicyArrayInput is an input type that accepts AccessPointPolicyArray and AccessPointPolicyArrayOutput values.
 // You can construct a concrete instance of `AccessPointPolicyArrayInput` via:
 //
@@ -219,6 +228,12 @@ func (i AccessPointPolicyArray) ToAccessPointPolicyArrayOutput() AccessPointPoli
 
 func (i AccessPointPolicyArray) ToAccessPointPolicyArrayOutputWithContext(ctx context.Context) AccessPointPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPolicyArrayOutput)
+}
+
+func (i AccessPointPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccessPointPolicy] {
+	return pulumix.Output[[]*AccessPointPolicy]{
+		OutputState: i.ToAccessPointPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccessPointPolicyMapInput is an input type that accepts AccessPointPolicyMap and AccessPointPolicyMapOutput values.
@@ -246,6 +261,12 @@ func (i AccessPointPolicyMap) ToAccessPointPolicyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPolicyMapOutput)
 }
 
+func (i AccessPointPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessPointPolicy] {
+	return pulumix.Output[map[string]*AccessPointPolicy]{
+		OutputState: i.ToAccessPointPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccessPointPolicyOutput) ElementType() reflect.Type {
@@ -258,6 +279,12 @@ func (o AccessPointPolicyOutput) ToAccessPointPolicyOutput() AccessPointPolicyOu
 
 func (o AccessPointPolicyOutput) ToAccessPointPolicyOutputWithContext(ctx context.Context) AccessPointPolicyOutput {
 	return o
+}
+
+func (o AccessPointPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPolicy] {
+	return pulumix.Output[*AccessPointPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the access point that you want to associate with the specified policy.
@@ -289,6 +316,12 @@ func (o AccessPointPolicyArrayOutput) ToAccessPointPolicyArrayOutputWithContext(
 	return o
 }
 
+func (o AccessPointPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccessPointPolicy] {
+	return pulumix.Output[[]*AccessPointPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccessPointPolicyArrayOutput) Index(i pulumi.IntInput) AccessPointPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccessPointPolicy {
 		return vs[0].([]*AccessPointPolicy)[vs[1].(int)]
@@ -307,6 +340,12 @@ func (o AccessPointPolicyMapOutput) ToAccessPointPolicyMapOutput() AccessPointPo
 
 func (o AccessPointPolicyMapOutput) ToAccessPointPolicyMapOutputWithContext(ctx context.Context) AccessPointPolicyMapOutput {
 	return o
+}
+
+func (o AccessPointPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessPointPolicy] {
+	return pulumix.Output[map[string]*AccessPointPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointPolicyMapOutput) MapIndex(k pulumi.StringInput) AccessPointPolicyOutput {

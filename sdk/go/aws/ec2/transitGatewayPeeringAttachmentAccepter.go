@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
@@ -81,6 +83,7 @@ func NewTransitGatewayPeeringAttachmentAccepter(ctx *pulumi.Context,
 	if args.TransitGatewayAttachmentId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayAttachmentId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayPeeringAttachmentAccepter
 	err := ctx.RegisterResource("aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter", name, args, &resource, opts...)
 	if err != nil {
@@ -176,6 +179,12 @@ func (i *TransitGatewayPeeringAttachmentAccepter) ToTransitGatewayPeeringAttachm
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentAccepterOutput)
 }
 
+func (i *TransitGatewayPeeringAttachmentAccepter) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayPeeringAttachmentAccepter] {
+	return pulumix.Output[*TransitGatewayPeeringAttachmentAccepter]{
+		OutputState: i.ToTransitGatewayPeeringAttachmentAccepterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TransitGatewayPeeringAttachmentAccepterArrayInput is an input type that accepts TransitGatewayPeeringAttachmentAccepterArray and TransitGatewayPeeringAttachmentAccepterArrayOutput values.
 // You can construct a concrete instance of `TransitGatewayPeeringAttachmentAccepterArrayInput` via:
 //
@@ -199,6 +208,12 @@ func (i TransitGatewayPeeringAttachmentAccepterArray) ToTransitGatewayPeeringAtt
 
 func (i TransitGatewayPeeringAttachmentAccepterArray) ToTransitGatewayPeeringAttachmentAccepterArrayOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentAccepterArrayOutput)
+}
+
+func (i TransitGatewayPeeringAttachmentAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGatewayPeeringAttachmentAccepter] {
+	return pulumix.Output[[]*TransitGatewayPeeringAttachmentAccepter]{
+		OutputState: i.ToTransitGatewayPeeringAttachmentAccepterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TransitGatewayPeeringAttachmentAccepterMapInput is an input type that accepts TransitGatewayPeeringAttachmentAccepterMap and TransitGatewayPeeringAttachmentAccepterMapOutput values.
@@ -226,6 +241,12 @@ func (i TransitGatewayPeeringAttachmentAccepterMap) ToTransitGatewayPeeringAttac
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentAccepterMapOutput)
 }
 
+func (i TransitGatewayPeeringAttachmentAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGatewayPeeringAttachmentAccepter] {
+	return pulumix.Output[map[string]*TransitGatewayPeeringAttachmentAccepter]{
+		OutputState: i.ToTransitGatewayPeeringAttachmentAccepterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayPeeringAttachmentAccepterOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayPeeringAttachmentAccepterOutput) ElementType() reflect.Type {
@@ -238,6 +259,12 @@ func (o TransitGatewayPeeringAttachmentAccepterOutput) ToTransitGatewayPeeringAt
 
 func (o TransitGatewayPeeringAttachmentAccepterOutput) ToTransitGatewayPeeringAttachmentAccepterOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterOutput {
 	return o
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayPeeringAttachmentAccepter] {
+	return pulumix.Output[*TransitGatewayPeeringAttachmentAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier of the AWS account that owns the EC2 TGW peering.
@@ -290,6 +317,12 @@ func (o TransitGatewayPeeringAttachmentAccepterArrayOutput) ToTransitGatewayPeer
 	return o
 }
 
+func (o TransitGatewayPeeringAttachmentAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGatewayPeeringAttachmentAccepter] {
+	return pulumix.Output[[]*TransitGatewayPeeringAttachmentAccepter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransitGatewayPeeringAttachmentAccepterArrayOutput) Index(i pulumi.IntInput) TransitGatewayPeeringAttachmentAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TransitGatewayPeeringAttachmentAccepter {
 		return vs[0].([]*TransitGatewayPeeringAttachmentAccepter)[vs[1].(int)]
@@ -308,6 +341,12 @@ func (o TransitGatewayPeeringAttachmentAccepterMapOutput) ToTransitGatewayPeerin
 
 func (o TransitGatewayPeeringAttachmentAccepterMapOutput) ToTransitGatewayPeeringAttachmentAccepterMapOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterMapOutput {
 	return o
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGatewayPeeringAttachmentAccepter] {
+	return pulumix.Output[map[string]*TransitGatewayPeeringAttachmentAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayPeeringAttachmentAccepterMapOutput) MapIndex(k pulumi.StringInput) TransitGatewayPeeringAttachmentAccepterOutput {

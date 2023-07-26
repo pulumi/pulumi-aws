@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
@@ -96,6 +98,7 @@ import (
 // }
 // ```
 func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ...pulumi.InvokeOption) (*GetServiceAccountResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceAccountResult
 	err := ctx.Invoke("aws:cloudtrail/getServiceAccount:getServiceAccount", args, &rv, opts...)
 	if err != nil {
@@ -157,6 +160,12 @@ func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutput() GetServ
 
 func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutputWithContext(ctx context.Context) GetServiceAccountResultOutput {
 	return o
+}
+
+func (o GetServiceAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceAccountResult] {
+	return pulumix.Output[GetServiceAccountResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the AWS CloudTrail service account in the selected region.

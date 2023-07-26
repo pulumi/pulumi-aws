@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EventBridge Target resource.
@@ -679,6 +681,7 @@ func NewEventTarget(ctx *pulumi.Context,
 	if args.Rule == nil {
 		return nil, errors.New("invalid value for required argument 'Rule'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventTarget
 	err := ctx.RegisterResource("aws:cloudwatch/eventTarget:EventTarget", name, args, &resource, opts...)
 	if err != nil {
@@ -888,6 +891,12 @@ func (i *EventTarget) ToEventTargetOutputWithContext(ctx context.Context) EventT
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetOutput)
 }
 
+func (i *EventTarget) ToOutput(ctx context.Context) pulumix.Output[*EventTarget] {
+	return pulumix.Output[*EventTarget]{
+		OutputState: i.ToEventTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventTargetArrayInput is an input type that accepts EventTargetArray and EventTargetArrayOutput values.
 // You can construct a concrete instance of `EventTargetArrayInput` via:
 //
@@ -911,6 +920,12 @@ func (i EventTargetArray) ToEventTargetArrayOutput() EventTargetArrayOutput {
 
 func (i EventTargetArray) ToEventTargetArrayOutputWithContext(ctx context.Context) EventTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetArrayOutput)
+}
+
+func (i EventTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventTarget] {
+	return pulumix.Output[[]*EventTarget]{
+		OutputState: i.ToEventTargetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventTargetMapInput is an input type that accepts EventTargetMap and EventTargetMapOutput values.
@@ -938,6 +953,12 @@ func (i EventTargetMap) ToEventTargetMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EventTargetMapOutput)
 }
 
+func (i EventTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventTarget] {
+	return pulumix.Output[map[string]*EventTarget]{
+		OutputState: i.ToEventTargetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventTargetOutput struct{ *pulumi.OutputState }
 
 func (EventTargetOutput) ElementType() reflect.Type {
@@ -950,6 +971,12 @@ func (o EventTargetOutput) ToEventTargetOutput() EventTargetOutput {
 
 func (o EventTargetOutput) ToEventTargetOutputWithContext(ctx context.Context) EventTargetOutput {
 	return o
+}
+
+func (o EventTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTarget] {
+	return pulumix.Output[*EventTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the target.
@@ -1054,6 +1081,12 @@ func (o EventTargetArrayOutput) ToEventTargetArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o EventTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventTarget] {
+	return pulumix.Output[[]*EventTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventTargetArrayOutput) Index(i pulumi.IntInput) EventTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventTarget {
 		return vs[0].([]*EventTarget)[vs[1].(int)]
@@ -1072,6 +1105,12 @@ func (o EventTargetMapOutput) ToEventTargetMapOutput() EventTargetMapOutput {
 
 func (o EventTargetMapOutput) ToEventTargetMapOutputWithContext(ctx context.Context) EventTargetMapOutput {
 	return o
+}
+
+func (o EventTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventTarget] {
+	return pulumix.Output[map[string]*EventTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventTargetMapOutput) MapIndex(k pulumi.StringInput) EventTargetOutput {

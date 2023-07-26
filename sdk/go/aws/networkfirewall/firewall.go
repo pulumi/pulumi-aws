@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Network Firewall Firewall Resource
@@ -107,6 +109,7 @@ func NewFirewall(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Firewall
 	err := ctx.RegisterResource("aws:networkfirewall/firewall:Firewall", name, args, &resource, opts...)
 	if err != nil {
@@ -264,6 +267,12 @@ func (i *Firewall) ToFirewallOutputWithContext(ctx context.Context) FirewallOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallOutput)
 }
 
+func (i *Firewall) ToOutput(ctx context.Context) pulumix.Output[*Firewall] {
+	return pulumix.Output[*Firewall]{
+		OutputState: i.ToFirewallOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirewallArrayInput is an input type that accepts FirewallArray and FirewallArrayOutput values.
 // You can construct a concrete instance of `FirewallArrayInput` via:
 //
@@ -287,6 +296,12 @@ func (i FirewallArray) ToFirewallArrayOutput() FirewallArrayOutput {
 
 func (i FirewallArray) ToFirewallArrayOutputWithContext(ctx context.Context) FirewallArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallArrayOutput)
+}
+
+func (i FirewallArray) ToOutput(ctx context.Context) pulumix.Output[[]*Firewall] {
+	return pulumix.Output[[]*Firewall]{
+		OutputState: i.ToFirewallArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FirewallMapInput is an input type that accepts FirewallMap and FirewallMapOutput values.
@@ -314,6 +329,12 @@ func (i FirewallMap) ToFirewallMapOutputWithContext(ctx context.Context) Firewal
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallMapOutput)
 }
 
+func (i FirewallMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Firewall] {
+	return pulumix.Output[map[string]*Firewall]{
+		OutputState: i.ToFirewallMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirewallOutput struct{ *pulumi.OutputState }
 
 func (FirewallOutput) ElementType() reflect.Type {
@@ -326,6 +347,12 @@ func (o FirewallOutput) ToFirewallOutput() FirewallOutput {
 
 func (o FirewallOutput) ToFirewallOutputWithContext(ctx context.Context) FirewallOutput {
 	return o
+}
+
+func (o FirewallOutput) ToOutput(ctx context.Context) pulumix.Output[*Firewall] {
+	return pulumix.Output[*Firewall]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) that identifies the firewall.
@@ -412,6 +439,12 @@ func (o FirewallArrayOutput) ToFirewallArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o FirewallArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Firewall] {
+	return pulumix.Output[[]*Firewall]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FirewallArrayOutput) Index(i pulumi.IntInput) FirewallOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Firewall {
 		return vs[0].([]*Firewall)[vs[1].(int)]
@@ -430,6 +463,12 @@ func (o FirewallMapOutput) ToFirewallMapOutput() FirewallMapOutput {
 
 func (o FirewallMapOutput) ToFirewallMapOutputWithContext(ctx context.Context) FirewallMapOutput {
 	return o
+}
+
+func (o FirewallMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Firewall] {
+	return pulumix.Output[map[string]*Firewall]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirewallMapOutput) MapIndex(k pulumi.StringInput) FirewallOutput {

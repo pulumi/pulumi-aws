@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about a specific
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func LookupInstanceProfile(ctx *pulumi.Context, args *LookupInstanceProfileArgs, opts ...pulumi.InvokeOption) (*LookupInstanceProfileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceProfileResult
 	err := ctx.Invoke("aws:iam/getInstanceProfile:getInstanceProfile", args, &rv, opts...)
 	if err != nil {
@@ -109,6 +112,12 @@ func (o LookupInstanceProfileResultOutput) ToLookupInstanceProfileResultOutput()
 
 func (o LookupInstanceProfileResultOutput) ToLookupInstanceProfileResultOutputWithContext(ctx context.Context) LookupInstanceProfileResultOutput {
 	return o
+}
+
+func (o LookupInstanceProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInstanceProfileResult] {
+	return pulumix.Output[LookupInstanceProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN.

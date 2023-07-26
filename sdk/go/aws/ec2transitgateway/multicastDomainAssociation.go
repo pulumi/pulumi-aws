@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
@@ -89,6 +91,7 @@ func NewMulticastDomainAssociation(ctx *pulumi.Context,
 	if args.TransitGatewayMulticastDomainId == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayMulticastDomainId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MulticastDomainAssociation
 	err := ctx.RegisterResource("aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -174,6 +177,12 @@ func (i *MulticastDomainAssociation) ToMulticastDomainAssociationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastDomainAssociationOutput)
 }
 
+func (i *MulticastDomainAssociation) ToOutput(ctx context.Context) pulumix.Output[*MulticastDomainAssociation] {
+	return pulumix.Output[*MulticastDomainAssociation]{
+		OutputState: i.ToMulticastDomainAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MulticastDomainAssociationArrayInput is an input type that accepts MulticastDomainAssociationArray and MulticastDomainAssociationArrayOutput values.
 // You can construct a concrete instance of `MulticastDomainAssociationArrayInput` via:
 //
@@ -197,6 +206,12 @@ func (i MulticastDomainAssociationArray) ToMulticastDomainAssociationArrayOutput
 
 func (i MulticastDomainAssociationArray) ToMulticastDomainAssociationArrayOutputWithContext(ctx context.Context) MulticastDomainAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastDomainAssociationArrayOutput)
+}
+
+func (i MulticastDomainAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*MulticastDomainAssociation] {
+	return pulumix.Output[[]*MulticastDomainAssociation]{
+		OutputState: i.ToMulticastDomainAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MulticastDomainAssociationMapInput is an input type that accepts MulticastDomainAssociationMap and MulticastDomainAssociationMapOutput values.
@@ -224,6 +239,12 @@ func (i MulticastDomainAssociationMap) ToMulticastDomainAssociationMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastDomainAssociationMapOutput)
 }
 
+func (i MulticastDomainAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MulticastDomainAssociation] {
+	return pulumix.Output[map[string]*MulticastDomainAssociation]{
+		OutputState: i.ToMulticastDomainAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MulticastDomainAssociationOutput struct{ *pulumi.OutputState }
 
 func (MulticastDomainAssociationOutput) ElementType() reflect.Type {
@@ -236,6 +257,12 @@ func (o MulticastDomainAssociationOutput) ToMulticastDomainAssociationOutput() M
 
 func (o MulticastDomainAssociationOutput) ToMulticastDomainAssociationOutputWithContext(ctx context.Context) MulticastDomainAssociationOutput {
 	return o
+}
+
+func (o MulticastDomainAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*MulticastDomainAssociation] {
+	return pulumix.Output[*MulticastDomainAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the subnet to associate with the transit gateway multicast domain.
@@ -267,6 +294,12 @@ func (o MulticastDomainAssociationArrayOutput) ToMulticastDomainAssociationArray
 	return o
 }
 
+func (o MulticastDomainAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MulticastDomainAssociation] {
+	return pulumix.Output[[]*MulticastDomainAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MulticastDomainAssociationArrayOutput) Index(i pulumi.IntInput) MulticastDomainAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MulticastDomainAssociation {
 		return vs[0].([]*MulticastDomainAssociation)[vs[1].(int)]
@@ -285,6 +318,12 @@ func (o MulticastDomainAssociationMapOutput) ToMulticastDomainAssociationMapOutp
 
 func (o MulticastDomainAssociationMapOutput) ToMulticastDomainAssociationMapOutputWithContext(ctx context.Context) MulticastDomainAssociationMapOutput {
 	return o
+}
+
+func (o MulticastDomainAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MulticastDomainAssociation] {
+	return pulumix.Output[map[string]*MulticastDomainAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MulticastDomainAssociationMapOutput) MapIndex(k pulumi.StringInput) MulticastDomainAssociationOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Image Builder Distribution Configuration.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupDistributionConfiguration(ctx *pulumi.Context, args *LookupDistributionConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupDistributionConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDistributionConfigurationResult
 	err := ctx.Invoke("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -111,6 +114,12 @@ func (o LookupDistributionConfigurationResultOutput) ToLookupDistributionConfigu
 
 func (o LookupDistributionConfigurationResultOutput) ToLookupDistributionConfigurationResultOutputWithContext(ctx context.Context) LookupDistributionConfigurationResultOutput {
 	return o
+}
+
+func (o LookupDistributionConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDistributionConfigurationResult] {
+	return pulumix.Output[LookupDistributionConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupDistributionConfigurationResultOutput) Arn() pulumi.StringOutput {

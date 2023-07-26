@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type EndpointAuthenticationOption struct {
 	// The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
@@ -59,6 +63,12 @@ func (i EndpointAuthenticationOptionArgs) ToEndpointAuthenticationOptionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthenticationOptionOutput)
 }
 
+func (i EndpointAuthenticationOptionArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointAuthenticationOption] {
+	return pulumix.Output[EndpointAuthenticationOption]{
+		OutputState: i.ToEndpointAuthenticationOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EndpointAuthenticationOptionArrayInput is an input type that accepts EndpointAuthenticationOptionArray and EndpointAuthenticationOptionArrayOutput values.
 // You can construct a concrete instance of `EndpointAuthenticationOptionArrayInput` via:
 //
@@ -84,6 +94,12 @@ func (i EndpointAuthenticationOptionArray) ToEndpointAuthenticationOptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthenticationOptionArrayOutput)
 }
 
+func (i EndpointAuthenticationOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointAuthenticationOption] {
+	return pulumix.Output[[]EndpointAuthenticationOption]{
+		OutputState: i.ToEndpointAuthenticationOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointAuthenticationOptionOutput struct{ *pulumi.OutputState }
 
 func (EndpointAuthenticationOptionOutput) ElementType() reflect.Type {
@@ -96,6 +112,12 @@ func (o EndpointAuthenticationOptionOutput) ToEndpointAuthenticationOptionOutput
 
 func (o EndpointAuthenticationOptionOutput) ToEndpointAuthenticationOptionOutputWithContext(ctx context.Context) EndpointAuthenticationOptionOutput {
 	return o
+}
+
+func (o EndpointAuthenticationOptionOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointAuthenticationOption] {
+	return pulumix.Output[EndpointAuthenticationOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
@@ -135,6 +157,12 @@ func (o EndpointAuthenticationOptionArrayOutput) ToEndpointAuthenticationOptionA
 
 func (o EndpointAuthenticationOptionArrayOutput) ToEndpointAuthenticationOptionArrayOutputWithContext(ctx context.Context) EndpointAuthenticationOptionArrayOutput {
 	return o
+}
+
+func (o EndpointAuthenticationOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointAuthenticationOption] {
+	return pulumix.Output[[]EndpointAuthenticationOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointAuthenticationOptionArrayOutput) Index(i pulumi.IntInput) EndpointAuthenticationOptionOutput {
@@ -180,6 +208,12 @@ func (i EndpointClientConnectOptionsArgs) ToEndpointClientConnectOptionsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientConnectOptionsOutput)
 }
 
+func (i EndpointClientConnectOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointClientConnectOptions] {
+	return pulumix.Output[EndpointClientConnectOptions]{
+		OutputState: i.ToEndpointClientConnectOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EndpointClientConnectOptionsArgs) ToEndpointClientConnectOptionsPtrOutput() EndpointClientConnectOptionsPtrOutput {
 	return i.ToEndpointClientConnectOptionsPtrOutputWithContext(context.Background())
 }
@@ -221,6 +255,12 @@ func (i *endpointClientConnectOptionsPtrType) ToEndpointClientConnectOptionsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientConnectOptionsPtrOutput)
 }
 
+func (i *endpointClientConnectOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointClientConnectOptions] {
+	return pulumix.Output[*EndpointClientConnectOptions]{
+		OutputState: i.ToEndpointClientConnectOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointClientConnectOptionsOutput struct{ *pulumi.OutputState }
 
 func (EndpointClientConnectOptionsOutput) ElementType() reflect.Type {
@@ -245,6 +285,12 @@ func (o EndpointClientConnectOptionsOutput) ToEndpointClientConnectOptionsPtrOut
 	}).(EndpointClientConnectOptionsPtrOutput)
 }
 
+func (o EndpointClientConnectOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointClientConnectOptions] {
+	return pulumix.Output[EndpointClientConnectOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates whether client connect options are enabled. The default is `false` (not enabled).
 func (o EndpointClientConnectOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointClientConnectOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -267,6 +313,12 @@ func (o EndpointClientConnectOptionsPtrOutput) ToEndpointClientConnectOptionsPtr
 
 func (o EndpointClientConnectOptionsPtrOutput) ToEndpointClientConnectOptionsPtrOutputWithContext(ctx context.Context) EndpointClientConnectOptionsPtrOutput {
 	return o
+}
+
+func (o EndpointClientConnectOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointClientConnectOptions] {
+	return pulumix.Output[*EndpointClientConnectOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointClientConnectOptionsPtrOutput) Elem() EndpointClientConnectOptionsOutput {
@@ -336,6 +388,12 @@ func (i EndpointClientLoginBannerOptionsArgs) ToEndpointClientLoginBannerOptions
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientLoginBannerOptionsOutput)
 }
 
+func (i EndpointClientLoginBannerOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointClientLoginBannerOptions] {
+	return pulumix.Output[EndpointClientLoginBannerOptions]{
+		OutputState: i.ToEndpointClientLoginBannerOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EndpointClientLoginBannerOptionsArgs) ToEndpointClientLoginBannerOptionsPtrOutput() EndpointClientLoginBannerOptionsPtrOutput {
 	return i.ToEndpointClientLoginBannerOptionsPtrOutputWithContext(context.Background())
 }
@@ -377,6 +435,12 @@ func (i *endpointClientLoginBannerOptionsPtrType) ToEndpointClientLoginBannerOpt
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointClientLoginBannerOptionsPtrOutput)
 }
 
+func (i *endpointClientLoginBannerOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointClientLoginBannerOptions] {
+	return pulumix.Output[*EndpointClientLoginBannerOptions]{
+		OutputState: i.ToEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointClientLoginBannerOptionsOutput struct{ *pulumi.OutputState }
 
 func (EndpointClientLoginBannerOptionsOutput) ElementType() reflect.Type {
@@ -401,6 +465,12 @@ func (o EndpointClientLoginBannerOptionsOutput) ToEndpointClientLoginBannerOptio
 	}).(EndpointClientLoginBannerOptionsPtrOutput)
 }
 
+func (o EndpointClientLoginBannerOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointClientLoginBannerOptions] {
+	return pulumix.Output[EndpointClientLoginBannerOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
 func (o EndpointClientLoginBannerOptionsOutput) BannerText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointClientLoginBannerOptions) *string { return v.BannerText }).(pulumi.StringPtrOutput)
@@ -423,6 +493,12 @@ func (o EndpointClientLoginBannerOptionsPtrOutput) ToEndpointClientLoginBannerOp
 
 func (o EndpointClientLoginBannerOptionsPtrOutput) ToEndpointClientLoginBannerOptionsPtrOutputWithContext(ctx context.Context) EndpointClientLoginBannerOptionsPtrOutput {
 	return o
+}
+
+func (o EndpointClientLoginBannerOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointClientLoginBannerOptions] {
+	return pulumix.Output[*EndpointClientLoginBannerOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointClientLoginBannerOptionsPtrOutput) Elem() EndpointClientLoginBannerOptionsOutput {
@@ -496,6 +572,12 @@ func (i EndpointConnectionLogOptionsArgs) ToEndpointConnectionLogOptionsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointConnectionLogOptionsOutput)
 }
 
+func (i EndpointConnectionLogOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointConnectionLogOptions] {
+	return pulumix.Output[EndpointConnectionLogOptions]{
+		OutputState: i.ToEndpointConnectionLogOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i EndpointConnectionLogOptionsArgs) ToEndpointConnectionLogOptionsPtrOutput() EndpointConnectionLogOptionsPtrOutput {
 	return i.ToEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
 }
@@ -537,6 +619,12 @@ func (i *endpointConnectionLogOptionsPtrType) ToEndpointConnectionLogOptionsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointConnectionLogOptionsPtrOutput)
 }
 
+func (i *endpointConnectionLogOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointConnectionLogOptions] {
+	return pulumix.Output[*EndpointConnectionLogOptions]{
+		OutputState: i.ToEndpointConnectionLogOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointConnectionLogOptionsOutput struct{ *pulumi.OutputState }
 
 func (EndpointConnectionLogOptionsOutput) ElementType() reflect.Type {
@@ -559,6 +647,12 @@ func (o EndpointConnectionLogOptionsOutput) ToEndpointConnectionLogOptionsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConnectionLogOptions) *EndpointConnectionLogOptions {
 		return &v
 	}).(EndpointConnectionLogOptionsPtrOutput)
+}
+
+func (o EndpointConnectionLogOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointConnectionLogOptions] {
+	return pulumix.Output[EndpointConnectionLogOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the CloudWatch Logs log group.
@@ -588,6 +682,12 @@ func (o EndpointConnectionLogOptionsPtrOutput) ToEndpointConnectionLogOptionsPtr
 
 func (o EndpointConnectionLogOptionsPtrOutput) ToEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) EndpointConnectionLogOptionsPtrOutput {
 	return o
+}
+
+func (o EndpointConnectionLogOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointConnectionLogOptions] {
+	return pulumix.Output[*EndpointConnectionLogOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointConnectionLogOptionsPtrOutput) Elem() EndpointConnectionLogOptionsOutput {
@@ -669,6 +769,12 @@ func (i GetEndpointAuthenticationOptionArgs) ToGetEndpointAuthenticationOptionOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointAuthenticationOptionOutput)
 }
 
+func (i GetEndpointAuthenticationOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointAuthenticationOption] {
+	return pulumix.Output[GetEndpointAuthenticationOption]{
+		OutputState: i.ToGetEndpointAuthenticationOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointAuthenticationOptionArrayInput is an input type that accepts GetEndpointAuthenticationOptionArray and GetEndpointAuthenticationOptionArrayOutput values.
 // You can construct a concrete instance of `GetEndpointAuthenticationOptionArrayInput` via:
 //
@@ -694,6 +800,12 @@ func (i GetEndpointAuthenticationOptionArray) ToGetEndpointAuthenticationOptionA
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointAuthenticationOptionArrayOutput)
 }
 
+func (i GetEndpointAuthenticationOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointAuthenticationOption] {
+	return pulumix.Output[[]GetEndpointAuthenticationOption]{
+		OutputState: i.ToGetEndpointAuthenticationOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointAuthenticationOptionOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointAuthenticationOptionOutput) ElementType() reflect.Type {
@@ -706,6 +818,12 @@ func (o GetEndpointAuthenticationOptionOutput) ToGetEndpointAuthenticationOption
 
 func (o GetEndpointAuthenticationOptionOutput) ToGetEndpointAuthenticationOptionOutputWithContext(ctx context.Context) GetEndpointAuthenticationOptionOutput {
 	return o
+}
+
+func (o GetEndpointAuthenticationOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointAuthenticationOption] {
+	return pulumix.Output[GetEndpointAuthenticationOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointAuthenticationOptionOutput) ActiveDirectoryId() pulumi.StringOutput {
@@ -740,6 +858,12 @@ func (o GetEndpointAuthenticationOptionArrayOutput) ToGetEndpointAuthenticationO
 
 func (o GetEndpointAuthenticationOptionArrayOutput) ToGetEndpointAuthenticationOptionArrayOutputWithContext(ctx context.Context) GetEndpointAuthenticationOptionArrayOutput {
 	return o
+}
+
+func (o GetEndpointAuthenticationOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointAuthenticationOption] {
+	return pulumix.Output[[]GetEndpointAuthenticationOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointAuthenticationOptionArrayOutput) Index(i pulumi.IntInput) GetEndpointAuthenticationOptionOutput {
@@ -781,6 +905,12 @@ func (i GetEndpointClientConnectOptionArgs) ToGetEndpointClientConnectOptionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointClientConnectOptionOutput)
 }
 
+func (i GetEndpointClientConnectOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointClientConnectOption] {
+	return pulumix.Output[GetEndpointClientConnectOption]{
+		OutputState: i.ToGetEndpointClientConnectOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointClientConnectOptionArrayInput is an input type that accepts GetEndpointClientConnectOptionArray and GetEndpointClientConnectOptionArrayOutput values.
 // You can construct a concrete instance of `GetEndpointClientConnectOptionArrayInput` via:
 //
@@ -806,6 +936,12 @@ func (i GetEndpointClientConnectOptionArray) ToGetEndpointClientConnectOptionArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointClientConnectOptionArrayOutput)
 }
 
+func (i GetEndpointClientConnectOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointClientConnectOption] {
+	return pulumix.Output[[]GetEndpointClientConnectOption]{
+		OutputState: i.ToGetEndpointClientConnectOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointClientConnectOptionOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointClientConnectOptionOutput) ElementType() reflect.Type {
@@ -818,6 +954,12 @@ func (o GetEndpointClientConnectOptionOutput) ToGetEndpointClientConnectOptionOu
 
 func (o GetEndpointClientConnectOptionOutput) ToGetEndpointClientConnectOptionOutputWithContext(ctx context.Context) GetEndpointClientConnectOptionOutput {
 	return o
+}
+
+func (o GetEndpointClientConnectOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointClientConnectOption] {
+	return pulumix.Output[GetEndpointClientConnectOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointClientConnectOptionOutput) Enabled() pulumi.BoolOutput {
@@ -840,6 +982,12 @@ func (o GetEndpointClientConnectOptionArrayOutput) ToGetEndpointClientConnectOpt
 
 func (o GetEndpointClientConnectOptionArrayOutput) ToGetEndpointClientConnectOptionArrayOutputWithContext(ctx context.Context) GetEndpointClientConnectOptionArrayOutput {
 	return o
+}
+
+func (o GetEndpointClientConnectOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointClientConnectOption] {
+	return pulumix.Output[[]GetEndpointClientConnectOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointClientConnectOptionArrayOutput) Index(i pulumi.IntInput) GetEndpointClientConnectOptionOutput {
@@ -881,6 +1029,12 @@ func (i GetEndpointClientLoginBannerOptionArgs) ToGetEndpointClientLoginBannerOp
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointClientLoginBannerOptionOutput)
 }
 
+func (i GetEndpointClientLoginBannerOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointClientLoginBannerOption] {
+	return pulumix.Output[GetEndpointClientLoginBannerOption]{
+		OutputState: i.ToGetEndpointClientLoginBannerOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointClientLoginBannerOptionArrayInput is an input type that accepts GetEndpointClientLoginBannerOptionArray and GetEndpointClientLoginBannerOptionArrayOutput values.
 // You can construct a concrete instance of `GetEndpointClientLoginBannerOptionArrayInput` via:
 //
@@ -906,6 +1060,12 @@ func (i GetEndpointClientLoginBannerOptionArray) ToGetEndpointClientLoginBannerO
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointClientLoginBannerOptionArrayOutput)
 }
 
+func (i GetEndpointClientLoginBannerOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointClientLoginBannerOption] {
+	return pulumix.Output[[]GetEndpointClientLoginBannerOption]{
+		OutputState: i.ToGetEndpointClientLoginBannerOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointClientLoginBannerOptionOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointClientLoginBannerOptionOutput) ElementType() reflect.Type {
@@ -918,6 +1078,12 @@ func (o GetEndpointClientLoginBannerOptionOutput) ToGetEndpointClientLoginBanner
 
 func (o GetEndpointClientLoginBannerOptionOutput) ToGetEndpointClientLoginBannerOptionOutputWithContext(ctx context.Context) GetEndpointClientLoginBannerOptionOutput {
 	return o
+}
+
+func (o GetEndpointClientLoginBannerOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointClientLoginBannerOption] {
+	return pulumix.Output[GetEndpointClientLoginBannerOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointClientLoginBannerOptionOutput) BannerText() pulumi.StringOutput {
@@ -940,6 +1106,12 @@ func (o GetEndpointClientLoginBannerOptionArrayOutput) ToGetEndpointClientLoginB
 
 func (o GetEndpointClientLoginBannerOptionArrayOutput) ToGetEndpointClientLoginBannerOptionArrayOutputWithContext(ctx context.Context) GetEndpointClientLoginBannerOptionArrayOutput {
 	return o
+}
+
+func (o GetEndpointClientLoginBannerOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointClientLoginBannerOption] {
+	return pulumix.Output[[]GetEndpointClientLoginBannerOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointClientLoginBannerOptionArrayOutput) Index(i pulumi.IntInput) GetEndpointClientLoginBannerOptionOutput {
@@ -983,6 +1155,12 @@ func (i GetEndpointConnectionLogOptionArgs) ToGetEndpointConnectionLogOptionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointConnectionLogOptionOutput)
 }
 
+func (i GetEndpointConnectionLogOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointConnectionLogOption] {
+	return pulumix.Output[GetEndpointConnectionLogOption]{
+		OutputState: i.ToGetEndpointConnectionLogOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointConnectionLogOptionArrayInput is an input type that accepts GetEndpointConnectionLogOptionArray and GetEndpointConnectionLogOptionArrayOutput values.
 // You can construct a concrete instance of `GetEndpointConnectionLogOptionArrayInput` via:
 //
@@ -1008,6 +1186,12 @@ func (i GetEndpointConnectionLogOptionArray) ToGetEndpointConnectionLogOptionArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointConnectionLogOptionArrayOutput)
 }
 
+func (i GetEndpointConnectionLogOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointConnectionLogOption] {
+	return pulumix.Output[[]GetEndpointConnectionLogOption]{
+		OutputState: i.ToGetEndpointConnectionLogOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointConnectionLogOptionOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointConnectionLogOptionOutput) ElementType() reflect.Type {
@@ -1020,6 +1204,12 @@ func (o GetEndpointConnectionLogOptionOutput) ToGetEndpointConnectionLogOptionOu
 
 func (o GetEndpointConnectionLogOptionOutput) ToGetEndpointConnectionLogOptionOutputWithContext(ctx context.Context) GetEndpointConnectionLogOptionOutput {
 	return o
+}
+
+func (o GetEndpointConnectionLogOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointConnectionLogOption] {
+	return pulumix.Output[GetEndpointConnectionLogOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointConnectionLogOptionOutput) CloudwatchLogGroup() pulumi.StringOutput {
@@ -1046,6 +1236,12 @@ func (o GetEndpointConnectionLogOptionArrayOutput) ToGetEndpointConnectionLogOpt
 
 func (o GetEndpointConnectionLogOptionArrayOutput) ToGetEndpointConnectionLogOptionArrayOutputWithContext(ctx context.Context) GetEndpointConnectionLogOptionArrayOutput {
 	return o
+}
+
+func (o GetEndpointConnectionLogOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointConnectionLogOption] {
+	return pulumix.Output[[]GetEndpointConnectionLogOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointConnectionLogOptionArrayOutput) Index(i pulumi.IntInput) GetEndpointConnectionLogOptionOutput {
@@ -1091,6 +1287,12 @@ func (i GetEndpointFilterArgs) ToGetEndpointFilterOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointFilterOutput)
 }
 
+func (i GetEndpointFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetEndpointFilter] {
+	return pulumix.Output[GetEndpointFilter]{
+		OutputState: i.ToGetEndpointFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetEndpointFilterArrayInput is an input type that accepts GetEndpointFilterArray and GetEndpointFilterArrayOutput values.
 // You can construct a concrete instance of `GetEndpointFilterArrayInput` via:
 //
@@ -1116,6 +1318,12 @@ func (i GetEndpointFilterArray) ToGetEndpointFilterArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointFilterArrayOutput)
 }
 
+func (i GetEndpointFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointFilter] {
+	return pulumix.Output[[]GetEndpointFilter]{
+		OutputState: i.ToGetEndpointFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetEndpointFilterOutput struct{ *pulumi.OutputState }
 
 func (GetEndpointFilterOutput) ElementType() reflect.Type {
@@ -1128,6 +1336,12 @@ func (o GetEndpointFilterOutput) ToGetEndpointFilterOutput() GetEndpointFilterOu
 
 func (o GetEndpointFilterOutput) ToGetEndpointFilterOutputWithContext(ctx context.Context) GetEndpointFilterOutput {
 	return o
+}
+
+func (o GetEndpointFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetEndpointFilter] {
+	return pulumix.Output[GetEndpointFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
@@ -1152,6 +1366,12 @@ func (o GetEndpointFilterArrayOutput) ToGetEndpointFilterArrayOutput() GetEndpoi
 
 func (o GetEndpointFilterArrayOutput) ToGetEndpointFilterArrayOutputWithContext(ctx context.Context) GetEndpointFilterArrayOutput {
 	return o
+}
+
+func (o GetEndpointFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetEndpointFilter] {
+	return pulumix.Output[[]GetEndpointFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetEndpointFilterOutput {

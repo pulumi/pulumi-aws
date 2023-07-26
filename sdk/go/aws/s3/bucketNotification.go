@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
@@ -403,6 +405,7 @@ func NewBucketNotification(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketNotification
 	err := ctx.RegisterResource("aws:s3/bucketNotification:BucketNotification", name, args, &resource, opts...)
 	if err != nil {
@@ -512,6 +515,12 @@ func (i *BucketNotification) ToBucketNotificationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationOutput)
 }
 
+func (i *BucketNotification) ToOutput(ctx context.Context) pulumix.Output[*BucketNotification] {
+	return pulumix.Output[*BucketNotification]{
+		OutputState: i.ToBucketNotificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketNotificationArrayInput is an input type that accepts BucketNotificationArray and BucketNotificationArrayOutput values.
 // You can construct a concrete instance of `BucketNotificationArrayInput` via:
 //
@@ -535,6 +544,12 @@ func (i BucketNotificationArray) ToBucketNotificationArrayOutput() BucketNotific
 
 func (i BucketNotificationArray) ToBucketNotificationArrayOutputWithContext(ctx context.Context) BucketNotificationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationArrayOutput)
+}
+
+func (i BucketNotificationArray) ToOutput(ctx context.Context) pulumix.Output[[]*BucketNotification] {
+	return pulumix.Output[[]*BucketNotification]{
+		OutputState: i.ToBucketNotificationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketNotificationMapInput is an input type that accepts BucketNotificationMap and BucketNotificationMapOutput values.
@@ -562,6 +577,12 @@ func (i BucketNotificationMap) ToBucketNotificationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationMapOutput)
 }
 
+func (i BucketNotificationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketNotification] {
+	return pulumix.Output[map[string]*BucketNotification]{
+		OutputState: i.ToBucketNotificationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketNotificationOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationOutput) ElementType() reflect.Type {
@@ -574,6 +595,12 @@ func (o BucketNotificationOutput) ToBucketNotificationOutput() BucketNotificatio
 
 func (o BucketNotificationOutput) ToBucketNotificationOutputWithContext(ctx context.Context) BucketNotificationOutput {
 	return o
+}
+
+func (o BucketNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketNotification] {
+	return pulumix.Output[*BucketNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the bucket for notification configuration.
@@ -617,6 +644,12 @@ func (o BucketNotificationArrayOutput) ToBucketNotificationArrayOutputWithContex
 	return o
 }
 
+func (o BucketNotificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketNotification] {
+	return pulumix.Output[[]*BucketNotification]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketNotificationArrayOutput) Index(i pulumi.IntInput) BucketNotificationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketNotification {
 		return vs[0].([]*BucketNotification)[vs[1].(int)]
@@ -635,6 +668,12 @@ func (o BucketNotificationMapOutput) ToBucketNotificationMapOutput() BucketNotif
 
 func (o BucketNotificationMapOutput) ToBucketNotificationMapOutputWithContext(ctx context.Context) BucketNotificationMapOutput {
 	return o
+}
+
+func (o BucketNotificationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketNotification] {
+	return pulumix.Output[map[string]*BucketNotification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketNotificationMapOutput) MapIndex(k pulumi.StringInput) BucketNotificationOutput {

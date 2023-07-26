@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.Route` provides details about a specific Route.
@@ -58,6 +60,7 @@ import (
 //
 // ```
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteResult
 	err := ctx.Invoke("aws:ec2/getRoute:getRoute", args, &rv, opts...)
 	if err != nil {
@@ -184,6 +187,12 @@ func (o LookupRouteResultOutput) ToLookupRouteResultOutput() LookupRouteResultOu
 
 func (o LookupRouteResultOutput) ToLookupRouteResultOutputWithContext(ctx context.Context) LookupRouteResultOutput {
 	return o
+}
+
+func (o LookupRouteResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRouteResult] {
+	return pulumix.Output[LookupRouteResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRouteResultOutput) CarrierGatewayId() pulumi.StringOutput {

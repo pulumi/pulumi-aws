@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
@@ -60,6 +62,7 @@ import (
 //
 // Deprecated: aws.applicationloadbalancing.getListener has been deprecated in favor of aws.alb.getListener
 func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulumi.InvokeOption) (*LookupListenerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupListenerResult
 	err := ctx.Invoke("aws:applicationloadbalancing/getListener:getListener", args, &rv, opts...)
 	if err != nil {
@@ -135,6 +138,12 @@ func (o LookupListenerResultOutput) ToLookupListenerResultOutput() LookupListene
 
 func (o LookupListenerResultOutput) ToLookupListenerResultOutputWithContext(ctx context.Context) LookupListenerResultOutput {
 	return o
+}
+
+func (o LookupListenerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupListenerResult] {
+	return pulumix.Output[LookupListenerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupListenerResultOutput) AlpnPolicy() pulumi.StringOutput {

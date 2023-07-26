@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route 53 Resolver query logging configuration resource.
@@ -83,6 +85,7 @@ func NewResolverQueryLogConfig(ctx *pulumi.Context,
 	if args.DestinationArn == nil {
 		return nil, errors.New("invalid value for required argument 'DestinationArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResolverQueryLogConfig
 	err := ctx.RegisterResource("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -192,6 +195,12 @@ func (i *ResolverQueryLogConfig) ToResolverQueryLogConfigOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigOutput)
 }
 
+func (i *ResolverQueryLogConfig) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLogConfig] {
+	return pulumix.Output[*ResolverQueryLogConfig]{
+		OutputState: i.ToResolverQueryLogConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverQueryLogConfigArrayInput is an input type that accepts ResolverQueryLogConfigArray and ResolverQueryLogConfigArrayOutput values.
 // You can construct a concrete instance of `ResolverQueryLogConfigArrayInput` via:
 //
@@ -215,6 +224,12 @@ func (i ResolverQueryLogConfigArray) ToResolverQueryLogConfigArrayOutput() Resol
 
 func (i ResolverQueryLogConfigArray) ToResolverQueryLogConfigArrayOutputWithContext(ctx context.Context) ResolverQueryLogConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigArrayOutput)
+}
+
+func (i ResolverQueryLogConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverQueryLogConfig] {
+	return pulumix.Output[[]*ResolverQueryLogConfig]{
+		OutputState: i.ToResolverQueryLogConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverQueryLogConfigMapInput is an input type that accepts ResolverQueryLogConfigMap and ResolverQueryLogConfigMapOutput values.
@@ -242,6 +257,12 @@ func (i ResolverQueryLogConfigMap) ToResolverQueryLogConfigMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigMapOutput)
 }
 
+func (i ResolverQueryLogConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverQueryLogConfig] {
+	return pulumix.Output[map[string]*ResolverQueryLogConfig]{
+		OutputState: i.ToResolverQueryLogConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverQueryLogConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverQueryLogConfigOutput) ElementType() reflect.Type {
@@ -254,6 +275,12 @@ func (o ResolverQueryLogConfigOutput) ToResolverQueryLogConfigOutput() ResolverQ
 
 func (o ResolverQueryLogConfigOutput) ToResolverQueryLogConfigOutputWithContext(ctx context.Context) ResolverQueryLogConfigOutput {
 	return o
+}
+
+func (o ResolverQueryLogConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLogConfig] {
+	return pulumix.Output[*ResolverQueryLogConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
@@ -308,6 +335,12 @@ func (o ResolverQueryLogConfigArrayOutput) ToResolverQueryLogConfigArrayOutputWi
 	return o
 }
 
+func (o ResolverQueryLogConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverQueryLogConfig] {
+	return pulumix.Output[[]*ResolverQueryLogConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverQueryLogConfigArrayOutput) Index(i pulumi.IntInput) ResolverQueryLogConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverQueryLogConfig {
 		return vs[0].([]*ResolverQueryLogConfig)[vs[1].(int)]
@@ -326,6 +359,12 @@ func (o ResolverQueryLogConfigMapOutput) ToResolverQueryLogConfigMapOutput() Res
 
 func (o ResolverQueryLogConfigMapOutput) ToResolverQueryLogConfigMapOutputWithContext(ctx context.Context) ResolverQueryLogConfigMapOutput {
 	return o
+}
+
+func (o ResolverQueryLogConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverQueryLogConfig] {
+	return pulumix.Output[map[string]*ResolverQueryLogConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverQueryLogConfigMapOutput) MapIndex(k pulumi.StringInput) ResolverQueryLogConfigOutput {

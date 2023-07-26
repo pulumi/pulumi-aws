@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AppSync API Cache.
@@ -93,6 +95,7 @@ func NewApiCache(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiCache
 	err := ctx.RegisterResource("aws:appsync/apiCache:ApiCache", name, args, &resource, opts...)
 	if err != nil {
@@ -202,6 +205,12 @@ func (i *ApiCache) ToApiCacheOutputWithContext(ctx context.Context) ApiCacheOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApiCacheOutput)
 }
 
+func (i *ApiCache) ToOutput(ctx context.Context) pulumix.Output[*ApiCache] {
+	return pulumix.Output[*ApiCache]{
+		OutputState: i.ToApiCacheOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApiCacheArrayInput is an input type that accepts ApiCacheArray and ApiCacheArrayOutput values.
 // You can construct a concrete instance of `ApiCacheArrayInput` via:
 //
@@ -225,6 +234,12 @@ func (i ApiCacheArray) ToApiCacheArrayOutput() ApiCacheArrayOutput {
 
 func (i ApiCacheArray) ToApiCacheArrayOutputWithContext(ctx context.Context) ApiCacheArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiCacheArrayOutput)
+}
+
+func (i ApiCacheArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiCache] {
+	return pulumix.Output[[]*ApiCache]{
+		OutputState: i.ToApiCacheArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApiCacheMapInput is an input type that accepts ApiCacheMap and ApiCacheMapOutput values.
@@ -252,6 +267,12 @@ func (i ApiCacheMap) ToApiCacheMapOutputWithContext(ctx context.Context) ApiCach
 	return pulumi.ToOutputWithContext(ctx, i).(ApiCacheMapOutput)
 }
 
+func (i ApiCacheMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiCache] {
+	return pulumix.Output[map[string]*ApiCache]{
+		OutputState: i.ToApiCacheMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApiCacheOutput struct{ *pulumi.OutputState }
 
 func (ApiCacheOutput) ElementType() reflect.Type {
@@ -264,6 +285,12 @@ func (o ApiCacheOutput) ToApiCacheOutput() ApiCacheOutput {
 
 func (o ApiCacheOutput) ToApiCacheOutputWithContext(ctx context.Context) ApiCacheOutput {
 	return o
+}
+
+func (o ApiCacheOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiCache] {
+	return pulumix.Output[*ApiCache]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
@@ -310,6 +337,12 @@ func (o ApiCacheArrayOutput) ToApiCacheArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o ApiCacheArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiCache] {
+	return pulumix.Output[[]*ApiCache]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApiCacheArrayOutput) Index(i pulumi.IntInput) ApiCacheOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiCache {
 		return vs[0].([]*ApiCache)[vs[1].(int)]
@@ -328,6 +361,12 @@ func (o ApiCacheMapOutput) ToApiCacheMapOutput() ApiCacheMapOutput {
 
 func (o ApiCacheMapOutput) ToApiCacheMapOutputWithContext(ctx context.Context) ApiCacheMapOutput {
 	return o
+}
+
+func (o ApiCacheMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiCache] {
+	return pulumix.Output[map[string]*ApiCache]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApiCacheMapOutput) MapIndex(k pulumi.StringInput) ApiCacheOutput {

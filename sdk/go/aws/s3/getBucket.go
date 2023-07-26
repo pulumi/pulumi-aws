@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific S3 bucket.
@@ -100,6 +102,7 @@ import (
 //
 // ```
 func LookupBucket(ctx *pulumi.Context, args *LookupBucketArgs, opts ...pulumi.InvokeOption) (*LookupBucketResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBucketResult
 	err := ctx.Invoke("aws:s3/getBucket:getBucket", args, &rv, opts...)
 	if err != nil {
@@ -171,6 +174,12 @@ func (o LookupBucketResultOutput) ToLookupBucketResultOutput() LookupBucketResul
 
 func (o LookupBucketResultOutput) ToLookupBucketResultOutputWithContext(ctx context.Context) LookupBucketResultOutput {
 	return o
+}
+
+func (o LookupBucketResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBucketResult] {
+	return pulumix.Output[LookupBucketResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to designate the active SES receipt rule set
@@ -57,6 +59,7 @@ func NewActiveReceiptRuleSet(ctx *pulumi.Context,
 	if args.RuleSetName == nil {
 		return nil, errors.New("invalid value for required argument 'RuleSetName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ActiveReceiptRuleSet
 	err := ctx.RegisterResource("aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet", name, args, &resource, opts...)
 	if err != nil {
@@ -130,6 +133,12 @@ func (i *ActiveReceiptRuleSet) ToActiveReceiptRuleSetOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveReceiptRuleSetOutput)
 }
 
+func (i *ActiveReceiptRuleSet) ToOutput(ctx context.Context) pulumix.Output[*ActiveReceiptRuleSet] {
+	return pulumix.Output[*ActiveReceiptRuleSet]{
+		OutputState: i.ToActiveReceiptRuleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActiveReceiptRuleSetArrayInput is an input type that accepts ActiveReceiptRuleSetArray and ActiveReceiptRuleSetArrayOutput values.
 // You can construct a concrete instance of `ActiveReceiptRuleSetArrayInput` via:
 //
@@ -153,6 +162,12 @@ func (i ActiveReceiptRuleSetArray) ToActiveReceiptRuleSetArrayOutput() ActiveRec
 
 func (i ActiveReceiptRuleSetArray) ToActiveReceiptRuleSetArrayOutputWithContext(ctx context.Context) ActiveReceiptRuleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveReceiptRuleSetArrayOutput)
+}
+
+func (i ActiveReceiptRuleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActiveReceiptRuleSet] {
+	return pulumix.Output[[]*ActiveReceiptRuleSet]{
+		OutputState: i.ToActiveReceiptRuleSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActiveReceiptRuleSetMapInput is an input type that accepts ActiveReceiptRuleSetMap and ActiveReceiptRuleSetMapOutput values.
@@ -180,6 +195,12 @@ func (i ActiveReceiptRuleSetMap) ToActiveReceiptRuleSetMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveReceiptRuleSetMapOutput)
 }
 
+func (i ActiveReceiptRuleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActiveReceiptRuleSet] {
+	return pulumix.Output[map[string]*ActiveReceiptRuleSet]{
+		OutputState: i.ToActiveReceiptRuleSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActiveReceiptRuleSetOutput struct{ *pulumi.OutputState }
 
 func (ActiveReceiptRuleSetOutput) ElementType() reflect.Type {
@@ -192,6 +213,12 @@ func (o ActiveReceiptRuleSetOutput) ToActiveReceiptRuleSetOutput() ActiveReceipt
 
 func (o ActiveReceiptRuleSetOutput) ToActiveReceiptRuleSetOutputWithContext(ctx context.Context) ActiveReceiptRuleSetOutput {
 	return o
+}
+
+func (o ActiveReceiptRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ActiveReceiptRuleSet] {
+	return pulumix.Output[*ActiveReceiptRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The SES receipt rule set ARN.
@@ -218,6 +245,12 @@ func (o ActiveReceiptRuleSetArrayOutput) ToActiveReceiptRuleSetArrayOutputWithCo
 	return o
 }
 
+func (o ActiveReceiptRuleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActiveReceiptRuleSet] {
+	return pulumix.Output[[]*ActiveReceiptRuleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActiveReceiptRuleSetArrayOutput) Index(i pulumi.IntInput) ActiveReceiptRuleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActiveReceiptRuleSet {
 		return vs[0].([]*ActiveReceiptRuleSet)[vs[1].(int)]
@@ -236,6 +269,12 @@ func (o ActiveReceiptRuleSetMapOutput) ToActiveReceiptRuleSetMapOutput() ActiveR
 
 func (o ActiveReceiptRuleSetMapOutput) ToActiveReceiptRuleSetMapOutputWithContext(ctx context.Context) ActiveReceiptRuleSetMapOutput {
 	return o
+}
+
+func (o ActiveReceiptRuleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActiveReceiptRuleSet] {
+	return pulumix.Output[map[string]*ActiveReceiptRuleSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActiveReceiptRuleSetMapOutput) MapIndex(k pulumi.StringInput) ActiveReceiptRuleSetOutput {

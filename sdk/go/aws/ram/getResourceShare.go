@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ram.ResourceShare` Retrieve information about a RAM Resource Share.
@@ -73,6 +75,7 @@ import (
 //
 // ```
 func LookupResourceShare(ctx *pulumi.Context, args *LookupResourceShareArgs, opts ...pulumi.InvokeOption) (*LookupResourceShareResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceShareResult
 	err := ctx.Invoke("aws:ram/getResourceShare:getResourceShare", args, &rv, opts...)
 	if err != nil {
@@ -157,6 +160,12 @@ func (o LookupResourceShareResultOutput) ToLookupResourceShareResultOutput() Loo
 
 func (o LookupResourceShareResultOutput) ToLookupResourceShareResultOutputWithContext(ctx context.Context) LookupResourceShareResultOutput {
 	return o
+}
+
+func (o LookupResourceShareResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResourceShareResult] {
+	return pulumix.Output[LookupResourceShareResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the resource share.

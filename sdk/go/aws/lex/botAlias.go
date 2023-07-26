@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Lex Bot Alias resource. For more information see
@@ -88,6 +90,7 @@ func NewBotAlias(ctx *pulumi.Context,
 	if args.BotVersion == nil {
 		return nil, errors.New("invalid value for required argument 'BotVersion'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BotAlias
 	err := ctx.RegisterResource("aws:lex/botAlias:BotAlias", name, args, &resource, opts...)
 	if err != nil {
@@ -205,6 +208,12 @@ func (i *BotAlias) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasOutput)
 }
 
+func (i *BotAlias) ToOutput(ctx context.Context) pulumix.Output[*BotAlias] {
+	return pulumix.Output[*BotAlias]{
+		OutputState: i.ToBotAliasOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BotAliasArrayInput is an input type that accepts BotAliasArray and BotAliasArrayOutput values.
 // You can construct a concrete instance of `BotAliasArrayInput` via:
 //
@@ -228,6 +237,12 @@ func (i BotAliasArray) ToBotAliasArrayOutput() BotAliasArrayOutput {
 
 func (i BotAliasArray) ToBotAliasArrayOutputWithContext(ctx context.Context) BotAliasArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasArrayOutput)
+}
+
+func (i BotAliasArray) ToOutput(ctx context.Context) pulumix.Output[[]*BotAlias] {
+	return pulumix.Output[[]*BotAlias]{
+		OutputState: i.ToBotAliasArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BotAliasMapInput is an input type that accepts BotAliasMap and BotAliasMapOutput values.
@@ -255,6 +270,12 @@ func (i BotAliasMap) ToBotAliasMapOutputWithContext(ctx context.Context) BotAlia
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasMapOutput)
 }
 
+func (i BotAliasMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BotAlias] {
+	return pulumix.Output[map[string]*BotAlias]{
+		OutputState: i.ToBotAliasMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BotAliasOutput struct{ *pulumi.OutputState }
 
 func (BotAliasOutput) ElementType() reflect.Type {
@@ -267,6 +288,12 @@ func (o BotAliasOutput) ToBotAliasOutput() BotAliasOutput {
 
 func (o BotAliasOutput) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutput {
 	return o
+}
+
+func (o BotAliasOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAlias] {
+	return pulumix.Output[*BotAlias]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the bot alias.
@@ -328,6 +355,12 @@ func (o BotAliasArrayOutput) ToBotAliasArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o BotAliasArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BotAlias] {
+	return pulumix.Output[[]*BotAlias]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BotAliasArrayOutput) Index(i pulumi.IntInput) BotAliasOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BotAlias {
 		return vs[0].([]*BotAlias)[vs[1].(int)]
@@ -346,6 +379,12 @@ func (o BotAliasMapOutput) ToBotAliasMapOutput() BotAliasMapOutput {
 
 func (o BotAliasMapOutput) ToBotAliasMapOutputWithContext(ctx context.Context) BotAliasMapOutput {
 	return o
+}
+
+func (o BotAliasMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BotAlias] {
+	return pulumix.Output[map[string]*BotAlias]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BotAliasMapOutput) MapIndex(k pulumi.StringInput) BotAliasOutput {

@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type PipeSourceParameters struct {
 	// The collection of event patterns used to filter events. Detailed below.
@@ -41,6 +45,12 @@ func (i PipeSourceParametersArgs) ToPipeSourceParametersOutput() PipeSourceParam
 
 func (i PipeSourceParametersArgs) ToPipeSourceParametersOutputWithContext(ctx context.Context) PipeSourceParametersOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceParametersOutput)
+}
+
+func (i PipeSourceParametersArgs) ToOutput(ctx context.Context) pulumix.Output[PipeSourceParameters] {
+	return pulumix.Output[PipeSourceParameters]{
+		OutputState: i.ToPipeSourceParametersOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PipeSourceParametersArgs) ToPipeSourceParametersPtrOutput() PipeSourceParametersPtrOutput {
@@ -84,6 +94,12 @@ func (i *pipeSourceParametersPtrType) ToPipeSourceParametersPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceParametersPtrOutput)
 }
 
+func (i *pipeSourceParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipeSourceParameters] {
+	return pulumix.Output[*PipeSourceParameters]{
+		OutputState: i.ToPipeSourceParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipeSourceParametersOutput struct{ *pulumi.OutputState }
 
 func (PipeSourceParametersOutput) ElementType() reflect.Type {
@@ -108,6 +124,12 @@ func (o PipeSourceParametersOutput) ToPipeSourceParametersPtrOutputWithContext(c
 	}).(PipeSourceParametersPtrOutput)
 }
 
+func (o PipeSourceParametersOutput) ToOutput(ctx context.Context) pulumix.Output[PipeSourceParameters] {
+	return pulumix.Output[PipeSourceParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The collection of event patterns used to filter events. Detailed below.
 func (o PipeSourceParametersOutput) FilterCriteria() PipeSourceParametersFilterCriteriaPtrOutput {
 	return o.ApplyT(func(v PipeSourceParameters) *PipeSourceParametersFilterCriteria { return v.FilterCriteria }).(PipeSourceParametersFilterCriteriaPtrOutput)
@@ -125,6 +147,12 @@ func (o PipeSourceParametersPtrOutput) ToPipeSourceParametersPtrOutput() PipeSou
 
 func (o PipeSourceParametersPtrOutput) ToPipeSourceParametersPtrOutputWithContext(ctx context.Context) PipeSourceParametersPtrOutput {
 	return o
+}
+
+func (o PipeSourceParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeSourceParameters] {
+	return pulumix.Output[*PipeSourceParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipeSourceParametersPtrOutput) Elem() PipeSourceParametersOutput {
@@ -180,6 +208,12 @@ func (i PipeSourceParametersFilterCriteriaArgs) ToPipeSourceParametersFilterCrit
 	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceParametersFilterCriteriaOutput)
 }
 
+func (i PipeSourceParametersFilterCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[PipeSourceParametersFilterCriteria] {
+	return pulumix.Output[PipeSourceParametersFilterCriteria]{
+		OutputState: i.ToPipeSourceParametersFilterCriteriaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PipeSourceParametersFilterCriteriaArgs) ToPipeSourceParametersFilterCriteriaPtrOutput() PipeSourceParametersFilterCriteriaPtrOutput {
 	return i.ToPipeSourceParametersFilterCriteriaPtrOutputWithContext(context.Background())
 }
@@ -221,6 +255,12 @@ func (i *pipeSourceParametersFilterCriteriaPtrType) ToPipeSourceParametersFilter
 	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceParametersFilterCriteriaPtrOutput)
 }
 
+func (i *pipeSourceParametersFilterCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipeSourceParametersFilterCriteria] {
+	return pulumix.Output[*PipeSourceParametersFilterCriteria]{
+		OutputState: i.ToPipeSourceParametersFilterCriteriaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipeSourceParametersFilterCriteriaOutput struct{ *pulumi.OutputState }
 
 func (PipeSourceParametersFilterCriteriaOutput) ElementType() reflect.Type {
@@ -245,6 +285,12 @@ func (o PipeSourceParametersFilterCriteriaOutput) ToPipeSourceParametersFilterCr
 	}).(PipeSourceParametersFilterCriteriaPtrOutput)
 }
 
+func (o PipeSourceParametersFilterCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[PipeSourceParametersFilterCriteria] {
+	return pulumix.Output[PipeSourceParametersFilterCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
 // An array of up to 5 event patterns. Detailed below.
 func (o PipeSourceParametersFilterCriteriaOutput) Filters() PipeSourceParametersFilterCriteriaFilterArrayOutput {
 	return o.ApplyT(func(v PipeSourceParametersFilterCriteria) []PipeSourceParametersFilterCriteriaFilter {
@@ -264,6 +310,12 @@ func (o PipeSourceParametersFilterCriteriaPtrOutput) ToPipeSourceParametersFilte
 
 func (o PipeSourceParametersFilterCriteriaPtrOutput) ToPipeSourceParametersFilterCriteriaPtrOutputWithContext(ctx context.Context) PipeSourceParametersFilterCriteriaPtrOutput {
 	return o
+}
+
+func (o PipeSourceParametersFilterCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeSourceParametersFilterCriteria] {
+	return pulumix.Output[*PipeSourceParametersFilterCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipeSourceParametersFilterCriteriaPtrOutput) Elem() PipeSourceParametersFilterCriteriaOutput {
@@ -319,6 +371,12 @@ func (i PipeSourceParametersFilterCriteriaFilterArgs) ToPipeSourceParametersFilt
 	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceParametersFilterCriteriaFilterOutput)
 }
 
+func (i PipeSourceParametersFilterCriteriaFilterArgs) ToOutput(ctx context.Context) pulumix.Output[PipeSourceParametersFilterCriteriaFilter] {
+	return pulumix.Output[PipeSourceParametersFilterCriteriaFilter]{
+		OutputState: i.ToPipeSourceParametersFilterCriteriaFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipeSourceParametersFilterCriteriaFilterArrayInput is an input type that accepts PipeSourceParametersFilterCriteriaFilterArray and PipeSourceParametersFilterCriteriaFilterArrayOutput values.
 // You can construct a concrete instance of `PipeSourceParametersFilterCriteriaFilterArrayInput` via:
 //
@@ -344,6 +402,12 @@ func (i PipeSourceParametersFilterCriteriaFilterArray) ToPipeSourceParametersFil
 	return pulumi.ToOutputWithContext(ctx, i).(PipeSourceParametersFilterCriteriaFilterArrayOutput)
 }
 
+func (i PipeSourceParametersFilterCriteriaFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]PipeSourceParametersFilterCriteriaFilter] {
+	return pulumix.Output[[]PipeSourceParametersFilterCriteriaFilter]{
+		OutputState: i.ToPipeSourceParametersFilterCriteriaFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipeSourceParametersFilterCriteriaFilterOutput struct{ *pulumi.OutputState }
 
 func (PipeSourceParametersFilterCriteriaFilterOutput) ElementType() reflect.Type {
@@ -356,6 +420,12 @@ func (o PipeSourceParametersFilterCriteriaFilterOutput) ToPipeSourceParametersFi
 
 func (o PipeSourceParametersFilterCriteriaFilterOutput) ToPipeSourceParametersFilterCriteriaFilterOutputWithContext(ctx context.Context) PipeSourceParametersFilterCriteriaFilterOutput {
 	return o
+}
+
+func (o PipeSourceParametersFilterCriteriaFilterOutput) ToOutput(ctx context.Context) pulumix.Output[PipeSourceParametersFilterCriteriaFilter] {
+	return pulumix.Output[PipeSourceParametersFilterCriteriaFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The event pattern. At most 4096 characters.
@@ -375,6 +445,12 @@ func (o PipeSourceParametersFilterCriteriaFilterArrayOutput) ToPipeSourceParamet
 
 func (o PipeSourceParametersFilterCriteriaFilterArrayOutput) ToPipeSourceParametersFilterCriteriaFilterArrayOutputWithContext(ctx context.Context) PipeSourceParametersFilterCriteriaFilterArrayOutput {
 	return o
+}
+
+func (o PipeSourceParametersFilterCriteriaFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipeSourceParametersFilterCriteriaFilter] {
+	return pulumix.Output[[]PipeSourceParametersFilterCriteriaFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipeSourceParametersFilterCriteriaFilterArrayOutput) Index(i pulumi.IntInput) PipeSourceParametersFilterCriteriaFilterOutput {
@@ -414,6 +490,12 @@ func (i PipeTargetParametersArgs) ToPipeTargetParametersOutput() PipeTargetParam
 
 func (i PipeTargetParametersArgs) ToPipeTargetParametersOutputWithContext(ctx context.Context) PipeTargetParametersOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipeTargetParametersOutput)
+}
+
+func (i PipeTargetParametersArgs) ToOutput(ctx context.Context) pulumix.Output[PipeTargetParameters] {
+	return pulumix.Output[PipeTargetParameters]{
+		OutputState: i.ToPipeTargetParametersOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PipeTargetParametersArgs) ToPipeTargetParametersPtrOutput() PipeTargetParametersPtrOutput {
@@ -457,6 +539,12 @@ func (i *pipeTargetParametersPtrType) ToPipeTargetParametersPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PipeTargetParametersPtrOutput)
 }
 
+func (i *pipeTargetParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipeTargetParameters] {
+	return pulumix.Output[*PipeTargetParameters]{
+		OutputState: i.ToPipeTargetParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipeTargetParametersOutput struct{ *pulumi.OutputState }
 
 func (PipeTargetParametersOutput) ElementType() reflect.Type {
@@ -481,6 +569,12 @@ func (o PipeTargetParametersOutput) ToPipeTargetParametersPtrOutputWithContext(c
 	}).(PipeTargetParametersPtrOutput)
 }
 
+func (o PipeTargetParametersOutput) ToOutput(ctx context.Context) pulumix.Output[PipeTargetParameters] {
+	return pulumix.Output[PipeTargetParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target.
 func (o PipeTargetParametersOutput) InputTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipeTargetParameters) *string { return v.InputTemplate }).(pulumi.StringPtrOutput)
@@ -498,6 +592,12 @@ func (o PipeTargetParametersPtrOutput) ToPipeTargetParametersPtrOutput() PipeTar
 
 func (o PipeTargetParametersPtrOutput) ToPipeTargetParametersPtrOutputWithContext(ctx context.Context) PipeTargetParametersPtrOutput {
 	return o
+}
+
+func (o PipeTargetParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeTargetParameters] {
+	return pulumix.Output[*PipeTargetParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipeTargetParametersPtrOutput) Elem() PipeTargetParametersOutput {

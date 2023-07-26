@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodePipeline.
@@ -262,6 +264,7 @@ func NewPipeline(ctx *pulumi.Context,
 	if args.Stages == nil {
 		return nil, errors.New("invalid value for required argument 'Stages'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pipeline
 	err := ctx.RegisterResource("aws:codepipeline/pipeline:Pipeline", name, args, &resource, opts...)
 	if err != nil {
@@ -371,6 +374,12 @@ func (i *Pipeline) ToPipelineOutputWithContext(ctx context.Context) PipelineOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput)
 }
 
+func (i *Pipeline) ToOutput(ctx context.Context) pulumix.Output[*Pipeline] {
+	return pulumix.Output[*Pipeline]{
+		OutputState: i.ToPipelineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineArrayInput is an input type that accepts PipelineArray and PipelineArrayOutput values.
 // You can construct a concrete instance of `PipelineArrayInput` via:
 //
@@ -394,6 +403,12 @@ func (i PipelineArray) ToPipelineArrayOutput() PipelineArrayOutput {
 
 func (i PipelineArray) ToPipelineArrayOutputWithContext(ctx context.Context) PipelineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineArrayOutput)
+}
+
+func (i PipelineArray) ToOutput(ctx context.Context) pulumix.Output[[]*Pipeline] {
+	return pulumix.Output[[]*Pipeline]{
+		OutputState: i.ToPipelineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PipelineMapInput is an input type that accepts PipelineMap and PipelineMapOutput values.
@@ -421,6 +436,12 @@ func (i PipelineMap) ToPipelineMapOutputWithContext(ctx context.Context) Pipelin
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineMapOutput)
 }
 
+func (i PipelineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Pipeline] {
+	return pulumix.Output[map[string]*Pipeline]{
+		OutputState: i.ToPipelineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineOutput struct{ *pulumi.OutputState }
 
 func (PipelineOutput) ElementType() reflect.Type {
@@ -433,6 +454,12 @@ func (o PipelineOutput) ToPipelineOutput() PipelineOutput {
 
 func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
 	return o
+}
+
+func (o PipelineOutput) ToOutput(ctx context.Context) pulumix.Output[*Pipeline] {
+	return pulumix.Output[*Pipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The codepipeline ARN.
@@ -484,6 +511,12 @@ func (o PipelineArrayOutput) ToPipelineArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o PipelineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Pipeline] {
+	return pulumix.Output[[]*Pipeline]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipelineArrayOutput) Index(i pulumi.IntInput) PipelineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Pipeline {
 		return vs[0].([]*Pipeline)[vs[1].(int)]
@@ -502,6 +535,12 @@ func (o PipelineMapOutput) ToPipelineMapOutput() PipelineMapOutput {
 
 func (o PipelineMapOutput) ToPipelineMapOutputWithContext(ctx context.Context) PipelineMapOutput {
 	return o
+}
+
+func (o PipelineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Pipeline] {
+	return pulumix.Output[map[string]*Pipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineMapOutput) MapIndex(k pulumi.StringInput) PipelineOutput {

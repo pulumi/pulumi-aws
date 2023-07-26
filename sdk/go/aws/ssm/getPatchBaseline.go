@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
@@ -71,6 +73,7 @@ import (
 //
 // ```
 func LookupPatchBaseline(ctx *pulumi.Context, args *LookupPatchBaselineArgs, opts ...pulumi.InvokeOption) (*LookupPatchBaselineResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPatchBaselineResult
 	err := ctx.Invoke("aws:ssm/getPatchBaseline:getPatchBaseline", args, &rv, opts...)
 	if err != nil {
@@ -163,6 +166,12 @@ func (o LookupPatchBaselineResultOutput) ToLookupPatchBaselineResultOutput() Loo
 
 func (o LookupPatchBaselineResultOutput) ToLookupPatchBaselineResultOutputWithContext(ctx context.Context) LookupPatchBaselineResultOutput {
 	return o
+}
+
+func (o LookupPatchBaselineResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPatchBaselineResult] {
+	return pulumix.Output[LookupPatchBaselineResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of rules used to include patches in the baseline.

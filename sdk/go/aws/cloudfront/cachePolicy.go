@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -106,6 +108,7 @@ func NewCachePolicy(ctx *pulumi.Context,
 	if args.ParametersInCacheKeyAndForwardedToOrigin == nil {
 		return nil, errors.New("invalid value for required argument 'ParametersInCacheKeyAndForwardedToOrigin'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CachePolicy
 	err := ctx.RegisterResource("aws:cloudfront/cachePolicy:CachePolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -219,6 +222,12 @@ func (i *CachePolicy) ToCachePolicyOutputWithContext(ctx context.Context) CacheP
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyOutput)
 }
 
+func (i *CachePolicy) ToOutput(ctx context.Context) pulumix.Output[*CachePolicy] {
+	return pulumix.Output[*CachePolicy]{
+		OutputState: i.ToCachePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CachePolicyArrayInput is an input type that accepts CachePolicyArray and CachePolicyArrayOutput values.
 // You can construct a concrete instance of `CachePolicyArrayInput` via:
 //
@@ -242,6 +251,12 @@ func (i CachePolicyArray) ToCachePolicyArrayOutput() CachePolicyArrayOutput {
 
 func (i CachePolicyArray) ToCachePolicyArrayOutputWithContext(ctx context.Context) CachePolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyArrayOutput)
+}
+
+func (i CachePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*CachePolicy] {
+	return pulumix.Output[[]*CachePolicy]{
+		OutputState: i.ToCachePolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CachePolicyMapInput is an input type that accepts CachePolicyMap and CachePolicyMapOutput values.
@@ -269,6 +284,12 @@ func (i CachePolicyMap) ToCachePolicyMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyMapOutput)
 }
 
+func (i CachePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CachePolicy] {
+	return pulumix.Output[map[string]*CachePolicy]{
+		OutputState: i.ToCachePolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CachePolicyOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyOutput) ElementType() reflect.Type {
@@ -281,6 +302,12 @@ func (o CachePolicyOutput) ToCachePolicyOutput() CachePolicyOutput {
 
 func (o CachePolicyOutput) ToCachePolicyOutputWithContext(ctx context.Context) CachePolicyOutput {
 	return o
+}
+
+func (o CachePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*CachePolicy] {
+	return pulumix.Output[*CachePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A comment to describe the cache policy.
@@ -334,6 +361,12 @@ func (o CachePolicyArrayOutput) ToCachePolicyArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o CachePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CachePolicy] {
+	return pulumix.Output[[]*CachePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CachePolicyArrayOutput) Index(i pulumi.IntInput) CachePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CachePolicy {
 		return vs[0].([]*CachePolicy)[vs[1].(int)]
@@ -352,6 +385,12 @@ func (o CachePolicyMapOutput) ToCachePolicyMapOutput() CachePolicyMapOutput {
 
 func (o CachePolicyMapOutput) ToCachePolicyMapOutputWithContext(ctx context.Context) CachePolicyMapOutput {
 	return o
+}
+
+func (o CachePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CachePolicy] {
+	return pulumix.Output[map[string]*CachePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CachePolicyMapOutput) MapIndex(k pulumi.StringInput) CachePolicyOutput {

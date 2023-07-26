@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about an EKS Node Group.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupNodeGroup(ctx *pulumi.Context, args *LookupNodeGroupArgs, opts ...pulumi.InvokeOption) (*LookupNodeGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNodeGroupResult
 	err := ctx.Invoke("aws:eks/getNodeGroup:getNodeGroup", args, &rv, opts...)
 	if err != nil {
@@ -139,6 +142,12 @@ func (o LookupNodeGroupResultOutput) ToLookupNodeGroupResultOutput() LookupNodeG
 
 func (o LookupNodeGroupResultOutput) ToLookupNodeGroupResultOutputWithContext(ctx context.Context) LookupNodeGroupResultOutput {
 	return o
+}
+
+func (o LookupNodeGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNodeGroupResult] {
+	return pulumix.Output[LookupNodeGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Type of Amazon Machine Image (AMI) associated with the EKS Node Group.

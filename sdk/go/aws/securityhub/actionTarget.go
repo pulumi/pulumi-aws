@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates Security Hub custom action.
@@ -81,6 +83,7 @@ func NewActionTarget(ctx *pulumi.Context,
 	if args.Identifier == nil {
 		return nil, errors.New("invalid value for required argument 'Identifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ActionTarget
 	err := ctx.RegisterResource("aws:securityhub/actionTarget:ActionTarget", name, args, &resource, opts...)
 	if err != nil {
@@ -170,6 +173,12 @@ func (i *ActionTarget) ToActionTargetOutputWithContext(ctx context.Context) Acti
 	return pulumi.ToOutputWithContext(ctx, i).(ActionTargetOutput)
 }
 
+func (i *ActionTarget) ToOutput(ctx context.Context) pulumix.Output[*ActionTarget] {
+	return pulumix.Output[*ActionTarget]{
+		OutputState: i.ToActionTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ActionTargetArrayInput is an input type that accepts ActionTargetArray and ActionTargetArrayOutput values.
 // You can construct a concrete instance of `ActionTargetArrayInput` via:
 //
@@ -193,6 +202,12 @@ func (i ActionTargetArray) ToActionTargetArrayOutput() ActionTargetArrayOutput {
 
 func (i ActionTargetArray) ToActionTargetArrayOutputWithContext(ctx context.Context) ActionTargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionTargetArrayOutput)
+}
+
+func (i ActionTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionTarget] {
+	return pulumix.Output[[]*ActionTarget]{
+		OutputState: i.ToActionTargetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ActionTargetMapInput is an input type that accepts ActionTargetMap and ActionTargetMapOutput values.
@@ -220,6 +235,12 @@ func (i ActionTargetMap) ToActionTargetMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ActionTargetMapOutput)
 }
 
+func (i ActionTargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionTarget] {
+	return pulumix.Output[map[string]*ActionTarget]{
+		OutputState: i.ToActionTargetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ActionTargetOutput struct{ *pulumi.OutputState }
 
 func (ActionTargetOutput) ElementType() reflect.Type {
@@ -232,6 +253,12 @@ func (o ActionTargetOutput) ToActionTargetOutput() ActionTargetOutput {
 
 func (o ActionTargetOutput) ToActionTargetOutputWithContext(ctx context.Context) ActionTargetOutput {
 	return o
+}
+
+func (o ActionTargetOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionTarget] {
+	return pulumix.Output[*ActionTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the Security Hub custom action target.
@@ -268,6 +295,12 @@ func (o ActionTargetArrayOutput) ToActionTargetArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ActionTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionTarget] {
+	return pulumix.Output[[]*ActionTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ActionTargetArrayOutput) Index(i pulumi.IntInput) ActionTargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionTarget {
 		return vs[0].([]*ActionTarget)[vs[1].(int)]
@@ -286,6 +319,12 @@ func (o ActionTargetMapOutput) ToActionTargetMapOutput() ActionTargetMapOutput {
 
 func (o ActionTargetMapOutput) ToActionTargetMapOutputWithContext(ctx context.Context) ActionTargetMapOutput {
 	return o
+}
+
+func (o ActionTargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionTarget] {
+	return pulumix.Output[map[string]*ActionTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ActionTargetMapOutput) MapIndex(k pulumi.StringInput) ActionTargetOutput {

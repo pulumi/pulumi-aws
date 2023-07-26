@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** This resource interacts with [Amazon Macie Classic](https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html). Macie Classic cannot be activated in new accounts. See the [FAQ](https://aws.amazon.com/macie/classic-faqs/) for more details.
@@ -69,6 +71,7 @@ func NewS3BucketAssociation(ctx *pulumi.Context,
 	if args.BucketName == nil {
 		return nil, errors.New("invalid value for required argument 'BucketName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource S3BucketAssociation
 	err := ctx.RegisterResource("aws:macie/s3BucketAssociation:S3BucketAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -162,6 +165,12 @@ func (i *S3BucketAssociation) ToS3BucketAssociationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationOutput)
 }
 
+func (i *S3BucketAssociation) ToOutput(ctx context.Context) pulumix.Output[*S3BucketAssociation] {
+	return pulumix.Output[*S3BucketAssociation]{
+		OutputState: i.ToS3BucketAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // S3BucketAssociationArrayInput is an input type that accepts S3BucketAssociationArray and S3BucketAssociationArrayOutput values.
 // You can construct a concrete instance of `S3BucketAssociationArrayInput` via:
 //
@@ -185,6 +194,12 @@ func (i S3BucketAssociationArray) ToS3BucketAssociationArrayOutput() S3BucketAss
 
 func (i S3BucketAssociationArray) ToS3BucketAssociationArrayOutputWithContext(ctx context.Context) S3BucketAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationArrayOutput)
+}
+
+func (i S3BucketAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*S3BucketAssociation] {
+	return pulumix.Output[[]*S3BucketAssociation]{
+		OutputState: i.ToS3BucketAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // S3BucketAssociationMapInput is an input type that accepts S3BucketAssociationMap and S3BucketAssociationMapOutput values.
@@ -212,6 +227,12 @@ func (i S3BucketAssociationMap) ToS3BucketAssociationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationMapOutput)
 }
 
+func (i S3BucketAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*S3BucketAssociation] {
+	return pulumix.Output[map[string]*S3BucketAssociation]{
+		OutputState: i.ToS3BucketAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type S3BucketAssociationOutput struct{ *pulumi.OutputState }
 
 func (S3BucketAssociationOutput) ElementType() reflect.Type {
@@ -224,6 +245,12 @@ func (o S3BucketAssociationOutput) ToS3BucketAssociationOutput() S3BucketAssocia
 
 func (o S3BucketAssociationOutput) ToS3BucketAssociationOutputWithContext(ctx context.Context) S3BucketAssociationOutput {
 	return o
+}
+
+func (o S3BucketAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*S3BucketAssociation] {
+	return pulumix.Output[*S3BucketAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the S3 bucket that you want to associate with Amazon Macie.
@@ -260,6 +287,12 @@ func (o S3BucketAssociationArrayOutput) ToS3BucketAssociationArrayOutputWithCont
 	return o
 }
 
+func (o S3BucketAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*S3BucketAssociation] {
+	return pulumix.Output[[]*S3BucketAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o S3BucketAssociationArrayOutput) Index(i pulumi.IntInput) S3BucketAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *S3BucketAssociation {
 		return vs[0].([]*S3BucketAssociation)[vs[1].(int)]
@@ -278,6 +311,12 @@ func (o S3BucketAssociationMapOutput) ToS3BucketAssociationMapOutput() S3BucketA
 
 func (o S3BucketAssociationMapOutput) ToS3BucketAssociationMapOutputWithContext(ctx context.Context) S3BucketAssociationMapOutput {
 	return o
+}
+
+func (o S3BucketAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*S3BucketAssociation] {
+	return pulumix.Output[map[string]*S3BucketAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o S3BucketAssociationMapOutput) MapIndex(k pulumi.StringInput) S3BucketAssociationOutput {

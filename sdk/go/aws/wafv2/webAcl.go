@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a WAFv2 Web ACL resource.
@@ -359,6 +361,7 @@ func NewWebAcl(ctx *pulumi.Context,
 	if args.VisibilityConfig == nil {
 		return nil, errors.New("invalid value for required argument 'VisibilityConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebAcl
 	err := ctx.RegisterResource("aws:wafv2/webAcl:WebAcl", name, args, &resource, opts...)
 	if err != nil {
@@ -514,6 +517,12 @@ func (i *WebAcl) ToWebAclOutputWithContext(ctx context.Context) WebAclOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclOutput)
 }
 
+func (i *WebAcl) ToOutput(ctx context.Context) pulumix.Output[*WebAcl] {
+	return pulumix.Output[*WebAcl]{
+		OutputState: i.ToWebAclOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WebAclArrayInput is an input type that accepts WebAclArray and WebAclArrayOutput values.
 // You can construct a concrete instance of `WebAclArrayInput` via:
 //
@@ -537,6 +546,12 @@ func (i WebAclArray) ToWebAclArrayOutput() WebAclArrayOutput {
 
 func (i WebAclArray) ToWebAclArrayOutputWithContext(ctx context.Context) WebAclArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclArrayOutput)
+}
+
+func (i WebAclArray) ToOutput(ctx context.Context) pulumix.Output[[]*WebAcl] {
+	return pulumix.Output[[]*WebAcl]{
+		OutputState: i.ToWebAclArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WebAclMapInput is an input type that accepts WebAclMap and WebAclMapOutput values.
@@ -564,6 +579,12 @@ func (i WebAclMap) ToWebAclMapOutputWithContext(ctx context.Context) WebAclMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclMapOutput)
 }
 
+func (i WebAclMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebAcl] {
+	return pulumix.Output[map[string]*WebAcl]{
+		OutputState: i.ToWebAclMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WebAclOutput struct{ *pulumi.OutputState }
 
 func (WebAclOutput) ElementType() reflect.Type {
@@ -576,6 +597,12 @@ func (o WebAclOutput) ToWebAclOutput() WebAclOutput {
 
 func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutput {
 	return o
+}
+
+func (o WebAclOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAcl] {
+	return pulumix.Output[*WebAcl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the IP Set that this statement references.
@@ -661,6 +688,12 @@ func (o WebAclArrayOutput) ToWebAclArrayOutputWithContext(ctx context.Context) W
 	return o
 }
 
+func (o WebAclArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WebAcl] {
+	return pulumix.Output[[]*WebAcl]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WebAclArrayOutput) Index(i pulumi.IntInput) WebAclOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebAcl {
 		return vs[0].([]*WebAcl)[vs[1].(int)]
@@ -679,6 +712,12 @@ func (o WebAclMapOutput) ToWebAclMapOutput() WebAclMapOutput {
 
 func (o WebAclMapOutput) ToWebAclMapOutputWithContext(ctx context.Context) WebAclMapOutput {
 	return o
+}
+
+func (o WebAclMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebAcl] {
+	return pulumix.Output[map[string]*WebAcl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WebAclMapOutput) MapIndex(k pulumi.StringInput) WebAclOutput {

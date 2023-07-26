@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The Autoscaling Groups data source allows access to the list of AWS
@@ -67,6 +69,7 @@ import (
 //
 // Deprecated: aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds
 func GetAutoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs, opts ...pulumi.InvokeOption) (*GetAutoscalingGroupsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAutoscalingGroupsResult
 	err := ctx.Invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", args, &rv, opts...)
 	if err != nil {
@@ -132,6 +135,12 @@ func (o GetAutoscalingGroupsResultOutput) ToGetAutoscalingGroupsResultOutput() G
 
 func (o GetAutoscalingGroupsResultOutput) ToGetAutoscalingGroupsResultOutputWithContext(ctx context.Context) GetAutoscalingGroupsResultOutput {
 	return o
+}
+
+func (o GetAutoscalingGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAutoscalingGroupsResult] {
+	return pulumix.Output[GetAutoscalingGroupsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of the Autoscaling Groups Arns in the current region.

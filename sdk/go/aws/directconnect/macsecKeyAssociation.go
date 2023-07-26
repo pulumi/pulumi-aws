@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a MAC Security (MACSec) secret key resource for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
@@ -120,6 +122,7 @@ func NewMacsecKeyAssociation(ctx *pulumi.Context,
 	if args.ConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MacsecKeyAssociation
 	err := ctx.RegisterResource("aws:directconnect/macsecKeyAssociation:MacsecKeyAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -229,6 +232,12 @@ func (i *MacsecKeyAssociation) ToMacsecKeyAssociationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MacsecKeyAssociationOutput)
 }
 
+func (i *MacsecKeyAssociation) ToOutput(ctx context.Context) pulumix.Output[*MacsecKeyAssociation] {
+	return pulumix.Output[*MacsecKeyAssociation]{
+		OutputState: i.ToMacsecKeyAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MacsecKeyAssociationArrayInput is an input type that accepts MacsecKeyAssociationArray and MacsecKeyAssociationArrayOutput values.
 // You can construct a concrete instance of `MacsecKeyAssociationArrayInput` via:
 //
@@ -252,6 +261,12 @@ func (i MacsecKeyAssociationArray) ToMacsecKeyAssociationArrayOutput() MacsecKey
 
 func (i MacsecKeyAssociationArray) ToMacsecKeyAssociationArrayOutputWithContext(ctx context.Context) MacsecKeyAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MacsecKeyAssociationArrayOutput)
+}
+
+func (i MacsecKeyAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*MacsecKeyAssociation] {
+	return pulumix.Output[[]*MacsecKeyAssociation]{
+		OutputState: i.ToMacsecKeyAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MacsecKeyAssociationMapInput is an input type that accepts MacsecKeyAssociationMap and MacsecKeyAssociationMapOutput values.
@@ -279,6 +294,12 @@ func (i MacsecKeyAssociationMap) ToMacsecKeyAssociationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(MacsecKeyAssociationMapOutput)
 }
 
+func (i MacsecKeyAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MacsecKeyAssociation] {
+	return pulumix.Output[map[string]*MacsecKeyAssociation]{
+		OutputState: i.ToMacsecKeyAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MacsecKeyAssociationOutput struct{ *pulumi.OutputState }
 
 func (MacsecKeyAssociationOutput) ElementType() reflect.Type {
@@ -291,6 +312,12 @@ func (o MacsecKeyAssociationOutput) ToMacsecKeyAssociationOutput() MacsecKeyAsso
 
 func (o MacsecKeyAssociationOutput) ToMacsecKeyAssociationOutputWithContext(ctx context.Context) MacsecKeyAssociationOutput {
 	return o
+}
+
+func (o MacsecKeyAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*MacsecKeyAssociation] {
+	return pulumix.Output[*MacsecKeyAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
@@ -339,6 +366,12 @@ func (o MacsecKeyAssociationArrayOutput) ToMacsecKeyAssociationArrayOutputWithCo
 	return o
 }
 
+func (o MacsecKeyAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MacsecKeyAssociation] {
+	return pulumix.Output[[]*MacsecKeyAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MacsecKeyAssociationArrayOutput) Index(i pulumi.IntInput) MacsecKeyAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MacsecKeyAssociation {
 		return vs[0].([]*MacsecKeyAssociation)[vs[1].(int)]
@@ -357,6 +390,12 @@ func (o MacsecKeyAssociationMapOutput) ToMacsecKeyAssociationMapOutput() MacsecK
 
 func (o MacsecKeyAssociationMapOutput) ToMacsecKeyAssociationMapOutputWithContext(ctx context.Context) MacsecKeyAssociationMapOutput {
 	return o
+}
+
+func (o MacsecKeyAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MacsecKeyAssociation] {
+	return pulumix.Output[map[string]*MacsecKeyAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MacsecKeyAssociationMapOutput) MapIndex(k pulumi.StringInput) MacsecKeyAssociationOutput {

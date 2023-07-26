@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupNetworkInsightsPath(ctx *pulumi.Context, args *LookupNetworkInsightsPathArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInsightsPathResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkInsightsPathResult
 	err := ctx.Invoke("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args, &rv, opts...)
 	if err != nil {
@@ -120,6 +123,12 @@ func (o LookupNetworkInsightsPathResultOutput) ToLookupNetworkInsightsPathResult
 
 func (o LookupNetworkInsightsPathResultOutput) ToLookupNetworkInsightsPathResultOutputWithContext(ctx context.Context) LookupNetworkInsightsPathResultOutput {
 	return o
+}
+
+func (o LookupNetworkInsightsPathResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkInsightsPathResult] {
+	return pulumix.Output[LookupNetworkInsightsPathResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the selected Network Insights Path.

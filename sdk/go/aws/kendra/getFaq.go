@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Kendra Faq.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupFaq(ctx *pulumi.Context, args *LookupFaqArgs, opts ...pulumi.InvokeOption) (*LookupFaqResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFaqResult
 	err := ctx.Invoke("aws:kendra/getFaq:getFaq", args, &rv, opts...)
 	if err != nil {
@@ -129,6 +132,12 @@ func (o LookupFaqResultOutput) ToLookupFaqResultOutput() LookupFaqResultOutput {
 
 func (o LookupFaqResultOutput) ToLookupFaqResultOutputWithContext(ctx context.Context) LookupFaqResultOutput {
 	return o
+}
+
+func (o LookupFaqResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFaqResult] {
+	return pulumix.Output[LookupFaqResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the FAQ.

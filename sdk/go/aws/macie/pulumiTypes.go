@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type FindingsFilterFindingCriteria struct {
 	// A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
@@ -41,6 +45,12 @@ func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaOutput
 
 func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaOutput)
+}
+
+func (i FindingsFilterFindingCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingCriteria] {
+	return pulumix.Output[FindingsFilterFindingCriteria]{
+		OutputState: i.ToFindingsFilterFindingCriteriaOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput {
@@ -84,6 +94,12 @@ func (i *findingsFilterFindingCriteriaPtrType) ToFindingsFilterFindingCriteriaPt
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaPtrOutput)
 }
 
+func (i *findingsFilterFindingCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilterFindingCriteria] {
+	return pulumix.Output[*FindingsFilterFindingCriteria]{
+		OutputState: i.ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FindingsFilterFindingCriteriaOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterFindingCriteriaOutput) ElementType() reflect.Type {
@@ -108,6 +124,12 @@ func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaPtrO
 	}).(FindingsFilterFindingCriteriaPtrOutput)
 }
 
+func (o FindingsFilterFindingCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingCriteria] {
+	return pulumix.Output[FindingsFilterFindingCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
 func (o FindingsFilterFindingCriteriaOutput) Criterions() FindingsFilterFindingCriteriaCriterionArrayOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteria) []FindingsFilterFindingCriteriaCriterion { return v.Criterions }).(FindingsFilterFindingCriteriaCriterionArrayOutput)
@@ -125,6 +147,12 @@ func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaP
 
 func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
 	return o
+}
+
+func (o FindingsFilterFindingCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilterFindingCriteria] {
+	return pulumix.Output[*FindingsFilterFindingCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FindingsFilterFindingCriteriaPtrOutput) Elem() FindingsFilterFindingCriteriaOutput {
@@ -208,6 +236,12 @@ func (i FindingsFilterFindingCriteriaCriterionArgs) ToFindingsFilterFindingCrite
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaCriterionOutput)
 }
 
+func (i FindingsFilterFindingCriteriaCriterionArgs) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingCriteriaCriterion] {
+	return pulumix.Output[FindingsFilterFindingCriteriaCriterion]{
+		OutputState: i.ToFindingsFilterFindingCriteriaCriterionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FindingsFilterFindingCriteriaCriterionArrayInput is an input type that accepts FindingsFilterFindingCriteriaCriterionArray and FindingsFilterFindingCriteriaCriterionArrayOutput values.
 // You can construct a concrete instance of `FindingsFilterFindingCriteriaCriterionArrayInput` via:
 //
@@ -233,6 +267,12 @@ func (i FindingsFilterFindingCriteriaCriterionArray) ToFindingsFilterFindingCrit
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaCriterionArrayOutput)
 }
 
+func (i FindingsFilterFindingCriteriaCriterionArray) ToOutput(ctx context.Context) pulumix.Output[[]FindingsFilterFindingCriteriaCriterion] {
+	return pulumix.Output[[]FindingsFilterFindingCriteriaCriterion]{
+		OutputState: i.ToFindingsFilterFindingCriteriaCriterionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FindingsFilterFindingCriteriaCriterionOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterFindingCriteriaCriterionOutput) ElementType() reflect.Type {
@@ -245,6 +285,12 @@ func (o FindingsFilterFindingCriteriaCriterionOutput) ToFindingsFilterFindingCri
 
 func (o FindingsFilterFindingCriteriaCriterionOutput) ToFindingsFilterFindingCriteriaCriterionOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaCriterionOutput {
 	return o
+}
+
+func (o FindingsFilterFindingCriteriaCriterionOutput) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingCriteriaCriterion] {
+	return pulumix.Output[FindingsFilterFindingCriteriaCriterion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
@@ -301,6 +347,12 @@ func (o FindingsFilterFindingCriteriaCriterionArrayOutput) ToFindingsFilterFindi
 	return o
 }
 
+func (o FindingsFilterFindingCriteriaCriterionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FindingsFilterFindingCriteriaCriterion] {
+	return pulumix.Output[[]FindingsFilterFindingCriteriaCriterion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FindingsFilterFindingCriteriaCriterionArrayOutput) Index(i pulumi.IntInput) FindingsFilterFindingCriteriaCriterionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FindingsFilterFindingCriteriaCriterion {
 		return vs[0].([]FindingsFilterFindingCriteriaCriterion)[vs[1].(int)]
@@ -348,6 +400,12 @@ func (i S3BucketAssociationClassificationTypeArgs) ToS3BucketAssociationClassifi
 	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationClassificationTypeOutput)
 }
 
+func (i S3BucketAssociationClassificationTypeArgs) ToOutput(ctx context.Context) pulumix.Output[S3BucketAssociationClassificationType] {
+	return pulumix.Output[S3BucketAssociationClassificationType]{
+		OutputState: i.ToS3BucketAssociationClassificationTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i S3BucketAssociationClassificationTypeArgs) ToS3BucketAssociationClassificationTypePtrOutput() S3BucketAssociationClassificationTypePtrOutput {
 	return i.ToS3BucketAssociationClassificationTypePtrOutputWithContext(context.Background())
 }
@@ -389,6 +447,12 @@ func (i *s3bucketAssociationClassificationTypePtrType) ToS3BucketAssociationClas
 	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationClassificationTypePtrOutput)
 }
 
+func (i *s3bucketAssociationClassificationTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*S3BucketAssociationClassificationType] {
+	return pulumix.Output[*S3BucketAssociationClassificationType]{
+		OutputState: i.ToS3BucketAssociationClassificationTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type S3BucketAssociationClassificationTypeOutput struct{ *pulumi.OutputState }
 
 func (S3BucketAssociationClassificationTypeOutput) ElementType() reflect.Type {
@@ -411,6 +475,12 @@ func (o S3BucketAssociationClassificationTypeOutput) ToS3BucketAssociationClassi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3BucketAssociationClassificationType) *S3BucketAssociationClassificationType {
 		return &v
 	}).(S3BucketAssociationClassificationTypePtrOutput)
+}
+
+func (o S3BucketAssociationClassificationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[S3BucketAssociationClassificationType] {
+	return pulumix.Output[S3BucketAssociationClassificationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
@@ -437,6 +507,12 @@ func (o S3BucketAssociationClassificationTypePtrOutput) ToS3BucketAssociationCla
 
 func (o S3BucketAssociationClassificationTypePtrOutput) ToS3BucketAssociationClassificationTypePtrOutputWithContext(ctx context.Context) S3BucketAssociationClassificationTypePtrOutput {
 	return o
+}
+
+func (o S3BucketAssociationClassificationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*S3BucketAssociationClassificationType] {
+	return pulumix.Output[*S3BucketAssociationClassificationType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o S3BucketAssociationClassificationTypePtrOutput) Elem() S3BucketAssociationClassificationTypeOutput {

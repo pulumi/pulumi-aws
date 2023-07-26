@@ -7,11 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about single Outpost Instance Type.
 func GetOutpostInstanceType(ctx *pulumi.Context, args *GetOutpostInstanceTypeArgs, opts ...pulumi.InvokeOption) (*GetOutpostInstanceTypeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostInstanceTypeResult
 	err := ctx.Invoke("aws:outposts/getOutpostInstanceType:getOutpostInstanceType", args, &rv, opts...)
 	if err != nil {
@@ -83,6 +86,12 @@ func (o GetOutpostInstanceTypeResultOutput) ToGetOutpostInstanceTypeResultOutput
 
 func (o GetOutpostInstanceTypeResultOutput) ToGetOutpostInstanceTypeResultOutputWithContext(ctx context.Context) GetOutpostInstanceTypeResultOutput {
 	return o
+}
+
+func (o GetOutpostInstanceTypeResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOutpostInstanceTypeResult] {
+	return pulumix.Output[GetOutpostInstanceTypeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOutpostInstanceTypeResultOutput) Arn() pulumi.StringOutput {

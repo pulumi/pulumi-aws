@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Auto Scaling scaling plan.
@@ -55,6 +57,7 @@ func NewScalingPlan(ctx *pulumi.Context,
 	if args.ScalingInstructions == nil {
 		return nil, errors.New("invalid value for required argument 'ScalingInstructions'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ScalingPlan
 	err := ctx.RegisterResource("aws:autoscalingplans/scalingPlan:ScalingPlan", name, args, &resource, opts...)
 	if err != nil {
@@ -144,6 +147,12 @@ func (i *ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) Scalin
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanOutput)
 }
 
+func (i *ScalingPlan) ToOutput(ctx context.Context) pulumix.Output[*ScalingPlan] {
+	return pulumix.Output[*ScalingPlan]{
+		OutputState: i.ToScalingPlanOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ScalingPlanArrayInput is an input type that accepts ScalingPlanArray and ScalingPlanArrayOutput values.
 // You can construct a concrete instance of `ScalingPlanArrayInput` via:
 //
@@ -167,6 +176,12 @@ func (i ScalingPlanArray) ToScalingPlanArrayOutput() ScalingPlanArrayOutput {
 
 func (i ScalingPlanArray) ToScalingPlanArrayOutputWithContext(ctx context.Context) ScalingPlanArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanArrayOutput)
+}
+
+func (i ScalingPlanArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScalingPlan] {
+	return pulumix.Output[[]*ScalingPlan]{
+		OutputState: i.ToScalingPlanArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ScalingPlanMapInput is an input type that accepts ScalingPlanMap and ScalingPlanMapOutput values.
@@ -194,6 +209,12 @@ func (i ScalingPlanMap) ToScalingPlanMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanMapOutput)
 }
 
+func (i ScalingPlanMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScalingPlan] {
+	return pulumix.Output[map[string]*ScalingPlan]{
+		OutputState: i.ToScalingPlanMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ScalingPlanOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanOutput) ElementType() reflect.Type {
@@ -206,6 +227,12 @@ func (o ScalingPlanOutput) ToScalingPlanOutput() ScalingPlanOutput {
 
 func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput {
 	return o
+}
+
+func (o ScalingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPlan] {
+	return pulumix.Output[*ScalingPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // CloudFormation stack or set of tags. You can create one scaling plan per application source.
@@ -242,6 +269,12 @@ func (o ScalingPlanArrayOutput) ToScalingPlanArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ScalingPlanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScalingPlan] {
+	return pulumix.Output[[]*ScalingPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ScalingPlanArrayOutput) Index(i pulumi.IntInput) ScalingPlanOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScalingPlan {
 		return vs[0].([]*ScalingPlan)[vs[1].(int)]
@@ -260,6 +293,12 @@ func (o ScalingPlanMapOutput) ToScalingPlanMapOutput() ScalingPlanMapOutput {
 
 func (o ScalingPlanMapOutput) ToScalingPlanMapOutputWithContext(ctx context.Context) ScalingPlanMapOutput {
 	return o
+}
+
+func (o ScalingPlanMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScalingPlan] {
+	return pulumix.Output[map[string]*ScalingPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ScalingPlanMapOutput) MapIndex(k pulumi.StringInput) ScalingPlanOutput {

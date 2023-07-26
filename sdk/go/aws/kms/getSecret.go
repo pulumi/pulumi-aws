@@ -7,10 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOption) (*GetSecretResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecretResult
 	err := ctx.Invoke("aws:kms/getSecret:getSecret", args, &rv, opts...)
 	if err != nil {
@@ -66,6 +69,12 @@ func (o GetSecretResultOutput) ToGetSecretResultOutput() GetSecretResultOutput {
 
 func (o GetSecretResultOutput) ToGetSecretResultOutputWithContext(ctx context.Context) GetSecretResultOutput {
 	return o
+}
+
+func (o GetSecretResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecretResult] {
+	return pulumix.Output[GetSecretResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

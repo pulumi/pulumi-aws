@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a CloudFront Function.
@@ -43,6 +45,7 @@ import (
 //
 // Deprecated: aws.cloudtrail.getFunction has been deprecated in favor of aws.cloudfront.getFunction
 func GetFunction(ctx *pulumi.Context, args *GetFunctionArgs, opts ...pulumi.InvokeOption) (*GetFunctionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFunctionResult
 	err := ctx.Invoke("aws:cloudtrail/getFunction:getFunction", args, &rv, opts...)
 	if err != nil {
@@ -119,6 +122,12 @@ func (o GetFunctionResultOutput) ToGetFunctionResultOutput() GetFunctionResultOu
 
 func (o GetFunctionResultOutput) ToGetFunctionResultOutputWithContext(ctx context.Context) GetFunctionResultOutput {
 	return o
+}
+
+func (o GetFunctionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFunctionResult] {
+	return pulumix.Output[GetFunctionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN identifying your CloudFront Function.

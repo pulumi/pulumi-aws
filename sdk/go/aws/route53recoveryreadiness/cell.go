@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Route 53 Recovery Readiness Cell.
@@ -77,6 +79,7 @@ func NewCell(ctx *pulumi.Context,
 	if args.CellName == nil {
 		return nil, errors.New("invalid value for required argument 'CellName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Cell
 	err := ctx.RegisterResource("aws:route53recoveryreadiness/cell:Cell", name, args, &resource, opts...)
 	if err != nil {
@@ -182,6 +185,12 @@ func (i *Cell) ToCellOutputWithContext(ctx context.Context) CellOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CellOutput)
 }
 
+func (i *Cell) ToOutput(ctx context.Context) pulumix.Output[*Cell] {
+	return pulumix.Output[*Cell]{
+		OutputState: i.ToCellOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CellArrayInput is an input type that accepts CellArray and CellArrayOutput values.
 // You can construct a concrete instance of `CellArrayInput` via:
 //
@@ -205,6 +214,12 @@ func (i CellArray) ToCellArrayOutput() CellArrayOutput {
 
 func (i CellArray) ToCellArrayOutputWithContext(ctx context.Context) CellArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CellArrayOutput)
+}
+
+func (i CellArray) ToOutput(ctx context.Context) pulumix.Output[[]*Cell] {
+	return pulumix.Output[[]*Cell]{
+		OutputState: i.ToCellArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CellMapInput is an input type that accepts CellMap and CellMapOutput values.
@@ -232,6 +247,12 @@ func (i CellMap) ToCellMapOutputWithContext(ctx context.Context) CellMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CellMapOutput)
 }
 
+func (i CellMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cell] {
+	return pulumix.Output[map[string]*Cell]{
+		OutputState: i.ToCellMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CellOutput struct{ *pulumi.OutputState }
 
 func (CellOutput) ElementType() reflect.Type {
@@ -244,6 +265,12 @@ func (o CellOutput) ToCellOutput() CellOutput {
 
 func (o CellOutput) ToCellOutputWithContext(ctx context.Context) CellOutput {
 	return o
+}
+
+func (o CellOutput) ToOutput(ctx context.Context) pulumix.Output[*Cell] {
+	return pulumix.Output[*Cell]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the cell
@@ -292,6 +319,12 @@ func (o CellArrayOutput) ToCellArrayOutputWithContext(ctx context.Context) CellA
 	return o
 }
 
+func (o CellArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Cell] {
+	return pulumix.Output[[]*Cell]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CellArrayOutput) Index(i pulumi.IntInput) CellOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Cell {
 		return vs[0].([]*Cell)[vs[1].(int)]
@@ -310,6 +343,12 @@ func (o CellMapOutput) ToCellMapOutput() CellMapOutput {
 
 func (o CellMapOutput) ToCellMapOutputWithContext(ctx context.Context) CellMapOutput {
 	return o
+}
+
+func (o CellMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cell] {
+	return pulumix.Output[map[string]*Cell]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CellMapOutput) MapIndex(k pulumi.StringInput) CellOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Signer Signing Profile.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupSigningProfile(ctx *pulumi.Context, args *LookupSigningProfileArgs, opts ...pulumi.InvokeOption) (*LookupSigningProfileResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSigningProfileResult
 	err := ctx.Invoke("aws:signer/getSigningProfile:getSigningProfile", args, &rv, opts...)
 	if err != nil {
@@ -117,6 +120,12 @@ func (o LookupSigningProfileResultOutput) ToLookupSigningProfileResultOutput() L
 
 func (o LookupSigningProfileResultOutput) ToLookupSigningProfileResultOutputWithContext(ctx context.Context) LookupSigningProfileResultOutput {
 	return o
+}
+
+func (o LookupSigningProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSigningProfileResult] {
+	return pulumix.Output[LookupSigningProfileResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN for the signing profile.

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Batch Job Queue resource.
@@ -140,6 +142,7 @@ func NewJobQueue(ctx *pulumi.Context,
 	if args.State == nil {
 		return nil, errors.New("invalid value for required argument 'State'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource JobQueue
 	err := ctx.RegisterResource("aws:batch/jobQueue:JobQueue", name, args, &resource, opts...)
 	if err != nil {
@@ -269,6 +272,12 @@ func (i *JobQueue) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutp
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueOutput)
 }
 
+func (i *JobQueue) ToOutput(ctx context.Context) pulumix.Output[*JobQueue] {
+	return pulumix.Output[*JobQueue]{
+		OutputState: i.ToJobQueueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // JobQueueArrayInput is an input type that accepts JobQueueArray and JobQueueArrayOutput values.
 // You can construct a concrete instance of `JobQueueArrayInput` via:
 //
@@ -292,6 +301,12 @@ func (i JobQueueArray) ToJobQueueArrayOutput() JobQueueArrayOutput {
 
 func (i JobQueueArray) ToJobQueueArrayOutputWithContext(ctx context.Context) JobQueueArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueArrayOutput)
+}
+
+func (i JobQueueArray) ToOutput(ctx context.Context) pulumix.Output[[]*JobQueue] {
+	return pulumix.Output[[]*JobQueue]{
+		OutputState: i.ToJobQueueArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // JobQueueMapInput is an input type that accepts JobQueueMap and JobQueueMapOutput values.
@@ -319,6 +334,12 @@ func (i JobQueueMap) ToJobQueueMapOutputWithContext(ctx context.Context) JobQueu
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueMapOutput)
 }
 
+func (i JobQueueMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobQueue] {
+	return pulumix.Output[map[string]*JobQueue]{
+		OutputState: i.ToJobQueueMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JobQueueOutput struct{ *pulumi.OutputState }
 
 func (JobQueueOutput) ElementType() reflect.Type {
@@ -331,6 +352,12 @@ func (o JobQueueOutput) ToJobQueueOutput() JobQueueOutput {
 
 func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput {
 	return o
+}
+
+func (o JobQueueOutput) ToOutput(ctx context.Context) pulumix.Output[*JobQueue] {
+	return pulumix.Output[*JobQueue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name of the job queue.
@@ -390,6 +417,12 @@ func (o JobQueueArrayOutput) ToJobQueueArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o JobQueueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*JobQueue] {
+	return pulumix.Output[[]*JobQueue]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o JobQueueArrayOutput) Index(i pulumi.IntInput) JobQueueOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JobQueue {
 		return vs[0].([]*JobQueue)[vs[1].(int)]
@@ -408,6 +441,12 @@ func (o JobQueueMapOutput) ToJobQueueMapOutput() JobQueueMapOutput {
 
 func (o JobQueueMapOutput) ToJobQueueMapOutputWithContext(ctx context.Context) JobQueueMapOutput {
 	return o
+}
+
+func (o JobQueueMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobQueue] {
+	return pulumix.Output[map[string]*JobQueue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JobQueueMapOutput) MapIndex(k pulumi.StringInput) JobQueueOutput {

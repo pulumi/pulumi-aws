@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
@@ -106,6 +108,7 @@ func NewUserLoginProfile(ctx *pulumi.Context,
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserLoginProfile
 	err := ctx.RegisterResource("aws:iam/userLoginProfile:UserLoginProfile", name, args, &resource, opts...)
 	if err != nil {
@@ -211,6 +214,12 @@ func (i *UserLoginProfile) ToUserLoginProfileOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserLoginProfileOutput)
 }
 
+func (i *UserLoginProfile) ToOutput(ctx context.Context) pulumix.Output[*UserLoginProfile] {
+	return pulumix.Output[*UserLoginProfile]{
+		OutputState: i.ToUserLoginProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserLoginProfileArrayInput is an input type that accepts UserLoginProfileArray and UserLoginProfileArrayOutput values.
 // You can construct a concrete instance of `UserLoginProfileArrayInput` via:
 //
@@ -234,6 +243,12 @@ func (i UserLoginProfileArray) ToUserLoginProfileArrayOutput() UserLoginProfileA
 
 func (i UserLoginProfileArray) ToUserLoginProfileArrayOutputWithContext(ctx context.Context) UserLoginProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserLoginProfileArrayOutput)
+}
+
+func (i UserLoginProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserLoginProfile] {
+	return pulumix.Output[[]*UserLoginProfile]{
+		OutputState: i.ToUserLoginProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserLoginProfileMapInput is an input type that accepts UserLoginProfileMap and UserLoginProfileMapOutput values.
@@ -261,6 +276,12 @@ func (i UserLoginProfileMap) ToUserLoginProfileMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(UserLoginProfileMapOutput)
 }
 
+func (i UserLoginProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserLoginProfile] {
+	return pulumix.Output[map[string]*UserLoginProfile]{
+		OutputState: i.ToUserLoginProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserLoginProfileOutput struct{ *pulumi.OutputState }
 
 func (UserLoginProfileOutput) ElementType() reflect.Type {
@@ -273,6 +294,12 @@ func (o UserLoginProfileOutput) ToUserLoginProfileOutput() UserLoginProfileOutpu
 
 func (o UserLoginProfileOutput) ToUserLoginProfileOutputWithContext(ctx context.Context) UserLoginProfileOutput {
 	return o
+}
+
+func (o UserLoginProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*UserLoginProfile] {
+	return pulumix.Output[*UserLoginProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
@@ -324,6 +351,12 @@ func (o UserLoginProfileArrayOutput) ToUserLoginProfileArrayOutputWithContext(ct
 	return o
 }
 
+func (o UserLoginProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserLoginProfile] {
+	return pulumix.Output[[]*UserLoginProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserLoginProfileArrayOutput) Index(i pulumi.IntInput) UserLoginProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserLoginProfile {
 		return vs[0].([]*UserLoginProfile)[vs[1].(int)]
@@ -342,6 +375,12 @@ func (o UserLoginProfileMapOutput) ToUserLoginProfileMapOutput() UserLoginProfil
 
 func (o UserLoginProfileMapOutput) ToUserLoginProfileMapOutputWithContext(ctx context.Context) UserLoginProfileMapOutput {
 	return o
+}
+
+func (o UserLoginProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserLoginProfile] {
+	return pulumix.Output[map[string]*UserLoginProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserLoginProfileMapOutput) MapIndex(k pulumi.StringInput) UserLoginProfileOutput {

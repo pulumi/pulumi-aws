@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for a Service Catalog Portfolio.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupPortfolio(ctx *pulumi.Context, args *LookupPortfolioArgs, opts ...pulumi.InvokeOption) (*LookupPortfolioResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPortfolioResult
 	err := ctx.Invoke("aws:servicecatalog/getPortfolio:getPortfolio", args, &rv, opts...)
 	if err != nil {
@@ -118,6 +121,12 @@ func (o LookupPortfolioResultOutput) ToLookupPortfolioResultOutput() LookupPortf
 
 func (o LookupPortfolioResultOutput) ToLookupPortfolioResultOutputWithContext(ctx context.Context) LookupPortfolioResultOutput {
 	return o
+}
+
+func (o LookupPortfolioResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPortfolioResult] {
+	return pulumix.Output[LookupPortfolioResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPortfolioResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

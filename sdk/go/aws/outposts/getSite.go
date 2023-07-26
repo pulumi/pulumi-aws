@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Outposts Site.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetSite(ctx *pulumi.Context, args *GetSiteArgs, opts ...pulumi.InvokeOption) (*GetSiteResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSiteResult
 	err := ctx.Invoke("aws:outposts/getSite:getSite", args, &rv, opts...)
 	if err != nil {
@@ -102,6 +105,12 @@ func (o GetSiteResultOutput) ToGetSiteResultOutput() GetSiteResultOutput {
 
 func (o GetSiteResultOutput) ToGetSiteResultOutputWithContext(ctx context.Context) GetSiteResultOutput {
 	return o
+}
+
+func (o GetSiteResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSiteResult] {
+	return pulumix.Output[GetSiteResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AWS Account identifier.

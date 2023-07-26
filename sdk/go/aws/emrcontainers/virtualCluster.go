@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EMR Containers (EMR on EKS) Virtual Cluster.
@@ -82,6 +84,7 @@ func NewVirtualCluster(ctx *pulumi.Context,
 	if args.ContainerProvider == nil {
 		return nil, errors.New("invalid value for required argument 'ContainerProvider'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualCluster
 	err := ctx.RegisterResource("aws:emrcontainers/virtualCluster:VirtualCluster", name, args, &resource, opts...)
 	if err != nil {
@@ -175,6 +178,12 @@ func (i *VirtualCluster) ToVirtualClusterOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterOutput)
 }
 
+func (i *VirtualCluster) ToOutput(ctx context.Context) pulumix.Output[*VirtualCluster] {
+	return pulumix.Output[*VirtualCluster]{
+		OutputState: i.ToVirtualClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualClusterArrayInput is an input type that accepts VirtualClusterArray and VirtualClusterArrayOutput values.
 // You can construct a concrete instance of `VirtualClusterArrayInput` via:
 //
@@ -198,6 +207,12 @@ func (i VirtualClusterArray) ToVirtualClusterArrayOutput() VirtualClusterArrayOu
 
 func (i VirtualClusterArray) ToVirtualClusterArrayOutputWithContext(ctx context.Context) VirtualClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterArrayOutput)
+}
+
+func (i VirtualClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualCluster] {
+	return pulumix.Output[[]*VirtualCluster]{
+		OutputState: i.ToVirtualClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualClusterMapInput is an input type that accepts VirtualClusterMap and VirtualClusterMapOutput values.
@@ -225,6 +240,12 @@ func (i VirtualClusterMap) ToVirtualClusterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterMapOutput)
 }
 
+func (i VirtualClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualCluster] {
+	return pulumix.Output[map[string]*VirtualCluster]{
+		OutputState: i.ToVirtualClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualClusterOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterOutput) ElementType() reflect.Type {
@@ -237,6 +258,12 @@ func (o VirtualClusterOutput) ToVirtualClusterOutput() VirtualClusterOutput {
 
 func (o VirtualClusterOutput) ToVirtualClusterOutputWithContext(ctx context.Context) VirtualClusterOutput {
 	return o
+}
+
+func (o VirtualClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualCluster] {
+	return pulumix.Output[*VirtualCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the cluster.
@@ -278,6 +305,12 @@ func (o VirtualClusterArrayOutput) ToVirtualClusterArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o VirtualClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualCluster] {
+	return pulumix.Output[[]*VirtualCluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualClusterArrayOutput) Index(i pulumi.IntInput) VirtualClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualCluster {
 		return vs[0].([]*VirtualCluster)[vs[1].(int)]
@@ -296,6 +329,12 @@ func (o VirtualClusterMapOutput) ToVirtualClusterMapOutput() VirtualClusterMapOu
 
 func (o VirtualClusterMapOutput) ToVirtualClusterMapOutputWithContext(ctx context.Context) VirtualClusterMapOutput {
 	return o
+}
+
+func (o VirtualClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualCluster] {
+	return pulumix.Output[map[string]*VirtualCluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualClusterMapOutput) MapIndex(k pulumi.StringInput) VirtualClusterOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about an RDS subnet group.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupSubnetGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubnetGroupResult
 	err := ctx.Invoke("aws:rds/getSubnetGroup:getSubnetGroup", args, &rv, opts...)
 	if err != nil {
@@ -107,6 +110,12 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutput() LookupS
 
 func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContext(ctx context.Context) LookupSubnetGroupResultOutput {
 	return o
+}
+
+func (o LookupSubnetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubnetGroupResult] {
+	return pulumix.Output[LookupSubnetGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN for the DB subnet group.

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS Storage Gateway stored iSCSI volume.
@@ -152,6 +154,7 @@ func NewStoredIscsiVolume(ctx *pulumi.Context,
 	if args.TargetName == nil {
 		return nil, errors.New("invalid value for required argument 'TargetName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StoredIscsiVolume
 	err := ctx.RegisterResource("aws:storagegateway/storedIscsiVolume:StoredIscsiVolume", name, args, &resource, opts...)
 	if err != nil {
@@ -329,6 +332,12 @@ func (i *StoredIscsiVolume) ToStoredIscsiVolumeOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(StoredIscsiVolumeOutput)
 }
 
+func (i *StoredIscsiVolume) ToOutput(ctx context.Context) pulumix.Output[*StoredIscsiVolume] {
+	return pulumix.Output[*StoredIscsiVolume]{
+		OutputState: i.ToStoredIscsiVolumeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StoredIscsiVolumeArrayInput is an input type that accepts StoredIscsiVolumeArray and StoredIscsiVolumeArrayOutput values.
 // You can construct a concrete instance of `StoredIscsiVolumeArrayInput` via:
 //
@@ -352,6 +361,12 @@ func (i StoredIscsiVolumeArray) ToStoredIscsiVolumeArrayOutput() StoredIscsiVolu
 
 func (i StoredIscsiVolumeArray) ToStoredIscsiVolumeArrayOutputWithContext(ctx context.Context) StoredIscsiVolumeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StoredIscsiVolumeArrayOutput)
+}
+
+func (i StoredIscsiVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]*StoredIscsiVolume] {
+	return pulumix.Output[[]*StoredIscsiVolume]{
+		OutputState: i.ToStoredIscsiVolumeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StoredIscsiVolumeMapInput is an input type that accepts StoredIscsiVolumeMap and StoredIscsiVolumeMapOutput values.
@@ -379,6 +394,12 @@ func (i StoredIscsiVolumeMap) ToStoredIscsiVolumeMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StoredIscsiVolumeMapOutput)
 }
 
+func (i StoredIscsiVolumeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StoredIscsiVolume] {
+	return pulumix.Output[map[string]*StoredIscsiVolume]{
+		OutputState: i.ToStoredIscsiVolumeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StoredIscsiVolumeOutput struct{ *pulumi.OutputState }
 
 func (StoredIscsiVolumeOutput) ElementType() reflect.Type {
@@ -391,6 +412,12 @@ func (o StoredIscsiVolumeOutput) ToStoredIscsiVolumeOutput() StoredIscsiVolumeOu
 
 func (o StoredIscsiVolumeOutput) ToStoredIscsiVolumeOutputWithContext(ctx context.Context) StoredIscsiVolumeOutput {
 	return o
+}
+
+func (o StoredIscsiVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[*StoredIscsiVolume] {
+	return pulumix.Output[*StoredIscsiVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
@@ -507,6 +534,12 @@ func (o StoredIscsiVolumeArrayOutput) ToStoredIscsiVolumeArrayOutputWithContext(
 	return o
 }
 
+func (o StoredIscsiVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StoredIscsiVolume] {
+	return pulumix.Output[[]*StoredIscsiVolume]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StoredIscsiVolumeArrayOutput) Index(i pulumi.IntInput) StoredIscsiVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StoredIscsiVolume {
 		return vs[0].([]*StoredIscsiVolume)[vs[1].(int)]
@@ -525,6 +558,12 @@ func (o StoredIscsiVolumeMapOutput) ToStoredIscsiVolumeMapOutput() StoredIscsiVo
 
 func (o StoredIscsiVolumeMapOutput) ToStoredIscsiVolumeMapOutputWithContext(ctx context.Context) StoredIscsiVolumeMapOutput {
 	return o
+}
+
+func (o StoredIscsiVolumeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StoredIscsiVolume] {
+	return pulumix.Output[map[string]*StoredIscsiVolume]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StoredIscsiVolumeMapOutput) MapIndex(k pulumi.StringInput) StoredIscsiVolumeOutput {

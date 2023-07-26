@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Transit Gateway Multicast Domain.
@@ -71,6 +73,7 @@ import (
 //
 // ```
 func LookupMulticastDomain(ctx *pulumi.Context, args *LookupMulticastDomainArgs, opts ...pulumi.InvokeOption) (*LookupMulticastDomainResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMulticastDomainResult
 	err := ctx.Invoke("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", args, &rv, opts...)
 	if err != nil {
@@ -160,6 +163,12 @@ func (o LookupMulticastDomainResultOutput) ToLookupMulticastDomainResultOutput()
 
 func (o LookupMulticastDomainResultOutput) ToLookupMulticastDomainResultOutputWithContext(ctx context.Context) LookupMulticastDomainResultOutput {
 	return o
+}
+
+func (o LookupMulticastDomainResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMulticastDomainResult] {
+	return pulumix.Output[LookupMulticastDomainResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // EC2 Transit Gateway Multicast Domain ARN.

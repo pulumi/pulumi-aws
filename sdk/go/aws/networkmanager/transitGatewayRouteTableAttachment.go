@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a transit gateway route table attachment.
@@ -95,6 +97,7 @@ func NewTransitGatewayRouteTableAttachment(ctx *pulumi.Context,
 	if args.TransitGatewayRouteTableArn == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayRouteTableArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayRouteTableAttachment
 	err := ctx.RegisterResource("aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -224,6 +227,12 @@ func (i *TransitGatewayRouteTableAttachment) ToTransitGatewayRouteTableAttachmen
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentOutput)
 }
 
+func (i *TransitGatewayRouteTableAttachment) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTableAttachment] {
+	return pulumix.Output[*TransitGatewayRouteTableAttachment]{
+		OutputState: i.ToTransitGatewayRouteTableAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TransitGatewayRouteTableAttachmentArrayInput is an input type that accepts TransitGatewayRouteTableAttachmentArray and TransitGatewayRouteTableAttachmentArrayOutput values.
 // You can construct a concrete instance of `TransitGatewayRouteTableAttachmentArrayInput` via:
 //
@@ -247,6 +256,12 @@ func (i TransitGatewayRouteTableAttachmentArray) ToTransitGatewayRouteTableAttac
 
 func (i TransitGatewayRouteTableAttachmentArray) ToTransitGatewayRouteTableAttachmentArrayOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentArrayOutput)
+}
+
+func (i TransitGatewayRouteTableAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGatewayRouteTableAttachment] {
+	return pulumix.Output[[]*TransitGatewayRouteTableAttachment]{
+		OutputState: i.ToTransitGatewayRouteTableAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TransitGatewayRouteTableAttachmentMapInput is an input type that accepts TransitGatewayRouteTableAttachmentMap and TransitGatewayRouteTableAttachmentMapOutput values.
@@ -274,6 +289,12 @@ func (i TransitGatewayRouteTableAttachmentMap) ToTransitGatewayRouteTableAttachm
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentMapOutput)
 }
 
+func (i TransitGatewayRouteTableAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGatewayRouteTableAttachment] {
+	return pulumix.Output[map[string]*TransitGatewayRouteTableAttachment]{
+		OutputState: i.ToTransitGatewayRouteTableAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayRouteTableAttachmentOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayRouteTableAttachmentOutput) ElementType() reflect.Type {
@@ -286,6 +307,12 @@ func (o TransitGatewayRouteTableAttachmentOutput) ToTransitGatewayRouteTableAtta
 
 func (o TransitGatewayRouteTableAttachmentOutput) ToTransitGatewayRouteTableAttachmentOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentOutput {
 	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayRouteTableAttachment] {
+	return pulumix.Output[*TransitGatewayRouteTableAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Attachment Amazon Resource Name (ARN).
@@ -372,6 +399,12 @@ func (o TransitGatewayRouteTableAttachmentArrayOutput) ToTransitGatewayRouteTabl
 	return o
 }
 
+func (o TransitGatewayRouteTableAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGatewayRouteTableAttachment] {
+	return pulumix.Output[[]*TransitGatewayRouteTableAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransitGatewayRouteTableAttachmentArrayOutput) Index(i pulumi.IntInput) TransitGatewayRouteTableAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TransitGatewayRouteTableAttachment {
 		return vs[0].([]*TransitGatewayRouteTableAttachment)[vs[1].(int)]
@@ -390,6 +423,12 @@ func (o TransitGatewayRouteTableAttachmentMapOutput) ToTransitGatewayRouteTableA
 
 func (o TransitGatewayRouteTableAttachmentMapOutput) ToTransitGatewayRouteTableAttachmentMapOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentMapOutput {
 	return o
+}
+
+func (o TransitGatewayRouteTableAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGatewayRouteTableAttachment] {
+	return pulumix.Output[map[string]*TransitGatewayRouteTableAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayRouteTableAttachmentMapOutput) MapIndex(k pulumi.StringInput) TransitGatewayRouteTableAttachmentOutput {

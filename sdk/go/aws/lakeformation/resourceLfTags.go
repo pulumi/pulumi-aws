@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
@@ -160,6 +162,7 @@ func NewResourceLfTags(ctx *pulumi.Context,
 	if args.LfTags == nil {
 		return nil, errors.New("invalid value for required argument 'LfTags'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceLfTags
 	err := ctx.RegisterResource("aws:lakeformation/resourceLfTags:ResourceLfTags", name, args, &resource, opts...)
 	if err != nil {
@@ -277,6 +280,12 @@ func (i *ResourceLfTags) ToResourceLfTagsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsOutput)
 }
 
+func (i *ResourceLfTags) ToOutput(ctx context.Context) pulumix.Output[*ResourceLfTags] {
+	return pulumix.Output[*ResourceLfTags]{
+		OutputState: i.ToResourceLfTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceLfTagsArrayInput is an input type that accepts ResourceLfTagsArray and ResourceLfTagsArrayOutput values.
 // You can construct a concrete instance of `ResourceLfTagsArrayInput` via:
 //
@@ -300,6 +309,12 @@ func (i ResourceLfTagsArray) ToResourceLfTagsArrayOutput() ResourceLfTagsArrayOu
 
 func (i ResourceLfTagsArray) ToResourceLfTagsArrayOutputWithContext(ctx context.Context) ResourceLfTagsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsArrayOutput)
+}
+
+func (i ResourceLfTagsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceLfTags] {
+	return pulumix.Output[[]*ResourceLfTags]{
+		OutputState: i.ToResourceLfTagsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceLfTagsMapInput is an input type that accepts ResourceLfTagsMap and ResourceLfTagsMapOutput values.
@@ -327,6 +342,12 @@ func (i ResourceLfTagsMap) ToResourceLfTagsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsMapOutput)
 }
 
+func (i ResourceLfTagsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceLfTags] {
+	return pulumix.Output[map[string]*ResourceLfTags]{
+		OutputState: i.ToResourceLfTagsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceLfTagsOutput struct{ *pulumi.OutputState }
 
 func (ResourceLfTagsOutput) ElementType() reflect.Type {
@@ -339,6 +360,12 @@ func (o ResourceLfTagsOutput) ToResourceLfTagsOutput() ResourceLfTagsOutput {
 
 func (o ResourceLfTagsOutput) ToResourceLfTagsOutputWithContext(ctx context.Context) ResourceLfTagsOutput {
 	return o
+}
+
+func (o ResourceLfTagsOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceLfTags] {
+	return pulumix.Output[*ResourceLfTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
@@ -384,6 +411,12 @@ func (o ResourceLfTagsArrayOutput) ToResourceLfTagsArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ResourceLfTagsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceLfTags] {
+	return pulumix.Output[[]*ResourceLfTags]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceLfTagsArrayOutput) Index(i pulumi.IntInput) ResourceLfTagsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceLfTags {
 		return vs[0].([]*ResourceLfTags)[vs[1].(int)]
@@ -402,6 +435,12 @@ func (o ResourceLfTagsMapOutput) ToResourceLfTagsMapOutput() ResourceLfTagsMapOu
 
 func (o ResourceLfTagsMapOutput) ToResourceLfTagsMapOutputWithContext(ctx context.Context) ResourceLfTagsMapOutput {
 	return o
+}
+
+func (o ResourceLfTagsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceLfTags] {
+	return pulumix.Output[map[string]*ResourceLfTags]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceLfTagsMapOutput) MapIndex(k pulumi.StringInput) ResourceLfTagsOutput {

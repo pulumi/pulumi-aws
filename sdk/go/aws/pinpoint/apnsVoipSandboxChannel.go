@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Pinpoint APNs VoIP Sandbox Channel resource.
@@ -133,6 +135,7 @@ func NewApnsVoipSandboxChannel(ctx *pulumi.Context,
 		"tokenKeyId",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApnsVoipSandboxChannel
 	err := ctx.RegisterResource("aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel", name, args, &resource, opts...)
 	if err != nil {
@@ -302,6 +305,12 @@ func (i *ApnsVoipSandboxChannel) ToApnsVoipSandboxChannelOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipSandboxChannelOutput)
 }
 
+func (i *ApnsVoipSandboxChannel) ToOutput(ctx context.Context) pulumix.Output[*ApnsVoipSandboxChannel] {
+	return pulumix.Output[*ApnsVoipSandboxChannel]{
+		OutputState: i.ToApnsVoipSandboxChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApnsVoipSandboxChannelArrayInput is an input type that accepts ApnsVoipSandboxChannelArray and ApnsVoipSandboxChannelArrayOutput values.
 // You can construct a concrete instance of `ApnsVoipSandboxChannelArrayInput` via:
 //
@@ -325,6 +334,12 @@ func (i ApnsVoipSandboxChannelArray) ToApnsVoipSandboxChannelArrayOutput() ApnsV
 
 func (i ApnsVoipSandboxChannelArray) ToApnsVoipSandboxChannelArrayOutputWithContext(ctx context.Context) ApnsVoipSandboxChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipSandboxChannelArrayOutput)
+}
+
+func (i ApnsVoipSandboxChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApnsVoipSandboxChannel] {
+	return pulumix.Output[[]*ApnsVoipSandboxChannel]{
+		OutputState: i.ToApnsVoipSandboxChannelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApnsVoipSandboxChannelMapInput is an input type that accepts ApnsVoipSandboxChannelMap and ApnsVoipSandboxChannelMapOutput values.
@@ -352,6 +367,12 @@ func (i ApnsVoipSandboxChannelMap) ToApnsVoipSandboxChannelMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsVoipSandboxChannelMapOutput)
 }
 
+func (i ApnsVoipSandboxChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApnsVoipSandboxChannel] {
+	return pulumix.Output[map[string]*ApnsVoipSandboxChannel]{
+		OutputState: i.ToApnsVoipSandboxChannelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApnsVoipSandboxChannelOutput struct{ *pulumi.OutputState }
 
 func (ApnsVoipSandboxChannelOutput) ElementType() reflect.Type {
@@ -364,6 +385,12 @@ func (o ApnsVoipSandboxChannelOutput) ToApnsVoipSandboxChannelOutput() ApnsVoipS
 
 func (o ApnsVoipSandboxChannelOutput) ToApnsVoipSandboxChannelOutputWithContext(ctx context.Context) ApnsVoipSandboxChannelOutput {
 	return o
+}
+
+func (o ApnsVoipSandboxChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*ApnsVoipSandboxChannel] {
+	return pulumix.Output[*ApnsVoipSandboxChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The application ID.
@@ -434,6 +461,12 @@ func (o ApnsVoipSandboxChannelArrayOutput) ToApnsVoipSandboxChannelArrayOutputWi
 	return o
 }
 
+func (o ApnsVoipSandboxChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApnsVoipSandboxChannel] {
+	return pulumix.Output[[]*ApnsVoipSandboxChannel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApnsVoipSandboxChannelArrayOutput) Index(i pulumi.IntInput) ApnsVoipSandboxChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApnsVoipSandboxChannel {
 		return vs[0].([]*ApnsVoipSandboxChannel)[vs[1].(int)]
@@ -452,6 +485,12 @@ func (o ApnsVoipSandboxChannelMapOutput) ToApnsVoipSandboxChannelMapOutput() Apn
 
 func (o ApnsVoipSandboxChannelMapOutput) ToApnsVoipSandboxChannelMapOutputWithContext(ctx context.Context) ApnsVoipSandboxChannelMapOutput {
 	return o
+}
+
+func (o ApnsVoipSandboxChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApnsVoipSandboxChannel] {
+	return pulumix.Output[map[string]*ApnsVoipSandboxChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApnsVoipSandboxChannelMapOutput) MapIndex(k pulumi.StringInput) ApnsVoipSandboxChannelOutput {

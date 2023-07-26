@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Lambda Function Association. For more information see
@@ -72,6 +74,7 @@ func NewLambdaFunctionAssociation(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LambdaFunctionAssociation
 	err := ctx.RegisterResource("aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -149,6 +152,12 @@ func (i *LambdaFunctionAssociation) ToLambdaFunctionAssociationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(LambdaFunctionAssociationOutput)
 }
 
+func (i *LambdaFunctionAssociation) ToOutput(ctx context.Context) pulumix.Output[*LambdaFunctionAssociation] {
+	return pulumix.Output[*LambdaFunctionAssociation]{
+		OutputState: i.ToLambdaFunctionAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LambdaFunctionAssociationArrayInput is an input type that accepts LambdaFunctionAssociationArray and LambdaFunctionAssociationArrayOutput values.
 // You can construct a concrete instance of `LambdaFunctionAssociationArrayInput` via:
 //
@@ -172,6 +181,12 @@ func (i LambdaFunctionAssociationArray) ToLambdaFunctionAssociationArrayOutput()
 
 func (i LambdaFunctionAssociationArray) ToLambdaFunctionAssociationArrayOutputWithContext(ctx context.Context) LambdaFunctionAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LambdaFunctionAssociationArrayOutput)
+}
+
+func (i LambdaFunctionAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LambdaFunctionAssociation] {
+	return pulumix.Output[[]*LambdaFunctionAssociation]{
+		OutputState: i.ToLambdaFunctionAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LambdaFunctionAssociationMapInput is an input type that accepts LambdaFunctionAssociationMap and LambdaFunctionAssociationMapOutput values.
@@ -199,6 +214,12 @@ func (i LambdaFunctionAssociationMap) ToLambdaFunctionAssociationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(LambdaFunctionAssociationMapOutput)
 }
 
+func (i LambdaFunctionAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LambdaFunctionAssociation] {
+	return pulumix.Output[map[string]*LambdaFunctionAssociation]{
+		OutputState: i.ToLambdaFunctionAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LambdaFunctionAssociationOutput struct{ *pulumi.OutputState }
 
 func (LambdaFunctionAssociationOutput) ElementType() reflect.Type {
@@ -211,6 +232,12 @@ func (o LambdaFunctionAssociationOutput) ToLambdaFunctionAssociationOutput() Lam
 
 func (o LambdaFunctionAssociationOutput) ToLambdaFunctionAssociationOutputWithContext(ctx context.Context) LambdaFunctionAssociationOutput {
 	return o
+}
+
+func (o LambdaFunctionAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*LambdaFunctionAssociation] {
+	return pulumix.Output[*LambdaFunctionAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
@@ -237,6 +264,12 @@ func (o LambdaFunctionAssociationArrayOutput) ToLambdaFunctionAssociationArrayOu
 	return o
 }
 
+func (o LambdaFunctionAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LambdaFunctionAssociation] {
+	return pulumix.Output[[]*LambdaFunctionAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LambdaFunctionAssociationArrayOutput) Index(i pulumi.IntInput) LambdaFunctionAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LambdaFunctionAssociation {
 		return vs[0].([]*LambdaFunctionAssociation)[vs[1].(int)]
@@ -255,6 +288,12 @@ func (o LambdaFunctionAssociationMapOutput) ToLambdaFunctionAssociationMapOutput
 
 func (o LambdaFunctionAssociationMapOutput) ToLambdaFunctionAssociationMapOutputWithContext(ctx context.Context) LambdaFunctionAssociationMapOutput {
 	return o
+}
+
+func (o LambdaFunctionAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LambdaFunctionAssociation] {
+	return pulumix.Output[map[string]*LambdaFunctionAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LambdaFunctionAssociationMapOutput) MapIndex(k pulumi.StringInput) LambdaFunctionAssociationOutput {

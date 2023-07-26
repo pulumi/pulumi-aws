@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about IAM access keys of a
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetAccessKeys(ctx *pulumi.Context, args *GetAccessKeysArgs, opts ...pulumi.InvokeOption) (*GetAccessKeysResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccessKeysResult
 	err := ctx.Invoke("aws:iam/getAccessKeys:getAccessKeys", args, &rv, opts...)
 	if err != nil {
@@ -98,6 +101,12 @@ func (o GetAccessKeysResultOutput) ToGetAccessKeysResultOutput() GetAccessKeysRe
 
 func (o GetAccessKeysResultOutput) ToGetAccessKeysResultOutputWithContext(ctx context.Context) GetAccessKeysResultOutput {
 	return o
+}
+
+func (o GetAccessKeysResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccessKeysResult] {
+	return pulumix.Output[GetAccessKeysResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of the IAM access keys associated with the specified user. See below.

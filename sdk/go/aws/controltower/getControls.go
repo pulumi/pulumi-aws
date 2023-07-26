@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // List of Control Tower controls applied to an OU.
@@ -49,6 +51,7 @@ import (
 //
 // ```
 func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.InvokeOption) (*GetControlsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetControlsResult
 	err := ctx.Invoke("aws:controltower/getControls:getControls", args, &rv, opts...)
 	if err != nil {
@@ -108,6 +111,12 @@ func (o GetControlsResultOutput) ToGetControlsResultOutput() GetControlsResultOu
 
 func (o GetControlsResultOutput) ToGetControlsResultOutputWithContext(ctx context.Context) GetControlsResultOutput {
 	return o
+}
+
+func (o GetControlsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetControlsResult] {
+	return pulumix.Output[GetControlsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of all the ARNs for the controls applied to the `targetIdentifier`.

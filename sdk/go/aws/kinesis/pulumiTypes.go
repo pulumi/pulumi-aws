@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AnalyticsApplicationCloudwatchLoggingOptions struct {
 	// The ARN of the Kinesis Analytics Application.
@@ -49,6 +53,12 @@ func (i AnalyticsApplicationCloudwatchLoggingOptionsArgs) ToAnalyticsApplication
 
 func (i AnalyticsApplicationCloudwatchLoggingOptionsArgs) ToAnalyticsApplicationCloudwatchLoggingOptionsOutputWithContext(ctx context.Context) AnalyticsApplicationCloudwatchLoggingOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationCloudwatchLoggingOptionsOutput)
+}
+
+func (i AnalyticsApplicationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationCloudwatchLoggingOptions] {
+	return pulumix.Output[AnalyticsApplicationCloudwatchLoggingOptions]{
+		OutputState: i.ToAnalyticsApplicationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AnalyticsApplicationCloudwatchLoggingOptionsArgs) ToAnalyticsApplicationCloudwatchLoggingOptionsPtrOutput() AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput {
@@ -92,6 +102,12 @@ func (i *analyticsApplicationCloudwatchLoggingOptionsPtrType) ToAnalyticsApplica
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (i *analyticsApplicationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationCloudwatchLoggingOptions] {
+	return pulumix.Output[*AnalyticsApplicationCloudwatchLoggingOptions]{
+		OutputState: i.ToAnalyticsApplicationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -114,6 +130,12 @@ func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) ToAnalyticsApplicati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationCloudwatchLoggingOptions) *AnalyticsApplicationCloudwatchLoggingOptions {
 		return &v
 	}).(AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationCloudwatchLoggingOptions] {
+	return pulumix.Output[AnalyticsApplicationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Kinesis Analytics Application.
@@ -143,6 +165,12 @@ func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) ToAnalyticsApplic
 
 func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) ToAnalyticsApplicationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationCloudwatchLoggingOptions] {
+	return pulumix.Output[*AnalyticsApplicationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) Elem() AnalyticsApplicationCloudwatchLoggingOptionsOutput {
@@ -258,6 +286,12 @@ func (i AnalyticsApplicationInputsArgs) ToAnalyticsApplicationInputsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsOutput)
 }
 
+func (i AnalyticsApplicationInputsArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputs] {
+	return pulumix.Output[AnalyticsApplicationInputs]{
+		OutputState: i.ToAnalyticsApplicationInputsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationInputsArgs) ToAnalyticsApplicationInputsPtrOutput() AnalyticsApplicationInputsPtrOutput {
 	return i.ToAnalyticsApplicationInputsPtrOutputWithContext(context.Background())
 }
@@ -299,6 +333,12 @@ func (i *analyticsApplicationInputsPtrType) ToAnalyticsApplicationInputsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsPtrOutput)
 }
 
+func (i *analyticsApplicationInputsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputs] {
+	return pulumix.Output[*AnalyticsApplicationInputs]{
+		OutputState: i.ToAnalyticsApplicationInputsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsOutput) ElementType() reflect.Type {
@@ -321,6 +361,12 @@ func (o AnalyticsApplicationInputsOutput) ToAnalyticsApplicationInputsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputs) *AnalyticsApplicationInputs {
 		return &v
 	}).(AnalyticsApplicationInputsPtrOutput)
+}
+
+func (o AnalyticsApplicationInputsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputs] {
+	return pulumix.Output[AnalyticsApplicationInputs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Kinesis Analytics Application.
@@ -390,6 +436,12 @@ func (o AnalyticsApplicationInputsPtrOutput) ToAnalyticsApplicationInputsPtrOutp
 
 func (o AnalyticsApplicationInputsPtrOutput) ToAnalyticsApplicationInputsPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputs] {
+	return pulumix.Output[*AnalyticsApplicationInputs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsPtrOutput) Elem() AnalyticsApplicationInputsOutput {
@@ -533,6 +585,12 @@ func (i AnalyticsApplicationInputsKinesisFirehoseArgs) ToAnalyticsApplicationInp
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsKinesisFirehoseOutput)
 }
 
+func (i AnalyticsApplicationInputsKinesisFirehoseArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsKinesisFirehose] {
+	return pulumix.Output[AnalyticsApplicationInputsKinesisFirehose]{
+		OutputState: i.ToAnalyticsApplicationInputsKinesisFirehoseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationInputsKinesisFirehoseArgs) ToAnalyticsApplicationInputsKinesisFirehosePtrOutput() AnalyticsApplicationInputsKinesisFirehosePtrOutput {
 	return i.ToAnalyticsApplicationInputsKinesisFirehosePtrOutputWithContext(context.Background())
 }
@@ -574,6 +632,12 @@ func (i *analyticsApplicationInputsKinesisFirehosePtrType) ToAnalyticsApplicatio
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsKinesisFirehosePtrOutput)
 }
 
+func (i *analyticsApplicationInputsKinesisFirehosePtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsKinesisFirehose] {
+	return pulumix.Output[*AnalyticsApplicationInputsKinesisFirehose]{
+		OutputState: i.ToAnalyticsApplicationInputsKinesisFirehosePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsKinesisFirehoseOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsKinesisFirehoseOutput) ElementType() reflect.Type {
@@ -598,6 +662,12 @@ func (o AnalyticsApplicationInputsKinesisFirehoseOutput) ToAnalyticsApplicationI
 	}).(AnalyticsApplicationInputsKinesisFirehosePtrOutput)
 }
 
+func (o AnalyticsApplicationInputsKinesisFirehoseOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsKinesisFirehose] {
+	return pulumix.Output[AnalyticsApplicationInputsKinesisFirehose]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Kinesis Firehose delivery stream.
 func (o AnalyticsApplicationInputsKinesisFirehoseOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsKinesisFirehose) string { return v.ResourceArn }).(pulumi.StringOutput)
@@ -620,6 +690,12 @@ func (o AnalyticsApplicationInputsKinesisFirehosePtrOutput) ToAnalyticsApplicati
 
 func (o AnalyticsApplicationInputsKinesisFirehosePtrOutput) ToAnalyticsApplicationInputsKinesisFirehosePtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsKinesisFirehosePtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsKinesisFirehosePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsKinesisFirehose] {
+	return pulumix.Output[*AnalyticsApplicationInputsKinesisFirehose]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsKinesisFirehosePtrOutput) Elem() AnalyticsApplicationInputsKinesisFirehoseOutput {
@@ -689,6 +765,12 @@ func (i AnalyticsApplicationInputsKinesisStreamArgs) ToAnalyticsApplicationInput
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsKinesisStreamOutput)
 }
 
+func (i AnalyticsApplicationInputsKinesisStreamArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsKinesisStream] {
+	return pulumix.Output[AnalyticsApplicationInputsKinesisStream]{
+		OutputState: i.ToAnalyticsApplicationInputsKinesisStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationInputsKinesisStreamArgs) ToAnalyticsApplicationInputsKinesisStreamPtrOutput() AnalyticsApplicationInputsKinesisStreamPtrOutput {
 	return i.ToAnalyticsApplicationInputsKinesisStreamPtrOutputWithContext(context.Background())
 }
@@ -730,6 +812,12 @@ func (i *analyticsApplicationInputsKinesisStreamPtrType) ToAnalyticsApplicationI
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsKinesisStreamPtrOutput)
 }
 
+func (i *analyticsApplicationInputsKinesisStreamPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsKinesisStream] {
+	return pulumix.Output[*AnalyticsApplicationInputsKinesisStream]{
+		OutputState: i.ToAnalyticsApplicationInputsKinesisStreamPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsKinesisStreamOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsKinesisStreamOutput) ElementType() reflect.Type {
@@ -754,6 +842,12 @@ func (o AnalyticsApplicationInputsKinesisStreamOutput) ToAnalyticsApplicationInp
 	}).(AnalyticsApplicationInputsKinesisStreamPtrOutput)
 }
 
+func (o AnalyticsApplicationInputsKinesisStreamOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsKinesisStream] {
+	return pulumix.Output[AnalyticsApplicationInputsKinesisStream]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Kinesis Stream.
 func (o AnalyticsApplicationInputsKinesisStreamOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsKinesisStream) string { return v.ResourceArn }).(pulumi.StringOutput)
@@ -776,6 +870,12 @@ func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) ToAnalyticsApplication
 
 func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) ToAnalyticsApplicationInputsKinesisStreamPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsKinesisStreamPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsKinesisStream] {
+	return pulumix.Output[*AnalyticsApplicationInputsKinesisStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) Elem() AnalyticsApplicationInputsKinesisStreamOutput {
@@ -841,6 +941,12 @@ func (i AnalyticsApplicationInputsParallelismArgs) ToAnalyticsApplicationInputsP
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsParallelismOutput)
 }
 
+func (i AnalyticsApplicationInputsParallelismArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsParallelism] {
+	return pulumix.Output[AnalyticsApplicationInputsParallelism]{
+		OutputState: i.ToAnalyticsApplicationInputsParallelismOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationInputsParallelismArgs) ToAnalyticsApplicationInputsParallelismPtrOutput() AnalyticsApplicationInputsParallelismPtrOutput {
 	return i.ToAnalyticsApplicationInputsParallelismPtrOutputWithContext(context.Background())
 }
@@ -882,6 +988,12 @@ func (i *analyticsApplicationInputsParallelismPtrType) ToAnalyticsApplicationInp
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsParallelismPtrOutput)
 }
 
+func (i *analyticsApplicationInputsParallelismPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsParallelism] {
+	return pulumix.Output[*AnalyticsApplicationInputsParallelism]{
+		OutputState: i.ToAnalyticsApplicationInputsParallelismPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsParallelismOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsParallelismOutput) ElementType() reflect.Type {
@@ -906,6 +1018,12 @@ func (o AnalyticsApplicationInputsParallelismOutput) ToAnalyticsApplicationInput
 	}).(AnalyticsApplicationInputsParallelismPtrOutput)
 }
 
+func (o AnalyticsApplicationInputsParallelismOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsParallelism] {
+	return pulumix.Output[AnalyticsApplicationInputsParallelism]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Count of streams.
 func (o AnalyticsApplicationInputsParallelismOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsParallelism) *int { return v.Count }).(pulumi.IntPtrOutput)
@@ -923,6 +1041,12 @@ func (o AnalyticsApplicationInputsParallelismPtrOutput) ToAnalyticsApplicationIn
 
 func (o AnalyticsApplicationInputsParallelismPtrOutput) ToAnalyticsApplicationInputsParallelismPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsParallelismPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsParallelismPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsParallelism] {
+	return pulumix.Output[*AnalyticsApplicationInputsParallelism]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsParallelismPtrOutput) Elem() AnalyticsApplicationInputsParallelismOutput {
@@ -978,6 +1102,12 @@ func (i AnalyticsApplicationInputsProcessingConfigurationArgs) ToAnalyticsApplic
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsProcessingConfigurationOutput)
 }
 
+func (i AnalyticsApplicationInputsProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsProcessingConfiguration] {
+	return pulumix.Output[AnalyticsApplicationInputsProcessingConfiguration]{
+		OutputState: i.ToAnalyticsApplicationInputsProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationInputsProcessingConfigurationArgs) ToAnalyticsApplicationInputsProcessingConfigurationPtrOutput() AnalyticsApplicationInputsProcessingConfigurationPtrOutput {
 	return i.ToAnalyticsApplicationInputsProcessingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1019,6 +1149,12 @@ func (i *analyticsApplicationInputsProcessingConfigurationPtrType) ToAnalyticsAp
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsProcessingConfigurationPtrOutput)
 }
 
+func (i *analyticsApplicationInputsProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsProcessingConfiguration] {
+	return pulumix.Output[*AnalyticsApplicationInputsProcessingConfiguration]{
+		OutputState: i.ToAnalyticsApplicationInputsProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsProcessingConfigurationOutput) ElementType() reflect.Type {
@@ -1043,6 +1179,12 @@ func (o AnalyticsApplicationInputsProcessingConfigurationOutput) ToAnalyticsAppl
 	}).(AnalyticsApplicationInputsProcessingConfigurationPtrOutput)
 }
 
+func (o AnalyticsApplicationInputsProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsProcessingConfiguration] {
+	return pulumix.Output[AnalyticsApplicationInputsProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Lambda function configuration. See Lambda below for more details.
 func (o AnalyticsApplicationInputsProcessingConfigurationOutput) Lambda() AnalyticsApplicationInputsProcessingConfigurationLambdaOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsProcessingConfiguration) AnalyticsApplicationInputsProcessingConfigurationLambda {
@@ -1062,6 +1204,12 @@ func (o AnalyticsApplicationInputsProcessingConfigurationPtrOutput) ToAnalyticsA
 
 func (o AnalyticsApplicationInputsProcessingConfigurationPtrOutput) ToAnalyticsApplicationInputsProcessingConfigurationPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsProcessingConfigurationPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsProcessingConfiguration] {
+	return pulumix.Output[*AnalyticsApplicationInputsProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsProcessingConfigurationPtrOutput) Elem() AnalyticsApplicationInputsProcessingConfigurationOutput {
@@ -1121,6 +1269,12 @@ func (i AnalyticsApplicationInputsProcessingConfigurationLambdaArgs) ToAnalytics
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsProcessingConfigurationLambdaOutput)
 }
 
+func (i AnalyticsApplicationInputsProcessingConfigurationLambdaArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsProcessingConfigurationLambda] {
+	return pulumix.Output[AnalyticsApplicationInputsProcessingConfigurationLambda]{
+		OutputState: i.ToAnalyticsApplicationInputsProcessingConfigurationLambdaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationInputsProcessingConfigurationLambdaArgs) ToAnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput() AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput {
 	return i.ToAnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutputWithContext(context.Background())
 }
@@ -1162,6 +1316,12 @@ func (i *analyticsApplicationInputsProcessingConfigurationLambdaPtrType) ToAnaly
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput)
 }
 
+func (i *analyticsApplicationInputsProcessingConfigurationLambdaPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsProcessingConfigurationLambda] {
+	return pulumix.Output[*AnalyticsApplicationInputsProcessingConfigurationLambda]{
+		OutputState: i.ToAnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsProcessingConfigurationLambdaOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ElementType() reflect.Type {
@@ -1186,6 +1346,12 @@ func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ToAnalyti
 	}).(AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput)
 }
 
+func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsProcessingConfigurationLambda] {
+	return pulumix.Output[AnalyticsApplicationInputsProcessingConfigurationLambda]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Lambda function.
 func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsProcessingConfigurationLambda) string { return v.ResourceArn }).(pulumi.StringOutput)
@@ -1208,6 +1374,12 @@ func (o AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput) ToAnal
 
 func (o AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput) ToAnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsProcessingConfigurationLambda] {
+	return pulumix.Output[*AnalyticsApplicationInputsProcessingConfigurationLambda]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput) Elem() AnalyticsApplicationInputsProcessingConfigurationLambdaOutput {
@@ -1285,6 +1457,12 @@ func (i AnalyticsApplicationInputsSchemaArgs) ToAnalyticsApplicationInputsSchema
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaOutput)
 }
 
+func (i AnalyticsApplicationInputsSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchema] {
+	return pulumix.Output[AnalyticsApplicationInputsSchema]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationInputsSchemaArgs) ToAnalyticsApplicationInputsSchemaPtrOutput() AnalyticsApplicationInputsSchemaPtrOutput {
 	return i.ToAnalyticsApplicationInputsSchemaPtrOutputWithContext(context.Background())
 }
@@ -1326,6 +1504,12 @@ func (i *analyticsApplicationInputsSchemaPtrType) ToAnalyticsApplicationInputsSc
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaPtrOutput)
 }
 
+func (i *analyticsApplicationInputsSchemaPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsSchema] {
+	return pulumix.Output[*AnalyticsApplicationInputsSchema]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsSchemaOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsSchemaOutput) ElementType() reflect.Type {
@@ -1348,6 +1532,12 @@ func (o AnalyticsApplicationInputsSchemaOutput) ToAnalyticsApplicationInputsSche
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsSchema) *AnalyticsApplicationInputsSchema {
 		return &v
 	}).(AnalyticsApplicationInputsSchemaPtrOutput)
+}
+
+func (o AnalyticsApplicationInputsSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchema] {
+	return pulumix.Output[AnalyticsApplicationInputsSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Record Column mapping for the streaming source data element.
@@ -1383,6 +1573,12 @@ func (o AnalyticsApplicationInputsSchemaPtrOutput) ToAnalyticsApplicationInputsS
 
 func (o AnalyticsApplicationInputsSchemaPtrOutput) ToAnalyticsApplicationInputsSchemaPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsSchema] {
+	return pulumix.Output[*AnalyticsApplicationInputsSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsSchemaPtrOutput) Elem() AnalyticsApplicationInputsSchemaOutput {
@@ -1468,6 +1664,12 @@ func (i AnalyticsApplicationInputsSchemaRecordColumnArgs) ToAnalyticsApplication
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordColumnOutput)
 }
 
+func (i AnalyticsApplicationInputsSchemaRecordColumnArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchemaRecordColumn] {
+	return pulumix.Output[AnalyticsApplicationInputsSchemaRecordColumn]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaRecordColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnalyticsApplicationInputsSchemaRecordColumnArrayInput is an input type that accepts AnalyticsApplicationInputsSchemaRecordColumnArray and AnalyticsApplicationInputsSchemaRecordColumnArrayOutput values.
 // You can construct a concrete instance of `AnalyticsApplicationInputsSchemaRecordColumnArrayInput` via:
 //
@@ -1493,6 +1695,12 @@ func (i AnalyticsApplicationInputsSchemaRecordColumnArray) ToAnalyticsApplicatio
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordColumnArrayOutput)
 }
 
+func (i AnalyticsApplicationInputsSchemaRecordColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]AnalyticsApplicationInputsSchemaRecordColumn] {
+	return pulumix.Output[[]AnalyticsApplicationInputsSchemaRecordColumn]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaRecordColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsSchemaRecordColumnOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsSchemaRecordColumnOutput) ElementType() reflect.Type {
@@ -1505,6 +1713,12 @@ func (o AnalyticsApplicationInputsSchemaRecordColumnOutput) ToAnalyticsApplicati
 
 func (o AnalyticsApplicationInputsSchemaRecordColumnOutput) ToAnalyticsApplicationInputsSchemaRecordColumnOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordColumnOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordColumnOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchemaRecordColumn] {
+	return pulumix.Output[AnalyticsApplicationInputsSchemaRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Mapping reference to the data element.
@@ -1534,6 +1748,12 @@ func (o AnalyticsApplicationInputsSchemaRecordColumnArrayOutput) ToAnalyticsAppl
 
 func (o AnalyticsApplicationInputsSchemaRecordColumnArrayOutput) ToAnalyticsApplicationInputsSchemaRecordColumnArrayOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordColumnArrayOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnalyticsApplicationInputsSchemaRecordColumn] {
+	return pulumix.Output[[]AnalyticsApplicationInputsSchemaRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsSchemaRecordColumnArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationInputsSchemaRecordColumnOutput {
@@ -1581,6 +1801,12 @@ func (i AnalyticsApplicationInputsSchemaRecordFormatArgs) ToAnalyticsApplication
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordFormatOutput)
 }
 
+func (i AnalyticsApplicationInputsSchemaRecordFormatArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormat] {
+	return pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormat]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaRecordFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationInputsSchemaRecordFormatArgs) ToAnalyticsApplicationInputsSchemaRecordFormatPtrOutput() AnalyticsApplicationInputsSchemaRecordFormatPtrOutput {
 	return i.ToAnalyticsApplicationInputsSchemaRecordFormatPtrOutputWithContext(context.Background())
 }
@@ -1622,6 +1848,12 @@ func (i *analyticsApplicationInputsSchemaRecordFormatPtrType) ToAnalyticsApplica
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordFormatPtrOutput)
 }
 
+func (i *analyticsApplicationInputsSchemaRecordFormatPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormat] {
+	return pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormat]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaRecordFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsSchemaRecordFormatOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsSchemaRecordFormatOutput) ElementType() reflect.Type {
@@ -1644,6 +1876,12 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatOutput) ToAnalyticsApplicati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsSchemaRecordFormat) *AnalyticsApplicationInputsSchemaRecordFormat {
 		return &v
 	}).(AnalyticsApplicationInputsSchemaRecordFormatPtrOutput)
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormat] {
+	return pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Mapping Information for the record format.
@@ -1671,6 +1909,12 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatPtrOutput) ToAnalyticsApplic
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatPtrOutput) ToAnalyticsApplicationInputsSchemaRecordFormatPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormat] {
+	return pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatPtrOutput) Elem() AnalyticsApplicationInputsSchemaRecordFormatOutput {
@@ -1745,6 +1989,12 @@ func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs) ToAna
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput)
 }
 
+func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParameters]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput {
 	return i.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -1786,6 +2036,12 @@ func (i *analyticsApplicationInputsSchemaRecordFormatMappingParametersPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput)
 }
 
+func (i *analyticsApplicationInputsSchemaRecordFormatMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParameters]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) ElementType() reflect.Type {
@@ -1808,6 +2064,12 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) ToA
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsSchemaRecordFormatMappingParameters) *AnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
 		return &v
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput)
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Mapping information when the record format uses delimiters.
@@ -1838,6 +2100,12 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput) 
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput) Elem() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput {
@@ -1909,6 +2177,12 @@ func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput)
 }
 
+func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv] {
+	return pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput {
 	return i.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutputWithContext(context.Background())
 }
@@ -1950,6 +2224,12 @@ func (i *analyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput)
 }
 
+func (i *analyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv] {
+	return pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) ElementType() reflect.Type {
@@ -1972,6 +2252,12 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv {
 		return &v
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput)
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv] {
+	return pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Column Delimiter.
@@ -2000,6 +2286,12 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutpu
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv] {
+	return pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput) Elem() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput {
@@ -2065,6 +2357,12 @@ func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput)
 }
 
+func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson] {
+	return pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput {
 	return i.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutputWithContext(context.Background())
 }
@@ -2106,6 +2404,12 @@ func (i *analyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput)
 }
 
+func (i *analyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson] {
+	return pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson]{
+		OutputState: i.ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput) ElementType() reflect.Type {
@@ -2130,6 +2434,12 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput)
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput)
 }
 
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson] {
+	return pulumix.Output[AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Path to the top-level parent that contains the records.
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson) string {
@@ -2149,6 +2459,12 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutp
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson] {
+	return pulumix.Output[*AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput) Elem() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput {
@@ -2204,6 +2520,12 @@ func (i AnalyticsApplicationInputsStartingPositionConfigurationArgs) ToAnalytics
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsStartingPositionConfigurationOutput)
 }
 
+func (i AnalyticsApplicationInputsStartingPositionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsStartingPositionConfiguration] {
+	return pulumix.Output[AnalyticsApplicationInputsStartingPositionConfiguration]{
+		OutputState: i.ToAnalyticsApplicationInputsStartingPositionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnalyticsApplicationInputsStartingPositionConfigurationArrayInput is an input type that accepts AnalyticsApplicationInputsStartingPositionConfigurationArray and AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput values.
 // You can construct a concrete instance of `AnalyticsApplicationInputsStartingPositionConfigurationArrayInput` via:
 //
@@ -2229,6 +2551,12 @@ func (i AnalyticsApplicationInputsStartingPositionConfigurationArray) ToAnalytic
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput)
 }
 
+func (i AnalyticsApplicationInputsStartingPositionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]AnalyticsApplicationInputsStartingPositionConfiguration] {
+	return pulumix.Output[[]AnalyticsApplicationInputsStartingPositionConfiguration]{
+		OutputState: i.ToAnalyticsApplicationInputsStartingPositionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationInputsStartingPositionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationInputsStartingPositionConfigurationOutput) ElementType() reflect.Type {
@@ -2241,6 +2569,12 @@ func (o AnalyticsApplicationInputsStartingPositionConfigurationOutput) ToAnalyti
 
 func (o AnalyticsApplicationInputsStartingPositionConfigurationOutput) ToAnalyticsApplicationInputsStartingPositionConfigurationOutputWithContext(ctx context.Context) AnalyticsApplicationInputsStartingPositionConfigurationOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsStartingPositionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationInputsStartingPositionConfiguration] {
+	return pulumix.Output[AnalyticsApplicationInputsStartingPositionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
@@ -2260,6 +2594,12 @@ func (o AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput) ToAn
 
 func (o AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput) ToAnalyticsApplicationInputsStartingPositionConfigurationArrayOutputWithContext(ctx context.Context) AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput {
 	return o
+}
+
+func (o AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnalyticsApplicationInputsStartingPositionConfiguration] {
+	return pulumix.Output[[]AnalyticsApplicationInputsStartingPositionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationInputsStartingPositionConfigurationArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationInputsStartingPositionConfigurationOutput {
@@ -2325,6 +2665,12 @@ func (i AnalyticsApplicationOutputTypeArgs) ToAnalyticsApplicationOutputTypeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputTypeOutput)
 }
 
+func (i AnalyticsApplicationOutputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationOutputType] {
+	return pulumix.Output[AnalyticsApplicationOutputType]{
+		OutputState: i.ToAnalyticsApplicationOutputTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnalyticsApplicationOutputTypeArrayInput is an input type that accepts AnalyticsApplicationOutputTypeArray and AnalyticsApplicationOutputTypeArrayOutput values.
 // You can construct a concrete instance of `AnalyticsApplicationOutputTypeArrayInput` via:
 //
@@ -2350,6 +2696,12 @@ func (i AnalyticsApplicationOutputTypeArray) ToAnalyticsApplicationOutputTypeArr
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputTypeArrayOutput)
 }
 
+func (i AnalyticsApplicationOutputTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]AnalyticsApplicationOutputType] {
+	return pulumix.Output[[]AnalyticsApplicationOutputType]{
+		OutputState: i.ToAnalyticsApplicationOutputTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationOutputTypeOutput) ElementType() reflect.Type {
@@ -2362,6 +2714,12 @@ func (o AnalyticsApplicationOutputTypeOutput) ToAnalyticsApplicationOutputTypeOu
 
 func (o AnalyticsApplicationOutputTypeOutput) ToAnalyticsApplicationOutputTypeOutputWithContext(ctx context.Context) AnalyticsApplicationOutputTypeOutput {
 	return o
+}
+
+func (o AnalyticsApplicationOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationOutputType] {
+	return pulumix.Output[AnalyticsApplicationOutputType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Kinesis Analytics Application.
@@ -2414,6 +2772,12 @@ func (o AnalyticsApplicationOutputTypeArrayOutput) ToAnalyticsApplicationOutputT
 	return o
 }
 
+func (o AnalyticsApplicationOutputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnalyticsApplicationOutputType] {
+	return pulumix.Output[[]AnalyticsApplicationOutputType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AnalyticsApplicationOutputTypeArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationOutputTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyticsApplicationOutputType {
 		return vs[0].([]AnalyticsApplicationOutputType)[vs[1].(int)]
@@ -2457,6 +2821,12 @@ func (i AnalyticsApplicationOutputKinesisFirehoseArgs) ToAnalyticsApplicationOut
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputKinesisFirehoseOutput)
 }
 
+func (i AnalyticsApplicationOutputKinesisFirehoseArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationOutputKinesisFirehose] {
+	return pulumix.Output[AnalyticsApplicationOutputKinesisFirehose]{
+		OutputState: i.ToAnalyticsApplicationOutputKinesisFirehoseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationOutputKinesisFirehoseArgs) ToAnalyticsApplicationOutputKinesisFirehosePtrOutput() AnalyticsApplicationOutputKinesisFirehosePtrOutput {
 	return i.ToAnalyticsApplicationOutputKinesisFirehosePtrOutputWithContext(context.Background())
 }
@@ -2498,6 +2868,12 @@ func (i *analyticsApplicationOutputKinesisFirehosePtrType) ToAnalyticsApplicatio
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputKinesisFirehosePtrOutput)
 }
 
+func (i *analyticsApplicationOutputKinesisFirehosePtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationOutputKinesisFirehose] {
+	return pulumix.Output[*AnalyticsApplicationOutputKinesisFirehose]{
+		OutputState: i.ToAnalyticsApplicationOutputKinesisFirehosePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationOutputKinesisFirehoseOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationOutputKinesisFirehoseOutput) ElementType() reflect.Type {
@@ -2522,6 +2898,12 @@ func (o AnalyticsApplicationOutputKinesisFirehoseOutput) ToAnalyticsApplicationO
 	}).(AnalyticsApplicationOutputKinesisFirehosePtrOutput)
 }
 
+func (o AnalyticsApplicationOutputKinesisFirehoseOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationOutputKinesisFirehose] {
+	return pulumix.Output[AnalyticsApplicationOutputKinesisFirehose]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Kinesis Firehose delivery stream.
 func (o AnalyticsApplicationOutputKinesisFirehoseOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputKinesisFirehose) string { return v.ResourceArn }).(pulumi.StringOutput)
@@ -2544,6 +2926,12 @@ func (o AnalyticsApplicationOutputKinesisFirehosePtrOutput) ToAnalyticsApplicati
 
 func (o AnalyticsApplicationOutputKinesisFirehosePtrOutput) ToAnalyticsApplicationOutputKinesisFirehosePtrOutputWithContext(ctx context.Context) AnalyticsApplicationOutputKinesisFirehosePtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationOutputKinesisFirehosePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationOutputKinesisFirehose] {
+	return pulumix.Output[*AnalyticsApplicationOutputKinesisFirehose]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationOutputKinesisFirehosePtrOutput) Elem() AnalyticsApplicationOutputKinesisFirehoseOutput {
@@ -2613,6 +3001,12 @@ func (i AnalyticsApplicationOutputKinesisStreamArgs) ToAnalyticsApplicationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputKinesisStreamOutput)
 }
 
+func (i AnalyticsApplicationOutputKinesisStreamArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationOutputKinesisStream] {
+	return pulumix.Output[AnalyticsApplicationOutputKinesisStream]{
+		OutputState: i.ToAnalyticsApplicationOutputKinesisStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationOutputKinesisStreamArgs) ToAnalyticsApplicationOutputKinesisStreamPtrOutput() AnalyticsApplicationOutputKinesisStreamPtrOutput {
 	return i.ToAnalyticsApplicationOutputKinesisStreamPtrOutputWithContext(context.Background())
 }
@@ -2654,6 +3048,12 @@ func (i *analyticsApplicationOutputKinesisStreamPtrType) ToAnalyticsApplicationO
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputKinesisStreamPtrOutput)
 }
 
+func (i *analyticsApplicationOutputKinesisStreamPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationOutputKinesisStream] {
+	return pulumix.Output[*AnalyticsApplicationOutputKinesisStream]{
+		OutputState: i.ToAnalyticsApplicationOutputKinesisStreamPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationOutputKinesisStreamOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationOutputKinesisStreamOutput) ElementType() reflect.Type {
@@ -2678,6 +3078,12 @@ func (o AnalyticsApplicationOutputKinesisStreamOutput) ToAnalyticsApplicationOut
 	}).(AnalyticsApplicationOutputKinesisStreamPtrOutput)
 }
 
+func (o AnalyticsApplicationOutputKinesisStreamOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationOutputKinesisStream] {
+	return pulumix.Output[AnalyticsApplicationOutputKinesisStream]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Kinesis Stream.
 func (o AnalyticsApplicationOutputKinesisStreamOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputKinesisStream) string { return v.ResourceArn }).(pulumi.StringOutput)
@@ -2700,6 +3106,12 @@ func (o AnalyticsApplicationOutputKinesisStreamPtrOutput) ToAnalyticsApplication
 
 func (o AnalyticsApplicationOutputKinesisStreamPtrOutput) ToAnalyticsApplicationOutputKinesisStreamPtrOutputWithContext(ctx context.Context) AnalyticsApplicationOutputKinesisStreamPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationOutputKinesisStreamPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationOutputKinesisStream] {
+	return pulumix.Output[*AnalyticsApplicationOutputKinesisStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationOutputKinesisStreamPtrOutput) Elem() AnalyticsApplicationOutputKinesisStreamOutput {
@@ -2769,6 +3181,12 @@ func (i AnalyticsApplicationOutputLambdaArgs) ToAnalyticsApplicationOutputLambda
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputLambdaOutput)
 }
 
+func (i AnalyticsApplicationOutputLambdaArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationOutputLambda] {
+	return pulumix.Output[AnalyticsApplicationOutputLambda]{
+		OutputState: i.ToAnalyticsApplicationOutputLambdaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationOutputLambdaArgs) ToAnalyticsApplicationOutputLambdaPtrOutput() AnalyticsApplicationOutputLambdaPtrOutput {
 	return i.ToAnalyticsApplicationOutputLambdaPtrOutputWithContext(context.Background())
 }
@@ -2810,6 +3228,12 @@ func (i *analyticsApplicationOutputLambdaPtrType) ToAnalyticsApplicationOutputLa
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputLambdaPtrOutput)
 }
 
+func (i *analyticsApplicationOutputLambdaPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationOutputLambda] {
+	return pulumix.Output[*AnalyticsApplicationOutputLambda]{
+		OutputState: i.ToAnalyticsApplicationOutputLambdaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationOutputLambdaOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationOutputLambdaOutput) ElementType() reflect.Type {
@@ -2834,6 +3258,12 @@ func (o AnalyticsApplicationOutputLambdaOutput) ToAnalyticsApplicationOutputLamb
 	}).(AnalyticsApplicationOutputLambdaPtrOutput)
 }
 
+func (o AnalyticsApplicationOutputLambdaOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationOutputLambda] {
+	return pulumix.Output[AnalyticsApplicationOutputLambda]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Lambda function.
 func (o AnalyticsApplicationOutputLambdaOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationOutputLambda) string { return v.ResourceArn }).(pulumi.StringOutput)
@@ -2856,6 +3286,12 @@ func (o AnalyticsApplicationOutputLambdaPtrOutput) ToAnalyticsApplicationOutputL
 
 func (o AnalyticsApplicationOutputLambdaPtrOutput) ToAnalyticsApplicationOutputLambdaPtrOutputWithContext(ctx context.Context) AnalyticsApplicationOutputLambdaPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationOutputLambdaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationOutputLambda] {
+	return pulumix.Output[*AnalyticsApplicationOutputLambda]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationOutputLambdaPtrOutput) Elem() AnalyticsApplicationOutputLambdaOutput {
@@ -2921,6 +3357,12 @@ func (i AnalyticsApplicationOutputSchemaArgs) ToAnalyticsApplicationOutputSchema
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationOutputSchemaOutput)
 }
 
+func (i AnalyticsApplicationOutputSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationOutputSchema] {
+	return pulumix.Output[AnalyticsApplicationOutputSchema]{
+		OutputState: i.ToAnalyticsApplicationOutputSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationOutputSchemaOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationOutputSchemaOutput) ElementType() reflect.Type {
@@ -2933,6 +3375,12 @@ func (o AnalyticsApplicationOutputSchemaOutput) ToAnalyticsApplicationOutputSche
 
 func (o AnalyticsApplicationOutputSchemaOutput) ToAnalyticsApplicationOutputSchemaOutputWithContext(ctx context.Context) AnalyticsApplicationOutputSchemaOutput {
 	return o
+}
+
+func (o AnalyticsApplicationOutputSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationOutputSchema] {
+	return pulumix.Output[AnalyticsApplicationOutputSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
@@ -2985,6 +3433,12 @@ func (i AnalyticsApplicationReferenceDataSourcesArgs) ToAnalyticsApplicationRefe
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesOutput)
 }
 
+func (i AnalyticsApplicationReferenceDataSourcesArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSources] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSources]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationReferenceDataSourcesArgs) ToAnalyticsApplicationReferenceDataSourcesPtrOutput() AnalyticsApplicationReferenceDataSourcesPtrOutput {
 	return i.ToAnalyticsApplicationReferenceDataSourcesPtrOutputWithContext(context.Background())
 }
@@ -3026,6 +3480,12 @@ func (i *analyticsApplicationReferenceDataSourcesPtrType) ToAnalyticsApplication
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesPtrOutput)
 }
 
+func (i *analyticsApplicationReferenceDataSourcesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSources] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSources]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationReferenceDataSourcesOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationReferenceDataSourcesOutput) ElementType() reflect.Type {
@@ -3048,6 +3508,12 @@ func (o AnalyticsApplicationReferenceDataSourcesOutput) ToAnalyticsApplicationRe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSources) *AnalyticsApplicationReferenceDataSources {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesPtrOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSources] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSources]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Kinesis Analytics Application.
@@ -3086,6 +3552,12 @@ func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) ToAnalyticsApplicatio
 
 func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) ToAnalyticsApplicationReferenceDataSourcesPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSources] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSources]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesOutput {
@@ -3179,6 +3651,12 @@ func (i AnalyticsApplicationReferenceDataSourcesS3Args) ToAnalyticsApplicationRe
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesS3Output)
 }
 
+func (i AnalyticsApplicationReferenceDataSourcesS3Args) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesS3] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesS3]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationReferenceDataSourcesS3Args) ToAnalyticsApplicationReferenceDataSourcesS3PtrOutput() AnalyticsApplicationReferenceDataSourcesS3PtrOutput {
 	return i.ToAnalyticsApplicationReferenceDataSourcesS3PtrOutputWithContext(context.Background())
 }
@@ -3220,6 +3698,12 @@ func (i *analyticsApplicationReferenceDataSourcesS3PtrType) ToAnalyticsApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesS3PtrOutput)
 }
 
+func (i *analyticsApplicationReferenceDataSourcesS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesS3] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesS3]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationReferenceDataSourcesS3Output struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationReferenceDataSourcesS3Output) ElementType() reflect.Type {
@@ -3242,6 +3726,12 @@ func (o AnalyticsApplicationReferenceDataSourcesS3Output) ToAnalyticsApplication
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSourcesS3) *AnalyticsApplicationReferenceDataSourcesS3 {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesS3PtrOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesS3Output) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesS3] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The S3 Bucket ARN.
@@ -3271,6 +3761,12 @@ func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) ToAnalyticsApplicat
 
 func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) ToAnalyticsApplicationReferenceDataSourcesS3PtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesS3PtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesS3] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesS3Output {
@@ -3358,6 +3854,12 @@ func (i AnalyticsApplicationReferenceDataSourcesSchemaArgs) ToAnalyticsApplicati
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaOutput)
 }
 
+func (i AnalyticsApplicationReferenceDataSourcesSchemaArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchema] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchema]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationReferenceDataSourcesSchemaArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaPtrOutput() AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput {
 	return i.ToAnalyticsApplicationReferenceDataSourcesSchemaPtrOutputWithContext(context.Background())
 }
@@ -3399,6 +3901,12 @@ func (i *analyticsApplicationReferenceDataSourcesSchemaPtrType) ToAnalyticsAppli
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput)
 }
 
+func (i *analyticsApplicationReferenceDataSourcesSchemaPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchema] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchema]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationReferenceDataSourcesSchemaOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationReferenceDataSourcesSchemaOutput) ElementType() reflect.Type {
@@ -3421,6 +3929,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) ToAnalyticsApplica
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSourcesSchema) *AnalyticsApplicationReferenceDataSourcesSchema {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchema] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Record Column mapping for the streaming source data element.
@@ -3456,6 +3970,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) ToAnalyticsAppl
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchema] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchema]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesSchemaOutput {
@@ -3541,6 +4061,12 @@ func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs) ToAnalyt
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput)
 }
 
+func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayInput is an input type that accepts AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArray and AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput values.
 // You can construct a concrete instance of `AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayInput` via:
 //
@@ -3566,6 +4092,12 @@ func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArray) ToAnaly
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput)
 }
 
+func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn] {
+	return pulumix.Output[[]AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput) ElementType() reflect.Type {
@@ -3578,6 +4110,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput) ToAnal
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput {
 	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Mapping reference to the data element.
@@ -3607,6 +4145,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput) T
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput {
 	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn] {
+	return pulumix.Output[[]AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArrayOutput) Index(i pulumi.IntInput) AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnOutput {
@@ -3654,6 +4198,12 @@ func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs) ToAnalyt
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput)
 }
 
+func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput {
 	return i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutputWithContext(context.Background())
 }
@@ -3695,6 +4245,12 @@ func (i *analyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrType) ToAn
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput)
 }
 
+func (i *analyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) ElementType() reflect.Type {
@@ -3717,6 +4273,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) ToAnal
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Mapping Information for the record format.
@@ -3744,6 +4306,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput) ToA
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput {
@@ -3818,6 +4386,12 @@ func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput)
 }
 
+func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput {
 	return i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutputWithContext(context.Background())
 }
@@ -3859,6 +4433,12 @@ func (i *analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParame
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput)
 }
 
+func (i *analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput) ElementType() reflect.Type {
@@ -3881,6 +4461,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Mapping information when the record format uses delimiters.
@@ -3911,6 +4497,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput {
@@ -3982,6 +4574,12 @@ func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput)
 }
 
+func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput {
 	return i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutputWithContext(context.Background())
 }
@@ -4023,6 +4621,12 @@ func (i *analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParame
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput)
 }
 
+func (i *analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput) ElementType() reflect.Type {
@@ -4045,6 +4649,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput)
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Column Delimiter.
@@ -4073,6 +4683,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput {
@@ -4138,6 +4754,12 @@ func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput)
 }
 
+func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput {
 	return i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutputWithContext(context.Background())
 }
@@ -4179,6 +4801,12 @@ func (i *analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParame
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput)
 }
 
+func (i *analyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson]{
+		OutputState: i.ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput) ElementType() reflect.Type {
@@ -4203,6 +4831,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput)
 }
 
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson] {
+	return pulumix.Output[AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Path to the top-level parent that contains the records.
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson) string {
@@ -4222,6 +4856,12 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson] {
+	return pulumix.Output[*AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput {
@@ -4325,6 +4965,12 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationArgs) ToFirehoseDelivery
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamElasticsearchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamElasticsearchConfigurationArgs) ToFirehoseDeliveryStreamElasticsearchConfigurationPtrOutput() FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamElasticsearchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4366,6 +5012,12 @@ func (i *firehoseDeliveryStreamElasticsearchConfigurationPtrType) ToFirehoseDeli
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamElasticsearchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamElasticsearchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamElasticsearchConfigurationOutput) ElementType() reflect.Type {
@@ -4388,6 +5040,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) ToFirehoseDelive
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
@@ -4473,6 +5131,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) ToFirehoseDel
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) Elem() FirehoseDeliveryStreamElasticsearchConfigurationOutput {
@@ -4656,6 +5320,12 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput)
 }
 
+func (i FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return i.ToFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
 }
@@ -4697,6 +5367,12 @@ func (i *firehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOption
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -4719,6 +5395,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables the logging. Defaults to `false`.
@@ -4754,6 +5436,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput {
@@ -4833,6 +5521,12 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4874,6 +5568,12 @@ func (i *firehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutput) ElementType() reflect.Type {
@@ -4896,6 +5596,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables data processing.
@@ -4924,6 +5630,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutput {
@@ -4993,6 +5705,12 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput)
 }
 
+func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayInput` via:
 //
@@ -5018,6 +5736,12 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput) ElementType() reflect.Type {
@@ -5030,6 +5754,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Array of processor parameters. More details are given below
@@ -5058,6 +5788,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput {
@@ -5107,6 +5843,12 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput)
 }
 
+func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
 //
@@ -5132,6 +5874,12 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput) ElementType() reflect.Type {
@@ -5144,6 +5892,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
@@ -5174,6 +5928,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput {
@@ -5225,6 +5985,12 @@ func (i FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs) ToFirehos
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput)
 }
 
+func (i FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
 	return i.ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -5266,6 +6032,12 @@ func (i *firehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrType) ToFir
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig] {
+	return pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig]{
+		OutputState: i.ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) ElementType() reflect.Type {
@@ -5288,6 +6060,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) ToFireh
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
 		return &v
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig] {
+	return pulumix.Output[FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
@@ -5321,6 +6099,12 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) ToFi
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig] {
+	return pulumix.Output[*FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) Elem() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput {
@@ -5465,6 +6249,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationArgs) ToFirehoseDeliveryStr
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3Configuration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3Configuration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5506,6 +6296,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationPtrType) ToFirehoseDeliver
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3Configuration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3Configuration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationOutput) ElementType() reflect.Type {
@@ -5528,6 +6324,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) ToFirehoseDeliveryS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3Configuration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3Configuration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3Configuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the S3 bucket
@@ -5626,6 +6428,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) ToFirehoseDelive
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3Configuration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3Configuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationOutput {
@@ -5823,6 +6631,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArg
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
 }
@@ -5864,6 +6678,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPt
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -5886,6 +6706,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables the logging. Defaults to `false`.
@@ -5919,6 +6745,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtr
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput {
@@ -6006,6 +6838,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6047,6 +6885,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput) ElementType() reflect.Type {
@@ -6069,6 +6913,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
@@ -6111,6 +6961,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput {
@@ -6196,6 +7052,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6237,6 +7099,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput) ElementType() reflect.Type {
@@ -6261,6 +7129,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput)
 }
 
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Nested argument that specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. More details below.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput) Deserializer() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
@@ -6280,6 +7154,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput {
@@ -6339,6 +7219,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutputWithContext(context.Background())
 }
@@ -6380,6 +7266,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput) ElementType() reflect.Type {
@@ -6402,6 +7294,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Nested argument that specifies the native Hive / HCatalog JsonSerDe. More details below.
@@ -6430,6 +7328,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput {
@@ -6495,6 +7399,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutputWithContext(context.Background())
 }
@@ -6536,6 +7446,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput) ElementType() reflect.Type {
@@ -6560,6 +7476,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput)
 }
 
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput) TimestampFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe) []string {
@@ -6579,6 +7501,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput {
@@ -6642,6 +7570,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutputWithContext(context.Background())
 }
@@ -6683,6 +7617,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutput) ElementType() reflect.Type {
@@ -6705,6 +7645,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
@@ -6740,6 +7686,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutput {
@@ -6815,6 +7767,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6856,6 +7814,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput) ElementType() reflect.Type {
@@ -6880,6 +7844,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput)
 }
 
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Nested argument that specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. More details below.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput) Serializer() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer {
@@ -6899,6 +7869,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput {
@@ -6958,6 +7934,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutputWithContext(context.Background())
 }
@@ -6999,6 +7981,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput) ElementType() reflect.Type {
@@ -7021,6 +8009,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Nested argument that specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). More details below.
@@ -7049,6 +8043,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput {
@@ -7150,6 +8150,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutputWithContext(context.Background())
 }
@@ -7191,6 +8197,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) ElementType() reflect.Type {
@@ -7213,6 +8225,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
@@ -7297,6 +8315,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput {
@@ -7462,6 +8486,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutputWithContext(context.Background())
 }
@@ -7503,6 +8533,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput) ElementType() reflect.Type {
@@ -7525,6 +8561,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
@@ -7581,6 +8623,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput {
@@ -7706,6 +8754,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutputWithContext(context.Background())
 }
@@ -7747,6 +8801,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput) ElementType() reflect.Type {
@@ -7769,6 +8829,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
@@ -7825,6 +8891,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput {
@@ -7938,6 +9010,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(context.Background())
 }
@@ -7979,6 +9057,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput) ElementType() reflect.Type {
@@ -8001,6 +9085,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigur
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables dynamic partitioning. Defaults to `false`.
@@ -8031,6 +9121,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigur
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput {
@@ -8102,6 +9198,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -8143,6 +9245,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtr
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput) ElementType() reflect.Type {
@@ -8165,6 +9273,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables data processing.
@@ -8191,6 +9305,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrO
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput {
@@ -8260,6 +9380,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayInput` via:
 //
@@ -8285,6 +9411,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput) ElementType() reflect.Type {
@@ -8297,6 +9429,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Array of processor parameters. More details are given below
@@ -8325,6 +9463,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput {
@@ -8374,6 +9518,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
 //
@@ -8399,6 +9549,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput) ElementType() reflect.Type {
@@ -8411,6 +9567,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
@@ -8441,6 +9603,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput {
@@ -8522,6 +9690,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutputWithContext(context.Background())
 }
@@ -8563,6 +9737,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) ElementType() reflect.Type {
@@ -8585,6 +9765,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the S3 bucket
@@ -8656,6 +9842,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput {
@@ -8803,6 +9995,12 @@ func (i FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudw
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput)
 }
 
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
 }
@@ -8844,6 +10042,12 @@ func (i *firehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloud
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -8866,6 +10070,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudw
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables the logging. Defaults to `false`.
@@ -8901,6 +10111,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudw
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput {
@@ -9016,6 +10232,12 @@ func (i FirehoseDeliveryStreamHttpEndpointConfigurationArgs) ToFirehoseDeliveryS
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamHttpEndpointConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(context.Background())
 }
@@ -9057,6 +10279,12 @@ func (i *firehoseDeliveryStreamHttpEndpointConfigurationPtrType) ToFirehoseDeliv
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamHttpEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ElementType() reflect.Type {
@@ -9079,6 +10307,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ToFirehoseDeliver
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
@@ -9154,6 +10388,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) ToFirehoseDeli
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationOutput {
@@ -9317,6 +10557,12 @@ func (i FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsA
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput)
 }
 
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
 }
@@ -9358,6 +10604,12 @@ func (i *firehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -9380,6 +10632,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables the logging. Defaults to `false`.
@@ -9415,6 +10673,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsP
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput {
@@ -9494,6 +10758,12 @@ func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationAr
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -9535,6 +10805,12 @@ func (i *firehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput) ElementType() reflect.Type {
@@ -9557,6 +10833,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables data processing.
@@ -9583,6 +10865,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPt
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput {
@@ -9652,6 +10940,12 @@ func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput)
 }
 
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayInput` via:
 //
@@ -9677,6 +10971,12 @@ func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) ElementType() reflect.Type {
@@ -9689,6 +10989,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Array of processor parameters. More details are given below
@@ -9717,6 +11023,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput {
@@ -9766,6 +11078,12 @@ func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput)
 }
 
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
 //
@@ -9791,6 +11109,12 @@ func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ElementType() reflect.Type {
@@ -9803,6 +11127,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
@@ -9833,6 +11163,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput {
@@ -9878,6 +11214,12 @@ func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(context.Background())
 }
@@ -9919,6 +11261,12 @@ func (i *firehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrT
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput) ElementType() reflect.Type {
@@ -9941,6 +11289,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes the metadata sent to the HTTP endpoint destination. More details are given below
@@ -9969,6 +11323,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOu
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput {
@@ -10038,6 +11398,12 @@ func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommo
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput)
 }
 
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayInput is an input type that accepts FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArray and FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayInput` via:
 //
@@ -10063,6 +11429,12 @@ func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommo
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute] {
+	return pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute]{
+		OutputState: i.ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput) ElementType() reflect.Type {
@@ -10075,6 +11447,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommo
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute] {
+	return pulumix.Output[FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the HTTP endpoint common attribute.
@@ -10103,6 +11481,12 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommo
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute] {
+	return pulumix.Output[[]FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeOutput {
@@ -10148,6 +11532,12 @@ func (i FirehoseDeliveryStreamKinesisSourceConfigurationArgs) ToFirehoseDelivery
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamKinesisSourceConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamKinesisSourceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamKinesisSourceConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamKinesisSourceConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamKinesisSourceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamKinesisSourceConfigurationArgs) ToFirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput() FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamKinesisSourceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -10189,6 +11579,12 @@ func (i *firehoseDeliveryStreamKinesisSourceConfigurationPtrType) ToFirehoseDeli
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamKinesisSourceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamKinesisSourceConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamKinesisSourceConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamKinesisSourceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamKinesisSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamKinesisSourceConfigurationOutput) ElementType() reflect.Type {
@@ -10213,6 +11609,12 @@ func (o FirehoseDeliveryStreamKinesisSourceConfigurationOutput) ToFirehoseDelive
 	}).(FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput)
 }
 
+func (o FirehoseDeliveryStreamKinesisSourceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamKinesisSourceConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamKinesisSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The kinesis stream used as the source of the firehose delivery stream.
 func (o FirehoseDeliveryStreamKinesisSourceConfigurationOutput) KinesisStreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamKinesisSourceConfiguration) string { return v.KinesisStreamArn }).(pulumi.StringOutput)
@@ -10235,6 +11637,12 @@ func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) ToFirehoseDel
 
 func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) ToFirehoseDeliveryStreamKinesisSourceConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamKinesisSourceConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamKinesisSourceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) Elem() FirehoseDeliveryStreamKinesisSourceConfigurationOutput {
@@ -10348,6 +11756,12 @@ func (i FirehoseDeliveryStreamOpensearchConfigurationArgs) ToFirehoseDeliveryStr
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamOpensearchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamOpensearchConfigurationArgs) ToFirehoseDeliveryStreamOpensearchConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamOpensearchConfigurationPtrOutputWithContext(context.Background())
 }
@@ -10389,6 +11803,12 @@ func (i *firehoseDeliveryStreamOpensearchConfigurationPtrType) ToFirehoseDeliver
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamOpensearchConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamOpensearchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamOpensearchConfigurationOutput) ElementType() reflect.Type {
@@ -10411,6 +11831,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) ToFirehoseDeliveryS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamOpensearchConfiguration) *FirehoseDeliveryStreamOpensearchConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamOpensearchConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
@@ -10496,6 +11922,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) ToFirehoseDelive
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) ToFirehoseDeliveryStreamOpensearchConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationPtrOutput) Elem() FirehoseDeliveryStreamOpensearchConfigurationOutput {
@@ -10679,6 +12111,12 @@ func (i FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArg
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOutput)
 }
 
+func (i FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return i.ToFirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
 }
@@ -10720,6 +12158,12 @@ func (i *firehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPt
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -10742,6 +12186,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables the logging. Defaults to `false`.
@@ -10775,6 +12225,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtr
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsOutput {
@@ -10854,6 +12310,12 @@ func (i FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -10895,6 +12357,12 @@ func (i *firehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtr
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationOutput) ElementType() reflect.Type {
@@ -10917,6 +12385,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationOutp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration) *FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables data processing.
@@ -10943,6 +12417,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrO
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationOutput {
@@ -11012,6 +12492,12 @@ func (i FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutput)
 }
 
+func (i FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayInput` via:
 //
@@ -11037,6 +12523,12 @@ func (i FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutput) ElementType() reflect.Type {
@@ -11049,6 +12541,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Array of processor parameters. More details are given below
@@ -11077,6 +12575,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorOutput {
@@ -11126,6 +12630,12 @@ func (i FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutput)
 }
 
+func (i FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
 //
@@ -11151,6 +12661,12 @@ func (i FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutput) ElementType() reflect.Type {
@@ -11163,6 +12679,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
@@ -11193,6 +12715,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProc
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterOutput {
@@ -11244,6 +12772,12 @@ func (i FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs) ToFirehoseDe
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput)
 }
 
+func (i FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationVpcConfig] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationVpcConfig]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs) ToFirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput() FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput {
 	return i.ToFirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -11285,6 +12819,12 @@ func (i *firehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrType) ToFireho
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationVpcConfig] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationVpcConfig]{
+		OutputState: i.ToFirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput) ElementType() reflect.Type {
@@ -11307,6 +12847,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput) ToFirehose
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamOpensearchConfigurationVpcConfig) *FirehoseDeliveryStreamOpensearchConfigurationVpcConfig {
 		return &v
 	}).(FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationVpcConfig] {
+	return pulumix.Output[FirehoseDeliveryStreamOpensearchConfigurationVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
@@ -11340,6 +12886,12 @@ func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) ToFireh
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) ToFirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationVpcConfig] {
+	return pulumix.Output[*FirehoseDeliveryStreamOpensearchConfigurationVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamOpensearchConfigurationVpcConfigPtrOutput) Elem() FirehoseDeliveryStreamOpensearchConfigurationVpcConfigOutput {
@@ -11468,6 +13020,12 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationArgs) ToFirehoseDeliveryStrea
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamRedshiftConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamRedshiftConfigurationArgs) ToFirehoseDeliveryStreamRedshiftConfigurationPtrOutput() FirehoseDeliveryStreamRedshiftConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamRedshiftConfigurationPtrOutputWithContext(context.Background())
 }
@@ -11509,6 +13067,12 @@ func (i *firehoseDeliveryStreamRedshiftConfigurationPtrType) ToFirehoseDeliveryS
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamRedshiftConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamRedshiftConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamRedshiftConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamRedshiftConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamRedshiftConfigurationOutput) ElementType() reflect.Type {
@@ -11531,6 +13095,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) ToFirehoseDeliveryStr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamRedshiftConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The CloudWatch Logging Options for the delivery stream. More details are given below
@@ -11611,6 +13181,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) ToFirehoseDelivery
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) ToFirehoseDeliveryStreamRedshiftConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamRedshiftConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamRedshiftConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) Elem() FirehoseDeliveryStreamRedshiftConfigurationOutput {
@@ -11784,6 +13360,12 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput)
 }
 
+func (i FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return i.ToFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
 }
@@ -11825,6 +13407,12 @@ func (i *firehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrT
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -11847,6 +13435,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables the logging. Defaults to `false`.
@@ -11880,6 +13474,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOu
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput {
@@ -11959,6 +13559,12 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -12000,6 +13606,12 @@ func (i *firehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput) ElementType() reflect.Type {
@@ -12022,6 +13634,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables data processing.
@@ -12048,6 +13666,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOut
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput {
@@ -12117,6 +13741,12 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput)
 }
 
+func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayInput` via:
 //
@@ -12142,6 +13772,12 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput) ElementType() reflect.Type {
@@ -12154,6 +13790,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Array of processor parameters. More details are given below
@@ -12182,6 +13824,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput {
@@ -12231,6 +13879,12 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput)
 }
 
+func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
 //
@@ -12256,6 +13910,12 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput) ElementType() reflect.Type {
@@ -12268,6 +13928,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
@@ -12298,6 +13964,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput {
@@ -12379,6 +14051,12 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs) ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutputWithContext(context.Background())
 }
@@ -12420,6 +14098,12 @@ func (i *firehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) ElementType() reflect.Type {
@@ -12442,6 +14126,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the S3 bucket
@@ -12511,6 +14201,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) Elem() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput {
@@ -12658,6 +14354,12 @@ func (i FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwat
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput)
 }
 
+func (i FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return i.ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
 }
@@ -12699,6 +14401,12 @@ func (i *firehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwa
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -12721,6 +14429,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables the logging. Defaults to `false`.
@@ -12756,6 +14470,12 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwat
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput {
@@ -12871,6 +14591,12 @@ func (i FirehoseDeliveryStreamS3ConfigurationArgs) ToFirehoseDeliveryStreamS3Con
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamS3ConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamS3ConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamS3Configuration] {
+	return pulumix.Output[FirehoseDeliveryStreamS3Configuration]{
+		OutputState: i.ToFirehoseDeliveryStreamS3ConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamS3ConfigurationArgs) ToFirehoseDeliveryStreamS3ConfigurationPtrOutput() FirehoseDeliveryStreamS3ConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamS3ConfigurationPtrOutputWithContext(context.Background())
 }
@@ -12912,6 +14638,12 @@ func (i *firehoseDeliveryStreamS3ConfigurationPtrType) ToFirehoseDeliveryStreamS
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamS3ConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamS3ConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamS3Configuration] {
+	return pulumix.Output[*FirehoseDeliveryStreamS3Configuration]{
+		OutputState: i.ToFirehoseDeliveryStreamS3ConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamS3ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamS3ConfigurationOutput) ElementType() reflect.Type {
@@ -12934,6 +14666,12 @@ func (o FirehoseDeliveryStreamS3ConfigurationOutput) ToFirehoseDeliveryStreamS3C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamS3Configuration) *FirehoseDeliveryStreamS3Configuration {
 		return &v
 	}).(FirehoseDeliveryStreamS3ConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamS3ConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamS3Configuration] {
+	return pulumix.Output[FirehoseDeliveryStreamS3Configuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the S3 bucket
@@ -12999,6 +14737,12 @@ func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) ToFirehoseDeliveryStream
 
 func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) ToFirehoseDeliveryStreamS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamS3ConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamS3Configuration] {
+	return pulumix.Output[*FirehoseDeliveryStreamS3Configuration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) Elem() FirehoseDeliveryStreamS3ConfigurationOutput {
@@ -13146,6 +14890,12 @@ func (i FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs) ToFir
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput)
 }
 
+func (i FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return i.ToFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
 }
@@ -13187,6 +14937,12 @@ func (i *firehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -13209,6 +14965,12 @@ func (o FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput) ToF
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables the logging. Defaults to `false`.
@@ -13238,6 +15000,12 @@ func (o FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput) 
 
 func (o FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput {
@@ -13329,6 +15097,12 @@ func (i FirehoseDeliveryStreamServerSideEncryptionArgs) ToFirehoseDeliveryStream
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamServerSideEncryptionOutput)
 }
 
+func (i FirehoseDeliveryStreamServerSideEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamServerSideEncryption] {
+	return pulumix.Output[FirehoseDeliveryStreamServerSideEncryption]{
+		OutputState: i.ToFirehoseDeliveryStreamServerSideEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamServerSideEncryptionArgs) ToFirehoseDeliveryStreamServerSideEncryptionPtrOutput() FirehoseDeliveryStreamServerSideEncryptionPtrOutput {
 	return i.ToFirehoseDeliveryStreamServerSideEncryptionPtrOutputWithContext(context.Background())
 }
@@ -13370,6 +15144,12 @@ func (i *firehoseDeliveryStreamServerSideEncryptionPtrType) ToFirehoseDeliverySt
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamServerSideEncryptionPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamServerSideEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamServerSideEncryption] {
+	return pulumix.Output[*FirehoseDeliveryStreamServerSideEncryption]{
+		OutputState: i.ToFirehoseDeliveryStreamServerSideEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamServerSideEncryptionOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamServerSideEncryptionOutput) ElementType() reflect.Type {
@@ -13392,6 +15172,12 @@ func (o FirehoseDeliveryStreamServerSideEncryptionOutput) ToFirehoseDeliveryStre
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamServerSideEncryption) *FirehoseDeliveryStreamServerSideEncryption {
 		return &v
 	}).(FirehoseDeliveryStreamServerSideEncryptionPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamServerSideEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamServerSideEncryption] {
+	return pulumix.Output[FirehoseDeliveryStreamServerSideEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether to enable encryption at rest. Default is `false`.
@@ -13425,6 +15211,12 @@ func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) ToFirehoseDeliveryS
 
 func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) ToFirehoseDeliveryStreamServerSideEncryptionPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamServerSideEncryptionPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamServerSideEncryption] {
+	return pulumix.Output[*FirehoseDeliveryStreamServerSideEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) Elem() FirehoseDeliveryStreamServerSideEncryptionOutput {
@@ -13532,6 +15324,12 @@ func (i FirehoseDeliveryStreamSplunkConfigurationArgs) ToFirehoseDeliveryStreamS
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamSplunkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamSplunkConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamSplunkConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamSplunkConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamSplunkConfigurationArgs) ToFirehoseDeliveryStreamSplunkConfigurationPtrOutput() FirehoseDeliveryStreamSplunkConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamSplunkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -13573,6 +15371,12 @@ func (i *firehoseDeliveryStreamSplunkConfigurationPtrType) ToFirehoseDeliveryStr
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamSplunkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamSplunkConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamSplunkConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamSplunkConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamSplunkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamSplunkConfigurationOutput) ElementType() reflect.Type {
@@ -13595,6 +15399,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationOutput) ToFirehoseDeliveryStrea
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamSplunkConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamSplunkConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamSplunkConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The CloudWatch Logging Options for the delivery stream. More details are given below.
@@ -13653,6 +15463,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) ToFirehoseDeliverySt
 
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) ToFirehoseDeliveryStreamSplunkConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamSplunkConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamSplunkConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) Elem() FirehoseDeliveryStreamSplunkConfigurationOutput {
@@ -13786,6 +15602,12 @@ func (i FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput)
 }
 
+func (i FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs) ToFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput() FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return i.ToFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(context.Background())
 }
@@ -13827,6 +15649,12 @@ func (i *firehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions]{
+		OutputState: i.ToFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput) ElementType() reflect.Type {
@@ -13849,6 +15677,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables the logging. Defaults to `false`.
@@ -13882,6 +15716,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutp
 
 func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput) ToFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions] {
+	return pulumix.Output[*FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput {
@@ -13961,6 +15801,12 @@ func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput)
 }
 
+func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs) ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput() FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput {
 	return i.ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -14002,6 +15848,12 @@ func (i *firehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput)
 }
 
+func (i *firehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration]{
+		OutputState: i.ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput) ElementType() reflect.Type {
@@ -14024,6 +15876,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration) *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration] {
+	return pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables data processing.
@@ -14050,6 +15908,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutpu
 
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput) ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration] {
+	return pulumix.Output[*FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput {
@@ -14119,6 +15983,12 @@ func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput)
 }
 
+func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArray and FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayInput` via:
 //
@@ -14144,6 +16014,12 @@ func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor]{
+		OutputState: i.ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput) ElementType() reflect.Type {
@@ -14156,6 +16032,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput) ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Array of processor parameters. More details are given below
@@ -14184,6 +16066,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayOutput) ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor] {
+	return pulumix.Output[[]FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput {
@@ -14233,6 +16121,12 @@ func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput)
 }
 
+func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayInput is an input type that accepts FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArray and FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutput values.
 // You can construct a concrete instance of `FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayInput` via:
 //
@@ -14258,6 +16152,12 @@ func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
+func (i FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: i.ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput struct{ *pulumi.OutputState }
 
 func (FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput) ElementType() reflect.Type {
@@ -14270,6 +16170,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput) ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput) ToOutput(ctx context.Context) pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
@@ -14300,6 +16206,12 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutput {
 	return o
+}
+
+func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter] {
+	return pulumix.Output[[]FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutput) Index(i pulumi.IntInput) FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput {
@@ -14339,6 +16251,12 @@ func (i StreamStreamModeDetailsArgs) ToStreamStreamModeDetailsOutput() StreamStr
 
 func (i StreamStreamModeDetailsArgs) ToStreamStreamModeDetailsOutputWithContext(ctx context.Context) StreamStreamModeDetailsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamStreamModeDetailsOutput)
+}
+
+func (i StreamStreamModeDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[StreamStreamModeDetails] {
+	return pulumix.Output[StreamStreamModeDetails]{
+		OutputState: i.ToStreamStreamModeDetailsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i StreamStreamModeDetailsArgs) ToStreamStreamModeDetailsPtrOutput() StreamStreamModeDetailsPtrOutput {
@@ -14382,6 +16300,12 @@ func (i *streamStreamModeDetailsPtrType) ToStreamStreamModeDetailsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(StreamStreamModeDetailsPtrOutput)
 }
 
+func (i *streamStreamModeDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamStreamModeDetails] {
+	return pulumix.Output[*StreamStreamModeDetails]{
+		OutputState: i.ToStreamStreamModeDetailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StreamStreamModeDetailsOutput struct{ *pulumi.OutputState }
 
 func (StreamStreamModeDetailsOutput) ElementType() reflect.Type {
@@ -14406,6 +16330,12 @@ func (o StreamStreamModeDetailsOutput) ToStreamStreamModeDetailsPtrOutputWithCon
 	}).(StreamStreamModeDetailsPtrOutput)
 }
 
+func (o StreamStreamModeDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[StreamStreamModeDetails] {
+	return pulumix.Output[StreamStreamModeDetails]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
 func (o StreamStreamModeDetailsOutput) StreamMode() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamStreamModeDetails) string { return v.StreamMode }).(pulumi.StringOutput)
@@ -14423,6 +16353,12 @@ func (o StreamStreamModeDetailsPtrOutput) ToStreamStreamModeDetailsPtrOutput() S
 
 func (o StreamStreamModeDetailsPtrOutput) ToStreamStreamModeDetailsPtrOutputWithContext(ctx context.Context) StreamStreamModeDetailsPtrOutput {
 	return o
+}
+
+func (o StreamStreamModeDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamStreamModeDetails] {
+	return pulumix.Output[*StreamStreamModeDetails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StreamStreamModeDetailsPtrOutput) Elem() StreamStreamModeDetailsOutput {
@@ -14478,6 +16414,12 @@ func (i GetStreamStreamModeDetailArgs) ToGetStreamStreamModeDetailOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetStreamStreamModeDetailOutput)
 }
 
+func (i GetStreamStreamModeDetailArgs) ToOutput(ctx context.Context) pulumix.Output[GetStreamStreamModeDetail] {
+	return pulumix.Output[GetStreamStreamModeDetail]{
+		OutputState: i.ToGetStreamStreamModeDetailOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetStreamStreamModeDetailArrayInput is an input type that accepts GetStreamStreamModeDetailArray and GetStreamStreamModeDetailArrayOutput values.
 // You can construct a concrete instance of `GetStreamStreamModeDetailArrayInput` via:
 //
@@ -14503,6 +16445,12 @@ func (i GetStreamStreamModeDetailArray) ToGetStreamStreamModeDetailArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetStreamStreamModeDetailArrayOutput)
 }
 
+func (i GetStreamStreamModeDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]GetStreamStreamModeDetail] {
+	return pulumix.Output[[]GetStreamStreamModeDetail]{
+		OutputState: i.ToGetStreamStreamModeDetailArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetStreamStreamModeDetailOutput struct{ *pulumi.OutputState }
 
 func (GetStreamStreamModeDetailOutput) ElementType() reflect.Type {
@@ -14515,6 +16463,12 @@ func (o GetStreamStreamModeDetailOutput) ToGetStreamStreamModeDetailOutput() Get
 
 func (o GetStreamStreamModeDetailOutput) ToGetStreamStreamModeDetailOutputWithContext(ctx context.Context) GetStreamStreamModeDetailOutput {
 	return o
+}
+
+func (o GetStreamStreamModeDetailOutput) ToOutput(ctx context.Context) pulumix.Output[GetStreamStreamModeDetail] {
+	return pulumix.Output[GetStreamStreamModeDetail]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
@@ -14534,6 +16488,12 @@ func (o GetStreamStreamModeDetailArrayOutput) ToGetStreamStreamModeDetailArrayOu
 
 func (o GetStreamStreamModeDetailArrayOutput) ToGetStreamStreamModeDetailArrayOutputWithContext(ctx context.Context) GetStreamStreamModeDetailArrayOutput {
 	return o
+}
+
+func (o GetStreamStreamModeDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetStreamStreamModeDetail] {
+	return pulumix.Output[[]GetStreamStreamModeDetail]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetStreamStreamModeDetailArrayOutput) Index(i pulumi.IntInput) GetStreamStreamModeDetailOutput {

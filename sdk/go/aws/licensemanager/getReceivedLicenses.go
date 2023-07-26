@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be used to get a set of license ARNs matching a filter.
@@ -47,6 +49,7 @@ import (
 //
 // ```
 func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opts ...pulumi.InvokeOption) (*GetReceivedLicensesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReceivedLicensesResult
 	err := ctx.Invoke("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args, &rv, opts...)
 	if err != nil {
@@ -112,6 +115,12 @@ func (o GetReceivedLicensesResultOutput) ToGetReceivedLicensesResultOutput() Get
 
 func (o GetReceivedLicensesResultOutput) ToGetReceivedLicensesResultOutputWithContext(ctx context.Context) GetReceivedLicensesResultOutput {
 	return o
+}
+
+func (o GetReceivedLicensesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetReceivedLicensesResult] {
+	return pulumix.Output[GetReceivedLicensesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of all the license ARNs found.

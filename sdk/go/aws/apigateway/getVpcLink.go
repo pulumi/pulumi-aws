@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the id of a VPC Link in
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.InvokeOption) (*LookupVpcLinkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcLinkResult
 	err := ctx.Invoke("aws:apigateway/getVpcLink:getVpcLink", args, &rv, opts...)
 	if err != nil {
@@ -114,6 +117,12 @@ func (o LookupVpcLinkResultOutput) ToLookupVpcLinkResultOutput() LookupVpcLinkRe
 
 func (o LookupVpcLinkResultOutput) ToLookupVpcLinkResultOutputWithContext(ctx context.Context) LookupVpcLinkResultOutput {
 	return o
+}
+
+func (o LookupVpcLinkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcLinkResult] {
+	return pulumix.Output[LookupVpcLinkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the VPC link.

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
@@ -93,6 +95,7 @@ func NewInboundConnectionAccepter(ctx *pulumi.Context,
 	if args.ConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InboundConnectionAccepter
 	err := ctx.RegisterResource("aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter", name, args, &resource, opts...)
 	if err != nil {
@@ -166,6 +169,12 @@ func (i *InboundConnectionAccepter) ToInboundConnectionAccepterOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(InboundConnectionAccepterOutput)
 }
 
+func (i *InboundConnectionAccepter) ToOutput(ctx context.Context) pulumix.Output[*InboundConnectionAccepter] {
+	return pulumix.Output[*InboundConnectionAccepter]{
+		OutputState: i.ToInboundConnectionAccepterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InboundConnectionAccepterArrayInput is an input type that accepts InboundConnectionAccepterArray and InboundConnectionAccepterArrayOutput values.
 // You can construct a concrete instance of `InboundConnectionAccepterArrayInput` via:
 //
@@ -189,6 +198,12 @@ func (i InboundConnectionAccepterArray) ToInboundConnectionAccepterArrayOutput()
 
 func (i InboundConnectionAccepterArray) ToInboundConnectionAccepterArrayOutputWithContext(ctx context.Context) InboundConnectionAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InboundConnectionAccepterArrayOutput)
+}
+
+func (i InboundConnectionAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*InboundConnectionAccepter] {
+	return pulumix.Output[[]*InboundConnectionAccepter]{
+		OutputState: i.ToInboundConnectionAccepterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InboundConnectionAccepterMapInput is an input type that accepts InboundConnectionAccepterMap and InboundConnectionAccepterMapOutput values.
@@ -216,6 +231,12 @@ func (i InboundConnectionAccepterMap) ToInboundConnectionAccepterMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InboundConnectionAccepterMapOutput)
 }
 
+func (i InboundConnectionAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InboundConnectionAccepter] {
+	return pulumix.Output[map[string]*InboundConnectionAccepter]{
+		OutputState: i.ToInboundConnectionAccepterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InboundConnectionAccepterOutput struct{ *pulumi.OutputState }
 
 func (InboundConnectionAccepterOutput) ElementType() reflect.Type {
@@ -228,6 +249,12 @@ func (o InboundConnectionAccepterOutput) ToInboundConnectionAccepterOutput() Inb
 
 func (o InboundConnectionAccepterOutput) ToInboundConnectionAccepterOutputWithContext(ctx context.Context) InboundConnectionAccepterOutput {
 	return o
+}
+
+func (o InboundConnectionAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*InboundConnectionAccepter] {
+	return pulumix.Output[*InboundConnectionAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the ID of the connection to accept.
@@ -254,6 +281,12 @@ func (o InboundConnectionAccepterArrayOutput) ToInboundConnectionAccepterArrayOu
 	return o
 }
 
+func (o InboundConnectionAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InboundConnectionAccepter] {
+	return pulumix.Output[[]*InboundConnectionAccepter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InboundConnectionAccepterArrayOutput) Index(i pulumi.IntInput) InboundConnectionAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InboundConnectionAccepter {
 		return vs[0].([]*InboundConnectionAccepter)[vs[1].(int)]
@@ -272,6 +305,12 @@ func (o InboundConnectionAccepterMapOutput) ToInboundConnectionAccepterMapOutput
 
 func (o InboundConnectionAccepterMapOutput) ToInboundConnectionAccepterMapOutputWithContext(ctx context.Context) InboundConnectionAccepterMapOutput {
 	return o
+}
+
+func (o InboundConnectionAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InboundConnectionAccepter] {
+	return pulumix.Output[map[string]*InboundConnectionAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InboundConnectionAccepterMapOutput) MapIndex(k pulumi.StringInput) InboundConnectionAccepterOutput {

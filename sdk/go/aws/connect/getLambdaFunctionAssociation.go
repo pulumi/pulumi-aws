@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Connect Lambda Function Association.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupLambdaFunctionAssociation(ctx *pulumi.Context, args *LookupLambdaFunctionAssociationArgs, opts ...pulumi.InvokeOption) (*LookupLambdaFunctionAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLambdaFunctionAssociationResult
 	err := ctx.Invoke("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args, &rv, opts...)
 	if err != nil {
@@ -101,6 +104,12 @@ func (o LookupLambdaFunctionAssociationResultOutput) ToLookupLambdaFunctionAssoc
 
 func (o LookupLambdaFunctionAssociationResultOutput) ToLookupLambdaFunctionAssociationResultOutputWithContext(ctx context.Context) LookupLambdaFunctionAssociationResultOutput {
 	return o
+}
+
+func (o LookupLambdaFunctionAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLambdaFunctionAssociationResult] {
+	return pulumix.Output[LookupLambdaFunctionAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLambdaFunctionAssociationResultOutput) FunctionArn() pulumi.StringOutput {

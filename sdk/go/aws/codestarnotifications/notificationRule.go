@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeStar Notifications Rule.
@@ -138,6 +140,7 @@ func NewNotificationRule(ctx *pulumi.Context,
 	if args.Resource == nil {
 		return nil, errors.New("invalid value for required argument 'Resource'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotificationRule
 	err := ctx.RegisterResource("aws:codestarnotifications/notificationRule:NotificationRule", name, args, &resource, opts...)
 	if err != nil {
@@ -267,6 +270,12 @@ func (i *NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleOutput)
 }
 
+func (i *NotificationRule) ToOutput(ctx context.Context) pulumix.Output[*NotificationRule] {
+	return pulumix.Output[*NotificationRule]{
+		OutputState: i.ToNotificationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NotificationRuleArrayInput is an input type that accepts NotificationRuleArray and NotificationRuleArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleArrayInput` via:
 //
@@ -290,6 +299,12 @@ func (i NotificationRuleArray) ToNotificationRuleArrayOutput() NotificationRuleA
 
 func (i NotificationRuleArray) ToNotificationRuleArrayOutputWithContext(ctx context.Context) NotificationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleArrayOutput)
+}
+
+func (i NotificationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationRule] {
+	return pulumix.Output[[]*NotificationRule]{
+		OutputState: i.ToNotificationRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NotificationRuleMapInput is an input type that accepts NotificationRuleMap and NotificationRuleMapOutput values.
@@ -317,6 +332,12 @@ func (i NotificationRuleMap) ToNotificationRuleMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleMapOutput)
 }
 
+func (i NotificationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationRule] {
+	return pulumix.Output[map[string]*NotificationRule]{
+		OutputState: i.ToNotificationRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationRuleOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleOutput) ElementType() reflect.Type {
@@ -329,6 +350,12 @@ func (o NotificationRuleOutput) ToNotificationRuleOutput() NotificationRuleOutpu
 
 func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput {
 	return o
+}
+
+func (o NotificationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationRule] {
+	return pulumix.Output[*NotificationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The codestar notification rule ARN.
@@ -391,6 +418,12 @@ func (o NotificationRuleArrayOutput) ToNotificationRuleArrayOutputWithContext(ct
 	return o
 }
 
+func (o NotificationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationRule] {
+	return pulumix.Output[[]*NotificationRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotificationRuleArrayOutput) Index(i pulumi.IntInput) NotificationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotificationRule {
 		return vs[0].([]*NotificationRule)[vs[1].(int)]
@@ -409,6 +442,12 @@ func (o NotificationRuleMapOutput) ToNotificationRuleMapOutput() NotificationRul
 
 func (o NotificationRuleMapOutput) ToNotificationRuleMapOutputWithContext(ctx context.Context) NotificationRuleMapOutput {
 	return o
+}
+
+func (o NotificationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationRule] {
+	return pulumix.Output[map[string]*NotificationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationRuleMapOutput) MapIndex(k pulumi.StringInput) NotificationRuleOutput {

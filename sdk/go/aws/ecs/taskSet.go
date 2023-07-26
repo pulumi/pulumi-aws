@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
@@ -122,6 +124,7 @@ func NewTaskSet(ctx *pulumi.Context,
 	if args.TaskDefinition == nil {
 		return nil, errors.New("invalid value for required argument 'TaskDefinition'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TaskSet
 	err := ctx.RegisterResource("aws:ecs/taskSet:TaskSet", name, args, &resource, opts...)
 	if err != nil {
@@ -331,6 +334,12 @@ func (i *TaskSet) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetOutput)
 }
 
+func (i *TaskSet) ToOutput(ctx context.Context) pulumix.Output[*TaskSet] {
+	return pulumix.Output[*TaskSet]{
+		OutputState: i.ToTaskSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TaskSetArrayInput is an input type that accepts TaskSetArray and TaskSetArrayOutput values.
 // You can construct a concrete instance of `TaskSetArrayInput` via:
 //
@@ -354,6 +363,12 @@ func (i TaskSetArray) ToTaskSetArrayOutput() TaskSetArrayOutput {
 
 func (i TaskSetArray) ToTaskSetArrayOutputWithContext(ctx context.Context) TaskSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetArrayOutput)
+}
+
+func (i TaskSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*TaskSet] {
+	return pulumix.Output[[]*TaskSet]{
+		OutputState: i.ToTaskSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TaskSetMapInput is an input type that accepts TaskSetMap and TaskSetMapOutput values.
@@ -381,6 +396,12 @@ func (i TaskSetMap) ToTaskSetMapOutputWithContext(ctx context.Context) TaskSetMa
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetMapOutput)
 }
 
+func (i TaskSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TaskSet] {
+	return pulumix.Output[map[string]*TaskSet]{
+		OutputState: i.ToTaskSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TaskSetOutput struct{ *pulumi.OutputState }
 
 func (TaskSetOutput) ElementType() reflect.Type {
@@ -393,6 +414,12 @@ func (o TaskSetOutput) ToTaskSetOutput() TaskSetOutput {
 
 func (o TaskSetOutput) ToTaskSetOutputWithContext(ctx context.Context) TaskSetOutput {
 	return o
+}
+
+func (o TaskSetOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskSet] {
+	return pulumix.Output[*TaskSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) that identifies the task set.
@@ -511,6 +538,12 @@ func (o TaskSetArrayOutput) ToTaskSetArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o TaskSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TaskSet] {
+	return pulumix.Output[[]*TaskSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaskSetArrayOutput) Index(i pulumi.IntInput) TaskSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TaskSet {
 		return vs[0].([]*TaskSet)[vs[1].(int)]
@@ -529,6 +562,12 @@ func (o TaskSetMapOutput) ToTaskSetMapOutput() TaskSetMapOutput {
 
 func (o TaskSetMapOutput) ToTaskSetMapOutputWithContext(ctx context.Context) TaskSetMapOutput {
 	return o
+}
+
+func (o TaskSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TaskSet] {
+	return pulumix.Output[map[string]*TaskSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaskSetMapOutput) MapIndex(k pulumi.StringInput) TaskSetOutput {

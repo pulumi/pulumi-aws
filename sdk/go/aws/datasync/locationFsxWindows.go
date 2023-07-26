@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AWS DataSync FSx Windows Location.
@@ -106,6 +108,7 @@ func NewLocationFsxWindows(ctx *pulumi.Context,
 		"password",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LocationFsxWindows
 	err := ctx.RegisterResource("aws:datasync/locationFsxWindows:LocationFsxWindows", name, args, &resource, opts...)
 	if err != nil {
@@ -239,6 +242,12 @@ func (i *LocationFsxWindows) ToLocationFsxWindowsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxWindowsOutput)
 }
 
+func (i *LocationFsxWindows) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxWindows] {
+	return pulumix.Output[*LocationFsxWindows]{
+		OutputState: i.ToLocationFsxWindowsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationFsxWindowsArrayInput is an input type that accepts LocationFsxWindowsArray and LocationFsxWindowsArrayOutput values.
 // You can construct a concrete instance of `LocationFsxWindowsArrayInput` via:
 //
@@ -262,6 +271,12 @@ func (i LocationFsxWindowsArray) ToLocationFsxWindowsArrayOutput() LocationFsxWi
 
 func (i LocationFsxWindowsArray) ToLocationFsxWindowsArrayOutputWithContext(ctx context.Context) LocationFsxWindowsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxWindowsArrayOutput)
+}
+
+func (i LocationFsxWindowsArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocationFsxWindows] {
+	return pulumix.Output[[]*LocationFsxWindows]{
+		OutputState: i.ToLocationFsxWindowsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocationFsxWindowsMapInput is an input type that accepts LocationFsxWindowsMap and LocationFsxWindowsMapOutput values.
@@ -289,6 +304,12 @@ func (i LocationFsxWindowsMap) ToLocationFsxWindowsMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFsxWindowsMapOutput)
 }
 
+func (i LocationFsxWindowsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationFsxWindows] {
+	return pulumix.Output[map[string]*LocationFsxWindows]{
+		OutputState: i.ToLocationFsxWindowsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocationFsxWindowsOutput struct{ *pulumi.OutputState }
 
 func (LocationFsxWindowsOutput) ElementType() reflect.Type {
@@ -301,6 +322,12 @@ func (o LocationFsxWindowsOutput) ToLocationFsxWindowsOutput() LocationFsxWindow
 
 func (o LocationFsxWindowsOutput) ToLocationFsxWindowsOutputWithContext(ctx context.Context) LocationFsxWindowsOutput {
 	return o
+}
+
+func (o LocationFsxWindowsOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFsxWindows] {
+	return pulumix.Output[*LocationFsxWindows]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the DataSync Location.
@@ -372,6 +399,12 @@ func (o LocationFsxWindowsArrayOutput) ToLocationFsxWindowsArrayOutputWithContex
 	return o
 }
 
+func (o LocationFsxWindowsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocationFsxWindows] {
+	return pulumix.Output[[]*LocationFsxWindows]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationFsxWindowsArrayOutput) Index(i pulumi.IntInput) LocationFsxWindowsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocationFsxWindows {
 		return vs[0].([]*LocationFsxWindows)[vs[1].(int)]
@@ -390,6 +423,12 @@ func (o LocationFsxWindowsMapOutput) ToLocationFsxWindowsMapOutput() LocationFsx
 
 func (o LocationFsxWindowsMapOutput) ToLocationFsxWindowsMapOutputWithContext(ctx context.Context) LocationFsxWindowsMapOutput {
 	return o
+}
+
+func (o LocationFsxWindowsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationFsxWindows] {
+	return pulumix.Output[map[string]*LocationFsxWindows]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationFsxWindowsMapOutput) MapIndex(k pulumi.StringInput) LocationFsxWindowsOutput {

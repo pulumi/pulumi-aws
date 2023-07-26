@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
@@ -112,6 +114,7 @@ func NewBucketCorsConfigurationV2(ctx *pulumi.Context,
 	if args.CorsRules == nil {
 		return nil, errors.New("invalid value for required argument 'CorsRules'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketCorsConfigurationV2
 	err := ctx.RegisterResource("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2", name, args, &resource, opts...)
 	if err != nil {
@@ -197,6 +200,12 @@ func (i *BucketCorsConfigurationV2) ToBucketCorsConfigurationV2OutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationV2Output)
 }
 
+func (i *BucketCorsConfigurationV2) ToOutput(ctx context.Context) pulumix.Output[*BucketCorsConfigurationV2] {
+	return pulumix.Output[*BucketCorsConfigurationV2]{
+		OutputState: i.ToBucketCorsConfigurationV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketCorsConfigurationV2ArrayInput is an input type that accepts BucketCorsConfigurationV2Array and BucketCorsConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketCorsConfigurationV2ArrayInput` via:
 //
@@ -220,6 +229,12 @@ func (i BucketCorsConfigurationV2Array) ToBucketCorsConfigurationV2ArrayOutput()
 
 func (i BucketCorsConfigurationV2Array) ToBucketCorsConfigurationV2ArrayOutputWithContext(ctx context.Context) BucketCorsConfigurationV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationV2ArrayOutput)
+}
+
+func (i BucketCorsConfigurationV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketCorsConfigurationV2] {
+	return pulumix.Output[[]*BucketCorsConfigurationV2]{
+		OutputState: i.ToBucketCorsConfigurationV2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketCorsConfigurationV2MapInput is an input type that accepts BucketCorsConfigurationV2Map and BucketCorsConfigurationV2MapOutput values.
@@ -247,6 +262,12 @@ func (i BucketCorsConfigurationV2Map) ToBucketCorsConfigurationV2MapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationV2MapOutput)
 }
 
+func (i BucketCorsConfigurationV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketCorsConfigurationV2] {
+	return pulumix.Output[map[string]*BucketCorsConfigurationV2]{
+		OutputState: i.ToBucketCorsConfigurationV2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketCorsConfigurationV2Output struct{ *pulumi.OutputState }
 
 func (BucketCorsConfigurationV2Output) ElementType() reflect.Type {
@@ -259,6 +280,12 @@ func (o BucketCorsConfigurationV2Output) ToBucketCorsConfigurationV2Output() Buc
 
 func (o BucketCorsConfigurationV2Output) ToBucketCorsConfigurationV2OutputWithContext(ctx context.Context) BucketCorsConfigurationV2Output {
 	return o
+}
+
+func (o BucketCorsConfigurationV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketCorsConfigurationV2] {
+	return pulumix.Output[*BucketCorsConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the bucket.
@@ -290,6 +317,12 @@ func (o BucketCorsConfigurationV2ArrayOutput) ToBucketCorsConfigurationV2ArrayOu
 	return o
 }
 
+func (o BucketCorsConfigurationV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketCorsConfigurationV2] {
+	return pulumix.Output[[]*BucketCorsConfigurationV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketCorsConfigurationV2ArrayOutput) Index(i pulumi.IntInput) BucketCorsConfigurationV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketCorsConfigurationV2 {
 		return vs[0].([]*BucketCorsConfigurationV2)[vs[1].(int)]
@@ -308,6 +341,12 @@ func (o BucketCorsConfigurationV2MapOutput) ToBucketCorsConfigurationV2MapOutput
 
 func (o BucketCorsConfigurationV2MapOutput) ToBucketCorsConfigurationV2MapOutputWithContext(ctx context.Context) BucketCorsConfigurationV2MapOutput {
 	return o
+}
+
+func (o BucketCorsConfigurationV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketCorsConfigurationV2] {
+	return pulumix.Output[map[string]*BucketCorsConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketCorsConfigurationV2MapOutput) MapIndex(k pulumi.StringInput) BucketCorsConfigurationV2Output {

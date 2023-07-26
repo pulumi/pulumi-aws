@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
@@ -42,6 +44,7 @@ import (
 //
 // ```
 func LookupResolverFirewallDomainList(ctx *pulumi.Context, args *LookupResolverFirewallDomainListArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallDomainListResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallDomainListResult
 	err := ctx.Invoke("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args, &rv, opts...)
 	if err != nil {
@@ -112,6 +115,12 @@ func (o LookupResolverFirewallDomainListResultOutput) ToLookupResolverFirewallDo
 
 func (o LookupResolverFirewallDomainListResultOutput) ToLookupResolverFirewallDomainListResultOutputWithContext(ctx context.Context) LookupResolverFirewallDomainListResultOutput {
 	return o
+}
+
+func (o LookupResolverFirewallDomainListResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverFirewallDomainListResult] {
+	return pulumix.Output[LookupResolverFirewallDomainListResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupResolverFirewallDomainListResultOutput) Arn() pulumi.StringOutput {

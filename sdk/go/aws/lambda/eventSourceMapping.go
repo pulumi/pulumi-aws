@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS, Amazon MQ and Managed Streaming for Apache Kafka (MSK).
@@ -392,6 +394,7 @@ func NewEventSourceMapping(ctx *pulumi.Context,
 	if args.FunctionName == nil {
 		return nil, errors.New("invalid value for required argument 'FunctionName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventSourceMapping
 	err := ctx.RegisterResource("aws:lambda/eventSourceMapping:EventSourceMapping", name, args, &resource, opts...)
 	if err != nil {
@@ -661,6 +664,12 @@ func (i *EventSourceMapping) ToEventSourceMappingOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingOutput)
 }
 
+func (i *EventSourceMapping) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMapping] {
+	return pulumix.Output[*EventSourceMapping]{
+		OutputState: i.ToEventSourceMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventSourceMappingArrayInput is an input type that accepts EventSourceMappingArray and EventSourceMappingArrayOutput values.
 // You can construct a concrete instance of `EventSourceMappingArrayInput` via:
 //
@@ -684,6 +693,12 @@ func (i EventSourceMappingArray) ToEventSourceMappingArrayOutput() EventSourceMa
 
 func (i EventSourceMappingArray) ToEventSourceMappingArrayOutputWithContext(ctx context.Context) EventSourceMappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingArrayOutput)
+}
+
+func (i EventSourceMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventSourceMapping] {
+	return pulumix.Output[[]*EventSourceMapping]{
+		OutputState: i.ToEventSourceMappingArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventSourceMappingMapInput is an input type that accepts EventSourceMappingMap and EventSourceMappingMapOutput values.
@@ -711,6 +726,12 @@ func (i EventSourceMappingMap) ToEventSourceMappingMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingMapOutput)
 }
 
+func (i EventSourceMappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventSourceMapping] {
+	return pulumix.Output[map[string]*EventSourceMapping]{
+		OutputState: i.ToEventSourceMappingMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventSourceMappingOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingOutput) ElementType() reflect.Type {
@@ -723,6 +744,12 @@ func (o EventSourceMappingOutput) ToEventSourceMappingOutput() EventSourceMappin
 
 func (o EventSourceMappingOutput) ToEventSourceMappingOutputWithContext(ctx context.Context) EventSourceMappingOutput {
 	return o
+}
+
+func (o EventSourceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSourceMapping] {
+	return pulumix.Output[*EventSourceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Additional configuration block for Amazon Managed Kafka sources. Incompatible with "selfManagedEventSource" and "selfManagedKafkaEventSourceConfig". Detailed below.
@@ -894,6 +921,12 @@ func (o EventSourceMappingArrayOutput) ToEventSourceMappingArrayOutputWithContex
 	return o
 }
 
+func (o EventSourceMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventSourceMapping] {
+	return pulumix.Output[[]*EventSourceMapping]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventSourceMappingArrayOutput) Index(i pulumi.IntInput) EventSourceMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventSourceMapping {
 		return vs[0].([]*EventSourceMapping)[vs[1].(int)]
@@ -912,6 +945,12 @@ func (o EventSourceMappingMapOutput) ToEventSourceMappingMapOutput() EventSource
 
 func (o EventSourceMappingMapOutput) ToEventSourceMappingMapOutputWithContext(ctx context.Context) EventSourceMappingMapOutput {
 	return o
+}
+
+func (o EventSourceMappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventSourceMapping] {
+	return pulumix.Output[map[string]*EventSourceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventSourceMappingMapOutput) MapIndex(k pulumi.StringInput) EventSourceMappingOutput {

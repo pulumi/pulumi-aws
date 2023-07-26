@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
@@ -36,6 +38,7 @@ import (
 //
 // ```
 func GetHostedZone(ctx *pulumi.Context, args *GetHostedZoneArgs, opts ...pulumi.InvokeOption) (*GetHostedZoneResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetHostedZoneResult
 	err := ctx.Invoke("aws:elasticbeanstalk/getHostedZone:getHostedZone", args, &rv, opts...)
 	if err != nil {
@@ -94,6 +97,12 @@ func (o GetHostedZoneResultOutput) ToGetHostedZoneResultOutput() GetHostedZoneRe
 
 func (o GetHostedZoneResultOutput) ToGetHostedZoneResultOutputWithContext(ctx context.Context) GetHostedZoneResultOutput {
 	return o
+}
+
+func (o GetHostedZoneResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetHostedZoneResult] {
+	return pulumix.Output[GetHostedZoneResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

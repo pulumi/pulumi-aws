@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
@@ -182,6 +184,7 @@ func NewResponsePlan(ctx *pulumi.Context,
 	if args.IncidentTemplate == nil {
 		return nil, errors.New("invalid value for required argument 'IncidentTemplate'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResponsePlan
 	err := ctx.RegisterResource("aws:ssmincidents/responsePlan:ResponsePlan", name, args, &resource, opts...)
 	if err != nil {
@@ -311,6 +314,12 @@ func (i *ResponsePlan) ToResponsePlanOutputWithContext(ctx context.Context) Resp
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanOutput)
 }
 
+func (i *ResponsePlan) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlan] {
+	return pulumix.Output[*ResponsePlan]{
+		OutputState: i.ToResponsePlanOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResponsePlanArrayInput is an input type that accepts ResponsePlanArray and ResponsePlanArrayOutput values.
 // You can construct a concrete instance of `ResponsePlanArrayInput` via:
 //
@@ -334,6 +343,12 @@ func (i ResponsePlanArray) ToResponsePlanArrayOutput() ResponsePlanArrayOutput {
 
 func (i ResponsePlanArray) ToResponsePlanArrayOutputWithContext(ctx context.Context) ResponsePlanArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanArrayOutput)
+}
+
+func (i ResponsePlanArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResponsePlan] {
+	return pulumix.Output[[]*ResponsePlan]{
+		OutputState: i.ToResponsePlanArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResponsePlanMapInput is an input type that accepts ResponsePlanMap and ResponsePlanMapOutput values.
@@ -361,6 +376,12 @@ func (i ResponsePlanMap) ToResponsePlanMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanMapOutput)
 }
 
+func (i ResponsePlanMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResponsePlan] {
+	return pulumix.Output[map[string]*ResponsePlan]{
+		OutputState: i.ToResponsePlanMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResponsePlanOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanOutput) ElementType() reflect.Type {
@@ -373,6 +394,12 @@ func (o ResponsePlanOutput) ToResponsePlanOutput() ResponsePlanOutput {
 
 func (o ResponsePlanOutput) ToResponsePlanOutputWithContext(ctx context.Context) ResponsePlanOutput {
 	return o
+}
+
+func (o ResponsePlanOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlan] {
+	return pulumix.Output[*ResponsePlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The actions that the response plan starts at the beginning of an incident.
@@ -438,6 +465,12 @@ func (o ResponsePlanArrayOutput) ToResponsePlanArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ResponsePlanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResponsePlan] {
+	return pulumix.Output[[]*ResponsePlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResponsePlanArrayOutput) Index(i pulumi.IntInput) ResponsePlanOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResponsePlan {
 		return vs[0].([]*ResponsePlan)[vs[1].(int)]
@@ -456,6 +489,12 @@ func (o ResponsePlanMapOutput) ToResponsePlanMapOutput() ResponsePlanMapOutput {
 
 func (o ResponsePlanMapOutput) ToResponsePlanMapOutputWithContext(ctx context.Context) ResponsePlanMapOutput {
 	return o
+}
+
+func (o ResponsePlanMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResponsePlan] {
+	return pulumix.Output[map[string]*ResponsePlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResponsePlanMapOutput) MapIndex(k pulumi.StringInput) ResponsePlanOutput {

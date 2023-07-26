@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Generates a Core Network policy document in JSON format for use with resources that expect core network policy documents such as `awsccNetworkmanagerCoreNetwork`. It follows the API definition from the [core-network-policy documentation](https://docs.aws.amazon.com/vpc/latest/cloudwan/cloudwan-policies-json.html).
@@ -133,6 +135,7 @@ import (
 //
 // ```
 func GetCoreNetworkPolicyDocument(ctx *pulumi.Context, args *GetCoreNetworkPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetCoreNetworkPolicyDocumentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCoreNetworkPolicyDocumentResult
 	err := ctx.Invoke("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", args, &rv, opts...)
 	if err != nil {
@@ -210,6 +213,12 @@ func (o GetCoreNetworkPolicyDocumentResultOutput) ToGetCoreNetworkPolicyDocument
 
 func (o GetCoreNetworkPolicyDocumentResultOutput) ToGetCoreNetworkPolicyDocumentResultOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentResultOutput {
 	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCoreNetworkPolicyDocumentResult] {
+	return pulumix.Output[GetCoreNetworkPolicyDocumentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetCoreNetworkPolicyDocumentResultOutput) AttachmentPolicies() GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput {

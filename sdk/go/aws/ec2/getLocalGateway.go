@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an EC2 Local Gateway.
@@ -43,6 +45,7 @@ import (
 //
 // ```
 func GetLocalGateway(ctx *pulumi.Context, args *GetLocalGatewayArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayResult
 	err := ctx.Invoke("aws:ec2/getLocalGateway:getLocalGateway", args, &rv, opts...)
 	if err != nil {
@@ -128,6 +131,12 @@ func (o GetLocalGatewayResultOutput) ToGetLocalGatewayResultOutput() GetLocalGat
 
 func (o GetLocalGatewayResultOutput) ToGetLocalGatewayResultOutputWithContext(ctx context.Context) GetLocalGatewayResultOutput {
 	return o
+}
+
+func (o GetLocalGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalGatewayResult] {
+	return pulumix.Output[GetLocalGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLocalGatewayResultOutput) Filters() GetLocalGatewayFilterArrayOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
@@ -102,6 +104,7 @@ func NewSigningProfile(ctx *pulumi.Context,
 	if args.PlatformId == nil {
 		return nil, errors.New("invalid value for required argument 'PlatformId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SigningProfile
 	err := ctx.RegisterResource("aws:signer/signingProfile:SigningProfile", name, args, &resource, opts...)
 	if err != nil {
@@ -231,6 +234,12 @@ func (i *SigningProfile) ToSigningProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileOutput)
 }
 
+func (i *SigningProfile) ToOutput(ctx context.Context) pulumix.Output[*SigningProfile] {
+	return pulumix.Output[*SigningProfile]{
+		OutputState: i.ToSigningProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SigningProfileArrayInput is an input type that accepts SigningProfileArray and SigningProfileArrayOutput values.
 // You can construct a concrete instance of `SigningProfileArrayInput` via:
 //
@@ -254,6 +263,12 @@ func (i SigningProfileArray) ToSigningProfileArrayOutput() SigningProfileArrayOu
 
 func (i SigningProfileArray) ToSigningProfileArrayOutputWithContext(ctx context.Context) SigningProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileArrayOutput)
+}
+
+func (i SigningProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*SigningProfile] {
+	return pulumix.Output[[]*SigningProfile]{
+		OutputState: i.ToSigningProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SigningProfileMapInput is an input type that accepts SigningProfileMap and SigningProfileMapOutput values.
@@ -281,6 +296,12 @@ func (i SigningProfileMap) ToSigningProfileMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileMapOutput)
 }
 
+func (i SigningProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SigningProfile] {
+	return pulumix.Output[map[string]*SigningProfile]{
+		OutputState: i.ToSigningProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SigningProfileOutput struct{ *pulumi.OutputState }
 
 func (SigningProfileOutput) ElementType() reflect.Type {
@@ -293,6 +314,12 @@ func (o SigningProfileOutput) ToSigningProfileOutput() SigningProfileOutput {
 
 func (o SigningProfileOutput) ToSigningProfileOutputWithContext(ctx context.Context) SigningProfileOutput {
 	return o
+}
+
+func (o SigningProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningProfile] {
+	return pulumix.Output[*SigningProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) for the signing profile.
@@ -369,6 +396,12 @@ func (o SigningProfileArrayOutput) ToSigningProfileArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o SigningProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SigningProfile] {
+	return pulumix.Output[[]*SigningProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SigningProfileArrayOutput) Index(i pulumi.IntInput) SigningProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SigningProfile {
 		return vs[0].([]*SigningProfile)[vs[1].(int)]
@@ -387,6 +420,12 @@ func (o SigningProfileMapOutput) ToSigningProfileMapOutput() SigningProfileMapOu
 
 func (o SigningProfileMapOutput) ToSigningProfileMapOutputWithContext(ctx context.Context) SigningProfileMapOutput {
 	return o
+}
+
+func (o SigningProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SigningProfile] {
+	return pulumix.Output[map[string]*SigningProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SigningProfileMapOutput) MapIndex(k pulumi.StringInput) SigningProfileOutput {

@@ -4,6 +4,7 @@
 package aws
 
 import (
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,6 +38,7 @@ import (
 //
 // ```
 func GetCallerIdentity(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCallerIdentityResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCallerIdentityResult
 	err := ctx.Invoke("aws:index/getCallerIdentity:getCallerIdentity", nil, &rv, opts...)
 	if err != nil {

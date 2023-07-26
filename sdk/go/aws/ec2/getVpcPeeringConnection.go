@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The VPC Peering Connection data source provides details about
@@ -54,6 +56,7 @@ import (
 //
 // ```
 func LookupVpcPeeringConnection(ctx *pulumi.Context, args *LookupVpcPeeringConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVpcPeeringConnectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcPeeringConnectionResult
 	err := ctx.Invoke("aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection", args, &rv, opts...)
 	if err != nil {
@@ -183,6 +186,12 @@ func (o LookupVpcPeeringConnectionResultOutput) ToLookupVpcPeeringConnectionResu
 
 func (o LookupVpcPeeringConnectionResultOutput) ToLookupVpcPeeringConnectionResultOutputWithContext(ctx context.Context) LookupVpcPeeringConnectionResultOutput {
 	return o
+}
+
+func (o LookupVpcPeeringConnectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcPeeringConnectionResult] {
+	return pulumix.Output[LookupVpcPeeringConnectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block that describes [VPC Peering Connection]

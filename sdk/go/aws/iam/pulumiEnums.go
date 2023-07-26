@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ManagedPolicy string
@@ -1180,6 +1181,12 @@ func (o ManagedPolicyOutput) ToManagedPolicyPtrOutputWithContext(ctx context.Con
 	}).(ManagedPolicyPtrOutput)
 }
 
+func (o ManagedPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedPolicy] {
+	return pulumix.Output[ManagedPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1213,6 +1220,12 @@ func (o ManagedPolicyPtrOutput) ToManagedPolicyPtrOutput() ManagedPolicyPtrOutpu
 
 func (o ManagedPolicyPtrOutput) ToManagedPolicyPtrOutputWithContext(ctx context.Context) ManagedPolicyPtrOutput {
 	return o
+}
+
+func (o ManagedPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedPolicy] {
+	return pulumix.Output[*ManagedPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedPolicyPtrOutput) Elem() ManagedPolicyOutput {
@@ -1275,6 +1288,12 @@ func (in *managedPolicyPtr) ToManagedPolicyPtrOutput() ManagedPolicyPtrOutput {
 
 func (in *managedPolicyPtr) ToManagedPolicyPtrOutputWithContext(ctx context.Context) ManagedPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedPolicyPtrOutput)
+}
+
+func (in *managedPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*ManagedPolicy] {
+	return pulumix.Output[*ManagedPolicy]{
+		OutputState: in.ToManagedPolicyPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

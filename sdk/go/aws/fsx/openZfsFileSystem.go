@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon FSx for OpenZFS file system.
@@ -135,6 +137,7 @@ func NewOpenZfsFileSystem(ctx *pulumi.Context,
 	if args.ThroughputCapacity == nil {
 		return nil, errors.New("invalid value for required argument 'ThroughputCapacity'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OpenZfsFileSystem
 	err := ctx.RegisterResource("aws:fsx/openZfsFileSystem:OpenZfsFileSystem", name, args, &resource, opts...)
 	if err != nil {
@@ -352,6 +355,12 @@ func (i *OpenZfsFileSystem) ToOpenZfsFileSystemOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemOutput)
 }
 
+func (i *OpenZfsFileSystem) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsFileSystem] {
+	return pulumix.Output[*OpenZfsFileSystem]{
+		OutputState: i.ToOpenZfsFileSystemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OpenZfsFileSystemArrayInput is an input type that accepts OpenZfsFileSystemArray and OpenZfsFileSystemArrayOutput values.
 // You can construct a concrete instance of `OpenZfsFileSystemArrayInput` via:
 //
@@ -375,6 +384,12 @@ func (i OpenZfsFileSystemArray) ToOpenZfsFileSystemArrayOutput() OpenZfsFileSyst
 
 func (i OpenZfsFileSystemArray) ToOpenZfsFileSystemArrayOutputWithContext(ctx context.Context) OpenZfsFileSystemArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemArrayOutput)
+}
+
+func (i OpenZfsFileSystemArray) ToOutput(ctx context.Context) pulumix.Output[[]*OpenZfsFileSystem] {
+	return pulumix.Output[[]*OpenZfsFileSystem]{
+		OutputState: i.ToOpenZfsFileSystemArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OpenZfsFileSystemMapInput is an input type that accepts OpenZfsFileSystemMap and OpenZfsFileSystemMapOutput values.
@@ -402,6 +417,12 @@ func (i OpenZfsFileSystemMap) ToOpenZfsFileSystemMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(OpenZfsFileSystemMapOutput)
 }
 
+func (i OpenZfsFileSystemMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OpenZfsFileSystem] {
+	return pulumix.Output[map[string]*OpenZfsFileSystem]{
+		OutputState: i.ToOpenZfsFileSystemMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OpenZfsFileSystemOutput struct{ *pulumi.OutputState }
 
 func (OpenZfsFileSystemOutput) ElementType() reflect.Type {
@@ -414,6 +435,12 @@ func (o OpenZfsFileSystemOutput) ToOpenZfsFileSystemOutput() OpenZfsFileSystemOu
 
 func (o OpenZfsFileSystemOutput) ToOpenZfsFileSystemOutputWithContext(ctx context.Context) OpenZfsFileSystemOutput {
 	return o
+}
+
+func (o OpenZfsFileSystemOutput) ToOutput(ctx context.Context) pulumix.Output[*OpenZfsFileSystem] {
+	return pulumix.Output[*OpenZfsFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name of the file system.
@@ -549,6 +576,12 @@ func (o OpenZfsFileSystemArrayOutput) ToOpenZfsFileSystemArrayOutputWithContext(
 	return o
 }
 
+func (o OpenZfsFileSystemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OpenZfsFileSystem] {
+	return pulumix.Output[[]*OpenZfsFileSystem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OpenZfsFileSystemArrayOutput) Index(i pulumi.IntInput) OpenZfsFileSystemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OpenZfsFileSystem {
 		return vs[0].([]*OpenZfsFileSystem)[vs[1].(int)]
@@ -567,6 +600,12 @@ func (o OpenZfsFileSystemMapOutput) ToOpenZfsFileSystemMapOutput() OpenZfsFileSy
 
 func (o OpenZfsFileSystemMapOutput) ToOpenZfsFileSystemMapOutputWithContext(ctx context.Context) OpenZfsFileSystemMapOutput {
 	return o
+}
+
+func (o OpenZfsFileSystemMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OpenZfsFileSystem] {
+	return pulumix.Output[map[string]*OpenZfsFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OpenZfsFileSystemMapOutput) MapIndex(k pulumi.StringInput) OpenZfsFileSystemOutput {

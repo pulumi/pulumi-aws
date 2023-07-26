@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an independent configuration resource for S3 bucket [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html).
@@ -318,6 +320,7 @@ func NewBucketReplicationConfig(ctx *pulumi.Context,
 		"token",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketReplicationConfig
 	err := ctx.RegisterResource("aws:s3/bucketReplicationConfig:BucketReplicationConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -415,6 +418,12 @@ func (i *BucketReplicationConfig) ToBucketReplicationConfigOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigOutput)
 }
 
+func (i *BucketReplicationConfig) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfig] {
+	return pulumix.Output[*BucketReplicationConfig]{
+		OutputState: i.ToBucketReplicationConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketReplicationConfigArrayInput is an input type that accepts BucketReplicationConfigArray and BucketReplicationConfigArrayOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigArrayInput` via:
 //
@@ -438,6 +447,12 @@ func (i BucketReplicationConfigArray) ToBucketReplicationConfigArrayOutput() Buc
 
 func (i BucketReplicationConfigArray) ToBucketReplicationConfigArrayOutputWithContext(ctx context.Context) BucketReplicationConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigArrayOutput)
+}
+
+func (i BucketReplicationConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*BucketReplicationConfig] {
+	return pulumix.Output[[]*BucketReplicationConfig]{
+		OutputState: i.ToBucketReplicationConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketReplicationConfigMapInput is an input type that accepts BucketReplicationConfigMap and BucketReplicationConfigMapOutput values.
@@ -465,6 +480,12 @@ func (i BucketReplicationConfigMap) ToBucketReplicationConfigMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigMapOutput)
 }
 
+func (i BucketReplicationConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketReplicationConfig] {
+	return pulumix.Output[map[string]*BucketReplicationConfig]{
+		OutputState: i.ToBucketReplicationConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigOutput) ElementType() reflect.Type {
@@ -477,6 +498,12 @@ func (o BucketReplicationConfigOutput) ToBucketReplicationConfigOutput() BucketR
 
 func (o BucketReplicationConfigOutput) ToBucketReplicationConfigOutputWithContext(ctx context.Context) BucketReplicationConfigOutput {
 	return o
+}
+
+func (o BucketReplicationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfig] {
+	return pulumix.Output[*BucketReplicationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the source S3 bucket you want Amazon S3 to monitor.
@@ -514,6 +541,12 @@ func (o BucketReplicationConfigArrayOutput) ToBucketReplicationConfigArrayOutput
 	return o
 }
 
+func (o BucketReplicationConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketReplicationConfig] {
+	return pulumix.Output[[]*BucketReplicationConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketReplicationConfigArrayOutput) Index(i pulumi.IntInput) BucketReplicationConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketReplicationConfig {
 		return vs[0].([]*BucketReplicationConfig)[vs[1].(int)]
@@ -532,6 +565,12 @@ func (o BucketReplicationConfigMapOutput) ToBucketReplicationConfigMapOutput() B
 
 func (o BucketReplicationConfigMapOutput) ToBucketReplicationConfigMapOutputWithContext(ctx context.Context) BucketReplicationConfigMapOutput {
 	return o
+}
+
+func (o BucketReplicationConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketReplicationConfig] {
+	return pulumix.Output[map[string]*BucketReplicationConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigMapOutput) MapIndex(k pulumi.StringInput) BucketReplicationConfigOutput {

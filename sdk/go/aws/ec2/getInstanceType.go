@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get characteristics for a single EC2 Instance Type.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetInstanceType(ctx *pulumi.Context, args *GetInstanceTypeArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceTypeResult
 	err := ctx.Invoke("aws:ec2/getInstanceType:getInstanceType", args, &rv, opts...)
 	if err != nil {
@@ -199,6 +202,12 @@ func (o GetInstanceTypeResultOutput) ToGetInstanceTypeResultOutput() GetInstance
 
 func (o GetInstanceTypeResultOutput) ToGetInstanceTypeResultOutputWithContext(ctx context.Context) GetInstanceTypeResultOutput {
 	return o
+}
+
+func (o GetInstanceTypeResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstanceTypeResult] {
+	return pulumix.Output[GetInstanceTypeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // `true` if auto recovery is supported.

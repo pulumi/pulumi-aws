@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Image Builder Infrastructure Configuration.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupInfrastructureConfiguration(ctx *pulumi.Context, args *LookupInfrastructureConfigurationArgs, opts ...pulumi.InvokeOption) (*LookupInfrastructureConfigurationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInfrastructureConfigurationResult
 	err := ctx.Invoke("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", args, &rv, opts...)
 	if err != nil {
@@ -132,6 +135,12 @@ func (o LookupInfrastructureConfigurationResultOutput) ToLookupInfrastructureCon
 
 func (o LookupInfrastructureConfigurationResultOutput) ToLookupInfrastructureConfigurationResultOutputWithContext(ctx context.Context) LookupInfrastructureConfigurationResultOutput {
 	return o
+}
+
+func (o LookupInfrastructureConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInfrastructureConfigurationResult] {
+	return pulumix.Output[LookupInfrastructureConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupInfrastructureConfigurationResultOutput) Arn() pulumi.StringOutput {

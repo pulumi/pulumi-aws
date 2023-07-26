@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type OrganizationAccount struct {
 	// ARN of the root
@@ -59,6 +63,12 @@ func (i OrganizationAccountArgs) ToOrganizationAccountOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAccountOutput)
 }
 
+func (i OrganizationAccountArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationAccount] {
+	return pulumix.Output[OrganizationAccount]{
+		OutputState: i.ToOrganizationAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationAccountArrayInput is an input type that accepts OrganizationAccountArray and OrganizationAccountArrayOutput values.
 // You can construct a concrete instance of `OrganizationAccountArrayInput` via:
 //
@@ -84,6 +94,12 @@ func (i OrganizationAccountArray) ToOrganizationAccountArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAccountArrayOutput)
 }
 
+func (i OrganizationAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationAccount] {
+	return pulumix.Output[[]OrganizationAccount]{
+		OutputState: i.ToOrganizationAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationAccountOutput struct{ *pulumi.OutputState }
 
 func (OrganizationAccountOutput) ElementType() reflect.Type {
@@ -96,6 +112,12 @@ func (o OrganizationAccountOutput) ToOrganizationAccountOutput() OrganizationAcc
 
 func (o OrganizationAccountOutput) ToOrganizationAccountOutputWithContext(ctx context.Context) OrganizationAccountOutput {
 	return o
+}
+
+func (o OrganizationAccountOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationAccount] {
+	return pulumix.Output[OrganizationAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the root
@@ -135,6 +157,12 @@ func (o OrganizationAccountArrayOutput) ToOrganizationAccountArrayOutput() Organ
 
 func (o OrganizationAccountArrayOutput) ToOrganizationAccountArrayOutputWithContext(ctx context.Context) OrganizationAccountArrayOutput {
 	return o
+}
+
+func (o OrganizationAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationAccount] {
+	return pulumix.Output[[]OrganizationAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationAccountArrayOutput) Index(i pulumi.IntInput) OrganizationAccountOutput {
@@ -192,6 +220,12 @@ func (i OrganizationNonMasterAccountArgs) ToOrganizationNonMasterAccountOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationNonMasterAccountOutput)
 }
 
+func (i OrganizationNonMasterAccountArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationNonMasterAccount] {
+	return pulumix.Output[OrganizationNonMasterAccount]{
+		OutputState: i.ToOrganizationNonMasterAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationNonMasterAccountArrayInput is an input type that accepts OrganizationNonMasterAccountArray and OrganizationNonMasterAccountArrayOutput values.
 // You can construct a concrete instance of `OrganizationNonMasterAccountArrayInput` via:
 //
@@ -217,6 +251,12 @@ func (i OrganizationNonMasterAccountArray) ToOrganizationNonMasterAccountArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationNonMasterAccountArrayOutput)
 }
 
+func (i OrganizationNonMasterAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationNonMasterAccount] {
+	return pulumix.Output[[]OrganizationNonMasterAccount]{
+		OutputState: i.ToOrganizationNonMasterAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationNonMasterAccountOutput struct{ *pulumi.OutputState }
 
 func (OrganizationNonMasterAccountOutput) ElementType() reflect.Type {
@@ -229,6 +269,12 @@ func (o OrganizationNonMasterAccountOutput) ToOrganizationNonMasterAccountOutput
 
 func (o OrganizationNonMasterAccountOutput) ToOrganizationNonMasterAccountOutputWithContext(ctx context.Context) OrganizationNonMasterAccountOutput {
 	return o
+}
+
+func (o OrganizationNonMasterAccountOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationNonMasterAccount] {
+	return pulumix.Output[OrganizationNonMasterAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the root
@@ -268,6 +314,12 @@ func (o OrganizationNonMasterAccountArrayOutput) ToOrganizationNonMasterAccountA
 
 func (o OrganizationNonMasterAccountArrayOutput) ToOrganizationNonMasterAccountArrayOutputWithContext(ctx context.Context) OrganizationNonMasterAccountArrayOutput {
 	return o
+}
+
+func (o OrganizationNonMasterAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationNonMasterAccount] {
+	return pulumix.Output[[]OrganizationNonMasterAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationNonMasterAccountArrayOutput) Index(i pulumi.IntInput) OrganizationNonMasterAccountOutput {
@@ -321,6 +373,12 @@ func (i OrganizationRootArgs) ToOrganizationRootOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRootOutput)
 }
 
+func (i OrganizationRootArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRoot] {
+	return pulumix.Output[OrganizationRoot]{
+		OutputState: i.ToOrganizationRootOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationRootArrayInput is an input type that accepts OrganizationRootArray and OrganizationRootArrayOutput values.
 // You can construct a concrete instance of `OrganizationRootArrayInput` via:
 //
@@ -346,6 +404,12 @@ func (i OrganizationRootArray) ToOrganizationRootArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRootArrayOutput)
 }
 
+func (i OrganizationRootArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRoot] {
+	return pulumix.Output[[]OrganizationRoot]{
+		OutputState: i.ToOrganizationRootArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationRootOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRootOutput) ElementType() reflect.Type {
@@ -358,6 +422,12 @@ func (o OrganizationRootOutput) ToOrganizationRootOutput() OrganizationRootOutpu
 
 func (o OrganizationRootOutput) ToOrganizationRootOutputWithContext(ctx context.Context) OrganizationRootOutput {
 	return o
+}
+
+func (o OrganizationRootOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRoot] {
+	return pulumix.Output[OrganizationRoot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the root
@@ -392,6 +462,12 @@ func (o OrganizationRootArrayOutput) ToOrganizationRootArrayOutput() Organizatio
 
 func (o OrganizationRootArrayOutput) ToOrganizationRootArrayOutputWithContext(ctx context.Context) OrganizationRootArrayOutput {
 	return o
+}
+
+func (o OrganizationRootArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRoot] {
+	return pulumix.Output[[]OrganizationRoot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationRootArrayOutput) Index(i pulumi.IntInput) OrganizationRootOutput {
@@ -435,6 +511,12 @@ func (i OrganizationRootPolicyTypeArgs) ToOrganizationRootPolicyTypeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRootPolicyTypeOutput)
 }
 
+func (i OrganizationRootPolicyTypeArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationRootPolicyType] {
+	return pulumix.Output[OrganizationRootPolicyType]{
+		OutputState: i.ToOrganizationRootPolicyTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationRootPolicyTypeArrayInput is an input type that accepts OrganizationRootPolicyTypeArray and OrganizationRootPolicyTypeArrayOutput values.
 // You can construct a concrete instance of `OrganizationRootPolicyTypeArrayInput` via:
 //
@@ -460,6 +542,12 @@ func (i OrganizationRootPolicyTypeArray) ToOrganizationRootPolicyTypeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationRootPolicyTypeArrayOutput)
 }
 
+func (i OrganizationRootPolicyTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRootPolicyType] {
+	return pulumix.Output[[]OrganizationRootPolicyType]{
+		OutputState: i.ToOrganizationRootPolicyTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationRootPolicyTypeOutput struct{ *pulumi.OutputState }
 
 func (OrganizationRootPolicyTypeOutput) ElementType() reflect.Type {
@@ -472,6 +560,12 @@ func (o OrganizationRootPolicyTypeOutput) ToOrganizationRootPolicyTypeOutput() O
 
 func (o OrganizationRootPolicyTypeOutput) ToOrganizationRootPolicyTypeOutputWithContext(ctx context.Context) OrganizationRootPolicyTypeOutput {
 	return o
+}
+
+func (o OrganizationRootPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationRootPolicyType] {
+	return pulumix.Output[OrganizationRootPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The status of the policy type as it relates to the associated root
@@ -495,6 +589,12 @@ func (o OrganizationRootPolicyTypeArrayOutput) ToOrganizationRootPolicyTypeArray
 
 func (o OrganizationRootPolicyTypeArrayOutput) ToOrganizationRootPolicyTypeArrayOutputWithContext(ctx context.Context) OrganizationRootPolicyTypeArrayOutput {
 	return o
+}
+
+func (o OrganizationRootPolicyTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationRootPolicyType] {
+	return pulumix.Output[[]OrganizationRootPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationRootPolicyTypeArrayOutput) Index(i pulumi.IntInput) OrganizationRootPolicyTypeOutput {
@@ -548,6 +648,12 @@ func (i OrganizationalUnitAccountArgs) ToOrganizationalUnitAccountOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitAccountOutput)
 }
 
+func (i OrganizationalUnitAccountArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationalUnitAccount] {
+	return pulumix.Output[OrganizationalUnitAccount]{
+		OutputState: i.ToOrganizationalUnitAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationalUnitAccountArrayInput is an input type that accepts OrganizationalUnitAccountArray and OrganizationalUnitAccountArrayOutput values.
 // You can construct a concrete instance of `OrganizationalUnitAccountArrayInput` via:
 //
@@ -573,6 +679,12 @@ func (i OrganizationalUnitAccountArray) ToOrganizationalUnitAccountArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitAccountArrayOutput)
 }
 
+func (i OrganizationalUnitAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationalUnitAccount] {
+	return pulumix.Output[[]OrganizationalUnitAccount]{
+		OutputState: i.ToOrganizationalUnitAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationalUnitAccountOutput struct{ *pulumi.OutputState }
 
 func (OrganizationalUnitAccountOutput) ElementType() reflect.Type {
@@ -585,6 +697,12 @@ func (o OrganizationalUnitAccountOutput) ToOrganizationalUnitAccountOutput() Org
 
 func (o OrganizationalUnitAccountOutput) ToOrganizationalUnitAccountOutputWithContext(ctx context.Context) OrganizationalUnitAccountOutput {
 	return o
+}
+
+func (o OrganizationalUnitAccountOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationalUnitAccount] {
+	return pulumix.Output[OrganizationalUnitAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the organizational unit
@@ -619,6 +737,12 @@ func (o OrganizationalUnitAccountArrayOutput) ToOrganizationalUnitAccountArrayOu
 
 func (o OrganizationalUnitAccountArrayOutput) ToOrganizationalUnitAccountArrayOutputWithContext(ctx context.Context) OrganizationalUnitAccountArrayOutput {
 	return o
+}
+
+func (o OrganizationalUnitAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationalUnitAccount] {
+	return pulumix.Output[[]OrganizationalUnitAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationalUnitAccountArrayOutput) Index(i pulumi.IntInput) OrganizationalUnitAccountOutput {
@@ -688,6 +812,12 @@ func (i GetDelegatedAdministratorsDelegatedAdministratorArgs) ToGetDelegatedAdmi
 	return pulumi.ToOutputWithContext(ctx, i).(GetDelegatedAdministratorsDelegatedAdministratorOutput)
 }
 
+func (i GetDelegatedAdministratorsDelegatedAdministratorArgs) ToOutput(ctx context.Context) pulumix.Output[GetDelegatedAdministratorsDelegatedAdministrator] {
+	return pulumix.Output[GetDelegatedAdministratorsDelegatedAdministrator]{
+		OutputState: i.ToGetDelegatedAdministratorsDelegatedAdministratorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDelegatedAdministratorsDelegatedAdministratorArrayInput is an input type that accepts GetDelegatedAdministratorsDelegatedAdministratorArray and GetDelegatedAdministratorsDelegatedAdministratorArrayOutput values.
 // You can construct a concrete instance of `GetDelegatedAdministratorsDelegatedAdministratorArrayInput` via:
 //
@@ -713,6 +843,12 @@ func (i GetDelegatedAdministratorsDelegatedAdministratorArray) ToGetDelegatedAdm
 	return pulumi.ToOutputWithContext(ctx, i).(GetDelegatedAdministratorsDelegatedAdministratorArrayOutput)
 }
 
+func (i GetDelegatedAdministratorsDelegatedAdministratorArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDelegatedAdministratorsDelegatedAdministrator] {
+	return pulumix.Output[[]GetDelegatedAdministratorsDelegatedAdministrator]{
+		OutputState: i.ToGetDelegatedAdministratorsDelegatedAdministratorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDelegatedAdministratorsDelegatedAdministratorOutput struct{ *pulumi.OutputState }
 
 func (GetDelegatedAdministratorsDelegatedAdministratorOutput) ElementType() reflect.Type {
@@ -725,6 +861,12 @@ func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) ToGetDelegatedAd
 
 func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) ToGetDelegatedAdministratorsDelegatedAdministratorOutputWithContext(ctx context.Context) GetDelegatedAdministratorsDelegatedAdministratorOutput {
 	return o
+}
+
+func (o GetDelegatedAdministratorsDelegatedAdministratorOutput) ToOutput(ctx context.Context) pulumix.Output[GetDelegatedAdministratorsDelegatedAdministrator] {
+	return pulumix.Output[GetDelegatedAdministratorsDelegatedAdministrator]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the delegated administrator's account.
@@ -781,6 +923,12 @@ func (o GetDelegatedAdministratorsDelegatedAdministratorArrayOutput) ToGetDelega
 	return o
 }
 
+func (o GetDelegatedAdministratorsDelegatedAdministratorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDelegatedAdministratorsDelegatedAdministrator] {
+	return pulumix.Output[[]GetDelegatedAdministratorsDelegatedAdministrator]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDelegatedAdministratorsDelegatedAdministratorArrayOutput) Index(i pulumi.IntInput) GetDelegatedAdministratorsDelegatedAdministratorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDelegatedAdministratorsDelegatedAdministrator {
 		return vs[0].([]GetDelegatedAdministratorsDelegatedAdministrator)[vs[1].(int)]
@@ -824,6 +972,12 @@ func (i GetDelegatedServicesDelegatedServiceArgs) ToGetDelegatedServicesDelegate
 	return pulumi.ToOutputWithContext(ctx, i).(GetDelegatedServicesDelegatedServiceOutput)
 }
 
+func (i GetDelegatedServicesDelegatedServiceArgs) ToOutput(ctx context.Context) pulumix.Output[GetDelegatedServicesDelegatedService] {
+	return pulumix.Output[GetDelegatedServicesDelegatedService]{
+		OutputState: i.ToGetDelegatedServicesDelegatedServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDelegatedServicesDelegatedServiceArrayInput is an input type that accepts GetDelegatedServicesDelegatedServiceArray and GetDelegatedServicesDelegatedServiceArrayOutput values.
 // You can construct a concrete instance of `GetDelegatedServicesDelegatedServiceArrayInput` via:
 //
@@ -849,6 +1003,12 @@ func (i GetDelegatedServicesDelegatedServiceArray) ToGetDelegatedServicesDelegat
 	return pulumi.ToOutputWithContext(ctx, i).(GetDelegatedServicesDelegatedServiceArrayOutput)
 }
 
+func (i GetDelegatedServicesDelegatedServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDelegatedServicesDelegatedService] {
+	return pulumix.Output[[]GetDelegatedServicesDelegatedService]{
+		OutputState: i.ToGetDelegatedServicesDelegatedServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDelegatedServicesDelegatedServiceOutput struct{ *pulumi.OutputState }
 
 func (GetDelegatedServicesDelegatedServiceOutput) ElementType() reflect.Type {
@@ -861,6 +1021,12 @@ func (o GetDelegatedServicesDelegatedServiceOutput) ToGetDelegatedServicesDelega
 
 func (o GetDelegatedServicesDelegatedServiceOutput) ToGetDelegatedServicesDelegatedServiceOutputWithContext(ctx context.Context) GetDelegatedServicesDelegatedServiceOutput {
 	return o
+}
+
+func (o GetDelegatedServicesDelegatedServiceOutput) ToOutput(ctx context.Context) pulumix.Output[GetDelegatedServicesDelegatedService] {
+	return pulumix.Output[GetDelegatedServicesDelegatedService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The date that the account became a delegated administrator for this service.
@@ -885,6 +1051,12 @@ func (o GetDelegatedServicesDelegatedServiceArrayOutput) ToGetDelegatedServicesD
 
 func (o GetDelegatedServicesDelegatedServiceArrayOutput) ToGetDelegatedServicesDelegatedServiceArrayOutputWithContext(ctx context.Context) GetDelegatedServicesDelegatedServiceArrayOutput {
 	return o
+}
+
+func (o GetDelegatedServicesDelegatedServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDelegatedServicesDelegatedService] {
+	return pulumix.Output[[]GetDelegatedServicesDelegatedService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDelegatedServicesDelegatedServiceArrayOutput) Index(i pulumi.IntInput) GetDelegatedServicesDelegatedServiceOutput {
@@ -942,6 +1114,12 @@ func (i GetOrganizationAccountArgs) ToGetOrganizationAccountOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationAccountOutput)
 }
 
+func (i GetOrganizationAccountArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationAccount] {
+	return pulumix.Output[GetOrganizationAccount]{
+		OutputState: i.ToGetOrganizationAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOrganizationAccountArrayInput is an input type that accepts GetOrganizationAccountArray and GetOrganizationAccountArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationAccountArrayInput` via:
 //
@@ -967,6 +1145,12 @@ func (i GetOrganizationAccountArray) ToGetOrganizationAccountArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationAccountArrayOutput)
 }
 
+func (i GetOrganizationAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationAccount] {
+	return pulumix.Output[[]GetOrganizationAccount]{
+		OutputState: i.ToGetOrganizationAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOrganizationAccountOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationAccountOutput) ElementType() reflect.Type {
@@ -979,6 +1163,12 @@ func (o GetOrganizationAccountOutput) ToGetOrganizationAccountOutput() GetOrgani
 
 func (o GetOrganizationAccountOutput) ToGetOrganizationAccountOutputWithContext(ctx context.Context) GetOrganizationAccountOutput {
 	return o
+}
+
+func (o GetOrganizationAccountOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationAccount] {
+	return pulumix.Output[GetOrganizationAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the root
@@ -1018,6 +1208,12 @@ func (o GetOrganizationAccountArrayOutput) ToGetOrganizationAccountArrayOutput()
 
 func (o GetOrganizationAccountArrayOutput) ToGetOrganizationAccountArrayOutputWithContext(ctx context.Context) GetOrganizationAccountArrayOutput {
 	return o
+}
+
+func (o GetOrganizationAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationAccount] {
+	return pulumix.Output[[]GetOrganizationAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOrganizationAccountArrayOutput) Index(i pulumi.IntInput) GetOrganizationAccountOutput {
@@ -1075,6 +1271,12 @@ func (i GetOrganizationNonMasterAccountArgs) ToGetOrganizationNonMasterAccountOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationNonMasterAccountOutput)
 }
 
+func (i GetOrganizationNonMasterAccountArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationNonMasterAccount] {
+	return pulumix.Output[GetOrganizationNonMasterAccount]{
+		OutputState: i.ToGetOrganizationNonMasterAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOrganizationNonMasterAccountArrayInput is an input type that accepts GetOrganizationNonMasterAccountArray and GetOrganizationNonMasterAccountArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationNonMasterAccountArrayInput` via:
 //
@@ -1100,6 +1302,12 @@ func (i GetOrganizationNonMasterAccountArray) ToGetOrganizationNonMasterAccountA
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationNonMasterAccountArrayOutput)
 }
 
+func (i GetOrganizationNonMasterAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationNonMasterAccount] {
+	return pulumix.Output[[]GetOrganizationNonMasterAccount]{
+		OutputState: i.ToGetOrganizationNonMasterAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOrganizationNonMasterAccountOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationNonMasterAccountOutput) ElementType() reflect.Type {
@@ -1112,6 +1320,12 @@ func (o GetOrganizationNonMasterAccountOutput) ToGetOrganizationNonMasterAccount
 
 func (o GetOrganizationNonMasterAccountOutput) ToGetOrganizationNonMasterAccountOutputWithContext(ctx context.Context) GetOrganizationNonMasterAccountOutput {
 	return o
+}
+
+func (o GetOrganizationNonMasterAccountOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationNonMasterAccount] {
+	return pulumix.Output[GetOrganizationNonMasterAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the root
@@ -1151,6 +1365,12 @@ func (o GetOrganizationNonMasterAccountArrayOutput) ToGetOrganizationNonMasterAc
 
 func (o GetOrganizationNonMasterAccountArrayOutput) ToGetOrganizationNonMasterAccountArrayOutputWithContext(ctx context.Context) GetOrganizationNonMasterAccountArrayOutput {
 	return o
+}
+
+func (o GetOrganizationNonMasterAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationNonMasterAccount] {
+	return pulumix.Output[[]GetOrganizationNonMasterAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOrganizationNonMasterAccountArrayOutput) Index(i pulumi.IntInput) GetOrganizationNonMasterAccountOutput {
@@ -1204,6 +1424,12 @@ func (i GetOrganizationRootArgs) ToGetOrganizationRootOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRootOutput)
 }
 
+func (i GetOrganizationRootArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationRoot] {
+	return pulumix.Output[GetOrganizationRoot]{
+		OutputState: i.ToGetOrganizationRootOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOrganizationRootArrayInput is an input type that accepts GetOrganizationRootArray and GetOrganizationRootArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationRootArrayInput` via:
 //
@@ -1229,6 +1455,12 @@ func (i GetOrganizationRootArray) ToGetOrganizationRootArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRootArrayOutput)
 }
 
+func (i GetOrganizationRootArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationRoot] {
+	return pulumix.Output[[]GetOrganizationRoot]{
+		OutputState: i.ToGetOrganizationRootArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOrganizationRootOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationRootOutput) ElementType() reflect.Type {
@@ -1241,6 +1473,12 @@ func (o GetOrganizationRootOutput) ToGetOrganizationRootOutput() GetOrganization
 
 func (o GetOrganizationRootOutput) ToGetOrganizationRootOutputWithContext(ctx context.Context) GetOrganizationRootOutput {
 	return o
+}
+
+func (o GetOrganizationRootOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationRoot] {
+	return pulumix.Output[GetOrganizationRoot]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the root
@@ -1275,6 +1513,12 @@ func (o GetOrganizationRootArrayOutput) ToGetOrganizationRootArrayOutput() GetOr
 
 func (o GetOrganizationRootArrayOutput) ToGetOrganizationRootArrayOutputWithContext(ctx context.Context) GetOrganizationRootArrayOutput {
 	return o
+}
+
+func (o GetOrganizationRootArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationRoot] {
+	return pulumix.Output[[]GetOrganizationRoot]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOrganizationRootArrayOutput) Index(i pulumi.IntInput) GetOrganizationRootOutput {
@@ -1318,6 +1562,12 @@ func (i GetOrganizationRootPolicyTypeArgs) ToGetOrganizationRootPolicyTypeOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRootPolicyTypeOutput)
 }
 
+func (i GetOrganizationRootPolicyTypeArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationRootPolicyType] {
+	return pulumix.Output[GetOrganizationRootPolicyType]{
+		OutputState: i.ToGetOrganizationRootPolicyTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOrganizationRootPolicyTypeArrayInput is an input type that accepts GetOrganizationRootPolicyTypeArray and GetOrganizationRootPolicyTypeArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationRootPolicyTypeArrayInput` via:
 //
@@ -1343,6 +1593,12 @@ func (i GetOrganizationRootPolicyTypeArray) ToGetOrganizationRootPolicyTypeArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationRootPolicyTypeArrayOutput)
 }
 
+func (i GetOrganizationRootPolicyTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationRootPolicyType] {
+	return pulumix.Output[[]GetOrganizationRootPolicyType]{
+		OutputState: i.ToGetOrganizationRootPolicyTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOrganizationRootPolicyTypeOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationRootPolicyTypeOutput) ElementType() reflect.Type {
@@ -1355,6 +1611,12 @@ func (o GetOrganizationRootPolicyTypeOutput) ToGetOrganizationRootPolicyTypeOutp
 
 func (o GetOrganizationRootPolicyTypeOutput) ToGetOrganizationRootPolicyTypeOutputWithContext(ctx context.Context) GetOrganizationRootPolicyTypeOutput {
 	return o
+}
+
+func (o GetOrganizationRootPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationRootPolicyType] {
+	return pulumix.Output[GetOrganizationRootPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The status of the policy type as it relates to the associated root
@@ -1378,6 +1640,12 @@ func (o GetOrganizationRootPolicyTypeArrayOutput) ToGetOrganizationRootPolicyTyp
 
 func (o GetOrganizationRootPolicyTypeArrayOutput) ToGetOrganizationRootPolicyTypeArrayOutputWithContext(ctx context.Context) GetOrganizationRootPolicyTypeArrayOutput {
 	return o
+}
+
+func (o GetOrganizationRootPolicyTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationRootPolicyType] {
+	return pulumix.Output[[]GetOrganizationRootPolicyType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOrganizationRootPolicyTypeArrayOutput) Index(i pulumi.IntInput) GetOrganizationRootPolicyTypeOutput {
@@ -1435,6 +1703,12 @@ func (i GetOrganizationalUnitChildAccountsAccountArgs) ToGetOrganizationalUnitCh
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitChildAccountsAccountOutput)
 }
 
+func (i GetOrganizationalUnitChildAccountsAccountArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationalUnitChildAccountsAccount] {
+	return pulumix.Output[GetOrganizationalUnitChildAccountsAccount]{
+		OutputState: i.ToGetOrganizationalUnitChildAccountsAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOrganizationalUnitChildAccountsAccountArrayInput is an input type that accepts GetOrganizationalUnitChildAccountsAccountArray and GetOrganizationalUnitChildAccountsAccountArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationalUnitChildAccountsAccountArrayInput` via:
 //
@@ -1460,6 +1734,12 @@ func (i GetOrganizationalUnitChildAccountsAccountArray) ToGetOrganizationalUnitC
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitChildAccountsAccountArrayOutput)
 }
 
+func (i GetOrganizationalUnitChildAccountsAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationalUnitChildAccountsAccount] {
+	return pulumix.Output[[]GetOrganizationalUnitChildAccountsAccount]{
+		OutputState: i.ToGetOrganizationalUnitChildAccountsAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOrganizationalUnitChildAccountsAccountOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationalUnitChildAccountsAccountOutput) ElementType() reflect.Type {
@@ -1472,6 +1752,12 @@ func (o GetOrganizationalUnitChildAccountsAccountOutput) ToGetOrganizationalUnit
 
 func (o GetOrganizationalUnitChildAccountsAccountOutput) ToGetOrganizationalUnitChildAccountsAccountOutputWithContext(ctx context.Context) GetOrganizationalUnitChildAccountsAccountOutput {
 	return o
+}
+
+func (o GetOrganizationalUnitChildAccountsAccountOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationalUnitChildAccountsAccount] {
+	return pulumix.Output[GetOrganizationalUnitChildAccountsAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the account.
@@ -1511,6 +1797,12 @@ func (o GetOrganizationalUnitChildAccountsAccountArrayOutput) ToGetOrganizationa
 
 func (o GetOrganizationalUnitChildAccountsAccountArrayOutput) ToGetOrganizationalUnitChildAccountsAccountArrayOutputWithContext(ctx context.Context) GetOrganizationalUnitChildAccountsAccountArrayOutput {
 	return o
+}
+
+func (o GetOrganizationalUnitChildAccountsAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationalUnitChildAccountsAccount] {
+	return pulumix.Output[[]GetOrganizationalUnitChildAccountsAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOrganizationalUnitChildAccountsAccountArrayOutput) Index(i pulumi.IntInput) GetOrganizationalUnitChildAccountsAccountOutput {
@@ -1568,6 +1860,12 @@ func (i GetOrganizationalUnitDescendantAccountsAccountArgs) ToGetOrganizationalU
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitDescendantAccountsAccountOutput)
 }
 
+func (i GetOrganizationalUnitDescendantAccountsAccountArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationalUnitDescendantAccountsAccount] {
+	return pulumix.Output[GetOrganizationalUnitDescendantAccountsAccount]{
+		OutputState: i.ToGetOrganizationalUnitDescendantAccountsAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOrganizationalUnitDescendantAccountsAccountArrayInput is an input type that accepts GetOrganizationalUnitDescendantAccountsAccountArray and GetOrganizationalUnitDescendantAccountsAccountArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationalUnitDescendantAccountsAccountArrayInput` via:
 //
@@ -1593,6 +1891,12 @@ func (i GetOrganizationalUnitDescendantAccountsAccountArray) ToGetOrganizational
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitDescendantAccountsAccountArrayOutput)
 }
 
+func (i GetOrganizationalUnitDescendantAccountsAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationalUnitDescendantAccountsAccount] {
+	return pulumix.Output[[]GetOrganizationalUnitDescendantAccountsAccount]{
+		OutputState: i.ToGetOrganizationalUnitDescendantAccountsAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOrganizationalUnitDescendantAccountsAccountOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationalUnitDescendantAccountsAccountOutput) ElementType() reflect.Type {
@@ -1605,6 +1909,12 @@ func (o GetOrganizationalUnitDescendantAccountsAccountOutput) ToGetOrganizationa
 
 func (o GetOrganizationalUnitDescendantAccountsAccountOutput) ToGetOrganizationalUnitDescendantAccountsAccountOutputWithContext(ctx context.Context) GetOrganizationalUnitDescendantAccountsAccountOutput {
 	return o
+}
+
+func (o GetOrganizationalUnitDescendantAccountsAccountOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationalUnitDescendantAccountsAccount] {
+	return pulumix.Output[GetOrganizationalUnitDescendantAccountsAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the account.
@@ -1644,6 +1954,12 @@ func (o GetOrganizationalUnitDescendantAccountsAccountArrayOutput) ToGetOrganiza
 
 func (o GetOrganizationalUnitDescendantAccountsAccountArrayOutput) ToGetOrganizationalUnitDescendantAccountsAccountArrayOutputWithContext(ctx context.Context) GetOrganizationalUnitDescendantAccountsAccountArrayOutput {
 	return o
+}
+
+func (o GetOrganizationalUnitDescendantAccountsAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationalUnitDescendantAccountsAccount] {
+	return pulumix.Output[[]GetOrganizationalUnitDescendantAccountsAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOrganizationalUnitDescendantAccountsAccountArrayOutput) Index(i pulumi.IntInput) GetOrganizationalUnitDescendantAccountsAccountOutput {
@@ -1693,6 +2009,12 @@ func (i GetOrganizationalUnitsChildrenArgs) ToGetOrganizationalUnitsChildrenOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitsChildrenOutput)
 }
 
+func (i GetOrganizationalUnitsChildrenArgs) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationalUnitsChildren] {
+	return pulumix.Output[GetOrganizationalUnitsChildren]{
+		OutputState: i.ToGetOrganizationalUnitsChildrenOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetOrganizationalUnitsChildrenArrayInput is an input type that accepts GetOrganizationalUnitsChildrenArray and GetOrganizationalUnitsChildrenArrayOutput values.
 // You can construct a concrete instance of `GetOrganizationalUnitsChildrenArrayInput` via:
 //
@@ -1718,6 +2040,12 @@ func (i GetOrganizationalUnitsChildrenArray) ToGetOrganizationalUnitsChildrenArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetOrganizationalUnitsChildrenArrayOutput)
 }
 
+func (i GetOrganizationalUnitsChildrenArray) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationalUnitsChildren] {
+	return pulumix.Output[[]GetOrganizationalUnitsChildren]{
+		OutputState: i.ToGetOrganizationalUnitsChildrenArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetOrganizationalUnitsChildrenOutput struct{ *pulumi.OutputState }
 
 func (GetOrganizationalUnitsChildrenOutput) ElementType() reflect.Type {
@@ -1730,6 +2058,12 @@ func (o GetOrganizationalUnitsChildrenOutput) ToGetOrganizationalUnitsChildrenOu
 
 func (o GetOrganizationalUnitsChildrenOutput) ToGetOrganizationalUnitsChildrenOutputWithContext(ctx context.Context) GetOrganizationalUnitsChildrenOutput {
 	return o
+}
+
+func (o GetOrganizationalUnitsChildrenOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationalUnitsChildren] {
+	return pulumix.Output[GetOrganizationalUnitsChildren]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the organizational unit
@@ -1759,6 +2093,12 @@ func (o GetOrganizationalUnitsChildrenArrayOutput) ToGetOrganizationalUnitsChild
 
 func (o GetOrganizationalUnitsChildrenArrayOutput) ToGetOrganizationalUnitsChildrenArrayOutputWithContext(ctx context.Context) GetOrganizationalUnitsChildrenArrayOutput {
 	return o
+}
+
+func (o GetOrganizationalUnitsChildrenArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetOrganizationalUnitsChildren] {
+	return pulumix.Output[[]GetOrganizationalUnitsChildren]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetOrganizationalUnitsChildrenArrayOutput) Index(i pulumi.IntInput) GetOrganizationalUnitsChildrenOutput {

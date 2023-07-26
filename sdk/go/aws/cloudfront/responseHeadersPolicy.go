@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudFront response headers policy resource.
@@ -176,6 +178,7 @@ func NewResponseHeadersPolicy(ctx *pulumi.Context,
 		args = &ResponseHeadersPolicyArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResponseHeadersPolicy
 	err := ctx.RegisterResource("aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -301,6 +304,12 @@ func (i *ResponseHeadersPolicy) ToResponseHeadersPolicyOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyOutput)
 }
 
+func (i *ResponseHeadersPolicy) ToOutput(ctx context.Context) pulumix.Output[*ResponseHeadersPolicy] {
+	return pulumix.Output[*ResponseHeadersPolicy]{
+		OutputState: i.ToResponseHeadersPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResponseHeadersPolicyArrayInput is an input type that accepts ResponseHeadersPolicyArray and ResponseHeadersPolicyArrayOutput values.
 // You can construct a concrete instance of `ResponseHeadersPolicyArrayInput` via:
 //
@@ -324,6 +333,12 @@ func (i ResponseHeadersPolicyArray) ToResponseHeadersPolicyArrayOutput() Respons
 
 func (i ResponseHeadersPolicyArray) ToResponseHeadersPolicyArrayOutputWithContext(ctx context.Context) ResponseHeadersPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyArrayOutput)
+}
+
+func (i ResponseHeadersPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResponseHeadersPolicy] {
+	return pulumix.Output[[]*ResponseHeadersPolicy]{
+		OutputState: i.ToResponseHeadersPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResponseHeadersPolicyMapInput is an input type that accepts ResponseHeadersPolicyMap and ResponseHeadersPolicyMapOutput values.
@@ -351,6 +366,12 @@ func (i ResponseHeadersPolicyMap) ToResponseHeadersPolicyMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyMapOutput)
 }
 
+func (i ResponseHeadersPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResponseHeadersPolicy] {
+	return pulumix.Output[map[string]*ResponseHeadersPolicy]{
+		OutputState: i.ToResponseHeadersPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResponseHeadersPolicyOutput struct{ *pulumi.OutputState }
 
 func (ResponseHeadersPolicyOutput) ElementType() reflect.Type {
@@ -363,6 +384,12 @@ func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutput() ResponseHea
 
 func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutputWithContext(ctx context.Context) ResponseHeadersPolicyOutput {
 	return o
+}
+
+func (o ResponseHeadersPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponseHeadersPolicy] {
+	return pulumix.Output[*ResponseHeadersPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
@@ -427,6 +454,12 @@ func (o ResponseHeadersPolicyArrayOutput) ToResponseHeadersPolicyArrayOutputWith
 	return o
 }
 
+func (o ResponseHeadersPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResponseHeadersPolicy] {
+	return pulumix.Output[[]*ResponseHeadersPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResponseHeadersPolicyArrayOutput) Index(i pulumi.IntInput) ResponseHeadersPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResponseHeadersPolicy {
 		return vs[0].([]*ResponseHeadersPolicy)[vs[1].(int)]
@@ -445,6 +478,12 @@ func (o ResponseHeadersPolicyMapOutput) ToResponseHeadersPolicyMapOutput() Respo
 
 func (o ResponseHeadersPolicyMapOutput) ToResponseHeadersPolicyMapOutputWithContext(ctx context.Context) ResponseHeadersPolicyMapOutput {
 	return o
+}
+
+func (o ResponseHeadersPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResponseHeadersPolicy] {
+	return pulumix.Output[map[string]*ResponseHeadersPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResponseHeadersPolicyMapOutput) MapIndex(k pulumi.StringInput) ResponseHeadersPolicyOutput {

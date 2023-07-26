@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an CloudSearch domain service access policy resource.
@@ -110,6 +112,7 @@ func NewDomainServiceAccessPolicy(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainServiceAccessPolicy
 	err := ctx.RegisterResource("aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -187,6 +190,12 @@ func (i *DomainServiceAccessPolicy) ToDomainServiceAccessPolicyOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceAccessPolicyOutput)
 }
 
+func (i *DomainServiceAccessPolicy) ToOutput(ctx context.Context) pulumix.Output[*DomainServiceAccessPolicy] {
+	return pulumix.Output[*DomainServiceAccessPolicy]{
+		OutputState: i.ToDomainServiceAccessPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainServiceAccessPolicyArrayInput is an input type that accepts DomainServiceAccessPolicyArray and DomainServiceAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `DomainServiceAccessPolicyArrayInput` via:
 //
@@ -210,6 +219,12 @@ func (i DomainServiceAccessPolicyArray) ToDomainServiceAccessPolicyArrayOutput()
 
 func (i DomainServiceAccessPolicyArray) ToDomainServiceAccessPolicyArrayOutputWithContext(ctx context.Context) DomainServiceAccessPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceAccessPolicyArrayOutput)
+}
+
+func (i DomainServiceAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainServiceAccessPolicy] {
+	return pulumix.Output[[]*DomainServiceAccessPolicy]{
+		OutputState: i.ToDomainServiceAccessPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainServiceAccessPolicyMapInput is an input type that accepts DomainServiceAccessPolicyMap and DomainServiceAccessPolicyMapOutput values.
@@ -237,6 +252,12 @@ func (i DomainServiceAccessPolicyMap) ToDomainServiceAccessPolicyMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceAccessPolicyMapOutput)
 }
 
+func (i DomainServiceAccessPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainServiceAccessPolicy] {
+	return pulumix.Output[map[string]*DomainServiceAccessPolicy]{
+		OutputState: i.ToDomainServiceAccessPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainServiceAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (DomainServiceAccessPolicyOutput) ElementType() reflect.Type {
@@ -249,6 +270,12 @@ func (o DomainServiceAccessPolicyOutput) ToDomainServiceAccessPolicyOutput() Dom
 
 func (o DomainServiceAccessPolicyOutput) ToDomainServiceAccessPolicyOutputWithContext(ctx context.Context) DomainServiceAccessPolicyOutput {
 	return o
+}
+
+func (o DomainServiceAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainServiceAccessPolicy] {
+	return pulumix.Output[*DomainServiceAccessPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
@@ -275,6 +302,12 @@ func (o DomainServiceAccessPolicyArrayOutput) ToDomainServiceAccessPolicyArrayOu
 	return o
 }
 
+func (o DomainServiceAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainServiceAccessPolicy] {
+	return pulumix.Output[[]*DomainServiceAccessPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainServiceAccessPolicyArrayOutput) Index(i pulumi.IntInput) DomainServiceAccessPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainServiceAccessPolicy {
 		return vs[0].([]*DomainServiceAccessPolicy)[vs[1].(int)]
@@ -293,6 +326,12 @@ func (o DomainServiceAccessPolicyMapOutput) ToDomainServiceAccessPolicyMapOutput
 
 func (o DomainServiceAccessPolicyMapOutput) ToDomainServiceAccessPolicyMapOutputWithContext(ctx context.Context) DomainServiceAccessPolicyMapOutput {
 	return o
+}
+
+func (o DomainServiceAccessPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainServiceAccessPolicy] {
+	return pulumix.Output[map[string]*DomainServiceAccessPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainServiceAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) DomainServiceAccessPolicyOutput {

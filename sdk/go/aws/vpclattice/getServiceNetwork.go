@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS VPC Lattice Service Network.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupServiceNetwork(ctx *pulumi.Context, args *LookupServiceNetworkArgs, opts ...pulumi.InvokeOption) (*LookupServiceNetworkResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceNetworkResult
 	err := ctx.Invoke("aws:vpclattice/getServiceNetwork:getServiceNetwork", args, &rv, opts...)
 	if err != nil {
@@ -113,6 +116,12 @@ func (o LookupServiceNetworkResultOutput) ToLookupServiceNetworkResultOutput() L
 
 func (o LookupServiceNetworkResultOutput) ToLookupServiceNetworkResultOutputWithContext(ctx context.Context) LookupServiceNetworkResultOutput {
 	return o
+}
+
+func (o LookupServiceNetworkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceNetworkResult] {
+	return pulumix.Output[LookupServiceNetworkResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Service Network.

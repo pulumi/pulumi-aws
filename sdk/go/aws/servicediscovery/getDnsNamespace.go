@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves information about a Service Discovery private or public DNS namespace.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetDnsNamespace(ctx *pulumi.Context, args *GetDnsNamespaceArgs, opts ...pulumi.InvokeOption) (*GetDnsNamespaceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDnsNamespaceResult
 	err := ctx.Invoke("aws:servicediscovery/getDnsNamespace:getDnsNamespace", args, &rv, opts...)
 	if err != nil {
@@ -113,6 +116,12 @@ func (o GetDnsNamespaceResultOutput) ToGetDnsNamespaceResultOutput() GetDnsNames
 
 func (o GetDnsNamespaceResultOutput) ToGetDnsNamespaceResultOutputWithContext(ctx context.Context) GetDnsNamespaceResultOutput {
 	return o
+}
+
+func (o GetDnsNamespaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDnsNamespaceResult] {
+	return pulumix.Output[GetDnsNamespaceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the namespace.

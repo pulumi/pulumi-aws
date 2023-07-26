@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource provisions and manages a Service Catalog provisioned product.
@@ -132,6 +134,7 @@ func NewProvisionedProduct(ctx *pulumi.Context,
 		args = &ProvisionedProductArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProvisionedProduct
 	err := ctx.RegisterResource("aws:servicecatalog/provisionedProduct:ProvisionedProduct", name, args, &resource, opts...)
 	if err != nil {
@@ -361,6 +364,12 @@ func (i *ProvisionedProduct) ToProvisionedProductOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductOutput)
 }
 
+func (i *ProvisionedProduct) ToOutput(ctx context.Context) pulumix.Output[*ProvisionedProduct] {
+	return pulumix.Output[*ProvisionedProduct]{
+		OutputState: i.ToProvisionedProductOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProvisionedProductArrayInput is an input type that accepts ProvisionedProductArray and ProvisionedProductArrayOutput values.
 // You can construct a concrete instance of `ProvisionedProductArrayInput` via:
 //
@@ -384,6 +393,12 @@ func (i ProvisionedProductArray) ToProvisionedProductArrayOutput() ProvisionedPr
 
 func (i ProvisionedProductArray) ToProvisionedProductArrayOutputWithContext(ctx context.Context) ProvisionedProductArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductArrayOutput)
+}
+
+func (i ProvisionedProductArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProvisionedProduct] {
+	return pulumix.Output[[]*ProvisionedProduct]{
+		OutputState: i.ToProvisionedProductArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProvisionedProductMapInput is an input type that accepts ProvisionedProductMap and ProvisionedProductMapOutput values.
@@ -411,6 +426,12 @@ func (i ProvisionedProductMap) ToProvisionedProductMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductMapOutput)
 }
 
+func (i ProvisionedProductMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProvisionedProduct] {
+	return pulumix.Output[map[string]*ProvisionedProduct]{
+		OutputState: i.ToProvisionedProductMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProvisionedProductOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedProductOutput) ElementType() reflect.Type {
@@ -423,6 +444,12 @@ func (o ProvisionedProductOutput) ToProvisionedProductOutput() ProvisionedProduc
 
 func (o ProvisionedProductOutput) ToProvisionedProductOutputWithContext(ctx context.Context) ProvisionedProductOutput {
 	return o
+}
+
+func (o ProvisionedProductOutput) ToOutput(ctx context.Context) pulumix.Output[*ProvisionedProduct] {
+	return pulumix.Output[*ProvisionedProduct]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -575,6 +602,12 @@ func (o ProvisionedProductArrayOutput) ToProvisionedProductArrayOutputWithContex
 	return o
 }
 
+func (o ProvisionedProductArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProvisionedProduct] {
+	return pulumix.Output[[]*ProvisionedProduct]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProvisionedProductArrayOutput) Index(i pulumi.IntInput) ProvisionedProductOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProvisionedProduct {
 		return vs[0].([]*ProvisionedProduct)[vs[1].(int)]
@@ -593,6 +626,12 @@ func (o ProvisionedProductMapOutput) ToProvisionedProductMapOutput() Provisioned
 
 func (o ProvisionedProductMapOutput) ToProvisionedProductMapOutputWithContext(ctx context.Context) ProvisionedProductMapOutput {
 	return o
+}
+
+func (o ProvisionedProductMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProvisionedProduct] {
+	return pulumix.Output[map[string]*ProvisionedProduct]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProvisionedProductMapOutput) MapIndex(k pulumi.StringInput) ProvisionedProductOutput {

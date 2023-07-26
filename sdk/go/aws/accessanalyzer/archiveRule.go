@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS AccessAnalyzer Archive Rule.
@@ -95,6 +97,7 @@ func NewArchiveRule(ctx *pulumi.Context,
 	if args.RuleName == nil {
 		return nil, errors.New("invalid value for required argument 'RuleName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ArchiveRule
 	err := ctx.RegisterResource("aws:accessanalyzer/archiveRule:ArchiveRule", name, args, &resource, opts...)
 	if err != nil {
@@ -180,6 +183,12 @@ func (i *ArchiveRule) ToArchiveRuleOutputWithContext(ctx context.Context) Archiv
 	return pulumi.ToOutputWithContext(ctx, i).(ArchiveRuleOutput)
 }
 
+func (i *ArchiveRule) ToOutput(ctx context.Context) pulumix.Output[*ArchiveRule] {
+	return pulumix.Output[*ArchiveRule]{
+		OutputState: i.ToArchiveRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ArchiveRuleArrayInput is an input type that accepts ArchiveRuleArray and ArchiveRuleArrayOutput values.
 // You can construct a concrete instance of `ArchiveRuleArrayInput` via:
 //
@@ -203,6 +212,12 @@ func (i ArchiveRuleArray) ToArchiveRuleArrayOutput() ArchiveRuleArrayOutput {
 
 func (i ArchiveRuleArray) ToArchiveRuleArrayOutputWithContext(ctx context.Context) ArchiveRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ArchiveRuleArrayOutput)
+}
+
+func (i ArchiveRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*ArchiveRule] {
+	return pulumix.Output[[]*ArchiveRule]{
+		OutputState: i.ToArchiveRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ArchiveRuleMapInput is an input type that accepts ArchiveRuleMap and ArchiveRuleMapOutput values.
@@ -230,6 +245,12 @@ func (i ArchiveRuleMap) ToArchiveRuleMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(ArchiveRuleMapOutput)
 }
 
+func (i ArchiveRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ArchiveRule] {
+	return pulumix.Output[map[string]*ArchiveRule]{
+		OutputState: i.ToArchiveRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ArchiveRuleOutput struct{ *pulumi.OutputState }
 
 func (ArchiveRuleOutput) ElementType() reflect.Type {
@@ -242,6 +263,12 @@ func (o ArchiveRuleOutput) ToArchiveRuleOutput() ArchiveRuleOutput {
 
 func (o ArchiveRuleOutput) ToArchiveRuleOutputWithContext(ctx context.Context) ArchiveRuleOutput {
 	return o
+}
+
+func (o ArchiveRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ArchiveRule] {
+	return pulumix.Output[*ArchiveRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Analyzer name.
@@ -273,6 +300,12 @@ func (o ArchiveRuleArrayOutput) ToArchiveRuleArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ArchiveRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ArchiveRule] {
+	return pulumix.Output[[]*ArchiveRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ArchiveRuleArrayOutput) Index(i pulumi.IntInput) ArchiveRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ArchiveRule {
 		return vs[0].([]*ArchiveRule)[vs[1].(int)]
@@ -291,6 +324,12 @@ func (o ArchiveRuleMapOutput) ToArchiveRuleMapOutput() ArchiveRuleMapOutput {
 
 func (o ArchiveRuleMapOutput) ToArchiveRuleMapOutputWithContext(ctx context.Context) ArchiveRuleMapOutput {
 	return o
+}
+
+func (o ArchiveRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ArchiveRule] {
+	return pulumix.Output[map[string]*ArchiveRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ArchiveRuleMapOutput) MapIndex(k pulumi.StringInput) ArchiveRuleOutput {

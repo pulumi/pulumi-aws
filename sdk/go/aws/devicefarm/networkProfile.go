@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Device Farm Network Profiles.
@@ -99,6 +101,7 @@ func NewNetworkProfile(ctx *pulumi.Context,
 	if args.ProjectArn == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkProfile
 	err := ctx.RegisterResource("aws:devicefarm/networkProfile:NetworkProfile", name, args, &resource, opts...)
 	if err != nil {
@@ -272,6 +275,12 @@ func (i *NetworkProfile) ToNetworkProfileOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileOutput)
 }
 
+func (i *NetworkProfile) ToOutput(ctx context.Context) pulumix.Output[*NetworkProfile] {
+	return pulumix.Output[*NetworkProfile]{
+		OutputState: i.ToNetworkProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkProfileArrayInput is an input type that accepts NetworkProfileArray and NetworkProfileArrayOutput values.
 // You can construct a concrete instance of `NetworkProfileArrayInput` via:
 //
@@ -295,6 +304,12 @@ func (i NetworkProfileArray) ToNetworkProfileArrayOutput() NetworkProfileArrayOu
 
 func (i NetworkProfileArray) ToNetworkProfileArrayOutputWithContext(ctx context.Context) NetworkProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileArrayOutput)
+}
+
+func (i NetworkProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkProfile] {
+	return pulumix.Output[[]*NetworkProfile]{
+		OutputState: i.ToNetworkProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkProfileMapInput is an input type that accepts NetworkProfileMap and NetworkProfileMapOutput values.
@@ -322,6 +337,12 @@ func (i NetworkProfileMap) ToNetworkProfileMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileMapOutput)
 }
 
+func (i NetworkProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkProfile] {
+	return pulumix.Output[map[string]*NetworkProfile]{
+		OutputState: i.ToNetworkProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
@@ -334,6 +355,12 @@ func (o NetworkProfileOutput) ToNetworkProfileOutput() NetworkProfileOutput {
 
 func (o NetworkProfileOutput) ToNetworkProfileOutputWithContext(ctx context.Context) NetworkProfileOutput {
 	return o
+}
+
+func (o NetworkProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkProfile] {
+	return pulumix.Output[*NetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name of this network profile.
@@ -425,6 +452,12 @@ func (o NetworkProfileArrayOutput) ToNetworkProfileArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o NetworkProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkProfile] {
+	return pulumix.Output[[]*NetworkProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkProfileArrayOutput) Index(i pulumi.IntInput) NetworkProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkProfile {
 		return vs[0].([]*NetworkProfile)[vs[1].(int)]
@@ -443,6 +476,12 @@ func (o NetworkProfileMapOutput) ToNetworkProfileMapOutput() NetworkProfileMapOu
 
 func (o NetworkProfileMapOutput) ToNetworkProfileMapOutputWithContext(ctx context.Context) NetworkProfileMapOutput {
 	return o
+}
+
+func (o NetworkProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkProfile] {
+	return pulumix.Output[map[string]*NetworkProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkProfileMapOutput) MapIndex(k pulumi.StringInput) NetworkProfileOutput {

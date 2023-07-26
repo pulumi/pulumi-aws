@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Route 53 Hosted Zone Domain Name System Security Extensions (DNSSEC). For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
@@ -134,6 +136,7 @@ func NewHostedZoneDnsSec(ctx *pulumi.Context,
 	if args.HostedZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'HostedZoneId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HostedZoneDnsSec
 	err := ctx.RegisterResource("aws:route53/hostedZoneDnsSec:HostedZoneDnsSec", name, args, &resource, opts...)
 	if err != nil {
@@ -219,6 +222,12 @@ func (i *HostedZoneDnsSec) ToHostedZoneDnsSecOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneDnsSecOutput)
 }
 
+func (i *HostedZoneDnsSec) ToOutput(ctx context.Context) pulumix.Output[*HostedZoneDnsSec] {
+	return pulumix.Output[*HostedZoneDnsSec]{
+		OutputState: i.ToHostedZoneDnsSecOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HostedZoneDnsSecArrayInput is an input type that accepts HostedZoneDnsSecArray and HostedZoneDnsSecArrayOutput values.
 // You can construct a concrete instance of `HostedZoneDnsSecArrayInput` via:
 //
@@ -242,6 +251,12 @@ func (i HostedZoneDnsSecArray) ToHostedZoneDnsSecArrayOutput() HostedZoneDnsSecA
 
 func (i HostedZoneDnsSecArray) ToHostedZoneDnsSecArrayOutputWithContext(ctx context.Context) HostedZoneDnsSecArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneDnsSecArrayOutput)
+}
+
+func (i HostedZoneDnsSecArray) ToOutput(ctx context.Context) pulumix.Output[[]*HostedZoneDnsSec] {
+	return pulumix.Output[[]*HostedZoneDnsSec]{
+		OutputState: i.ToHostedZoneDnsSecArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HostedZoneDnsSecMapInput is an input type that accepts HostedZoneDnsSecMap and HostedZoneDnsSecMapOutput values.
@@ -269,6 +284,12 @@ func (i HostedZoneDnsSecMap) ToHostedZoneDnsSecMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneDnsSecMapOutput)
 }
 
+func (i HostedZoneDnsSecMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedZoneDnsSec] {
+	return pulumix.Output[map[string]*HostedZoneDnsSec]{
+		OutputState: i.ToHostedZoneDnsSecMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HostedZoneDnsSecOutput struct{ *pulumi.OutputState }
 
 func (HostedZoneDnsSecOutput) ElementType() reflect.Type {
@@ -281,6 +302,12 @@ func (o HostedZoneDnsSecOutput) ToHostedZoneDnsSecOutput() HostedZoneDnsSecOutpu
 
 func (o HostedZoneDnsSecOutput) ToHostedZoneDnsSecOutputWithContext(ctx context.Context) HostedZoneDnsSecOutput {
 	return o
+}
+
+func (o HostedZoneDnsSecOutput) ToOutput(ctx context.Context) pulumix.Output[*HostedZoneDnsSec] {
+	return pulumix.Output[*HostedZoneDnsSec]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier of the Route 53 Hosted Zone.
@@ -309,6 +336,12 @@ func (o HostedZoneDnsSecArrayOutput) ToHostedZoneDnsSecArrayOutputWithContext(ct
 	return o
 }
 
+func (o HostedZoneDnsSecArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HostedZoneDnsSec] {
+	return pulumix.Output[[]*HostedZoneDnsSec]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HostedZoneDnsSecArrayOutput) Index(i pulumi.IntInput) HostedZoneDnsSecOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HostedZoneDnsSec {
 		return vs[0].([]*HostedZoneDnsSec)[vs[1].(int)]
@@ -327,6 +360,12 @@ func (o HostedZoneDnsSecMapOutput) ToHostedZoneDnsSecMapOutput() HostedZoneDnsSe
 
 func (o HostedZoneDnsSecMapOutput) ToHostedZoneDnsSecMapOutputWithContext(ctx context.Context) HostedZoneDnsSecMapOutput {
 	return o
+}
+
+func (o HostedZoneDnsSecMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedZoneDnsSec] {
+	return pulumix.Output[map[string]*HostedZoneDnsSec]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HostedZoneDnsSecMapOutput) MapIndex(k pulumi.StringInput) HostedZoneDnsSecOutput {

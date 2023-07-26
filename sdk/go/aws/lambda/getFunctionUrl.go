@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a Lambda function URL.
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ...pulumi.InvokeOption) (*LookupFunctionUrlResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFunctionUrlResult
 	err := ctx.Invoke("aws:lambda/getFunctionUrl:getFunctionUrl", args, &rv, opts...)
 	if err != nil {
@@ -119,6 +122,12 @@ func (o LookupFunctionUrlResultOutput) ToLookupFunctionUrlResultOutput() LookupF
 
 func (o LookupFunctionUrlResultOutput) ToLookupFunctionUrlResultOutputWithContext(ctx context.Context) LookupFunctionUrlResultOutput {
 	return o
+}
+
+func (o LookupFunctionUrlResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFunctionUrlResult] {
+	return pulumix.Output[LookupFunctionUrlResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Type of authentication that the function URL uses.

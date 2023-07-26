@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.
@@ -73,6 +75,7 @@ func NewHsmClientCertificate(ctx *pulumi.Context,
 	if args.HsmClientCertificateIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'HsmClientCertificateIdentifier'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HsmClientCertificate
 	err := ctx.RegisterResource("aws:redshift/hsmClientCertificate:HsmClientCertificate", name, args, &resource, opts...)
 	if err != nil {
@@ -162,6 +165,12 @@ func (i *HsmClientCertificate) ToHsmClientCertificateOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(HsmClientCertificateOutput)
 }
 
+func (i *HsmClientCertificate) ToOutput(ctx context.Context) pulumix.Output[*HsmClientCertificate] {
+	return pulumix.Output[*HsmClientCertificate]{
+		OutputState: i.ToHsmClientCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HsmClientCertificateArrayInput is an input type that accepts HsmClientCertificateArray and HsmClientCertificateArrayOutput values.
 // You can construct a concrete instance of `HsmClientCertificateArrayInput` via:
 //
@@ -185,6 +194,12 @@ func (i HsmClientCertificateArray) ToHsmClientCertificateArrayOutput() HsmClient
 
 func (i HsmClientCertificateArray) ToHsmClientCertificateArrayOutputWithContext(ctx context.Context) HsmClientCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HsmClientCertificateArrayOutput)
+}
+
+func (i HsmClientCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*HsmClientCertificate] {
+	return pulumix.Output[[]*HsmClientCertificate]{
+		OutputState: i.ToHsmClientCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HsmClientCertificateMapInput is an input type that accepts HsmClientCertificateMap and HsmClientCertificateMapOutput values.
@@ -212,6 +227,12 @@ func (i HsmClientCertificateMap) ToHsmClientCertificateMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(HsmClientCertificateMapOutput)
 }
 
+func (i HsmClientCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HsmClientCertificate] {
+	return pulumix.Output[map[string]*HsmClientCertificate]{
+		OutputState: i.ToHsmClientCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HsmClientCertificateOutput struct{ *pulumi.OutputState }
 
 func (HsmClientCertificateOutput) ElementType() reflect.Type {
@@ -224,6 +245,12 @@ func (o HsmClientCertificateOutput) ToHsmClientCertificateOutput() HsmClientCert
 
 func (o HsmClientCertificateOutput) ToHsmClientCertificateOutputWithContext(ctx context.Context) HsmClientCertificateOutput {
 	return o
+}
+
+func (o HsmClientCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*HsmClientCertificate] {
+	return pulumix.Output[*HsmClientCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the Hsm Client Certificate.
@@ -265,6 +292,12 @@ func (o HsmClientCertificateArrayOutput) ToHsmClientCertificateArrayOutputWithCo
 	return o
 }
 
+func (o HsmClientCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HsmClientCertificate] {
+	return pulumix.Output[[]*HsmClientCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HsmClientCertificateArrayOutput) Index(i pulumi.IntInput) HsmClientCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HsmClientCertificate {
 		return vs[0].([]*HsmClientCertificate)[vs[1].(int)]
@@ -283,6 +316,12 @@ func (o HsmClientCertificateMapOutput) ToHsmClientCertificateMapOutput() HsmClie
 
 func (o HsmClientCertificateMapOutput) ToHsmClientCertificateMapOutputWithContext(ctx context.Context) HsmClientCertificateMapOutput {
 	return o
+}
+
+func (o HsmClientCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HsmClientCertificate] {
+	return pulumix.Output[map[string]*HsmClientCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HsmClientCertificateMapOutput) MapIndex(k pulumi.StringInput) HsmClientCertificateOutput {

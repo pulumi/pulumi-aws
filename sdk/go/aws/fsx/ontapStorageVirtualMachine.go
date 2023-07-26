@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a FSx Storage Virtual Machine.
@@ -146,6 +148,7 @@ func NewOntapStorageVirtualMachine(ctx *pulumi.Context,
 		"svmAdminPassword",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OntapStorageVirtualMachine
 	err := ctx.RegisterResource("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine", name, args, &resource, opts...)
 	if err != nil {
@@ -271,6 +274,12 @@ func (i *OntapStorageVirtualMachine) ToOntapStorageVirtualMachineOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineOutput)
 }
 
+func (i *OntapStorageVirtualMachine) ToOutput(ctx context.Context) pulumix.Output[*OntapStorageVirtualMachine] {
+	return pulumix.Output[*OntapStorageVirtualMachine]{
+		OutputState: i.ToOntapStorageVirtualMachineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OntapStorageVirtualMachineArrayInput is an input type that accepts OntapStorageVirtualMachineArray and OntapStorageVirtualMachineArrayOutput values.
 // You can construct a concrete instance of `OntapStorageVirtualMachineArrayInput` via:
 //
@@ -294,6 +303,12 @@ func (i OntapStorageVirtualMachineArray) ToOntapStorageVirtualMachineArrayOutput
 
 func (i OntapStorageVirtualMachineArray) ToOntapStorageVirtualMachineArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineArrayOutput)
+}
+
+func (i OntapStorageVirtualMachineArray) ToOutput(ctx context.Context) pulumix.Output[[]*OntapStorageVirtualMachine] {
+	return pulumix.Output[[]*OntapStorageVirtualMachine]{
+		OutputState: i.ToOntapStorageVirtualMachineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OntapStorageVirtualMachineMapInput is an input type that accepts OntapStorageVirtualMachineMap and OntapStorageVirtualMachineMapOutput values.
@@ -321,6 +336,12 @@ func (i OntapStorageVirtualMachineMap) ToOntapStorageVirtualMachineMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineMapOutput)
 }
 
+func (i OntapStorageVirtualMachineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OntapStorageVirtualMachine] {
+	return pulumix.Output[map[string]*OntapStorageVirtualMachine]{
+		OutputState: i.ToOntapStorageVirtualMachineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OntapStorageVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (OntapStorageVirtualMachineOutput) ElementType() reflect.Type {
@@ -333,6 +354,12 @@ func (o OntapStorageVirtualMachineOutput) ToOntapStorageVirtualMachineOutput() O
 
 func (o OntapStorageVirtualMachineOutput) ToOntapStorageVirtualMachineOutputWithContext(ctx context.Context) OntapStorageVirtualMachineOutput {
 	return o
+}
+
+func (o OntapStorageVirtualMachineOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapStorageVirtualMachine] {
+	return pulumix.Output[*OntapStorageVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
@@ -405,6 +432,12 @@ func (o OntapStorageVirtualMachineArrayOutput) ToOntapStorageVirtualMachineArray
 	return o
 }
 
+func (o OntapStorageVirtualMachineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OntapStorageVirtualMachine] {
+	return pulumix.Output[[]*OntapStorageVirtualMachine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OntapStorageVirtualMachineArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OntapStorageVirtualMachine {
 		return vs[0].([]*OntapStorageVirtualMachine)[vs[1].(int)]
@@ -423,6 +456,12 @@ func (o OntapStorageVirtualMachineMapOutput) ToOntapStorageVirtualMachineMapOutp
 
 func (o OntapStorageVirtualMachineMapOutput) ToOntapStorageVirtualMachineMapOutputWithContext(ctx context.Context) OntapStorageVirtualMachineMapOutput {
 	return o
+}
+
+func (o OntapStorageVirtualMachineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OntapStorageVirtualMachine] {
+	return pulumix.Output[map[string]*OntapStorageVirtualMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OntapStorageVirtualMachineMapOutput) MapIndex(k pulumi.StringInput) OntapStorageVirtualMachineOutput {

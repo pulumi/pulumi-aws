@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Kendra FAQ.
@@ -172,6 +174,7 @@ func NewFaq(ctx *pulumi.Context,
 	if args.S3Path == nil {
 		return nil, errors.New("invalid value for required argument 'S3Path'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Faq
 	err := ctx.RegisterResource("aws:kendra/faq:Faq", name, args, &resource, opts...)
 	if err != nil {
@@ -333,6 +336,12 @@ func (i *Faq) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FaqOutput)
 }
 
+func (i *Faq) ToOutput(ctx context.Context) pulumix.Output[*Faq] {
+	return pulumix.Output[*Faq]{
+		OutputState: i.ToFaqOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FaqArrayInput is an input type that accepts FaqArray and FaqArrayOutput values.
 // You can construct a concrete instance of `FaqArrayInput` via:
 //
@@ -356,6 +365,12 @@ func (i FaqArray) ToFaqArrayOutput() FaqArrayOutput {
 
 func (i FaqArray) ToFaqArrayOutputWithContext(ctx context.Context) FaqArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FaqArrayOutput)
+}
+
+func (i FaqArray) ToOutput(ctx context.Context) pulumix.Output[[]*Faq] {
+	return pulumix.Output[[]*Faq]{
+		OutputState: i.ToFaqArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FaqMapInput is an input type that accepts FaqMap and FaqMapOutput values.
@@ -383,6 +398,12 @@ func (i FaqMap) ToFaqMapOutputWithContext(ctx context.Context) FaqMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FaqMapOutput)
 }
 
+func (i FaqMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Faq] {
+	return pulumix.Output[map[string]*Faq]{
+		OutputState: i.ToFaqMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FaqOutput struct{ *pulumi.OutputState }
 
 func (FaqOutput) ElementType() reflect.Type {
@@ -395,6 +416,12 @@ func (o FaqOutput) ToFaqOutput() FaqOutput {
 
 func (o FaqOutput) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 	return o
+}
+
+func (o FaqOutput) ToOutput(ctx context.Context) pulumix.Output[*Faq] {
+	return pulumix.Output[*Faq]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the FAQ.
@@ -488,6 +515,12 @@ func (o FaqArrayOutput) ToFaqArrayOutputWithContext(ctx context.Context) FaqArra
 	return o
 }
 
+func (o FaqArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Faq] {
+	return pulumix.Output[[]*Faq]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FaqArrayOutput) Index(i pulumi.IntInput) FaqOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Faq {
 		return vs[0].([]*Faq)[vs[1].(int)]
@@ -506,6 +539,12 @@ func (o FaqMapOutput) ToFaqMapOutput() FaqMapOutput {
 
 func (o FaqMapOutput) ToFaqMapOutputWithContext(ctx context.Context) FaqMapOutput {
 	return o
+}
+
+func (o FaqMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Faq] {
+	return pulumix.Output[map[string]*Faq]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FaqMapOutput) MapIndex(k pulumi.StringInput) FaqOutput {

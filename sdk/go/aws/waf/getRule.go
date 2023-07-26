@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `waf.Rule` Retrieves a WAF Rule Resource Id.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRuleResult
 	err := ctx.Invoke("aws:waf/getRule:getRule", args, &rv, opts...)
 	if err != nil {
@@ -95,6 +98,12 @@ func (o LookupRuleResultOutput) ToLookupRuleResultOutput() LookupRuleResultOutpu
 
 func (o LookupRuleResultOutput) ToLookupRuleResultOutputWithContext(ctx context.Context) LookupRuleResultOutput {
 	return o
+}
+
+func (o LookupRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRuleResult] {
+	return pulumix.Output[LookupRuleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a KMS multi-Region replica key that uses external key material.
@@ -125,6 +127,7 @@ func NewReplicaExternalKey(ctx *pulumi.Context,
 		"keyMaterialBase64",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicaExternalKey
 	err := ctx.RegisterResource("aws:kms/replicaExternalKey:ReplicaExternalKey", name, args, &resource, opts...)
 	if err != nil {
@@ -298,6 +301,12 @@ func (i *ReplicaExternalKey) ToReplicaExternalKeyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaExternalKeyOutput)
 }
 
+func (i *ReplicaExternalKey) ToOutput(ctx context.Context) pulumix.Output[*ReplicaExternalKey] {
+	return pulumix.Output[*ReplicaExternalKey]{
+		OutputState: i.ToReplicaExternalKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReplicaExternalKeyArrayInput is an input type that accepts ReplicaExternalKeyArray and ReplicaExternalKeyArrayOutput values.
 // You can construct a concrete instance of `ReplicaExternalKeyArrayInput` via:
 //
@@ -321,6 +330,12 @@ func (i ReplicaExternalKeyArray) ToReplicaExternalKeyArrayOutput() ReplicaExtern
 
 func (i ReplicaExternalKeyArray) ToReplicaExternalKeyArrayOutputWithContext(ctx context.Context) ReplicaExternalKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaExternalKeyArrayOutput)
+}
+
+func (i ReplicaExternalKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicaExternalKey] {
+	return pulumix.Output[[]*ReplicaExternalKey]{
+		OutputState: i.ToReplicaExternalKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReplicaExternalKeyMapInput is an input type that accepts ReplicaExternalKeyMap and ReplicaExternalKeyMapOutput values.
@@ -348,6 +363,12 @@ func (i ReplicaExternalKeyMap) ToReplicaExternalKeyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaExternalKeyMapOutput)
 }
 
+func (i ReplicaExternalKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicaExternalKey] {
+	return pulumix.Output[map[string]*ReplicaExternalKey]{
+		OutputState: i.ToReplicaExternalKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReplicaExternalKeyOutput struct{ *pulumi.OutputState }
 
 func (ReplicaExternalKeyOutput) ElementType() reflect.Type {
@@ -360,6 +381,12 @@ func (o ReplicaExternalKeyOutput) ToReplicaExternalKeyOutput() ReplicaExternalKe
 
 func (o ReplicaExternalKeyOutput) ToReplicaExternalKeyOutputWithContext(ctx context.Context) ReplicaExternalKeyOutput {
 	return o
+}
+
+func (o ReplicaExternalKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicaExternalKey] {
+	return pulumix.Output[*ReplicaExternalKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
@@ -455,6 +482,12 @@ func (o ReplicaExternalKeyArrayOutput) ToReplicaExternalKeyArrayOutputWithContex
 	return o
 }
 
+func (o ReplicaExternalKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicaExternalKey] {
+	return pulumix.Output[[]*ReplicaExternalKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReplicaExternalKeyArrayOutput) Index(i pulumi.IntInput) ReplicaExternalKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicaExternalKey {
 		return vs[0].([]*ReplicaExternalKey)[vs[1].(int)]
@@ -473,6 +506,12 @@ func (o ReplicaExternalKeyMapOutput) ToReplicaExternalKeyMapOutput() ReplicaExte
 
 func (o ReplicaExternalKeyMapOutput) ToReplicaExternalKeyMapOutputWithContext(ctx context.Context) ReplicaExternalKeyMapOutput {
 	return o
+}
+
+func (o ReplicaExternalKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicaExternalKey] {
+	return pulumix.Output[map[string]*ReplicaExternalKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReplicaExternalKeyMapOutput) MapIndex(k pulumi.StringInput) ReplicaExternalKeyOutput {

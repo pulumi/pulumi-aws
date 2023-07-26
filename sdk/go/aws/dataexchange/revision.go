@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage AWS Data Exchange Revisions.
@@ -75,6 +77,7 @@ func NewRevision(ctx *pulumi.Context,
 	if args.DataSetId == nil {
 		return nil, errors.New("invalid value for required argument 'DataSetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Revision
 	err := ctx.RegisterResource("aws:dataexchange/revision:Revision", name, args, &resource, opts...)
 	if err != nil {
@@ -172,6 +175,12 @@ func (i *Revision) ToRevisionOutputWithContext(ctx context.Context) RevisionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RevisionOutput)
 }
 
+func (i *Revision) ToOutput(ctx context.Context) pulumix.Output[*Revision] {
+	return pulumix.Output[*Revision]{
+		OutputState: i.ToRevisionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RevisionArrayInput is an input type that accepts RevisionArray and RevisionArrayOutput values.
 // You can construct a concrete instance of `RevisionArrayInput` via:
 //
@@ -195,6 +204,12 @@ func (i RevisionArray) ToRevisionArrayOutput() RevisionArrayOutput {
 
 func (i RevisionArray) ToRevisionArrayOutputWithContext(ctx context.Context) RevisionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RevisionArrayOutput)
+}
+
+func (i RevisionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Revision] {
+	return pulumix.Output[[]*Revision]{
+		OutputState: i.ToRevisionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RevisionMapInput is an input type that accepts RevisionMap and RevisionMapOutput values.
@@ -222,6 +237,12 @@ func (i RevisionMap) ToRevisionMapOutputWithContext(ctx context.Context) Revisio
 	return pulumi.ToOutputWithContext(ctx, i).(RevisionMapOutput)
 }
 
+func (i RevisionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Revision] {
+	return pulumix.Output[map[string]*Revision]{
+		OutputState: i.ToRevisionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RevisionOutput struct{ *pulumi.OutputState }
 
 func (RevisionOutput) ElementType() reflect.Type {
@@ -234,6 +255,12 @@ func (o RevisionOutput) ToRevisionOutput() RevisionOutput {
 
 func (o RevisionOutput) ToRevisionOutputWithContext(ctx context.Context) RevisionOutput {
 	return o
+}
+
+func (o RevisionOutput) ToOutput(ctx context.Context) pulumix.Output[*Revision] {
+	return pulumix.Output[*Revision]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name of this data set.
@@ -280,6 +307,12 @@ func (o RevisionArrayOutput) ToRevisionArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o RevisionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Revision] {
+	return pulumix.Output[[]*Revision]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RevisionArrayOutput) Index(i pulumi.IntInput) RevisionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Revision {
 		return vs[0].([]*Revision)[vs[1].(int)]
@@ -298,6 +331,12 @@ func (o RevisionMapOutput) ToRevisionMapOutput() RevisionMapOutput {
 
 func (o RevisionMapOutput) ToRevisionMapOutputWithContext(ctx context.Context) RevisionMapOutput {
 	return o
+}
+
+func (o RevisionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Revision] {
+	return pulumix.Output[map[string]*Revision]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RevisionMapOutput) MapIndex(k pulumi.StringInput) RevisionOutput {

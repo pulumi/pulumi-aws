@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an OpsWorks NodeJS application layer resource.
@@ -102,6 +104,7 @@ func NewNodejsAppLayer(ctx *pulumi.Context,
 	if args.StackId == nil {
 		return nil, errors.New("invalid value for required argument 'StackId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NodejsAppLayer
 	err := ctx.RegisterResource("aws:opsworks/nodejsAppLayer:NodejsAppLayer", name, args, &resource, opts...)
 	if err != nil {
@@ -351,6 +354,12 @@ func (i *NodejsAppLayer) ToNodejsAppLayerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerOutput)
 }
 
+func (i *NodejsAppLayer) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayer] {
+	return pulumix.Output[*NodejsAppLayer]{
+		OutputState: i.ToNodejsAppLayerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NodejsAppLayerArrayInput is an input type that accepts NodejsAppLayerArray and NodejsAppLayerArrayOutput values.
 // You can construct a concrete instance of `NodejsAppLayerArrayInput` via:
 //
@@ -374,6 +383,12 @@ func (i NodejsAppLayerArray) ToNodejsAppLayerArrayOutput() NodejsAppLayerArrayOu
 
 func (i NodejsAppLayerArray) ToNodejsAppLayerArrayOutputWithContext(ctx context.Context) NodejsAppLayerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerArrayOutput)
+}
+
+func (i NodejsAppLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]*NodejsAppLayer] {
+	return pulumix.Output[[]*NodejsAppLayer]{
+		OutputState: i.ToNodejsAppLayerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NodejsAppLayerMapInput is an input type that accepts NodejsAppLayerMap and NodejsAppLayerMapOutput values.
@@ -401,6 +416,12 @@ func (i NodejsAppLayerMap) ToNodejsAppLayerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerMapOutput)
 }
 
+func (i NodejsAppLayerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NodejsAppLayer] {
+	return pulumix.Output[map[string]*NodejsAppLayer]{
+		OutputState: i.ToNodejsAppLayerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NodejsAppLayerOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerOutput) ElementType() reflect.Type {
@@ -413,6 +434,12 @@ func (o NodejsAppLayerOutput) ToNodejsAppLayerOutput() NodejsAppLayerOutput {
 
 func (o NodejsAppLayerOutput) ToNodejsAppLayerOutputWithContext(ctx context.Context) NodejsAppLayerOutput {
 	return o
+}
+
+func (o NodejsAppLayerOutput) ToOutput(ctx context.Context) pulumix.Output[*NodejsAppLayer] {
+	return pulumix.Output[*NodejsAppLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name(ARN) of the layer.
@@ -558,6 +585,12 @@ func (o NodejsAppLayerArrayOutput) ToNodejsAppLayerArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o NodejsAppLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NodejsAppLayer] {
+	return pulumix.Output[[]*NodejsAppLayer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NodejsAppLayerArrayOutput) Index(i pulumi.IntInput) NodejsAppLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NodejsAppLayer {
 		return vs[0].([]*NodejsAppLayer)[vs[1].(int)]
@@ -576,6 +609,12 @@ func (o NodejsAppLayerMapOutput) ToNodejsAppLayerMapOutput() NodejsAppLayerMapOu
 
 func (o NodejsAppLayerMapOutput) ToNodejsAppLayerMapOutputWithContext(ctx context.Context) NodejsAppLayerMapOutput {
 	return o
+}
+
+func (o NodejsAppLayerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NodejsAppLayer] {
+	return pulumix.Output[map[string]*NodejsAppLayer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodejsAppLayerMapOutput) MapIndex(k pulumi.StringInput) NodejsAppLayerOutput {

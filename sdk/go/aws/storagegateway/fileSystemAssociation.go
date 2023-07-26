@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associate an Amazon FSx file system with the FSx File Gateway. After the association process is complete, the file shares on the Amazon FSx file system are available for access through the gateway. This operation only supports the FSx File Gateway type.
@@ -188,6 +190,7 @@ func NewFileSystemAssociation(ctx *pulumi.Context,
 		"password",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FileSystemAssociation
 	err := ctx.RegisterResource("aws:storagegateway/fileSystemAssociation:FileSystemAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -313,6 +316,12 @@ func (i *FileSystemAssociation) ToFileSystemAssociationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemAssociationOutput)
 }
 
+func (i *FileSystemAssociation) ToOutput(ctx context.Context) pulumix.Output[*FileSystemAssociation] {
+	return pulumix.Output[*FileSystemAssociation]{
+		OutputState: i.ToFileSystemAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FileSystemAssociationArrayInput is an input type that accepts FileSystemAssociationArray and FileSystemAssociationArrayOutput values.
 // You can construct a concrete instance of `FileSystemAssociationArrayInput` via:
 //
@@ -336,6 +345,12 @@ func (i FileSystemAssociationArray) ToFileSystemAssociationArrayOutput() FileSys
 
 func (i FileSystemAssociationArray) ToFileSystemAssociationArrayOutputWithContext(ctx context.Context) FileSystemAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemAssociationArrayOutput)
+}
+
+func (i FileSystemAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*FileSystemAssociation] {
+	return pulumix.Output[[]*FileSystemAssociation]{
+		OutputState: i.ToFileSystemAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FileSystemAssociationMapInput is an input type that accepts FileSystemAssociationMap and FileSystemAssociationMapOutput values.
@@ -363,6 +378,12 @@ func (i FileSystemAssociationMap) ToFileSystemAssociationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemAssociationMapOutput)
 }
 
+func (i FileSystemAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileSystemAssociation] {
+	return pulumix.Output[map[string]*FileSystemAssociation]{
+		OutputState: i.ToFileSystemAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FileSystemAssociationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemAssociationOutput) ElementType() reflect.Type {
@@ -375,6 +396,12 @@ func (o FileSystemAssociationOutput) ToFileSystemAssociationOutput() FileSystemA
 
 func (o FileSystemAssociationOutput) ToFileSystemAssociationOutputWithContext(ctx context.Context) FileSystemAssociationOutput {
 	return o
+}
+
+func (o FileSystemAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemAssociation] {
+	return pulumix.Output[*FileSystemAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the newly created file system association.
@@ -436,6 +463,12 @@ func (o FileSystemAssociationArrayOutput) ToFileSystemAssociationArrayOutputWith
 	return o
 }
 
+func (o FileSystemAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FileSystemAssociation] {
+	return pulumix.Output[[]*FileSystemAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FileSystemAssociationArrayOutput) Index(i pulumi.IntInput) FileSystemAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FileSystemAssociation {
 		return vs[0].([]*FileSystemAssociation)[vs[1].(int)]
@@ -454,6 +487,12 @@ func (o FileSystemAssociationMapOutput) ToFileSystemAssociationMapOutput() FileS
 
 func (o FileSystemAssociationMapOutput) ToFileSystemAssociationMapOutputWithContext(ctx context.Context) FileSystemAssociationMapOutput {
 	return o
+}
+
+func (o FileSystemAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FileSystemAssociation] {
+	return pulumix.Output[map[string]*FileSystemAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FileSystemAssociationMapOutput) MapIndex(k pulumi.StringInput) FileSystemAssociationOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a [default subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
@@ -105,6 +107,7 @@ func NewDefaultSubnet(ctx *pulumi.Context,
 	if args.AvailabilityZone == nil {
 		return nil, errors.New("invalid value for required argument 'AvailabilityZone'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultSubnet
 	err := ctx.RegisterResource("aws:ec2/defaultSubnet:DefaultSubnet", name, args, &resource, opts...)
 	if err != nil {
@@ -268,6 +271,12 @@ func (i *DefaultSubnet) ToDefaultSubnetOutputWithContext(ctx context.Context) De
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSubnetOutput)
 }
 
+func (i *DefaultSubnet) ToOutput(ctx context.Context) pulumix.Output[*DefaultSubnet] {
+	return pulumix.Output[*DefaultSubnet]{
+		OutputState: i.ToDefaultSubnetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DefaultSubnetArrayInput is an input type that accepts DefaultSubnetArray and DefaultSubnetArrayOutput values.
 // You can construct a concrete instance of `DefaultSubnetArrayInput` via:
 //
@@ -291,6 +300,12 @@ func (i DefaultSubnetArray) ToDefaultSubnetArrayOutput() DefaultSubnetArrayOutpu
 
 func (i DefaultSubnetArray) ToDefaultSubnetArrayOutputWithContext(ctx context.Context) DefaultSubnetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSubnetArrayOutput)
+}
+
+func (i DefaultSubnetArray) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultSubnet] {
+	return pulumix.Output[[]*DefaultSubnet]{
+		OutputState: i.ToDefaultSubnetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DefaultSubnetMapInput is an input type that accepts DefaultSubnetMap and DefaultSubnetMapOutput values.
@@ -318,6 +333,12 @@ func (i DefaultSubnetMap) ToDefaultSubnetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSubnetMapOutput)
 }
 
+func (i DefaultSubnetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultSubnet] {
+	return pulumix.Output[map[string]*DefaultSubnet]{
+		OutputState: i.ToDefaultSubnetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DefaultSubnetOutput struct{ *pulumi.OutputState }
 
 func (DefaultSubnetOutput) ElementType() reflect.Type {
@@ -330,6 +351,12 @@ func (o DefaultSubnetOutput) ToDefaultSubnetOutput() DefaultSubnetOutput {
 
 func (o DefaultSubnetOutput) ToDefaultSubnetOutputWithContext(ctx context.Context) DefaultSubnetOutput {
 	return o
+}
+
+func (o DefaultSubnetOutput) ToOutput(ctx context.Context) pulumix.Output[*DefaultSubnet] {
+	return pulumix.Output[*DefaultSubnet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DefaultSubnetOutput) Arn() pulumi.StringOutput {
@@ -447,6 +474,12 @@ func (o DefaultSubnetArrayOutput) ToDefaultSubnetArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o DefaultSubnetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultSubnet] {
+	return pulumix.Output[[]*DefaultSubnet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DefaultSubnetArrayOutput) Index(i pulumi.IntInput) DefaultSubnetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DefaultSubnet {
 		return vs[0].([]*DefaultSubnet)[vs[1].(int)]
@@ -465,6 +498,12 @@ func (o DefaultSubnetMapOutput) ToDefaultSubnetMapOutput() DefaultSubnetMapOutpu
 
 func (o DefaultSubnetMapOutput) ToDefaultSubnetMapOutputWithContext(ctx context.Context) DefaultSubnetMapOutput {
 	return o
+}
+
+func (o DefaultSubnetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultSubnet] {
+	return pulumix.Output[map[string]*DefaultSubnet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DefaultSubnetMapOutput) MapIndex(k pulumi.StringInput) DefaultSubnetOutput {

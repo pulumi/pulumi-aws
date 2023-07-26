@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information on a Service Catalog Product.
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func LookupProduct(ctx *pulumi.Context, args *LookupProductArgs, opts ...pulumi.InvokeOption) (*LookupProductResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProductResult
 	err := ctx.Invoke("aws:servicecatalog/getProduct:getProduct", args, &rv, opts...)
 	if err != nil {
@@ -135,6 +138,12 @@ func (o LookupProductResultOutput) ToLookupProductResultOutput() LookupProductRe
 
 func (o LookupProductResultOutput) ToLookupProductResultOutputWithContext(ctx context.Context) LookupProductResultOutput {
 	return o
+}
+
+func (o LookupProductResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupProductResult] {
+	return pulumix.Output[LookupProductResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupProductResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
@@ -46,6 +48,7 @@ import (
 //
 // ```
 func GetContainerRecipes(ctx *pulumi.Context, args *GetContainerRecipesArgs, opts ...pulumi.InvokeOption) (*GetContainerRecipesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetContainerRecipesResult
 	err := ctx.Invoke("aws:imagebuilder/getContainerRecipes:getContainerRecipes", args, &rv, opts...)
 	if err != nil {
@@ -112,6 +115,12 @@ func (o GetContainerRecipesResultOutput) ToGetContainerRecipesResultOutput() Get
 
 func (o GetContainerRecipesResultOutput) ToGetContainerRecipesResultOutputWithContext(ctx context.Context) GetContainerRecipesResultOutput {
 	return o
+}
+
+func (o GetContainerRecipesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipesResult] {
+	return pulumix.Output[GetContainerRecipesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of ARNs of the matched Image Builder Container Recipes.

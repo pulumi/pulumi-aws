@@ -4,6 +4,7 @@
 package organizations
 
 import (
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,6 +108,7 @@ import (
 // }
 // ```
 func LookupOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationResult
 	err := ctx.Invoke("aws:organizations/getOrganization:getOrganization", nil, &rv, opts...)
 	if err != nil {

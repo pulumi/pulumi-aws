@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect Instance Storage Config.
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func LookupInstanceStorageConfig(ctx *pulumi.Context, args *LookupInstanceStorageConfigArgs, opts ...pulumi.InvokeOption) (*LookupInstanceStorageConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInstanceStorageConfigResult
 	err := ctx.Invoke("aws:connect/getInstanceStorageConfig:getInstanceStorageConfig", args, &rv, opts...)
 	if err != nil {
@@ -109,6 +112,12 @@ func (o LookupInstanceStorageConfigResultOutput) ToLookupInstanceStorageConfigRe
 
 func (o LookupInstanceStorageConfigResultOutput) ToLookupInstanceStorageConfigResultOutputWithContext(ctx context.Context) LookupInstanceStorageConfigResultOutput {
 	return o
+}
+
+func (o LookupInstanceStorageConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInstanceStorageConfigResult] {
+	return pulumix.Output[LookupInstanceStorageConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupInstanceStorageConfigResultOutput) AssociationId() pulumi.StringOutput {

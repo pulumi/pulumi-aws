@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -177,6 +179,7 @@ func NewTopicRule(ctx *pulumi.Context,
 	if args.SqlVersion == nil {
 		return nil, errors.New("invalid value for required argument 'SqlVersion'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TopicRule
 	err := ctx.RegisterResource("aws:iot/topicRule:TopicRule", name, args, &resource, opts...)
 	if err != nil {
@@ -378,6 +381,12 @@ func (i *TopicRule) ToTopicRuleOutputWithContext(ctx context.Context) TopicRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleOutput)
 }
 
+func (i *TopicRule) ToOutput(ctx context.Context) pulumix.Output[*TopicRule] {
+	return pulumix.Output[*TopicRule]{
+		OutputState: i.ToTopicRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TopicRuleArrayInput is an input type that accepts TopicRuleArray and TopicRuleArrayOutput values.
 // You can construct a concrete instance of `TopicRuleArrayInput` via:
 //
@@ -401,6 +410,12 @@ func (i TopicRuleArray) ToTopicRuleArrayOutput() TopicRuleArrayOutput {
 
 func (i TopicRuleArray) ToTopicRuleArrayOutputWithContext(ctx context.Context) TopicRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleArrayOutput)
+}
+
+func (i TopicRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*TopicRule] {
+	return pulumix.Output[[]*TopicRule]{
+		OutputState: i.ToTopicRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TopicRuleMapInput is an input type that accepts TopicRuleMap and TopicRuleMapOutput values.
@@ -428,6 +443,12 @@ func (i TopicRuleMap) ToTopicRuleMapOutputWithContext(ctx context.Context) Topic
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleMapOutput)
 }
 
+func (i TopicRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicRule] {
+	return pulumix.Output[map[string]*TopicRule]{
+		OutputState: i.ToTopicRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TopicRuleOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleOutput) ElementType() reflect.Type {
@@ -440,6 +461,12 @@ func (o TopicRuleOutput) ToTopicRuleOutput() TopicRuleOutput {
 
 func (o TopicRuleOutput) ToTopicRuleOutputWithContext(ctx context.Context) TopicRuleOutput {
 	return o
+}
+
+func (o TopicRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicRule] {
+	return pulumix.Output[*TopicRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the topic rule
@@ -577,6 +604,12 @@ func (o TopicRuleArrayOutput) ToTopicRuleArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TopicRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TopicRule] {
+	return pulumix.Output[[]*TopicRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TopicRuleArrayOutput) Index(i pulumi.IntInput) TopicRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TopicRule {
 		return vs[0].([]*TopicRule)[vs[1].(int)]
@@ -595,6 +628,12 @@ func (o TopicRuleMapOutput) ToTopicRuleMapOutput() TopicRuleMapOutput {
 
 func (o TopicRuleMapOutput) ToTopicRuleMapOutputWithContext(ctx context.Context) TopicRuleMapOutput {
 	return o
+}
+
+func (o TopicRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TopicRule] {
+	return pulumix.Output[map[string]*TopicRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TopicRuleMapOutput) MapIndex(k pulumi.StringInput) TopicRuleOutput {

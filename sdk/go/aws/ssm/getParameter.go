@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Parameter data source.
@@ -40,6 +42,7 @@ import (
 //
 // > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
 func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pulumi.InvokeOption) (*LookupParameterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupParameterResult
 	err := ctx.Invoke("aws:ssm/getParameter:getParameter", args, &rv, opts...)
 	if err != nil {
@@ -110,6 +113,12 @@ func (o LookupParameterResultOutput) ToLookupParameterResultOutput() LookupParam
 
 func (o LookupParameterResultOutput) ToLookupParameterResultOutputWithContext(ctx context.Context) LookupParameterResultOutput {
 	return o
+}
+
+func (o LookupParameterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupParameterResult] {
+	return pulumix.Output[LookupParameterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupParameterResultOutput) Arn() pulumi.StringOutput {

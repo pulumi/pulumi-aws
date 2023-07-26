@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
@@ -238,6 +240,7 @@ func NewNodeGroup(ctx *pulumi.Context,
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NodeGroup
 	err := ctx.RegisterResource("aws:eks/nodeGroup:NodeGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -471,6 +474,12 @@ func (i *NodeGroup) ToNodeGroupOutputWithContext(ctx context.Context) NodeGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupOutput)
 }
 
+func (i *NodeGroup) ToOutput(ctx context.Context) pulumix.Output[*NodeGroup] {
+	return pulumix.Output[*NodeGroup]{
+		OutputState: i.ToNodeGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NodeGroupArrayInput is an input type that accepts NodeGroupArray and NodeGroupArrayOutput values.
 // You can construct a concrete instance of `NodeGroupArrayInput` via:
 //
@@ -494,6 +503,12 @@ func (i NodeGroupArray) ToNodeGroupArrayOutput() NodeGroupArrayOutput {
 
 func (i NodeGroupArray) ToNodeGroupArrayOutputWithContext(ctx context.Context) NodeGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupArrayOutput)
+}
+
+func (i NodeGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*NodeGroup] {
+	return pulumix.Output[[]*NodeGroup]{
+		OutputState: i.ToNodeGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NodeGroupMapInput is an input type that accepts NodeGroupMap and NodeGroupMapOutput values.
@@ -521,6 +536,12 @@ func (i NodeGroupMap) ToNodeGroupMapOutputWithContext(ctx context.Context) NodeG
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupMapOutput)
 }
 
+func (i NodeGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NodeGroup] {
+	return pulumix.Output[map[string]*NodeGroup]{
+		OutputState: i.ToNodeGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NodeGroupOutput struct{ *pulumi.OutputState }
 
 func (NodeGroupOutput) ElementType() reflect.Type {
@@ -533,6 +554,12 @@ func (o NodeGroupOutput) ToNodeGroupOutput() NodeGroupOutput {
 
 func (o NodeGroupOutput) ToNodeGroupOutputWithContext(ctx context.Context) NodeGroupOutput {
 	return o
+}
+
+func (o NodeGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*NodeGroup] {
+	return pulumix.Output[*NodeGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
@@ -665,6 +692,12 @@ func (o NodeGroupArrayOutput) ToNodeGroupArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o NodeGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NodeGroup] {
+	return pulumix.Output[[]*NodeGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NodeGroupArrayOutput) Index(i pulumi.IntInput) NodeGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NodeGroup {
 		return vs[0].([]*NodeGroup)[vs[1].(int)]
@@ -683,6 +716,12 @@ func (o NodeGroupMapOutput) ToNodeGroupMapOutput() NodeGroupMapOutput {
 
 func (o NodeGroupMapOutput) ToNodeGroupMapOutputWithContext(ctx context.Context) NodeGroupMapOutput {
 	return o
+}
+
+func (o NodeGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NodeGroup] {
+	return pulumix.Output[map[string]*NodeGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NodeGroupMapOutput) MapIndex(k pulumi.StringInput) NodeGroupOutput {

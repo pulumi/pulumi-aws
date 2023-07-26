@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Model Package Group resource.
@@ -74,6 +76,7 @@ func NewModelPackageGroup(ctx *pulumi.Context,
 	if args.ModelPackageGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ModelPackageGroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelPackageGroup
 	err := ctx.RegisterResource("aws:sagemaker/modelPackageGroup:ModelPackageGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -167,6 +170,12 @@ func (i *ModelPackageGroup) ToModelPackageGroupOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupOutput)
 }
 
+func (i *ModelPackageGroup) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageGroup] {
+	return pulumix.Output[*ModelPackageGroup]{
+		OutputState: i.ToModelPackageGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ModelPackageGroupArrayInput is an input type that accepts ModelPackageGroupArray and ModelPackageGroupArrayOutput values.
 // You can construct a concrete instance of `ModelPackageGroupArrayInput` via:
 //
@@ -190,6 +199,12 @@ func (i ModelPackageGroupArray) ToModelPackageGroupArrayOutput() ModelPackageGro
 
 func (i ModelPackageGroupArray) ToModelPackageGroupArrayOutputWithContext(ctx context.Context) ModelPackageGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupArrayOutput)
+}
+
+func (i ModelPackageGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ModelPackageGroup] {
+	return pulumix.Output[[]*ModelPackageGroup]{
+		OutputState: i.ToModelPackageGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ModelPackageGroupMapInput is an input type that accepts ModelPackageGroupMap and ModelPackageGroupMapOutput values.
@@ -217,6 +232,12 @@ func (i ModelPackageGroupMap) ToModelPackageGroupMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupMapOutput)
 }
 
+func (i ModelPackageGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ModelPackageGroup] {
+	return pulumix.Output[map[string]*ModelPackageGroup]{
+		OutputState: i.ToModelPackageGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ModelPackageGroupOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupOutput) ElementType() reflect.Type {
@@ -229,6 +250,12 @@ func (o ModelPackageGroupOutput) ToModelPackageGroupOutput() ModelPackageGroupOu
 
 func (o ModelPackageGroupOutput) ToModelPackageGroupOutputWithContext(ctx context.Context) ModelPackageGroupOutput {
 	return o
+}
+
+func (o ModelPackageGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageGroup] {
+	return pulumix.Output[*ModelPackageGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
@@ -270,6 +297,12 @@ func (o ModelPackageGroupArrayOutput) ToModelPackageGroupArrayOutputWithContext(
 	return o
 }
 
+func (o ModelPackageGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ModelPackageGroup] {
+	return pulumix.Output[[]*ModelPackageGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ModelPackageGroupArrayOutput) Index(i pulumi.IntInput) ModelPackageGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ModelPackageGroup {
 		return vs[0].([]*ModelPackageGroup)[vs[1].(int)]
@@ -288,6 +321,12 @@ func (o ModelPackageGroupMapOutput) ToModelPackageGroupMapOutput() ModelPackageG
 
 func (o ModelPackageGroupMapOutput) ToModelPackageGroupMapOutputWithContext(ctx context.Context) ModelPackageGroupMapOutput {
 	return o
+}
+
+func (o ModelPackageGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ModelPackageGroup] {
+	return pulumix.Output[map[string]*ModelPackageGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ModelPackageGroupMapOutput) MapIndex(k pulumi.StringInput) ModelPackageGroupOutput {

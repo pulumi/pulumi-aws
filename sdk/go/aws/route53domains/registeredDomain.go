@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a domain that has been [registered](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html) and associated with the current AWS account.
@@ -112,6 +114,7 @@ func NewRegisteredDomain(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegisteredDomain
 	err := ctx.RegisterResource("aws:route53domains/registeredDomain:RegisteredDomain", name, args, &resource, opts...)
 	if err != nil {
@@ -305,6 +308,12 @@ func (i *RegisteredDomain) ToRegisteredDomainOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredDomainOutput)
 }
 
+func (i *RegisteredDomain) ToOutput(ctx context.Context) pulumix.Output[*RegisteredDomain] {
+	return pulumix.Output[*RegisteredDomain]{
+		OutputState: i.ToRegisteredDomainOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegisteredDomainArrayInput is an input type that accepts RegisteredDomainArray and RegisteredDomainArrayOutput values.
 // You can construct a concrete instance of `RegisteredDomainArrayInput` via:
 //
@@ -328,6 +337,12 @@ func (i RegisteredDomainArray) ToRegisteredDomainArrayOutput() RegisteredDomainA
 
 func (i RegisteredDomainArray) ToRegisteredDomainArrayOutputWithContext(ctx context.Context) RegisteredDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredDomainArrayOutput)
+}
+
+func (i RegisteredDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegisteredDomain] {
+	return pulumix.Output[[]*RegisteredDomain]{
+		OutputState: i.ToRegisteredDomainArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RegisteredDomainMapInput is an input type that accepts RegisteredDomainMap and RegisteredDomainMapOutput values.
@@ -355,6 +370,12 @@ func (i RegisteredDomainMap) ToRegisteredDomainMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredDomainMapOutput)
 }
 
+func (i RegisteredDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegisteredDomain] {
+	return pulumix.Output[map[string]*RegisteredDomain]{
+		OutputState: i.ToRegisteredDomainMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegisteredDomainOutput struct{ *pulumi.OutputState }
 
 func (RegisteredDomainOutput) ElementType() reflect.Type {
@@ -367,6 +388,12 @@ func (o RegisteredDomainOutput) ToRegisteredDomainOutput() RegisteredDomainOutpu
 
 func (o RegisteredDomainOutput) ToRegisteredDomainOutputWithContext(ctx context.Context) RegisteredDomainOutput {
 	return o
+}
+
+func (o RegisteredDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*RegisteredDomain] {
+	return pulumix.Output[*RegisteredDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
@@ -493,6 +520,12 @@ func (o RegisteredDomainArrayOutput) ToRegisteredDomainArrayOutputWithContext(ct
 	return o
 }
 
+func (o RegisteredDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegisteredDomain] {
+	return pulumix.Output[[]*RegisteredDomain]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegisteredDomainArrayOutput) Index(i pulumi.IntInput) RegisteredDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegisteredDomain {
 		return vs[0].([]*RegisteredDomain)[vs[1].(int)]
@@ -511,6 +544,12 @@ func (o RegisteredDomainMapOutput) ToRegisteredDomainMapOutput() RegisteredDomai
 
 func (o RegisteredDomainMapOutput) ToRegisteredDomainMapOutputWithContext(ctx context.Context) RegisteredDomainMapOutput {
 	return o
+}
+
+func (o RegisteredDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegisteredDomain] {
+	return pulumix.Output[map[string]*RegisteredDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegisteredDomainMapOutput) MapIndex(k pulumi.StringInput) RegisteredDomainOutput {

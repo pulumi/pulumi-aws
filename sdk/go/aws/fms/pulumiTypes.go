@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type PolicyExcludeMap struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
@@ -49,6 +53,12 @@ func (i PolicyExcludeMapArgs) ToPolicyExcludeMapOutput() PolicyExcludeMapOutput 
 
 func (i PolicyExcludeMapArgs) ToPolicyExcludeMapOutputWithContext(ctx context.Context) PolicyExcludeMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyExcludeMapOutput)
+}
+
+func (i PolicyExcludeMapArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyExcludeMap] {
+	return pulumix.Output[PolicyExcludeMap]{
+		OutputState: i.ToPolicyExcludeMapOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PolicyExcludeMapArgs) ToPolicyExcludeMapPtrOutput() PolicyExcludeMapPtrOutput {
@@ -92,6 +102,12 @@ func (i *policyExcludeMapPtrType) ToPolicyExcludeMapPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyExcludeMapPtrOutput)
 }
 
+func (i *policyExcludeMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyExcludeMap] {
+	return pulumix.Output[*PolicyExcludeMap]{
+		OutputState: i.ToPolicyExcludeMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyExcludeMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyExcludeMapOutput) ElementType() reflect.Type {
@@ -114,6 +130,12 @@ func (o PolicyExcludeMapOutput) ToPolicyExcludeMapPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyExcludeMap) *PolicyExcludeMap {
 		return &v
 	}).(PolicyExcludeMapPtrOutput)
+}
+
+func (o PolicyExcludeMapOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyExcludeMap] {
+	return pulumix.Output[PolicyExcludeMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
@@ -140,6 +162,12 @@ func (o PolicyExcludeMapPtrOutput) ToPolicyExcludeMapPtrOutput() PolicyExcludeMa
 
 func (o PolicyExcludeMapPtrOutput) ToPolicyExcludeMapPtrOutputWithContext(ctx context.Context) PolicyExcludeMapPtrOutput {
 	return o
+}
+
+func (o PolicyExcludeMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyExcludeMap] {
+	return pulumix.Output[*PolicyExcludeMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyExcludeMapPtrOutput) Elem() PolicyExcludeMapOutput {
@@ -215,6 +243,12 @@ func (i PolicyIncludeMapArgs) ToPolicyIncludeMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyIncludeMapOutput)
 }
 
+func (i PolicyIncludeMapArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyIncludeMap] {
+	return pulumix.Output[PolicyIncludeMap]{
+		OutputState: i.ToPolicyIncludeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyIncludeMapArgs) ToPolicyIncludeMapPtrOutput() PolicyIncludeMapPtrOutput {
 	return i.ToPolicyIncludeMapPtrOutputWithContext(context.Background())
 }
@@ -256,6 +290,12 @@ func (i *policyIncludeMapPtrType) ToPolicyIncludeMapPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyIncludeMapPtrOutput)
 }
 
+func (i *policyIncludeMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyIncludeMap] {
+	return pulumix.Output[*PolicyIncludeMap]{
+		OutputState: i.ToPolicyIncludeMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyIncludeMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyIncludeMapOutput) ElementType() reflect.Type {
@@ -278,6 +318,12 @@ func (o PolicyIncludeMapOutput) ToPolicyIncludeMapPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyIncludeMap) *PolicyIncludeMap {
 		return &v
 	}).(PolicyIncludeMapPtrOutput)
+}
+
+func (o PolicyIncludeMapOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyIncludeMap] {
+	return pulumix.Output[PolicyIncludeMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
@@ -304,6 +350,12 @@ func (o PolicyIncludeMapPtrOutput) ToPolicyIncludeMapPtrOutput() PolicyIncludeMa
 
 func (o PolicyIncludeMapPtrOutput) ToPolicyIncludeMapPtrOutputWithContext(ctx context.Context) PolicyIncludeMapPtrOutput {
 	return o
+}
+
+func (o PolicyIncludeMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyIncludeMap] {
+	return pulumix.Output[*PolicyIncludeMap]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyIncludeMapPtrOutput) Elem() PolicyIncludeMapOutput {
@@ -375,6 +427,12 @@ func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataOu
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataOutput)
 }
 
+func (i PolicySecurityServicePolicyDataArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyData] {
+	return pulumix.Output[PolicySecurityServicePolicyData]{
+		OutputState: i.ToPolicySecurityServicePolicyDataOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataPtrOutput() PolicySecurityServicePolicyDataPtrOutput {
 	return i.ToPolicySecurityServicePolicyDataPtrOutputWithContext(context.Background())
 }
@@ -416,6 +474,12 @@ func (i *policySecurityServicePolicyDataPtrType) ToPolicySecurityServicePolicyDa
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPtrOutput)
 }
 
+func (i *policySecurityServicePolicyDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyData] {
+	return pulumix.Output[*PolicySecurityServicePolicyData]{
+		OutputState: i.ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicySecurityServicePolicyDataOutput struct{ *pulumi.OutputState }
 
 func (PolicySecurityServicePolicyDataOutput) ElementType() reflect.Type {
@@ -440,6 +504,12 @@ func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyData
 	}).(PolicySecurityServicePolicyDataPtrOutput)
 }
 
+func (o PolicySecurityServicePolicyDataOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyData] {
+	return pulumix.Output[PolicySecurityServicePolicyData]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 func (o PolicySecurityServicePolicyDataOutput) ManagedServiceData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *string { return v.ManagedServiceData }).(pulumi.StringPtrOutput)
@@ -462,6 +532,12 @@ func (o PolicySecurityServicePolicyDataPtrOutput) ToPolicySecurityServicePolicyD
 
 func (o PolicySecurityServicePolicyDataPtrOutput) ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPtrOutput {
 	return o
+}
+
+func (o PolicySecurityServicePolicyDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyData] {
+	return pulumix.Output[*PolicySecurityServicePolicyData]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicySecurityServicePolicyDataPtrOutput) Elem() PolicySecurityServicePolicyDataOutput {

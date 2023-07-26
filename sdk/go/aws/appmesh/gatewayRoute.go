@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS App Mesh gateway route resource.
@@ -109,6 +111,7 @@ func NewGatewayRoute(ctx *pulumi.Context,
 	if args.VirtualGatewayName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualGatewayName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayRoute
 	err := ctx.RegisterResource("aws:appmesh/gatewayRoute:GatewayRoute", name, args, &resource, opts...)
 	if err != nil {
@@ -238,6 +241,12 @@ func (i *GatewayRoute) ToGatewayRouteOutputWithContext(ctx context.Context) Gate
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteOutput)
 }
 
+func (i *GatewayRoute) ToOutput(ctx context.Context) pulumix.Output[*GatewayRoute] {
+	return pulumix.Output[*GatewayRoute]{
+		OutputState: i.ToGatewayRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayRouteArrayInput is an input type that accepts GatewayRouteArray and GatewayRouteArrayOutput values.
 // You can construct a concrete instance of `GatewayRouteArrayInput` via:
 //
@@ -261,6 +270,12 @@ func (i GatewayRouteArray) ToGatewayRouteArrayOutput() GatewayRouteArrayOutput {
 
 func (i GatewayRouteArray) ToGatewayRouteArrayOutputWithContext(ctx context.Context) GatewayRouteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteArrayOutput)
+}
+
+func (i GatewayRouteArray) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayRoute] {
+	return pulumix.Output[[]*GatewayRoute]{
+		OutputState: i.ToGatewayRouteArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GatewayRouteMapInput is an input type that accepts GatewayRouteMap and GatewayRouteMapOutput values.
@@ -288,6 +303,12 @@ func (i GatewayRouteMap) ToGatewayRouteMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteMapOutput)
 }
 
+func (i GatewayRouteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayRoute] {
+	return pulumix.Output[map[string]*GatewayRoute]{
+		OutputState: i.ToGatewayRouteMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayRouteOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteOutput) ElementType() reflect.Type {
@@ -300,6 +321,12 @@ func (o GatewayRouteOutput) ToGatewayRouteOutput() GatewayRouteOutput {
 
 func (o GatewayRouteOutput) ToGatewayRouteOutputWithContext(ctx context.Context) GatewayRouteOutput {
 	return o
+}
+
+func (o GatewayRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayRoute] {
+	return pulumix.Output[*GatewayRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the gateway route.
@@ -371,6 +398,12 @@ func (o GatewayRouteArrayOutput) ToGatewayRouteArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o GatewayRouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayRoute] {
+	return pulumix.Output[[]*GatewayRoute]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayRouteArrayOutput) Index(i pulumi.IntInput) GatewayRouteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GatewayRoute {
 		return vs[0].([]*GatewayRoute)[vs[1].(int)]
@@ -389,6 +422,12 @@ func (o GatewayRouteMapOutput) ToGatewayRouteMapOutput() GatewayRouteMapOutput {
 
 func (o GatewayRouteMapOutput) ToGatewayRouteMapOutputWithContext(ctx context.Context) GatewayRouteMapOutput {
 	return o
+}
+
+func (o GatewayRouteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayRoute] {
+	return pulumix.Output[map[string]*GatewayRoute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayRouteMapOutput) MapIndex(k pulumi.StringInput) GatewayRouteOutput {

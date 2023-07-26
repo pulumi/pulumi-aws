@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DirectoryConfigServiceAccountCredentials struct {
 	// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
@@ -45,6 +49,12 @@ func (i DirectoryConfigServiceAccountCredentialsArgs) ToDirectoryConfigServiceAc
 
 func (i DirectoryConfigServiceAccountCredentialsArgs) ToDirectoryConfigServiceAccountCredentialsOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigServiceAccountCredentialsOutput)
+}
+
+func (i DirectoryConfigServiceAccountCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[DirectoryConfigServiceAccountCredentials] {
+	return pulumix.Output[DirectoryConfigServiceAccountCredentials]{
+		OutputState: i.ToDirectoryConfigServiceAccountCredentialsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i DirectoryConfigServiceAccountCredentialsArgs) ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput {
@@ -88,6 +98,12 @@ func (i *directoryConfigServiceAccountCredentialsPtrType) ToDirectoryConfigServi
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigServiceAccountCredentialsPtrOutput)
 }
 
+func (i *directoryConfigServiceAccountCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DirectoryConfigServiceAccountCredentials] {
+	return pulumix.Output[*DirectoryConfigServiceAccountCredentials]{
+		OutputState: i.ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DirectoryConfigServiceAccountCredentialsOutput struct{ *pulumi.OutputState }
 
 func (DirectoryConfigServiceAccountCredentialsOutput) ElementType() reflect.Type {
@@ -112,6 +128,12 @@ func (o DirectoryConfigServiceAccountCredentialsOutput) ToDirectoryConfigService
 	}).(DirectoryConfigServiceAccountCredentialsPtrOutput)
 }
 
+func (o DirectoryConfigServiceAccountCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[DirectoryConfigServiceAccountCredentials] {
+	return pulumix.Output[DirectoryConfigServiceAccountCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
 func (o DirectoryConfigServiceAccountCredentialsOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectoryConfigServiceAccountCredentials) string { return v.AccountName }).(pulumi.StringOutput)
@@ -134,6 +156,12 @@ func (o DirectoryConfigServiceAccountCredentialsPtrOutput) ToDirectoryConfigServ
 
 func (o DirectoryConfigServiceAccountCredentialsPtrOutput) ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput {
 	return o
+}
+
+func (o DirectoryConfigServiceAccountCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectoryConfigServiceAccountCredentials] {
+	return pulumix.Output[*DirectoryConfigServiceAccountCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DirectoryConfigServiceAccountCredentialsPtrOutput) Elem() DirectoryConfigServiceAccountCredentialsOutput {
@@ -211,6 +239,12 @@ func (i FleetComputeCapacityArgs) ToFleetComputeCapacityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FleetComputeCapacityOutput)
 }
 
+func (i FleetComputeCapacityArgs) ToOutput(ctx context.Context) pulumix.Output[FleetComputeCapacity] {
+	return pulumix.Output[FleetComputeCapacity]{
+		OutputState: i.ToFleetComputeCapacityOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FleetComputeCapacityArgs) ToFleetComputeCapacityPtrOutput() FleetComputeCapacityPtrOutput {
 	return i.ToFleetComputeCapacityPtrOutputWithContext(context.Background())
 }
@@ -252,6 +286,12 @@ func (i *fleetComputeCapacityPtrType) ToFleetComputeCapacityPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FleetComputeCapacityPtrOutput)
 }
 
+func (i *fleetComputeCapacityPtrType) ToOutput(ctx context.Context) pulumix.Output[*FleetComputeCapacity] {
+	return pulumix.Output[*FleetComputeCapacity]{
+		OutputState: i.ToFleetComputeCapacityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FleetComputeCapacityOutput struct{ *pulumi.OutputState }
 
 func (FleetComputeCapacityOutput) ElementType() reflect.Type {
@@ -274,6 +314,12 @@ func (o FleetComputeCapacityOutput) ToFleetComputeCapacityPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetComputeCapacity) *FleetComputeCapacity {
 		return &v
 	}).(FleetComputeCapacityPtrOutput)
+}
+
+func (o FleetComputeCapacityOutput) ToOutput(ctx context.Context) pulumix.Output[FleetComputeCapacity] {
+	return pulumix.Output[FleetComputeCapacity]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of currently available instances that can be used to stream sessions.
@@ -308,6 +354,12 @@ func (o FleetComputeCapacityPtrOutput) ToFleetComputeCapacityPtrOutput() FleetCo
 
 func (o FleetComputeCapacityPtrOutput) ToFleetComputeCapacityPtrOutputWithContext(ctx context.Context) FleetComputeCapacityPtrOutput {
 	return o
+}
+
+func (o FleetComputeCapacityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetComputeCapacity] {
+	return pulumix.Output[*FleetComputeCapacity]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetComputeCapacityPtrOutput) Elem() FleetComputeCapacityOutput {
@@ -397,6 +449,12 @@ func (i FleetDomainJoinInfoArgs) ToFleetDomainJoinInfoOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FleetDomainJoinInfoOutput)
 }
 
+func (i FleetDomainJoinInfoArgs) ToOutput(ctx context.Context) pulumix.Output[FleetDomainJoinInfo] {
+	return pulumix.Output[FleetDomainJoinInfo]{
+		OutputState: i.ToFleetDomainJoinInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FleetDomainJoinInfoArgs) ToFleetDomainJoinInfoPtrOutput() FleetDomainJoinInfoPtrOutput {
 	return i.ToFleetDomainJoinInfoPtrOutputWithContext(context.Background())
 }
@@ -438,6 +496,12 @@ func (i *fleetDomainJoinInfoPtrType) ToFleetDomainJoinInfoPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FleetDomainJoinInfoPtrOutput)
 }
 
+func (i *fleetDomainJoinInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*FleetDomainJoinInfo] {
+	return pulumix.Output[*FleetDomainJoinInfo]{
+		OutputState: i.ToFleetDomainJoinInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FleetDomainJoinInfoOutput struct{ *pulumi.OutputState }
 
 func (FleetDomainJoinInfoOutput) ElementType() reflect.Type {
@@ -462,6 +526,12 @@ func (o FleetDomainJoinInfoOutput) ToFleetDomainJoinInfoPtrOutputWithContext(ctx
 	}).(FleetDomainJoinInfoPtrOutput)
 }
 
+func (o FleetDomainJoinInfoOutput) ToOutput(ctx context.Context) pulumix.Output[FleetDomainJoinInfo] {
+	return pulumix.Output[FleetDomainJoinInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Fully qualified name of the directory (for example, corp.example.com).
 func (o FleetDomainJoinInfoOutput) DirectoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetDomainJoinInfo) *string { return v.DirectoryName }).(pulumi.StringPtrOutput)
@@ -484,6 +554,12 @@ func (o FleetDomainJoinInfoPtrOutput) ToFleetDomainJoinInfoPtrOutput() FleetDoma
 
 func (o FleetDomainJoinInfoPtrOutput) ToFleetDomainJoinInfoPtrOutputWithContext(ctx context.Context) FleetDomainJoinInfoPtrOutput {
 	return o
+}
+
+func (o FleetDomainJoinInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetDomainJoinInfo] {
+	return pulumix.Output[*FleetDomainJoinInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetDomainJoinInfoPtrOutput) Elem() FleetDomainJoinInfoOutput {
@@ -553,6 +629,12 @@ func (i FleetVpcConfigArgs) ToFleetVpcConfigOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigOutput)
 }
 
+func (i FleetVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FleetVpcConfig] {
+	return pulumix.Output[FleetVpcConfig]{
+		OutputState: i.ToFleetVpcConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i FleetVpcConfigArgs) ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOutput {
 	return i.ToFleetVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -594,6 +676,12 @@ func (i *fleetVpcConfigPtrType) ToFleetVpcConfigPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigPtrOutput)
 }
 
+func (i *fleetVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FleetVpcConfig] {
+	return pulumix.Output[*FleetVpcConfig]{
+		OutputState: i.ToFleetVpcConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FleetVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (FleetVpcConfigOutput) ElementType() reflect.Type {
@@ -618,6 +706,12 @@ func (o FleetVpcConfigOutput) ToFleetVpcConfigPtrOutputWithContext(ctx context.C
 	}).(FleetVpcConfigPtrOutput)
 }
 
+func (o FleetVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FleetVpcConfig] {
+	return pulumix.Output[FleetVpcConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifiers of the security groups for the fleet or image builder.
 func (o FleetVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -640,6 +734,12 @@ func (o FleetVpcConfigPtrOutput) ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOu
 
 func (o FleetVpcConfigPtrOutput) ToFleetVpcConfigPtrOutputWithContext(ctx context.Context) FleetVpcConfigPtrOutput {
 	return o
+}
+
+func (o FleetVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetVpcConfig] {
+	return pulumix.Output[*FleetVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetVpcConfigPtrOutput) Elem() FleetVpcConfigOutput {
@@ -709,6 +809,12 @@ func (i ImageBuilderAccessEndpointArgs) ToImageBuilderAccessEndpointOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderAccessEndpointOutput)
 }
 
+func (i ImageBuilderAccessEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ImageBuilderAccessEndpoint] {
+	return pulumix.Output[ImageBuilderAccessEndpoint]{
+		OutputState: i.ToImageBuilderAccessEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImageBuilderAccessEndpointArrayInput is an input type that accepts ImageBuilderAccessEndpointArray and ImageBuilderAccessEndpointArrayOutput values.
 // You can construct a concrete instance of `ImageBuilderAccessEndpointArrayInput` via:
 //
@@ -734,6 +840,12 @@ func (i ImageBuilderAccessEndpointArray) ToImageBuilderAccessEndpointArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderAccessEndpointArrayOutput)
 }
 
+func (i ImageBuilderAccessEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageBuilderAccessEndpoint] {
+	return pulumix.Output[[]ImageBuilderAccessEndpoint]{
+		OutputState: i.ToImageBuilderAccessEndpointArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageBuilderAccessEndpointOutput struct{ *pulumi.OutputState }
 
 func (ImageBuilderAccessEndpointOutput) ElementType() reflect.Type {
@@ -746,6 +858,12 @@ func (o ImageBuilderAccessEndpointOutput) ToImageBuilderAccessEndpointOutput() I
 
 func (o ImageBuilderAccessEndpointOutput) ToImageBuilderAccessEndpointOutputWithContext(ctx context.Context) ImageBuilderAccessEndpointOutput {
 	return o
+}
+
+func (o ImageBuilderAccessEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ImageBuilderAccessEndpoint] {
+	return pulumix.Output[ImageBuilderAccessEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Type of interface endpoint.
@@ -770,6 +888,12 @@ func (o ImageBuilderAccessEndpointArrayOutput) ToImageBuilderAccessEndpointArray
 
 func (o ImageBuilderAccessEndpointArrayOutput) ToImageBuilderAccessEndpointArrayOutputWithContext(ctx context.Context) ImageBuilderAccessEndpointArrayOutput {
 	return o
+}
+
+func (o ImageBuilderAccessEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageBuilderAccessEndpoint] {
+	return pulumix.Output[[]ImageBuilderAccessEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageBuilderAccessEndpointArrayOutput) Index(i pulumi.IntInput) ImageBuilderAccessEndpointOutput {
@@ -815,6 +939,12 @@ func (i ImageBuilderDomainJoinInfoArgs) ToImageBuilderDomainJoinInfoOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderDomainJoinInfoOutput)
 }
 
+func (i ImageBuilderDomainJoinInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ImageBuilderDomainJoinInfo] {
+	return pulumix.Output[ImageBuilderDomainJoinInfo]{
+		OutputState: i.ToImageBuilderDomainJoinInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ImageBuilderDomainJoinInfoArgs) ToImageBuilderDomainJoinInfoPtrOutput() ImageBuilderDomainJoinInfoPtrOutput {
 	return i.ToImageBuilderDomainJoinInfoPtrOutputWithContext(context.Background())
 }
@@ -856,6 +986,12 @@ func (i *imageBuilderDomainJoinInfoPtrType) ToImageBuilderDomainJoinInfoPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderDomainJoinInfoPtrOutput)
 }
 
+func (i *imageBuilderDomainJoinInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImageBuilderDomainJoinInfo] {
+	return pulumix.Output[*ImageBuilderDomainJoinInfo]{
+		OutputState: i.ToImageBuilderDomainJoinInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageBuilderDomainJoinInfoOutput struct{ *pulumi.OutputState }
 
 func (ImageBuilderDomainJoinInfoOutput) ElementType() reflect.Type {
@@ -880,6 +1016,12 @@ func (o ImageBuilderDomainJoinInfoOutput) ToImageBuilderDomainJoinInfoPtrOutputW
 	}).(ImageBuilderDomainJoinInfoPtrOutput)
 }
 
+func (o ImageBuilderDomainJoinInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ImageBuilderDomainJoinInfo] {
+	return pulumix.Output[ImageBuilderDomainJoinInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Fully qualified name of the directory (for example, corp.example.com).
 func (o ImageBuilderDomainJoinInfoOutput) DirectoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageBuilderDomainJoinInfo) *string { return v.DirectoryName }).(pulumi.StringPtrOutput)
@@ -902,6 +1044,12 @@ func (o ImageBuilderDomainJoinInfoPtrOutput) ToImageBuilderDomainJoinInfoPtrOutp
 
 func (o ImageBuilderDomainJoinInfoPtrOutput) ToImageBuilderDomainJoinInfoPtrOutputWithContext(ctx context.Context) ImageBuilderDomainJoinInfoPtrOutput {
 	return o
+}
+
+func (o ImageBuilderDomainJoinInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageBuilderDomainJoinInfo] {
+	return pulumix.Output[*ImageBuilderDomainJoinInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageBuilderDomainJoinInfoPtrOutput) Elem() ImageBuilderDomainJoinInfoOutput {
@@ -971,6 +1119,12 @@ func (i ImageBuilderVpcConfigArgs) ToImageBuilderVpcConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderVpcConfigOutput)
 }
 
+func (i ImageBuilderVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ImageBuilderVpcConfig] {
+	return pulumix.Output[ImageBuilderVpcConfig]{
+		OutputState: i.ToImageBuilderVpcConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ImageBuilderVpcConfigArgs) ToImageBuilderVpcConfigPtrOutput() ImageBuilderVpcConfigPtrOutput {
 	return i.ToImageBuilderVpcConfigPtrOutputWithContext(context.Background())
 }
@@ -1012,6 +1166,12 @@ func (i *imageBuilderVpcConfigPtrType) ToImageBuilderVpcConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderVpcConfigPtrOutput)
 }
 
+func (i *imageBuilderVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImageBuilderVpcConfig] {
+	return pulumix.Output[*ImageBuilderVpcConfig]{
+		OutputState: i.ToImageBuilderVpcConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageBuilderVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (ImageBuilderVpcConfigOutput) ElementType() reflect.Type {
@@ -1036,6 +1196,12 @@ func (o ImageBuilderVpcConfigOutput) ToImageBuilderVpcConfigPtrOutputWithContext
 	}).(ImageBuilderVpcConfigPtrOutput)
 }
 
+func (o ImageBuilderVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ImageBuilderVpcConfig] {
+	return pulumix.Output[ImageBuilderVpcConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifiers of the security groups for the image builder or image builder.
 func (o ImageBuilderVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ImageBuilderVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -1058,6 +1224,12 @@ func (o ImageBuilderVpcConfigPtrOutput) ToImageBuilderVpcConfigPtrOutput() Image
 
 func (o ImageBuilderVpcConfigPtrOutput) ToImageBuilderVpcConfigPtrOutputWithContext(ctx context.Context) ImageBuilderVpcConfigPtrOutput {
 	return o
+}
+
+func (o ImageBuilderVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageBuilderVpcConfig] {
+	return pulumix.Output[*ImageBuilderVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageBuilderVpcConfigPtrOutput) Elem() ImageBuilderVpcConfigOutput {
@@ -1129,6 +1301,12 @@ func (i StackAccessEndpointArgs) ToStackAccessEndpointOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StackAccessEndpointOutput)
 }
 
+func (i StackAccessEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[StackAccessEndpoint] {
+	return pulumix.Output[StackAccessEndpoint]{
+		OutputState: i.ToStackAccessEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StackAccessEndpointArrayInput is an input type that accepts StackAccessEndpointArray and StackAccessEndpointArrayOutput values.
 // You can construct a concrete instance of `StackAccessEndpointArrayInput` via:
 //
@@ -1154,6 +1332,12 @@ func (i StackAccessEndpointArray) ToStackAccessEndpointArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StackAccessEndpointArrayOutput)
 }
 
+func (i StackAccessEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]StackAccessEndpoint] {
+	return pulumix.Output[[]StackAccessEndpoint]{
+		OutputState: i.ToStackAccessEndpointArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackAccessEndpointOutput struct{ *pulumi.OutputState }
 
 func (StackAccessEndpointOutput) ElementType() reflect.Type {
@@ -1166,6 +1350,12 @@ func (o StackAccessEndpointOutput) ToStackAccessEndpointOutput() StackAccessEndp
 
 func (o StackAccessEndpointOutput) ToStackAccessEndpointOutputWithContext(ctx context.Context) StackAccessEndpointOutput {
 	return o
+}
+
+func (o StackAccessEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[StackAccessEndpoint] {
+	return pulumix.Output[StackAccessEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Type of the interface endpoint.
@@ -1191,6 +1381,12 @@ func (o StackAccessEndpointArrayOutput) ToStackAccessEndpointArrayOutput() Stack
 
 func (o StackAccessEndpointArrayOutput) ToStackAccessEndpointArrayOutputWithContext(ctx context.Context) StackAccessEndpointArrayOutput {
 	return o
+}
+
+func (o StackAccessEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackAccessEndpoint] {
+	return pulumix.Output[[]StackAccessEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackAccessEndpointArrayOutput) Index(i pulumi.IntInput) StackAccessEndpointOutput {
@@ -1240,6 +1436,12 @@ func (i StackApplicationSettingsArgs) ToStackApplicationSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StackApplicationSettingsOutput)
 }
 
+func (i StackApplicationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[StackApplicationSettings] {
+	return pulumix.Output[StackApplicationSettings]{
+		OutputState: i.ToStackApplicationSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StackApplicationSettingsArgs) ToStackApplicationSettingsPtrOutput() StackApplicationSettingsPtrOutput {
 	return i.ToStackApplicationSettingsPtrOutputWithContext(context.Background())
 }
@@ -1281,6 +1483,12 @@ func (i *stackApplicationSettingsPtrType) ToStackApplicationSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(StackApplicationSettingsPtrOutput)
 }
 
+func (i *stackApplicationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StackApplicationSettings] {
+	return pulumix.Output[*StackApplicationSettings]{
+		OutputState: i.ToStackApplicationSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackApplicationSettingsOutput struct{ *pulumi.OutputState }
 
 func (StackApplicationSettingsOutput) ElementType() reflect.Type {
@@ -1303,6 +1511,12 @@ func (o StackApplicationSettingsOutput) ToStackApplicationSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackApplicationSettings) *StackApplicationSettings {
 		return &v
 	}).(StackApplicationSettingsPtrOutput)
+}
+
+func (o StackApplicationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[StackApplicationSettings] {
+	return pulumix.Output[StackApplicationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether application settings should be persisted.
@@ -1329,6 +1543,12 @@ func (o StackApplicationSettingsPtrOutput) ToStackApplicationSettingsPtrOutput()
 
 func (o StackApplicationSettingsPtrOutput) ToStackApplicationSettingsPtrOutputWithContext(ctx context.Context) StackApplicationSettingsPtrOutput {
 	return o
+}
+
+func (o StackApplicationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackApplicationSettings] {
+	return pulumix.Output[*StackApplicationSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackApplicationSettingsPtrOutput) Elem() StackApplicationSettingsOutput {
@@ -1406,6 +1626,12 @@ func (i StackStorageConnectorArgs) ToStackStorageConnectorOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StackStorageConnectorOutput)
 }
 
+func (i StackStorageConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[StackStorageConnector] {
+	return pulumix.Output[StackStorageConnector]{
+		OutputState: i.ToStackStorageConnectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StackStorageConnectorArrayInput is an input type that accepts StackStorageConnectorArray and StackStorageConnectorArrayOutput values.
 // You can construct a concrete instance of `StackStorageConnectorArrayInput` via:
 //
@@ -1431,6 +1657,12 @@ func (i StackStorageConnectorArray) ToStackStorageConnectorArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StackStorageConnectorArrayOutput)
 }
 
+func (i StackStorageConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]StackStorageConnector] {
+	return pulumix.Output[[]StackStorageConnector]{
+		OutputState: i.ToStackStorageConnectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackStorageConnectorOutput struct{ *pulumi.OutputState }
 
 func (StackStorageConnectorOutput) ElementType() reflect.Type {
@@ -1443,6 +1675,12 @@ func (o StackStorageConnectorOutput) ToStackStorageConnectorOutput() StackStorag
 
 func (o StackStorageConnectorOutput) ToStackStorageConnectorOutputWithContext(ctx context.Context) StackStorageConnectorOutput {
 	return o
+}
+
+func (o StackStorageConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[StackStorageConnector] {
+	return pulumix.Output[StackStorageConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Type of storage connector.
@@ -1473,6 +1711,12 @@ func (o StackStorageConnectorArrayOutput) ToStackStorageConnectorArrayOutput() S
 
 func (o StackStorageConnectorArrayOutput) ToStackStorageConnectorArrayOutputWithContext(ctx context.Context) StackStorageConnectorArrayOutput {
 	return o
+}
+
+func (o StackStorageConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackStorageConnector] {
+	return pulumix.Output[[]StackStorageConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackStorageConnectorArrayOutput) Index(i pulumi.IntInput) StackStorageConnectorOutput {
@@ -1516,6 +1760,12 @@ func (i StackStreamingExperienceSettingsArgs) ToStackStreamingExperienceSettings
 	return pulumi.ToOutputWithContext(ctx, i).(StackStreamingExperienceSettingsOutput)
 }
 
+func (i StackStreamingExperienceSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[StackStreamingExperienceSettings] {
+	return pulumix.Output[StackStreamingExperienceSettings]{
+		OutputState: i.ToStackStreamingExperienceSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StackStreamingExperienceSettingsArgs) ToStackStreamingExperienceSettingsPtrOutput() StackStreamingExperienceSettingsPtrOutput {
 	return i.ToStackStreamingExperienceSettingsPtrOutputWithContext(context.Background())
 }
@@ -1557,6 +1807,12 @@ func (i *stackStreamingExperienceSettingsPtrType) ToStackStreamingExperienceSett
 	return pulumi.ToOutputWithContext(ctx, i).(StackStreamingExperienceSettingsPtrOutput)
 }
 
+func (i *stackStreamingExperienceSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StackStreamingExperienceSettings] {
+	return pulumix.Output[*StackStreamingExperienceSettings]{
+		OutputState: i.ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackStreamingExperienceSettingsOutput struct{ *pulumi.OutputState }
 
 func (StackStreamingExperienceSettingsOutput) ElementType() reflect.Type {
@@ -1581,6 +1837,12 @@ func (o StackStreamingExperienceSettingsOutput) ToStackStreamingExperienceSettin
 	}).(StackStreamingExperienceSettingsPtrOutput)
 }
 
+func (o StackStreamingExperienceSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[StackStreamingExperienceSettings] {
+	return pulumix.Output[StackStreamingExperienceSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The preferred protocol that you want to use while streaming your application.
 // Valid values are `TCP` and `UDP`.
 func (o StackStreamingExperienceSettingsOutput) PreferredProtocol() pulumi.StringPtrOutput {
@@ -1599,6 +1861,12 @@ func (o StackStreamingExperienceSettingsPtrOutput) ToStackStreamingExperienceSet
 
 func (o StackStreamingExperienceSettingsPtrOutput) ToStackStreamingExperienceSettingsPtrOutputWithContext(ctx context.Context) StackStreamingExperienceSettingsPtrOutput {
 	return o
+}
+
+func (o StackStreamingExperienceSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackStreamingExperienceSettings] {
+	return pulumix.Output[*StackStreamingExperienceSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackStreamingExperienceSettingsPtrOutput) Elem() StackStreamingExperienceSettingsOutput {
@@ -1663,6 +1931,12 @@ func (i StackUserSettingArgs) ToStackUserSettingOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StackUserSettingOutput)
 }
 
+func (i StackUserSettingArgs) ToOutput(ctx context.Context) pulumix.Output[StackUserSetting] {
+	return pulumix.Output[StackUserSetting]{
+		OutputState: i.ToStackUserSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StackUserSettingArrayInput is an input type that accepts StackUserSettingArray and StackUserSettingArrayOutput values.
 // You can construct a concrete instance of `StackUserSettingArrayInput` via:
 //
@@ -1688,6 +1962,12 @@ func (i StackUserSettingArray) ToStackUserSettingArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StackUserSettingArrayOutput)
 }
 
+func (i StackUserSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]StackUserSetting] {
+	return pulumix.Output[[]StackUserSetting]{
+		OutputState: i.ToStackUserSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackUserSettingOutput struct{ *pulumi.OutputState }
 
 func (StackUserSettingOutput) ElementType() reflect.Type {
@@ -1700,6 +1980,12 @@ func (o StackUserSettingOutput) ToStackUserSettingOutput() StackUserSettingOutpu
 
 func (o StackUserSettingOutput) ToStackUserSettingOutputWithContext(ctx context.Context) StackUserSettingOutput {
 	return o
+}
+
+func (o StackUserSettingOutput) ToOutput(ctx context.Context) pulumix.Output[StackUserSetting] {
+	return pulumix.Output[StackUserSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Action that is enabled or disabled.
@@ -1726,6 +2012,12 @@ func (o StackUserSettingArrayOutput) ToStackUserSettingArrayOutput() StackUserSe
 
 func (o StackUserSettingArrayOutput) ToStackUserSettingArrayOutputWithContext(ctx context.Context) StackUserSettingArrayOutput {
 	return o
+}
+
+func (o StackUserSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackUserSetting] {
+	return pulumix.Output[[]StackUserSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOutput {

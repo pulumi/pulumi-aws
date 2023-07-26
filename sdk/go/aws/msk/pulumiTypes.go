@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type ClusterBrokerNodeGroupInfo struct {
 	// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
@@ -71,6 +75,12 @@ func (i ClusterBrokerNodeGroupInfoArgs) ToClusterBrokerNodeGroupInfoOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoOutput)
 }
 
+func (i ClusterBrokerNodeGroupInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfo] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfo]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterBrokerNodeGroupInfoArgs) ToClusterBrokerNodeGroupInfoPtrOutput() ClusterBrokerNodeGroupInfoPtrOutput {
 	return i.ToClusterBrokerNodeGroupInfoPtrOutputWithContext(context.Background())
 }
@@ -112,6 +122,12 @@ func (i *clusterBrokerNodeGroupInfoPtrType) ToClusterBrokerNodeGroupInfoPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoPtrOutput)
 }
 
+func (i *clusterBrokerNodeGroupInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfo] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfo]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterBrokerNodeGroupInfoOutput struct{ *pulumi.OutputState }
 
 func (ClusterBrokerNodeGroupInfoOutput) ElementType() reflect.Type {
@@ -134,6 +150,12 @@ func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfo {
 		return &v
 	}).(ClusterBrokerNodeGroupInfoPtrOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfo] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
@@ -187,6 +209,12 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ToClusterBrokerNodeGroupInfoPtrOutp
 
 func (o ClusterBrokerNodeGroupInfoPtrOutput) ToClusterBrokerNodeGroupInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoPtrOutput {
 	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfo] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterBrokerNodeGroupInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoOutput {
@@ -304,6 +332,12 @@ func (i ClusterBrokerNodeGroupInfoConnectivityInfoArgs) ToClusterBrokerNodeGroup
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoOutput)
 }
 
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfoConnectivityInfo] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfoConnectivityInfo]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoConnectivityInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterBrokerNodeGroupInfoConnectivityInfoArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
 	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(context.Background())
 }
@@ -345,6 +379,12 @@ func (i *clusterBrokerNodeGroupInfoConnectivityInfoPtrType) ToClusterBrokerNodeG
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
 }
 
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfoConnectivityInfo] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfoConnectivityInfo]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterBrokerNodeGroupInfoConnectivityInfoOutput struct{ *pulumi.OutputState }
 
 func (ClusterBrokerNodeGroupInfoConnectivityInfoOutput) ElementType() reflect.Type {
@@ -369,6 +409,12 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToClusterBrokerNodeGro
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
 }
 
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfoConnectivityInfo] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfoConnectivityInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Access control settings for brokers. See below.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) PublicAccess() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
@@ -388,6 +434,12 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) ToClusterBrokerNode
 
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
 	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfoConnectivityInfo] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfoConnectivityInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoConnectivityInfoOutput {
@@ -443,6 +495,12 @@ func (i ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ToClusterBro
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput)
 }
 
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
 	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(context.Background())
 }
@@ -484,6 +542,12 @@ func (i *clusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrType) ToCluste
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
 }
 
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput struct{ *pulumi.OutputState }
 
 func (ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ElementType() reflect.Type {
@@ -508,6 +572,12 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ToClusterB
 	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
 }
 
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -525,6 +595,12 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) ToClust
 
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
 	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) Elem() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput {
@@ -580,6 +656,12 @@ func (i ClusterBrokerNodeGroupInfoStorageInfoArgs) ToClusterBrokerNodeGroupInfoS
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoOutput)
 }
 
+func (i ClusterBrokerNodeGroupInfoStorageInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfo] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfo]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoStorageInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterBrokerNodeGroupInfoStorageInfoArgs) ToClusterBrokerNodeGroupInfoStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
 	return i.ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(context.Background())
 }
@@ -621,6 +703,12 @@ func (i *clusterBrokerNodeGroupInfoStorageInfoPtrType) ToClusterBrokerNodeGroupI
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput)
 }
 
+func (i *clusterBrokerNodeGroupInfoStorageInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfo] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfo]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterBrokerNodeGroupInfoStorageInfoOutput struct{ *pulumi.OutputState }
 
 func (ClusterBrokerNodeGroupInfoStorageInfoOutput) ElementType() reflect.Type {
@@ -645,6 +733,12 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) ToClusterBrokerNodeGroupInf
 	}).(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput)
 }
 
+func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfo] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A block that contains EBS volume information. See below.
 func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) EbsStorageInfo() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
@@ -664,6 +758,12 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) ToClusterBrokerNodeGroup
 
 func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
 	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfo] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoStorageInfoOutput {
@@ -723,6 +823,12 @@ func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ToClusterBroker
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput)
 }
 
+func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
 	return i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(context.Background())
 }
@@ -764,6 +870,12 @@ func (i *clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrType) ToClusterBr
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput)
 }
 
+func (i *clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput struct{ *pulumi.OutputState }
 
 func (ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ElementType() reflect.Type {
@@ -786,6 +898,12 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ToClusterBrok
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
 		return &v
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
@@ -812,6 +930,12 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) ToClusterB
 
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
 	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput {
@@ -881,6 +1005,12 @@ func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput)
 }
 
+func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
 	return i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(context.Background())
 }
@@ -922,6 +1052,12 @@ func (i *clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughpu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput)
 }
 
+func (i *clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput]{
+		OutputState: i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput struct{ *pulumi.OutputState }
 
 func (ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) ElementType() reflect.Type {
@@ -944,6 +1080,12 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
 		return &v
 	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput)
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput] {
+	return pulumix.Output[ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Controls whether provisioned throughput is enabled or not. Default value: `false`.
@@ -972,6 +1114,12 @@ func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
 
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
 	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput] {
+	return pulumix.Output[*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) Elem() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput {
@@ -1045,6 +1193,12 @@ func (i ClusterClientAuthenticationArgs) ToClusterClientAuthenticationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationOutput)
 }
 
+func (i ClusterClientAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterClientAuthentication] {
+	return pulumix.Output[ClusterClientAuthentication]{
+		OutputState: i.ToClusterClientAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterClientAuthenticationArgs) ToClusterClientAuthenticationPtrOutput() ClusterClientAuthenticationPtrOutput {
 	return i.ToClusterClientAuthenticationPtrOutputWithContext(context.Background())
 }
@@ -1086,6 +1240,12 @@ func (i *clusterClientAuthenticationPtrType) ToClusterClientAuthenticationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationPtrOutput)
 }
 
+func (i *clusterClientAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterClientAuthentication] {
+	return pulumix.Output[*ClusterClientAuthentication]{
+		OutputState: i.ToClusterClientAuthenticationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterClientAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientAuthenticationOutput) ElementType() reflect.Type {
@@ -1108,6 +1268,12 @@ func (o ClusterClientAuthenticationOutput) ToClusterClientAuthenticationPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterClientAuthentication) *ClusterClientAuthentication {
 		return &v
 	}).(ClusterClientAuthenticationPtrOutput)
+}
+
+func (o ClusterClientAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterClientAuthentication] {
+	return pulumix.Output[ClusterClientAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block for specifying SASL client authentication. See below.
@@ -1137,6 +1303,12 @@ func (o ClusterClientAuthenticationPtrOutput) ToClusterClientAuthenticationPtrOu
 
 func (o ClusterClientAuthenticationPtrOutput) ToClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ClusterClientAuthenticationPtrOutput {
 	return o
+}
+
+func (o ClusterClientAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterClientAuthentication] {
+	return pulumix.Output[*ClusterClientAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterClientAuthenticationPtrOutput) Elem() ClusterClientAuthenticationOutput {
@@ -1216,6 +1388,12 @@ func (i ClusterClientAuthenticationSaslArgs) ToClusterClientAuthenticationSaslOu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationSaslOutput)
 }
 
+func (i ClusterClientAuthenticationSaslArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterClientAuthenticationSasl] {
+	return pulumix.Output[ClusterClientAuthenticationSasl]{
+		OutputState: i.ToClusterClientAuthenticationSaslOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterClientAuthenticationSaslArgs) ToClusterClientAuthenticationSaslPtrOutput() ClusterClientAuthenticationSaslPtrOutput {
 	return i.ToClusterClientAuthenticationSaslPtrOutputWithContext(context.Background())
 }
@@ -1257,6 +1435,12 @@ func (i *clusterClientAuthenticationSaslPtrType) ToClusterClientAuthenticationSa
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationSaslPtrOutput)
 }
 
+func (i *clusterClientAuthenticationSaslPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterClientAuthenticationSasl] {
+	return pulumix.Output[*ClusterClientAuthenticationSasl]{
+		OutputState: i.ToClusterClientAuthenticationSaslPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterClientAuthenticationSaslOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientAuthenticationSaslOutput) ElementType() reflect.Type {
@@ -1281,6 +1465,12 @@ func (o ClusterClientAuthenticationSaslOutput) ToClusterClientAuthenticationSasl
 	}).(ClusterClientAuthenticationSaslPtrOutput)
 }
 
+func (o ClusterClientAuthenticationSaslOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterClientAuthenticationSasl] {
+	return pulumix.Output[ClusterClientAuthenticationSasl]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Enables IAM client authentication. Defaults to `false`.
 func (o ClusterClientAuthenticationSaslOutput) Iam() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *bool { return v.Iam }).(pulumi.BoolPtrOutput)
@@ -1303,6 +1493,12 @@ func (o ClusterClientAuthenticationSaslPtrOutput) ToClusterClientAuthenticationS
 
 func (o ClusterClientAuthenticationSaslPtrOutput) ToClusterClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ClusterClientAuthenticationSaslPtrOutput {
 	return o
+}
+
+func (o ClusterClientAuthenticationSaslPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterClientAuthenticationSasl] {
+	return pulumix.Output[*ClusterClientAuthenticationSasl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterClientAuthenticationSaslPtrOutput) Elem() ClusterClientAuthenticationSaslOutput {
@@ -1368,6 +1564,12 @@ func (i ClusterClientAuthenticationTlsArgs) ToClusterClientAuthenticationTlsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationTlsOutput)
 }
 
+func (i ClusterClientAuthenticationTlsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterClientAuthenticationTls] {
+	return pulumix.Output[ClusterClientAuthenticationTls]{
+		OutputState: i.ToClusterClientAuthenticationTlsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterClientAuthenticationTlsArgs) ToClusterClientAuthenticationTlsPtrOutput() ClusterClientAuthenticationTlsPtrOutput {
 	return i.ToClusterClientAuthenticationTlsPtrOutputWithContext(context.Background())
 }
@@ -1409,6 +1611,12 @@ func (i *clusterClientAuthenticationTlsPtrType) ToClusterClientAuthenticationTls
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClientAuthenticationTlsPtrOutput)
 }
 
+func (i *clusterClientAuthenticationTlsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterClientAuthenticationTls] {
+	return pulumix.Output[*ClusterClientAuthenticationTls]{
+		OutputState: i.ToClusterClientAuthenticationTlsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterClientAuthenticationTlsOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientAuthenticationTlsOutput) ElementType() reflect.Type {
@@ -1433,6 +1641,12 @@ func (o ClusterClientAuthenticationTlsOutput) ToClusterClientAuthenticationTlsPt
 	}).(ClusterClientAuthenticationTlsPtrOutput)
 }
 
+func (o ClusterClientAuthenticationTlsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterClientAuthenticationTls] {
+	return pulumix.Output[ClusterClientAuthenticationTls]{
+		OutputState: o.OutputState,
+	}
+}
+
 // List of ACM Certificate Authority Amazon Resource Names (ARNs).
 func (o ClusterClientAuthenticationTlsOutput) CertificateAuthorityArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterClientAuthenticationTls) []string { return v.CertificateAuthorityArns }).(pulumi.StringArrayOutput)
@@ -1450,6 +1664,12 @@ func (o ClusterClientAuthenticationTlsPtrOutput) ToClusterClientAuthenticationTl
 
 func (o ClusterClientAuthenticationTlsPtrOutput) ToClusterClientAuthenticationTlsPtrOutputWithContext(ctx context.Context) ClusterClientAuthenticationTlsPtrOutput {
 	return o
+}
+
+func (o ClusterClientAuthenticationTlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterClientAuthenticationTls] {
+	return pulumix.Output[*ClusterClientAuthenticationTls]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterClientAuthenticationTlsPtrOutput) Elem() ClusterClientAuthenticationTlsOutput {
@@ -1509,6 +1729,12 @@ func (i ClusterConfigurationInfoArgs) ToClusterConfigurationInfoOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationInfoOutput)
 }
 
+func (i ClusterConfigurationInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterConfigurationInfo] {
+	return pulumix.Output[ClusterConfigurationInfo]{
+		OutputState: i.ToClusterConfigurationInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterConfigurationInfoArgs) ToClusterConfigurationInfoPtrOutput() ClusterConfigurationInfoPtrOutput {
 	return i.ToClusterConfigurationInfoPtrOutputWithContext(context.Background())
 }
@@ -1550,6 +1776,12 @@ func (i *clusterConfigurationInfoPtrType) ToClusterConfigurationInfoPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationInfoPtrOutput)
 }
 
+func (i *clusterConfigurationInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterConfigurationInfo] {
+	return pulumix.Output[*ClusterConfigurationInfo]{
+		OutputState: i.ToClusterConfigurationInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterConfigurationInfoOutput struct{ *pulumi.OutputState }
 
 func (ClusterConfigurationInfoOutput) ElementType() reflect.Type {
@@ -1574,6 +1806,12 @@ func (o ClusterConfigurationInfoOutput) ToClusterConfigurationInfoPtrOutputWithC
 	}).(ClusterConfigurationInfoPtrOutput)
 }
 
+func (o ClusterConfigurationInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterConfigurationInfo] {
+	return pulumix.Output[ClusterConfigurationInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
 func (o ClusterConfigurationInfoOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterConfigurationInfo) string { return v.Arn }).(pulumi.StringOutput)
@@ -1596,6 +1834,12 @@ func (o ClusterConfigurationInfoPtrOutput) ToClusterConfigurationInfoPtrOutput()
 
 func (o ClusterConfigurationInfoPtrOutput) ToClusterConfigurationInfoPtrOutputWithContext(ctx context.Context) ClusterConfigurationInfoPtrOutput {
 	return o
+}
+
+func (o ClusterConfigurationInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterConfigurationInfo] {
+	return pulumix.Output[*ClusterConfigurationInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterConfigurationInfoPtrOutput) Elem() ClusterConfigurationInfoOutput {
@@ -1665,6 +1909,12 @@ func (i ClusterEncryptionInfoArgs) ToClusterEncryptionInfoOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionInfoOutput)
 }
 
+func (i ClusterEncryptionInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterEncryptionInfo] {
+	return pulumix.Output[ClusterEncryptionInfo]{
+		OutputState: i.ToClusterEncryptionInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterEncryptionInfoArgs) ToClusterEncryptionInfoPtrOutput() ClusterEncryptionInfoPtrOutput {
 	return i.ToClusterEncryptionInfoPtrOutputWithContext(context.Background())
 }
@@ -1706,6 +1956,12 @@ func (i *clusterEncryptionInfoPtrType) ToClusterEncryptionInfoPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionInfoPtrOutput)
 }
 
+func (i *clusterEncryptionInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterEncryptionInfo] {
+	return pulumix.Output[*ClusterEncryptionInfo]{
+		OutputState: i.ToClusterEncryptionInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterEncryptionInfoOutput struct{ *pulumi.OutputState }
 
 func (ClusterEncryptionInfoOutput) ElementType() reflect.Type {
@@ -1730,6 +1986,12 @@ func (o ClusterEncryptionInfoOutput) ToClusterEncryptionInfoPtrOutputWithContext
 	}).(ClusterEncryptionInfoPtrOutput)
 }
 
+func (o ClusterEncryptionInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEncryptionInfo] {
+	return pulumix.Output[ClusterEncryptionInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
 func (o ClusterEncryptionInfoOutput) EncryptionAtRestKmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEncryptionInfo) *string { return v.EncryptionAtRestKmsKeyArn }).(pulumi.StringPtrOutput)
@@ -1752,6 +2014,12 @@ func (o ClusterEncryptionInfoPtrOutput) ToClusterEncryptionInfoPtrOutput() Clust
 
 func (o ClusterEncryptionInfoPtrOutput) ToClusterEncryptionInfoPtrOutputWithContext(ctx context.Context) ClusterEncryptionInfoPtrOutput {
 	return o
+}
+
+func (o ClusterEncryptionInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEncryptionInfo] {
+	return pulumix.Output[*ClusterEncryptionInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterEncryptionInfoPtrOutput) Elem() ClusterEncryptionInfoOutput {
@@ -1821,6 +2089,12 @@ func (i ClusterEncryptionInfoEncryptionInTransitArgs) ToClusterEncryptionInfoEnc
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionInfoEncryptionInTransitOutput)
 }
 
+func (i ClusterEncryptionInfoEncryptionInTransitArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterEncryptionInfoEncryptionInTransit] {
+	return pulumix.Output[ClusterEncryptionInfoEncryptionInTransit]{
+		OutputState: i.ToClusterEncryptionInfoEncryptionInTransitOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterEncryptionInfoEncryptionInTransitArgs) ToClusterEncryptionInfoEncryptionInTransitPtrOutput() ClusterEncryptionInfoEncryptionInTransitPtrOutput {
 	return i.ToClusterEncryptionInfoEncryptionInTransitPtrOutputWithContext(context.Background())
 }
@@ -1862,6 +2136,12 @@ func (i *clusterEncryptionInfoEncryptionInTransitPtrType) ToClusterEncryptionInf
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEncryptionInfoEncryptionInTransitPtrOutput)
 }
 
+func (i *clusterEncryptionInfoEncryptionInTransitPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterEncryptionInfoEncryptionInTransit] {
+	return pulumix.Output[*ClusterEncryptionInfoEncryptionInTransit]{
+		OutputState: i.ToClusterEncryptionInfoEncryptionInTransitPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterEncryptionInfoEncryptionInTransitOutput struct{ *pulumi.OutputState }
 
 func (ClusterEncryptionInfoEncryptionInTransitOutput) ElementType() reflect.Type {
@@ -1886,6 +2166,12 @@ func (o ClusterEncryptionInfoEncryptionInTransitOutput) ToClusterEncryptionInfoE
 	}).(ClusterEncryptionInfoEncryptionInTransitPtrOutput)
 }
 
+func (o ClusterEncryptionInfoEncryptionInTransitOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEncryptionInfoEncryptionInTransit] {
+	return pulumix.Output[ClusterEncryptionInfoEncryptionInTransit]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
 func (o ClusterEncryptionInfoEncryptionInTransitOutput) ClientBroker() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEncryptionInfoEncryptionInTransit) *string { return v.ClientBroker }).(pulumi.StringPtrOutput)
@@ -1908,6 +2194,12 @@ func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) ToClusterEncryptionIn
 
 func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) ToClusterEncryptionInfoEncryptionInTransitPtrOutputWithContext(ctx context.Context) ClusterEncryptionInfoEncryptionInTransitPtrOutput {
 	return o
+}
+
+func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEncryptionInfoEncryptionInTransit] {
+	return pulumix.Output[*ClusterEncryptionInfoEncryptionInTransit]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) Elem() ClusterEncryptionInfoEncryptionInTransitOutput {
@@ -1973,6 +2265,12 @@ func (i ClusterLoggingInfoArgs) ToClusterLoggingInfoOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoOutput)
 }
 
+func (i ClusterLoggingInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingInfo] {
+	return pulumix.Output[ClusterLoggingInfo]{
+		OutputState: i.ToClusterLoggingInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLoggingInfoArgs) ToClusterLoggingInfoPtrOutput() ClusterLoggingInfoPtrOutput {
 	return i.ToClusterLoggingInfoPtrOutputWithContext(context.Background())
 }
@@ -2014,6 +2312,12 @@ func (i *clusterLoggingInfoPtrType) ToClusterLoggingInfoPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoPtrOutput)
 }
 
+func (i *clusterLoggingInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingInfo] {
+	return pulumix.Output[*ClusterLoggingInfo]{
+		OutputState: i.ToClusterLoggingInfoPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLoggingInfoOutput struct{ *pulumi.OutputState }
 
 func (ClusterLoggingInfoOutput) ElementType() reflect.Type {
@@ -2038,6 +2342,12 @@ func (o ClusterLoggingInfoOutput) ToClusterLoggingInfoPtrOutputWithContext(ctx c
 	}).(ClusterLoggingInfoPtrOutput)
 }
 
+func (o ClusterLoggingInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingInfo] {
+	return pulumix.Output[ClusterLoggingInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configuration block for Broker Logs settings for logging info. See below.
 func (o ClusterLoggingInfoOutput) BrokerLogs() ClusterLoggingInfoBrokerLogsOutput {
 	return o.ApplyT(func(v ClusterLoggingInfo) ClusterLoggingInfoBrokerLogs { return v.BrokerLogs }).(ClusterLoggingInfoBrokerLogsOutput)
@@ -2055,6 +2365,12 @@ func (o ClusterLoggingInfoPtrOutput) ToClusterLoggingInfoPtrOutput() ClusterLogg
 
 func (o ClusterLoggingInfoPtrOutput) ToClusterLoggingInfoPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoPtrOutput {
 	return o
+}
+
+func (o ClusterLoggingInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingInfo] {
+	return pulumix.Output[*ClusterLoggingInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLoggingInfoPtrOutput) Elem() ClusterLoggingInfoOutput {
@@ -2112,6 +2428,12 @@ func (i ClusterLoggingInfoBrokerLogsArgs) ToClusterLoggingInfoBrokerLogsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsOutput)
 }
 
+func (i ClusterLoggingInfoBrokerLogsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingInfoBrokerLogs] {
+	return pulumix.Output[ClusterLoggingInfoBrokerLogs]{
+		OutputState: i.ToClusterLoggingInfoBrokerLogsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLoggingInfoBrokerLogsArgs) ToClusterLoggingInfoBrokerLogsPtrOutput() ClusterLoggingInfoBrokerLogsPtrOutput {
 	return i.ToClusterLoggingInfoBrokerLogsPtrOutputWithContext(context.Background())
 }
@@ -2153,6 +2475,12 @@ func (i *clusterLoggingInfoBrokerLogsPtrType) ToClusterLoggingInfoBrokerLogsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsPtrOutput)
 }
 
+func (i *clusterLoggingInfoBrokerLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingInfoBrokerLogs] {
+	return pulumix.Output[*ClusterLoggingInfoBrokerLogs]{
+		OutputState: i.ToClusterLoggingInfoBrokerLogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLoggingInfoBrokerLogsOutput struct{ *pulumi.OutputState }
 
 func (ClusterLoggingInfoBrokerLogsOutput) ElementType() reflect.Type {
@@ -2175,6 +2503,12 @@ func (o ClusterLoggingInfoBrokerLogsOutput) ToClusterLoggingInfoBrokerLogsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogs {
 		return &v
 	}).(ClusterLoggingInfoBrokerLogsPtrOutput)
+}
+
+func (o ClusterLoggingInfoBrokerLogsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingInfoBrokerLogs] {
+	return pulumix.Output[ClusterLoggingInfoBrokerLogs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLoggingInfoBrokerLogsOutput) CloudwatchLogs() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
@@ -2203,6 +2537,12 @@ func (o ClusterLoggingInfoBrokerLogsPtrOutput) ToClusterLoggingInfoBrokerLogsPtr
 
 func (o ClusterLoggingInfoBrokerLogsPtrOutput) ToClusterLoggingInfoBrokerLogsPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsPtrOutput {
 	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingInfoBrokerLogs] {
+	return pulumix.Output[*ClusterLoggingInfoBrokerLogs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLoggingInfoBrokerLogsPtrOutput) Elem() ClusterLoggingInfoBrokerLogsOutput {
@@ -2279,6 +2619,12 @@ func (i ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs) ToClusterLoggingInfoBrok
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput)
 }
 
+func (i ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingInfoBrokerLogsCloudwatchLogs] {
+	return pulumix.Output[ClusterLoggingInfoBrokerLogsCloudwatchLogs]{
+		OutputState: i.ToClusterLoggingInfoBrokerLogsCloudwatchLogsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs) ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
 	return i.ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(context.Background())
 }
@@ -2320,6 +2666,12 @@ func (i *clusterLoggingInfoBrokerLogsCloudwatchLogsPtrType) ToClusterLoggingInfo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput)
 }
 
+func (i *clusterLoggingInfoBrokerLogsCloudwatchLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingInfoBrokerLogsCloudwatchLogs] {
+	return pulumix.Output[*ClusterLoggingInfoBrokerLogsCloudwatchLogs]{
+		OutputState: i.ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput struct{ *pulumi.OutputState }
 
 func (ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ElementType() reflect.Type {
@@ -2344,6 +2696,12 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ToClusterLoggingInfoBr
 	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput)
 }
 
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingInfoBrokerLogsCloudwatchLogs] {
+	return pulumix.Output[ClusterLoggingInfoBrokerLogsCloudwatchLogs]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Controls whether provisioned throughput is enabled or not. Default value: `false`.
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -2366,6 +2724,12 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) ToClusterLoggingInf
 
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
 	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingInfoBrokerLogsCloudwatchLogs] {
+	return pulumix.Output[*ClusterLoggingInfoBrokerLogsCloudwatchLogs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) Elem() ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput {
@@ -2435,6 +2799,12 @@ func (i ClusterLoggingInfoBrokerLogsFirehoseArgs) ToClusterLoggingInfoBrokerLogs
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsFirehoseOutput)
 }
 
+func (i ClusterLoggingInfoBrokerLogsFirehoseArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingInfoBrokerLogsFirehose] {
+	return pulumix.Output[ClusterLoggingInfoBrokerLogsFirehose]{
+		OutputState: i.ToClusterLoggingInfoBrokerLogsFirehoseOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLoggingInfoBrokerLogsFirehoseArgs) ToClusterLoggingInfoBrokerLogsFirehosePtrOutput() ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
 	return i.ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(context.Background())
 }
@@ -2476,6 +2846,12 @@ func (i *clusterLoggingInfoBrokerLogsFirehosePtrType) ToClusterLoggingInfoBroker
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsFirehosePtrOutput)
 }
 
+func (i *clusterLoggingInfoBrokerLogsFirehosePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingInfoBrokerLogsFirehose] {
+	return pulumix.Output[*ClusterLoggingInfoBrokerLogsFirehose]{
+		OutputState: i.ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLoggingInfoBrokerLogsFirehoseOutput struct{ *pulumi.OutputState }
 
 func (ClusterLoggingInfoBrokerLogsFirehoseOutput) ElementType() reflect.Type {
@@ -2500,6 +2876,12 @@ func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) ToClusterLoggingInfoBrokerLo
 	}).(ClusterLoggingInfoBrokerLogsFirehosePtrOutput)
 }
 
+func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingInfoBrokerLogsFirehose] {
+	return pulumix.Output[ClusterLoggingInfoBrokerLogsFirehose]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the Kinesis Data Firehose delivery stream to deliver logs to.
 func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) DeliveryStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
@@ -2522,6 +2904,12 @@ func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) ToClusterLoggingInfoBroke
 
 func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
 	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingInfoBrokerLogsFirehose] {
+	return pulumix.Output[*ClusterLoggingInfoBrokerLogsFirehose]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) Elem() ClusterLoggingInfoBrokerLogsFirehoseOutput {
@@ -2595,6 +2983,12 @@ func (i ClusterLoggingInfoBrokerLogsS3Args) ToClusterLoggingInfoBrokerLogsS3Outp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsS3Output)
 }
 
+func (i ClusterLoggingInfoBrokerLogsS3Args) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingInfoBrokerLogsS3] {
+	return pulumix.Output[ClusterLoggingInfoBrokerLogsS3]{
+		OutputState: i.ToClusterLoggingInfoBrokerLogsS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterLoggingInfoBrokerLogsS3Args) ToClusterLoggingInfoBrokerLogsS3PtrOutput() ClusterLoggingInfoBrokerLogsS3PtrOutput {
 	return i.ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(context.Background())
 }
@@ -2636,6 +3030,12 @@ func (i *clusterLoggingInfoBrokerLogsS3PtrType) ToClusterLoggingInfoBrokerLogsS3
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingInfoBrokerLogsS3PtrOutput)
 }
 
+func (i *clusterLoggingInfoBrokerLogsS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingInfoBrokerLogsS3] {
+	return pulumix.Output[*ClusterLoggingInfoBrokerLogsS3]{
+		OutputState: i.ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterLoggingInfoBrokerLogsS3Output struct{ *pulumi.OutputState }
 
 func (ClusterLoggingInfoBrokerLogsS3Output) ElementType() reflect.Type {
@@ -2658,6 +3058,12 @@ func (o ClusterLoggingInfoBrokerLogsS3Output) ToClusterLoggingInfoBrokerLogsS3Pt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLoggingInfoBrokerLogsS3) *ClusterLoggingInfoBrokerLogsS3 {
 		return &v
 	}).(ClusterLoggingInfoBrokerLogsS3PtrOutput)
+}
+
+func (o ClusterLoggingInfoBrokerLogsS3Output) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingInfoBrokerLogsS3] {
+	return pulumix.Output[ClusterLoggingInfoBrokerLogsS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the S3 bucket to deliver logs to.
@@ -2687,6 +3093,12 @@ func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) ToClusterLoggingInfoBrokerLogsS
 
 func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsS3PtrOutput {
 	return o
+}
+
+func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingInfoBrokerLogsS3] {
+	return pulumix.Output[*ClusterLoggingInfoBrokerLogsS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Elem() ClusterLoggingInfoBrokerLogsS3Output {
@@ -2762,6 +3174,12 @@ func (i ClusterOpenMonitoringArgs) ToClusterOpenMonitoringOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringOutput)
 }
 
+func (i ClusterOpenMonitoringArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterOpenMonitoring] {
+	return pulumix.Output[ClusterOpenMonitoring]{
+		OutputState: i.ToClusterOpenMonitoringOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterOpenMonitoringArgs) ToClusterOpenMonitoringPtrOutput() ClusterOpenMonitoringPtrOutput {
 	return i.ToClusterOpenMonitoringPtrOutputWithContext(context.Background())
 }
@@ -2803,6 +3221,12 @@ func (i *clusterOpenMonitoringPtrType) ToClusterOpenMonitoringPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPtrOutput)
 }
 
+func (i *clusterOpenMonitoringPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterOpenMonitoring] {
+	return pulumix.Output[*ClusterOpenMonitoring]{
+		OutputState: i.ToClusterOpenMonitoringPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterOpenMonitoringOutput struct{ *pulumi.OutputState }
 
 func (ClusterOpenMonitoringOutput) ElementType() reflect.Type {
@@ -2827,6 +3251,12 @@ func (o ClusterOpenMonitoringOutput) ToClusterOpenMonitoringPtrOutputWithContext
 	}).(ClusterOpenMonitoringPtrOutput)
 }
 
+func (o ClusterOpenMonitoringOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterOpenMonitoring] {
+	return pulumix.Output[ClusterOpenMonitoring]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configuration block for Prometheus settings for open monitoring. See below.
 func (o ClusterOpenMonitoringOutput) Prometheus() ClusterOpenMonitoringPrometheusOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoring) ClusterOpenMonitoringPrometheus { return v.Prometheus }).(ClusterOpenMonitoringPrometheusOutput)
@@ -2844,6 +3274,12 @@ func (o ClusterOpenMonitoringPtrOutput) ToClusterOpenMonitoringPtrOutput() Clust
 
 func (o ClusterOpenMonitoringPtrOutput) ToClusterOpenMonitoringPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPtrOutput {
 	return o
+}
+
+func (o ClusterOpenMonitoringPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterOpenMonitoring] {
+	return pulumix.Output[*ClusterOpenMonitoring]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterOpenMonitoringPtrOutput) Elem() ClusterOpenMonitoringOutput {
@@ -2903,6 +3339,12 @@ func (i ClusterOpenMonitoringPrometheusArgs) ToClusterOpenMonitoringPrometheusOu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusOutput)
 }
 
+func (i ClusterOpenMonitoringPrometheusArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterOpenMonitoringPrometheus] {
+	return pulumix.Output[ClusterOpenMonitoringPrometheus]{
+		OutputState: i.ToClusterOpenMonitoringPrometheusOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterOpenMonitoringPrometheusArgs) ToClusterOpenMonitoringPrometheusPtrOutput() ClusterOpenMonitoringPrometheusPtrOutput {
 	return i.ToClusterOpenMonitoringPrometheusPtrOutputWithContext(context.Background())
 }
@@ -2944,6 +3386,12 @@ func (i *clusterOpenMonitoringPrometheusPtrType) ToClusterOpenMonitoringPromethe
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusPtrOutput)
 }
 
+func (i *clusterOpenMonitoringPrometheusPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterOpenMonitoringPrometheus] {
+	return pulumix.Output[*ClusterOpenMonitoringPrometheus]{
+		OutputState: i.ToClusterOpenMonitoringPrometheusPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterOpenMonitoringPrometheusOutput struct{ *pulumi.OutputState }
 
 func (ClusterOpenMonitoringPrometheusOutput) ElementType() reflect.Type {
@@ -2966,6 +3414,12 @@ func (o ClusterOpenMonitoringPrometheusOutput) ToClusterOpenMonitoringPrometheus
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheus {
 		return &v
 	}).(ClusterOpenMonitoringPrometheusPtrOutput)
+}
+
+func (o ClusterOpenMonitoringPrometheusOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterOpenMonitoringPrometheus] {
+	return pulumix.Output[ClusterOpenMonitoringPrometheus]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block for JMX Exporter. See below.
@@ -2994,6 +3448,12 @@ func (o ClusterOpenMonitoringPrometheusPtrOutput) ToClusterOpenMonitoringPrometh
 
 func (o ClusterOpenMonitoringPrometheusPtrOutput) ToClusterOpenMonitoringPrometheusPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusPtrOutput {
 	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterOpenMonitoringPrometheus] {
+	return pulumix.Output[*ClusterOpenMonitoringPrometheus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterOpenMonitoringPrometheusPtrOutput) Elem() ClusterOpenMonitoringPrometheusOutput {
@@ -3059,6 +3519,12 @@ func (i ClusterOpenMonitoringPrometheusJmxExporterArgs) ToClusterOpenMonitoringP
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusJmxExporterOutput)
 }
 
+func (i ClusterOpenMonitoringPrometheusJmxExporterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterOpenMonitoringPrometheusJmxExporter] {
+	return pulumix.Output[ClusterOpenMonitoringPrometheusJmxExporter]{
+		OutputState: i.ToClusterOpenMonitoringPrometheusJmxExporterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterOpenMonitoringPrometheusJmxExporterArgs) ToClusterOpenMonitoringPrometheusJmxExporterPtrOutput() ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
 	return i.ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(context.Background())
 }
@@ -3100,6 +3566,12 @@ func (i *clusterOpenMonitoringPrometheusJmxExporterPtrType) ToClusterOpenMonitor
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
 
+func (i *clusterOpenMonitoringPrometheusJmxExporterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterOpenMonitoringPrometheusJmxExporter] {
+	return pulumix.Output[*ClusterOpenMonitoringPrometheusJmxExporter]{
+		OutputState: i.ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterOpenMonitoringPrometheusJmxExporterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOpenMonitoringPrometheusJmxExporterOutput) ElementType() reflect.Type {
@@ -3124,6 +3596,12 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToClusterOpenMonitorin
 	}).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
 
+func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterOpenMonitoringPrometheusJmxExporter] {
+	return pulumix.Output[ClusterOpenMonitoringPrometheusJmxExporter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates whether you want to enable or disable the JMX Exporter.
 func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) EnabledInBroker() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusJmxExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
@@ -3141,6 +3619,12 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) ToClusterOpenMonito
 
 func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
 	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterOpenMonitoringPrometheusJmxExporter] {
+	return pulumix.Output[*ClusterOpenMonitoringPrometheusJmxExporter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) Elem() ClusterOpenMonitoringPrometheusJmxExporterOutput {
@@ -3196,6 +3680,12 @@ func (i ClusterOpenMonitoringPrometheusNodeExporterArgs) ToClusterOpenMonitoring
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusNodeExporterOutput)
 }
 
+func (i ClusterOpenMonitoringPrometheusNodeExporterArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterOpenMonitoringPrometheusNodeExporter] {
+	return pulumix.Output[ClusterOpenMonitoringPrometheusNodeExporter]{
+		OutputState: i.ToClusterOpenMonitoringPrometheusNodeExporterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ClusterOpenMonitoringPrometheusNodeExporterArgs) ToClusterOpenMonitoringPrometheusNodeExporterPtrOutput() ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
 	return i.ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(context.Background())
 }
@@ -3237,6 +3727,12 @@ func (i *clusterOpenMonitoringPrometheusNodeExporterPtrType) ToClusterOpenMonito
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
 }
 
+func (i *clusterOpenMonitoringPrometheusNodeExporterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterOpenMonitoringPrometheusNodeExporter] {
+	return pulumix.Output[*ClusterOpenMonitoringPrometheusNodeExporter]{
+		OutputState: i.ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterOpenMonitoringPrometheusNodeExporterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOpenMonitoringPrometheusNodeExporterOutput) ElementType() reflect.Type {
@@ -3261,6 +3757,12 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToClusterOpenMonitori
 	}).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
 }
 
+func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterOpenMonitoringPrometheusNodeExporter] {
+	return pulumix.Output[ClusterOpenMonitoringPrometheusNodeExporter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates whether you want to enable or disable the JMX Exporter.
 func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) EnabledInBroker() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusNodeExporter) bool { return v.EnabledInBroker }).(pulumi.BoolOutput)
@@ -3278,6 +3780,12 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) ToClusterOpenMonit
 
 func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
 	return o
+}
+
+func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterOpenMonitoringPrometheusNodeExporter] {
+	return pulumix.Output[*ClusterOpenMonitoringPrometheusNodeExporter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) Elem() ClusterOpenMonitoringPrometheusNodeExporterOutput {
@@ -3333,6 +3841,12 @@ func (i ServerlessClusterClientAuthenticationArgs) ToServerlessClusterClientAuth
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationOutput)
 }
 
+func (i ServerlessClusterClientAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessClusterClientAuthentication] {
+	return pulumix.Output[ServerlessClusterClientAuthentication]{
+		OutputState: i.ToServerlessClusterClientAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServerlessClusterClientAuthenticationArgs) ToServerlessClusterClientAuthenticationPtrOutput() ServerlessClusterClientAuthenticationPtrOutput {
 	return i.ToServerlessClusterClientAuthenticationPtrOutputWithContext(context.Background())
 }
@@ -3374,6 +3888,12 @@ func (i *serverlessClusterClientAuthenticationPtrType) ToServerlessClusterClient
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationPtrOutput)
 }
 
+func (i *serverlessClusterClientAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerlessClusterClientAuthentication] {
+	return pulumix.Output[*ServerlessClusterClientAuthentication]{
+		OutputState: i.ToServerlessClusterClientAuthenticationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerlessClusterClientAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ServerlessClusterClientAuthenticationOutput) ElementType() reflect.Type {
@@ -3398,6 +3918,12 @@ func (o ServerlessClusterClientAuthenticationOutput) ToServerlessClusterClientAu
 	}).(ServerlessClusterClientAuthenticationPtrOutput)
 }
 
+func (o ServerlessClusterClientAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessClusterClientAuthentication] {
+	return pulumix.Output[ServerlessClusterClientAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Details for client authentication using SASL. See below.
 func (o ServerlessClusterClientAuthenticationOutput) Sasl() ServerlessClusterClientAuthenticationSaslOutput {
 	return o.ApplyT(func(v ServerlessClusterClientAuthentication) ServerlessClusterClientAuthenticationSasl { return v.Sasl }).(ServerlessClusterClientAuthenticationSaslOutput)
@@ -3415,6 +3941,12 @@ func (o ServerlessClusterClientAuthenticationPtrOutput) ToServerlessClusterClien
 
 func (o ServerlessClusterClientAuthenticationPtrOutput) ToServerlessClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationPtrOutput {
 	return o
+}
+
+func (o ServerlessClusterClientAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessClusterClientAuthentication] {
+	return pulumix.Output[*ServerlessClusterClientAuthentication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerlessClusterClientAuthenticationPtrOutput) Elem() ServerlessClusterClientAuthenticationOutput {
@@ -3470,6 +4002,12 @@ func (i ServerlessClusterClientAuthenticationSaslArgs) ToServerlessClusterClient
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationSaslOutput)
 }
 
+func (i ServerlessClusterClientAuthenticationSaslArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessClusterClientAuthenticationSasl] {
+	return pulumix.Output[ServerlessClusterClientAuthenticationSasl]{
+		OutputState: i.ToServerlessClusterClientAuthenticationSaslOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServerlessClusterClientAuthenticationSaslArgs) ToServerlessClusterClientAuthenticationSaslPtrOutput() ServerlessClusterClientAuthenticationSaslPtrOutput {
 	return i.ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(context.Background())
 }
@@ -3511,6 +4049,12 @@ func (i *serverlessClusterClientAuthenticationSaslPtrType) ToServerlessClusterCl
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationSaslPtrOutput)
 }
 
+func (i *serverlessClusterClientAuthenticationSaslPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerlessClusterClientAuthenticationSasl] {
+	return pulumix.Output[*ServerlessClusterClientAuthenticationSasl]{
+		OutputState: i.ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerlessClusterClientAuthenticationSaslOutput struct{ *pulumi.OutputState }
 
 func (ServerlessClusterClientAuthenticationSaslOutput) ElementType() reflect.Type {
@@ -3535,6 +4079,12 @@ func (o ServerlessClusterClientAuthenticationSaslOutput) ToServerlessClusterClie
 	}).(ServerlessClusterClientAuthenticationSaslPtrOutput)
 }
 
+func (o ServerlessClusterClientAuthenticationSaslOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessClusterClientAuthenticationSasl] {
+	return pulumix.Output[ServerlessClusterClientAuthenticationSasl]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Details for client authentication using IAM. See below.
 func (o ServerlessClusterClientAuthenticationSaslOutput) Iam() ServerlessClusterClientAuthenticationSaslIamOutput {
 	return o.ApplyT(func(v ServerlessClusterClientAuthenticationSasl) ServerlessClusterClientAuthenticationSaslIam {
@@ -3554,6 +4104,12 @@ func (o ServerlessClusterClientAuthenticationSaslPtrOutput) ToServerlessClusterC
 
 func (o ServerlessClusterClientAuthenticationSaslPtrOutput) ToServerlessClusterClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslPtrOutput {
 	return o
+}
+
+func (o ServerlessClusterClientAuthenticationSaslPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessClusterClientAuthenticationSasl] {
+	return pulumix.Output[*ServerlessClusterClientAuthenticationSasl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerlessClusterClientAuthenticationSaslPtrOutput) Elem() ServerlessClusterClientAuthenticationSaslOutput {
@@ -3609,6 +4165,12 @@ func (i ServerlessClusterClientAuthenticationSaslIamArgs) ToServerlessClusterCli
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationSaslIamOutput)
 }
 
+func (i ServerlessClusterClientAuthenticationSaslIamArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessClusterClientAuthenticationSaslIam] {
+	return pulumix.Output[ServerlessClusterClientAuthenticationSaslIam]{
+		OutputState: i.ToServerlessClusterClientAuthenticationSaslIamOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServerlessClusterClientAuthenticationSaslIamArgs) ToServerlessClusterClientAuthenticationSaslIamPtrOutput() ServerlessClusterClientAuthenticationSaslIamPtrOutput {
 	return i.ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(context.Background())
 }
@@ -3650,6 +4212,12 @@ func (i *serverlessClusterClientAuthenticationSaslIamPtrType) ToServerlessCluste
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterClientAuthenticationSaslIamPtrOutput)
 }
 
+func (i *serverlessClusterClientAuthenticationSaslIamPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerlessClusterClientAuthenticationSaslIam] {
+	return pulumix.Output[*ServerlessClusterClientAuthenticationSaslIam]{
+		OutputState: i.ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerlessClusterClientAuthenticationSaslIamOutput struct{ *pulumi.OutputState }
 
 func (ServerlessClusterClientAuthenticationSaslIamOutput) ElementType() reflect.Type {
@@ -3674,6 +4242,12 @@ func (o ServerlessClusterClientAuthenticationSaslIamOutput) ToServerlessClusterC
 	}).(ServerlessClusterClientAuthenticationSaslIamPtrOutput)
 }
 
+func (o ServerlessClusterClientAuthenticationSaslIamOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessClusterClientAuthenticationSaslIam] {
+	return pulumix.Output[ServerlessClusterClientAuthenticationSaslIam]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether SASL/IAM authentication is enabled or not.
 func (o ServerlessClusterClientAuthenticationSaslIamOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServerlessClusterClientAuthenticationSaslIam) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -3691,6 +4265,12 @@ func (o ServerlessClusterClientAuthenticationSaslIamPtrOutput) ToServerlessClust
 
 func (o ServerlessClusterClientAuthenticationSaslIamPtrOutput) ToServerlessClusterClientAuthenticationSaslIamPtrOutputWithContext(ctx context.Context) ServerlessClusterClientAuthenticationSaslIamPtrOutput {
 	return o
+}
+
+func (o ServerlessClusterClientAuthenticationSaslIamPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessClusterClientAuthenticationSaslIam] {
+	return pulumix.Output[*ServerlessClusterClientAuthenticationSaslIam]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerlessClusterClientAuthenticationSaslIamPtrOutput) Elem() ServerlessClusterClientAuthenticationSaslIamOutput {
@@ -3750,6 +4330,12 @@ func (i ServerlessClusterVpcConfigArgs) ToServerlessClusterVpcConfigOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterVpcConfigOutput)
 }
 
+func (i ServerlessClusterVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessClusterVpcConfig] {
+	return pulumix.Output[ServerlessClusterVpcConfig]{
+		OutputState: i.ToServerlessClusterVpcConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServerlessClusterVpcConfigArrayInput is an input type that accepts ServerlessClusterVpcConfigArray and ServerlessClusterVpcConfigArrayOutput values.
 // You can construct a concrete instance of `ServerlessClusterVpcConfigArrayInput` via:
 //
@@ -3775,6 +4361,12 @@ func (i ServerlessClusterVpcConfigArray) ToServerlessClusterVpcConfigArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessClusterVpcConfigArrayOutput)
 }
 
+func (i ServerlessClusterVpcConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerlessClusterVpcConfig] {
+	return pulumix.Output[[]ServerlessClusterVpcConfig]{
+		OutputState: i.ToServerlessClusterVpcConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServerlessClusterVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (ServerlessClusterVpcConfigOutput) ElementType() reflect.Type {
@@ -3787,6 +4379,12 @@ func (o ServerlessClusterVpcConfigOutput) ToServerlessClusterVpcConfigOutput() S
 
 func (o ServerlessClusterVpcConfigOutput) ToServerlessClusterVpcConfigOutputWithContext(ctx context.Context) ServerlessClusterVpcConfigOutput {
 	return o
+}
+
+func (o ServerlessClusterVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessClusterVpcConfig] {
+	return pulumix.Output[ServerlessClusterVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
@@ -3811,6 +4409,12 @@ func (o ServerlessClusterVpcConfigArrayOutput) ToServerlessClusterVpcConfigArray
 
 func (o ServerlessClusterVpcConfigArrayOutput) ToServerlessClusterVpcConfigArrayOutputWithContext(ctx context.Context) ServerlessClusterVpcConfigArrayOutput {
 	return o
+}
+
+func (o ServerlessClusterVpcConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerlessClusterVpcConfig] {
+	return pulumix.Output[[]ServerlessClusterVpcConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServerlessClusterVpcConfigArrayOutput) Index(i pulumi.IntInput) ServerlessClusterVpcConfigOutput {
@@ -3872,6 +4476,12 @@ func (i GetBrokerNodesNodeInfoListArgs) ToGetBrokerNodesNodeInfoListOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerNodesNodeInfoListOutput)
 }
 
+func (i GetBrokerNodesNodeInfoListArgs) ToOutput(ctx context.Context) pulumix.Output[GetBrokerNodesNodeInfoList] {
+	return pulumix.Output[GetBrokerNodesNodeInfoList]{
+		OutputState: i.ToGetBrokerNodesNodeInfoListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetBrokerNodesNodeInfoListArrayInput is an input type that accepts GetBrokerNodesNodeInfoListArray and GetBrokerNodesNodeInfoListArrayOutput values.
 // You can construct a concrete instance of `GetBrokerNodesNodeInfoListArrayInput` via:
 //
@@ -3897,6 +4507,12 @@ func (i GetBrokerNodesNodeInfoListArray) ToGetBrokerNodesNodeInfoListArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerNodesNodeInfoListArrayOutput)
 }
 
+func (i GetBrokerNodesNodeInfoListArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBrokerNodesNodeInfoList] {
+	return pulumix.Output[[]GetBrokerNodesNodeInfoList]{
+		OutputState: i.ToGetBrokerNodesNodeInfoListArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetBrokerNodesNodeInfoListOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerNodesNodeInfoListOutput) ElementType() reflect.Type {
@@ -3909,6 +4525,12 @@ func (o GetBrokerNodesNodeInfoListOutput) ToGetBrokerNodesNodeInfoListOutput() G
 
 func (o GetBrokerNodesNodeInfoListOutput) ToGetBrokerNodesNodeInfoListOutputWithContext(ctx context.Context) GetBrokerNodesNodeInfoListOutput {
 	return o
+}
+
+func (o GetBrokerNodesNodeInfoListOutput) ToOutput(ctx context.Context) pulumix.Output[GetBrokerNodesNodeInfoList] {
+	return pulumix.Output[GetBrokerNodesNodeInfoList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Attached elastic network interface of the broker
@@ -3953,6 +4575,12 @@ func (o GetBrokerNodesNodeInfoListArrayOutput) ToGetBrokerNodesNodeInfoListArray
 
 func (o GetBrokerNodesNodeInfoListArrayOutput) ToGetBrokerNodesNodeInfoListArrayOutputWithContext(ctx context.Context) GetBrokerNodesNodeInfoListArrayOutput {
 	return o
+}
+
+func (o GetBrokerNodesNodeInfoListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBrokerNodesNodeInfoList] {
+	return pulumix.Output[[]GetBrokerNodesNodeInfoList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetBrokerNodesNodeInfoListArrayOutput) Index(i pulumi.IntInput) GetBrokerNodesNodeInfoListOutput {

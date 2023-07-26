@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetLocalDisk(ctx *pulumi.Context, args *GetLocalDiskArgs, opts ...pulumi.InvokeOption) (*GetLocalDiskResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalDiskResult
 	err := ctx.Invoke("aws:storagegateway/getLocalDisk:getLocalDisk", args, &rv, opts...)
 	if err != nil {
@@ -108,6 +111,12 @@ func (o GetLocalDiskResultOutput) ToGetLocalDiskResultOutput() GetLocalDiskResul
 
 func (o GetLocalDiskResultOutput) ToGetLocalDiskResultOutputWithContext(ctx context.Context) GetLocalDiskResultOutput {
 	return o
+}
+
+func (o GetLocalDiskResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalDiskResult] {
+	return pulumix.Output[GetLocalDiskResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`

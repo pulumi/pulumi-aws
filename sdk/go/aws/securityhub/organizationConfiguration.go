@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the Security Hub Organization Configuration.
@@ -89,6 +91,7 @@ func NewOrganizationConfiguration(ctx *pulumi.Context,
 	if args.AutoEnable == nil {
 		return nil, errors.New("invalid value for required argument 'AutoEnable'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OrganizationConfiguration
 	err := ctx.RegisterResource("aws:securityhub/organizationConfiguration:OrganizationConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -166,6 +169,12 @@ func (i *OrganizationConfiguration) ToOrganizationConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationOutput)
 }
 
+func (i *OrganizationConfiguration) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfiguration] {
+	return pulumix.Output[*OrganizationConfiguration]{
+		OutputState: i.ToOrganizationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OrganizationConfigurationArrayInput is an input type that accepts OrganizationConfigurationArray and OrganizationConfigurationArrayOutput values.
 // You can construct a concrete instance of `OrganizationConfigurationArrayInput` via:
 //
@@ -189,6 +198,12 @@ func (i OrganizationConfigurationArray) ToOrganizationConfigurationArrayOutput()
 
 func (i OrganizationConfigurationArray) ToOrganizationConfigurationArrayOutputWithContext(ctx context.Context) OrganizationConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationArrayOutput)
+}
+
+func (i OrganizationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationConfiguration] {
+	return pulumix.Output[[]*OrganizationConfiguration]{
+		OutputState: i.ToOrganizationConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OrganizationConfigurationMapInput is an input type that accepts OrganizationConfigurationMap and OrganizationConfigurationMapOutput values.
@@ -216,6 +231,12 @@ func (i OrganizationConfigurationMap) ToOrganizationConfigurationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationMapOutput)
 }
 
+func (i OrganizationConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationConfiguration] {
+	return pulumix.Output[map[string]*OrganizationConfiguration]{
+		OutputState: i.ToOrganizationConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OrganizationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationOutput) ElementType() reflect.Type {
@@ -228,6 +249,12 @@ func (o OrganizationConfigurationOutput) ToOrganizationConfigurationOutput() Org
 
 func (o OrganizationConfigurationOutput) ToOrganizationConfigurationOutputWithContext(ctx context.Context) OrganizationConfigurationOutput {
 	return o
+}
+
+func (o OrganizationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationConfiguration] {
+	return pulumix.Output[*OrganizationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether to automatically enable Security Hub for new accounts in the organization.
@@ -254,6 +281,12 @@ func (o OrganizationConfigurationArrayOutput) ToOrganizationConfigurationArrayOu
 	return o
 }
 
+func (o OrganizationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrganizationConfiguration] {
+	return pulumix.Output[[]*OrganizationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OrganizationConfigurationArrayOutput) Index(i pulumi.IntInput) OrganizationConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationConfiguration {
 		return vs[0].([]*OrganizationConfiguration)[vs[1].(int)]
@@ -272,6 +305,12 @@ func (o OrganizationConfigurationMapOutput) ToOrganizationConfigurationMapOutput
 
 func (o OrganizationConfigurationMapOutput) ToOrganizationConfigurationMapOutputWithContext(ctx context.Context) OrganizationConfigurationMapOutput {
 	return o
+}
+
+func (o OrganizationConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrganizationConfiguration] {
+	return pulumix.Output[map[string]*OrganizationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OrganizationConfigurationMapOutput) MapIndex(k pulumi.StringInput) OrganizationConfigurationOutput {

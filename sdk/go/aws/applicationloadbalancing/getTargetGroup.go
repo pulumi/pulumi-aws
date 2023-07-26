@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
@@ -57,6 +59,7 @@ import (
 //
 // Deprecated: aws.applicationloadbalancing.getTargetGroup has been deprecated in favor of aws.alb.getTargetGroup
 func LookupTargetGroup(ctx *pulumi.Context, args *LookupTargetGroupArgs, opts ...pulumi.InvokeOption) (*LookupTargetGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTargetGroupResult
 	err := ctx.Invoke("aws:applicationloadbalancing/getTargetGroup:getTargetGroup", args, &rv, opts...)
 	if err != nil {
@@ -144,6 +147,12 @@ func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutput() LookupT
 
 func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutputWithContext(ctx context.Context) LookupTargetGroupResultOutput {
 	return o
+}
+
+func (o LookupTargetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTargetGroupResult] {
+	return pulumix.Output[LookupTargetGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTargetGroupResultOutput) Arn() pulumi.StringOutput {

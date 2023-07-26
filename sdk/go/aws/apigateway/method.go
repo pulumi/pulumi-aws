@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a HTTP Method for an API Gateway Resource.
@@ -176,6 +178,7 @@ func NewMethod(ctx *pulumi.Context,
 	if args.RestApi == nil {
 		return nil, errors.New("invalid value for required argument 'RestApi'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Method
 	err := ctx.RegisterResource("aws:apigateway/method:Method", name, args, &resource, opts...)
 	if err != nil {
@@ -337,6 +340,12 @@ func (i *Method) ToMethodOutputWithContext(ctx context.Context) MethodOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MethodOutput)
 }
 
+func (i *Method) ToOutput(ctx context.Context) pulumix.Output[*Method] {
+	return pulumix.Output[*Method]{
+		OutputState: i.ToMethodOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MethodArrayInput is an input type that accepts MethodArray and MethodArrayOutput values.
 // You can construct a concrete instance of `MethodArrayInput` via:
 //
@@ -360,6 +369,12 @@ func (i MethodArray) ToMethodArrayOutput() MethodArrayOutput {
 
 func (i MethodArray) ToMethodArrayOutputWithContext(ctx context.Context) MethodArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MethodArrayOutput)
+}
+
+func (i MethodArray) ToOutput(ctx context.Context) pulumix.Output[[]*Method] {
+	return pulumix.Output[[]*Method]{
+		OutputState: i.ToMethodArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MethodMapInput is an input type that accepts MethodMap and MethodMapOutput values.
@@ -387,6 +402,12 @@ func (i MethodMap) ToMethodMapOutputWithContext(ctx context.Context) MethodMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(MethodMapOutput)
 }
 
+func (i MethodMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Method] {
+	return pulumix.Output[map[string]*Method]{
+		OutputState: i.ToMethodMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MethodOutput struct{ *pulumi.OutputState }
 
 func (MethodOutput) ElementType() reflect.Type {
@@ -399,6 +420,12 @@ func (o MethodOutput) ToMethodOutput() MethodOutput {
 
 func (o MethodOutput) ToMethodOutputWithContext(ctx context.Context) MethodOutput {
 	return o
+}
+
+func (o MethodOutput) ToOutput(ctx context.Context) pulumix.Output[*Method] {
+	return pulumix.Output[*Method]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specify if the method requires an API key
@@ -473,6 +500,12 @@ func (o MethodArrayOutput) ToMethodArrayOutputWithContext(ctx context.Context) M
 	return o
 }
 
+func (o MethodArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Method] {
+	return pulumix.Output[[]*Method]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MethodArrayOutput) Index(i pulumi.IntInput) MethodOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Method {
 		return vs[0].([]*Method)[vs[1].(int)]
@@ -491,6 +524,12 @@ func (o MethodMapOutput) ToMethodMapOutput() MethodMapOutput {
 
 func (o MethodMapOutput) ToMethodMapOutputWithContext(ctx context.Context) MethodMapOutput {
 	return o
+}
+
+func (o MethodMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Method] {
+	return pulumix.Output[map[string]*Method]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MethodMapOutput) MapIndex(k pulumi.StringInput) MethodOutput {

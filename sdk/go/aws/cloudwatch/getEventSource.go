@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func GetEventSource(ctx *pulumi.Context, args *GetEventSourceArgs, opts ...pulumi.InvokeOption) (*GetEventSourceResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventSourceResult
 	err := ctx.Invoke("aws:cloudwatch/getEventSource:getEventSource", args, &rv, opts...)
 	if err != nil {
@@ -105,6 +108,12 @@ func (o GetEventSourceResultOutput) ToGetEventSourceResultOutput() GetEventSourc
 
 func (o GetEventSourceResultOutput) ToGetEventSourceResultOutputWithContext(ctx context.Context) GetEventSourceResultOutput {
 	return o
+}
+
+func (o GetEventSourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetEventSourceResult] {
+	return pulumix.Output[GetEventSourceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the partner event source

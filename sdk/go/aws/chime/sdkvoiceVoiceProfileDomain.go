@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Chime SDK Voice Profile Domain.
@@ -88,6 +90,7 @@ func NewSdkvoiceVoiceProfileDomain(ctx *pulumi.Context,
 	if args.ServerSideEncryptionConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'ServerSideEncryptionConfiguration'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SdkvoiceVoiceProfileDomain
 	err := ctx.RegisterResource("aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain", name, args, &resource, opts...)
 	if err != nil {
@@ -183,6 +186,12 @@ func (i *SdkvoiceVoiceProfileDomain) ToSdkvoiceVoiceProfileDomainOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceVoiceProfileDomainOutput)
 }
 
+func (i *SdkvoiceVoiceProfileDomain) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceVoiceProfileDomain] {
+	return pulumix.Output[*SdkvoiceVoiceProfileDomain]{
+		OutputState: i.ToSdkvoiceVoiceProfileDomainOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SdkvoiceVoiceProfileDomainArrayInput is an input type that accepts SdkvoiceVoiceProfileDomainArray and SdkvoiceVoiceProfileDomainArrayOutput values.
 // You can construct a concrete instance of `SdkvoiceVoiceProfileDomainArrayInput` via:
 //
@@ -206,6 +215,12 @@ func (i SdkvoiceVoiceProfileDomainArray) ToSdkvoiceVoiceProfileDomainArrayOutput
 
 func (i SdkvoiceVoiceProfileDomainArray) ToSdkvoiceVoiceProfileDomainArrayOutputWithContext(ctx context.Context) SdkvoiceVoiceProfileDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceVoiceProfileDomainArrayOutput)
+}
+
+func (i SdkvoiceVoiceProfileDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*SdkvoiceVoiceProfileDomain] {
+	return pulumix.Output[[]*SdkvoiceVoiceProfileDomain]{
+		OutputState: i.ToSdkvoiceVoiceProfileDomainArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SdkvoiceVoiceProfileDomainMapInput is an input type that accepts SdkvoiceVoiceProfileDomainMap and SdkvoiceVoiceProfileDomainMapOutput values.
@@ -233,6 +248,12 @@ func (i SdkvoiceVoiceProfileDomainMap) ToSdkvoiceVoiceProfileDomainMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SdkvoiceVoiceProfileDomainMapOutput)
 }
 
+func (i SdkvoiceVoiceProfileDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SdkvoiceVoiceProfileDomain] {
+	return pulumix.Output[map[string]*SdkvoiceVoiceProfileDomain]{
+		OutputState: i.ToSdkvoiceVoiceProfileDomainMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SdkvoiceVoiceProfileDomainOutput struct{ *pulumi.OutputState }
 
 func (SdkvoiceVoiceProfileDomainOutput) ElementType() reflect.Type {
@@ -245,6 +266,12 @@ func (o SdkvoiceVoiceProfileDomainOutput) ToSdkvoiceVoiceProfileDomainOutput() S
 
 func (o SdkvoiceVoiceProfileDomainOutput) ToSdkvoiceVoiceProfileDomainOutputWithContext(ctx context.Context) SdkvoiceVoiceProfileDomainOutput {
 	return o
+}
+
+func (o SdkvoiceVoiceProfileDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*SdkvoiceVoiceProfileDomain] {
+	return pulumix.Output[*SdkvoiceVoiceProfileDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Voice Profile Domain.
@@ -291,6 +318,12 @@ func (o SdkvoiceVoiceProfileDomainArrayOutput) ToSdkvoiceVoiceProfileDomainArray
 	return o
 }
 
+func (o SdkvoiceVoiceProfileDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SdkvoiceVoiceProfileDomain] {
+	return pulumix.Output[[]*SdkvoiceVoiceProfileDomain]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SdkvoiceVoiceProfileDomainArrayOutput) Index(i pulumi.IntInput) SdkvoiceVoiceProfileDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SdkvoiceVoiceProfileDomain {
 		return vs[0].([]*SdkvoiceVoiceProfileDomain)[vs[1].(int)]
@@ -309,6 +342,12 @@ func (o SdkvoiceVoiceProfileDomainMapOutput) ToSdkvoiceVoiceProfileDomainMapOutp
 
 func (o SdkvoiceVoiceProfileDomainMapOutput) ToSdkvoiceVoiceProfileDomainMapOutputWithContext(ctx context.Context) SdkvoiceVoiceProfileDomainMapOutput {
 	return o
+}
+
+func (o SdkvoiceVoiceProfileDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SdkvoiceVoiceProfileDomain] {
+	return pulumix.Output[map[string]*SdkvoiceVoiceProfileDomain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SdkvoiceVoiceProfileDomainMapOutput) MapIndex(k pulumi.StringInput) SdkvoiceVoiceProfileDomainOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Synthetics Group Association resource.
@@ -75,6 +77,7 @@ func NewGroupAssociation(ctx *pulumi.Context,
 	if args.GroupName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GroupAssociation
 	err := ctx.RegisterResource("aws:synthetics/groupAssociation:GroupAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -158,6 +161,12 @@ func (i *GroupAssociation) ToGroupAssociationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(GroupAssociationOutput)
 }
 
+func (i *GroupAssociation) ToOutput(ctx context.Context) pulumix.Output[*GroupAssociation] {
+	return pulumix.Output[*GroupAssociation]{
+		OutputState: i.ToGroupAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupAssociationArrayInput is an input type that accepts GroupAssociationArray and GroupAssociationArrayOutput values.
 // You can construct a concrete instance of `GroupAssociationArrayInput` via:
 //
@@ -181,6 +190,12 @@ func (i GroupAssociationArray) ToGroupAssociationArrayOutput() GroupAssociationA
 
 func (i GroupAssociationArray) ToGroupAssociationArrayOutputWithContext(ctx context.Context) GroupAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupAssociationArrayOutput)
+}
+
+func (i GroupAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*GroupAssociation] {
+	return pulumix.Output[[]*GroupAssociation]{
+		OutputState: i.ToGroupAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GroupAssociationMapInput is an input type that accepts GroupAssociationMap and GroupAssociationMapOutput values.
@@ -208,6 +223,12 @@ func (i GroupAssociationMap) ToGroupAssociationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GroupAssociationMapOutput)
 }
 
+func (i GroupAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupAssociation] {
+	return pulumix.Output[map[string]*GroupAssociation]{
+		OutputState: i.ToGroupAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (GroupAssociationOutput) ElementType() reflect.Type {
@@ -220,6 +241,12 @@ func (o GroupAssociationOutput) ToGroupAssociationOutput() GroupAssociationOutpu
 
 func (o GroupAssociationOutput) ToGroupAssociationOutputWithContext(ctx context.Context) GroupAssociationOutput {
 	return o
+}
+
+func (o GroupAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupAssociation] {
+	return pulumix.Output[*GroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the canary.
@@ -255,6 +282,12 @@ func (o GroupAssociationArrayOutput) ToGroupAssociationArrayOutputWithContext(ct
 	return o
 }
 
+func (o GroupAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GroupAssociation] {
+	return pulumix.Output[[]*GroupAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GroupAssociationArrayOutput) Index(i pulumi.IntInput) GroupAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupAssociation {
 		return vs[0].([]*GroupAssociation)[vs[1].(int)]
@@ -273,6 +306,12 @@ func (o GroupAssociationMapOutput) ToGroupAssociationMapOutput() GroupAssociatio
 
 func (o GroupAssociationMapOutput) ToGroupAssociationMapOutputWithContext(ctx context.Context) GroupAssociationMapOutput {
 	return o
+}
+
+func (o GroupAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupAssociation] {
+	return pulumix.Output[map[string]*GroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupAssociationMapOutput) MapIndex(k pulumi.StringInput) GroupAssociationOutput {

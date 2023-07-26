@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
@@ -46,6 +48,7 @@ import (
 //
 // ```
 func GetComponents(ctx *pulumi.Context, args *GetComponentsArgs, opts ...pulumi.InvokeOption) (*GetComponentsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetComponentsResult
 	err := ctx.Invoke("aws:imagebuilder/getComponents:getComponents", args, &rv, opts...)
 	if err != nil {
@@ -112,6 +115,12 @@ func (o GetComponentsResultOutput) ToGetComponentsResultOutput() GetComponentsRe
 
 func (o GetComponentsResultOutput) ToGetComponentsResultOutputWithContext(ctx context.Context) GetComponentsResultOutput {
 	return o
+}
+
+func (o GetComponentsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetComponentsResult] {
+	return pulumix.Output[GetComponentsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of ARNs of the matched Image Builder Components.

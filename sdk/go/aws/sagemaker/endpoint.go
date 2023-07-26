@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Endpoint resource.
@@ -80,6 +82,7 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args.EndpointConfigName == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointConfigName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Endpoint
 	err := ctx.RegisterResource("aws:sagemaker/endpoint:Endpoint", name, args, &resource, opts...)
 	if err != nil {
@@ -181,6 +184,12 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
+func (i *Endpoint) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
+	return pulumix.Output[*Endpoint]{
+		OutputState: i.ToEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EndpointArrayInput is an input type that accepts EndpointArray and EndpointArrayOutput values.
 // You can construct a concrete instance of `EndpointArrayInput` via:
 //
@@ -204,6 +213,12 @@ func (i EndpointArray) ToEndpointArrayOutput() EndpointArrayOutput {
 
 func (i EndpointArray) ToEndpointArrayOutputWithContext(ctx context.Context) EndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointArrayOutput)
+}
+
+func (i EndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*Endpoint] {
+	return pulumix.Output[[]*Endpoint]{
+		OutputState: i.ToEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EndpointMapInput is an input type that accepts EndpointMap and EndpointMapOutput values.
@@ -231,6 +246,12 @@ func (i EndpointMap) ToEndpointMapOutputWithContext(ctx context.Context) Endpoin
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMapOutput)
 }
 
+func (i EndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Endpoint] {
+	return pulumix.Output[map[string]*Endpoint]{
+		OutputState: i.ToEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointOutput struct{ *pulumi.OutputState }
 
 func (EndpointOutput) ElementType() reflect.Type {
@@ -243,6 +264,12 @@ func (o EndpointOutput) ToEndpointOutput() EndpointOutput {
 
 func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) EndpointOutput {
 	return o
+}
+
+func (o EndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
+	return pulumix.Output[*Endpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
@@ -289,6 +316,12 @@ func (o EndpointArrayOutput) ToEndpointArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o EndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Endpoint] {
+	return pulumix.Output[[]*Endpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointArrayOutput) Index(i pulumi.IntInput) EndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Endpoint {
 		return vs[0].([]*Endpoint)[vs[1].(int)]
@@ -307,6 +340,12 @@ func (o EndpointMapOutput) ToEndpointMapOutput() EndpointMapOutput {
 
 func (o EndpointMapOutput) ToEndpointMapOutputWithContext(ctx context.Context) EndpointMapOutput {
 	return o
+}
+
+func (o EndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Endpoint] {
+	return pulumix.Output[map[string]*Endpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointMapOutput) MapIndex(k pulumi.StringInput) EndpointOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Contact Flow resource. For more information see
@@ -131,6 +133,7 @@ func NewContactFlow(ctx *pulumi.Context,
 	if args.InstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContactFlow
 	err := ctx.RegisterResource("aws:connect/contactFlow:ContactFlow", name, args, &resource, opts...)
 	if err != nil {
@@ -268,6 +271,12 @@ func (i *ContactFlow) ToContactFlowOutputWithContext(ctx context.Context) Contac
 	return pulumi.ToOutputWithContext(ctx, i).(ContactFlowOutput)
 }
 
+func (i *ContactFlow) ToOutput(ctx context.Context) pulumix.Output[*ContactFlow] {
+	return pulumix.Output[*ContactFlow]{
+		OutputState: i.ToContactFlowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContactFlowArrayInput is an input type that accepts ContactFlowArray and ContactFlowArrayOutput values.
 // You can construct a concrete instance of `ContactFlowArrayInput` via:
 //
@@ -291,6 +300,12 @@ func (i ContactFlowArray) ToContactFlowArrayOutput() ContactFlowArrayOutput {
 
 func (i ContactFlowArray) ToContactFlowArrayOutputWithContext(ctx context.Context) ContactFlowArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContactFlowArrayOutput)
+}
+
+func (i ContactFlowArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContactFlow] {
+	return pulumix.Output[[]*ContactFlow]{
+		OutputState: i.ToContactFlowArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ContactFlowMapInput is an input type that accepts ContactFlowMap and ContactFlowMapOutput values.
@@ -318,6 +333,12 @@ func (i ContactFlowMap) ToContactFlowMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ContactFlowMapOutput)
 }
 
+func (i ContactFlowMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContactFlow] {
+	return pulumix.Output[map[string]*ContactFlow]{
+		OutputState: i.ToContactFlowMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContactFlowOutput struct{ *pulumi.OutputState }
 
 func (ContactFlowOutput) ElementType() reflect.Type {
@@ -330,6 +351,12 @@ func (o ContactFlowOutput) ToContactFlowOutput() ContactFlowOutput {
 
 func (o ContactFlowOutput) ToContactFlowOutputWithContext(ctx context.Context) ContactFlowOutput {
 	return o
+}
+
+func (o ContactFlowOutput) ToOutput(ctx context.Context) pulumix.Output[*ContactFlow] {
+	return pulumix.Output[*ContactFlow]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Contact Flow.
@@ -401,6 +428,12 @@ func (o ContactFlowArrayOutput) ToContactFlowArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ContactFlowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContactFlow] {
+	return pulumix.Output[[]*ContactFlow]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContactFlowArrayOutput) Index(i pulumi.IntInput) ContactFlowOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContactFlow {
 		return vs[0].([]*ContactFlow)[vs[1].(int)]
@@ -419,6 +452,12 @@ func (o ContactFlowMapOutput) ToContactFlowMapOutput() ContactFlowMapOutput {
 
 func (o ContactFlowMapOutput) ToContactFlowMapOutputWithContext(ctx context.Context) ContactFlowMapOutput {
 	return o
+}
+
+func (o ContactFlowMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContactFlow] {
+	return pulumix.Output[map[string]*ContactFlow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContactFlowMapOutput) MapIndex(k pulumi.StringInput) ContactFlowOutput {

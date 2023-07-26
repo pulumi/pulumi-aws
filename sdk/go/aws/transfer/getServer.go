@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the ARN of an AWS Transfer Server for use in other
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerResult
 	err := ctx.Invoke("aws:transfer/getServer:getServer", args, &rv, opts...)
 	if err != nil {
@@ -118,6 +121,12 @@ func (o LookupServerResultOutput) ToLookupServerResultOutput() LookupServerResul
 
 func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx context.Context) LookupServerResultOutput {
 	return o
+}
+
+func (o LookupServerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerResult] {
+	return pulumix.Output[LookupServerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of Transfer Server.

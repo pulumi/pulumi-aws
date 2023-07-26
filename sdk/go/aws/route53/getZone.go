@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.Zone` provides details about a specific Route 53 Hosted Zone.
@@ -57,6 +59,7 @@ import (
 //
 // ```
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupZoneResult
 	err := ctx.Invoke("aws:route53/getZone:getZone", args, &rv, opts...)
 	if err != nil {
@@ -154,6 +157,12 @@ func (o LookupZoneResultOutput) ToLookupZoneResultOutput() LookupZoneResultOutpu
 
 func (o LookupZoneResultOutput) ToLookupZoneResultOutputWithContext(ctx context.Context) LookupZoneResultOutput {
 	return o
+}
+
+func (o LookupZoneResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupZoneResult] {
+	return pulumix.Output[LookupZoneResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Hosted Zone.

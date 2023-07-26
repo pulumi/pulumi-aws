@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
@@ -310,6 +312,7 @@ func NewCrawler(ctx *pulumi.Context,
 	if args.Role == nil {
 		return nil, errors.New("invalid value for required argument 'Role'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Crawler
 	err := ctx.RegisterResource("aws:glue/crawler:Crawler", name, args, &resource, opts...)
 	if err != nil {
@@ -531,6 +534,12 @@ func (i *Crawler) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerOutput)
 }
 
+func (i *Crawler) ToOutput(ctx context.Context) pulumix.Output[*Crawler] {
+	return pulumix.Output[*Crawler]{
+		OutputState: i.ToCrawlerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CrawlerArrayInput is an input type that accepts CrawlerArray and CrawlerArrayOutput values.
 // You can construct a concrete instance of `CrawlerArrayInput` via:
 //
@@ -554,6 +563,12 @@ func (i CrawlerArray) ToCrawlerArrayOutput() CrawlerArrayOutput {
 
 func (i CrawlerArray) ToCrawlerArrayOutputWithContext(ctx context.Context) CrawlerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerArrayOutput)
+}
+
+func (i CrawlerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Crawler] {
+	return pulumix.Output[[]*Crawler]{
+		OutputState: i.ToCrawlerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CrawlerMapInput is an input type that accepts CrawlerMap and CrawlerMapOutput values.
@@ -581,6 +596,12 @@ func (i CrawlerMap) ToCrawlerMapOutputWithContext(ctx context.Context) CrawlerMa
 	return pulumi.ToOutputWithContext(ctx, i).(CrawlerMapOutput)
 }
 
+func (i CrawlerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Crawler] {
+	return pulumix.Output[map[string]*Crawler]{
+		OutputState: i.ToCrawlerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CrawlerOutput struct{ *pulumi.OutputState }
 
 func (CrawlerOutput) ElementType() reflect.Type {
@@ -593,6 +614,12 @@ func (o CrawlerOutput) ToCrawlerOutput() CrawlerOutput {
 
 func (o CrawlerOutput) ToCrawlerOutputWithContext(ctx context.Context) CrawlerOutput {
 	return o
+}
+
+func (o CrawlerOutput) ToOutput(ctx context.Context) pulumix.Output[*Crawler] {
+	return pulumix.Output[*Crawler]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the crawler
@@ -717,6 +744,12 @@ func (o CrawlerArrayOutput) ToCrawlerArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o CrawlerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Crawler] {
+	return pulumix.Output[[]*Crawler]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CrawlerArrayOutput) Index(i pulumi.IntInput) CrawlerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Crawler {
 		return vs[0].([]*Crawler)[vs[1].(int)]
@@ -735,6 +768,12 @@ func (o CrawlerMapOutput) ToCrawlerMapOutput() CrawlerMapOutput {
 
 func (o CrawlerMapOutput) ToCrawlerMapOutputWithContext(ctx context.Context) CrawlerMapOutput {
 	return o
+}
+
+func (o CrawlerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Crawler] {
+	return pulumix.Output[map[string]*Crawler]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CrawlerMapOutput) MapIndex(k pulumi.StringInput) CrawlerOutput {

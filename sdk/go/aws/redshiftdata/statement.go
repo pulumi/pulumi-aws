@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Executes a Redshift Data Statement.
@@ -116,6 +118,7 @@ func NewStatement(ctx *pulumi.Context,
 	if args.Sql == nil {
 		return nil, errors.New("invalid value for required argument 'Sql'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Statement
 	err := ctx.RegisterResource("aws:redshiftdata/statement:Statement", name, args, &resource, opts...)
 	if err != nil {
@@ -253,6 +256,12 @@ func (i *Statement) ToStatementOutputWithContext(ctx context.Context) StatementO
 	return pulumi.ToOutputWithContext(ctx, i).(StatementOutput)
 }
 
+func (i *Statement) ToOutput(ctx context.Context) pulumix.Output[*Statement] {
+	return pulumix.Output[*Statement]{
+		OutputState: i.ToStatementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StatementArrayInput is an input type that accepts StatementArray and StatementArrayOutput values.
 // You can construct a concrete instance of `StatementArrayInput` via:
 //
@@ -276,6 +285,12 @@ func (i StatementArray) ToStatementArrayOutput() StatementArrayOutput {
 
 func (i StatementArray) ToStatementArrayOutputWithContext(ctx context.Context) StatementArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StatementArrayOutput)
+}
+
+func (i StatementArray) ToOutput(ctx context.Context) pulumix.Output[[]*Statement] {
+	return pulumix.Output[[]*Statement]{
+		OutputState: i.ToStatementArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StatementMapInput is an input type that accepts StatementMap and StatementMapOutput values.
@@ -303,6 +318,12 @@ func (i StatementMap) ToStatementMapOutputWithContext(ctx context.Context) State
 	return pulumi.ToOutputWithContext(ctx, i).(StatementMapOutput)
 }
 
+func (i StatementMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Statement] {
+	return pulumix.Output[map[string]*Statement]{
+		OutputState: i.ToStatementMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StatementOutput struct{ *pulumi.OutputState }
 
 func (StatementOutput) ElementType() reflect.Type {
@@ -315,6 +336,12 @@ func (o StatementOutput) ToStatementOutput() StatementOutput {
 
 func (o StatementOutput) ToStatementOutputWithContext(ctx context.Context) StatementOutput {
 	return o
+}
+
+func (o StatementOutput) ToOutput(ctx context.Context) pulumix.Output[*Statement] {
+	return pulumix.Output[*Statement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
@@ -377,6 +404,12 @@ func (o StatementArrayOutput) ToStatementArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o StatementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Statement] {
+	return pulumix.Output[[]*Statement]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StatementArrayOutput) Index(i pulumi.IntInput) StatementOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Statement {
 		return vs[0].([]*Statement)[vs[1].(int)]
@@ -395,6 +428,12 @@ func (o StatementMapOutput) ToStatementMapOutput() StatementMapOutput {
 
 func (o StatementMapOutput) ToStatementMapOutputWithContext(ctx context.Context) StatementMapOutput {
 	return o
+}
+
+func (o StatementMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Statement] {
+	return pulumix.Output[map[string]*Statement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StatementMapOutput) MapIndex(k pulumi.StringInput) StatementOutput {

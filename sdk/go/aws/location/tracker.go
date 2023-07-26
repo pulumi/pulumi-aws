@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Location Service Tracker.
@@ -83,6 +85,7 @@ func NewTracker(ctx *pulumi.Context,
 	if args.TrackerName == nil {
 		return nil, errors.New("invalid value for required argument 'TrackerName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Tracker
 	err := ctx.RegisterResource("aws:location/tracker:Tracker", name, args, &resource, opts...)
 	if err != nil {
@@ -208,6 +211,12 @@ func (i *Tracker) ToTrackerOutputWithContext(ctx context.Context) TrackerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TrackerOutput)
 }
 
+func (i *Tracker) ToOutput(ctx context.Context) pulumix.Output[*Tracker] {
+	return pulumix.Output[*Tracker]{
+		OutputState: i.ToTrackerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TrackerArrayInput is an input type that accepts TrackerArray and TrackerArrayOutput values.
 // You can construct a concrete instance of `TrackerArrayInput` via:
 //
@@ -231,6 +240,12 @@ func (i TrackerArray) ToTrackerArrayOutput() TrackerArrayOutput {
 
 func (i TrackerArray) ToTrackerArrayOutputWithContext(ctx context.Context) TrackerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrackerArrayOutput)
+}
+
+func (i TrackerArray) ToOutput(ctx context.Context) pulumix.Output[[]*Tracker] {
+	return pulumix.Output[[]*Tracker]{
+		OutputState: i.ToTrackerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TrackerMapInput is an input type that accepts TrackerMap and TrackerMapOutput values.
@@ -258,6 +273,12 @@ func (i TrackerMap) ToTrackerMapOutputWithContext(ctx context.Context) TrackerMa
 	return pulumi.ToOutputWithContext(ctx, i).(TrackerMapOutput)
 }
 
+func (i TrackerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Tracker] {
+	return pulumix.Output[map[string]*Tracker]{
+		OutputState: i.ToTrackerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrackerOutput struct{ *pulumi.OutputState }
 
 func (TrackerOutput) ElementType() reflect.Type {
@@ -270,6 +291,12 @@ func (o TrackerOutput) ToTrackerOutput() TrackerOutput {
 
 func (o TrackerOutput) ToTrackerOutputWithContext(ctx context.Context) TrackerOutput {
 	return o
+}
+
+func (o TrackerOutput) ToOutput(ctx context.Context) pulumix.Output[*Tracker] {
+	return pulumix.Output[*Tracker]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The timestamp for when the tracker resource was created in ISO 8601 format.
@@ -333,6 +360,12 @@ func (o TrackerArrayOutput) ToTrackerArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o TrackerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Tracker] {
+	return pulumix.Output[[]*Tracker]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrackerArrayOutput) Index(i pulumi.IntInput) TrackerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Tracker {
 		return vs[0].([]*Tracker)[vs[1].(int)]
@@ -351,6 +384,12 @@ func (o TrackerMapOutput) ToTrackerMapOutput() TrackerMapOutput {
 
 func (o TrackerMapOutput) ToTrackerMapOutputWithContext(ctx context.Context) TrackerMapOutput {
 	return o
+}
+
+func (o TrackerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Tracker] {
+	return pulumix.Output[map[string]*Tracker]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrackerMapOutput) MapIndex(k pulumi.StringInput) TrackerOutput {

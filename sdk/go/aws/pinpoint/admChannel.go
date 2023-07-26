@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
@@ -95,6 +97,7 @@ func NewAdmChannel(ctx *pulumi.Context,
 		"clientSecret",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AdmChannel
 	err := ctx.RegisterResource("aws:pinpoint/admChannel:AdmChannel", name, args, &resource, opts...)
 	if err != nil {
@@ -188,6 +191,12 @@ func (i *AdmChannel) ToAdmChannelOutputWithContext(ctx context.Context) AdmChann
 	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelOutput)
 }
 
+func (i *AdmChannel) ToOutput(ctx context.Context) pulumix.Output[*AdmChannel] {
+	return pulumix.Output[*AdmChannel]{
+		OutputState: i.ToAdmChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AdmChannelArrayInput is an input type that accepts AdmChannelArray and AdmChannelArrayOutput values.
 // You can construct a concrete instance of `AdmChannelArrayInput` via:
 //
@@ -211,6 +220,12 @@ func (i AdmChannelArray) ToAdmChannelArrayOutput() AdmChannelArrayOutput {
 
 func (i AdmChannelArray) ToAdmChannelArrayOutputWithContext(ctx context.Context) AdmChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelArrayOutput)
+}
+
+func (i AdmChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*AdmChannel] {
+	return pulumix.Output[[]*AdmChannel]{
+		OutputState: i.ToAdmChannelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AdmChannelMapInput is an input type that accepts AdmChannelMap and AdmChannelMapOutput values.
@@ -238,6 +253,12 @@ func (i AdmChannelMap) ToAdmChannelMapOutputWithContext(ctx context.Context) Adm
 	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelMapOutput)
 }
 
+func (i AdmChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdmChannel] {
+	return pulumix.Output[map[string]*AdmChannel]{
+		OutputState: i.ToAdmChannelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AdmChannelOutput struct{ *pulumi.OutputState }
 
 func (AdmChannelOutput) ElementType() reflect.Type {
@@ -250,6 +271,12 @@ func (o AdmChannelOutput) ToAdmChannelOutput() AdmChannelOutput {
 
 func (o AdmChannelOutput) ToAdmChannelOutputWithContext(ctx context.Context) AdmChannelOutput {
 	return o
+}
+
+func (o AdmChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*AdmChannel] {
+	return pulumix.Output[*AdmChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The application ID.
@@ -286,6 +313,12 @@ func (o AdmChannelArrayOutput) ToAdmChannelArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o AdmChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AdmChannel] {
+	return pulumix.Output[[]*AdmChannel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AdmChannelArrayOutput) Index(i pulumi.IntInput) AdmChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AdmChannel {
 		return vs[0].([]*AdmChannel)[vs[1].(int)]
@@ -304,6 +337,12 @@ func (o AdmChannelMapOutput) ToAdmChannelMapOutput() AdmChannelMapOutput {
 
 func (o AdmChannelMapOutput) ToAdmChannelMapOutputWithContext(ctx context.Context) AdmChannelMapOutput {
 	return o
+}
+
+func (o AdmChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdmChannel] {
+	return pulumix.Output[map[string]*AdmChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AdmChannelMapOutput) MapIndex(k pulumi.StringInput) AdmChannelOutput {

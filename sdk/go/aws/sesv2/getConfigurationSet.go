@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupConfigurationSet(ctx *pulumi.Context, args *LookupConfigurationSetArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationSetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigurationSetResult
 	err := ctx.Invoke("aws:sesv2/getConfigurationSet:getConfigurationSet", args, &rv, opts...)
 	if err != nil {
@@ -115,6 +118,12 @@ func (o LookupConfigurationSetResultOutput) ToLookupConfigurationSetResultOutput
 
 func (o LookupConfigurationSetResultOutput) ToLookupConfigurationSetResultOutputWithContext(ctx context.Context) LookupConfigurationSetResultOutput {
 	return o
+}
+
+func (o LookupConfigurationSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationSetResult] {
+	return pulumix.Output[LookupConfigurationSetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupConfigurationSetResultOutput) Arn() pulumi.StringOutput {

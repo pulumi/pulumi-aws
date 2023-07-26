@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Location Service Map.
@@ -87,6 +89,7 @@ func NewMap(ctx *pulumi.Context,
 	if args.MapName == nil {
 		return nil, errors.New("invalid value for required argument 'MapName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Map
 	err := ctx.RegisterResource("aws:location/map:Map", name, args, &resource, opts...)
 	if err != nil {
@@ -204,6 +207,12 @@ func (i *Map) ToMapOutputWithContext(ctx context.Context) MapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MapOutput)
 }
 
+func (i *Map) ToOutput(ctx context.Context) pulumix.Output[*Map] {
+	return pulumix.Output[*Map]{
+		OutputState: i.ToMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MapArrayInput is an input type that accepts MapArray and MapArrayOutput values.
 // You can construct a concrete instance of `MapArrayInput` via:
 //
@@ -227,6 +236,12 @@ func (i MapArray) ToMapArrayOutput() MapArrayOutput {
 
 func (i MapArray) ToMapArrayOutputWithContext(ctx context.Context) MapArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MapArrayOutput)
+}
+
+func (i MapArray) ToOutput(ctx context.Context) pulumix.Output[[]*Map] {
+	return pulumix.Output[[]*Map]{
+		OutputState: i.ToMapArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MapMapInput is an input type that accepts MapMap and MapMapOutput values.
@@ -254,6 +269,12 @@ func (i MapMap) ToMapMapOutputWithContext(ctx context.Context) MapMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MapMapOutput)
 }
 
+func (i MapMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Map] {
+	return pulumix.Output[map[string]*Map]{
+		OutputState: i.ToMapMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MapOutput struct{ *pulumi.OutputState }
 
 func (MapOutput) ElementType() reflect.Type {
@@ -266,6 +287,12 @@ func (o MapOutput) ToMapOutput() MapOutput {
 
 func (o MapOutput) ToMapOutputWithContext(ctx context.Context) MapOutput {
 	return o
+}
+
+func (o MapOutput) ToOutput(ctx context.Context) pulumix.Output[*Map] {
+	return pulumix.Output[*Map]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block with the map style selected from an available data provider. Detailed below.
@@ -324,6 +351,12 @@ func (o MapArrayOutput) ToMapArrayOutputWithContext(ctx context.Context) MapArra
 	return o
 }
 
+func (o MapArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Map] {
+	return pulumix.Output[[]*Map]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MapArrayOutput) Index(i pulumi.IntInput) MapOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Map {
 		return vs[0].([]*Map)[vs[1].(int)]
@@ -342,6 +375,12 @@ func (o MapMapOutput) ToMapMapOutput() MapMapOutput {
 
 func (o MapMapOutput) ToMapMapOutputWithContext(ctx context.Context) MapMapOutput {
 	return o
+}
+
+func (o MapMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Map] {
+	return pulumix.Output[map[string]*Map]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MapMapOutput) MapIndex(k pulumi.StringInput) MapOutput {

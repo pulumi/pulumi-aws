@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a subnet CIDR reservation resource.
@@ -81,6 +83,7 @@ func NewSubnetCidrReservation(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SubnetCidrReservation
 	err := ctx.RegisterResource("aws:ec2/subnetCidrReservation:SubnetCidrReservation", name, args, &resource, opts...)
 	if err != nil {
@@ -178,6 +181,12 @@ func (i *SubnetCidrReservation) ToSubnetCidrReservationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetCidrReservationOutput)
 }
 
+func (i *SubnetCidrReservation) ToOutput(ctx context.Context) pulumix.Output[*SubnetCidrReservation] {
+	return pulumix.Output[*SubnetCidrReservation]{
+		OutputState: i.ToSubnetCidrReservationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SubnetCidrReservationArrayInput is an input type that accepts SubnetCidrReservationArray and SubnetCidrReservationArrayOutput values.
 // You can construct a concrete instance of `SubnetCidrReservationArrayInput` via:
 //
@@ -201,6 +210,12 @@ func (i SubnetCidrReservationArray) ToSubnetCidrReservationArrayOutput() SubnetC
 
 func (i SubnetCidrReservationArray) ToSubnetCidrReservationArrayOutputWithContext(ctx context.Context) SubnetCidrReservationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetCidrReservationArrayOutput)
+}
+
+func (i SubnetCidrReservationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetCidrReservation] {
+	return pulumix.Output[[]*SubnetCidrReservation]{
+		OutputState: i.ToSubnetCidrReservationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SubnetCidrReservationMapInput is an input type that accepts SubnetCidrReservationMap and SubnetCidrReservationMapOutput values.
@@ -228,6 +243,12 @@ func (i SubnetCidrReservationMap) ToSubnetCidrReservationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetCidrReservationMapOutput)
 }
 
+func (i SubnetCidrReservationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetCidrReservation] {
+	return pulumix.Output[map[string]*SubnetCidrReservation]{
+		OutputState: i.ToSubnetCidrReservationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SubnetCidrReservationOutput struct{ *pulumi.OutputState }
 
 func (SubnetCidrReservationOutput) ElementType() reflect.Type {
@@ -240,6 +261,12 @@ func (o SubnetCidrReservationOutput) ToSubnetCidrReservationOutput() SubnetCidrR
 
 func (o SubnetCidrReservationOutput) ToSubnetCidrReservationOutputWithContext(ctx context.Context) SubnetCidrReservationOutput {
 	return o
+}
+
+func (o SubnetCidrReservationOutput) ToOutput(ctx context.Context) pulumix.Output[*SubnetCidrReservation] {
+	return pulumix.Output[*SubnetCidrReservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The CIDR block for the reservation.
@@ -281,6 +308,12 @@ func (o SubnetCidrReservationArrayOutput) ToSubnetCidrReservationArrayOutputWith
 	return o
 }
 
+func (o SubnetCidrReservationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetCidrReservation] {
+	return pulumix.Output[[]*SubnetCidrReservation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SubnetCidrReservationArrayOutput) Index(i pulumi.IntInput) SubnetCidrReservationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubnetCidrReservation {
 		return vs[0].([]*SubnetCidrReservation)[vs[1].(int)]
@@ -299,6 +332,12 @@ func (o SubnetCidrReservationMapOutput) ToSubnetCidrReservationMapOutput() Subne
 
 func (o SubnetCidrReservationMapOutput) ToSubnetCidrReservationMapOutputWithContext(ctx context.Context) SubnetCidrReservationMapOutput {
 	return o
+}
+
+func (o SubnetCidrReservationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetCidrReservation] {
+	return pulumix.Output[map[string]*SubnetCidrReservation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SubnetCidrReservationMapOutput) MapIndex(k pulumi.StringInput) SubnetCidrReservationOutput {

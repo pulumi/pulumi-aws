@@ -7,11 +7,14 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
 func GetManagedPrefixLists(ctx *pulumi.Context, args *GetManagedPrefixListsArgs, opts ...pulumi.InvokeOption) (*GetManagedPrefixListsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetManagedPrefixListsResult
 	err := ctx.Invoke("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", args, &rv, opts...)
 	if err != nil {
@@ -84,6 +87,12 @@ func (o GetManagedPrefixListsResultOutput) ToGetManagedPrefixListsResultOutput()
 
 func (o GetManagedPrefixListsResultOutput) ToGetManagedPrefixListsResultOutputWithContext(ctx context.Context) GetManagedPrefixListsResultOutput {
 	return o
+}
+
+func (o GetManagedPrefixListsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetManagedPrefixListsResult] {
+	return pulumix.Output[GetManagedPrefixListsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetManagedPrefixListsResultOutput) Filters() GetManagedPrefixListsFilterArrayOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a WAF Regex Pattern Set Resource
@@ -68,6 +70,7 @@ func NewRegexPatternSet(ctx *pulumi.Context,
 		args = &RegexPatternSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RegexPatternSet
 	err := ctx.RegisterResource("aws:waf/regexPatternSet:RegexPatternSet", name, args, &resource, opts...)
 	if err != nil {
@@ -149,6 +152,12 @@ func (i *RegexPatternSet) ToRegexPatternSetOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetOutput)
 }
 
+func (i *RegexPatternSet) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSet] {
+	return pulumix.Output[*RegexPatternSet]{
+		OutputState: i.ToRegexPatternSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegexPatternSetArrayInput is an input type that accepts RegexPatternSetArray and RegexPatternSetArrayOutput values.
 // You can construct a concrete instance of `RegexPatternSetArrayInput` via:
 //
@@ -172,6 +181,12 @@ func (i RegexPatternSetArray) ToRegexPatternSetArrayOutput() RegexPatternSetArra
 
 func (i RegexPatternSetArray) ToRegexPatternSetArrayOutputWithContext(ctx context.Context) RegexPatternSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetArrayOutput)
+}
+
+func (i RegexPatternSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegexPatternSet] {
+	return pulumix.Output[[]*RegexPatternSet]{
+		OutputState: i.ToRegexPatternSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RegexPatternSetMapInput is an input type that accepts RegexPatternSetMap and RegexPatternSetMapOutput values.
@@ -199,6 +214,12 @@ func (i RegexPatternSetMap) ToRegexPatternSetMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetMapOutput)
 }
 
+func (i RegexPatternSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegexPatternSet] {
+	return pulumix.Output[map[string]*RegexPatternSet]{
+		OutputState: i.ToRegexPatternSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegexPatternSetOutput struct{ *pulumi.OutputState }
 
 func (RegexPatternSetOutput) ElementType() reflect.Type {
@@ -211,6 +232,12 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutput() RegexPatternSetOutput {
 
 func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Context) RegexPatternSetOutput {
 	return o
+}
+
+func (o RegexPatternSetOutput) ToOutput(ctx context.Context) pulumix.Output[*RegexPatternSet] {
+	return pulumix.Output[*RegexPatternSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN)
@@ -242,6 +269,12 @@ func (o RegexPatternSetArrayOutput) ToRegexPatternSetArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o RegexPatternSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegexPatternSet] {
+	return pulumix.Output[[]*RegexPatternSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegexPatternSetArrayOutput) Index(i pulumi.IntInput) RegexPatternSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegexPatternSet {
 		return vs[0].([]*RegexPatternSet)[vs[1].(int)]
@@ -260,6 +293,12 @@ func (o RegexPatternSetMapOutput) ToRegexPatternSetMapOutput() RegexPatternSetMa
 
 func (o RegexPatternSetMapOutput) ToRegexPatternSetMapOutputWithContext(ctx context.Context) RegexPatternSetMapOutput {
 	return o
+}
+
+func (o RegexPatternSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegexPatternSet] {
+	return pulumix.Output[map[string]*RegexPatternSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegexPatternSetMapOutput) MapIndex(k pulumi.StringInput) RegexPatternSetOutput {

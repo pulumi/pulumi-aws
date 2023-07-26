@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Parses an ARN into its constituent parts.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetArn(ctx *pulumi.Context, args *GetArnArgs, opts ...pulumi.InvokeOption) (*GetArnResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetArnResult
 	err := ctx.Invoke("aws:index/getArn:getArn", args, &rv, opts...)
 	if err != nil {
@@ -107,6 +110,12 @@ func (o GetArnResultOutput) ToGetArnResultOutput() GetArnResultOutput {
 
 func (o GetArnResultOutput) ToGetArnResultOutputWithContext(ctx context.Context) GetArnResultOutput {
 	return o
+}
+
+func (o GetArnResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetArnResult] {
+	return pulumix.Output[GetArnResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.

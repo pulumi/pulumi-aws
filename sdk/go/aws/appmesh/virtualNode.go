@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS App Mesh virtual node resource.
@@ -277,6 +279,7 @@ func NewVirtualNode(ctx *pulumi.Context,
 	if args.Spec == nil {
 		return nil, errors.New("invalid value for required argument 'Spec'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VirtualNode
 	err := ctx.RegisterResource("aws:appmesh/virtualNode:VirtualNode", name, args, &resource, opts...)
 	if err != nil {
@@ -398,6 +401,12 @@ func (i *VirtualNode) ToVirtualNodeOutputWithContext(ctx context.Context) Virtua
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeOutput)
 }
 
+func (i *VirtualNode) ToOutput(ctx context.Context) pulumix.Output[*VirtualNode] {
+	return pulumix.Output[*VirtualNode]{
+		OutputState: i.ToVirtualNodeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualNodeArrayInput is an input type that accepts VirtualNodeArray and VirtualNodeArrayOutput values.
 // You can construct a concrete instance of `VirtualNodeArrayInput` via:
 //
@@ -421,6 +430,12 @@ func (i VirtualNodeArray) ToVirtualNodeArrayOutput() VirtualNodeArrayOutput {
 
 func (i VirtualNodeArray) ToVirtualNodeArrayOutputWithContext(ctx context.Context) VirtualNodeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeArrayOutput)
+}
+
+func (i VirtualNodeArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNode] {
+	return pulumix.Output[[]*VirtualNode]{
+		OutputState: i.ToVirtualNodeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualNodeMapInput is an input type that accepts VirtualNodeMap and VirtualNodeMapOutput values.
@@ -448,6 +463,12 @@ func (i VirtualNodeMap) ToVirtualNodeMapOutputWithContext(ctx context.Context) V
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeMapOutput)
 }
 
+func (i VirtualNodeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNode] {
+	return pulumix.Output[map[string]*VirtualNode]{
+		OutputState: i.ToVirtualNodeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualNodeOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeOutput) ElementType() reflect.Type {
@@ -460,6 +481,12 @@ func (o VirtualNodeOutput) ToVirtualNodeOutput() VirtualNodeOutput {
 
 func (o VirtualNodeOutput) ToVirtualNodeOutputWithContext(ctx context.Context) VirtualNodeOutput {
 	return o
+}
+
+func (o VirtualNodeOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNode] {
+	return pulumix.Output[*VirtualNode]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the virtual node.
@@ -526,6 +553,12 @@ func (o VirtualNodeArrayOutput) ToVirtualNodeArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o VirtualNodeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNode] {
+	return pulumix.Output[[]*VirtualNode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualNodeArrayOutput) Index(i pulumi.IntInput) VirtualNodeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNode {
 		return vs[0].([]*VirtualNode)[vs[1].(int)]
@@ -544,6 +577,12 @@ func (o VirtualNodeMapOutput) ToVirtualNodeMapOutput() VirtualNodeMapOutput {
 
 func (o VirtualNodeMapOutput) ToVirtualNodeMapOutputWithContext(ctx context.Context) VirtualNodeMapOutput {
 	return o
+}
+
+func (o VirtualNodeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNode] {
+	return pulumix.Output[map[string]*VirtualNode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualNodeMapOutput) MapIndex(k pulumi.StringInput) VirtualNodeOutput {

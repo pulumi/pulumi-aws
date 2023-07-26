@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
@@ -42,6 +44,7 @@ import (
 //
 // ```
 func GetOrganizationalUnits(ctx *pulumi.Context, args *GetOrganizationalUnitsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationalUnitsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationalUnitsResult
 	err := ctx.Invoke("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args, &rv, opts...)
 	if err != nil {
@@ -101,6 +104,12 @@ func (o GetOrganizationalUnitsResultOutput) ToGetOrganizationalUnitsResultOutput
 
 func (o GetOrganizationalUnitsResultOutput) ToGetOrganizationalUnitsResultOutputWithContext(ctx context.Context) GetOrganizationalUnitsResultOutput {
 	return o
+}
+
+func (o GetOrganizationalUnitsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationalUnitsResult] {
+	return pulumix.Output[GetOrganizationalUnitsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of child organizational units, which have the following attributes:

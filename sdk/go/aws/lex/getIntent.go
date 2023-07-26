@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Lex Intent.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupIntent(ctx *pulumi.Context, args *LookupIntentArgs, opts ...pulumi.InvokeOption) (*LookupIntentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIntentResult
 	err := ctx.Invoke("aws:lex/getIntent:getIntent", args, &rv, opts...)
 	if err != nil {
@@ -119,6 +122,12 @@ func (o LookupIntentResultOutput) ToLookupIntentResultOutput() LookupIntentResul
 
 func (o LookupIntentResultOutput) ToLookupIntentResultOutputWithContext(ctx context.Context) LookupIntentResultOutput {
 	return o
+}
+
+func (o LookupIntentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIntentResult] {
+	return pulumix.Output[LookupIntentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Lex intent.

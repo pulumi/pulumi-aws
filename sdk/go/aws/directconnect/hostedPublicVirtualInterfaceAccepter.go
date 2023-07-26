@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage the accepter's side of a Direct Connect hosted public virtual interface.
@@ -100,6 +102,7 @@ func NewHostedPublicVirtualInterfaceAccepter(ctx *pulumi.Context,
 	if args.VirtualInterfaceId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualInterfaceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HostedPublicVirtualInterfaceAccepter
 	err := ctx.RegisterResource("aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter", name, args, &resource, opts...)
 	if err != nil {
@@ -185,6 +188,12 @@ func (i *HostedPublicVirtualInterfaceAccepter) ToHostedPublicVirtualInterfaceAcc
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPublicVirtualInterfaceAccepterOutput)
 }
 
+func (i *HostedPublicVirtualInterfaceAccepter) ToOutput(ctx context.Context) pulumix.Output[*HostedPublicVirtualInterfaceAccepter] {
+	return pulumix.Output[*HostedPublicVirtualInterfaceAccepter]{
+		OutputState: i.ToHostedPublicVirtualInterfaceAccepterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HostedPublicVirtualInterfaceAccepterArrayInput is an input type that accepts HostedPublicVirtualInterfaceAccepterArray and HostedPublicVirtualInterfaceAccepterArrayOutput values.
 // You can construct a concrete instance of `HostedPublicVirtualInterfaceAccepterArrayInput` via:
 //
@@ -208,6 +217,12 @@ func (i HostedPublicVirtualInterfaceAccepterArray) ToHostedPublicVirtualInterfac
 
 func (i HostedPublicVirtualInterfaceAccepterArray) ToHostedPublicVirtualInterfaceAccepterArrayOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPublicVirtualInterfaceAccepterArrayOutput)
+}
+
+func (i HostedPublicVirtualInterfaceAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*HostedPublicVirtualInterfaceAccepter] {
+	return pulumix.Output[[]*HostedPublicVirtualInterfaceAccepter]{
+		OutputState: i.ToHostedPublicVirtualInterfaceAccepterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HostedPublicVirtualInterfaceAccepterMapInput is an input type that accepts HostedPublicVirtualInterfaceAccepterMap and HostedPublicVirtualInterfaceAccepterMapOutput values.
@@ -235,6 +250,12 @@ func (i HostedPublicVirtualInterfaceAccepterMap) ToHostedPublicVirtualInterfaceA
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPublicVirtualInterfaceAccepterMapOutput)
 }
 
+func (i HostedPublicVirtualInterfaceAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedPublicVirtualInterfaceAccepter] {
+	return pulumix.Output[map[string]*HostedPublicVirtualInterfaceAccepter]{
+		OutputState: i.ToHostedPublicVirtualInterfaceAccepterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HostedPublicVirtualInterfaceAccepterOutput struct{ *pulumi.OutputState }
 
 func (HostedPublicVirtualInterfaceAccepterOutput) ElementType() reflect.Type {
@@ -247,6 +268,12 @@ func (o HostedPublicVirtualInterfaceAccepterOutput) ToHostedPublicVirtualInterfa
 
 func (o HostedPublicVirtualInterfaceAccepterOutput) ToHostedPublicVirtualInterfaceAccepterOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceAccepterOutput {
 	return o
+}
+
+func (o HostedPublicVirtualInterfaceAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*HostedPublicVirtualInterfaceAccepter] {
+	return pulumix.Output[*HostedPublicVirtualInterfaceAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the virtual interface.
@@ -283,6 +310,12 @@ func (o HostedPublicVirtualInterfaceAccepterArrayOutput) ToHostedPublicVirtualIn
 	return o
 }
 
+func (o HostedPublicVirtualInterfaceAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HostedPublicVirtualInterfaceAccepter] {
+	return pulumix.Output[[]*HostedPublicVirtualInterfaceAccepter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HostedPublicVirtualInterfaceAccepterArrayOutput) Index(i pulumi.IntInput) HostedPublicVirtualInterfaceAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HostedPublicVirtualInterfaceAccepter {
 		return vs[0].([]*HostedPublicVirtualInterfaceAccepter)[vs[1].(int)]
@@ -301,6 +334,12 @@ func (o HostedPublicVirtualInterfaceAccepterMapOutput) ToHostedPublicVirtualInte
 
 func (o HostedPublicVirtualInterfaceAccepterMapOutput) ToHostedPublicVirtualInterfaceAccepterMapOutputWithContext(ctx context.Context) HostedPublicVirtualInterfaceAccepterMapOutput {
 	return o
+}
+
+func (o HostedPublicVirtualInterfaceAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedPublicVirtualInterfaceAccepter] {
+	return pulumix.Output[map[string]*HostedPublicVirtualInterfaceAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HostedPublicVirtualInterfaceAccepterMapOutput) MapIndex(k pulumi.StringInput) HostedPublicVirtualInterfaceAccepterOutput {

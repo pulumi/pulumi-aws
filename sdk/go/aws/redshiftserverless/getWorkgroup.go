@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS Redshift Serverless Workgroup.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupWorkgroup(ctx *pulumi.Context, args *LookupWorkgroupArgs, opts ...pulumi.InvokeOption) (*LookupWorkgroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkgroupResult
 	err := ctx.Invoke("aws:redshiftserverless/getWorkgroup:getWorkgroup", args, &rv, opts...)
 	if err != nil {
@@ -111,6 +114,12 @@ func (o LookupWorkgroupResultOutput) ToLookupWorkgroupResultOutput() LookupWorkg
 
 func (o LookupWorkgroupResultOutput) ToLookupWorkgroupResultOutputWithContext(ctx context.Context) LookupWorkgroupResultOutput {
 	return o
+}
+
+func (o LookupWorkgroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWorkgroupResult] {
+	return pulumix.Output[LookupWorkgroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.

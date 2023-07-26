@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about a Location Service Tracker Association.
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func LookupTrackerAssociation(ctx *pulumi.Context, args *LookupTrackerAssociationArgs, opts ...pulumi.InvokeOption) (*LookupTrackerAssociationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrackerAssociationResult
 	err := ctx.Invoke("aws:location/getTrackerAssociation:getTrackerAssociation", args, &rv, opts...)
 	if err != nil {
@@ -102,6 +105,12 @@ func (o LookupTrackerAssociationResultOutput) ToLookupTrackerAssociationResultOu
 
 func (o LookupTrackerAssociationResultOutput) ToLookupTrackerAssociationResultOutputWithContext(ctx context.Context) LookupTrackerAssociationResultOutput {
 	return o
+}
+
+func (o LookupTrackerAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTrackerAssociationResult] {
+	return pulumix.Output[LookupTrackerAssociationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupTrackerAssociationResultOutput) ConsumerArn() pulumi.StringOutput {

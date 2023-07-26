@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a deployment version for your Amazon Lightsail container service.
@@ -108,6 +110,7 @@ func NewContainerServiceDeploymentVersion(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContainerServiceDeploymentVersion
 	err := ctx.RegisterResource("aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion", name, args, &resource, opts...)
 	if err != nil {
@@ -205,6 +208,12 @@ func (i *ContainerServiceDeploymentVersion) ToContainerServiceDeploymentVersionO
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionOutput)
 }
 
+func (i *ContainerServiceDeploymentVersion) ToOutput(ctx context.Context) pulumix.Output[*ContainerServiceDeploymentVersion] {
+	return pulumix.Output[*ContainerServiceDeploymentVersion]{
+		OutputState: i.ToContainerServiceDeploymentVersionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContainerServiceDeploymentVersionArrayInput is an input type that accepts ContainerServiceDeploymentVersionArray and ContainerServiceDeploymentVersionArrayOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentVersionArrayInput` via:
 //
@@ -228,6 +237,12 @@ func (i ContainerServiceDeploymentVersionArray) ToContainerServiceDeploymentVers
 
 func (i ContainerServiceDeploymentVersionArray) ToContainerServiceDeploymentVersionArrayOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionArrayOutput)
+}
+
+func (i ContainerServiceDeploymentVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerServiceDeploymentVersion] {
+	return pulumix.Output[[]*ContainerServiceDeploymentVersion]{
+		OutputState: i.ToContainerServiceDeploymentVersionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ContainerServiceDeploymentVersionMapInput is an input type that accepts ContainerServiceDeploymentVersionMap and ContainerServiceDeploymentVersionMapOutput values.
@@ -255,6 +270,12 @@ func (i ContainerServiceDeploymentVersionMap) ToContainerServiceDeploymentVersio
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionMapOutput)
 }
 
+func (i ContainerServiceDeploymentVersionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerServiceDeploymentVersion] {
+	return pulumix.Output[map[string]*ContainerServiceDeploymentVersion]{
+		OutputState: i.ToContainerServiceDeploymentVersionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerServiceDeploymentVersionOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceDeploymentVersionOutput) ElementType() reflect.Type {
@@ -267,6 +288,12 @@ func (o ContainerServiceDeploymentVersionOutput) ToContainerServiceDeploymentVer
 
 func (o ContainerServiceDeploymentVersionOutput) ToContainerServiceDeploymentVersionOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionOutput {
 	return o
+}
+
+func (o ContainerServiceDeploymentVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerServiceDeploymentVersion] {
+	return pulumix.Output[*ContainerServiceDeploymentVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
@@ -317,6 +344,12 @@ func (o ContainerServiceDeploymentVersionArrayOutput) ToContainerServiceDeployme
 	return o
 }
 
+func (o ContainerServiceDeploymentVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ContainerServiceDeploymentVersion] {
+	return pulumix.Output[[]*ContainerServiceDeploymentVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContainerServiceDeploymentVersionArrayOutput) Index(i pulumi.IntInput) ContainerServiceDeploymentVersionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ContainerServiceDeploymentVersion {
 		return vs[0].([]*ContainerServiceDeploymentVersion)[vs[1].(int)]
@@ -335,6 +368,12 @@ func (o ContainerServiceDeploymentVersionMapOutput) ToContainerServiceDeployment
 
 func (o ContainerServiceDeploymentVersionMapOutput) ToContainerServiceDeploymentVersionMapOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionMapOutput {
 	return o
+}
+
+func (o ContainerServiceDeploymentVersionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ContainerServiceDeploymentVersion] {
+	return pulumix.Output[map[string]*ContainerServiceDeploymentVersion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerServiceDeploymentVersionMapOutput) MapIndex(k pulumi.StringInput) ContainerServiceDeploymentVersionOutput {

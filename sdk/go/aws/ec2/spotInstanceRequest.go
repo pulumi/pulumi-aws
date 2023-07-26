@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an EC2 Spot Instance Request resource. This allows instances to be
@@ -224,6 +226,7 @@ func NewSpotInstanceRequest(ctx *pulumi.Context,
 		args = &SpotInstanceRequestArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SpotInstanceRequest
 	err := ctx.RegisterResource("aws:ec2/spotInstanceRequest:SpotInstanceRequest", name, args, &resource, opts...)
 	if err != nil {
@@ -827,6 +830,12 @@ func (i *SpotInstanceRequest) ToSpotInstanceRequestOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestOutput)
 }
 
+func (i *SpotInstanceRequest) ToOutput(ctx context.Context) pulumix.Output[*SpotInstanceRequest] {
+	return pulumix.Output[*SpotInstanceRequest]{
+		OutputState: i.ToSpotInstanceRequestOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpotInstanceRequestArrayInput is an input type that accepts SpotInstanceRequestArray and SpotInstanceRequestArrayOutput values.
 // You can construct a concrete instance of `SpotInstanceRequestArrayInput` via:
 //
@@ -850,6 +859,12 @@ func (i SpotInstanceRequestArray) ToSpotInstanceRequestArrayOutput() SpotInstanc
 
 func (i SpotInstanceRequestArray) ToSpotInstanceRequestArrayOutputWithContext(ctx context.Context) SpotInstanceRequestArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestArrayOutput)
+}
+
+func (i SpotInstanceRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpotInstanceRequest] {
+	return pulumix.Output[[]*SpotInstanceRequest]{
+		OutputState: i.ToSpotInstanceRequestArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpotInstanceRequestMapInput is an input type that accepts SpotInstanceRequestMap and SpotInstanceRequestMapOutput values.
@@ -877,6 +892,12 @@ func (i SpotInstanceRequestMap) ToSpotInstanceRequestMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMapOutput)
 }
 
+func (i SpotInstanceRequestMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpotInstanceRequest] {
+	return pulumix.Output[map[string]*SpotInstanceRequest]{
+		OutputState: i.ToSpotInstanceRequestMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotInstanceRequestOutput struct{ *pulumi.OutputState }
 
 func (SpotInstanceRequestOutput) ElementType() reflect.Type {
@@ -889,6 +910,12 @@ func (o SpotInstanceRequestOutput) ToSpotInstanceRequestOutput() SpotInstanceReq
 
 func (o SpotInstanceRequestOutput) ToSpotInstanceRequestOutputWithContext(ctx context.Context) SpotInstanceRequestOutput {
 	return o
+}
+
+func (o SpotInstanceRequestOutput) ToOutput(ctx context.Context) pulumix.Output[*SpotInstanceRequest] {
+	return pulumix.Output[*SpotInstanceRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
@@ -1259,6 +1286,12 @@ func (o SpotInstanceRequestArrayOutput) ToSpotInstanceRequestArrayOutputWithCont
 	return o
 }
 
+func (o SpotInstanceRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpotInstanceRequest] {
+	return pulumix.Output[[]*SpotInstanceRequest]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpotInstanceRequestArrayOutput) Index(i pulumi.IntInput) SpotInstanceRequestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpotInstanceRequest {
 		return vs[0].([]*SpotInstanceRequest)[vs[1].(int)]
@@ -1277,6 +1310,12 @@ func (o SpotInstanceRequestMapOutput) ToSpotInstanceRequestMapOutput() SpotInsta
 
 func (o SpotInstanceRequestMapOutput) ToSpotInstanceRequestMapOutputWithContext(ctx context.Context) SpotInstanceRequestMapOutput {
 	return o
+}
+
+func (o SpotInstanceRequestMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpotInstanceRequest] {
+	return pulumix.Output[map[string]*SpotInstanceRequest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpotInstanceRequestMapOutput) MapIndex(k pulumi.StringInput) SpotInstanceRequestOutput {

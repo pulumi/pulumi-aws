@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Load Balancer Listener Certificate resource.
@@ -94,6 +96,7 @@ func NewListenerCertificate(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ListenerCertificate
 	err := ctx.RegisterResource("aws:alb/listenerCertificate:ListenerCertificate", name, args, &resource, opts...)
 	if err != nil {
@@ -171,6 +174,12 @@ func (i *ListenerCertificate) ToListenerCertificateOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateOutput)
 }
 
+func (i *ListenerCertificate) ToOutput(ctx context.Context) pulumix.Output[*ListenerCertificate] {
+	return pulumix.Output[*ListenerCertificate]{
+		OutputState: i.ToListenerCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ListenerCertificateArrayInput is an input type that accepts ListenerCertificateArray and ListenerCertificateArrayOutput values.
 // You can construct a concrete instance of `ListenerCertificateArrayInput` via:
 //
@@ -194,6 +203,12 @@ func (i ListenerCertificateArray) ToListenerCertificateArrayOutput() ListenerCer
 
 func (i ListenerCertificateArray) ToListenerCertificateArrayOutputWithContext(ctx context.Context) ListenerCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateArrayOutput)
+}
+
+func (i ListenerCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ListenerCertificate] {
+	return pulumix.Output[[]*ListenerCertificate]{
+		OutputState: i.ToListenerCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ListenerCertificateMapInput is an input type that accepts ListenerCertificateMap and ListenerCertificateMapOutput values.
@@ -221,6 +236,12 @@ func (i ListenerCertificateMap) ToListenerCertificateMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateMapOutput)
 }
 
+func (i ListenerCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ListenerCertificate] {
+	return pulumix.Output[map[string]*ListenerCertificate]{
+		OutputState: i.ToListenerCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ListenerCertificateOutput struct{ *pulumi.OutputState }
 
 func (ListenerCertificateOutput) ElementType() reflect.Type {
@@ -233,6 +254,12 @@ func (o ListenerCertificateOutput) ToListenerCertificateOutput() ListenerCertifi
 
 func (o ListenerCertificateOutput) ToListenerCertificateOutputWithContext(ctx context.Context) ListenerCertificateOutput {
 	return o
+}
+
+func (o ListenerCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerCertificate] {
+	return pulumix.Output[*ListenerCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the certificate to attach to the listener.
@@ -259,6 +286,12 @@ func (o ListenerCertificateArrayOutput) ToListenerCertificateArrayOutputWithCont
 	return o
 }
 
+func (o ListenerCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ListenerCertificate] {
+	return pulumix.Output[[]*ListenerCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ListenerCertificateArrayOutput) Index(i pulumi.IntInput) ListenerCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ListenerCertificate {
 		return vs[0].([]*ListenerCertificate)[vs[1].(int)]
@@ -277,6 +310,12 @@ func (o ListenerCertificateMapOutput) ToListenerCertificateMapOutput() ListenerC
 
 func (o ListenerCertificateMapOutput) ToListenerCertificateMapOutputWithContext(ctx context.Context) ListenerCertificateMapOutput {
 	return o
+}
+
+func (o ListenerCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ListenerCertificate] {
+	return pulumix.Output[map[string]*ListenerCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ListenerCertificateMapOutput) MapIndex(k pulumi.StringInput) ListenerCertificateOutput {

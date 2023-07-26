@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.Subnet` provides details about a specific VPC subnet.
@@ -95,6 +97,7 @@ import (
 //
 // ```
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubnetResult
 	err := ctx.Invoke("aws:ec2/getSubnet:getSubnet", args, &rv, opts...)
 	if err != nil {
@@ -225,6 +228,12 @@ func (o LookupSubnetResultOutput) ToLookupSubnetResultOutput() LookupSubnetResul
 
 func (o LookupSubnetResultOutput) ToLookupSubnetResultOutputWithContext(ctx context.Context) LookupSubnetResultOutput {
 	return o
+}
+
+func (o LookupSubnetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubnetResult] {
+	return pulumix.Output[LookupSubnetResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the subnet.

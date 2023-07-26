@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Lex Slot Type.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupSlotType(ctx *pulumi.Context, args *LookupSlotTypeArgs, opts ...pulumi.InvokeOption) (*LookupSlotTypeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSlotTypeResult
 	err := ctx.Invoke("aws:lex/getSlotType:getSlotType", args, &rv, opts...)
 	if err != nil {
@@ -121,6 +124,12 @@ func (o LookupSlotTypeResultOutput) ToLookupSlotTypeResultOutput() LookupSlotTyp
 
 func (o LookupSlotTypeResultOutput) ToLookupSlotTypeResultOutputWithContext(ctx context.Context) LookupSlotTypeResultOutput {
 	return o
+}
+
+func (o LookupSlotTypeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSlotTypeResult] {
+	return pulumix.Output[LookupSlotTypeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Checksum identifying the version of the slot type that was created. The checksum is

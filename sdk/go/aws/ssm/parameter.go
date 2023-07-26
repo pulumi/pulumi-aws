@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Parameter resource.
@@ -152,6 +154,7 @@ func NewParameter(ctx *pulumi.Context,
 		"value",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Parameter
 	err := ctx.RegisterResource("aws:ssm/parameter:Parameter", name, args, &resource, opts...)
 	if err != nil {
@@ -333,6 +336,12 @@ func (i *Parameter) ToParameterOutputWithContext(ctx context.Context) ParameterO
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterOutput)
 }
 
+func (i *Parameter) ToOutput(ctx context.Context) pulumix.Output[*Parameter] {
+	return pulumix.Output[*Parameter]{
+		OutputState: i.ToParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ParameterArrayInput is an input type that accepts ParameterArray and ParameterArrayOutput values.
 // You can construct a concrete instance of `ParameterArrayInput` via:
 //
@@ -356,6 +365,12 @@ func (i ParameterArray) ToParameterArrayOutput() ParameterArrayOutput {
 
 func (i ParameterArray) ToParameterArrayOutputWithContext(ctx context.Context) ParameterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterArrayOutput)
+}
+
+func (i ParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]*Parameter] {
+	return pulumix.Output[[]*Parameter]{
+		OutputState: i.ToParameterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ParameterMapInput is an input type that accepts ParameterMap and ParameterMapOutput values.
@@ -383,6 +398,12 @@ func (i ParameterMap) ToParameterMapOutputWithContext(ctx context.Context) Param
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterMapOutput)
 }
 
+func (i ParameterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Parameter] {
+	return pulumix.Output[map[string]*Parameter]{
+		OutputState: i.ToParameterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterOutput) ElementType() reflect.Type {
@@ -395,6 +416,12 @@ func (o ParameterOutput) ToParameterOutput() ParameterOutput {
 
 func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) ParameterOutput {
 	return o
+}
+
+func (o ParameterOutput) ToOutput(ctx context.Context) pulumix.Output[*Parameter] {
+	return pulumix.Output[*Parameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Regular expression used to validate the parameter value.
@@ -485,6 +512,12 @@ func (o ParameterArrayOutput) ToParameterArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Parameter] {
+	return pulumix.Output[[]*Parameter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ParameterArrayOutput) Index(i pulumi.IntInput) ParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Parameter {
 		return vs[0].([]*Parameter)[vs[1].(int)]
@@ -503,6 +536,12 @@ func (o ParameterMapOutput) ToParameterMapOutput() ParameterMapOutput {
 
 func (o ParameterMapOutput) ToParameterMapOutputWithContext(ctx context.Context) ParameterMapOutput {
 	return o
+}
+
+func (o ParameterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Parameter] {
+	return pulumix.Output[map[string]*Parameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ParameterMapOutput) MapIndex(k pulumi.StringInput) ParameterOutput {

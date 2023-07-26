@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get a list of AWS accounts that are designated as delegated administrators in this organization
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetDelegatedAdministrators(ctx *pulumi.Context, args *GetDelegatedAdministratorsArgs, opts ...pulumi.InvokeOption) (*GetDelegatedAdministratorsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDelegatedAdministratorsResult
 	err := ctx.Invoke("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args, &rv, opts...)
 	if err != nil {
@@ -97,6 +100,12 @@ func (o GetDelegatedAdministratorsResultOutput) ToGetDelegatedAdministratorsResu
 
 func (o GetDelegatedAdministratorsResultOutput) ToGetDelegatedAdministratorsResultOutputWithContext(ctx context.Context) GetDelegatedAdministratorsResultOutput {
 	return o
+}
+
+func (o GetDelegatedAdministratorsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDelegatedAdministratorsResult] {
+	return pulumix.Output[GetDelegatedAdministratorsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The list of delegated administrators in your organization, which have the following attributes:

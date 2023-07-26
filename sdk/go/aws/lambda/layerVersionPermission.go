@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Lambda Layer Version Permission resource. It allows you to share you own Lambda Layers to another account by account ID, to all accounts in AWS organization or even to all AWS accounts.
@@ -99,6 +101,7 @@ func NewLayerVersionPermission(ctx *pulumi.Context,
 	if args.VersionNumber == nil {
 		return nil, errors.New("invalid value for required argument 'VersionNumber'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LayerVersionPermission
 	err := ctx.RegisterResource("aws:lambda/layerVersionPermission:LayerVersionPermission", name, args, &resource, opts...)
 	if err != nil {
@@ -216,6 +219,12 @@ func (i *LayerVersionPermission) ToLayerVersionPermissionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionPermissionOutput)
 }
 
+func (i *LayerVersionPermission) ToOutput(ctx context.Context) pulumix.Output[*LayerVersionPermission] {
+	return pulumix.Output[*LayerVersionPermission]{
+		OutputState: i.ToLayerVersionPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LayerVersionPermissionArrayInput is an input type that accepts LayerVersionPermissionArray and LayerVersionPermissionArrayOutput values.
 // You can construct a concrete instance of `LayerVersionPermissionArrayInput` via:
 //
@@ -239,6 +248,12 @@ func (i LayerVersionPermissionArray) ToLayerVersionPermissionArrayOutput() Layer
 
 func (i LayerVersionPermissionArray) ToLayerVersionPermissionArrayOutputWithContext(ctx context.Context) LayerVersionPermissionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionPermissionArrayOutput)
+}
+
+func (i LayerVersionPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]*LayerVersionPermission] {
+	return pulumix.Output[[]*LayerVersionPermission]{
+		OutputState: i.ToLayerVersionPermissionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LayerVersionPermissionMapInput is an input type that accepts LayerVersionPermissionMap and LayerVersionPermissionMapOutput values.
@@ -266,6 +281,12 @@ func (i LayerVersionPermissionMap) ToLayerVersionPermissionMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionPermissionMapOutput)
 }
 
+func (i LayerVersionPermissionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LayerVersionPermission] {
+	return pulumix.Output[map[string]*LayerVersionPermission]{
+		OutputState: i.ToLayerVersionPermissionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LayerVersionPermissionOutput struct{ *pulumi.OutputState }
 
 func (LayerVersionPermissionOutput) ElementType() reflect.Type {
@@ -278,6 +299,12 @@ func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutput() LayerVers
 
 func (o LayerVersionPermissionOutput) ToLayerVersionPermissionOutputWithContext(ctx context.Context) LayerVersionPermissionOutput {
 	return o
+}
+
+func (o LayerVersionPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[*LayerVersionPermission] {
+	return pulumix.Output[*LayerVersionPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
@@ -334,6 +361,12 @@ func (o LayerVersionPermissionArrayOutput) ToLayerVersionPermissionArrayOutputWi
 	return o
 }
 
+func (o LayerVersionPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LayerVersionPermission] {
+	return pulumix.Output[[]*LayerVersionPermission]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LayerVersionPermissionArrayOutput) Index(i pulumi.IntInput) LayerVersionPermissionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LayerVersionPermission {
 		return vs[0].([]*LayerVersionPermission)[vs[1].(int)]
@@ -352,6 +385,12 @@ func (o LayerVersionPermissionMapOutput) ToLayerVersionPermissionMapOutput() Lay
 
 func (o LayerVersionPermissionMapOutput) ToLayerVersionPermissionMapOutputWithContext(ctx context.Context) LayerVersionPermissionMapOutput {
 	return o
+}
+
+func (o LayerVersionPermissionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LayerVersionPermission] {
+	return pulumix.Output[map[string]*LayerVersionPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LayerVersionPermissionMapOutput) MapIndex(k pulumi.StringInput) LayerVersionPermissionOutput {

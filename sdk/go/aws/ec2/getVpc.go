@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.Vpc` provides details about a specific VPC.
@@ -16,6 +18,7 @@ import (
 // an input variable and needs to, for example, determine the CIDR block of that
 // VPC.
 func LookupVpc(ctx *pulumi.Context, args *LookupVpcArgs, opts ...pulumi.InvokeOption) (*LookupVpcResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcResult
 	err := ctx.Invoke("aws:ec2/getVpc:getVpc", args, &rv, opts...)
 	if err != nil {
@@ -135,6 +138,12 @@ func (o LookupVpcResultOutput) ToLookupVpcResultOutput() LookupVpcResultOutput {
 
 func (o LookupVpcResultOutput) ToLookupVpcResultOutputWithContext(ctx context.Context) LookupVpcResultOutput {
 	return o
+}
+
+func (o LookupVpcResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcResult] {
+	return pulumix.Output[LookupVpcResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of VPC

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.InternetGateway` provides details about a specific Internet Gateway.
@@ -45,6 +47,7 @@ import (
 // }
 // ```
 func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs, opts ...pulumi.InvokeOption) (*LookupInternetGatewayResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInternetGatewayResult
 	err := ctx.Invoke("aws:ec2/getInternetGateway:getInternetGateway", args, &rv, opts...)
 	if err != nil {
@@ -125,6 +128,12 @@ func (o LookupInternetGatewayResultOutput) ToLookupInternetGatewayResultOutput()
 
 func (o LookupInternetGatewayResultOutput) ToLookupInternetGatewayResultOutputWithContext(ctx context.Context) LookupInternetGatewayResultOutput {
 	return o
+}
+
+func (o LookupInternetGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInternetGatewayResult] {
+	return pulumix.Output[LookupInternetGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Internet Gateway.

@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type FileSystemAssociationCacheAttributes struct {
 	// Refreshes a file share's cache by using Time To Live (TTL).
@@ -45,6 +49,12 @@ func (i FileSystemAssociationCacheAttributesArgs) ToFileSystemAssociationCacheAt
 
 func (i FileSystemAssociationCacheAttributesArgs) ToFileSystemAssociationCacheAttributesOutputWithContext(ctx context.Context) FileSystemAssociationCacheAttributesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemAssociationCacheAttributesOutput)
+}
+
+func (i FileSystemAssociationCacheAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemAssociationCacheAttributes] {
+	return pulumix.Output[FileSystemAssociationCacheAttributes]{
+		OutputState: i.ToFileSystemAssociationCacheAttributesOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FileSystemAssociationCacheAttributesArgs) ToFileSystemAssociationCacheAttributesPtrOutput() FileSystemAssociationCacheAttributesPtrOutput {
@@ -88,6 +98,12 @@ func (i *fileSystemAssociationCacheAttributesPtrType) ToFileSystemAssociationCac
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemAssociationCacheAttributesPtrOutput)
 }
 
+func (i *fileSystemAssociationCacheAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemAssociationCacheAttributes] {
+	return pulumix.Output[*FileSystemAssociationCacheAttributes]{
+		OutputState: i.ToFileSystemAssociationCacheAttributesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FileSystemAssociationCacheAttributesOutput struct{ *pulumi.OutputState }
 
 func (FileSystemAssociationCacheAttributesOutput) ElementType() reflect.Type {
@@ -112,6 +128,12 @@ func (o FileSystemAssociationCacheAttributesOutput) ToFileSystemAssociationCache
 	}).(FileSystemAssociationCacheAttributesPtrOutput)
 }
 
+func (o FileSystemAssociationCacheAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemAssociationCacheAttributes] {
+	return pulumix.Output[FileSystemAssociationCacheAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Refreshes a file share's cache by using Time To Live (TTL).
 // TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
 // to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
@@ -131,6 +153,12 @@ func (o FileSystemAssociationCacheAttributesPtrOutput) ToFileSystemAssociationCa
 
 func (o FileSystemAssociationCacheAttributesPtrOutput) ToFileSystemAssociationCacheAttributesPtrOutputWithContext(ctx context.Context) FileSystemAssociationCacheAttributesPtrOutput {
 	return o
+}
+
+func (o FileSystemAssociationCacheAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemAssociationCacheAttributes] {
+	return pulumix.Output[*FileSystemAssociationCacheAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FileSystemAssociationCacheAttributesPtrOutput) Elem() FileSystemAssociationCacheAttributesOutput {
@@ -188,6 +216,12 @@ func (i GatewayGatewayNetworkInterfaceArgs) ToGatewayGatewayNetworkInterfaceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayNetworkInterfaceOutput)
 }
 
+func (i GatewayGatewayNetworkInterfaceArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayGatewayNetworkInterface] {
+	return pulumix.Output[GatewayGatewayNetworkInterface]{
+		OutputState: i.ToGatewayGatewayNetworkInterfaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayGatewayNetworkInterfaceArrayInput is an input type that accepts GatewayGatewayNetworkInterfaceArray and GatewayGatewayNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `GatewayGatewayNetworkInterfaceArrayInput` via:
 //
@@ -213,6 +247,12 @@ func (i GatewayGatewayNetworkInterfaceArray) ToGatewayGatewayNetworkInterfaceArr
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayNetworkInterfaceArrayOutput)
 }
 
+func (i GatewayGatewayNetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]GatewayGatewayNetworkInterface] {
+	return pulumix.Output[[]GatewayGatewayNetworkInterface]{
+		OutputState: i.ToGatewayGatewayNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayGatewayNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (GatewayGatewayNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -225,6 +265,12 @@ func (o GatewayGatewayNetworkInterfaceOutput) ToGatewayGatewayNetworkInterfaceOu
 
 func (o GatewayGatewayNetworkInterfaceOutput) ToGatewayGatewayNetworkInterfaceOutputWithContext(ctx context.Context) GatewayGatewayNetworkInterfaceOutput {
 	return o
+}
+
+func (o GatewayGatewayNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayGatewayNetworkInterface] {
+	return pulumix.Output[GatewayGatewayNetworkInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Internet Protocol version 4 (IPv4) address of the interface.
@@ -244,6 +290,12 @@ func (o GatewayGatewayNetworkInterfaceArrayOutput) ToGatewayGatewayNetworkInterf
 
 func (o GatewayGatewayNetworkInterfaceArrayOutput) ToGatewayGatewayNetworkInterfaceArrayOutputWithContext(ctx context.Context) GatewayGatewayNetworkInterfaceArrayOutput {
 	return o
+}
+
+func (o GatewayGatewayNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GatewayGatewayNetworkInterface] {
+	return pulumix.Output[[]GatewayGatewayNetworkInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayGatewayNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) GatewayGatewayNetworkInterfaceOutput {
@@ -297,6 +349,12 @@ func (i GatewayMaintenanceStartTimeArgs) ToGatewayMaintenanceStartTimeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayMaintenanceStartTimeOutput)
 }
 
+func (i GatewayMaintenanceStartTimeArgs) ToOutput(ctx context.Context) pulumix.Output[GatewayMaintenanceStartTime] {
+	return pulumix.Output[GatewayMaintenanceStartTime]{
+		OutputState: i.ToGatewayMaintenanceStartTimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewayMaintenanceStartTimeArgs) ToGatewayMaintenanceStartTimePtrOutput() GatewayMaintenanceStartTimePtrOutput {
 	return i.ToGatewayMaintenanceStartTimePtrOutputWithContext(context.Background())
 }
@@ -338,6 +396,12 @@ func (i *gatewayMaintenanceStartTimePtrType) ToGatewayMaintenanceStartTimePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayMaintenanceStartTimePtrOutput)
 }
 
+func (i *gatewayMaintenanceStartTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewayMaintenanceStartTime] {
+	return pulumix.Output[*GatewayMaintenanceStartTime]{
+		OutputState: i.ToGatewayMaintenanceStartTimePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayMaintenanceStartTimeOutput struct{ *pulumi.OutputState }
 
 func (GatewayMaintenanceStartTimeOutput) ElementType() reflect.Type {
@@ -360,6 +424,12 @@ func (o GatewayMaintenanceStartTimeOutput) ToGatewayMaintenanceStartTimePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayMaintenanceStartTime) *GatewayMaintenanceStartTime {
 		return &v
 	}).(GatewayMaintenanceStartTimePtrOutput)
+}
+
+func (o GatewayMaintenanceStartTimeOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayMaintenanceStartTime] {
+	return pulumix.Output[GatewayMaintenanceStartTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
@@ -394,6 +464,12 @@ func (o GatewayMaintenanceStartTimePtrOutput) ToGatewayMaintenanceStartTimePtrOu
 
 func (o GatewayMaintenanceStartTimePtrOutput) ToGatewayMaintenanceStartTimePtrOutputWithContext(ctx context.Context) GatewayMaintenanceStartTimePtrOutput {
 	return o
+}
+
+func (o GatewayMaintenanceStartTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayMaintenanceStartTime] {
+	return pulumix.Output[*GatewayMaintenanceStartTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayMaintenanceStartTimePtrOutput) Elem() GatewayMaintenanceStartTimeOutput {
@@ -505,6 +581,12 @@ func (i GatewaySmbActiveDirectorySettingsArgs) ToGatewaySmbActiveDirectorySettin
 	return pulumi.ToOutputWithContext(ctx, i).(GatewaySmbActiveDirectorySettingsOutput)
 }
 
+func (i GatewaySmbActiveDirectorySettingsArgs) ToOutput(ctx context.Context) pulumix.Output[GatewaySmbActiveDirectorySettings] {
+	return pulumix.Output[GatewaySmbActiveDirectorySettings]{
+		OutputState: i.ToGatewaySmbActiveDirectorySettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GatewaySmbActiveDirectorySettingsArgs) ToGatewaySmbActiveDirectorySettingsPtrOutput() GatewaySmbActiveDirectorySettingsPtrOutput {
 	return i.ToGatewaySmbActiveDirectorySettingsPtrOutputWithContext(context.Background())
 }
@@ -546,6 +628,12 @@ func (i *gatewaySmbActiveDirectorySettingsPtrType) ToGatewaySmbActiveDirectorySe
 	return pulumi.ToOutputWithContext(ctx, i).(GatewaySmbActiveDirectorySettingsPtrOutput)
 }
 
+func (i *gatewaySmbActiveDirectorySettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GatewaySmbActiveDirectorySettings] {
+	return pulumix.Output[*GatewaySmbActiveDirectorySettings]{
+		OutputState: i.ToGatewaySmbActiveDirectorySettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewaySmbActiveDirectorySettingsOutput struct{ *pulumi.OutputState }
 
 func (GatewaySmbActiveDirectorySettingsOutput) ElementType() reflect.Type {
@@ -568,6 +656,12 @@ func (o GatewaySmbActiveDirectorySettingsOutput) ToGatewaySmbActiveDirectorySett
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewaySmbActiveDirectorySettings) *GatewaySmbActiveDirectorySettings {
 		return &v
 	}).(GatewaySmbActiveDirectorySettingsPtrOutput)
+}
+
+func (o GatewaySmbActiveDirectorySettingsOutput) ToOutput(ctx context.Context) pulumix.Output[GatewaySmbActiveDirectorySettings] {
+	return pulumix.Output[GatewaySmbActiveDirectorySettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewaySmbActiveDirectorySettingsOutput) ActiveDirectoryStatus() pulumi.StringPtrOutput {
@@ -618,6 +712,12 @@ func (o GatewaySmbActiveDirectorySettingsPtrOutput) ToGatewaySmbActiveDirectoryS
 
 func (o GatewaySmbActiveDirectorySettingsPtrOutput) ToGatewaySmbActiveDirectorySettingsPtrOutputWithContext(ctx context.Context) GatewaySmbActiveDirectorySettingsPtrOutput {
 	return o
+}
+
+func (o GatewaySmbActiveDirectorySettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewaySmbActiveDirectorySettings] {
+	return pulumix.Output[*GatewaySmbActiveDirectorySettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewaySmbActiveDirectorySettingsPtrOutput) Elem() GatewaySmbActiveDirectorySettingsOutput {
@@ -738,6 +838,12 @@ func (i NfsFileShareCacheAttributesArgs) ToNfsFileShareCacheAttributesOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareCacheAttributesOutput)
 }
 
+func (i NfsFileShareCacheAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[NfsFileShareCacheAttributes] {
+	return pulumix.Output[NfsFileShareCacheAttributes]{
+		OutputState: i.ToNfsFileShareCacheAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NfsFileShareCacheAttributesArgs) ToNfsFileShareCacheAttributesPtrOutput() NfsFileShareCacheAttributesPtrOutput {
 	return i.ToNfsFileShareCacheAttributesPtrOutputWithContext(context.Background())
 }
@@ -779,6 +885,12 @@ func (i *nfsFileShareCacheAttributesPtrType) ToNfsFileShareCacheAttributesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareCacheAttributesPtrOutput)
 }
 
+func (i *nfsFileShareCacheAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*NfsFileShareCacheAttributes] {
+	return pulumix.Output[*NfsFileShareCacheAttributes]{
+		OutputState: i.ToNfsFileShareCacheAttributesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NfsFileShareCacheAttributesOutput struct{ *pulumi.OutputState }
 
 func (NfsFileShareCacheAttributesOutput) ElementType() reflect.Type {
@@ -803,6 +915,12 @@ func (o NfsFileShareCacheAttributesOutput) ToNfsFileShareCacheAttributesPtrOutpu
 	}).(NfsFileShareCacheAttributesPtrOutput)
 }
 
+func (o NfsFileShareCacheAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[NfsFileShareCacheAttributes] {
+	return pulumix.Output[NfsFileShareCacheAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Refreshes a file share's cache by using Time To Live (TTL).
 // TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
 // to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
@@ -822,6 +940,12 @@ func (o NfsFileShareCacheAttributesPtrOutput) ToNfsFileShareCacheAttributesPtrOu
 
 func (o NfsFileShareCacheAttributesPtrOutput) ToNfsFileShareCacheAttributesPtrOutputWithContext(ctx context.Context) NfsFileShareCacheAttributesPtrOutput {
 	return o
+}
+
+func (o NfsFileShareCacheAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NfsFileShareCacheAttributes] {
+	return pulumix.Output[*NfsFileShareCacheAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NfsFileShareCacheAttributesPtrOutput) Elem() NfsFileShareCacheAttributesOutput {
@@ -891,6 +1015,12 @@ func (i NfsFileShareNfsFileShareDefaultsArgs) ToNfsFileShareNfsFileShareDefaults
 	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareNfsFileShareDefaultsOutput)
 }
 
+func (i NfsFileShareNfsFileShareDefaultsArgs) ToOutput(ctx context.Context) pulumix.Output[NfsFileShareNfsFileShareDefaults] {
+	return pulumix.Output[NfsFileShareNfsFileShareDefaults]{
+		OutputState: i.ToNfsFileShareNfsFileShareDefaultsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i NfsFileShareNfsFileShareDefaultsArgs) ToNfsFileShareNfsFileShareDefaultsPtrOutput() NfsFileShareNfsFileShareDefaultsPtrOutput {
 	return i.ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(context.Background())
 }
@@ -932,6 +1062,12 @@ func (i *nfsFileShareNfsFileShareDefaultsPtrType) ToNfsFileShareNfsFileShareDefa
 	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareNfsFileShareDefaultsPtrOutput)
 }
 
+func (i *nfsFileShareNfsFileShareDefaultsPtrType) ToOutput(ctx context.Context) pulumix.Output[*NfsFileShareNfsFileShareDefaults] {
+	return pulumix.Output[*NfsFileShareNfsFileShareDefaults]{
+		OutputState: i.ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NfsFileShareNfsFileShareDefaultsOutput struct{ *pulumi.OutputState }
 
 func (NfsFileShareNfsFileShareDefaultsOutput) ElementType() reflect.Type {
@@ -954,6 +1090,12 @@ func (o NfsFileShareNfsFileShareDefaultsOutput) ToNfsFileShareNfsFileShareDefaul
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NfsFileShareNfsFileShareDefaults) *NfsFileShareNfsFileShareDefaults {
 		return &v
 	}).(NfsFileShareNfsFileShareDefaultsPtrOutput)
+}
+
+func (o NfsFileShareNfsFileShareDefaultsOutput) ToOutput(ctx context.Context) pulumix.Output[NfsFileShareNfsFileShareDefaults] {
+	return pulumix.Output[NfsFileShareNfsFileShareDefaults]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
@@ -988,6 +1130,12 @@ func (o NfsFileShareNfsFileShareDefaultsPtrOutput) ToNfsFileShareNfsFileShareDef
 
 func (o NfsFileShareNfsFileShareDefaultsPtrOutput) ToNfsFileShareNfsFileShareDefaultsPtrOutputWithContext(ctx context.Context) NfsFileShareNfsFileShareDefaultsPtrOutput {
 	return o
+}
+
+func (o NfsFileShareNfsFileShareDefaultsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NfsFileShareNfsFileShareDefaults] {
+	return pulumix.Output[*NfsFileShareNfsFileShareDefaults]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NfsFileShareNfsFileShareDefaultsPtrOutput) Elem() NfsFileShareNfsFileShareDefaultsOutput {
@@ -1077,6 +1225,12 @@ func (i SmbFileShareCacheAttributesArgs) ToSmbFileShareCacheAttributesOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareCacheAttributesOutput)
 }
 
+func (i SmbFileShareCacheAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[SmbFileShareCacheAttributes] {
+	return pulumix.Output[SmbFileShareCacheAttributes]{
+		OutputState: i.ToSmbFileShareCacheAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SmbFileShareCacheAttributesArgs) ToSmbFileShareCacheAttributesPtrOutput() SmbFileShareCacheAttributesPtrOutput {
 	return i.ToSmbFileShareCacheAttributesPtrOutputWithContext(context.Background())
 }
@@ -1118,6 +1272,12 @@ func (i *smbFileShareCacheAttributesPtrType) ToSmbFileShareCacheAttributesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SmbFileShareCacheAttributesPtrOutput)
 }
 
+func (i *smbFileShareCacheAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SmbFileShareCacheAttributes] {
+	return pulumix.Output[*SmbFileShareCacheAttributes]{
+		OutputState: i.ToSmbFileShareCacheAttributesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SmbFileShareCacheAttributesOutput struct{ *pulumi.OutputState }
 
 func (SmbFileShareCacheAttributesOutput) ElementType() reflect.Type {
@@ -1142,6 +1302,12 @@ func (o SmbFileShareCacheAttributesOutput) ToSmbFileShareCacheAttributesPtrOutpu
 	}).(SmbFileShareCacheAttributesPtrOutput)
 }
 
+func (o SmbFileShareCacheAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[SmbFileShareCacheAttributes] {
+	return pulumix.Output[SmbFileShareCacheAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Refreshes a file share's cache by using Time To Live (TTL).
 // TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
 // to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
@@ -1161,6 +1327,12 @@ func (o SmbFileShareCacheAttributesPtrOutput) ToSmbFileShareCacheAttributesPtrOu
 
 func (o SmbFileShareCacheAttributesPtrOutput) ToSmbFileShareCacheAttributesPtrOutputWithContext(ctx context.Context) SmbFileShareCacheAttributesPtrOutput {
 	return o
+}
+
+func (o SmbFileShareCacheAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SmbFileShareCacheAttributes] {
+	return pulumix.Output[*SmbFileShareCacheAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SmbFileShareCacheAttributesPtrOutput) Elem() SmbFileShareCacheAttributesOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetLaunchPaths(ctx *pulumi.Context, args *GetLaunchPathsArgs, opts ...pulumi.InvokeOption) (*GetLaunchPathsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLaunchPathsResult
 	err := ctx.Invoke("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args, &rv, opts...)
 	if err != nil {
@@ -107,6 +110,12 @@ func (o GetLaunchPathsResultOutput) ToGetLaunchPathsResultOutput() GetLaunchPath
 
 func (o GetLaunchPathsResultOutput) ToGetLaunchPathsResultOutputWithContext(ctx context.Context) GetLaunchPathsResultOutput {
 	return o
+}
+
+func (o GetLaunchPathsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLaunchPathsResult] {
+	return pulumix.Output[GetLaunchPathsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLaunchPathsResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

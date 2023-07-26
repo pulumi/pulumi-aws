@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect Quick Connect.
@@ -68,6 +70,7 @@ import (
 //
 // ```
 func LookupQuickConnect(ctx *pulumi.Context, args *LookupQuickConnectArgs, opts ...pulumi.InvokeOption) (*LookupQuickConnectResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQuickConnectResult
 	err := ctx.Invoke("aws:connect/getQuickConnect:getQuickConnect", args, &rv, opts...)
 	if err != nil {
@@ -148,6 +151,12 @@ func (o LookupQuickConnectResultOutput) ToLookupQuickConnectResultOutput() Looku
 
 func (o LookupQuickConnectResultOutput) ToLookupQuickConnectResultOutputWithContext(ctx context.Context) LookupQuickConnectResultOutput {
 	return o
+}
+
+func (o LookupQuickConnectResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupQuickConnectResult] {
+	return pulumix.Output[LookupQuickConnectResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Quick Connect.

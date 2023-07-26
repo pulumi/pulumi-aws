@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeBuild Source Credentials Resource.
@@ -119,6 +121,7 @@ func NewSourceCredential(ctx *pulumi.Context,
 		"token",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SourceCredential
 	err := ctx.RegisterResource("aws:codebuild/sourceCredential:SourceCredential", name, args, &resource, opts...)
 	if err != nil {
@@ -216,6 +219,12 @@ func (i *SourceCredential) ToSourceCredentialOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCredentialOutput)
 }
 
+func (i *SourceCredential) ToOutput(ctx context.Context) pulumix.Output[*SourceCredential] {
+	return pulumix.Output[*SourceCredential]{
+		OutputState: i.ToSourceCredentialOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SourceCredentialArrayInput is an input type that accepts SourceCredentialArray and SourceCredentialArrayOutput values.
 // You can construct a concrete instance of `SourceCredentialArrayInput` via:
 //
@@ -239,6 +248,12 @@ func (i SourceCredentialArray) ToSourceCredentialArrayOutput() SourceCredentialA
 
 func (i SourceCredentialArray) ToSourceCredentialArrayOutputWithContext(ctx context.Context) SourceCredentialArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCredentialArrayOutput)
+}
+
+func (i SourceCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]*SourceCredential] {
+	return pulumix.Output[[]*SourceCredential]{
+		OutputState: i.ToSourceCredentialArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SourceCredentialMapInput is an input type that accepts SourceCredentialMap and SourceCredentialMapOutput values.
@@ -266,6 +281,12 @@ func (i SourceCredentialMap) ToSourceCredentialMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCredentialMapOutput)
 }
 
+func (i SourceCredentialMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceCredential] {
+	return pulumix.Output[map[string]*SourceCredential]{
+		OutputState: i.ToSourceCredentialMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SourceCredentialOutput struct{ *pulumi.OutputState }
 
 func (SourceCredentialOutput) ElementType() reflect.Type {
@@ -278,6 +299,12 @@ func (o SourceCredentialOutput) ToSourceCredentialOutput() SourceCredentialOutpu
 
 func (o SourceCredentialOutput) ToSourceCredentialOutputWithContext(ctx context.Context) SourceCredentialOutput {
 	return o
+}
+
+func (o SourceCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceCredential] {
+	return pulumix.Output[*SourceCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of Source Credential.
@@ -319,6 +346,12 @@ func (o SourceCredentialArrayOutput) ToSourceCredentialArrayOutputWithContext(ct
 	return o
 }
 
+func (o SourceCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SourceCredential] {
+	return pulumix.Output[[]*SourceCredential]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SourceCredentialArrayOutput) Index(i pulumi.IntInput) SourceCredentialOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SourceCredential {
 		return vs[0].([]*SourceCredential)[vs[1].(int)]
@@ -337,6 +370,12 @@ func (o SourceCredentialMapOutput) ToSourceCredentialMapOutput() SourceCredentia
 
 func (o SourceCredentialMapOutput) ToSourceCredentialMapOutputWithContext(ctx context.Context) SourceCredentialMapOutput {
 	return o
+}
+
+func (o SourceCredentialMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceCredential] {
+	return pulumix.Output[map[string]*SourceCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SourceCredentialMapOutput) MapIndex(k pulumi.StringInput) SourceCredentialOutput {

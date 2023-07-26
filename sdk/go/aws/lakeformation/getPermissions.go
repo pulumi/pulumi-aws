@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
@@ -116,6 +118,7 @@ import (
 //
 // ```
 func LookupPermissions(ctx *pulumi.Context, args *LookupPermissionsArgs, opts ...pulumi.InvokeOption) (*LookupPermissionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPermissionsResult
 	err := ctx.Invoke("aws:lakeformation/getPermissions:getPermissions", args, &rv, opts...)
 	if err != nil {
@@ -225,6 +228,12 @@ func (o LookupPermissionsResultOutput) ToLookupPermissionsResultOutput() LookupP
 
 func (o LookupPermissionsResultOutput) ToLookupPermissionsResultOutputWithContext(ctx context.Context) LookupPermissionsResultOutput {
 	return o
+}
+
+func (o LookupPermissionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPermissionsResult] {
+	return pulumix.Output[LookupPermissionsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPermissionsResultOutput) CatalogId() pulumi.StringPtrOutput {

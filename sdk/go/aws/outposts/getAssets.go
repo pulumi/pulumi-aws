@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about hardware assets in an Outpost.
@@ -95,6 +97,7 @@ import (
 //
 // ```
 func GetAssets(ctx *pulumi.Context, args *GetAssetsArgs, opts ...pulumi.InvokeOption) (*GetAssetsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAssetsResult
 	err := ctx.Invoke("aws:outposts/getAssets:getAssets", args, &rv, opts...)
 	if err != nil {
@@ -164,6 +167,12 @@ func (o GetAssetsResultOutput) ToGetAssetsResultOutput() GetAssetsResultOutput {
 
 func (o GetAssetsResultOutput) ToGetAssetsResultOutputWithContext(ctx context.Context) GetAssetsResultOutput {
 	return o
+}
+
+func (o GetAssetsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAssetsResult] {
+	return pulumix.Output[GetAssetsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAssetsResultOutput) Arn() pulumi.StringOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source provides information on the IAM source role of an STS assumed role. For non-role ARNs, this data source simply passes the ARN through in `issuerArn`.
@@ -73,6 +75,7 @@ import (
 //
 // ```
 func GetSessionContext(ctx *pulumi.Context, args *GetSessionContextArgs, opts ...pulumi.InvokeOption) (*GetSessionContextResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSessionContextResult
 	err := ctx.Invoke("aws:iam/getSessionContext:getSessionContext", args, &rv, opts...)
 	if err != nil {
@@ -142,6 +145,12 @@ func (o GetSessionContextResultOutput) ToGetSessionContextResultOutput() GetSess
 
 func (o GetSessionContextResultOutput) ToGetSessionContextResultOutputWithContext(ctx context.Context) GetSessionContextResultOutput {
 	return o
+}
+
+func (o GetSessionContextResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSessionContextResult] {
+	return pulumix.Output[GetSessionContextResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSessionContextResultOutput) Arn() pulumi.StringOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Requests automatic route propagation between a VPN gateway and a route table.
@@ -65,6 +67,7 @@ func NewVpnGatewayRoutePropagation(ctx *pulumi.Context,
 	if args.VpnGatewayId == nil {
 		return nil, errors.New("invalid value for required argument 'VpnGatewayId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpnGatewayRoutePropagation
 	err := ctx.RegisterResource("aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation", name, args, &resource, opts...)
 	if err != nil {
@@ -142,6 +145,12 @@ func (i *VpnGatewayRoutePropagation) ToVpnGatewayRoutePropagationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayRoutePropagationOutput)
 }
 
+func (i *VpnGatewayRoutePropagation) ToOutput(ctx context.Context) pulumix.Output[*VpnGatewayRoutePropagation] {
+	return pulumix.Output[*VpnGatewayRoutePropagation]{
+		OutputState: i.ToVpnGatewayRoutePropagationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpnGatewayRoutePropagationArrayInput is an input type that accepts VpnGatewayRoutePropagationArray and VpnGatewayRoutePropagationArrayOutput values.
 // You can construct a concrete instance of `VpnGatewayRoutePropagationArrayInput` via:
 //
@@ -165,6 +174,12 @@ func (i VpnGatewayRoutePropagationArray) ToVpnGatewayRoutePropagationArrayOutput
 
 func (i VpnGatewayRoutePropagationArray) ToVpnGatewayRoutePropagationArrayOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayRoutePropagationArrayOutput)
+}
+
+func (i VpnGatewayRoutePropagationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpnGatewayRoutePropagation] {
+	return pulumix.Output[[]*VpnGatewayRoutePropagation]{
+		OutputState: i.ToVpnGatewayRoutePropagationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpnGatewayRoutePropagationMapInput is an input type that accepts VpnGatewayRoutePropagationMap and VpnGatewayRoutePropagationMapOutput values.
@@ -192,6 +207,12 @@ func (i VpnGatewayRoutePropagationMap) ToVpnGatewayRoutePropagationMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VpnGatewayRoutePropagationMapOutput)
 }
 
+func (i VpnGatewayRoutePropagationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnGatewayRoutePropagation] {
+	return pulumix.Output[map[string]*VpnGatewayRoutePropagation]{
+		OutputState: i.ToVpnGatewayRoutePropagationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpnGatewayRoutePropagationOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayRoutePropagationOutput) ElementType() reflect.Type {
@@ -204,6 +225,12 @@ func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutput() V
 
 func (o VpnGatewayRoutePropagationOutput) ToVpnGatewayRoutePropagationOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationOutput {
 	return o
+}
+
+func (o VpnGatewayRoutePropagationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnGatewayRoutePropagation] {
+	return pulumix.Output[*VpnGatewayRoutePropagation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The id of the `ec2.RouteTable` to propagate routes into.
@@ -230,6 +257,12 @@ func (o VpnGatewayRoutePropagationArrayOutput) ToVpnGatewayRoutePropagationArray
 	return o
 }
 
+func (o VpnGatewayRoutePropagationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpnGatewayRoutePropagation] {
+	return pulumix.Output[[]*VpnGatewayRoutePropagation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpnGatewayRoutePropagationArrayOutput) Index(i pulumi.IntInput) VpnGatewayRoutePropagationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnGatewayRoutePropagation {
 		return vs[0].([]*VpnGatewayRoutePropagation)[vs[1].(int)]
@@ -248,6 +281,12 @@ func (o VpnGatewayRoutePropagationMapOutput) ToVpnGatewayRoutePropagationMapOutp
 
 func (o VpnGatewayRoutePropagationMapOutput) ToVpnGatewayRoutePropagationMapOutputWithContext(ctx context.Context) VpnGatewayRoutePropagationMapOutput {
 	return o
+}
+
+func (o VpnGatewayRoutePropagationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnGatewayRoutePropagation] {
+	return pulumix.Output[map[string]*VpnGatewayRoutePropagation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpnGatewayRoutePropagationMapOutput) MapIndex(k pulumi.StringInput) VpnGatewayRoutePropagationOutput {

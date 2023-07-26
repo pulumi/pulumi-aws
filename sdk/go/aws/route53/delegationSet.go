@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
@@ -79,6 +81,7 @@ func NewDelegationSet(ctx *pulumi.Context,
 		args = &DelegationSetArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DelegationSet
 	err := ctx.RegisterResource("aws:route53/delegationSet:DelegationSet", name, args, &resource, opts...)
 	if err != nil {
@@ -162,6 +165,12 @@ func (i *DelegationSet) ToDelegationSetOutputWithContext(ctx context.Context) De
 	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetOutput)
 }
 
+func (i *DelegationSet) ToOutput(ctx context.Context) pulumix.Output[*DelegationSet] {
+	return pulumix.Output[*DelegationSet]{
+		OutputState: i.ToDelegationSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DelegationSetArrayInput is an input type that accepts DelegationSetArray and DelegationSetArrayOutput values.
 // You can construct a concrete instance of `DelegationSetArrayInput` via:
 //
@@ -185,6 +194,12 @@ func (i DelegationSetArray) ToDelegationSetArrayOutput() DelegationSetArrayOutpu
 
 func (i DelegationSetArray) ToDelegationSetArrayOutputWithContext(ctx context.Context) DelegationSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetArrayOutput)
+}
+
+func (i DelegationSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*DelegationSet] {
+	return pulumix.Output[[]*DelegationSet]{
+		OutputState: i.ToDelegationSetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DelegationSetMapInput is an input type that accepts DelegationSetMap and DelegationSetMapOutput values.
@@ -212,6 +227,12 @@ func (i DelegationSetMap) ToDelegationSetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DelegationSetMapOutput)
 }
 
+func (i DelegationSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DelegationSet] {
+	return pulumix.Output[map[string]*DelegationSet]{
+		OutputState: i.ToDelegationSetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DelegationSetOutput struct{ *pulumi.OutputState }
 
 func (DelegationSetOutput) ElementType() reflect.Type {
@@ -224,6 +245,12 @@ func (o DelegationSetOutput) ToDelegationSetOutput() DelegationSetOutput {
 
 func (o DelegationSetOutput) ToDelegationSetOutputWithContext(ctx context.Context) DelegationSetOutput {
 	return o
+}
+
+func (o DelegationSetOutput) ToOutput(ctx context.Context) pulumix.Output[*DelegationSet] {
+	return pulumix.Output[*DelegationSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Delegation Set.
@@ -257,6 +284,12 @@ func (o DelegationSetArrayOutput) ToDelegationSetArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o DelegationSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DelegationSet] {
+	return pulumix.Output[[]*DelegationSet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DelegationSetArrayOutput) Index(i pulumi.IntInput) DelegationSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DelegationSet {
 		return vs[0].([]*DelegationSet)[vs[1].(int)]
@@ -275,6 +308,12 @@ func (o DelegationSetMapOutput) ToDelegationSetMapOutput() DelegationSetMapOutpu
 
 func (o DelegationSetMapOutput) ToDelegationSetMapOutputWithContext(ctx context.Context) DelegationSetMapOutput {
 	return o
+}
+
+func (o DelegationSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DelegationSet] {
+	return pulumix.Output[map[string]*DelegationSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DelegationSetMapOutput) MapIndex(k pulumi.StringInput) DelegationSetOutput {

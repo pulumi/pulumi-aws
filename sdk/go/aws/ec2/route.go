@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to create a routing table entry (a route) in a VPC routing table.
@@ -171,6 +173,7 @@ func NewRoute(ctx *pulumi.Context,
 	if args.RouteTableId == nil {
 		return nil, errors.New("invalid value for required argument 'RouteTableId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Route
 	err := ctx.RegisterResource("aws:ec2/route:Route", name, args, &resource, opts...)
 	if err != nil {
@@ -396,6 +399,12 @@ func (i *Route) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteOutput)
 }
 
+func (i *Route) ToOutput(ctx context.Context) pulumix.Output[*Route] {
+	return pulumix.Output[*Route]{
+		OutputState: i.ToRouteOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteArrayInput is an input type that accepts RouteArray and RouteArrayOutput values.
 // You can construct a concrete instance of `RouteArrayInput` via:
 //
@@ -419,6 +428,12 @@ func (i RouteArray) ToRouteArrayOutput() RouteArrayOutput {
 
 func (i RouteArray) ToRouteArrayOutputWithContext(ctx context.Context) RouteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteArrayOutput)
+}
+
+func (i RouteArray) ToOutput(ctx context.Context) pulumix.Output[[]*Route] {
+	return pulumix.Output[[]*Route]{
+		OutputState: i.ToRouteArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RouteMapInput is an input type that accepts RouteMap and RouteMapOutput values.
@@ -446,6 +461,12 @@ func (i RouteMap) ToRouteMapOutputWithContext(ctx context.Context) RouteMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMapOutput)
 }
 
+func (i RouteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Route] {
+	return pulumix.Output[map[string]*Route]{
+		OutputState: i.ToRouteMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteOutput struct{ *pulumi.OutputState }
 
 func (RouteOutput) ElementType() reflect.Type {
@@ -458,6 +479,12 @@ func (o RouteOutput) ToRouteOutput() RouteOutput {
 
 func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
+}
+
+func (o RouteOutput) ToOutput(ctx context.Context) pulumix.Output[*Route] {
+	return pulumix.Output[*Route]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
@@ -572,6 +599,12 @@ func (o RouteArrayOutput) ToRouteArrayOutputWithContext(ctx context.Context) Rou
 	return o
 }
 
+func (o RouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Route] {
+	return pulumix.Output[[]*Route]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteArrayOutput) Index(i pulumi.IntInput) RouteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Route {
 		return vs[0].([]*Route)[vs[1].(int)]
@@ -590,6 +623,12 @@ func (o RouteMapOutput) ToRouteMapOutput() RouteMapOutput {
 
 func (o RouteMapOutput) ToRouteMapOutputWithContext(ctx context.Context) RouteMapOutput {
 	return o
+}
+
+func (o RouteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Route] {
+	return pulumix.Output[map[string]*Route]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteMapOutput) MapIndex(k pulumi.StringInput) RouteOutput {

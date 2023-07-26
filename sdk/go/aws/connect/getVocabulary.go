@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect Vocabulary.
@@ -68,6 +70,7 @@ import (
 //
 // ```
 func LookupVocabulary(ctx *pulumi.Context, args *LookupVocabularyArgs, opts ...pulumi.InvokeOption) (*LookupVocabularyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVocabularyResult
 	err := ctx.Invoke("aws:connect/getVocabulary:getVocabulary", args, &rv, opts...)
 	if err != nil {
@@ -154,6 +157,12 @@ func (o LookupVocabularyResultOutput) ToLookupVocabularyResultOutput() LookupVoc
 
 func (o LookupVocabularyResultOutput) ToLookupVocabularyResultOutputWithContext(ctx context.Context) LookupVocabularyResultOutput {
 	return o
+}
+
+func (o LookupVocabularyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVocabularyResult] {
+	return pulumix.Output[LookupVocabularyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Vocabulary.

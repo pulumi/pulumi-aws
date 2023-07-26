@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type StateMachineLoggingConfiguration struct {
 	// Determines whether execution data is included in your log. When set to `false`, data is excluded.
@@ -49,6 +53,12 @@ func (i StateMachineLoggingConfigurationArgs) ToStateMachineLoggingConfiguration
 
 func (i StateMachineLoggingConfigurationArgs) ToStateMachineLoggingConfigurationOutputWithContext(ctx context.Context) StateMachineLoggingConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineLoggingConfigurationOutput)
+}
+
+func (i StateMachineLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineLoggingConfiguration] {
+	return pulumix.Output[StateMachineLoggingConfiguration]{
+		OutputState: i.ToStateMachineLoggingConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i StateMachineLoggingConfigurationArgs) ToStateMachineLoggingConfigurationPtrOutput() StateMachineLoggingConfigurationPtrOutput {
@@ -92,6 +102,12 @@ func (i *stateMachineLoggingConfigurationPtrType) ToStateMachineLoggingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineLoggingConfigurationPtrOutput)
 }
 
+func (i *stateMachineLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StateMachineLoggingConfiguration] {
+	return pulumix.Output[*StateMachineLoggingConfiguration]{
+		OutputState: i.ToStateMachineLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -114,6 +130,12 @@ func (o StateMachineLoggingConfigurationOutput) ToStateMachineLoggingConfigurati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineLoggingConfiguration) *StateMachineLoggingConfiguration {
 		return &v
 	}).(StateMachineLoggingConfigurationPtrOutput)
+}
+
+func (o StateMachineLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineLoggingConfiguration] {
+	return pulumix.Output[StateMachineLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Determines whether execution data is included in your log. When set to `false`, data is excluded.
@@ -143,6 +165,12 @@ func (o StateMachineLoggingConfigurationPtrOutput) ToStateMachineLoggingConfigur
 
 func (o StateMachineLoggingConfigurationPtrOutput) ToStateMachineLoggingConfigurationPtrOutputWithContext(ctx context.Context) StateMachineLoggingConfigurationPtrOutput {
 	return o
+}
+
+func (o StateMachineLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineLoggingConfiguration] {
+	return pulumix.Output[*StateMachineLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineLoggingConfigurationPtrOutput) Elem() StateMachineLoggingConfigurationOutput {
@@ -218,6 +246,12 @@ func (i StateMachineTracingConfigurationArgs) ToStateMachineTracingConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTracingConfigurationOutput)
 }
 
+func (i StateMachineTracingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StateMachineTracingConfiguration] {
+	return pulumix.Output[StateMachineTracingConfiguration]{
+		OutputState: i.ToStateMachineTracingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i StateMachineTracingConfigurationArgs) ToStateMachineTracingConfigurationPtrOutput() StateMachineTracingConfigurationPtrOutput {
 	return i.ToStateMachineTracingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -259,6 +293,12 @@ func (i *stateMachineTracingConfigurationPtrType) ToStateMachineTracingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTracingConfigurationPtrOutput)
 }
 
+func (i *stateMachineTracingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StateMachineTracingConfiguration] {
+	return pulumix.Output[*StateMachineTracingConfiguration]{
+		OutputState: i.ToStateMachineTracingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineTracingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineTracingConfigurationOutput) ElementType() reflect.Type {
@@ -283,6 +323,12 @@ func (o StateMachineTracingConfigurationOutput) ToStateMachineTracingConfigurati
 	}).(StateMachineTracingConfigurationPtrOutput)
 }
 
+func (o StateMachineTracingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineTracingConfiguration] {
+	return pulumix.Output[StateMachineTracingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
 func (o StateMachineTracingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StateMachineTracingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -300,6 +346,12 @@ func (o StateMachineTracingConfigurationPtrOutput) ToStateMachineTracingConfigur
 
 func (o StateMachineTracingConfigurationPtrOutput) ToStateMachineTracingConfigurationPtrOutputWithContext(ctx context.Context) StateMachineTracingConfigurationPtrOutput {
 	return o
+}
+
+func (o StateMachineTracingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineTracingConfiguration] {
+	return pulumix.Output[*StateMachineTracingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineTracingConfigurationPtrOutput) Elem() StateMachineTracingConfigurationOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func GetExport(ctx *pulumi.Context, args *GetExportArgs, opts ...pulumi.InvokeOption) (*GetExportResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExportResult
 	err := ctx.Invoke("aws:apigateway/getExport:getExport", args, &rv, opts...)
 	if err != nil {
@@ -121,6 +124,12 @@ func (o GetExportResultOutput) ToGetExportResultOutput() GetExportResultOutput {
 
 func (o GetExportResultOutput) ToGetExportResultOutputWithContext(ctx context.Context) GetExportResultOutput {
 	return o
+}
+
+func (o GetExportResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetExportResult] {
+	return pulumix.Output[GetExportResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetExportResultOutput) Accepts() pulumi.StringPtrOutput {

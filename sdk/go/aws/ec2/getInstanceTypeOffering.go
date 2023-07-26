@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Information about single EC2 Instance Type Offering.
@@ -50,6 +52,7 @@ import (
 //
 // ```
 func GetInstanceTypeOffering(ctx *pulumi.Context, args *GetInstanceTypeOfferingArgs, opts ...pulumi.InvokeOption) (*GetInstanceTypeOfferingResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstanceTypeOfferingResult
 	err := ctx.Invoke("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args, &rv, opts...)
 	if err != nil {
@@ -119,6 +122,12 @@ func (o GetInstanceTypeOfferingResultOutput) ToGetInstanceTypeOfferingResultOutp
 
 func (o GetInstanceTypeOfferingResultOutput) ToGetInstanceTypeOfferingResultOutputWithContext(ctx context.Context) GetInstanceTypeOfferingResultOutput {
 	return o
+}
+
+func (o GetInstanceTypeOfferingResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetInstanceTypeOfferingResult] {
+	return pulumix.Output[GetInstanceTypeOfferingResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetInstanceTypeOfferingResultOutput) Filters() GetInstanceTypeOfferingFilterArrayOutput {

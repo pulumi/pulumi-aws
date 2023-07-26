@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `getRegion` data source.
@@ -98,6 +100,7 @@ import (
 //
 // ```
 func GetRegions(ctx *pulumi.Context, args *GetRegionsArgs, opts ...pulumi.InvokeOption) (*GetRegionsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegionsResult
 	err := ctx.Invoke("aws:index/getRegions:getRegions", args, &rv, opts...)
 	if err != nil {
@@ -162,6 +165,12 @@ func (o GetRegionsResultOutput) ToGetRegionsResultOutput() GetRegionsResultOutpu
 
 func (o GetRegionsResultOutput) ToGetRegionsResultOutputWithContext(ctx context.Context) GetRegionsResultOutput {
 	return o
+}
+
+func (o GetRegionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRegionsResult] {
+	return pulumix.Output[GetRegionsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRegionsResultOutput) AllRegions() pulumi.BoolPtrOutput {

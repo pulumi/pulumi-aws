@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to accept a pending VPC Endpoint Connection accept request to VPC Endpoint Service.
@@ -95,6 +97,7 @@ func NewVpcEndpointConnectionAccepter(ctx *pulumi.Context,
 	if args.VpcEndpointServiceId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcEndpointServiceId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcEndpointConnectionAccepter
 	err := ctx.RegisterResource("aws:ec2/vpcEndpointConnectionAccepter:VpcEndpointConnectionAccepter", name, args, &resource, opts...)
 	if err != nil {
@@ -176,6 +179,12 @@ func (i *VpcEndpointConnectionAccepter) ToVpcEndpointConnectionAccepterOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointConnectionAccepterOutput)
 }
 
+func (i *VpcEndpointConnectionAccepter) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointConnectionAccepter] {
+	return pulumix.Output[*VpcEndpointConnectionAccepter]{
+		OutputState: i.ToVpcEndpointConnectionAccepterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcEndpointConnectionAccepterArrayInput is an input type that accepts VpcEndpointConnectionAccepterArray and VpcEndpointConnectionAccepterArrayOutput values.
 // You can construct a concrete instance of `VpcEndpointConnectionAccepterArrayInput` via:
 //
@@ -199,6 +208,12 @@ func (i VpcEndpointConnectionAccepterArray) ToVpcEndpointConnectionAccepterArray
 
 func (i VpcEndpointConnectionAccepterArray) ToVpcEndpointConnectionAccepterArrayOutputWithContext(ctx context.Context) VpcEndpointConnectionAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointConnectionAccepterArrayOutput)
+}
+
+func (i VpcEndpointConnectionAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointConnectionAccepter] {
+	return pulumix.Output[[]*VpcEndpointConnectionAccepter]{
+		OutputState: i.ToVpcEndpointConnectionAccepterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcEndpointConnectionAccepterMapInput is an input type that accepts VpcEndpointConnectionAccepterMap and VpcEndpointConnectionAccepterMapOutput values.
@@ -226,6 +241,12 @@ func (i VpcEndpointConnectionAccepterMap) ToVpcEndpointConnectionAccepterMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointConnectionAccepterMapOutput)
 }
 
+func (i VpcEndpointConnectionAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointConnectionAccepter] {
+	return pulumix.Output[map[string]*VpcEndpointConnectionAccepter]{
+		OutputState: i.ToVpcEndpointConnectionAccepterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcEndpointConnectionAccepterOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointConnectionAccepterOutput) ElementType() reflect.Type {
@@ -238,6 +259,12 @@ func (o VpcEndpointConnectionAccepterOutput) ToVpcEndpointConnectionAccepterOutp
 
 func (o VpcEndpointConnectionAccepterOutput) ToVpcEndpointConnectionAccepterOutputWithContext(ctx context.Context) VpcEndpointConnectionAccepterOutput {
 	return o
+}
+
+func (o VpcEndpointConnectionAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcEndpointConnectionAccepter] {
+	return pulumix.Output[*VpcEndpointConnectionAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AWS VPC Endpoint ID.
@@ -269,6 +296,12 @@ func (o VpcEndpointConnectionAccepterArrayOutput) ToVpcEndpointConnectionAccepte
 	return o
 }
 
+func (o VpcEndpointConnectionAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcEndpointConnectionAccepter] {
+	return pulumix.Output[[]*VpcEndpointConnectionAccepter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcEndpointConnectionAccepterArrayOutput) Index(i pulumi.IntInput) VpcEndpointConnectionAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcEndpointConnectionAccepter {
 		return vs[0].([]*VpcEndpointConnectionAccepter)[vs[1].(int)]
@@ -287,6 +320,12 @@ func (o VpcEndpointConnectionAccepterMapOutput) ToVpcEndpointConnectionAccepterM
 
 func (o VpcEndpointConnectionAccepterMapOutput) ToVpcEndpointConnectionAccepterMapOutputWithContext(ctx context.Context) VpcEndpointConnectionAccepterMapOutput {
 	return o
+}
+
+func (o VpcEndpointConnectionAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcEndpointConnectionAccepter] {
+	return pulumix.Output[map[string]*VpcEndpointConnectionAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcEndpointConnectionAccepterMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointConnectionAccepterOutput {

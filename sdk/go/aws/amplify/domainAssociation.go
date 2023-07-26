@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amplify Domain Association resource.
@@ -113,6 +115,7 @@ func NewDomainAssociation(ctx *pulumi.Context,
 	if args.SubDomains == nil {
 		return nil, errors.New("invalid value for required argument 'SubDomains'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DomainAssociation
 	err := ctx.RegisterResource("aws:amplify/domainAssociation:DomainAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -222,6 +225,12 @@ func (i *DomainAssociation) ToDomainAssociationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationOutput)
 }
 
+func (i *DomainAssociation) ToOutput(ctx context.Context) pulumix.Output[*DomainAssociation] {
+	return pulumix.Output[*DomainAssociation]{
+		OutputState: i.ToDomainAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainAssociationArrayInput is an input type that accepts DomainAssociationArray and DomainAssociationArrayOutput values.
 // You can construct a concrete instance of `DomainAssociationArrayInput` via:
 //
@@ -245,6 +254,12 @@ func (i DomainAssociationArray) ToDomainAssociationArrayOutput() DomainAssociati
 
 func (i DomainAssociationArray) ToDomainAssociationArrayOutputWithContext(ctx context.Context) DomainAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationArrayOutput)
+}
+
+func (i DomainAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainAssociation] {
+	return pulumix.Output[[]*DomainAssociation]{
+		OutputState: i.ToDomainAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainAssociationMapInput is an input type that accepts DomainAssociationMap and DomainAssociationMapOutput values.
@@ -272,6 +287,12 @@ func (i DomainAssociationMap) ToDomainAssociationMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationMapOutput)
 }
 
+func (i DomainAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainAssociation] {
+	return pulumix.Output[map[string]*DomainAssociation]{
+		OutputState: i.ToDomainAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainAssociationOutput struct{ *pulumi.OutputState }
 
 func (DomainAssociationOutput) ElementType() reflect.Type {
@@ -284,6 +305,12 @@ func (o DomainAssociationOutput) ToDomainAssociationOutput() DomainAssociationOu
 
 func (o DomainAssociationOutput) ToDomainAssociationOutputWithContext(ctx context.Context) DomainAssociationOutput {
 	return o
+}
+
+func (o DomainAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAssociation] {
+	return pulumix.Output[*DomainAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Unique ID for an Amplify app.
@@ -335,6 +362,12 @@ func (o DomainAssociationArrayOutput) ToDomainAssociationArrayOutputWithContext(
 	return o
 }
 
+func (o DomainAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainAssociation] {
+	return pulumix.Output[[]*DomainAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainAssociationArrayOutput) Index(i pulumi.IntInput) DomainAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainAssociation {
 		return vs[0].([]*DomainAssociation)[vs[1].(int)]
@@ -353,6 +386,12 @@ func (o DomainAssociationMapOutput) ToDomainAssociationMapOutput() DomainAssocia
 
 func (o DomainAssociationMapOutput) ToDomainAssociationMapOutputWithContext(ctx context.Context) DomainAssociationMapOutput {
 	return o
+}
+
+func (o DomainAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainAssociation] {
+	return pulumix.Output[map[string]*DomainAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainAssociationMapOutput) MapIndex(k pulumi.StringInput) DomainAssociationOutput {

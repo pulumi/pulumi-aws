@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Image Builder Image Recipe.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupImageRecipe(ctx *pulumi.Context, args *LookupImageRecipeArgs, opts ...pulumi.InvokeOption) (*LookupImageRecipeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupImageRecipeResult
 	err := ctx.Invoke("aws:imagebuilder/getImageRecipe:getImageRecipe", args, &rv, opts...)
 	if err != nil {
@@ -123,6 +126,12 @@ func (o LookupImageRecipeResultOutput) ToLookupImageRecipeResultOutput() LookupI
 
 func (o LookupImageRecipeResultOutput) ToLookupImageRecipeResultOutputWithContext(ctx context.Context) LookupImageRecipeResultOutput {
 	return o
+}
+
+func (o LookupImageRecipeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupImageRecipeResult] {
+	return pulumix.Output[LookupImageRecipeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupImageRecipeResultOutput) Arn() pulumi.StringOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information on an existing backup selection.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupSelection(ctx *pulumi.Context, args *LookupSelectionArgs, opts ...pulumi.InvokeOption) (*LookupSelectionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSelectionResult
 	err := ctx.Invoke("aws:backup/getSelection:getSelection", args, &rv, opts...)
 	if err != nil {
@@ -107,6 +110,12 @@ func (o LookupSelectionResultOutput) ToLookupSelectionResultOutput() LookupSelec
 
 func (o LookupSelectionResultOutput) ToLookupSelectionResultOutputWithContext(ctx context.Context) LookupSelectionResultOutput {
 	return o
+}
+
+func (o LookupSelectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSelectionResult] {
+	return pulumix.Output[LookupSelectionResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.

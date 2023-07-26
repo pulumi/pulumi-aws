@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `wafregional.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
@@ -61,6 +63,7 @@ import (
 //
 // ```
 func GetSubscribedRuleGroup(ctx *pulumi.Context, args *GetSubscribedRuleGroupArgs, opts ...pulumi.InvokeOption) (*GetSubscribedRuleGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSubscribedRuleGroupResult
 	err := ctx.Invoke("aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup", args, &rv, opts...)
 	if err != nil {
@@ -123,6 +126,12 @@ func (o GetSubscribedRuleGroupResultOutput) ToGetSubscribedRuleGroupResultOutput
 
 func (o GetSubscribedRuleGroupResultOutput) ToGetSubscribedRuleGroupResultOutputWithContext(ctx context.Context) GetSubscribedRuleGroupResultOutput {
 	return o
+}
+
+func (o GetSubscribedRuleGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSubscribedRuleGroupResult] {
+	return pulumix.Output[GetSubscribedRuleGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

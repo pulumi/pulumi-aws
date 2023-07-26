@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -98,6 +100,7 @@ import (
 // }
 // ```
 func GetNetworkInterfaces(ctx *pulumi.Context, args *GetNetworkInterfacesArgs, opts ...pulumi.InvokeOption) (*GetNetworkInterfacesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkInterfacesResult
 	err := ctx.Invoke("aws:ec2/getNetworkInterfaces:getNetworkInterfaces", args, &rv, opts...)
 	if err != nil {
@@ -170,6 +173,12 @@ func (o GetNetworkInterfacesResultOutput) ToGetNetworkInterfacesResultOutput() G
 
 func (o GetNetworkInterfacesResultOutput) ToGetNetworkInterfacesResultOutputWithContext(ctx context.Context) GetNetworkInterfacesResultOutput {
 	return o
+}
+
+func (o GetNetworkInterfacesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkInterfacesResult] {
+	return pulumix.Output[GetNetworkInterfacesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetNetworkInterfacesResultOutput) Filters() GetNetworkInterfacesFilterArrayOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Instance Storage Config resource. For more information see
@@ -225,6 +227,7 @@ func NewInstanceStorageConfig(ctx *pulumi.Context,
 	if args.StorageConfig == nil {
 		return nil, errors.New("invalid value for required argument 'StorageConfig'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceStorageConfig
 	err := ctx.RegisterResource("aws:connect/instanceStorageConfig:InstanceStorageConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -314,6 +317,12 @@ func (i *InstanceStorageConfig) ToInstanceStorageConfigOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigOutput)
 }
 
+func (i *InstanceStorageConfig) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfig] {
+	return pulumix.Output[*InstanceStorageConfig]{
+		OutputState: i.ToInstanceStorageConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceStorageConfigArrayInput is an input type that accepts InstanceStorageConfigArray and InstanceStorageConfigArrayOutput values.
 // You can construct a concrete instance of `InstanceStorageConfigArrayInput` via:
 //
@@ -337,6 +346,12 @@ func (i InstanceStorageConfigArray) ToInstanceStorageConfigArrayOutput() Instanc
 
 func (i InstanceStorageConfigArray) ToInstanceStorageConfigArrayOutputWithContext(ctx context.Context) InstanceStorageConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigArrayOutput)
+}
+
+func (i InstanceStorageConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceStorageConfig] {
+	return pulumix.Output[[]*InstanceStorageConfig]{
+		OutputState: i.ToInstanceStorageConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InstanceStorageConfigMapInput is an input type that accepts InstanceStorageConfigMap and InstanceStorageConfigMapOutput values.
@@ -364,6 +379,12 @@ func (i InstanceStorageConfigMap) ToInstanceStorageConfigMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStorageConfigMapOutput)
 }
 
+func (i InstanceStorageConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceStorageConfig] {
+	return pulumix.Output[map[string]*InstanceStorageConfig]{
+		OutputState: i.ToInstanceStorageConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceStorageConfigOutput struct{ *pulumi.OutputState }
 
 func (InstanceStorageConfigOutput) ElementType() reflect.Type {
@@ -376,6 +397,12 @@ func (o InstanceStorageConfigOutput) ToInstanceStorageConfigOutput() InstanceSto
 
 func (o InstanceStorageConfigOutput) ToInstanceStorageConfigOutputWithContext(ctx context.Context) InstanceStorageConfigOutput {
 	return o
+}
+
+func (o InstanceStorageConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStorageConfig] {
+	return pulumix.Output[*InstanceStorageConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
@@ -412,6 +439,12 @@ func (o InstanceStorageConfigArrayOutput) ToInstanceStorageConfigArrayOutputWith
 	return o
 }
 
+func (o InstanceStorageConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceStorageConfig] {
+	return pulumix.Output[[]*InstanceStorageConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceStorageConfigArrayOutput) Index(i pulumi.IntInput) InstanceStorageConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceStorageConfig {
 		return vs[0].([]*InstanceStorageConfig)[vs[1].(int)]
@@ -430,6 +463,12 @@ func (o InstanceStorageConfigMapOutput) ToInstanceStorageConfigMapOutput() Insta
 
 func (o InstanceStorageConfigMapOutput) ToInstanceStorageConfigMapOutputWithContext(ctx context.Context) InstanceStorageConfigMapOutput {
 	return o
+}
+
+func (o InstanceStorageConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceStorageConfig] {
+	return pulumix.Output[map[string]*InstanceStorageConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceStorageConfigMapOutput) MapIndex(k pulumi.StringInput) InstanceStorageConfigOutput {

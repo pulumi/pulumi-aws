@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a License Manager license configuration resource.
@@ -105,6 +107,7 @@ func NewLicenseConfiguration(ctx *pulumi.Context,
 	if args.LicenseCountingType == nil {
 		return nil, errors.New("invalid value for required argument 'LicenseCountingType'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LicenseConfiguration
 	err := ctx.RegisterResource("aws:licensemanager/licenseConfiguration:LicenseConfiguration", name, args, &resource, opts...)
 	if err != nil {
@@ -234,6 +237,12 @@ func (i *LicenseConfiguration) ToLicenseConfigurationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationOutput)
 }
 
+func (i *LicenseConfiguration) ToOutput(ctx context.Context) pulumix.Output[*LicenseConfiguration] {
+	return pulumix.Output[*LicenseConfiguration]{
+		OutputState: i.ToLicenseConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LicenseConfigurationArrayInput is an input type that accepts LicenseConfigurationArray and LicenseConfigurationArrayOutput values.
 // You can construct a concrete instance of `LicenseConfigurationArrayInput` via:
 //
@@ -257,6 +266,12 @@ func (i LicenseConfigurationArray) ToLicenseConfigurationArrayOutput() LicenseCo
 
 func (i LicenseConfigurationArray) ToLicenseConfigurationArrayOutputWithContext(ctx context.Context) LicenseConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationArrayOutput)
+}
+
+func (i LicenseConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LicenseConfiguration] {
+	return pulumix.Output[[]*LicenseConfiguration]{
+		OutputState: i.ToLicenseConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LicenseConfigurationMapInput is an input type that accepts LicenseConfigurationMap and LicenseConfigurationMapOutput values.
@@ -284,6 +299,12 @@ func (i LicenseConfigurationMap) ToLicenseConfigurationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationMapOutput)
 }
 
+func (i LicenseConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicenseConfiguration] {
+	return pulumix.Output[map[string]*LicenseConfiguration]{
+		OutputState: i.ToLicenseConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LicenseConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LicenseConfigurationOutput) ElementType() reflect.Type {
@@ -296,6 +317,12 @@ func (o LicenseConfigurationOutput) ToLicenseConfigurationOutput() LicenseConfig
 
 func (o LicenseConfigurationOutput) ToLicenseConfigurationOutputWithContext(ctx context.Context) LicenseConfigurationOutput {
 	return o
+}
+
+func (o LicenseConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*LicenseConfiguration] {
+	return pulumix.Output[*LicenseConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The license configuration ARN.
@@ -362,6 +389,12 @@ func (o LicenseConfigurationArrayOutput) ToLicenseConfigurationArrayOutputWithCo
 	return o
 }
 
+func (o LicenseConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LicenseConfiguration] {
+	return pulumix.Output[[]*LicenseConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LicenseConfigurationArrayOutput) Index(i pulumi.IntInput) LicenseConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LicenseConfiguration {
 		return vs[0].([]*LicenseConfiguration)[vs[1].(int)]
@@ -380,6 +413,12 @@ func (o LicenseConfigurationMapOutput) ToLicenseConfigurationMapOutput() License
 
 func (o LicenseConfigurationMapOutput) ToLicenseConfigurationMapOutputWithContext(ctx context.Context) LicenseConfigurationMapOutput {
 	return o
+}
+
+func (o LicenseConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicenseConfiguration] {
+	return pulumix.Output[map[string]*LicenseConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LicenseConfigurationMapOutput) MapIndex(k pulumi.StringInput) LicenseConfigurationOutput {

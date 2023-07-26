@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway.
@@ -91,6 +93,7 @@ func NewTransitGateway(ctx *pulumi.Context,
 		args = &TransitGatewayArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGateway
 	err := ctx.RegisterResource("aws:ec2transitgateway/transitGateway:TransitGateway", name, args, &resource, opts...)
 	if err != nil {
@@ -260,6 +263,12 @@ func (i *TransitGateway) ToTransitGatewayOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayOutput)
 }
 
+func (i *TransitGateway) ToOutput(ctx context.Context) pulumix.Output[*TransitGateway] {
+	return pulumix.Output[*TransitGateway]{
+		OutputState: i.ToTransitGatewayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TransitGatewayArrayInput is an input type that accepts TransitGatewayArray and TransitGatewayArrayOutput values.
 // You can construct a concrete instance of `TransitGatewayArrayInput` via:
 //
@@ -283,6 +292,12 @@ func (i TransitGatewayArray) ToTransitGatewayArrayOutput() TransitGatewayArrayOu
 
 func (i TransitGatewayArray) ToTransitGatewayArrayOutputWithContext(ctx context.Context) TransitGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayArrayOutput)
+}
+
+func (i TransitGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGateway] {
+	return pulumix.Output[[]*TransitGateway]{
+		OutputState: i.ToTransitGatewayArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TransitGatewayMapInput is an input type that accepts TransitGatewayMap and TransitGatewayMapOutput values.
@@ -310,6 +325,12 @@ func (i TransitGatewayMap) ToTransitGatewayMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayMapOutput)
 }
 
+func (i TransitGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGateway] {
+	return pulumix.Output[map[string]*TransitGateway]{
+		OutputState: i.ToTransitGatewayMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayOutput) ElementType() reflect.Type {
@@ -322,6 +343,12 @@ func (o TransitGatewayOutput) ToTransitGatewayOutput() TransitGatewayOutput {
 
 func (o TransitGatewayOutput) ToTransitGatewayOutputWithContext(ctx context.Context) TransitGatewayOutput {
 	return o
+}
+
+func (o TransitGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGateway] {
+	return pulumix.Output[*TransitGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
@@ -415,6 +442,12 @@ func (o TransitGatewayArrayOutput) ToTransitGatewayArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o TransitGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGateway] {
+	return pulumix.Output[[]*TransitGateway]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransitGatewayArrayOutput) Index(i pulumi.IntInput) TransitGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TransitGateway {
 		return vs[0].([]*TransitGateway)[vs[1].(int)]
@@ -433,6 +466,12 @@ func (o TransitGatewayMapOutput) ToTransitGatewayMapOutput() TransitGatewayMapOu
 
 func (o TransitGatewayMapOutput) ToTransitGatewayMapOutputWithContext(ctx context.Context) TransitGatewayMapOutput {
 	return o
+}
+
+func (o TransitGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGateway] {
+	return pulumix.Output[map[string]*TransitGateway]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayMapOutput) MapIndex(k pulumi.StringInput) TransitGatewayOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the custom domain name for use with AWS API Gateway.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupDomainName(ctx *pulumi.Context, args *LookupDomainNameArgs, opts ...pulumi.InvokeOption) (*LookupDomainNameResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDomainNameResult
 	err := ctx.Invoke("aws:apigateway/getDomainName:getDomainName", args, &rv, opts...)
 	if err != nil {
@@ -125,6 +128,12 @@ func (o LookupDomainNameResultOutput) ToLookupDomainNameResultOutput() LookupDom
 
 func (o LookupDomainNameResultOutput) ToLookupDomainNameResultOutputWithContext(ctx context.Context) LookupDomainNameResultOutput {
 	return o
+}
+
+func (o LookupDomainNameResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDomainNameResult] {
+	return pulumix.Output[LookupDomainNameResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the found custom domain name.

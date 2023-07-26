@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
@@ -59,6 +61,7 @@ func NewLifecyclePolicy(ctx *pulumi.Context,
 	if args.PolicyDetails == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyDetails'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LifecyclePolicy
 	err := ctx.RegisterResource("aws:dlm/lifecyclePolicy:LifecyclePolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -168,6 +171,12 @@ func (i *LifecyclePolicy) ToLifecyclePolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyOutput)
 }
 
+func (i *LifecyclePolicy) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicy] {
+	return pulumix.Output[*LifecyclePolicy]{
+		OutputState: i.ToLifecyclePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecyclePolicyArrayInput is an input type that accepts LifecyclePolicyArray and LifecyclePolicyArrayOutput values.
 // You can construct a concrete instance of `LifecyclePolicyArrayInput` via:
 //
@@ -191,6 +200,12 @@ func (i LifecyclePolicyArray) ToLifecyclePolicyArrayOutput() LifecyclePolicyArra
 
 func (i LifecyclePolicyArray) ToLifecyclePolicyArrayOutputWithContext(ctx context.Context) LifecyclePolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArrayOutput)
+}
+
+func (i LifecyclePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*LifecyclePolicy] {
+	return pulumix.Output[[]*LifecyclePolicy]{
+		OutputState: i.ToLifecyclePolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LifecyclePolicyMapInput is an input type that accepts LifecyclePolicyMap and LifecyclePolicyMapOutput values.
@@ -218,6 +233,12 @@ func (i LifecyclePolicyMap) ToLifecyclePolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyMapOutput)
 }
 
+func (i LifecyclePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LifecyclePolicy] {
+	return pulumix.Output[map[string]*LifecyclePolicy]{
+		OutputState: i.ToLifecyclePolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyOutput) ElementType() reflect.Type {
@@ -230,6 +251,12 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutput() LifecyclePolicyOutput {
 
 func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Context) LifecyclePolicyOutput {
 	return o
+}
+
+func (o LifecyclePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicy] {
+	return pulumix.Output[*LifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
@@ -281,6 +308,12 @@ func (o LifecyclePolicyArrayOutput) ToLifecyclePolicyArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o LifecyclePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LifecyclePolicy] {
+	return pulumix.Output[[]*LifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecyclePolicyArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LifecyclePolicy {
 		return vs[0].([]*LifecyclePolicy)[vs[1].(int)]
@@ -299,6 +332,12 @@ func (o LifecyclePolicyMapOutput) ToLifecyclePolicyMapOutput() LifecyclePolicyMa
 
 func (o LifecyclePolicyMapOutput) ToLifecyclePolicyMapOutputWithContext(ctx context.Context) LifecyclePolicyMapOutput {
 	return o
+}
+
+func (o LifecyclePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LifecyclePolicy] {
+	return pulumix.Output[map[string]*LifecyclePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecyclePolicyMapOutput) MapIndex(k pulumi.StringInput) LifecyclePolicyOutput {

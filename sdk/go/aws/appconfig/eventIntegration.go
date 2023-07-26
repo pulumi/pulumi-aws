@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon AppIntegrations Event Integration resource.
@@ -87,6 +89,7 @@ func NewEventIntegration(ctx *pulumi.Context,
 	if args.EventbridgeBus == nil {
 		return nil, errors.New("invalid value for required argument 'EventbridgeBus'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventIntegration
 	err := ctx.RegisterResource("aws:appconfig/eventIntegration:EventIntegration", name, args, &resource, opts...)
 	if err != nil {
@@ -196,6 +199,12 @@ func (i *EventIntegration) ToEventIntegrationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationOutput)
 }
 
+func (i *EventIntegration) ToOutput(ctx context.Context) pulumix.Output[*EventIntegration] {
+	return pulumix.Output[*EventIntegration]{
+		OutputState: i.ToEventIntegrationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventIntegrationArrayInput is an input type that accepts EventIntegrationArray and EventIntegrationArrayOutput values.
 // You can construct a concrete instance of `EventIntegrationArrayInput` via:
 //
@@ -219,6 +228,12 @@ func (i EventIntegrationArray) ToEventIntegrationArrayOutput() EventIntegrationA
 
 func (i EventIntegrationArray) ToEventIntegrationArrayOutputWithContext(ctx context.Context) EventIntegrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationArrayOutput)
+}
+
+func (i EventIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventIntegration] {
+	return pulumix.Output[[]*EventIntegration]{
+		OutputState: i.ToEventIntegrationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventIntegrationMapInput is an input type that accepts EventIntegrationMap and EventIntegrationMapOutput values.
@@ -246,6 +261,12 @@ func (i EventIntegrationMap) ToEventIntegrationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationMapOutput)
 }
 
+func (i EventIntegrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventIntegration] {
+	return pulumix.Output[map[string]*EventIntegration]{
+		OutputState: i.ToEventIntegrationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventIntegrationOutput struct{ *pulumi.OutputState }
 
 func (EventIntegrationOutput) ElementType() reflect.Type {
@@ -258,6 +279,12 @@ func (o EventIntegrationOutput) ToEventIntegrationOutput() EventIntegrationOutpu
 
 func (o EventIntegrationOutput) ToEventIntegrationOutputWithContext(ctx context.Context) EventIntegrationOutput {
 	return o
+}
+
+func (o EventIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[*EventIntegration] {
+	return pulumix.Output[*EventIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Event Integration.
@@ -309,6 +336,12 @@ func (o EventIntegrationArrayOutput) ToEventIntegrationArrayOutputWithContext(ct
 	return o
 }
 
+func (o EventIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventIntegration] {
+	return pulumix.Output[[]*EventIntegration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventIntegrationArrayOutput) Index(i pulumi.IntInput) EventIntegrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventIntegration {
 		return vs[0].([]*EventIntegration)[vs[1].(int)]
@@ -327,6 +360,12 @@ func (o EventIntegrationMapOutput) ToEventIntegrationMapOutput() EventIntegratio
 
 func (o EventIntegrationMapOutput) ToEventIntegrationMapOutputWithContext(ctx context.Context) EventIntegrationMapOutput {
 	return o
+}
+
+func (o EventIntegrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventIntegration] {
+	return pulumix.Output[map[string]*EventIntegration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventIntegrationMapOutput) MapIndex(k pulumi.StringInput) EventIntegrationOutput {

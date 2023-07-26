@@ -7,13 +7,16 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource can be useful for getting back a list of VPC Ids for a region.
 //
 // The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
 func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption) (*GetVpcsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcsResult
 	err := ctx.Invoke("aws:ec2/getVpcs:getVpcs", args, &rv, opts...)
 	if err != nil {
@@ -86,6 +89,12 @@ func (o GetVpcsResultOutput) ToGetVpcsResultOutput() GetVpcsResultOutput {
 
 func (o GetVpcsResultOutput) ToGetVpcsResultOutputWithContext(ctx context.Context) GetVpcsResultOutput {
 	return o
+}
+
+func (o GetVpcsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVpcsResult] {
+	return pulumix.Output[GetVpcsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetVpcsResultOutput) Filters() GetVpcsFilterArrayOutput {

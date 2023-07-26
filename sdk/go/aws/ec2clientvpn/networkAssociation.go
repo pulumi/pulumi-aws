@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides network associations for AWS Client VPN endpoints. For more information on usage, please see the
@@ -117,6 +119,7 @@ func NewNetworkAssociation(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkAssociation
 	err := ctx.RegisterResource("aws:ec2clientvpn/networkAssociation:NetworkAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -226,6 +229,12 @@ func (i *NetworkAssociation) ToNetworkAssociationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAssociationOutput)
 }
 
+func (i *NetworkAssociation) ToOutput(ctx context.Context) pulumix.Output[*NetworkAssociation] {
+	return pulumix.Output[*NetworkAssociation]{
+		OutputState: i.ToNetworkAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetworkAssociationArrayInput is an input type that accepts NetworkAssociationArray and NetworkAssociationArrayOutput values.
 // You can construct a concrete instance of `NetworkAssociationArrayInput` via:
 //
@@ -249,6 +258,12 @@ func (i NetworkAssociationArray) ToNetworkAssociationArrayOutput() NetworkAssoci
 
 func (i NetworkAssociationArray) ToNetworkAssociationArrayOutputWithContext(ctx context.Context) NetworkAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAssociationArrayOutput)
+}
+
+func (i NetworkAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkAssociation] {
+	return pulumix.Output[[]*NetworkAssociation]{
+		OutputState: i.ToNetworkAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetworkAssociationMapInput is an input type that accepts NetworkAssociationMap and NetworkAssociationMapOutput values.
@@ -276,6 +291,12 @@ func (i NetworkAssociationMap) ToNetworkAssociationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAssociationMapOutput)
 }
 
+func (i NetworkAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkAssociation] {
+	return pulumix.Output[map[string]*NetworkAssociation]{
+		OutputState: i.ToNetworkAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetworkAssociationOutput struct{ *pulumi.OutputState }
 
 func (NetworkAssociationOutput) ElementType() reflect.Type {
@@ -288,6 +309,12 @@ func (o NetworkAssociationOutput) ToNetworkAssociationOutput() NetworkAssociatio
 
 func (o NetworkAssociationOutput) ToNetworkAssociationOutputWithContext(ctx context.Context) NetworkAssociationOutput {
 	return o
+}
+
+func (o NetworkAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAssociation] {
+	return pulumix.Output[*NetworkAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The unique ID of the target network association.
@@ -338,6 +365,12 @@ func (o NetworkAssociationArrayOutput) ToNetworkAssociationArrayOutputWithContex
 	return o
 }
 
+func (o NetworkAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkAssociation] {
+	return pulumix.Output[[]*NetworkAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetworkAssociationArrayOutput) Index(i pulumi.IntInput) NetworkAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkAssociation {
 		return vs[0].([]*NetworkAssociation)[vs[1].(int)]
@@ -356,6 +389,12 @@ func (o NetworkAssociationMapOutput) ToNetworkAssociationMapOutput() NetworkAsso
 
 func (o NetworkAssociationMapOutput) ToNetworkAssociationMapOutputWithContext(ctx context.Context) NetworkAssociationMapOutput {
 	return o
+}
+
+func (o NetworkAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkAssociation] {
+	return pulumix.Output[map[string]*NetworkAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetworkAssociationMapOutput) MapIndex(k pulumi.StringInput) NetworkAssociationOutput {

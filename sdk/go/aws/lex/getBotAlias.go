@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Lex Bot Alias.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupBotAlias(ctx *pulumi.Context, args *LookupBotAliasArgs, opts ...pulumi.InvokeOption) (*LookupBotAliasResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotAliasResult
 	err := ctx.Invoke("aws:lex/getBotAlias:getBotAlias", args, &rv, opts...)
 	if err != nil {
@@ -115,6 +118,12 @@ func (o LookupBotAliasResultOutput) ToLookupBotAliasResultOutput() LookupBotAlia
 
 func (o LookupBotAliasResultOutput) ToLookupBotAliasResultOutputWithContext(ctx context.Context) LookupBotAliasResultOutput {
 	return o
+}
+
+func (o LookupBotAliasResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBotAliasResult] {
+	return pulumix.Output[LookupBotAliasResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the bot alias.

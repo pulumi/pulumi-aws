@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
@@ -42,6 +44,7 @@ import (
 //
 // ```
 func GetOrganizationalUnitChildAccounts(ctx *pulumi.Context, args *GetOrganizationalUnitChildAccountsArgs, opts ...pulumi.InvokeOption) (*GetOrganizationalUnitChildAccountsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrganizationalUnitChildAccountsResult
 	err := ctx.Invoke("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args, &rv, opts...)
 	if err != nil {
@@ -101,6 +104,12 @@ func (o GetOrganizationalUnitChildAccountsResultOutput) ToGetOrganizationalUnitC
 
 func (o GetOrganizationalUnitChildAccountsResultOutput) ToGetOrganizationalUnitChildAccountsResultOutputWithContext(ctx context.Context) GetOrganizationalUnitChildAccountsResultOutput {
 	return o
+}
+
+func (o GetOrganizationalUnitChildAccountsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetOrganizationalUnitChildAccountsResult] {
+	return pulumix.Output[GetOrganizationalUnitChildAccountsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of child accounts, which have the following attributes:

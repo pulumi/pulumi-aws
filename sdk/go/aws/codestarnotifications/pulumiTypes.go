@@ -7,8 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type NotificationRuleTarget struct {
 	// The ARN of notification rule target. For example, a SNS Topic ARN.
@@ -51,6 +55,12 @@ func (i NotificationRuleTargetArgs) ToNotificationRuleTargetOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleTargetOutput)
 }
 
+func (i NotificationRuleTargetArgs) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleTarget] {
+	return pulumix.Output[NotificationRuleTarget]{
+		OutputState: i.ToNotificationRuleTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NotificationRuleTargetArrayInput is an input type that accepts NotificationRuleTargetArray and NotificationRuleTargetArrayOutput values.
 // You can construct a concrete instance of `NotificationRuleTargetArrayInput` via:
 //
@@ -76,6 +86,12 @@ func (i NotificationRuleTargetArray) ToNotificationRuleTargetArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleTargetArrayOutput)
 }
 
+func (i NotificationRuleTargetArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleTarget] {
+	return pulumix.Output[[]NotificationRuleTarget]{
+		OutputState: i.ToNotificationRuleTargetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotificationRuleTargetOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleTargetOutput) ElementType() reflect.Type {
@@ -88,6 +104,12 @@ func (o NotificationRuleTargetOutput) ToNotificationRuleTargetOutput() Notificat
 
 func (o NotificationRuleTargetOutput) ToNotificationRuleTargetOutputWithContext(ctx context.Context) NotificationRuleTargetOutput {
 	return o
+}
+
+func (o NotificationRuleTargetOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleTarget] {
+	return pulumix.Output[NotificationRuleTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of notification rule target. For example, a SNS Topic ARN.
@@ -117,6 +139,12 @@ func (o NotificationRuleTargetArrayOutput) ToNotificationRuleTargetArrayOutput()
 
 func (o NotificationRuleTargetArrayOutput) ToNotificationRuleTargetArrayOutputWithContext(ctx context.Context) NotificationRuleTargetArrayOutput {
 	return o
+}
+
+func (o NotificationRuleTargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationRuleTarget] {
+	return pulumix.Output[[]NotificationRuleTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotificationRuleTargetArrayOutput) Index(i pulumi.IntInput) NotificationRuleTargetOutput {

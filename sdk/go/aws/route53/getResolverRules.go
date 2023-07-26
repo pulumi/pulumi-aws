@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.getResolverRules` provides details about a set of Route53 Resolver rules.
@@ -94,6 +96,7 @@ import (
 //
 // ```
 func GetResolverRules(ctx *pulumi.Context, args *GetResolverRulesArgs, opts ...pulumi.InvokeOption) (*GetResolverRulesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResolverRulesResult
 	err := ctx.Invoke("aws:route53/getResolverRules:getResolverRules", args, &rv, opts...)
 	if err != nil {
@@ -177,6 +180,12 @@ func (o GetResolverRulesResultOutput) ToGetResolverRulesResultOutput() GetResolv
 
 func (o GetResolverRulesResultOutput) ToGetResolverRulesResultOutputWithContext(ctx context.Context) GetResolverRulesResultOutput {
 	return o
+}
+
+func (o GetResolverRulesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetResolverRulesResult] {
+	return pulumix.Output[GetResolverRulesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

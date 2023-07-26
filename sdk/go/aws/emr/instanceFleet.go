@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic MapReduce Cluster Instance Fleet configuration.
@@ -124,6 +126,7 @@ func NewInstanceFleet(ctx *pulumi.Context,
 	if args.ClusterId == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InstanceFleet
 	err := ctx.RegisterResource("aws:emr/instanceFleet:InstanceFleet", name, args, &resource, opts...)
 	if err != nil {
@@ -245,6 +248,12 @@ func (i *InstanceFleet) ToInstanceFleetOutputWithContext(ctx context.Context) In
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetOutput)
 }
 
+func (i *InstanceFleet) ToOutput(ctx context.Context) pulumix.Output[*InstanceFleet] {
+	return pulumix.Output[*InstanceFleet]{
+		OutputState: i.ToInstanceFleetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceFleetArrayInput is an input type that accepts InstanceFleetArray and InstanceFleetArrayOutput values.
 // You can construct a concrete instance of `InstanceFleetArrayInput` via:
 //
@@ -268,6 +277,12 @@ func (i InstanceFleetArray) ToInstanceFleetArrayOutput() InstanceFleetArrayOutpu
 
 func (i InstanceFleetArray) ToInstanceFleetArrayOutputWithContext(ctx context.Context) InstanceFleetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetArrayOutput)
+}
+
+func (i InstanceFleetArray) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceFleet] {
+	return pulumix.Output[[]*InstanceFleet]{
+		OutputState: i.ToInstanceFleetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InstanceFleetMapInput is an input type that accepts InstanceFleetMap and InstanceFleetMapOutput values.
@@ -295,6 +310,12 @@ func (i InstanceFleetMap) ToInstanceFleetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetMapOutput)
 }
 
+func (i InstanceFleetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceFleet] {
+	return pulumix.Output[map[string]*InstanceFleet]{
+		OutputState: i.ToInstanceFleetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceFleetOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetOutput) ElementType() reflect.Type {
@@ -307,6 +328,12 @@ func (o InstanceFleetOutput) ToInstanceFleetOutput() InstanceFleetOutput {
 
 func (o InstanceFleetOutput) ToInstanceFleetOutputWithContext(ctx context.Context) InstanceFleetOutput {
 	return o
+}
+
+func (o InstanceFleetOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceFleet] {
+	return pulumix.Output[*InstanceFleet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
@@ -365,6 +392,12 @@ func (o InstanceFleetArrayOutput) ToInstanceFleetArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o InstanceFleetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InstanceFleet] {
+	return pulumix.Output[[]*InstanceFleet]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceFleetArrayOutput) Index(i pulumi.IntInput) InstanceFleetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceFleet {
 		return vs[0].([]*InstanceFleet)[vs[1].(int)]
@@ -383,6 +416,12 @@ func (o InstanceFleetMapOutput) ToInstanceFleetMapOutput() InstanceFleetMapOutpu
 
 func (o InstanceFleetMapOutput) ToInstanceFleetMapOutputWithContext(ctx context.Context) InstanceFleetMapOutput {
 	return o
+}
+
+func (o InstanceFleetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InstanceFleet] {
+	return pulumix.Output[map[string]*InstanceFleet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceFleetMapOutput) MapIndex(k pulumi.StringInput) InstanceFleetOutput {

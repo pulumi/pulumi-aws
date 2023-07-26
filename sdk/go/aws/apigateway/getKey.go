@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the name and value of a pre-existing API Key, for
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetKey(ctx *pulumi.Context, args *GetKeyArgs, opts ...pulumi.InvokeOption) (*GetKeyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetKeyResult
 	err := ctx.Invoke("aws:apigateway/getKey:getKey", args, &rv, opts...)
 	if err != nil {
@@ -113,6 +116,12 @@ func (o GetKeyResultOutput) ToGetKeyResultOutput() GetKeyResultOutput {
 
 func (o GetKeyResultOutput) ToGetKeyResultOutputWithContext(ctx context.Context) GetKeyResultOutput {
 	return o
+}
+
+func (o GetKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetKeyResult] {
+	return pulumix.Output[GetKeyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Date and time when the API Key was created.

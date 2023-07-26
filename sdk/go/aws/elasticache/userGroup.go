@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an ElastiCache user group resource.
@@ -96,6 +98,7 @@ func NewUserGroup(ctx *pulumi.Context,
 	if args.UserGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'UserGroupId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource UserGroup
 	err := ctx.RegisterResource("aws:elasticache/userGroup:UserGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -205,6 +208,12 @@ func (i *UserGroup) ToUserGroupOutputWithContext(ctx context.Context) UserGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupOutput)
 }
 
+func (i *UserGroup) ToOutput(ctx context.Context) pulumix.Output[*UserGroup] {
+	return pulumix.Output[*UserGroup]{
+		OutputState: i.ToUserGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserGroupArrayInput is an input type that accepts UserGroupArray and UserGroupArrayOutput values.
 // You can construct a concrete instance of `UserGroupArrayInput` via:
 //
@@ -228,6 +237,12 @@ func (i UserGroupArray) ToUserGroupArrayOutput() UserGroupArrayOutput {
 
 func (i UserGroupArray) ToUserGroupArrayOutputWithContext(ctx context.Context) UserGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupArrayOutput)
+}
+
+func (i UserGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserGroup] {
+	return pulumix.Output[[]*UserGroup]{
+		OutputState: i.ToUserGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserGroupMapInput is an input type that accepts UserGroupMap and UserGroupMapOutput values.
@@ -255,6 +270,12 @@ func (i UserGroupMap) ToUserGroupMapOutputWithContext(ctx context.Context) UserG
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupMapOutput)
 }
 
+func (i UserGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserGroup] {
+	return pulumix.Output[map[string]*UserGroup]{
+		OutputState: i.ToUserGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserGroupOutput struct{ *pulumi.OutputState }
 
 func (UserGroupOutput) ElementType() reflect.Type {
@@ -267,6 +288,12 @@ func (o UserGroupOutput) ToUserGroupOutput() UserGroupOutput {
 
 func (o UserGroupOutput) ToUserGroupOutputWithContext(ctx context.Context) UserGroupOutput {
 	return o
+}
+
+func (o UserGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*UserGroup] {
+	return pulumix.Output[*UserGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN that identifies the user group.
@@ -315,6 +342,12 @@ func (o UserGroupArrayOutput) ToUserGroupArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o UserGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserGroup] {
+	return pulumix.Output[[]*UserGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserGroupArrayOutput) Index(i pulumi.IntInput) UserGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserGroup {
 		return vs[0].([]*UserGroup)[vs[1].(int)]
@@ -333,6 +366,12 @@ func (o UserGroupMapOutput) ToUserGroupMapOutput() UserGroupMapOutput {
 
 func (o UserGroupMapOutput) ToUserGroupMapOutputWithContext(ctx context.Context) UserGroupMapOutput {
 	return o
+}
+
+func (o UserGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserGroup] {
+	return pulumix.Output[map[string]*UserGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserGroupMapOutput) MapIndex(k pulumi.StringInput) UserGroupOutput {

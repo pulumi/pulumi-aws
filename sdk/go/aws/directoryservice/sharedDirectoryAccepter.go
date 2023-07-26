@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Accepts a shared directory in a consumer account.
@@ -85,6 +87,7 @@ func NewSharedDirectoryAccepter(ctx *pulumi.Context,
 	if args.SharedDirectoryId == nil {
 		return nil, errors.New("invalid value for required argument 'SharedDirectoryId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SharedDirectoryAccepter
 	err := ctx.RegisterResource("aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter", name, args, &resource, opts...)
 	if err != nil {
@@ -170,6 +173,12 @@ func (i *SharedDirectoryAccepter) ToSharedDirectoryAccepterOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryAccepterOutput)
 }
 
+func (i *SharedDirectoryAccepter) ToOutput(ctx context.Context) pulumix.Output[*SharedDirectoryAccepter] {
+	return pulumix.Output[*SharedDirectoryAccepter]{
+		OutputState: i.ToSharedDirectoryAccepterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SharedDirectoryAccepterArrayInput is an input type that accepts SharedDirectoryAccepterArray and SharedDirectoryAccepterArrayOutput values.
 // You can construct a concrete instance of `SharedDirectoryAccepterArrayInput` via:
 //
@@ -193,6 +202,12 @@ func (i SharedDirectoryAccepterArray) ToSharedDirectoryAccepterArrayOutput() Sha
 
 func (i SharedDirectoryAccepterArray) ToSharedDirectoryAccepterArrayOutputWithContext(ctx context.Context) SharedDirectoryAccepterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryAccepterArrayOutput)
+}
+
+func (i SharedDirectoryAccepterArray) ToOutput(ctx context.Context) pulumix.Output[[]*SharedDirectoryAccepter] {
+	return pulumix.Output[[]*SharedDirectoryAccepter]{
+		OutputState: i.ToSharedDirectoryAccepterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SharedDirectoryAccepterMapInput is an input type that accepts SharedDirectoryAccepterMap and SharedDirectoryAccepterMapOutput values.
@@ -220,6 +235,12 @@ func (i SharedDirectoryAccepterMap) ToSharedDirectoryAccepterMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryAccepterMapOutput)
 }
 
+func (i SharedDirectoryAccepterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedDirectoryAccepter] {
+	return pulumix.Output[map[string]*SharedDirectoryAccepter]{
+		OutputState: i.ToSharedDirectoryAccepterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SharedDirectoryAccepterOutput struct{ *pulumi.OutputState }
 
 func (SharedDirectoryAccepterOutput) ElementType() reflect.Type {
@@ -232,6 +253,12 @@ func (o SharedDirectoryAccepterOutput) ToSharedDirectoryAccepterOutput() SharedD
 
 func (o SharedDirectoryAccepterOutput) ToSharedDirectoryAccepterOutputWithContext(ctx context.Context) SharedDirectoryAccepterOutput {
 	return o
+}
+
+func (o SharedDirectoryAccepterOutput) ToOutput(ctx context.Context) pulumix.Output[*SharedDirectoryAccepter] {
+	return pulumix.Output[*SharedDirectoryAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
@@ -273,6 +300,12 @@ func (o SharedDirectoryAccepterArrayOutput) ToSharedDirectoryAccepterArrayOutput
 	return o
 }
 
+func (o SharedDirectoryAccepterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SharedDirectoryAccepter] {
+	return pulumix.Output[[]*SharedDirectoryAccepter]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SharedDirectoryAccepterArrayOutput) Index(i pulumi.IntInput) SharedDirectoryAccepterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SharedDirectoryAccepter {
 		return vs[0].([]*SharedDirectoryAccepter)[vs[1].(int)]
@@ -291,6 +324,12 @@ func (o SharedDirectoryAccepterMapOutput) ToSharedDirectoryAccepterMapOutput() S
 
 func (o SharedDirectoryAccepterMapOutput) ToSharedDirectoryAccepterMapOutputWithContext(ctx context.Context) SharedDirectoryAccepterMapOutput {
 	return o
+}
+
+func (o SharedDirectoryAccepterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedDirectoryAccepter] {
+	return pulumix.Output[map[string]*SharedDirectoryAccepter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SharedDirectoryAccepterMapOutput) MapIndex(k pulumi.StringInput) SharedDirectoryAccepterOutput {

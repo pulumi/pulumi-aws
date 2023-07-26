@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS DMS (Database Migration) Replication Subnet Group.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func LookupReplicationSubnetGroup(ctx *pulumi.Context, args *LookupReplicationSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupReplicationSubnetGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationSubnetGroupResult
 	err := ctx.Invoke("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args, &rv, opts...)
 	if err != nil {
@@ -107,6 +110,12 @@ func (o LookupReplicationSubnetGroupResultOutput) ToLookupReplicationSubnetGroup
 
 func (o LookupReplicationSubnetGroupResultOutput) ToLookupReplicationSubnetGroupResultOutputWithContext(ctx context.Context) LookupReplicationSubnetGroupResultOutput {
 	return o
+}
+
+func (o LookupReplicationSubnetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationSubnetGroupResult] {
+	return pulumix.Output[LookupReplicationSubnetGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

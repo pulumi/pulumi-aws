@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific CE Tags.
@@ -41,6 +43,7 @@ import (
 //
 // ```
 func GetTags(ctx *pulumi.Context, args *GetTagsArgs, opts ...pulumi.InvokeOption) (*GetTagsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTagsResult
 	err := ctx.Invoke("aws:costexplorer/getTags:getTags", args, &rv, opts...)
 	if err != nil {
@@ -124,6 +127,12 @@ func (o GetTagsResultOutput) ToGetTagsResultOutput() GetTagsResultOutput {
 
 func (o GetTagsResultOutput) ToGetTagsResultOutputWithContext(ctx context.Context) GetTagsResultOutput {
 	return o
+}
+
+func (o GetTagsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTagsResult] {
+	return pulumix.Output[GetTagsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTagsResultOutput) Filter() GetTagsFilterPtrOutput {

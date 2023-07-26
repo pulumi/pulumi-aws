@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** This resource interacts with [Amazon Macie Classic](https://docs.aws.amazon.com/macie/latest/userguide/what-is-macie.html). Macie Classic cannot be activated in new accounts. See the [FAQ](https://aws.amazon.com/macie/classic-faqs/) for more details.
@@ -59,6 +61,7 @@ func NewMemberAccountAssociation(ctx *pulumi.Context,
 	if args.MemberAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'MemberAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MemberAccountAssociation
 	err := ctx.RegisterResource("aws:macie/memberAccountAssociation:MemberAccountAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -128,6 +131,12 @@ func (i *MemberAccountAssociation) ToMemberAccountAssociationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(MemberAccountAssociationOutput)
 }
 
+func (i *MemberAccountAssociation) ToOutput(ctx context.Context) pulumix.Output[*MemberAccountAssociation] {
+	return pulumix.Output[*MemberAccountAssociation]{
+		OutputState: i.ToMemberAccountAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MemberAccountAssociationArrayInput is an input type that accepts MemberAccountAssociationArray and MemberAccountAssociationArrayOutput values.
 // You can construct a concrete instance of `MemberAccountAssociationArrayInput` via:
 //
@@ -151,6 +160,12 @@ func (i MemberAccountAssociationArray) ToMemberAccountAssociationArrayOutput() M
 
 func (i MemberAccountAssociationArray) ToMemberAccountAssociationArrayOutputWithContext(ctx context.Context) MemberAccountAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MemberAccountAssociationArrayOutput)
+}
+
+func (i MemberAccountAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*MemberAccountAssociation] {
+	return pulumix.Output[[]*MemberAccountAssociation]{
+		OutputState: i.ToMemberAccountAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MemberAccountAssociationMapInput is an input type that accepts MemberAccountAssociationMap and MemberAccountAssociationMapOutput values.
@@ -178,6 +193,12 @@ func (i MemberAccountAssociationMap) ToMemberAccountAssociationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(MemberAccountAssociationMapOutput)
 }
 
+func (i MemberAccountAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MemberAccountAssociation] {
+	return pulumix.Output[map[string]*MemberAccountAssociation]{
+		OutputState: i.ToMemberAccountAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MemberAccountAssociationOutput struct{ *pulumi.OutputState }
 
 func (MemberAccountAssociationOutput) ElementType() reflect.Type {
@@ -190,6 +211,12 @@ func (o MemberAccountAssociationOutput) ToMemberAccountAssociationOutput() Membe
 
 func (o MemberAccountAssociationOutput) ToMemberAccountAssociationOutputWithContext(ctx context.Context) MemberAccountAssociationOutput {
 	return o
+}
+
+func (o MemberAccountAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*MemberAccountAssociation] {
+	return pulumix.Output[*MemberAccountAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the AWS account that you want to associate with Amazon Macie as a member account.
@@ -211,6 +238,12 @@ func (o MemberAccountAssociationArrayOutput) ToMemberAccountAssociationArrayOutp
 	return o
 }
 
+func (o MemberAccountAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MemberAccountAssociation] {
+	return pulumix.Output[[]*MemberAccountAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MemberAccountAssociationArrayOutput) Index(i pulumi.IntInput) MemberAccountAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MemberAccountAssociation {
 		return vs[0].([]*MemberAccountAssociation)[vs[1].(int)]
@@ -229,6 +262,12 @@ func (o MemberAccountAssociationMapOutput) ToMemberAccountAssociationMapOutput()
 
 func (o MemberAccountAssociationMapOutput) ToMemberAccountAssociationMapOutputWithContext(ctx context.Context) MemberAccountAssociationMapOutput {
 	return o
+}
+
+func (o MemberAccountAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MemberAccountAssociation] {
+	return pulumix.Output[map[string]*MemberAccountAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MemberAccountAssociationMapOutput) MapIndex(k pulumi.StringInput) MemberAccountAssociationOutput {

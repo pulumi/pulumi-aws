@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage a default security group. This resource can manage the default security group of the default or a non-default VPC.
@@ -157,6 +159,7 @@ func NewDefaultSecurityGroup(ctx *pulumi.Context,
 		args = &DefaultSecurityGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DefaultSecurityGroup
 	err := ctx.RegisterResource("aws:ec2/defaultSecurityGroup:DefaultSecurityGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -276,6 +279,12 @@ func (i *DefaultSecurityGroup) ToDefaultSecurityGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupOutput)
 }
 
+func (i *DefaultSecurityGroup) ToOutput(ctx context.Context) pulumix.Output[*DefaultSecurityGroup] {
+	return pulumix.Output[*DefaultSecurityGroup]{
+		OutputState: i.ToDefaultSecurityGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DefaultSecurityGroupArrayInput is an input type that accepts DefaultSecurityGroupArray and DefaultSecurityGroupArrayOutput values.
 // You can construct a concrete instance of `DefaultSecurityGroupArrayInput` via:
 //
@@ -299,6 +308,12 @@ func (i DefaultSecurityGroupArray) ToDefaultSecurityGroupArrayOutput() DefaultSe
 
 func (i DefaultSecurityGroupArray) ToDefaultSecurityGroupArrayOutputWithContext(ctx context.Context) DefaultSecurityGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupArrayOutput)
+}
+
+func (i DefaultSecurityGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultSecurityGroup] {
+	return pulumix.Output[[]*DefaultSecurityGroup]{
+		OutputState: i.ToDefaultSecurityGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DefaultSecurityGroupMapInput is an input type that accepts DefaultSecurityGroupMap and DefaultSecurityGroupMapOutput values.
@@ -326,6 +341,12 @@ func (i DefaultSecurityGroupMap) ToDefaultSecurityGroupMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupMapOutput)
 }
 
+func (i DefaultSecurityGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultSecurityGroup] {
+	return pulumix.Output[map[string]*DefaultSecurityGroup]{
+		OutputState: i.ToDefaultSecurityGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DefaultSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (DefaultSecurityGroupOutput) ElementType() reflect.Type {
@@ -338,6 +359,12 @@ func (o DefaultSecurityGroupOutput) ToDefaultSecurityGroupOutput() DefaultSecuri
 
 func (o DefaultSecurityGroupOutput) ToDefaultSecurityGroupOutputWithContext(ctx context.Context) DefaultSecurityGroupOutput {
 	return o
+}
+
+func (o DefaultSecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DefaultSecurityGroup] {
+	return pulumix.Output[*DefaultSecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the security group.
@@ -407,6 +434,12 @@ func (o DefaultSecurityGroupArrayOutput) ToDefaultSecurityGroupArrayOutputWithCo
 	return o
 }
 
+func (o DefaultSecurityGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DefaultSecurityGroup] {
+	return pulumix.Output[[]*DefaultSecurityGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DefaultSecurityGroupArrayOutput) Index(i pulumi.IntInput) DefaultSecurityGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DefaultSecurityGroup {
 		return vs[0].([]*DefaultSecurityGroup)[vs[1].(int)]
@@ -425,6 +458,12 @@ func (o DefaultSecurityGroupMapOutput) ToDefaultSecurityGroupMapOutput() Default
 
 func (o DefaultSecurityGroupMapOutput) ToDefaultSecurityGroupMapOutputWithContext(ctx context.Context) DefaultSecurityGroupMapOutput {
 	return o
+}
+
+func (o DefaultSecurityGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DefaultSecurityGroup] {
+	return pulumix.Output[map[string]*DefaultSecurityGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DefaultSecurityGroupMapOutput) MapIndex(k pulumi.StringInput) DefaultSecurityGroupOutput {

@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones. See the `route53.VpcAssociationAuthorization` resource for setting up cross-account associations.
@@ -114,6 +116,7 @@ func NewZoneAssociation(ctx *pulumi.Context,
 	if args.ZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'ZoneId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ZoneAssociation
 	err := ctx.RegisterResource("aws:route53/zoneAssociation:ZoneAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -203,6 +206,12 @@ func (i *ZoneAssociation) ToZoneAssociationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneAssociationOutput)
 }
 
+func (i *ZoneAssociation) ToOutput(ctx context.Context) pulumix.Output[*ZoneAssociation] {
+	return pulumix.Output[*ZoneAssociation]{
+		OutputState: i.ToZoneAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ZoneAssociationArrayInput is an input type that accepts ZoneAssociationArray and ZoneAssociationArrayOutput values.
 // You can construct a concrete instance of `ZoneAssociationArrayInput` via:
 //
@@ -226,6 +235,12 @@ func (i ZoneAssociationArray) ToZoneAssociationArrayOutput() ZoneAssociationArra
 
 func (i ZoneAssociationArray) ToZoneAssociationArrayOutputWithContext(ctx context.Context) ZoneAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneAssociationArrayOutput)
+}
+
+func (i ZoneAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ZoneAssociation] {
+	return pulumix.Output[[]*ZoneAssociation]{
+		OutputState: i.ToZoneAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ZoneAssociationMapInput is an input type that accepts ZoneAssociationMap and ZoneAssociationMapOutput values.
@@ -253,6 +268,12 @@ func (i ZoneAssociationMap) ToZoneAssociationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneAssociationMapOutput)
 }
 
+func (i ZoneAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ZoneAssociation] {
+	return pulumix.Output[map[string]*ZoneAssociation]{
+		OutputState: i.ToZoneAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ZoneAssociationOutput struct{ *pulumi.OutputState }
 
 func (ZoneAssociationOutput) ElementType() reflect.Type {
@@ -265,6 +286,12 @@ func (o ZoneAssociationOutput) ToZoneAssociationOutput() ZoneAssociationOutput {
 
 func (o ZoneAssociationOutput) ToZoneAssociationOutputWithContext(ctx context.Context) ZoneAssociationOutput {
 	return o
+}
+
+func (o ZoneAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ZoneAssociation] {
+	return pulumix.Output[*ZoneAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account ID of the account that created the hosted zone.
@@ -301,6 +328,12 @@ func (o ZoneAssociationArrayOutput) ToZoneAssociationArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ZoneAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ZoneAssociation] {
+	return pulumix.Output[[]*ZoneAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ZoneAssociationArrayOutput) Index(i pulumi.IntInput) ZoneAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ZoneAssociation {
 		return vs[0].([]*ZoneAssociation)[vs[1].(int)]
@@ -319,6 +352,12 @@ func (o ZoneAssociationMapOutput) ToZoneAssociationMapOutput() ZoneAssociationMa
 
 func (o ZoneAssociationMapOutput) ToZoneAssociationMapOutputWithContext(ctx context.Context) ZoneAssociationMapOutput {
 	return o
+}
+
+func (o ZoneAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ZoneAssociation] {
+	return pulumix.Output[map[string]*ZoneAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ZoneAssociationMapOutput) MapIndex(k pulumi.StringInput) ZoneAssociationOutput {

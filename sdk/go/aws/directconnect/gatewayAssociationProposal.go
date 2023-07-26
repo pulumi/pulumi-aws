@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the `directconnect.GatewayAssociation` resource.
@@ -93,6 +95,7 @@ func NewGatewayAssociationProposal(ctx *pulumi.Context,
 	if args.DxGatewayOwnerAccountId == nil {
 		return nil, errors.New("invalid value for required argument 'DxGatewayOwnerAccountId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource GatewayAssociationProposal
 	err := ctx.RegisterResource("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal", name, args, &resource, opts...)
 	if err != nil {
@@ -194,6 +197,12 @@ func (i *GatewayAssociationProposal) ToGatewayAssociationProposalOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationProposalOutput)
 }
 
+func (i *GatewayAssociationProposal) ToOutput(ctx context.Context) pulumix.Output[*GatewayAssociationProposal] {
+	return pulumix.Output[*GatewayAssociationProposal]{
+		OutputState: i.ToGatewayAssociationProposalOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GatewayAssociationProposalArrayInput is an input type that accepts GatewayAssociationProposalArray and GatewayAssociationProposalArrayOutput values.
 // You can construct a concrete instance of `GatewayAssociationProposalArrayInput` via:
 //
@@ -217,6 +226,12 @@ func (i GatewayAssociationProposalArray) ToGatewayAssociationProposalArrayOutput
 
 func (i GatewayAssociationProposalArray) ToGatewayAssociationProposalArrayOutputWithContext(ctx context.Context) GatewayAssociationProposalArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationProposalArrayOutput)
+}
+
+func (i GatewayAssociationProposalArray) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayAssociationProposal] {
+	return pulumix.Output[[]*GatewayAssociationProposal]{
+		OutputState: i.ToGatewayAssociationProposalArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GatewayAssociationProposalMapInput is an input type that accepts GatewayAssociationProposalMap and GatewayAssociationProposalMapOutput values.
@@ -244,6 +259,12 @@ func (i GatewayAssociationProposalMap) ToGatewayAssociationProposalMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationProposalMapOutput)
 }
 
+func (i GatewayAssociationProposalMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayAssociationProposal] {
+	return pulumix.Output[map[string]*GatewayAssociationProposal]{
+		OutputState: i.ToGatewayAssociationProposalMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GatewayAssociationProposalOutput struct{ *pulumi.OutputState }
 
 func (GatewayAssociationProposalOutput) ElementType() reflect.Type {
@@ -256,6 +277,12 @@ func (o GatewayAssociationProposalOutput) ToGatewayAssociationProposalOutput() G
 
 func (o GatewayAssociationProposalOutput) ToGatewayAssociationProposalOutputWithContext(ctx context.Context) GatewayAssociationProposalOutput {
 	return o
+}
+
+func (o GatewayAssociationProposalOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayAssociationProposal] {
+	return pulumix.Output[*GatewayAssociationProposal]{
+		OutputState: o.OutputState,
+	}
 }
 
 // VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
@@ -302,6 +329,12 @@ func (o GatewayAssociationProposalArrayOutput) ToGatewayAssociationProposalArray
 	return o
 }
 
+func (o GatewayAssociationProposalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayAssociationProposal] {
+	return pulumix.Output[[]*GatewayAssociationProposal]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GatewayAssociationProposalArrayOutput) Index(i pulumi.IntInput) GatewayAssociationProposalOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GatewayAssociationProposal {
 		return vs[0].([]*GatewayAssociationProposal)[vs[1].(int)]
@@ -320,6 +353,12 @@ func (o GatewayAssociationProposalMapOutput) ToGatewayAssociationProposalMapOutp
 
 func (o GatewayAssociationProposalMapOutput) ToGatewayAssociationProposalMapOutputWithContext(ctx context.Context) GatewayAssociationProposalMapOutput {
 	return o
+}
+
+func (o GatewayAssociationProposalMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayAssociationProposal] {
+	return pulumix.Output[map[string]*GatewayAssociationProposal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GatewayAssociationProposalMapOutput) MapIndex(k pulumi.StringInput) GatewayAssociationProposalOutput {

@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get a list of EBS Snapshot IDs matching the specified
@@ -55,6 +57,7 @@ import (
 //
 // ```
 func GetSnapshotIds(ctx *pulumi.Context, args *GetSnapshotIdsArgs, opts ...pulumi.InvokeOption) (*GetSnapshotIdsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSnapshotIdsResult
 	err := ctx.Invoke("aws:ebs/getSnapshotIds:getSnapshotIds", args, &rv, opts...)
 	if err != nil {
@@ -128,6 +131,12 @@ func (o GetSnapshotIdsResultOutput) ToGetSnapshotIdsResultOutput() GetSnapshotId
 
 func (o GetSnapshotIdsResultOutput) ToGetSnapshotIdsResultOutputWithContext(ctx context.Context) GetSnapshotIdsResultOutput {
 	return o
+}
+
+func (o GetSnapshotIdsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotIdsResult] {
+	return pulumix.Output[GetSnapshotIdsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetSnapshotIdsResultOutput) Filters() GetSnapshotIdsFilterArrayOutput {

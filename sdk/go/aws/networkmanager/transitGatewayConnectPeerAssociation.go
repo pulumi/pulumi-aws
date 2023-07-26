@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a transit gateway Connect peer with a device, and optionally, with a link.
@@ -80,6 +82,7 @@ func NewTransitGatewayConnectPeerAssociation(ctx *pulumi.Context,
 	if args.TransitGatewayConnectPeerArn == nil {
 		return nil, errors.New("invalid value for required argument 'TransitGatewayConnectPeerArn'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TransitGatewayConnectPeerAssociation
 	err := ctx.RegisterResource("aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation", name, args, &resource, opts...)
 	if err != nil {
@@ -173,6 +176,12 @@ func (i *TransitGatewayConnectPeerAssociation) ToTransitGatewayConnectPeerAssoci
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectPeerAssociationOutput)
 }
 
+func (i *TransitGatewayConnectPeerAssociation) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayConnectPeerAssociation] {
+	return pulumix.Output[*TransitGatewayConnectPeerAssociation]{
+		OutputState: i.ToTransitGatewayConnectPeerAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TransitGatewayConnectPeerAssociationArrayInput is an input type that accepts TransitGatewayConnectPeerAssociationArray and TransitGatewayConnectPeerAssociationArrayOutput values.
 // You can construct a concrete instance of `TransitGatewayConnectPeerAssociationArrayInput` via:
 //
@@ -196,6 +205,12 @@ func (i TransitGatewayConnectPeerAssociationArray) ToTransitGatewayConnectPeerAs
 
 func (i TransitGatewayConnectPeerAssociationArray) ToTransitGatewayConnectPeerAssociationArrayOutputWithContext(ctx context.Context) TransitGatewayConnectPeerAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectPeerAssociationArrayOutput)
+}
+
+func (i TransitGatewayConnectPeerAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGatewayConnectPeerAssociation] {
+	return pulumix.Output[[]*TransitGatewayConnectPeerAssociation]{
+		OutputState: i.ToTransitGatewayConnectPeerAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TransitGatewayConnectPeerAssociationMapInput is an input type that accepts TransitGatewayConnectPeerAssociationMap and TransitGatewayConnectPeerAssociationMapOutput values.
@@ -223,6 +238,12 @@ func (i TransitGatewayConnectPeerAssociationMap) ToTransitGatewayConnectPeerAsso
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayConnectPeerAssociationMapOutput)
 }
 
+func (i TransitGatewayConnectPeerAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGatewayConnectPeerAssociation] {
+	return pulumix.Output[map[string]*TransitGatewayConnectPeerAssociation]{
+		OutputState: i.ToTransitGatewayConnectPeerAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TransitGatewayConnectPeerAssociationOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayConnectPeerAssociationOutput) ElementType() reflect.Type {
@@ -235,6 +256,12 @@ func (o TransitGatewayConnectPeerAssociationOutput) ToTransitGatewayConnectPeerA
 
 func (o TransitGatewayConnectPeerAssociationOutput) ToTransitGatewayConnectPeerAssociationOutputWithContext(ctx context.Context) TransitGatewayConnectPeerAssociationOutput {
 	return o
+}
+
+func (o TransitGatewayConnectPeerAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGatewayConnectPeerAssociation] {
+	return pulumix.Output[*TransitGatewayConnectPeerAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the device.
@@ -273,6 +300,12 @@ func (o TransitGatewayConnectPeerAssociationArrayOutput) ToTransitGatewayConnect
 	return o
 }
 
+func (o TransitGatewayConnectPeerAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TransitGatewayConnectPeerAssociation] {
+	return pulumix.Output[[]*TransitGatewayConnectPeerAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TransitGatewayConnectPeerAssociationArrayOutput) Index(i pulumi.IntInput) TransitGatewayConnectPeerAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TransitGatewayConnectPeerAssociation {
 		return vs[0].([]*TransitGatewayConnectPeerAssociation)[vs[1].(int)]
@@ -291,6 +324,12 @@ func (o TransitGatewayConnectPeerAssociationMapOutput) ToTransitGatewayConnectPe
 
 func (o TransitGatewayConnectPeerAssociationMapOutput) ToTransitGatewayConnectPeerAssociationMapOutputWithContext(ctx context.Context) TransitGatewayConnectPeerAssociationMapOutput {
 	return o
+}
+
+func (o TransitGatewayConnectPeerAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TransitGatewayConnectPeerAssociation] {
+	return pulumix.Output[map[string]*TransitGatewayConnectPeerAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TransitGatewayConnectPeerAssociationMapOutput) MapIndex(k pulumi.StringInput) TransitGatewayConnectPeerAssociationOutput {

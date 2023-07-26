@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an SSM Maintenance Window Task resource
@@ -229,6 +231,7 @@ func NewMaintenanceWindowTask(ctx *pulumi.Context,
 	if args.WindowId == nil {
 		return nil, errors.New("invalid value for required argument 'WindowId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MaintenanceWindowTask
 	err := ctx.RegisterResource("aws:ssm/maintenanceWindowTask:MaintenanceWindowTask", name, args, &resource, opts...)
 	if err != nil {
@@ -394,6 +397,12 @@ func (i *MaintenanceWindowTask) ToMaintenanceWindowTaskOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskOutput)
 }
 
+func (i *MaintenanceWindowTask) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTask] {
+	return pulumix.Output[*MaintenanceWindowTask]{
+		OutputState: i.ToMaintenanceWindowTaskOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MaintenanceWindowTaskArrayInput is an input type that accepts MaintenanceWindowTaskArray and MaintenanceWindowTaskArrayOutput values.
 // You can construct a concrete instance of `MaintenanceWindowTaskArrayInput` via:
 //
@@ -417,6 +426,12 @@ func (i MaintenanceWindowTaskArray) ToMaintenanceWindowTaskArrayOutput() Mainten
 
 func (i MaintenanceWindowTaskArray) ToMaintenanceWindowTaskArrayOutputWithContext(ctx context.Context) MaintenanceWindowTaskArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskArrayOutput)
+}
+
+func (i MaintenanceWindowTaskArray) ToOutput(ctx context.Context) pulumix.Output[[]*MaintenanceWindowTask] {
+	return pulumix.Output[[]*MaintenanceWindowTask]{
+		OutputState: i.ToMaintenanceWindowTaskArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MaintenanceWindowTaskMapInput is an input type that accepts MaintenanceWindowTaskMap and MaintenanceWindowTaskMapOutput values.
@@ -444,6 +459,12 @@ func (i MaintenanceWindowTaskMap) ToMaintenanceWindowTaskMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTaskMapOutput)
 }
 
+func (i MaintenanceWindowTaskMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaintenanceWindowTask] {
+	return pulumix.Output[map[string]*MaintenanceWindowTask]{
+		OutputState: i.ToMaintenanceWindowTaskMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MaintenanceWindowTaskOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowTaskOutput) ElementType() reflect.Type {
@@ -456,6 +477,12 @@ func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutput() Maintenance
 
 func (o MaintenanceWindowTaskOutput) ToMaintenanceWindowTaskOutputWithContext(ctx context.Context) MaintenanceWindowTaskOutput {
 	return o
+}
+
+func (o MaintenanceWindowTaskOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowTask] {
+	return pulumix.Output[*MaintenanceWindowTask]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the maintenance window task.
@@ -544,6 +571,12 @@ func (o MaintenanceWindowTaskArrayOutput) ToMaintenanceWindowTaskArrayOutputWith
 	return o
 }
 
+func (o MaintenanceWindowTaskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MaintenanceWindowTask] {
+	return pulumix.Output[[]*MaintenanceWindowTask]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MaintenanceWindowTaskArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTaskOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MaintenanceWindowTask {
 		return vs[0].([]*MaintenanceWindowTask)[vs[1].(int)]
@@ -562,6 +595,12 @@ func (o MaintenanceWindowTaskMapOutput) ToMaintenanceWindowTaskMapOutput() Maint
 
 func (o MaintenanceWindowTaskMapOutput) ToMaintenanceWindowTaskMapOutputWithContext(ctx context.Context) MaintenanceWindowTaskMapOutput {
 	return o
+}
+
+func (o MaintenanceWindowTaskMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MaintenanceWindowTask] {
+	return pulumix.Output[map[string]*MaintenanceWindowTask]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MaintenanceWindowTaskMapOutput) MapIndex(k pulumi.StringInput) MaintenanceWindowTaskOutput {

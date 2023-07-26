@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetLocalGatewayRouteTables(ctx *pulumi.Context, args *GetLocalGatewayRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayRouteTablesResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayRouteTablesResult
 	err := ctx.Invoke("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args, &rv, opts...)
 	if err != nil {
@@ -111,6 +114,12 @@ func (o GetLocalGatewayRouteTablesResultOutput) ToGetLocalGatewayRouteTablesResu
 
 func (o GetLocalGatewayRouteTablesResultOutput) ToGetLocalGatewayRouteTablesResultOutputWithContext(ctx context.Context) GetLocalGatewayRouteTablesResultOutput {
 	return o
+}
+
+func (o GetLocalGatewayRouteTablesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLocalGatewayRouteTablesResult] {
+	return pulumix.Output[GetLocalGatewayRouteTablesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLocalGatewayRouteTablesResultOutput) Filters() GetLocalGatewayRouteTablesFilterArrayOutput {

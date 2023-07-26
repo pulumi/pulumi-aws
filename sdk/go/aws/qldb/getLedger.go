@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to fetch information about a Quantum Ledger Database.
@@ -38,6 +40,7 @@ import (
 //
 // ```
 func LookupLedger(ctx *pulumi.Context, args *LookupLedgerArgs, opts ...pulumi.InvokeOption) (*LookupLedgerResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLedgerResult
 	err := ctx.Invoke("aws:qldb/getLedger:getLedger", args, &rv, opts...)
 	if err != nil {
@@ -102,6 +105,12 @@ func (o LookupLedgerResultOutput) ToLookupLedgerResultOutput() LookupLedgerResul
 
 func (o LookupLedgerResultOutput) ToLookupLedgerResultOutputWithContext(ctx context.Context) LookupLedgerResultOutput {
 	return o
+}
+
+func (o LookupLedgerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLedgerResult] {
+	return pulumix.Output[LookupLedgerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupLedgerResultOutput) Arn() pulumi.StringOutput {

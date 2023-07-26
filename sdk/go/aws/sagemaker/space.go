@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Space resource.
@@ -82,6 +84,7 @@ func NewSpace(ctx *pulumi.Context,
 	if args.SpaceName == nil {
 		return nil, errors.New("invalid value for required argument 'SpaceName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Space
 	err := ctx.RegisterResource("aws:sagemaker/space:Space", name, args, &resource, opts...)
 	if err != nil {
@@ -187,6 +190,12 @@ func (i *Space) ToSpaceOutputWithContext(ctx context.Context) SpaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpaceOutput)
 }
 
+func (i *Space) ToOutput(ctx context.Context) pulumix.Output[*Space] {
+	return pulumix.Output[*Space]{
+		OutputState: i.ToSpaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SpaceArrayInput is an input type that accepts SpaceArray and SpaceArrayOutput values.
 // You can construct a concrete instance of `SpaceArrayInput` via:
 //
@@ -210,6 +219,12 @@ func (i SpaceArray) ToSpaceArrayOutput() SpaceArrayOutput {
 
 func (i SpaceArray) ToSpaceArrayOutputWithContext(ctx context.Context) SpaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpaceArrayOutput)
+}
+
+func (i SpaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Space] {
+	return pulumix.Output[[]*Space]{
+		OutputState: i.ToSpaceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SpaceMapInput is an input type that accepts SpaceMap and SpaceMapOutput values.
@@ -237,6 +252,12 @@ func (i SpaceMap) ToSpaceMapOutputWithContext(ctx context.Context) SpaceMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SpaceMapOutput)
 }
 
+func (i SpaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Space] {
+	return pulumix.Output[map[string]*Space]{
+		OutputState: i.ToSpaceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpaceOutput struct{ *pulumi.OutputState }
 
 func (SpaceOutput) ElementType() reflect.Type {
@@ -249,6 +270,12 @@ func (o SpaceOutput) ToSpaceOutput() SpaceOutput {
 
 func (o SpaceOutput) ToSpaceOutputWithContext(ctx context.Context) SpaceOutput {
 	return o
+}
+
+func (o SpaceOutput) ToOutput(ctx context.Context) pulumix.Output[*Space] {
+	return pulumix.Output[*Space]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The space's Amazon Resource Name (ARN).
@@ -300,6 +327,12 @@ func (o SpaceArrayOutput) ToSpaceArrayOutputWithContext(ctx context.Context) Spa
 	return o
 }
 
+func (o SpaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Space] {
+	return pulumix.Output[[]*Space]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SpaceArrayOutput) Index(i pulumi.IntInput) SpaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Space {
 		return vs[0].([]*Space)[vs[1].(int)]
@@ -318,6 +351,12 @@ func (o SpaceMapOutput) ToSpaceMapOutput() SpaceMapOutput {
 
 func (o SpaceMapOutput) ToSpaceMapOutputWithContext(ctx context.Context) SpaceMapOutput {
 	return o
+}
+
+func (o SpaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Space] {
+	return pulumix.Output[map[string]*Space]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SpaceMapOutput) MapIndex(k pulumi.StringInput) SpaceOutput {

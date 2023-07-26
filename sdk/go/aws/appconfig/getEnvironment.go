@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides access to an AppConfig Environment.
@@ -40,6 +42,7 @@ import (
 //
 // ```
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEnvironmentResult
 	err := ctx.Invoke("aws:appconfig/getEnvironment:getEnvironment", args, &rv, opts...)
 	if err != nil {
@@ -119,6 +122,12 @@ func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutput() LookupE
 
 func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutputWithContext(ctx context.Context) LookupEnvironmentResultOutput {
 	return o
+}
+
+func (o LookupEnvironmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnvironmentResult] {
+	return pulumix.Output[LookupEnvironmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupEnvironmentResultOutput) ApplicationId() pulumi.StringOutput {

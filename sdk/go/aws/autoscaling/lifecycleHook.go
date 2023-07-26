@@ -8,7 +8,9 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AutoScaling Lifecycle Hook resource.
@@ -128,6 +130,7 @@ func NewLifecycleHook(ctx *pulumi.Context,
 	if args.LifecycleTransition == nil {
 		return nil, errors.New("invalid value for required argument 'LifecycleTransition'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LifecycleHook
 	err := ctx.RegisterResource("aws:autoscaling/lifecycleHook:LifecycleHook", name, args, &resource, opts...)
 	if err != nil {
@@ -253,6 +256,12 @@ func (i *LifecycleHook) ToLifecycleHookOutputWithContext(ctx context.Context) Li
 	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookOutput)
 }
 
+func (i *LifecycleHook) ToOutput(ctx context.Context) pulumix.Output[*LifecycleHook] {
+	return pulumix.Output[*LifecycleHook]{
+		OutputState: i.ToLifecycleHookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LifecycleHookArrayInput is an input type that accepts LifecycleHookArray and LifecycleHookArrayOutput values.
 // You can construct a concrete instance of `LifecycleHookArrayInput` via:
 //
@@ -276,6 +285,12 @@ func (i LifecycleHookArray) ToLifecycleHookArrayOutput() LifecycleHookArrayOutpu
 
 func (i LifecycleHookArray) ToLifecycleHookArrayOutputWithContext(ctx context.Context) LifecycleHookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookArrayOutput)
+}
+
+func (i LifecycleHookArray) ToOutput(ctx context.Context) pulumix.Output[[]*LifecycleHook] {
+	return pulumix.Output[[]*LifecycleHook]{
+		OutputState: i.ToLifecycleHookArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LifecycleHookMapInput is an input type that accepts LifecycleHookMap and LifecycleHookMapOutput values.
@@ -303,6 +318,12 @@ func (i LifecycleHookMap) ToLifecycleHookMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookMapOutput)
 }
 
+func (i LifecycleHookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LifecycleHook] {
+	return pulumix.Output[map[string]*LifecycleHook]{
+		OutputState: i.ToLifecycleHookMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LifecycleHookOutput struct{ *pulumi.OutputState }
 
 func (LifecycleHookOutput) ElementType() reflect.Type {
@@ -315,6 +336,12 @@ func (o LifecycleHookOutput) ToLifecycleHookOutput() LifecycleHookOutput {
 
 func (o LifecycleHookOutput) ToLifecycleHookOutputWithContext(ctx context.Context) LifecycleHookOutput {
 	return o
+}
+
+func (o LifecycleHookOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecycleHook] {
+	return pulumix.Output[*LifecycleHook]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the Auto Scaling group to which you want to assign the lifecycle hook
@@ -371,6 +398,12 @@ func (o LifecycleHookArrayOutput) ToLifecycleHookArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o LifecycleHookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LifecycleHook] {
+	return pulumix.Output[[]*LifecycleHook]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LifecycleHookArrayOutput) Index(i pulumi.IntInput) LifecycleHookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LifecycleHook {
 		return vs[0].([]*LifecycleHook)[vs[1].(int)]
@@ -389,6 +422,12 @@ func (o LifecycleHookMapOutput) ToLifecycleHookMapOutput() LifecycleHookMapOutpu
 
 func (o LifecycleHookMapOutput) ToLifecycleHookMapOutputWithContext(ctx context.Context) LifecycleHookMapOutput {
 	return o
+}
+
+func (o LifecycleHookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LifecycleHook] {
+	return pulumix.Output[map[string]*LifecycleHook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LifecycleHookMapOutput) MapIndex(k pulumi.StringInput) LifecycleHookOutput {

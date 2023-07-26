@@ -7,7 +7,9 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Lists the provisioning artifacts for the specified product.
@@ -39,6 +41,7 @@ import (
 //
 // ```
 func GetProvisioningArtifacts(ctx *pulumi.Context, args *GetProvisioningArtifactsArgs, opts ...pulumi.InvokeOption) (*GetProvisioningArtifactsResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetProvisioningArtifactsResult
 	err := ctx.Invoke("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args, &rv, opts...)
 	if err != nil {
@@ -107,6 +110,12 @@ func (o GetProvisioningArtifactsResultOutput) ToGetProvisioningArtifactsResultOu
 
 func (o GetProvisioningArtifactsResultOutput) ToGetProvisioningArtifactsResultOutputWithContext(ctx context.Context) GetProvisioningArtifactsResultOutput {
 	return o
+}
+
+func (o GetProvisioningArtifactsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetProvisioningArtifactsResult] {
+	return pulumix.Output[GetProvisioningArtifactsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetProvisioningArtifactsResultOutput) AcceptLanguage() pulumi.StringPtrOutput {
