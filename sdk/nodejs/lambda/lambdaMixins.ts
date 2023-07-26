@@ -282,6 +282,12 @@ export function createFunctionFromEventHandler<E, R>(
  * `AWSXrayWriteOnlyAccess`
  */
 export class CallbackFunction<E, R> extends LambdaFunction {
+    /**
+      * Actual Role instance value for this Function.  Will only be set if this function was
+      * created from [createFunction]
+      */
+    public readonly roleInstance?: iam.Role;
+
     public constructor(name: string, args: CallbackFunctionArgs<E, R>, opts: pulumi.CustomResourceOptions = {}) {
         if (!name) {
             throw new Error("Missing required resource name");
@@ -436,14 +442,3 @@ const lambdaRolePolicy = {
         },
     ],
 };
-// Mixin the Role we potentially create into the Function instances we return.
-
-declare module "./function" {
-    interface Function {
-        /**
-         * Actual Role instance value for this Function.  Will only be set if this function was
-         * created from [createFunction]
-         */
-        roleInstance?: iam.Role;
-    }
-}

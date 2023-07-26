@@ -234,7 +234,6 @@ import * as scheduler from "./scheduler";
 import * as schemas from "./schemas";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
-import * as serverless from "./serverless";
 import * as serverlessrepository from "./serverlessrepository";
 import * as servicecatalog from "./servicecatalog";
 import * as servicediscovery from "./servicediscovery";
@@ -428,7 +427,6 @@ export {
     schemas,
     secretsmanager,
     securityhub,
-    serverless,
     serverlessrepository,
     servicecatalog,
     servicediscovery,
