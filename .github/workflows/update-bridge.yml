@@ -51,6 +51,17 @@ jobs:
     - name: Update Pulumi SDK (sdk/go.mod)
       run: cd sdk && go mod edit -require github.com/pulumi/pulumi/sdk/v3@v${{
         github.event.inputs.sdk_version }} && go mod tidy
+    - name: Clear GitHub Actions Ubuntu runner disk space
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: false
+        dotnet: false
+        android: true
+        haskell: true
+        swap-storage: true
+        # TODO: enable once transient error with azure is resolved
+        # E: Failed to fetch http://azure.archive.ubuntu.com/ubuntu/pool/universe/d/dotnet7/aspnetcore-targeting-pack-7.0_7.0.105-0ubuntu1%7e22.04.1_amd64.deb  404  Not Found [IP: 40.81.13.82 80]
+        large-packages: false
     - run: make tfgen
     - run: make build_sdks
     - id: create-pr
