@@ -41,6 +41,7 @@ const (
 	RuntimePython3d8  = Runtime("python3.8")
 	RuntimePython3d9  = Runtime("python3.9")
 	RuntimePython3d10 = Runtime("python3.10")
+	RuntimePython3d11 = Runtime("python3.11")
 	RuntimeCustom     = Runtime("provided")
 	RuntimeCustomAL2  = Runtime("provided.al2")
 )
