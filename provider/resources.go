@@ -5766,6 +5766,7 @@ func Provider() tfbridge.ProviderInfo {
 					{Value: "python3.8", Name: "Python3d8"},
 					{Value: "python3.9", Name: "Python3d9"},
 					{Value: "python3.10", Name: "Python3d10"},
+					{Value: "python3.11", Name: "Python3d11"},
 					{Value: "provided", Name: "Custom"},
 					{Value: "provided.al2", Name: "CustomAL2"},
 				},
