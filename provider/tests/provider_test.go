@@ -47,25 +47,21 @@ func replaySequence(t *testing.T, sequence string) {
 // Because the test actually creates bucket, we run the corresponding "Delete" on the
 // bucket to cleanup.
 func TestTags(t *testing.T) {
-	t.Cleanup(func() {
-		if t.Failed() {
-			t.Logf("Test already failed, cleaning up bucket")
-		}
-		replaySequence(t, `[
+	replaySequence(t, `[
   {
     "method": "/pulumirpc.ResourceProvider/Configure",
     "request": {
       "variables": {
-        "aws:config:defaultTags": "{\"tags\":{\"foo\":\"buzz\"}}",
+        "aws:config:defaultTags": "{\"tags\":{\"abc\":\"def\",\"foo\":\"buzz\"}}",
         "aws:config:region": "us-west-2",
         "aws:config:skipCredentialsValidation": "false",
         "aws:config:skipMetadataApiCheck": "true",
         "aws:config:skipRegionValidation": "true"
       },
       "args": {
-        "defaultTags": "{\"tags\":{\"foo\":\"buzz\"}}",
+        "defaultTags": "{\"tags\":{\"abc\":\"def\",\"foo\":\"buzz\"}}",
         "region": "us-west-2",
-        "skipCredentialsValidation": "false",
+        "skipCredentialsValidation": "true",
         "skipMetadataApiCheck": "true",
         "skipRegionValidation": "true"
       },
@@ -83,101 +79,31 @@ func TestTags(t *testing.T) {
     }
   },
   {
-    "method": "/pulumirpc.ResourceProvider/Delete",
+    "method": "/pulumirpc.ResourceProvider/Check",
     "request": {
-      "id": "b-7242271",
       "urn": "urn:pulumi:test::secret-random-yaml::aws:s3/bucketV2:BucketV2::b",
-      "properties": {
-        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1200000000000,\"delete\":3600000000000,\"read\":1200000000000,\"update\":1200000000000}}",
-        "accelerationStatus": "",
-        "arn": "arn:aws:s3:::b-7242271",
-        "bucket": "b-7242271",
-        "bucketDomainName": "b-7242271.s3.amazonaws.com",
-        "bucketPrefix": "",
-        "bucketRegionalDomainName": "b-7242271.s3.us-west-2.amazonaws.com",
-        "corsRules": [],
-        "forceDestroy": false,
-        "grants": [
-          {
-            "id": "e07865a5679c7977370948f1f1e51c21b12d8cfdd396a7e3172275d9164e01b8",
-            "permissions": [
-              "FULL_CONTROL"
-            ],
-            "type": "CanonicalUser",
-            "uri": ""
-          }
-        ],
-        "hostedZoneId": "Z3BJ6K6RIION7M",
-        "id": "b-7242271",
-        "lifecycleRules": [],
-        "loggings": [],
-        "objectLockConfiguration": null,
-        "objectLockEnabled": false,
-        "policy": "",
-        "region": "us-west-2",
-        "replicationConfigurations": [],
-        "requestPayer": "BucketOwner",
-        "serverSideEncryptionConfigurations": [
-          {
-            "rules": [
-              {
-                "applyServerSideEncryptionByDefaults": [
-                  {
-                    "kmsMasterKeyId": "",
-                    "sseAlgorithm": "AES256"
-                  }
-                ],
-                "bucketKeyEnabled": false
-              }
-            ]
-          }
-        ],
-        "tags": {},
-        "tagsAll": {
-          "foo": "buz"
-        },
-        "versionings": [
-          {
-            "enabled": false,
-            "mfaDelete": false
-          }
-        ],
-        "websites": []
-      }
-    },
-    "response": {},
-    "metadata": {
-      "kind": "resource",
-      "mode": "client",
-      "name": "aws"
-    }
-  }
-]`)
-	})
-	replaySequence(t, `[
-  {
-    "method": "/pulumirpc.ResourceProvider/Configure",
-    "request": {
-      "variables": {
-        "aws:config:defaultTags": "{\"tags\":{\"foo\":\"buzz\"}}",
-        "aws:config:region": "us-west-2",
-        "aws:config:skipCredentialsValidation": "false",
-        "aws:config:skipMetadataApiCheck": "true",
-        "aws:config:skipRegionValidation": "true"
+      "olds": {},
+      "news": {
+        "tags": {
+          "foo": "fizz"
+        }
       },
-      "args": {
-        "defaultTags": "{\"tags\":{\"foo\":\"buzz\"}}",
-        "region": "us-west-2",
-        "skipCredentialsValidation": "false",
-        "skipMetadataApiCheck": "true",
-        "skipRegionValidation": "true"
-      },
-      "acceptSecrets": true,
-      "acceptResources": true,
-      "sendsOldInputs": true
+      "randomSeed": "6ba2bL+cZxmiU0dbBQuYcRtIJBjlR6W2hOyKGiafB3Y="
     },
     "response": {
-      "supportsPreview": true
+      "inputs": {
+        "__defaults": [
+          "bucket",
+          "forceDestroy"
+        ],
+        "bucket": "b-5b730b2",
+        "forceDestroy": false,
+        "tags": {
+          "__defaults": [],
+          "abc": "def",
+          "foo": "fizz"
+        }
+      }
     },
     "metadata": {
       "kind": "resource",
@@ -194,70 +120,29 @@ func TestTags(t *testing.T) {
           "bucket",
           "forceDestroy"
         ],
-        "bucket": "b-7242271",
-        "forceDestroy": false
-      }
+        "bucket": "b-5b730b2",
+        "forceDestroy": false,
+        "tags": {
+          "__defaults": [],
+          "abc": "def",
+          "foo": "fizz"
+        }
+      },
+      "preview": true
     },
     "response": {
-      "id": "b-7242271",
       "properties": {
-        "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1200000000000,\"delete\":3600000000000,\"read\":1200000000000,\"update\":1200000000000}}",
-        "accelerationStatus": "",
-        "arn": "arn:aws:s3:::b-7242271",
-        "bucket": "b-7242271",
-        "bucketDomainName": "b-7242271.s3.amazonaws.com",
-        "bucketPrefix": "",
-        "bucketRegionalDomainName": "b-7242271.s3.us-west-2.amazonaws.com",
-        "corsRules": [],
+        "bucket": "b-5b730b2",
         "forceDestroy": false,
-        "grants": [
-          {
-            "id": "e07865a5679c7977370948f1f1e51c21b12d8cfdd396a7e3172275d9164e01b8",
-            "permissions": [
-              "FULL_CONTROL"
-            ],
-            "type": "CanonicalUser",
-            "uri": ""
-          }
-        ],
-        "hostedZoneId": "Z3BJ6K6RIION7M",
-        "id": "b-7242271",
-        "lifecycleRules": [],
-        "loggings": [],
-        "objectLockConfiguration": null,
-        "objectLockEnabled": false,
-        "policy": "",
-        "region": "us-west-2",
-        "replicationConfigurations": [],
-        "requestPayer": "BucketOwner",
-        "serverSideEncryptionConfigurations": [
-          {
-            "rules": [
-              {
-                "applyServerSideEncryptionByDefaults": [
-                  {
-                    "kmsMasterKeyId": "",
-                    "sseAlgorithm": "AES256"
-                  }
-                ],
-                "bucketKeyEnabled": false
-              }
-            ]
-          }
-        ],
+        "id": "",
         "tags": {
-          "foo": "buzz"
+          "abc": "def",
+          "foo": "fizz"
         },
         "tagsAll": {
-          "foo": "buzz"
-        },
-        "versionings": [
-          {
-            "enabled": false,
-            "mfaDelete": false
-          }
-        ],
-        "websites": []
+          "abc": "def",
+          "foo": "fizz"
+        }
       }
     },
     "metadata": {
@@ -288,7 +173,7 @@ func regress2633(hasTags bool) string {
     "request": {
       "variables": {` + vars + `
         "aws:config:region": "us-west-2",
-        "aws:config:skipCredentialsValidation": "false",
+        "aws:config:skipCredentialsValidation": "true",
         "aws:config:skipMetadataApiCheck": "true",
         "aws:config:skipRegionValidation": "true"
       },

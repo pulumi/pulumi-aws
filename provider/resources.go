@@ -7104,6 +7104,8 @@ func Provider() *tfbridge.ProviderInfo {
 		// See https://github.com/pulumi/pulumi-terraform-bridge/pull/1251 for more details.
 		prov.Resources[key].Fields["tags_all"].XComputedInput = true
 
+		prov.Resources[key].XCustomCheck = applyTags
+
 		return true
 	})
 
@@ -7121,4 +7123,90 @@ func Provider() *tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return &prov
+}
+
+// Apply provider tags to an individual resource.
+//
+// Historically, Pulumi has struggles to handle the "tags" and "tags_all" fields correctly:
+// - https://github.com/pulumi/pulumi-aws/issues/2633
+// - https://github.com/pulumi/pulumi-aws/issues/1655
+//
+// terraform-provider-aws has also struggled with implementing their desired behavior:
+// - https://github.com/hashicorp/terraform-provider-aws/issues/29747
+// - https://github.com/hashicorp/terraform-provider-aws/issues/29842
+// - https://github.com/hashicorp/terraform-provider-aws/issues/24449
+//
+// The Terraform lifecycle simply does not have a good way to map provider configuration
+// onto resource values, so terraform-provider-aws is forced to work around limitations in
+// unreliable ways. For example, terraform-provider-aws does not apply tags correctly with
+// -refresh=false.
+//
+// This gives pulumi the same limitations by default. However, unlike Terraform, Pulumi
+// does have a clear way to insert provider configuration into resource properties:
+// Check. By writing a custom check function that applies "default_tags" to "tags" before
+// the Terraform provider sees any resource configuration, we can give a consistent,
+// reliable and good experience for Pulumi users.
+func applyTags(
+	ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+) (resource.PropertyMap, error) {
+	var defaultTags awsShim.TagConfig
+
+	unknown := func() (resource.PropertyMap, error) {
+		current := config["tags"]
+		if current.IsOutput() {
+			output := current.OutputValue()
+			output.Known = false
+			config["tags"] = resource.NewOutputProperty(output)
+		} else {
+			config["tags"] = resource.MakeOutput(current)
+		}
+		return config, nil
+	}
+
+	if defaults, ok := meta["defaultTags"]; ok {
+		if defaults.ContainsUnknowns() {
+			return unknown()
+		}
+		if defaults.IsObject() {
+			defaults := defaults.ObjectValue()
+			tags, ok := defaults["tags"]
+			if ok {
+				defaultTags = awsShim.NewTagConfig(ctx, tags.Mappable())
+			}
+		}
+	}
+
+	ignoredTags := &awsShim.TagIgnoreConfig{}
+	if ignores, ok := meta["ignoreTags"]; ok {
+		if ignores.ContainsUnknowns() {
+			return unknown()
+		}
+		if keys, ok := ignores.ObjectValue()["keys"]; ok {
+			ignoredTags.Keys = awsShim.NewTagConfig(ctx, keys.Mappable()).Tags
+		}
+		if keys, ok := ignores.ObjectValue()["keyPrefixes"]; ok {
+			ignoredTags.KeyPrefixes = awsShim.NewTagConfig(ctx, keys.Mappable()).Tags
+		}
+	}
+
+	var resourceTags awsShim.TagConfig
+	if tags, ok := config["tags"]; ok {
+		resourceTags = awsShim.NewTagConfig(ctx, tags.Mappable().(map[string]interface{}))
+	}
+
+	allTags := defaultTags.MergeTags(resourceTags.Tags).IgnoreConfig(ignoredTags)
+
+	// If there are tags to set, we set them.
+	if len(allTags) > 0 {
+		allTagProperties := make(resource.PropertyMap, len(allTags))
+		for k, v := range allTags {
+			allTagProperties[resource.PropertyKey(k)] = resource.NewStringProperty(v.ValueString())
+		}
+		config["tags"] = resource.NewObjectProperty(allTagProperties)
+	} else {
+		// Otherwise, there were no tags so we make sure that no tags are seen.
+		delete(config, "tags")
+	}
+
+	return config, nil
 }
