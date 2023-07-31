@@ -2,7 +2,7 @@
 
 ## Upstream Changes
 
-The upstream target has been changed from [v4.67.0](https://github.com/pulumi/pulumi-aws/pull/2521) to targeting v5.8.0. That means that the upstream [migration guide](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/guides/version-5-upgrade) as well as the following `CHANGELOG`s are relevant:
+The upstream target has been changed from [v4.67.0](https://github.com/pulumi/pulumi-aws/pull/2521) to targeting v5.9.0. That means that the upstream [migration guide](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/guides/version-5-upgrade) as well as the following `CHANGELOG`s are relevant:
 - [v5.0.0](https://github.com/hashicorp/terraform-provider-aws/releases/tag/v5.0.0)
 - [v5.0.1](https://github.com/hashicorp/terraform-provider-aws/releases/tag/v5.0.1)
 - [v5.1.0](https://github.com/hashicorp/terraform-provider-aws/releases/tag/v5.1.0)
@@ -154,10 +154,27 @@ The resources and functions listed below were renamed in a previous version. Wit
 
 ## Property Removal
 
+<!-- TODO: Add code example -->
+
 The [aws.sdk](https://github.com/pulumi/pulumi-aws/pull/2584)
 property has been removed as it has already been deprecated upstream. The underlying functionality is still accessible by directly importing the AWS Typescript sdk. See https://github.com/pulumi/pulumi-aws/pull/2584 for more details.
 
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% chooseable language typescript }}
+
+```diff
+-
++
+```
+
+{{% /chooseable %}}
+
+{{< /chooser >}}
+
 ## WafV2
+
+<!-- TODO: Add code examples in all languages -->
 
 The `wafv2` module has been refactored to properly define recursive types resulting in a significant decrease in SDK size.
 Any references to `RuleGroupRuleStatement` or `WebAclRuleStatement` properties on a wafv2 resource, will need to be updated to use the new recursive types in the `wafv2` module.
@@ -222,6 +239,8 @@ Any references to `RuleGroupRuleStatement` or `WebAclRuleStatement` properties o
 
 ## Unused Quicksight Types
 
+<!-- TODO: Add reason, link to PR/issue and code examples in all languages -->
+
 Unused types from the `quicksight` module have been [removed](https://github.com/pulumi/pulumi-aws/pull/2609/commits/7a72e505fc7b5729f2ea1ec231e52fa614332744). Consumers of removed types can continue to reference the v5 types or move the
 type definition into their own program.
 
@@ -230,7 +249,7 @@ type definition into their own program.
 {{% chooseable language typescript }}
 
 ```diff
-- 
+-
 +
 ```
 
@@ -239,8 +258,8 @@ type definition into their own program.
 {{% choosable language python %}}
 
 ```diff
-- 
-+ 
+-
++
 ```
 
 {{% /choosable %}}
@@ -248,8 +267,8 @@ type definition into their own program.
 {{% choosable language go %}}
 
 ```diff
-- 
-+ 
+-
++
 ```
 
 {{% /choosable %}}
@@ -257,8 +276,8 @@ type definition into their own program.
 {{% choosable language csharp %}}
 
 ```diff
-- 
-+ 
+-
++
 ```
 
 {{% /choosable %}}
@@ -266,8 +285,8 @@ type definition into their own program.
 {{% choosable language java %}}
 
 ```diff
-- 
-+ 
+-
++
 ```
 
 {{% /choosable %}}
@@ -275,8 +294,8 @@ type definition into their own program.
 {{% choosable language yaml %}}
 
 ```diff
-- 
-+ 
+-
++
 ```
 
 {{% /choosable %}}
@@ -285,9 +304,71 @@ type definition into their own program.
 
 ## Property Name Change
 
-The name of property `aws:organizations/getOrganizationalUnits:getOrganizationalUnits` has changed from `childrens` to `children` and the name of the associated type from `children` to `child`. See https://github.com/pulumi/pulumi-aws/pull/2634 for details.
+<!-- TODO: Add reason -->
+
+The name of property `aws:organizations/getOrganizationalUnits:getOrganizationalUnits` has changed from `childrens` to `children` and the name of the associated type from `children` to `child`.  See https://github.com/pulumi/pulumi-aws/pull/2634 for details.
+
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% chooseable language typescript }}
+
+```diff
+-
++
+```
+
+{{% /chooseable %}}
+
+{{% choosable language python %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
 
 ## Function Signature Change
+
+<!-- TODO: Add reason -->
 
 For three functions, the signature has changed to accommodate a new argument. The new argument is optional, so passing an empty argument block is sufficient. Any reference to these three functions will need to be updated. The three impacted functions are:
 
@@ -295,7 +376,68 @@ For three functions, the signature has changed to accommodate a new argument. Th
 - `aws:index/getCallerIdentity:getCallerIdentity`
 - `aws:index/getPartition:getPartition`
 
+<!-- TODO: Add code in all languages -->
+
 ```diff
 -`(pulumi.InvokeOptions) -> T`
 + `(Args, pulumi.InvokeOptions) -> T`
 ```
+
+
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% chooseable language typescript }}
+
+```diff
+-
++
+```
+
+{{% /chooseable %}}
+
+{{% choosable language python %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
