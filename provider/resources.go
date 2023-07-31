@@ -7091,19 +7091,8 @@ func Provider() *tfbridge.ProviderInfo {
 			return true
 		}
 
-		// Ensure Fields and tags_all are initialized.
-		if prov.Resources[key].Fields == nil {
-			prov.Resources[key].Fields = make(map[string]*tfbridge.SchemaInfo)
-		}
-		if f := prov.Resources[key].Fields["tags_all"]; f == nil {
-			prov.Resources[key].Fields["tags_all"] = &tfbridge.SchemaInfo{}
-		}
-
-		// By setting XComputedInput to true, we're indicating to the bridge that if this output
-		// changes we should trigger an update.
-		// See https://github.com/pulumi/pulumi-terraform-bridge/pull/1251 for more details.
-		prov.Resources[key].Fields["tags_all"].XComputedInput = true
-
+		// We have ensured that this resource is using upstream's generic tagging
+		// mechanism, so override check so it works.
 		prov.Resources[key].XCustomCheck = applyTags
 
 		return true
