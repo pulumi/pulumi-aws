@@ -1,7 +1,8 @@
 # Migrating from v5 to v6
 
-### Upstream Changes
-We have moved the upstream target from [v4.67.0](https://github.com/pulumi/pulumi-aws/pull/2521) to targeting v5.8.0. That means that the upstream [migration guide](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/guides/version-5-upgrade) as well as the following `CHANGELOG`s are relevant: 
+## Upstream Changes
+
+The upstream target has been changed from [v4.67.0](https://github.com/pulumi/pulumi-aws/pull/2521) to targeting v5.8.0. That means that the upstream [migration guide](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/guides/version-5-upgrade) as well as the following `CHANGELOG`s are relevant:
 - [v5.0.0](https://github.com/hashicorp/terraform-provider-aws/releases/tag/v5.0.0)
 - [v5.0.1](https://github.com/hashicorp/terraform-provider-aws/releases/tag/v5.0.1)
 - [v5.1.0](https://github.com/hashicorp/terraform-provider-aws/releases/tag/v5.1.0)
@@ -16,10 +17,98 @@ We have moved the upstream target from [v4.67.0](https://github.com/pulumi/pulum
 - [v5.8.0](https://github.com/hashicorp/terraform-provider-aws/releases/tag/v5.8.0)
 - [v5.9.0](https://github.com/hashicorp/terraform-provider-aws/releases/tag/v5.9.0)
 
-### Removing depreciated resources
-We had previously renamed the following resources. We have removed the old names from
-v6. Any reference to the old name will need to switch to the new name. That is the only
-change required.
+## Deprecated resources and functions
+
+The resources and functions listed below were renamed in a previous version. With this release, the original names have been fully deprecated. Any existing references to the original name will need to be updated.
+
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% chooseable language typescript }}
+
+```diff
+- const test = new aws.applicationloadbalancing.TargetGroup("test", {
++ const test = new aws.lb.TargetGroup("test", {
+      port: 80,
+      protocol: "HTTP",
+      vpcId: main.id,
+});
+```
+
+{{% /chooseable %}}
+
+{{% choosable language python %}}
+
+```diff
+-  test = aws.applicationloadbalancing.TargetGroup("test",
++  test = aws.lb.TargetGroup("test",
+       port=80,
+       protocol="HTTP",
+       vpc_id=main.id)
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```diff
+- "github.com/pulumi/pulumi-aws/sdk/v5/go/aws/applicationloadbalancing"
++ "github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+
+- _, err = applicationloadbalancing.NewTargetGroup(ctx, "test", &lb.TargetGroupArgs{
++ _, err = lb.NewTargetGroup(ctx, "test", &lb.TargetGroupArgs{
+      Port:     pulumi.Int(80),
+      Protocol: pulumi.String("HTTP"),
+      VpcId:    main.ID(),
+  })
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```diff
+- var test = new Aws.ApplicationLoadBalancing.TargetGroup("test", new()
++ var test = new Aws.LB.TargetGroup("test", new()
+  {
+      Port = 80,
+      Protocol = "HTTP",
+      VpcId = main.Id,
+  });
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```diff
+- import com.pulumi.aws.applicationLoadBalancing.TargetGroup;
++ import com.pulumi.aws.lb.TargetGroup;
+
+    var test = new TargetGroup("test", TargetGroupArgs.builder()
+        .port(80)
+        .protocol("HTTP")
+        .vpcId(main.id())
+        .build());
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```diff
+- type: aws:applicationLoadBalancing:TargetGroup
++ type: aws:lb:TargetGroup
+    properties:
+      port: 80
+      protocol: HTTP
+      vpcId: ${main.id}
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+### Resources
 
 - aws:applicationloadbalancing/listener:Listener -> [aws:alb/listener:Listener](https://www.pulumi.com/registry/packages/aws/api-docs/alb/listener/)
 - aws:applicationloadbalancing/listenerCertificate:ListenerCertificate -> [aws:applicationloadbalancing/listenerCertificate:ListenerCertificate](https://www.pulumi.com/registry/packages/aws/api-docs/alb/listenercertificate/)
@@ -43,10 +132,7 @@ change required.
 - aws:elasticloadbalancingv2/targetGroup:TargetGroup -> [aws:elbv2/targetGroup:TargetGroup](https://www.pulumi.com/registry/packages/aws/api-docs/lb/targetgroup/)
 - aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment -> [aws:lb/targetGroupAttachment:TargetGroupAttachment](https://www.pulumi.com/registry/packages/aws/api-docs/lb/targetgroupattachment/)
 
-### Removing depreciated functions
-We had previously renamed the following resources. We have removed the old names from
-v6. Any reference to the old name will need to switch to the new name. That is the only
-change required.
+### Functions
 
 - aws:applicationloadbalancing/getListener:getListener -> [aws:alb/getListener:getListener](https://www.pulumi.com/registry/packages/aws/api-docs/alb/getlistener/)
 - aws:applicationloadbalancing/getLoadBalancer:getLoadBalancer -> [aws:alb/getLoadBalancer:getLoadBalancer](https://www.pulumi.com/registry/packages/aws/api-docs/alb/getloadbalancer/)
@@ -66,35 +152,150 @@ change required.
 - aws:index/getElasticIp:getElasticIp -> [aws:ec2/getElasticIp:getElasticIp](https://www.pulumi.com/registry/packages/aws/api-docs/ec2/getelasticip/)
 - aws:index/getPrefixList:getPrefixList -> [aws:ec2/getPrefixList:getPrefixList](https://www.pulumi.com/registry/packages/aws/api-docs/ec2/getprefixlist/)
 
-### aws.sdk [typescript]
-We have [removed the aws.sdk](https://github.com/pulumi/pulumi-aws/pull/2584)
-property. You may still access the underlying functionality by directly importing the AWS
-TS sdk. See https://github.com/pulumi/pulumi-aws/pull/2584 for more details.
+## Property Removal
 
-### WafV2
+The [aws.sdk](https://github.com/pulumi/pulumi-aws/pull/2584)
+property has been removed as it has already been deprecated upstream. The underlying functionality is still accessible by directly importing the AWS Typescript sdk. See https://github.com/pulumi/pulumi-aws/pull/2584 for more details.
 
-The `wafv2` module has two problematic resources with massive schemas. Because Terraform can't represent recursive schema types, they
-[brute-force generated](https://github.com/hashicorp/terraform-provider-aws/blob/5c5ab41aad82960be2dc8f0ed201098e260cd07a/internal/service/wafv2/schemas.go#L45.) 
-approximations of recursive types a few layers down. This lead to massive SDK sizes on for Pulumi. However, Pulumi
-does support recursive types. We now define these `wafv2` types recursively. If you were using any of the
-"RuleGroupRuleStatement" or "WebAclRuleStatement" properties on a wafv2 resource, you will need to refactor to
-use the new recursive types in the `wafv2` module.
+## WafV2
 
-### Unused Quicksight Types
+The `wafv2` module has been refactored to properly define recursive types resulting in a significant decrease in SDK size.
+Any references to `RuleGroupRuleStatement` or `WebAclRuleStatement` properties on a wafv2 resource, will need to be updated to use the new recursive types in the `wafv2` module.
 
-We have [removed](https://github.com/pulumi/pulumi-aws/pull/2609/commits/7a72e505fc7b5729f2ea1ec231e52fa614332744) some
-unused types from the `quicksight` module. Consumers of removed types can continue to reference the v5 types or move the
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% chooseable language typescript }}
+
+```diff
+-
++
+```
+
+{{% /chooseable %}}
+
+{{% choosable language python %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```diff
+-
++
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+## Unused Quicksight Types
+
+Unused types from the `quicksight` module have been [removed](https://github.com/pulumi/pulumi-aws/pull/2609/commits/7a72e505fc7b5729f2ea1ec231e52fa614332744). Consumers of removed types can continue to reference the v5 types or move the
 type definition into their own program.
 
-### Miscellaneous changes
-- `aws:organizations/getOrganizationalUnits:getOrganizationalUnits`: We have changed the
-  name of property `childrens` to `children` and the name of the associated type from
-  `children` to `child.  See https://github.com/pulumi/pulumi-aws/pull/2634 for details.
-- We have changed the function signature for 3 generated Functions. For each function, the
-  signature has changed from `(pulumi.InvokeOptions) -> T` to `(Args,
-  pulumi.InvokeOptions) -> T`. Where each function is called, you will need to change the
-  call site to accommodate the new argument. The new argument is optional, so passing an
-  empty argument block is sufficient. These are the effected functions:
-  - "aws:index/getBillingServiceAccount:getBillingServiceAccount"
-  - "aws:index/getCallerIdentity:getCallerIdentity"
-  - "aws:index/getPartition:getPartition"
+{{< chooser language "typescript,python,go,csharp,java,yaml" >}}
+
+{{% chooseable language typescript }}
+
+```diff
+- 
++
+```
+
+{{% /chooseable %}}
+
+{{% choosable language python %}}
+
+```diff
+- 
++ 
+```
+
+{{% /choosable %}}
+
+{{% choosable language go %}}
+
+```diff
+- 
++ 
+```
+
+{{% /choosable %}}
+
+{{% choosable language csharp %}}
+
+```diff
+- 
++ 
+```
+
+{{% /choosable %}}
+
+{{% choosable language java %}}
+
+```diff
+- 
++ 
+```
+
+{{% /choosable %}}
+
+{{% choosable language yaml %}}
+
+```diff
+- 
++ 
+```
+
+{{% /choosable %}}
+
+{{< /chooser >}}
+
+## Property Name Change
+
+The name of property `aws:organizations/getOrganizationalUnits:getOrganizationalUnits` has changed from `childrens` to `children` and the name of the associated type from `children` to `child`. See https://github.com/pulumi/pulumi-aws/pull/2634 for details.
+
+## Function Signature Change
+
+For three functions, the signature has changed to accommodate a new argument. The new argument is optional, so passing an empty argument block is sufficient. Any reference to these three functions will need to be updated. The three impacted functions are:
+
+- `aws:index/getBillingServiceAccount:getBillingServiceAccount`
+- `aws:index/getCallerIdentity:getCallerIdentity`
+- `aws:index/getPartition:getPartition`
+
+```diff
+-`(pulumi.InvokeOptions) -> T`
++ `(Args, pulumi.InvokeOptions) -> T`
+```
