@@ -56,14 +56,14 @@ import {Topic} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const config = new pulumi.Config();
- * const sns = config.getObject("sns") || {
+ * const sns = config.getObject<{account-id?: string, display_name?: string, name?: string, region?: string, role-name?: string}>("sns") || {
  *     "account-id": "111111111111",
  *     "role-name": "service/service",
  *     name: "example-sns-topic",
  *     display_name: "example",
  *     region: "us-west-1",
  * };
- * const sqs = config.getObject("sqs") || {
+ * const sqs = config.getObject<{account-id?: string, name?: string, region?: string, role-name?: string}>("sqs") || {
  *     "account-id": "222222222222",
  *     "role-name": "service/service",
  *     name: "example-sqs-queue",
