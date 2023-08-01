@@ -254,7 +254,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/posener/complete v1.2.3 // indirect
 	github.com/pulumi/pulumi-java/pkg v0.9.4 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230731111132-ab12a941f4f9 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230801203955-5d215c892096 // indirect
 	github.com/pulumi/pulumi-yaml v1.1.1 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect

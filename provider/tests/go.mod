@@ -2,13 +2,6 @@ module github.com/pulumi/pulumi-aws/provider/tests
 
 go 1.20
 
-// Local development replaces
-replace (
-	github.com/pulumi/pulumi-terraform-bridge/pf => ../../../pulumi-terraform-bridge/pf
-	github.com/pulumi/pulumi-terraform-bridge/v3 => ../../../pulumi-terraform-bridge
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer => ../../../pulumi-terraform-bridge/x/muxer
-)
-
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20230710100801-03a71d0fca3d
 	github.com/hashicorp/terraform-provider-aws => ../../upstream
@@ -19,7 +12,7 @@ replace (
 
 require (
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.14.1
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.14.2-0.20230801105739-e05114319908
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1
 	github.com/stretchr/testify v1.8.4
 )
@@ -156,7 +149,7 @@ require (
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
 	github.com/mattbaird/jsonpatch v0.0.0-20200820163806-098863c1fc24 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
-	github.com/mattn/go-isatty v0.0.17 // indirect
+	github.com/mattn/go-isatty v0.0.18 // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
@@ -174,10 +167,10 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.54.1 // indirect
-	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.6 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.75.0 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.76.0 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.55.1-0.20230801105739-e05114319908 // indirect
+	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.7-0.20230801105739-e05114319908 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.76.1 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.76.1 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
@@ -185,7 +178,7 @@ require (
 	github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 // indirect
 	github.com/segmentio/asm v1.1.3 // indirect
 	github.com/segmentio/encoding v0.3.5 // indirect
-	github.com/sergi/go-diff v1.2.0 // indirect
+	github.com/sergi/go-diff v1.3.1 // indirect
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/skeema/knownhosts v1.1.0 // indirect
 	github.com/spf13/cobra v1.7.0 // indirect

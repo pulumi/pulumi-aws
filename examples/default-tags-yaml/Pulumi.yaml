@@ -10,4 +10,4 @@ resources:
   my-bucket:
     type: aws:s3:Bucket
 outputs:
-  bucketTags: ${my-bucket.tagsAll}
+  bucketTags: ${my-bucket.tags}

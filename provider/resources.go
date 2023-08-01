@@ -7093,7 +7093,7 @@ func Provider() *tfbridge.ProviderInfo {
 
 		// We have ensured that this resource is using upstream's generic tagging
 		// mechanism, so override check so it works.
-		prov.Resources[key].XCustomCheck = applyTags
+		prov.Resources[key].PreCheckCallback = applyTags
 
 		return true
 	})
