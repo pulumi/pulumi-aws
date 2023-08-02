@@ -30,7 +30,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var test = new Aws.OpenSearch.ServerlessAccessPolicy("test", new()
     ///     {
-    ///         Name = "example",
     ///         Type = "data",
     ///         Policy = Output.Tuple(currentPartition, currentCallerIdentity).Apply(values =&gt;
     ///         {
@@ -169,8 +168,8 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Name of the policy.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// JSON policy document to use as the content for the new policy

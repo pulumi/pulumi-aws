@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
  *     type: "encryption",
  *     description: "encryption security policy for example-collection",
  *     policy: JSON.stringify({
@@ -36,7 +35,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
  *     type: "encryption",
  *     description: "encryption security policy for collections that begin with \"example\"",
  *     policy: JSON.stringify({
@@ -55,7 +53,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
  *     type: "encryption",
  *     description: "encryption security policy using customer KMS key",
  *     policy: JSON.stringify({
@@ -76,7 +73,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
  *     type: "network",
  *     description: "Public access",
  *     policy: JSON.stringify([{
@@ -102,7 +98,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
  *     type: "network",
  *     description: "VPC access",
  *     policy: JSON.stringify([{
@@ -129,7 +124,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessSecurityPolicy("example", {
- *     name: "example",
  *     type: "network",
  *     description: "Mixed access for marketing and sales",
  *     policy: JSON.stringify([
@@ -239,9 +233,6 @@ export class ServerlessSecurityPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServerlessSecurityPolicyArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
@@ -298,7 +289,7 @@ export interface ServerlessSecurityPolicyArgs {
     /**
      * Name of the policy.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * JSON policy document to use as the content for the new policy
      */

@@ -54,7 +54,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKxEnvironment = new KxEnvironment(&#34;exampleKxEnvironment&#34;, KxEnvironmentArgs.builder()        
- *             .name(&#34;my-tf-kx-environment&#34;)
  *             .kmsKeyId(exampleKey.arn())
  *             .build());
  * 
@@ -74,7 +73,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKxUser = new KxUser(&#34;exampleKxUser&#34;, KxUserArgs.builder()        
- *             .name(&#34;my-tf-kx-user&#34;)
  *             .environmentId(exampleKxEnvironment.id())
  *             .iamRole(exampleRole.arn())
  *             .build());

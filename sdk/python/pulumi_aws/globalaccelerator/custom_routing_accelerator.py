@@ -16,22 +16,21 @@ __all__ = ['CustomRoutingAcceleratorArgs', 'CustomRoutingAccelerator']
 @pulumi.input_type
 class CustomRoutingAcceleratorArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  attributes: Optional[pulumi.Input['CustomRoutingAcceleratorAttributesArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CustomRoutingAccelerator resource.
-        :param pulumi.Input[str] name: The name of a custom routing accelerator.
         :param pulumi.Input['CustomRoutingAcceleratorAttributesArgs'] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[str] ip_address_type: The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+        :param pulumi.Input[str] name: The name of a custom routing accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "name", name)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
         if enabled is not None:
@@ -40,20 +39,10 @@ class CustomRoutingAcceleratorArgs:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of a custom routing accelerator.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -102,6 +91,18 @@ class CustomRoutingAcceleratorArgs:
     @ip_addresses.setter
     def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a custom routing accelerator.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -317,8 +318,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
             ),
             enabled=True,
             ip_address_type="IPV4",
-            ip_addresses=["1.2.3.4"],
-            name="Example")
+            ip_addresses=["1.2.3.4"])
         ```
 
         ## Import
@@ -342,7 +342,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomRoutingAcceleratorArgs,
+                 args: Optional[CustomRoutingAcceleratorArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a Global Accelerator custom routing accelerator.
@@ -361,8 +361,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
             ),
             enabled=True,
             ip_address_type="IPV4",
-            ip_addresses=["1.2.3.4"],
-            name="Example")
+            ip_addresses=["1.2.3.4"])
         ```
 
         ## Import
@@ -407,8 +406,6 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["ip_addresses"] = ip_addresses
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["dns_name"] = None

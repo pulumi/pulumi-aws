@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appintegrations.DataIntegration("example", {
- *     name: "example",
  *     description: "example",
  *     kmsKey: aws_kms_key.test.arn,
  *     sourceUri: "Salesforce://AppFlow/example",
@@ -127,9 +126,6 @@ export class DataIntegration extends pulumi.CustomResource {
             if ((!args || args.kmsKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kmsKey'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.scheduleConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleConfig'");
             }
@@ -203,7 +199,7 @@ export interface DataIntegrationArgs {
     /**
      * Specifies the name of the Data Integration.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */

@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.route53.CidrCollection;
- * import com.pulumi.aws.route53.CidrCollectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -39,9 +38,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new CidrCollection(&#34;example&#34;, CidrCollectionArgs.builder()        
- *             .name(&#34;collection-1&#34;)
- *             .build());
+ *         var example = new CidrCollection(&#34;example&#34;);
  * 
  *     }
  * }
@@ -113,7 +110,7 @@ public class CidrCollection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CidrCollection(String name, CidrCollectionArgs args) {
+    public CidrCollection(String name, @Nullable CidrCollectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -122,7 +119,7 @@ public class CidrCollection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CidrCollection(String name, CidrCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public CidrCollection(String name, @Nullable CidrCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:route53/cidrCollection:CidrCollection", name, args == null ? CidrCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

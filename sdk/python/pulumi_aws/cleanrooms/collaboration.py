@@ -19,10 +19,10 @@ class CollaborationArgs:
                  creator_display_name: pulumi.Input[str],
                  creator_member_abilities: pulumi.Input[Sequence[pulumi.Input[str]]],
                  description: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  query_log_status: pulumi.Input[str],
                  data_encryption_metadata: Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Collaboration resource.
@@ -31,7 +31,6 @@ class CollaborationArgs:
                lues [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-re
                uest-creatorMemberAbilities)
         :param pulumi.Input[str] description: A description for a collaboration.
-        :param pulumi.Input[str] name: The name of the collaboration.  Collaboration names do not need to be unique.
         :param pulumi.Input[str] query_log_status: Determines if members of the collaboration can enable query logs within their own
                emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-Cr
                ateCollaboration-request-queryLogStatus).
@@ -50,17 +49,19 @@ class CollaborationArgs:
                * `member.display_name` - (Required - Forces new resource) - The display name for the invited member
                * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbiliti
                s
+        :param pulumi.Input[str] name: The name of the collaboration.  Collaboration names do not need to be unique.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key value pairs which tag the collaboration.
         """
         pulumi.set(__self__, "creator_display_name", creator_display_name)
         pulumi.set(__self__, "creator_member_abilities", creator_member_abilities)
         pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query_log_status", query_log_status)
         if data_encryption_metadata is not None:
             pulumi.set(__self__, "data_encryption_metadata", data_encryption_metadata)
         if members is not None:
             pulumi.set(__self__, "members", members)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -101,18 +102,6 @@ class CollaborationArgs:
     @description.setter
     def description(self, value: pulumi.Input[str]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the collaboration.  Collaboration names do not need to be unique.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="queryLogStatus")
@@ -164,6 +153,18 @@ class CollaborationArgs:
     @members.setter
     def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberArgs']]]]):
         pulumi.set(self, "members", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the collaboration.  Collaboration names do not need to be unique.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -451,7 +452,6 @@ class Collaboration(pulumi.CustomResource):
                 display_name="Other member",
                 member_abilities=[],
             )],
-            name="pulumi-example-collaboration",
             query_log_status="DISABLED",
             tags={
                 "Project": "Pulumi",
@@ -521,7 +521,6 @@ class Collaboration(pulumi.CustomResource):
                 display_name="Other member",
                 member_abilities=[],
             )],
-            name="pulumi-example-collaboration",
             query_log_status="DISABLED",
             tags={
                 "Project": "Pulumi",
@@ -571,8 +570,6 @@ class Collaboration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["members"] = members
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if query_log_status is None and not opts.urn:
                 raise TypeError("Missing required property 'query_log_status'")

@@ -17,20 +17,21 @@ __all__ = ['JobTemplateArgs', 'JobTemplate']
 class JobTemplateArgs:
     def __init__(__self__, *,
                  job_template_data: pulumi.Input['JobTemplateJobTemplateDataArgs'],
-                 name: pulumi.Input[str],
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a JobTemplate resource.
         :param pulumi.Input['JobTemplateJobTemplateDataArgs'] job_template_data: The job template data which holds values of StartJobRun API request.
-        :param pulumi.Input[str] name: The specified name of the job template.
         :param pulumi.Input[str] kms_key_arn: The KMS key ARN used to encrypt the job template.
+        :param pulumi.Input[str] name: The specified name of the job template.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "job_template_data", job_template_data)
-        pulumi.set(__self__, "name", name)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -47,18 +48,6 @@ class JobTemplateArgs:
         pulumi.set(self, "job_template_data", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The specified name of the job template.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -69,6 +58,18 @@ class JobTemplateArgs:
     @kms_key_arn.setter
     def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_arn", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The specified name of the job template.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -207,17 +208,15 @@ class JobTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrcontainers.JobTemplate("example",
-            job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
-                execution_role_arn=aws_iam_role["example"]["arn"],
-                release_label="emr-6.10.0-latest",
-                job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
-                    spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
-                        entry_point="default",
-                    ),
+        example = aws.emrcontainers.JobTemplate("example", job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
+            execution_role_arn=aws_iam_role["example"]["arn"],
+            release_label="emr-6.10.0-latest",
+            job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
+                spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
+                    entry_point="default",
                 ),
             ),
-            name="example")
+        ))
         ```
 
         ## Import
@@ -251,17 +250,15 @@ class JobTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrcontainers.JobTemplate("example",
-            job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
-                execution_role_arn=aws_iam_role["example"]["arn"],
-                release_label="emr-6.10.0-latest",
-                job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
-                    spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
-                        entry_point="default",
-                    ),
+        example = aws.emrcontainers.JobTemplate("example", job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
+            execution_role_arn=aws_iam_role["example"]["arn"],
+            release_label="emr-6.10.0-latest",
+            job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
+                spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
+                    entry_point="default",
                 ),
             ),
-            name="example")
+        ))
         ```
 
         ## Import
@@ -304,8 +301,6 @@ class JobTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'job_template_data'")
             __props__.__dict__["job_template_data"] = job_template_data
             __props__.__dict__["kms_key_arn"] = kms_key_arn
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

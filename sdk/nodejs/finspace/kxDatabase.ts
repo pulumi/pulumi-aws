@@ -18,13 +18,9 @@ import * as utilities from "../utilities";
  *     description: "Example KMS Key",
  *     deletionWindowInDays: 7,
  * });
- * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {
- *     name: "my-tf-kx-environment",
- *     kmsKeyId: exampleKey.arn,
- * });
+ * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
  * const exampleKxDatabase = new aws.finspace.KxDatabase("exampleKxDatabase", {
  *     environmentId: exampleKxEnvironment.id,
- *     name: "my-tf-kx-database",
  *     description: "Example database description",
  * });
  * ```
@@ -126,9 +122,6 @@ export class KxDatabase extends pulumi.CustomResource {
             if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -200,7 +193,7 @@ export interface KxDatabaseArgs {
      *
      * The following arguments are optional:
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

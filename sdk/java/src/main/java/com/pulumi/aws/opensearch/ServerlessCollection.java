@@ -47,7 +47,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleServerlessSecurityPolicy = new ServerlessSecurityPolicy(&#34;exampleServerlessSecurityPolicy&#34;, ServerlessSecurityPolicyArgs.builder()        
- *             .name(&#34;example&#34;)
  *             .type(&#34;encryption&#34;)
  *             .policy(serializeJson(
  *                 jsonObject(
@@ -59,11 +58,9 @@ import javax.annotation.Nullable;
  *                 )))
  *             .build());
  * 
- *         var exampleServerlessCollection = new ServerlessCollection(&#34;exampleServerlessCollection&#34;, ServerlessCollectionArgs.builder()        
- *             .name(&#34;example&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleServerlessSecurityPolicy)
- *                 .build());
+ *         var exampleServerlessCollection = new ServerlessCollection(&#34;exampleServerlessCollection&#34;, ServerlessCollectionArgs.Empty, CustomResourceOptions.builder()
+ *             .dependsOn(exampleServerlessSecurityPolicy)
+ *             .build());
  * 
  *     }
  * }
@@ -213,7 +210,7 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerlessCollection(String name, ServerlessCollectionArgs args) {
+    public ServerlessCollection(String name, @Nullable ServerlessCollectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -222,7 +219,7 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerlessCollection(String name, ServerlessCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ServerlessCollection(String name, @Nullable ServerlessCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:opensearch/serverlessCollection:ServerlessCollection", name, args == null ? ServerlessCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

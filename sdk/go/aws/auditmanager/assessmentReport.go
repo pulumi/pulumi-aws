@@ -30,7 +30,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewAssessmentReport(ctx, "test", &auditmanager.AssessmentReportArgs{
-//				Name:         pulumi.String("example"),
 //				AssessmentId: pulumi.Any(aws_auditmanager_assessment.Test.Id),
 //			})
 //			if err != nil {
@@ -75,9 +74,6 @@ func NewAssessmentReport(ctx *pulumi.Context,
 
 	if args.AssessmentId == nil {
 		return nil, errors.New("invalid value for required argument 'AssessmentId'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AssessmentReport
@@ -143,7 +139,7 @@ type assessmentReportArgs struct {
 	// Description of the assessment report.
 	Description *string `pulumi:"description"`
 	// Name of the assessment report.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a AssessmentReport resource.
@@ -155,7 +151,7 @@ type AssessmentReportArgs struct {
 	// Description of the assessment report.
 	Description pulumi.StringPtrInput
 	// Name of the assessment report.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 }
 
 func (AssessmentReportArgs) ElementType() reflect.Type {

@@ -18,10 +18,7 @@ import * as utilities from "../utilities";
  *     description: "Example KMS Key",
  *     deletionWindowInDays: 7,
  * });
- * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {
- *     name: "my-tf-kx-environment",
- *     kmsKeyId: exampleKey.arn,
- * });
+ * const exampleKxEnvironment = new aws.finspace.KxEnvironment("exampleKxEnvironment", {kmsKeyId: exampleKey.arn});
  * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: JSON.stringify({
  *     Version: "2012-10-17",
  *     Statement: [{
@@ -34,7 +31,6 @@ import * as utilities from "../utilities";
  *     }],
  * })});
  * const exampleKxUser = new aws.finspace.KxUser("exampleKxUser", {
- *     name: "my-tf-kx-user",
  *     environmentId: exampleKxEnvironment.id,
  *     iamRole: exampleRole.arn,
  * });
@@ -130,9 +126,6 @@ export class KxUser extends pulumi.CustomResource {
             if ((!args || args.iamRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRole'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["iamRole"] = args ? args.iamRole : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -194,7 +187,7 @@ export interface KxUserArgs {
     /**
      * A unique identifier for the user.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

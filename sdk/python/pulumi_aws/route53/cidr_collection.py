@@ -14,23 +14,24 @@ __all__ = ['CidrCollectionArgs', 'CidrCollection']
 @pulumi.input_type
 class CidrCollectionArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CidrCollection resource.
         :param pulumi.Input[str] name: Unique name for the CIDR collection.
         """
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         Unique name for the CIDR collection.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
 
@@ -106,7 +107,7 @@ class CidrCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.CidrCollection("example", name="collection-1")
+        example = aws.route53.CidrCollection("example")
         ```
 
         ## Import
@@ -125,7 +126,7 @@ class CidrCollection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CidrCollectionArgs,
+                 args: Optional[CidrCollectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Route53 CIDR collection resource.
@@ -136,7 +137,7 @@ class CidrCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.route53.CidrCollection("example", name="collection-1")
+        example = aws.route53.CidrCollection("example")
         ```
 
         ## Import
@@ -172,8 +173,6 @@ class CidrCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CidrCollectionArgs.__new__(CidrCollectionArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
             __props__.__dict__["version"] = None

@@ -50,7 +50,6 @@ import (
 //						MemberAbilities: pulumi.StringArray{},
 //					},
 //				},
-//				Name:           pulumi.String("pulumi-example-collaboration"),
 //				QueryLogStatus: pulumi.String("DISABLED"),
 //				Tags: pulumi.StringMap{
 //					"Project": pulumi.String("Pulumi"),
@@ -125,9 +124,6 @@ func NewCollaboration(ctx *pulumi.Context,
 	}
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	if args.QueryLogStatus == nil {
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
@@ -273,7 +269,7 @@ type collaborationArgs struct {
 	//   s
 	Members []CollaborationMember `pulumi:"members"`
 	// The name of the collaboration.  Collaboration names do not need to be unique.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Determines if members of the collaboration can enable query logs within their own
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-Cr
 	// ateCollaboration-request-queryLogStatus).
@@ -310,7 +306,7 @@ type CollaborationArgs struct {
 	//   s
 	Members CollaborationMemberArrayInput
 	// The name of the collaboration.  Collaboration names do not need to be unique.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Determines if members of the collaboration can enable query logs within their own
 	// emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-Cr
 	// ateCollaboration-request-queryLogStatus).

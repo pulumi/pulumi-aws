@@ -61,7 +61,6 @@ namespace Pulumi.Aws.Auditmanager
         /// 
         ///     var exampleFramework = new Aws.Auditmanager.Framework("exampleFramework", new()
         ///     {
-        ///         Name = "example",
         ///         ControlSets = new[]
         ///         {
         ///             new Aws.Auditmanager.Inputs.FrameworkControlSetArgs
@@ -147,7 +146,6 @@ namespace Pulumi.Aws.Auditmanager
         /// 
         ///     var exampleFramework = new Aws.Auditmanager.Framework("exampleFramework", new()
         ///     {
-        ///         Name = "example",
         ///         ControlSets = new[]
         ///         {
         ///             new Aws.Auditmanager.Inputs.FrameworkControlSetArgs

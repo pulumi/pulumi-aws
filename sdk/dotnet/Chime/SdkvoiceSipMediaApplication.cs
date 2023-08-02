@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Chime
     ///     var example = new Aws.Chime.SdkvoiceSipMediaApplication("example", new()
     ///     {
     ///         AwsRegion = "us-east-1",
-    ///         Name = "example-sip-media-application",
     ///         Endpoints = new Aws.Chime.Inputs.SdkvoiceSipMediaApplicationEndpointsArgs
     ///         {
     ///             LambdaArn = aws_lambda_function.Test.Arn,
@@ -148,8 +147,8 @@ namespace Pulumi.Aws.Chime
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

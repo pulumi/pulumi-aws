@@ -47,9 +47,6 @@ func NewServerlessSecurityConfig(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -113,7 +110,7 @@ type serverlessSecurityConfigArgs struct {
 	// Description of the security configuration.
 	Description *string `pulumi:"description"`
 	// Name of the policy.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Configuration block for SAML options.
 	SamlOptions *ServerlessSecurityConfigSamlOptions `pulumi:"samlOptions"`
 	// Type of configuration. Must be `saml`.
@@ -127,7 +124,7 @@ type ServerlessSecurityConfigArgs struct {
 	// Description of the security configuration.
 	Description pulumi.StringPtrInput
 	// Name of the policy.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Configuration block for SAML options.
 	SamlOptions ServerlessSecurityConfigSamlOptionsPtrInput
 	// Type of configuration. Must be `saml`.

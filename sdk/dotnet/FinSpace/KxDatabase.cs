@@ -31,14 +31,12 @@ namespace Pulumi.Aws.FinSpace
     /// 
     ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("exampleKxEnvironment", new()
     ///     {
-    ///         Name = "my-tf-kx-environment",
     ///         KmsKeyId = exampleKey.Arn,
     ///     });
     /// 
     ///     var exampleKxDatabase = new Aws.FinSpace.KxDatabase("exampleKxDatabase", new()
     ///     {
     ///         EnvironmentId = exampleKxEnvironment.Id,
-    ///         Name = "my-tf-kx-database",
     ///         Description = "Example database description",
     ///     });
     /// 
@@ -169,8 +167,8 @@ namespace Pulumi.Aws.FinSpace
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

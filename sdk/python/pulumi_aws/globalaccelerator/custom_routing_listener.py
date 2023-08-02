@@ -109,7 +109,6 @@ class CustomRoutingListener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_custom_routing_accelerator = aws.globalaccelerator.CustomRoutingAccelerator("exampleCustomRoutingAccelerator",
-            name="Example",
             ip_address_type="IPV4",
             enabled=True,
             attributes=aws.globalaccelerator.CustomRoutingAcceleratorAttributesArgs(
@@ -154,7 +153,6 @@ class CustomRoutingListener(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_custom_routing_accelerator = aws.globalaccelerator.CustomRoutingAccelerator("exampleCustomRoutingAccelerator",
-            name="Example",
             ip_address_type="IPV4",
             enabled=True,
             attributes=aws.globalaccelerator.CustomRoutingAcceleratorAttributesArgs(

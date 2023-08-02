@@ -16,7 +16,7 @@ class CidrLocationArgs:
     def __init__(__self__, *,
                  cidr_blocks: pulumi.Input[Sequence[pulumi.Input[str]]],
                  cidr_collection_id: pulumi.Input[str],
-                 name: pulumi.Input[str]):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CidrLocation resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: CIDR blocks for the location.
@@ -25,7 +25,8 @@ class CidrLocationArgs:
         """
         pulumi.set(__self__, "cidr_blocks", cidr_blocks)
         pulumi.set(__self__, "cidr_collection_id", cidr_collection_id)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="cidrBlocks")
@@ -53,14 +54,14 @@ class CidrLocationArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         Name for the CIDR location.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
 
@@ -138,10 +139,9 @@ class CidrLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cidr_collection = aws.route53.CidrCollection("exampleCidrCollection", name="collection-1")
+        example_cidr_collection = aws.route53.CidrCollection("exampleCidrCollection")
         example_cidr_location = aws.route53.CidrLocation("exampleCidrLocation",
             cidr_collection_id=example_cidr_collection.id,
-            name="office",
             cidr_blocks=[
                 "200.5.3.0/24",
                 "200.6.3.0/24",
@@ -177,10 +177,9 @@ class CidrLocation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_cidr_collection = aws.route53.CidrCollection("exampleCidrCollection", name="collection-1")
+        example_cidr_collection = aws.route53.CidrCollection("exampleCidrCollection")
         example_cidr_location = aws.route53.CidrLocation("exampleCidrLocation",
             cidr_collection_id=example_cidr_collection.id,
-            name="office",
             cidr_blocks=[
                 "200.5.3.0/24",
                 "200.6.3.0/24",
@@ -228,8 +227,6 @@ class CidrLocation(pulumi.CustomResource):
             if cidr_collection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cidr_collection_id'")
             __props__.__dict__["cidr_collection_id"] = cidr_collection_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
         super(CidrLocation, __self__).__init__(
             'aws:route53/cidrLocation:CidrLocation',

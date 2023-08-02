@@ -27,7 +27,6 @@ namespace Pulumi.Aws.CloudFront
     ///     {
     ///         Comment = "example public key",
     ///         EncodedKey = File.ReadAllText("public_key.pem"),
-    ///         Name = "example-key",
     ///     });
     /// 
     ///     var exampleKeyGroup = new Aws.CloudFront.KeyGroup("exampleKeyGroup", new()

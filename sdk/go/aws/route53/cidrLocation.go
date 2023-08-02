@@ -28,15 +28,12 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCidrCollection, err := route53.NewCidrCollection(ctx, "exampleCidrCollection", &route53.CidrCollectionArgs{
-//				Name: pulumi.String("collection-1"),
-//			})
+//			exampleCidrCollection, err := route53.NewCidrCollection(ctx, "exampleCidrCollection", nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = route53.NewCidrLocation(ctx, "exampleCidrLocation", &route53.CidrLocationArgs{
 //				CidrCollectionId: exampleCidrCollection.ID(),
-//				Name:             pulumi.String("office"),
 //				CidrBlocks: pulumi.StringArray{
 //					pulumi.String("200.5.3.0/24"),
 //					pulumi.String("200.6.3.0/24"),
@@ -81,9 +78,6 @@ func NewCidrLocation(ctx *pulumi.Context,
 	}
 	if args.CidrCollectionId == nil {
 		return nil, errors.New("invalid value for required argument 'CidrCollectionId'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CidrLocation
@@ -135,7 +129,7 @@ type cidrLocationArgs struct {
 	// The ID of the CIDR collection to update.
 	CidrCollectionId string `pulumi:"cidrCollectionId"`
 	// Name for the CIDR location.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a CidrLocation resource.
@@ -145,7 +139,7 @@ type CidrLocationArgs struct {
 	// The ID of the CIDR collection to update.
 	CidrCollectionId pulumi.StringInput
 	// Name for the CIDR location.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 }
 
 func (CidrLocationArgs) ElementType() reflect.Type {

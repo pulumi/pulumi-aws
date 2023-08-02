@@ -17,14 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.auditmanager.Control("example", {
- *     controlMappingSources: [{
- *         sourceName: "example",
- *         sourceSetUpOption: "Procedural_Controls_Mapping",
- *         sourceType: "MANUAL",
- *     }],
- *     name: "example",
- * });
+ * const example = new aws.auditmanager.Control("example", {controlMappingSources: [{
+ *     sourceName: "example",
+ *     sourceSetUpOption: "Procedural_Controls_Mapping",
+ *     sourceType: "MANUAL",
+ * }]});
  * ```
  *
  * ## Import
@@ -111,7 +108,7 @@ export class Control extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ControlArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ControlArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ControlArgs | ControlState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -129,9 +126,6 @@ export class Control extends pulumi.CustomResource {
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ControlArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["actionPlanInstructions"] = args ? args.actionPlanInstructions : undefined;
             resourceInputs["actionPlanTitle"] = args ? args.actionPlanTitle : undefined;
             resourceInputs["controlMappingSources"] = args ? args.controlMappingSources : undefined;
@@ -219,7 +213,7 @@ export interface ControlArgs {
     /**
      * Name of the control.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

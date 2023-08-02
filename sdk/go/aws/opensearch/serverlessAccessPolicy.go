@@ -68,7 +68,6 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessAccessPolicy(ctx, "test", &opensearch.ServerlessAccessPolicyArgs{
-//				Name:   pulumi.String("example"),
 //				Type:   pulumi.String("data"),
 //				Policy: pulumi.String(json0),
 //			})
@@ -112,9 +111,6 @@ func NewServerlessAccessPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
@@ -181,7 +177,7 @@ type serverlessAccessPolicyArgs struct {
 	// Description of the policy. Typically used to store information about the permissions defined in the policy.
 	Description *string `pulumi:"description"`
 	// Name of the policy.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// JSON policy document to use as the content for the new policy
 	Policy string `pulumi:"policy"`
 	// Type of access policy. Must be `data`.
@@ -195,7 +191,7 @@ type ServerlessAccessPolicyArgs struct {
 	// Description of the policy. Typically used to store information about the permissions defined in the policy.
 	Description pulumi.StringPtrInput
 	// Name of the policy.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// JSON policy document to use as the content for the new policy
 	Policy pulumi.StringInput
 	// Type of access policy. Must be `data`.

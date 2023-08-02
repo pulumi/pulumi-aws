@@ -17,26 +17,27 @@ __all__ = ['DataIntegrationArgs', 'DataIntegration']
 class DataIntegrationArgs:
     def __init__(__self__, *,
                  kms_key: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  schedule_config: pulumi.Input['DataIntegrationScheduleConfigArgs'],
                  source_uri: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DataIntegration resource.
         :param pulumi.Input[str] kms_key: Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
-        :param pulumi.Input[str] name: Specifies the name of the Data Integration.
         :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
         :param pulumi.Input[str] source_uri: Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         :param pulumi.Input[str] description: Specifies the description of the Data Integration.
+        :param pulumi.Input[str] name: Specifies the name of the Data Integration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "kms_key", kms_key)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule_config", schedule_config)
         pulumi.set(__self__, "source_uri", source_uri)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -51,18 +52,6 @@ class DataIntegrationArgs:
     @kms_key.setter
     def kms_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "kms_key", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Specifies the name of the Data Integration.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="scheduleConfig")
@@ -99,6 +88,18 @@ class DataIntegrationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Data Integration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -271,7 +272,6 @@ class DataIntegration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appintegrations.DataIntegration("example",
-            name="example",
             description="example",
             kms_key=aws_kms_key["test"]["arn"],
             source_uri="Salesforce://AppFlow/example",
@@ -318,7 +318,6 @@ class DataIntegration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appintegrations.DataIntegration("example",
-            name="example",
             description="example",
             kms_key=aws_kms_key["test"]["arn"],
             source_uri="Salesforce://AppFlow/example",
@@ -374,8 +373,6 @@ class DataIntegration(pulumi.CustomResource):
             if kms_key is None and not opts.urn:
                 raise TypeError("Missing required property 'kms_key'")
             __props__.__dict__["kms_key"] = kms_key
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if schedule_config is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_config'")

@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
  *                 .sourceSetUpOption(&#34;Procedural_Controls_Mapping&#34;)
  *                 .sourceType(&#34;MANUAL&#34;)
  *                 .build())
- *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }
@@ -219,7 +218,7 @@ public class Control extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Control(String name, ControlArgs args) {
+    public Control(String name, @Nullable ControlArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,7 +227,7 @@ public class Control extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Control(String name, ControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Control(String name, @Nullable ControlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:auditmanager/control:Control", name, args == null ? ControlArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

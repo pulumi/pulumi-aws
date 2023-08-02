@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleServerlessSecurityPolicy = new aws.opensearch.ServerlessSecurityPolicy("exampleServerlessSecurityPolicy", {
- *     name: "example",
  *     type: "encryption",
  *     policy: JSON.stringify({
  *         Rules: [{
@@ -28,7 +27,7 @@ import * as utilities from "../utilities";
  *         AWSOwnedKey: true,
  *     }),
  * });
- * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("exampleServerlessCollection", {name: "example"}, {
+ * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("exampleServerlessCollection", {}, {
  *     dependsOn: [exampleServerlessSecurityPolicy],
  * });
  * ```
@@ -110,7 +109,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServerlessCollectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ServerlessCollectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerlessCollectionArgs | ServerlessCollectionState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -128,9 +127,6 @@ export class ServerlessCollection extends pulumi.CustomResource {
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServerlessCollectionArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -199,7 +195,7 @@ export interface ServerlessCollectionArgs {
      *
      * The following arguments are optional:
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

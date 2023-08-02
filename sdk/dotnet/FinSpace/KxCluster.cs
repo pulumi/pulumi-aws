@@ -311,8 +311,8 @@ namespace Pulumi.Aws.FinSpace
         /// <summary>
         /// Unique name for the cluster that you want to create.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Version of FinSpace Managed kdb to run.

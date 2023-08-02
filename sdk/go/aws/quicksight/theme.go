@@ -68,9 +68,6 @@ func NewTheme(ctx *pulumi.Context,
 	if args.BaseThemeId == nil {
 		return nil, errors.New("invalid value for required argument 'BaseThemeId'")
 	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.ThemeId == nil {
 		return nil, errors.New("invalid value for required argument 'ThemeId'")
 	}
@@ -176,7 +173,7 @@ type themeArgs struct {
 	// The following arguments are optional:
 	Configuration *ThemeConfiguration `pulumi:"configuration"`
 	// Display name of the theme.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions []ThemePermission `pulumi:"permissions"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -198,7 +195,7 @@ type ThemeArgs struct {
 	// The following arguments are optional:
 	Configuration ThemeConfigurationPtrInput
 	// Display name of the theme.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

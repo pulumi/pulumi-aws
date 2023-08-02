@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,7 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewFramework(ctx, "test", &auditmanager.FrameworkArgs{
-//				Name: pulumi.String("example"),
 //				ControlSets: auditmanager.FrameworkControlSetArray{
 //					&auditmanager.FrameworkControlSetArgs{
 //						Name: pulumi.String("example"),
@@ -85,12 +83,9 @@ type Framework struct {
 func NewFramework(ctx *pulumi.Context,
 	name string, args *FrameworkArgs, opts ...pulumi.ResourceOption) (*Framework, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &FrameworkArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Framework
 	err := ctx.RegisterResource("aws:auditmanager/framework:Framework", name, args, &resource, opts...)
@@ -169,7 +164,7 @@ type frameworkArgs struct {
 	// Description of the framework.
 	Description *string `pulumi:"description"`
 	// Name of the framework.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -185,7 +180,7 @@ type FrameworkArgs struct {
 	// Description of the framework.
 	Description pulumi.StringPtrInput
 	// Name of the framework.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }

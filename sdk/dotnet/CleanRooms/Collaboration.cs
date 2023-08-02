@@ -49,7 +49,6 @@ namespace Pulumi.Aws.CleanRooms
     ///                 MemberAbilities = new[] {},
     ///             },
     ///         },
-    ///         Name = "pulumi-example-collaboration",
     ///         QueryLogStatus = "DISABLED",
     ///         Tags = 
     ///         {
@@ -254,8 +253,8 @@ namespace Pulumi.Aws.CleanRooms
         /// <summary>
         /// The name of the collaboration.  Collaboration names do not need to be unique.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Determines if members of the collaboration can enable query logs within their own

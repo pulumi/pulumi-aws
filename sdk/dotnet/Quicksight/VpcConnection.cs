@@ -77,7 +77,6 @@ namespace Pulumi.Aws.Quicksight
     ///     var example = new Aws.Quicksight.VpcConnection("example", new()
     ///     {
     ///         VpcConnectionId = "example-connection-id",
-    ///         Name = "Example Connection",
     ///         RoleArn = vpcConnectionRole.Arn,
     ///         SecurityGroupIds = new[]
     ///         {
@@ -242,8 +241,8 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// The display name for the VPC connection.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The IAM role to associate with the VPC connection.

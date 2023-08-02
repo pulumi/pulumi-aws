@@ -38,7 +38,6 @@ import (
 //				return err
 //			}
 //			exampleKxEnvironment, err := finspace.NewKxEnvironment(ctx, "exampleKxEnvironment", &finspace.KxEnvironmentArgs{
-//				Name:     pulumi.String("my-tf-kx-environment"),
 //				KmsKeyId: exampleKey.Arn,
 //			})
 //			if err != nil {
@@ -46,7 +45,6 @@ import (
 //			}
 //			_, err = finspace.NewKxDatabase(ctx, "exampleKxDatabase", &finspace.KxDatabaseArgs{
 //				EnvironmentId: exampleKxEnvironment.ID(),
-//				Name:          pulumi.String("my-tf-kx-database"),
 //				Description:   pulumi.String("Example database description"),
 //			})
 //			if err != nil {
@@ -97,9 +95,6 @@ func NewKxDatabase(ctx *pulumi.Context,
 
 	if args.EnvironmentId == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentId'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KxDatabase
@@ -177,7 +172,7 @@ type kxDatabaseArgs struct {
 	// Name of the KX database.
 	//
 	// The following arguments are optional:
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -191,7 +186,7 @@ type KxDatabaseArgs struct {
 	// Name of the KX database.
 	//
 	// The following arguments are optional:
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }

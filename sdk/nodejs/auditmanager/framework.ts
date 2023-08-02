@@ -17,15 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.auditmanager.Framework("test", {
+ * const test = new aws.auditmanager.Framework("test", {controlSets: [{
  *     name: "example",
- *     controlSets: [{
- *         name: "example",
- *         controls: [{
- *             id: aws_auditmanager_control.test.id,
- *         }],
+ *     controls: [{
+ *         id: aws_auditmanager_control.test.id,
  *     }],
- * });
+ * }]});
  * ```
  *
  * ## Import
@@ -104,7 +101,7 @@ export class Framework extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FrameworkArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: FrameworkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FrameworkArgs | FrameworkState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -120,9 +117,6 @@ export class Framework extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as FrameworkArgs | undefined;
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["complianceType"] = args ? args.complianceType : undefined;
             resourceInputs["controlSets"] = args ? args.controlSets : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -196,7 +190,7 @@ export interface FrameworkArgs {
     /**
      * Name of the framework.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the framework. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

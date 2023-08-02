@@ -18,7 +18,7 @@ class SdkvoiceSipMediaApplicationArgs:
     def __init__(__self__, *,
                  aws_region: pulumi.Input[str],
                  endpoints: pulumi.Input['SdkvoiceSipMediaApplicationEndpointsArgs'],
-                 name: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SdkvoiceSipMediaApplication resource.
@@ -31,7 +31,8 @@ class SdkvoiceSipMediaApplicationArgs:
         """
         pulumi.set(__self__, "aws_region", aws_region)
         pulumi.set(__self__, "endpoints", endpoints)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -61,7 +62,7 @@ class SdkvoiceSipMediaApplicationArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the AWS Chime SDK Voice Sip Media Application.
 
@@ -70,7 +71,7 @@ class SdkvoiceSipMediaApplicationArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -216,7 +217,6 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
 
         example = aws.chime.SdkvoiceSipMediaApplication("example",
             aws_region="us-east-1",
-            name="example-sip-media-application",
             endpoints=aws.chime.SdkvoiceSipMediaApplicationEndpointsArgs(
                 lambda_arn=aws_lambda_function["test"]["arn"],
             ))
@@ -257,7 +257,6 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
 
         example = aws.chime.SdkvoiceSipMediaApplication("example",
             aws_region="us-east-1",
-            name="example-sip-media-application",
             endpoints=aws.chime.SdkvoiceSipMediaApplicationEndpointsArgs(
                 lambda_arn=aws_lambda_function["test"]["arn"],
             ))
@@ -305,8 +304,6 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
             if endpoints is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoints'")
             __props__.__dict__["endpoints"] = endpoints
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -32,7 +32,6 @@ namespace Pulumi.Aws.FinSpace
     /// 
     ///     var exampleKxEnvironment = new Aws.FinSpace.KxEnvironment("exampleKxEnvironment", new()
     ///     {
-    ///         Name = "my-tf-kx-environment",
     ///         KmsKeyId = exampleKey.Arn,
     ///     });
     /// 
@@ -59,7 +58,6 @@ namespace Pulumi.Aws.FinSpace
     /// 
     ///     var exampleKxUser = new Aws.FinSpace.KxUser("exampleKxUser", new()
     ///     {
-    ///         Name = "my-tf-kx-user",
     ///         EnvironmentId = exampleKxEnvironment.Id,
     ///         IamRole = exampleRole.Arn,
     ///     });
@@ -179,8 +177,8 @@ namespace Pulumi.Aws.FinSpace
         /// <summary>
         /// A unique identifier for the user.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

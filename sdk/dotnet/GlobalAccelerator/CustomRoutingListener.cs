@@ -24,7 +24,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// {
     ///     var exampleCustomRoutingAccelerator = new Aws.GlobalAccelerator.CustomRoutingAccelerator("exampleCustomRoutingAccelerator", new()
     ///     {
-    ///         Name = "Example",
     ///         IpAddressType = "IPV4",
     ///         Enabled = true,
     ///         Attributes = new Aws.GlobalAccelerator.Inputs.CustomRoutingAcceleratorAttributesArgs

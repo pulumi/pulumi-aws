@@ -49,7 +49,6 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("encryption"),
 //				Description: pulumi.String("encryption security policy for example-collection"),
 //				Policy:      pulumi.String(json0),
@@ -94,7 +93,6 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("encryption"),
 //				Description: pulumi.String("encryption security policy for collections that begin with \"example\""),
 //				Policy:      pulumi.String(json0),
@@ -140,7 +138,6 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("encryption"),
 //				Description: pulumi.String("encryption security policy using customer KMS key"),
 //				Policy:      pulumi.String(json0),
@@ -195,7 +192,6 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("network"),
 //				Description: pulumi.String("Public access"),
 //				Policy:      pulumi.String(json0),
@@ -252,7 +248,6 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("network"),
 //				Description: pulumi.String("VPC access"),
 //				Policy:      pulumi.String(json0),
@@ -321,7 +316,6 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
-//				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("network"),
 //				Description: pulumi.String("Mixed access for marketing and sales"),
 //				Policy:      pulumi.String(json0),
@@ -366,9 +360,6 @@ func NewServerlessSecurityPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.Policy == nil {
 		return nil, errors.New("invalid value for required argument 'Policy'")
 	}
@@ -435,7 +426,7 @@ type serverlessSecurityPolicyArgs struct {
 	// Description of the policy. Typically used to store information about the permissions defined in the policy.
 	Description *string `pulumi:"description"`
 	// Name of the policy.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// JSON policy document to use as the content for the new policy
 	Policy string `pulumi:"policy"`
 	// Type of security policy. One of `encryption` or `network`.
@@ -449,7 +440,7 @@ type ServerlessSecurityPolicyArgs struct {
 	// Description of the policy. Typically used to store information about the permissions defined in the policy.
 	Description pulumi.StringPtrInput
 	// Name of the policy.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// JSON policy document to use as the content for the new policy
 	Policy pulumi.StringInput
 	// Type of security policy. One of `encryption` or `network`.

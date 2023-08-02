@@ -69,7 +69,6 @@ import (
 //				return err
 //			}
 //			_, err = auditmanager.NewFramework(ctx, "exampleFramework", &auditmanager.FrameworkArgs{
-//				Name: pulumi.String("example"),
 //				ControlSets: auditmanager.FrameworkControlSetArray{
 //					&auditmanager.FrameworkControlSetArgs{
 //						Name: pulumi.String("example"),

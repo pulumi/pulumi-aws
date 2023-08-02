@@ -54,7 +54,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleView = new View(&#34;exampleView&#34;, ViewArgs.builder()        
- *             .name(&#34;exampleview&#34;)
  *             .filters(ViewFiltersArgs.builder()
  *                 .filterString(&#34;resourcetype:ec2:instance&#34;)
  *                 .build())
@@ -191,7 +190,7 @@ public class View extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public View(String name, ViewArgs args) {
+    public View(String name, @Nullable ViewArgs args) {
         this(name, args, null);
     }
     /**
@@ -200,7 +199,7 @@ public class View extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public View(String name, ViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public View(String name, @Nullable ViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:resourceexplorer/view:View", name, args == null ? ViewArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

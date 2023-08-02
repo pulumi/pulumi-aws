@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,9 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewCidrCollection(ctx, "example", &route53.CidrCollectionArgs{
-//				Name: pulumi.String("collection-1"),
-//			})
+//			_, err := route53.NewCidrCollection(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -62,12 +59,9 @@ type CidrCollection struct {
 func NewCidrCollection(ctx *pulumi.Context,
 	name string, args *CidrCollectionArgs, opts ...pulumi.ResourceOption) (*CidrCollection, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &CidrCollectionArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CidrCollection
 	err := ctx.RegisterResource("aws:route53/cidrCollection:CidrCollection", name, args, &resource, opts...)
@@ -114,13 +108,13 @@ func (CidrCollectionState) ElementType() reflect.Type {
 
 type cidrCollectionArgs struct {
 	// Unique name for the CIDR collection.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a CidrCollection resource.
 type CidrCollectionArgs struct {
 	// Unique name for the CIDR collection.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 }
 
 func (CidrCollectionArgs) ElementType() reflect.Type {

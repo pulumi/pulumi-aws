@@ -51,15 +51,15 @@ public final class DataIntegrationArgs extends com.pulumi.resources.ResourceArgs
      * Specifies the name of the Data Integration.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return Specifies the name of the Data Integration.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -184,7 +184,7 @@ public final class DataIntegrationArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -264,7 +264,6 @@ public final class DataIntegrationArgs extends com.pulumi.resources.ResourceArgs
 
         public DataIntegrationArgs build() {
             $.kmsKey = Objects.requireNonNull($.kmsKey, "expected parameter 'kmsKey' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             $.scheduleConfig = Objects.requireNonNull($.scheduleConfig, "expected parameter 'scheduleConfig' to be non-null");
             $.sourceUri = Objects.requireNonNull($.sourceUri, "expected parameter 'sourceUri' to be non-null");
             return $;

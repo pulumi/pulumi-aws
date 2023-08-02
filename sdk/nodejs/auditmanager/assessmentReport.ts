@@ -14,10 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.auditmanager.AssessmentReport("test", {
- *     name: "example",
- *     assessmentId: aws_auditmanager_assessment.test.id,
- * });
+ * const test = new aws.auditmanager.AssessmentReport("test", {assessmentId: aws_auditmanager_assessment.test.id});
  * ```
  *
  * ## Import
@@ -102,9 +99,6 @@ export class AssessmentReport extends pulumi.CustomResource {
             if ((!args || args.assessmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assessmentId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["assessmentId"] = args ? args.assessmentId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -161,5 +155,5 @@ export interface AssessmentReportArgs {
     /**
      * Name of the assessment report.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

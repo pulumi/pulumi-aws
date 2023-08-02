@@ -64,7 +64,6 @@ import javax.annotation.Nullable;
  *                 .displayName(&#34;Other member&#34;)
  *                 .memberAbilities()
  *                 .build())
- *             .name(&#34;pulumi-example-collaboration&#34;)
  *             .queryLogStatus(&#34;DISABLED&#34;)
  *             .tags(Map.of(&#34;Project&#34;, &#34;Pulumi&#34;))
  *             .build());

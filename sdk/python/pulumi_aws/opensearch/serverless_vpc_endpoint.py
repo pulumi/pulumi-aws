@@ -16,39 +16,28 @@ __all__ = ['ServerlessVpcEndpointArgs', 'ServerlessVpcEndpoint']
 @pulumi.input_type
 class ServerlessVpcEndpointArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['ServerlessVpcEndpointTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ServerlessVpcEndpoint resource.
-        :param pulumi.Input[str] name: Name of the interface endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: One or more subnet IDs from which you'll access OpenSearch Serverless. Up to 6 subnets can be provided.
         :param pulumi.Input[str] vpc_id: ID of the VPC from which you'll access OpenSearch Serverless.
                
                The following arguments are optional:
+        :param pulumi.Input[str] name: Name of the interface endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint. Up to 5 security groups can be provided.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the interface endpoint.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -75,6 +64,18 @@ class ServerlessVpcEndpointArgs:
     @vpc_id.setter
     def vpc_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the interface endpoint.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -208,7 +209,6 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessVpcEndpoint("example",
-            name="myendpoint",
             subnet_ids=[aws_subnet["example"]["id"]],
             vpc_id=aws_vpc["example"]["id"])
         ```
@@ -247,7 +247,6 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.opensearch.ServerlessVpcEndpoint("example",
-            name="myendpoint",
             subnet_ids=[aws_subnet["example"]["id"]],
             vpc_id=aws_vpc["example"]["id"])
         ```
@@ -289,8 +288,6 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerlessVpcEndpointArgs.__new__(ServerlessVpcEndpointArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["security_group_ids"] = security_group_ids
             if subnet_ids is None and not opts.urn:

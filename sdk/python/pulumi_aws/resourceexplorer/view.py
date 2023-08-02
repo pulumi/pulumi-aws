@@ -16,40 +16,29 @@ __all__ = ['ViewArgs', 'View']
 @pulumi.input_type
 class ViewArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  default_view: Optional[pulumi.Input[bool]] = None,
                  filters: Optional[pulumi.Input['ViewFiltersArgs']] = None,
                  included_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a View resource.
-        :param pulumi.Input[str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
         :param pulumi.Input[bool] default_view: Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
         :param pulumi.Input['ViewFiltersArgs'] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
+        :param pulumi.Input[str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "name", name)
         if default_view is not None:
             pulumi.set(__self__, "default_view", default_view)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
         if included_properties is not None:
             pulumi.set(__self__, "included_properties", included_properties)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="defaultView")
@@ -86,6 +75,18 @@ class ViewArgs:
     @included_properties.setter
     def included_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]]):
         pulumi.set(self, "included_properties", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -242,7 +243,6 @@ class View(pulumi.CustomResource):
 
         example_index = aws.resourceexplorer.Index("exampleIndex", type="LOCAL")
         example_view = aws.resourceexplorer.View("exampleView",
-            name="exampleview",
             filters=aws.resourceexplorer.ViewFiltersArgs(
                 filter_string="resourcetype:ec2:instance",
             ),
@@ -272,7 +272,7 @@ class View(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ViewArgs,
+                 args: Optional[ViewArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a Resource Explorer view.
@@ -285,7 +285,6 @@ class View(pulumi.CustomResource):
 
         example_index = aws.resourceexplorer.Index("exampleIndex", type="LOCAL")
         example_view = aws.resourceexplorer.View("exampleView",
-            name="exampleview",
             filters=aws.resourceexplorer.ViewFiltersArgs(
                 filter_string="resourcetype:ec2:instance",
             ),
@@ -335,8 +334,6 @@ class View(pulumi.CustomResource):
             __props__.__dict__["default_view"] = default_view
             __props__.__dict__["filters"] = filters
             __props__.__dict__["included_properties"] = included_properties
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

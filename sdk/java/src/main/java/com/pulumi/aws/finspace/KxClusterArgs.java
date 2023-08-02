@@ -212,15 +212,15 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
      * Unique name for the cluster that you want to create.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return Unique name for the cluster that you want to create.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -631,7 +631,7 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -765,7 +765,6 @@ public final class KxClusterArgs extends com.pulumi.resources.ResourceArgs {
             $.azMode = Objects.requireNonNull($.azMode, "expected parameter 'azMode' to be non-null");
             $.capacityConfiguration = Objects.requireNonNull($.capacityConfiguration, "expected parameter 'capacityConfiguration' to be non-null");
             $.environmentId = Objects.requireNonNull($.environmentId, "expected parameter 'environmentId' to be non-null");
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             $.releaseLabel = Objects.requireNonNull($.releaseLabel, "expected parameter 'releaseLabel' to be non-null");
             $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
             $.vpcConfiguration = Objects.requireNonNull($.vpcConfiguration, "expected parameter 'vpcConfiguration' to be non-null");

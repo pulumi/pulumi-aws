@@ -180,8 +180,8 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// Display name of the theme.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.ThemePermissionArgs>? _permissions;

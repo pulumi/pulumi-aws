@@ -139,9 +139,6 @@ export class Theme extends pulumi.CustomResource {
             if ((!args || args.baseThemeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'baseThemeId'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if ((!args || args.themeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'themeId'");
             }
@@ -250,7 +247,7 @@ export interface ThemeArgs {
     /**
      * Display name of the theme.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
      */

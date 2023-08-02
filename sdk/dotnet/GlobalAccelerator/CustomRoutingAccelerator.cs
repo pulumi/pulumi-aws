@@ -36,7 +36,6 @@ namespace Pulumi.Aws.GlobalAccelerator
     ///         {
     ///             "1.2.3.4",
     ///         },
-    ///         Name = "Example",
     ///     });
     /// 
     /// });
@@ -123,7 +122,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public CustomRoutingAccelerator(string name, CustomRoutingAcceleratorArgs args, CustomResourceOptions? options = null)
+        public CustomRoutingAccelerator(string name, CustomRoutingAcceleratorArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator", name, args ?? new CustomRoutingAcceleratorArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -194,8 +193,8 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// <summary>
         /// The name of a custom routing accelerator.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

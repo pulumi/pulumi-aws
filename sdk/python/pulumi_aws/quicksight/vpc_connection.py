@@ -16,18 +16,17 @@ __all__ = ['VpcConnectionArgs', 'VpcConnection']
 @pulumi.input_type
 class VpcConnectionArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_connection_id: pulumi.Input[str],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dns_resolvers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeouts: Optional[pulumi.Input['VpcConnectionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a VpcConnection resource.
-        :param pulumi.Input[str] name: The display name for the VPC connection.
         :param pulumi.Input[str] role_arn: The IAM role to associate with the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs for the VPC connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs for the VPC connection.
@@ -36,9 +35,9 @@ class VpcConnectionArgs:
         :param pulumi.Input[str] vpc_connection_id: The ID of the VPC connection.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
+        :param pulumi.Input[str] name: The display name for the VPC connection.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -47,22 +46,12 @@ class VpcConnectionArgs:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if dns_resolvers is not None:
             pulumi.set(__self__, "dns_resolvers", dns_resolvers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The display name for the VPC connection.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -137,6 +126,18 @@ class VpcConnectionArgs:
     @dns_resolvers.setter
     def dns_resolvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_resolvers", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name for the VPC connection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -416,7 +417,6 @@ class VpcConnection(pulumi.CustomResource):
             )])
         example = aws.quicksight.VpcConnection("example",
             vpc_connection_id="example-connection-id",
-            name="Example Connection",
             role_arn=vpc_connection_role.arn,
             security_group_ids=["sg-00000000000000000"],
             subnet_ids=[
@@ -493,7 +493,6 @@ class VpcConnection(pulumi.CustomResource):
             )])
         example = aws.quicksight.VpcConnection("example",
             vpc_connection_id="example-connection-id",
-            name="Example Connection",
             role_arn=vpc_connection_role.arn,
             security_group_ids=["sg-00000000000000000"],
             subnet_ids=[
@@ -545,8 +544,6 @@ class VpcConnection(pulumi.CustomResource):
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["dns_resolvers"] = dns_resolvers
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

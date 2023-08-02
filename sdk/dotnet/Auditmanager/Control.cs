@@ -34,7 +34,6 @@ namespace Pulumi.Aws.Auditmanager
     ///                 SourceType = "MANUAL",
     ///             },
     ///         },
-    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -119,7 +118,7 @@ namespace Pulumi.Aws.Auditmanager
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Control(string name, ControlArgs args, CustomResourceOptions? options = null)
+        public Control(string name, ControlArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:auditmanager/control:Control", name, args ?? new ControlArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -192,8 +191,8 @@ namespace Pulumi.Aws.Auditmanager
         /// <summary>
         /// Name of the control.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

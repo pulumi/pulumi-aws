@@ -27,7 +27,6 @@ namespace Pulumi.Aws.CloudFront
     ///     {
     ///         Comment = "test public key",
     ///         EncodedKey = File.ReadAllText("public_key.pem"),
-    ///         Name = "test_key",
     ///     });
     /// 
     ///     var test = new Aws.CloudFront.FieldLevelEncryptionProfile("test", new()

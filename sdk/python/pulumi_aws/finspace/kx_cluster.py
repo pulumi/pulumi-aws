@@ -19,7 +19,6 @@ class KxClusterArgs:
                  az_mode: pulumi.Input[str],
                  capacity_configuration: pulumi.Input['KxClusterCapacityConfigurationArgs'],
                  environment_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
                  release_label: pulumi.Input[str],
                  type: pulumi.Input[str],
                  vpc_configuration: pulumi.Input['KxClusterVpcConfigurationArgs'],
@@ -32,6 +31,7 @@ class KxClusterArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role: Optional[pulumi.Input[str]] = None,
                  initialization_script: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -41,7 +41,6 @@ class KxClusterArgs:
                * MULTI - Assigns all the availability zones per cluster.
         :param pulumi.Input['KxClusterCapacityConfigurationArgs'] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         :param pulumi.Input[str] environment_id: Unique identifier for the KX environment.
-        :param pulumi.Input[str] name: Unique name for the cluster that you want to create.
         :param pulumi.Input[str] release_label: Version of FinSpace Managed kdb to run.
         :param pulumi.Input[str] type: Type of KDB database. The following types are available:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -59,13 +58,13 @@ class KxClusterArgs:
         :param pulumi.Input[str] description: Description of the cluster.
         :param pulumi.Input[str] execution_role: An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         :param pulumi.Input[str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
+        :param pulumi.Input[str] name: Unique name for the cluster that you want to create.
         :param pulumi.Input['KxClusterSavedownStorageConfigurationArgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "az_mode", az_mode)
         pulumi.set(__self__, "capacity_configuration", capacity_configuration)
         pulumi.set(__self__, "environment_id", environment_id)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "release_label", release_label)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "vpc_configuration", vpc_configuration)
@@ -87,6 +86,8 @@ class KxClusterArgs:
             pulumi.set(__self__, "execution_role", execution_role)
         if initialization_script is not None:
             pulumi.set(__self__, "initialization_script", initialization_script)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if savedown_storage_configuration is not None:
             pulumi.set(__self__, "savedown_storage_configuration", savedown_storage_configuration)
         if tags is not None:
@@ -129,18 +130,6 @@ class KxClusterArgs:
     @environment_id.setter
     def environment_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "environment_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Unique name for the cluster that you want to create.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="releaseLabel")
@@ -290,6 +279,18 @@ class KxClusterArgs:
     @initialization_script.setter
     def initialization_script(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "initialization_script", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique name for the cluster that you want to create.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="savedownStorageConfiguration")
@@ -858,8 +859,6 @@ class KxCluster(pulumi.CustomResource):
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["execution_role"] = execution_role
             __props__.__dict__["initialization_script"] = initialization_script
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if release_label is None and not opts.urn:
                 raise TypeError("Missing required property 'release_label'")

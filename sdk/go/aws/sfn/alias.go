@@ -30,7 +30,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sfn.NewAlias(ctx, "sfnAlias", &sfn.AliasArgs{
-//				Name: pulumi.String("my_sfn_alias"),
 //				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
 //					&sfn.AliasRoutingConfigurationArgs{
 //						StateMachineVersionArn: pulumi.Any(aws_sfn_state_machine.Sfn_test.State_machine_version_arn),
@@ -42,7 +41,6 @@ import (
 //				return err
 //			}
 //			_, err = sfn.NewAlias(ctx, "mySfnAlias", &sfn.AliasArgs{
-//				Name: pulumi.String("my_sfn_alias"),
 //				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
 //					&sfn.AliasRoutingConfigurationArgs{
 //						StateMachineVersionArn: pulumi.String("arn:aws:states:us-east-1:12345:stateMachine:demo:3"),
@@ -92,9 +90,6 @@ func NewAlias(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	if args.RoutingConfigurations == nil {
 		return nil, errors.New("invalid value for required argument 'RoutingConfigurations'")
 	}
@@ -154,7 +149,7 @@ type aliasArgs struct {
 	// Description of the alias.
 	Description *string `pulumi:"description"`
 	// Name for the alias you are creating.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The StateMachine alias' route configuration settings. Fields documented below
 	RoutingConfigurations []AliasRoutingConfiguration `pulumi:"routingConfigurations"`
 }
@@ -164,7 +159,7 @@ type AliasArgs struct {
 	// Description of the alias.
 	Description pulumi.StringPtrInput
 	// Name for the alias you are creating.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// The StateMachine alias' route configuration settings. Fields documented below
 	RoutingConfigurations AliasRoutingConfigurationArrayInput
 }

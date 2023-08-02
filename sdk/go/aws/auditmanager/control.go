@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -37,7 +36,6 @@ import (
 //						SourceType:        pulumi.String("MANUAL"),
 //					},
 //				},
-//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -86,12 +84,9 @@ type Control struct {
 func NewControl(ctx *pulumi.Context,
 	name string, args *ControlArgs, opts ...pulumi.ResourceOption) (*Control, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ControlArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Control
 	err := ctx.RegisterResource("aws:auditmanager/control:Control", name, args, &resource, opts...)
@@ -180,7 +175,7 @@ type controlArgs struct {
 	// Description of the control.
 	Description *string `pulumi:"description"`
 	// Name of the control.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Steps to follow to determine if the control is satisfied.
@@ -200,7 +195,7 @@ type ControlArgs struct {
 	// Description of the control.
 	Description pulumi.StringPtrInput
 	// Name of the control.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// A map of tags to assign to the control. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Steps to follow to determine if the control is satisfied.

@@ -15,20 +15,21 @@ __all__ = ['AssessmentReportArgs', 'AssessmentReport']
 class AssessmentReportArgs:
     def __init__(__self__, *,
                  assessment_id: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AssessmentReport resource.
         :param pulumi.Input[str] assessment_id: Unique identifier of the assessment to create the report from.
                
                The following arguments are optional:
-        :param pulumi.Input[str] name: Name of the assessment report.
         :param pulumi.Input[str] description: Description of the assessment report.
+        :param pulumi.Input[str] name: Name of the assessment report.
         """
         pulumi.set(__self__, "assessment_id", assessment_id)
-        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="assessmentId")
@@ -46,18 +47,6 @@ class AssessmentReportArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Name of the assessment report.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         Description of the assessment report.
@@ -67,6 +56,18 @@ class AssessmentReportArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the assessment report.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -180,9 +181,7 @@ class AssessmentReport(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.auditmanager.AssessmentReport("test",
-            name="example",
-            assessment_id=aws_auditmanager_assessment["test"]["id"])
+        test = aws.auditmanager.AssessmentReport("test", assessment_id=aws_auditmanager_assessment["test"]["id"])
         ```
 
         ## Import
@@ -217,9 +216,7 @@ class AssessmentReport(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.auditmanager.AssessmentReport("test",
-            name="example",
-            assessment_id=aws_auditmanager_assessment["test"]["id"])
+        test = aws.auditmanager.AssessmentReport("test", assessment_id=aws_auditmanager_assessment["test"]["id"])
         ```
 
         ## Import
@@ -261,8 +258,6 @@ class AssessmentReport(pulumi.CustomResource):
                 raise TypeError("Missing required property 'assessment_id'")
             __props__.__dict__["assessment_id"] = assessment_id
             __props__.__dict__["description"] = description
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["author"] = None
             __props__.__dict__["status"] = None

@@ -41,7 +41,6 @@ import (
 //			_, err := cloudfront.NewPublicKey(ctx, "example", &cloudfront.PublicKeyArgs{
 //				Comment:    pulumi.String("test public key"),
 //				EncodedKey: readFileOrPanic("public_key.pem"),
-//				Name:       pulumi.String("test_key"),
 //			})
 //			if err != nil {
 //				return err

@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -39,7 +38,6 @@ import (
 //				IpAddresses: pulumi.StringArray{
 //					pulumi.String("1.2.3.4"),
 //				},
-//				Name: pulumi.String("Example"),
 //			})
 //			if err != nil {
 //				return err
@@ -88,12 +86,9 @@ type CustomRoutingAccelerator struct {
 func NewCustomRoutingAccelerator(ctx *pulumi.Context,
 	name string, args *CustomRoutingAcceleratorArgs, opts ...pulumi.ResourceOption) (*CustomRoutingAccelerator, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &CustomRoutingAcceleratorArgs{}
 	}
 
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomRoutingAccelerator
 	err := ctx.RegisterResource("aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator", name, args, &resource, opts...)
@@ -180,7 +175,7 @@ type customRoutingAcceleratorArgs struct {
 	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// The name of a custom routing accelerator.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -196,7 +191,7 @@ type CustomRoutingAcceleratorArgs struct {
 	// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
 	IpAddresses pulumi.StringArrayInput
 	// The name of a custom routing accelerator.
-	Name pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
