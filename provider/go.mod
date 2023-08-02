@@ -20,8 +20,8 @@ replace (
 	github.com/hashicorp/terraform-provider-aws/shim => ./shim
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 
-	github.com/pulumi/pulumi-terraform-bridge/pf => ../../pulumi-terraform-bridge/pf
-	github.com/pulumi/pulumi-terraform-bridge/v3 => ../../pulumi-terraform-bridge
+	github.com/pulumi/pulumi-terraform-bridge/pf => github.com/pulumi/pulumi-terraform-bridge/pf v0.14.2-0.20230802145745-14057592edb9
+	github.com/pulumi/pulumi-terraform-bridge/v3 => github.com/pulumi/pulumi-terraform-bridge/v3 v3.55.1-0.20230802145745-14057592edb9
 )
 
 require (
