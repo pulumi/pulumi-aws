@@ -1,0 +1,12 @@
+name: test-aws-1655-legacy
+runtime: yaml
+description: |
+  Initial deployment without tags
+resources:
+  aws-provider:
+    type: pulumi:providers:aws
+    defaultProvider: true
+  res:
+    type: aws:s3:Bucket
+outputs:
+  actual: ${res.tagsAll}

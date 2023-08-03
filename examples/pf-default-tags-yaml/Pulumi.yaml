@@ -1,0 +1,14 @@
+name: test-aws-1655-pf
+runtime: yaml
+description: |
+  Initial deployment without tags
+resources:
+  aws-provider:
+    type: pulumi:providers:aws
+    defaultProvider: true
+  res:
+    type: aws:quicksight:Namespace
+    properties: 
+      namespace: tags-test-example
+outputs:
+  actual: ${res.tagsAll}

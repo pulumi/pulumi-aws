@@ -1,0 +1,16 @@
+name: test-aws-1655-legacy
+runtime: yaml
+description: |
+  Remove foo tag (foo and thwomp)
+resources:
+  aws-provider:
+    type: pulumi:providers:aws
+    properties: 
+      defaultTags: 
+        tags: 
+          thwomp: pow
+    defaultProvider: true
+  res:
+    type: aws:s3:Bucket
+outputs:
+  actual: ${res.tagsAll}

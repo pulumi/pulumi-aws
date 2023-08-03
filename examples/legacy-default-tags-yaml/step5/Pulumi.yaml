@@ -1,0 +1,16 @@
+name: test-aws-1655-legacy
+runtime: yaml
+description: |
+  Drop resource specific tags
+resources:
+  aws-provider:
+    type: pulumi:providers:aws
+    properties: 
+      defaultTags: 
+        tags: 
+          foo: quux
+    defaultProvider: true
+  res:
+    type: aws:s3:Bucket
+outputs:
+  actual: ${res.tagsAll}

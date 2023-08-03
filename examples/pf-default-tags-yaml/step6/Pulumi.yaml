@@ -1,0 +1,19 @@
+name: test-aws-1655-pf
+runtime: yaml
+description: |
+  Add new tag: `thwomp: pow`
+resources:
+  aws-provider:
+    type: pulumi:providers:aws
+    properties: 
+      defaultTags: 
+        tags: 
+          foo: quux
+          thwomp: pow
+    defaultProvider: true
+  res:
+    type: aws:quicksight:Namespace
+    properties: 
+      namespace: tags-test-example
+outputs:
+  actual: ${res.tagsAll}

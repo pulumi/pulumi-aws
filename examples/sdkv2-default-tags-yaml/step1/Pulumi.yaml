@@ -1,0 +1,16 @@
+name: test-aws-1655-sdkv2
+runtime: yaml
+description: |
+  Add first default tag: `foo: bar``
+resources:
+  aws-provider:
+    type: pulumi:providers:aws
+    properties: 
+      defaultTags: 
+        tags: 
+          foo: bar
+    defaultProvider: true
+  res:
+    type: aws:cognito:UserPool
+outputs:
+  actual: ${res.tagsAll}

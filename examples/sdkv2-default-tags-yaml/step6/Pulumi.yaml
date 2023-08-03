@@ -1,0 +1,17 @@
+name: test-aws-1655-sdkv2
+runtime: yaml
+description: |
+  Add new tag: `thwomp: pow`
+resources:
+  aws-provider:
+    type: pulumi:providers:aws
+    properties: 
+      defaultTags: 
+        tags: 
+          foo: quux
+          thwomp: pow
+    defaultProvider: true
+  res:
+    type: aws:cognito:UserPool
+outputs:
+  actual: ${res.tagsAll}

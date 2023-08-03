@@ -1,0 +1,20 @@
+name: test-aws-1655-pf
+runtime: yaml
+description: |
+  Add a resource specific tag: `foo: buzz`
+resources:
+  aws-provider:
+    type: pulumi:providers:aws
+    properties: 
+      defaultTags: 
+        tags: 
+          foo: quux
+    defaultProvider: true
+  res:
+    type: aws:quicksight:Namespace
+    properties: 
+      namespace: tags-test-example
+      tags: 
+        fizz: buzz
+outputs:
+  actual: ${res.tagsAll}

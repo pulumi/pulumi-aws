@@ -1,0 +1,20 @@
+name: test-aws-1655-legacy
+runtime: yaml
+description: |
+  Shadow the default tag with a resource specific tag
+resources:
+  aws-provider:
+    type: pulumi:providers:aws
+    properties: 
+      defaultTags: 
+        tags: 
+          foo: quux
+    defaultProvider: true
+  res:
+    type: aws:s3:Bucket
+    properties: 
+      tags: 
+        fizz: buzz
+        foo: bar
+outputs:
+  actual: ${res.tagsAll}

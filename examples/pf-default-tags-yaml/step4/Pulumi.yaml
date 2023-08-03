@@ -1,0 +1,21 @@
+name: test-aws-1655-pf
+runtime: yaml
+description: |
+  Shadow the default tag with a resource specific tag
+resources:
+  aws-provider:
+    type: pulumi:providers:aws
+    properties: 
+      defaultTags: 
+        tags: 
+          foo: quux
+    defaultProvider: true
+  res:
+    type: aws:quicksight:Namespace
+    properties: 
+      namespace: tags-test-example
+      tags: 
+        fizz: buzz
+        foo: bar
+outputs:
+  actual: ${res.tagsAll}

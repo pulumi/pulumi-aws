@@ -1,0 +1,19 @@
+name: test-aws-1655-legacy
+runtime: yaml
+description: |
+  Add a resource specific tag: `foo: buzz`
+resources:
+  aws-provider:
+    type: pulumi:providers:aws
+    properties: 
+      defaultTags: 
+        tags: 
+          foo: quux
+    defaultProvider: true
+  res:
+    type: aws:s3:Bucket
+    properties: 
+      tags: 
+        fizz: buzz
+outputs:
+  actual: ${res.tagsAll}
