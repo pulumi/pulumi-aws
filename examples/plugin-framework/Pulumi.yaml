@@ -6,14 +6,6 @@ resources:
   bucket-example:
     type: aws:s3:Bucket
 
-  # It turns out that resourceexplorer can only be provisioned once per region, creating conflicts if this test run in
-  # parallel. Perhaps not a great example.
-  #
-  # resourceexplorer-example:
-  #   type: aws:resourceexplorer/index:Index
-  #   properties:
-  #     type: LOCAL
-
   # cidrcollection also tests auto-naming, it should get a random-suffixed name such as below, without specifying one:
   #     "name": "cidrcollection-example-8eb4b3b"
 
