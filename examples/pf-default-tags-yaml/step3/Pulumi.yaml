@@ -9,12 +9,18 @@ resources:
       defaultTags: 
         tags: 
           foo: quux
-    defaultProvider: true
+  app:
+    type: aws:appconfig:Application
+    properties:
+      name: pf-tags-test-app
   res:
-    type: aws:quicksight:Namespace
+    type: aws:appconfig:Environment
     properties: 
-      namespace: tags-test-example
+      applicationId: ${app.id}
+      name: pf-tags-test
       tags: 
         fizz: buzz
+    options:
+      provider: ${aws-provider}
 outputs:
   actual: ${res.tagsAll}

@@ -5,11 +5,12 @@ description: |
 resources:
   aws-provider:
     type: pulumi:providers:aws
-    defaultProvider: true
   res:
     type: aws:cognito:UserPool
     properties: 
       aliasAttributes: 
         - email
+    options:
+      provider: ${aws-provider}
 outputs:
   actual: ${res.tagsAll}

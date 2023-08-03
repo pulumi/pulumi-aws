@@ -9,12 +9,13 @@ resources:
       defaultTags: 
         tags: 
           foo: quux
-    defaultProvider: true
   res:
     type: aws:s3:Bucket
     properties: 
       tags: 
         fizz: buzz
         foo: bar
+    options:
+      provider: ${aws-provider}
 outputs:
   actual: ${res.tagsAll}

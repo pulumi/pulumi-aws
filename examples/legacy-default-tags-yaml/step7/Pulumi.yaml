@@ -9,8 +9,9 @@ resources:
       defaultTags: 
         tags: 
           thwomp: pow
-    defaultProvider: true
   res:
     type: aws:s3:Bucket
+    options:
+      provider: ${aws-provider}
 outputs:
   actual: ${res.tagsAll}

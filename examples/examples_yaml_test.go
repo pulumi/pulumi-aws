@@ -64,6 +64,7 @@ type tagsType struct {
 	name  string
 	token string
 	args  map[string]interface{}
+	other string
 }
 
 type tagsStep struct {
@@ -87,10 +88,15 @@ func TestAccDefaultTags(t *testing.T) {
 			},
 		},
 		{ // A PF resource
-			name: "pf", token: "aws:quicksight:Namespace",
+			name: "pf", token: "aws:appconfig:Environment",
+			other: `
+  app:
+    type: aws:appconfig:Application
+    properties:
+      name: pf-tags-test-app`,
 			args: map[string]interface{}{
-				// namespace is required.
-				"namespace": "tags-test-example",
+				"applicationId": "${app.id}",
+				"name":          "pf-tags-test",
 			},
 		},
 	}
@@ -246,10 +252,11 @@ description: |
   %s
 resources:
   aws-provider:
-    type: pulumi:providers:aws%s
-    defaultProvider: true
+    type: pulumi:providers:aws%s%s
   res:
     type: %s%s
+    options:
+      provider: ${aws-provider}
 outputs:
   actual: ${res.tagsAll}`
 
@@ -312,7 +319,7 @@ outputs:
 					"defaultTags": map[string]interface{}{
 						"tags": p.defaultTags,
 					},
-				}), typ.token,
+				}), typ.other, typ.token,
 				expandProps(map[string]interface{}{
 					"tags": p.tags,
 				}, typ.args))

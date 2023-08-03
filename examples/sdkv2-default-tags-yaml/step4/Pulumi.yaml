@@ -9,7 +9,6 @@ resources:
       defaultTags: 
         tags: 
           foo: quux
-    defaultProvider: true
   res:
     type: aws:cognito:UserPool
     properties: 
@@ -18,5 +17,7 @@ resources:
       tags: 
         fizz: buzz
         foo: bar
+    options:
+      provider: ${aws-provider}
 outputs:
   actual: ${res.tagsAll}
