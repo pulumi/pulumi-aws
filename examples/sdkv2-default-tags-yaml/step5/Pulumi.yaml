@@ -12,5 +12,8 @@ resources:
     defaultProvider: true
   res:
     type: aws:cognito:UserPool
+    properties: 
+      aliasAttributes: 
+        - email
 outputs:
   actual: ${res.tagsAll}

@@ -13,6 +13,8 @@ resources:
   res:
     type: aws:cognito:UserPool
     properties: 
+      aliasAttributes: 
+        - email
       tags: 
         fizz: buzz
         foo: bar

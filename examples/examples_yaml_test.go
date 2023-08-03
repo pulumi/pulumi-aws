@@ -70,16 +70,26 @@ type tagsStep struct {
 	purpose     string
 	defaultTags map[string]interface{}
 	tags        map[string]interface{}
-	expected    interface{}
+	expected    map[string]interface{}
 }
 
 func TestAccDefaultTags(t *testing.T) {
 	types := []tagsType{
-		{name: "legacy", token: "aws:s3:Bucket"},       // A custom legacy resource
-		{name: "sdkv2", token: "aws:cognito:UserPool"}, // A SDKv2 resource
+		{ // A custom legacy resource
+			name: "legacy", token: "aws:s3:Bucket",
+		},
+		{ // A SDKv2 resource
+			name: "sdkv2", token: "aws:cognito:UserPool",
+			args: map[string]interface{}{
+				// aliasAttributes is necessary because otherwise we don't
+				// see a clean initial refresh
+				"aliasAttributes": "\n        - email",
+			},
+		},
 		{ // A PF resource
 			name: "pf", token: "aws:quicksight:Namespace",
 			args: map[string]interface{}{
+				// namespace is required.
 				"namespace": "tags-test-example",
 			},
 		},
@@ -165,7 +175,7 @@ func TestAccDefaultTags(t *testing.T) {
 		if v.expected == nil {
 			continue
 		}
-		_, ok := v.expected.(map[string]interface{})["__sameAsDefault"]
+		_, ok := v.expected["__sameAsDefault"]
 		if !ok {
 			continue
 		}
@@ -192,7 +202,13 @@ func TestAccDefaultTags(t *testing.T) {
 }
 
 func testTags(t *testing.T, dir string, steps []tagsStep) {
-
+	isNil := func(val interface{}) bool {
+		if val == nil {
+			return true
+		}
+		v, ok := val.(map[string]interface{})
+		return ok && len(v) == 0
+	}
 	editDirs := make([]integration.EditDir, 0, len(steps))
 	for i, step := range steps {
 		step := step
@@ -202,6 +218,11 @@ func testTags(t *testing.T, dir string, steps []tagsStep) {
 				Additive: true,
 				ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
 					stackOutputBucketTags := stackInfo.Outputs["actual"]
+					// legacy returns nil initially, but sdkv2 returns
+					// an empty map initially.
+					if isNil(step.expected) && isNil(stackOutputBucketTags) {
+						return
+					}
 					assert.Equal(t, step.expected, stackOutputBucketTags,
 						"Unexpected stack output for step %d: %s", step, step.purpose)
 				},
