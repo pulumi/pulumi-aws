@@ -7152,6 +7152,15 @@ func applyTags(
 		return config, nil
 	}
 
+	// awsShim.NewTagConfig accepts (context.Context, i interface{}) where i can be
+	// one of map[string]interface{} among other types. .Mappable() produces a
+	// map[string]interface{} where every value is of type string. This is well
+	// handled by awsShim.NewTagConfig.
+	//
+	// config values are guaranteed to be of the correct type because they have
+	// already been seen and approved of by the provider, which verifies its
+	// configuration is well typed.
+
 	if defaults, ok := meta["defaultTags"]; ok {
 		if defaults.ContainsUnknowns() {
 			return unknown()
