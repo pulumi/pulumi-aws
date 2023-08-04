@@ -61,10 +61,19 @@ func getYamlBaseOptions(t *testing.T) integration.ProgramTestOptions {
 }
 
 type tagsType struct {
-	name  string
-	token string
-	args  map[string]interface{}
+	name, token string
+
+	// Constant properties for the primary resource under test.
+	//
+	// This cannot include the tags property, which will be adjusted by the test.
+	properties map[string]interface{}
+
+	// Other is a string that is inserted into the test program. It is intended to be
+	// used to provision supporting resources in tests.
 	other string
+
+	// If skip is non-empty, the test will be skipped with `skip` as the given reason.
+	skip string
 }
 
 type tagsStep struct {
@@ -92,11 +101,13 @@ func TestAccDefaultTags(t *testing.T) {
 			name: "bucket", token: "aws:s3:BucketV2",
 		},
 		{
+			skip: "This doesn't work correctly in TF. Tracked in " +
+				"https://github.com/pulumi/pulumi-aws/issues/2666.",
 			name: "sdkv2", token: "aws:cognito:UserPool",
-			args: map[string]interface{}{
+			properties: map[string]interface{}{
 				// aliasAttributes is necessary because otherwise we don't
 				// see a clean initial refresh
-				"aliasAttributes": "\n        - email",
+				"aliasAttributes": []interface{}{"email"},
 			},
 		},
 
@@ -108,7 +119,7 @@ func TestAccDefaultTags(t *testing.T) {
     type: aws:appconfig:Application
     properties:
       name: pf-tags-test-app`,
-			args: map[string]interface{}{
+			properties: map[string]interface{}{
 				"applicationId": "${app.id}",
 				"name":          "pf-tags-test",
 			},
@@ -213,6 +224,9 @@ func TestAccDefaultTags(t *testing.T) {
 	for _, typ := range types {
 		typ := typ
 		t.Run(typ.name, func(t *testing.T) {
+			if reason := typ.skip; reason != "" {
+				t.Skipf(reason)
+			}
 			dir := filepath.Join(getCwd(t), typ.name+"-default-tags-yaml")
 			testTags(t, dir, steps)
 		})
@@ -274,42 +288,47 @@ resources:
 outputs:
   actual: ${res.tagsAll}`
 
-	var expandMap func(level int, m map[string]interface{}) string
-	expandMap = func(level int, m map[string]interface{}) string {
+	var expandMap func(level int, v interface{}) string
+	expandMap = func(level int, v interface{}) string {
 		indent := "\n" + strings.Repeat("  ", level)
 
 		var body string
-		sortedKeys := make([]string, len(m))
-		for k := range m {
-			sortedKeys = append(sortedKeys, k)
-		}
-		sort.Strings(sortedKeys)
-		for _, k := range sortedKeys {
-			v := m[k]
-			switch v := v.(type) {
-			case nil:
-				continue
-			case string:
-				body += indent + k + ": " + v
-			case map[string]interface{}:
+		switch v := v.(type) {
+		case nil:
+			return ""
+		case string:
+			body = v
+		case []interface{}:
+			for _, v := range v {
+				body += indent + "- " + strings.TrimSpace(expandMap(level+1, v))
+			}
+		case map[string]interface{}:
+			sortedKeys := make([]string, len(v))
+			for k := range v {
+				sortedKeys = append(sortedKeys, k)
+			}
+			sort.Strings(sortedKeys)
+			for _, k := range sortedKeys {
+				v := v[k]
+
 				val := expandMap(level+1, v)
 				if val == "" {
 					continue
 				}
 				body += indent + k + ": " + val
-			default:
-				t.Logf("Unknown value type %T (key = %q)", v, k)
-				t.FailNow()
-
 			}
+		default:
+			t.Logf("Unknown value type %T", v)
+			t.FailNow()
+
 		}
 
 		return body
 	}
 
-	expandProps := func(args ...map[string]interface{}) string {
+	expandProps := func(props ...map[string]interface{}) string {
 		a := map[string]interface{}{}
-		for _, arg := range args {
+		for _, arg := range props {
 			for k, v := range arg {
 				a[k] = v
 			}
@@ -336,7 +355,7 @@ outputs:
 				}), typ.other, typ.token,
 				expandProps(map[string]interface{}{
 					"tags": p.tags,
-				}, typ.args))
+				}, typ.properties))
 
 			fpath := filepath.Join(path, "Pulumi.yaml")
 			if os.Getenv("PULUMI_ACCEPT") == "true" {
