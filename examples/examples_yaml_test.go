@@ -76,10 +76,22 @@ type tagsStep struct {
 
 func TestAccDefaultTags(t *testing.T) {
 	types := []tagsType{
-		{ // A custom legacy resource
+		// Pulumi maintains it's own version of aws:s3:Bucket in
+		// `s3legacy/bucket_legacy.go`. Because we don't have any
+		// terraform-provider-aws maintainers to ensure our tagging works the same
+		// way as other resource's tagging, we give our own bucket special testing
+		// to make sure that tags work.
+		{
 			name: "legacy", token: "aws:s3:Bucket",
 		},
-		{ // A SDKv2 resource
+
+		// Both aws:cognito:UserPool and aws:s3:BucketV2 are full SDKv2 resources managed
+		// by Terraform, but they have different requirements for successful tag
+		// interactions. That is why we have tests for both resources.
+		{
+			name: "bucket", token: "aws:s3:BucketV2",
+		},
+		{
 			name: "sdkv2", token: "aws:cognito:UserPool",
 			args: map[string]interface{}{
 				// aliasAttributes is necessary because otherwise we don't
@@ -87,7 +99,9 @@ func TestAccDefaultTags(t *testing.T) {
 				"aliasAttributes": "\n        - email",
 			},
 		},
-		{ // A PF resource
+
+		// A PF resource
+		{
 			name: "pf", token: "aws:appconfig:Environment",
 			other: `
   app:
