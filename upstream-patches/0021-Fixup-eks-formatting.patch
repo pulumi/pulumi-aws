@@ -1,7 +1,7 @@
 From 6731f310383fe53368c8a158a36764b88b83354a Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Thu, 9 Mar 2023 14:50:36 +0000
-Subject: [PATCH 21/28] Fixup eks formatting
+Subject: [PATCH 21/29] Fixup eks formatting
 
 ---
  internal/service/eks/wait.go | 6 +++---

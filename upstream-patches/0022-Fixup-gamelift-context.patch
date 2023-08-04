@@ -1,7 +1,7 @@
 From 11f20bf743250057b1f30e7b7091b20151d9b35d Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Thu, 9 Mar 2023 14:50:51 +0000
-Subject: [PATCH 22/28] Fixup gamelift context
+Subject: [PATCH 22/29] Fixup gamelift context
 
 ---
  internal/service/gamelift/matchmaking_configuration.go | 2 +-
