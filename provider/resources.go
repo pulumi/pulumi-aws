@@ -7194,11 +7194,15 @@ func applyTags(
 
 	allTags := defaultTags.MergeTags(resourceTags.Tags).IgnoreConfig(ignoredTags)
 
-	allTagProperties := make(resource.PropertyMap, len(allTags))
-	for k, v := range allTags {
-		allTagProperties[resource.PropertyKey(k)] = resource.NewStringProperty(v.ValueString())
+	if len(allTags) > 0 {
+		allTagProperties := make(resource.PropertyMap, len(allTags))
+		for k, v := range allTags {
+			allTagProperties[resource.PropertyKey(k)] = resource.NewStringProperty(v.ValueString())
+		}
+		config["tags"] = resource.NewObjectProperty(allTagProperties)
+	} else {
+		delete(config, "tags")
 	}
-	config["tags"] = resource.NewObjectProperty(allTagProperties)
 
 	return config, nil
 }
