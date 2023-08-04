@@ -1,4 +1,4 @@
-From 73a1b95df61b61b3de30ca52f06e822dc2bd79f8 Mon Sep 17 00:00:00 2001
+From 652f750f40a0965aebc0410b12d85543f8ca526c Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
 Subject: [PATCH 23/29] Change default descriptions to "Managed by Pulumi"
@@ -115,17 +115,17 @@ index 0adcac865d..d0916b93db 100644
  			},
  			"egress":  securityGroupRuleSetNestedBlock,
 diff --git a/internal/service/elasticache/parameter_group.go b/internal/service/elasticache/parameter_group.go
-index a0ce4260fd..160e75932a 100644
+index f1545bec92..63897dead6 100644
 --- a/internal/service/elasticache/parameter_group.go
 +++ b/internal/service/elasticache/parameter_group.go
-@@ -55,7 +55,7 @@ func ResourceParameterGroup() *schema.Resource {
+@@ -48,7 +48,7 @@ func ResourceParameterGroup() *schema.Resource {
  				Type:     schema.TypeString,
  				Optional: true,
  				ForceNew: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"arn": {
+ 			"family": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/elasticache/security_group.go b/internal/service/elasticache/security_group.go
 new file mode 100644
@@ -274,10 +274,10 @@ index 47ffb9fa19..448999b3b4 100644
  			"name": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/mediapackage/channel.go b/internal/service/mediapackage/channel.go
-index ec54e002d9..fec87ef776 100644
+index 3962709290..c26b4ca2a7 100644
 --- a/internal/service/mediapackage/channel.go
 +++ b/internal/service/mediapackage/channel.go
-@@ -49,7 +49,7 @@ func ResourceChannel() *schema.Resource {
+@@ -51,7 +51,7 @@ func ResourceChannel() *schema.Resource {
  			"description": {
  				Type:     schema.TypeString,
  				Optional: true,
