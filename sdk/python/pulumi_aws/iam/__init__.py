@@ -38,6 +38,7 @@ from .role import *
 from .role_policy import *
 from .role_policy_attachment import *
 from .saml_provider import *
+from .security_token_service_preferences import *
 from .server_certificate import *
 from .service_linked_role import *
 from .service_specific_credential import *

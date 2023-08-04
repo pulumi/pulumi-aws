@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * the separate resource.
  * 
  * ## Example Usage
+ * ### Basic example
  * ```java
  * package generated_program;
  * 
@@ -111,6 +112,106 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Adopting an existing local route
+ * 
+ * AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
+ * 
+ * First, adopt an existing AWS-created route:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.RouteTable;
+ * import com.pulumi.aws.ec2.RouteTableArgs;
+ * import com.pulumi.aws.ec2.inputs.RouteTableRouteArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var testRouteTable = new RouteTable(&#34;testRouteTable&#34;, RouteTableArgs.builder()        
+ *             .vpcId(testVpc.id())
+ *             .routes(RouteTableRouteArgs.builder()
+ *                 .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *                 .gatewayId(&#34;local&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * Next, update the target of the route:
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.ec2.NetworkInterface;
+ * import com.pulumi.aws.ec2.NetworkInterfaceArgs;
+ * import com.pulumi.aws.ec2.RouteTable;
+ * import com.pulumi.aws.ec2.RouteTableArgs;
+ * import com.pulumi.aws.ec2.inputs.RouteTableRouteArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
+ *             .cidrBlock(&#34;10.1.0.0/16&#34;)
+ *             .build());
+ * 
+ *         var testSubnet = new Subnet(&#34;testSubnet&#34;, SubnetArgs.builder()        
+ *             .cidrBlock(&#34;10.1.1.0/24&#34;)
+ *             .vpcId(testVpc.id())
+ *             .build());
+ * 
+ *         var testNetworkInterface = new NetworkInterface(&#34;testNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+ *             .subnetId(testSubnet.id())
+ *             .build());
+ * 
+ *         var testRouteTable = new RouteTable(&#34;testRouteTable&#34;, RouteTableArgs.builder()        
+ *             .vpcId(testVpc.id())
+ *             .routes(RouteTableRouteArgs.builder()
+ *                 .cidrBlock(testVpc.cidrBlock())
+ *                 .networkInterfaceId(testNetworkInterface.id())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * The target could then be updated again back to `local`.
  * 
  * ## Import
  * 

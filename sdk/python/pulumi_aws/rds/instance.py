@@ -137,10 +137,8 @@ class InstanceArgs:
                set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
-        :param pulumi.Input[str] identifier: The name of the RDS instance,
-               if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
-        :param pulumi.Input[str] identifier_prefix: Creates a unique
-               identifier beginning with the specified prefix. Conflicts with `identifier`.
+        :param pulumi.Input[str] identifier: The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
                Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
@@ -693,8 +691,7 @@ class InstanceArgs:
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the RDS instance,
-        if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         """
         return pulumi.get(self, "identifier")
 
@@ -706,8 +703,7 @@ class InstanceArgs:
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates a unique
-        identifier beginning with the specified prefix. Conflicts with `identifier`.
+        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         """
         return pulumi.get(self, "identifier_prefix")
 
@@ -1308,10 +1304,8 @@ class _InstanceState:
         :param pulumi.Input[str] hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
-        :param pulumi.Input[str] identifier: The name of the RDS instance,
-               if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
-        :param pulumi.Input[str] identifier_prefix: Creates a unique
-               identifier beginning with the specified prefix. Conflicts with `identifier`.
+        :param pulumi.Input[str] identifier: The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
@@ -1944,8 +1938,7 @@ class _InstanceState:
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the RDS instance,
-        if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         """
         return pulumi.get(self, "identifier")
 
@@ -1957,8 +1950,7 @@ class _InstanceState:
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Creates a unique
-        identifier beginning with the specified prefix. Conflicts with `identifier`.
+        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         """
         return pulumi.get(self, "identifier_prefix")
 
@@ -2756,10 +2748,8 @@ class Instance(pulumi.CustomResource):
                set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
-        :param pulumi.Input[str] identifier: The name of the RDS instance,
-               if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
-        :param pulumi.Input[str] identifier_prefix: Creates a unique
-               identifier beginning with the specified prefix. Conflicts with `identifier`.
+        :param pulumi.Input[str] identifier: The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
@@ -3282,10 +3272,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
         :param pulumi.Input[bool] iam_database_authentication_enabled: Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
                accounts is enabled.
-        :param pulumi.Input[str] identifier: The name of the RDS instance,
-               if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
-        :param pulumi.Input[str] identifier_prefix: Creates a unique
-               identifier beginning with the specified prefix. Conflicts with `identifier`.
+        :param pulumi.Input[str] identifier: The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
         :param pulumi.Input[int] iops: The amount of provisioned IOPS. Setting this implies a
                storage_type of "io1". Can only be set when `storage_type` is `"io1"` or `"gp3"`.
@@ -3729,8 +3717,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def identifier(self) -> pulumi.Output[str]:
         """
-        The name of the RDS instance,
-        if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         """
         return pulumi.get(self, "identifier")
 
@@ -3738,8 +3725,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="identifierPrefix")
     def identifier_prefix(self) -> pulumi.Output[str]:
         """
-        Creates a unique
-        identifier beginning with the specified prefix. Conflicts with `identifier`.
+        Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         """
         return pulumi.get(self, "identifier_prefix")
 

@@ -339,8 +339,8 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule(dict):
                  interval: int,
                  interval_unit: str):
         """
-        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
-        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
+        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "interval_unit", interval_unit)
@@ -349,7 +349,7 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule(dict):
     @pulumi.getter
     def interval(self) -> int:
         """
-        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
         """
         return pulumi.get(self, "interval")
 
@@ -357,7 +357,7 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule(dict):
     @pulumi.getter(name="intervalUnit")
     def interval_unit(self) -> str:
         """
-        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         return pulumi.get(self, "interval_unit")
 
@@ -687,11 +687,11 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
                  location: Optional[str] = None,
                  times: Optional[str] = None):
         """
-        :param str cron_expression: The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
-        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
-        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        :param str cron_expression: The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
+        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
+        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         :param str location: Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
-        :param str times: A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+        :param str times: A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         if cron_expression is not None:
             pulumi.set(__self__, "cron_expression", cron_expression)
@@ -708,7 +708,7 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
     @pulumi.getter(name="cronExpression")
     def cron_expression(self) -> Optional[str]:
         """
-        The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+        The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
         """
         return pulumi.get(self, "cron_expression")
 
@@ -716,7 +716,7 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         """
-        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
         """
         return pulumi.get(self, "interval")
 
@@ -724,7 +724,7 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
     @pulumi.getter(name="intervalUnit")
     def interval_unit(self) -> Optional[str]:
         """
-        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         return pulumi.get(self, "interval_unit")
 
@@ -740,7 +740,7 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
     @pulumi.getter
     def times(self) -> Optional[str]:
         """
-        A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+        A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         return pulumi.get(self, "times")
 
@@ -868,8 +868,8 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule(dict)
                  interval: int,
                  interval_unit: str):
         """
-        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
-        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
+        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "interval_unit", interval_unit)
@@ -878,7 +878,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule(dict)
     @pulumi.getter
     def interval(self) -> int:
         """
-        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
         """
         return pulumi.get(self, "interval")
 
@@ -886,7 +886,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule(dict)
     @pulumi.getter(name="intervalUnit")
     def interval_unit(self) -> str:
         """
-        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         return pulumi.get(self, "interval_unit")
 
@@ -914,8 +914,8 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule(dict):
                  interval: int,
                  interval_unit: str):
         """
-        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
-        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
+        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "interval_unit", interval_unit)
@@ -924,7 +924,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule(dict):
     @pulumi.getter
     def interval(self) -> int:
         """
-        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
         """
         return pulumi.get(self, "interval")
 
@@ -932,7 +932,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule(dict):
     @pulumi.getter(name="intervalUnit")
     def interval_unit(self) -> str:
         """
-        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         return pulumi.get(self, "interval_unit")
 
@@ -961,9 +961,9 @@ class LifecyclePolicyPolicyDetailsScheduleDeprecateRule(dict):
                  interval: Optional[int] = None,
                  interval_unit: Optional[str] = None):
         """
-        :param int count: Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
-        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
-        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        :param int count: Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
+        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
+        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -976,7 +976,7 @@ class LifecyclePolicyPolicyDetailsScheduleDeprecateRule(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+        Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
         """
         return pulumi.get(self, "count")
 
@@ -984,7 +984,7 @@ class LifecyclePolicyPolicyDetailsScheduleDeprecateRule(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         """
-        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
         """
         return pulumi.get(self, "interval")
 
@@ -992,7 +992,7 @@ class LifecyclePolicyPolicyDetailsScheduleDeprecateRule(dict):
     @pulumi.getter(name="intervalUnit")
     def interval_unit(self) -> Optional[str]:
         """
-        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         return pulumi.get(self, "interval_unit")
 
@@ -1025,9 +1025,9 @@ class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule(dict):
                  interval_unit: Optional[str] = None):
         """
         :param Sequence[str] availability_zones: The Availability Zones in which to enable fast snapshot restore.
-        :param int count: Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
-        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
-        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        :param int count: Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
+        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
+        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         pulumi.set(__self__, "availability_zones", availability_zones)
         if count is not None:
@@ -1049,7 +1049,7 @@ class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+        Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
         """
         return pulumi.get(self, "count")
 
@@ -1057,7 +1057,7 @@ class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         """
-        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
         """
         return pulumi.get(self, "interval")
 
@@ -1065,7 +1065,7 @@ class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule(dict):
     @pulumi.getter(name="intervalUnit")
     def interval_unit(self) -> Optional[str]:
         """
-        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         return pulumi.get(self, "interval_unit")
 
@@ -1094,9 +1094,9 @@ class LifecyclePolicyPolicyDetailsScheduleRetainRule(dict):
                  interval: Optional[int] = None,
                  interval_unit: Optional[str] = None):
         """
-        :param int count: Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
-        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
-        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        :param int count: Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
+        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
+        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -1109,7 +1109,7 @@ class LifecyclePolicyPolicyDetailsScheduleRetainRule(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+        Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `interval_unit`.
         """
         return pulumi.get(self, "count")
 
@@ -1117,7 +1117,7 @@ class LifecyclePolicyPolicyDetailsScheduleRetainRule(dict):
     @pulumi.getter
     def interval(self) -> Optional[int]:
         """
-        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cron_expression`. If set, `interval_unit` and `times` must also be set.
         """
         return pulumi.get(self, "interval")
 
@@ -1125,7 +1125,7 @@ class LifecyclePolicyPolicyDetailsScheduleRetainRule(dict):
     @pulumi.getter(name="intervalUnit")
     def interval_unit(self) -> Optional[str]:
         """
-        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cron_expression`. Must be set if `interval` is set.
         """
         return pulumi.get(self, "interval_unit")
 

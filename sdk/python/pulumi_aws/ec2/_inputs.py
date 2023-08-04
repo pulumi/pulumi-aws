@@ -12006,7 +12006,7 @@ class RouteTableRouteArgs:
                
                One of the following target arguments must be supplied:
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
-        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
+        :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
         :param pulumi.Input[str] ipv6_cidr_block: The Ipv6 CIDR block of the route.
         :param pulumi.Input[str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[str] nat_gateway_id: Identifier of a VPC NAT gateway.
@@ -12110,7 +12110,7 @@ class RouteTableRouteArgs:
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Identifier of a VPC internet gateway or a virtual private gateway.
+        Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
         """
         return pulumi.get(self, "gateway_id")
 
@@ -15073,7 +15073,7 @@ class VpcEndpointDnsOptionsArgs:
                  private_dns_only_for_inbound_resolver_endpoint: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] dns_record_ip_type: The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
-        :param pulumi.Input[bool] private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `private_dns_enabled` is `true`.
+        :param pulumi.Input[bool] private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if private_dns_enabled is `true`.
         """
         if dns_record_ip_type is not None:
             pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
@@ -15096,7 +15096,7 @@ class VpcEndpointDnsOptionsArgs:
     @pulumi.getter(name="privateDnsOnlyForInboundResolverEndpoint")
     def private_dns_only_for_inbound_resolver_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `private_dns_enabled` is `true`.
+        Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if private_dns_enabled is `true`.
         """
         return pulumi.get(self, "private_dns_only_for_inbound_resolver_endpoint")
 

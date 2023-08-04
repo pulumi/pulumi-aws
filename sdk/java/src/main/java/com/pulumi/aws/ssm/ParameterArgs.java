@@ -125,7 +125,7 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
      * 
      * @deprecated
      * this attribute has been deprecated
@@ -136,7 +136,7 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> overwrite;
 
     /**
-     * @return Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+     * @return Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
      * 
      * @deprecated
      * this attribute has been deprecated
@@ -398,7 +398,7 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+         * @param overwrite Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class ParameterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param overwrite Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
+         * @param overwrite Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
          * 
          * @return builder
          * 

@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -49,6 +50,8 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Set this value to true to include manual DB snapshots that are public and can be
      * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+     * `tags` - (Optional) Mapping of tags, each pair of which must exactly match
+     * a pair on the desired DB snapshot.
      * 
      */
     @Import(name="includePublic")
@@ -57,6 +60,8 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Set this value to true to include manual DB snapshots that are public and can be
      * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+     * `tags` - (Optional) Mapping of tags, each pair of which must exactly match
+     * a pair on the desired DB snapshot.
      * 
      */
     public Optional<Output<Boolean>> includePublic() {
@@ -118,6 +123,13 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.snapshotType);
     }
 
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetSnapshotArgs() {}
 
     private GetSnapshotArgs(GetSnapshotArgs $) {
@@ -127,6 +139,7 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         this.includeShared = $.includeShared;
         this.mostRecent = $.mostRecent;
         this.snapshotType = $.snapshotType;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -192,6 +205,8 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param includePublic Set this value to true to include manual DB snapshots that are public and can be
          * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+         * `tags` - (Optional) Mapping of tags, each pair of which must exactly match
+         * a pair on the desired DB snapshot.
          * 
          * @return builder
          * 
@@ -204,6 +219,8 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param includePublic Set this value to true to include manual DB snapshots that are public and can be
          * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+         * `tags` - (Optional) Mapping of tags, each pair of which must exactly match
+         * a pair on the desired DB snapshot.
          * 
          * @return builder
          * 
@@ -283,6 +300,15 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder snapshotType(String snapshotType) {
             return snapshotType(Output.of(snapshotType));
+        }
+
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public GetSnapshotArgs build() {

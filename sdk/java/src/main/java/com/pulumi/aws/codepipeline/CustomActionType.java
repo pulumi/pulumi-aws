@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  *  to = aws_codepipeline_custom_action_type.example
  * 
- *  id = &#34;Build:TODO:1&#34; } Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For exampleconsole % pulumi import aws_codepipeline_custom_action_type.example Build:TODO:1
+ *  id = &#34;Build:pulumi:1&#34; } Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For exampleconsole % pulumi import aws_codepipeline_custom_action_type.example Build:pulumi:1
  * 
  */
 @ResourceType(type="aws:codepipeline/customActionType:CustomActionType")

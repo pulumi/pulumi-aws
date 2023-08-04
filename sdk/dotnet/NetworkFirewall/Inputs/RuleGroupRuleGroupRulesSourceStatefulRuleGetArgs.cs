@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
     public sealed class RuleGroupRuleGroupRulesSourceStatefulRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+        /// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;

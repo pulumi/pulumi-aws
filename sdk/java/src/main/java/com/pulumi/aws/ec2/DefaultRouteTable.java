@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * 
  *  to = aws_default_route_table.example
  * 
- *  id = &#34;vpc-33cc44dd&#34; } Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For exampleconsole % pulumi import aws_default_route_table.example vpc-33cc44dd
+ *  id = &#34;vpc-33cc44dd&#34; } Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For exampleconsole % pulumi import aws_default_route_table.example vpc-33cc44dd [tf-main-route-table-association]/docs/providers/aws/r/main_route_table_association.html
  * 
  */
 @ResourceType(type="aws:ec2/defaultRouteTable:DefaultRouteTable")

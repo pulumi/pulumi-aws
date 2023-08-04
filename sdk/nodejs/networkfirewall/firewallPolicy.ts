@@ -31,6 +31,38 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ## Policy with a HOME_NET Override
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ *     firewallPolicy: {
+ *         policyVariables: {
+ *             ruleVariables: [{
+ *                 key: "HOME_NET",
+ *                 ipSet: {
+ *                     definitions: [
+ *                         "10.0.0.0/16",
+ *                         "10.1.0.0/24",
+ *                     ],
+ *                 },
+ *             }],
+ *         },
+ *         statelessDefaultActions: ["aws:pass"],
+ *         statelessFragmentDefaultActions: ["aws:drop"],
+ *         statelessRuleGroupReferences: [{
+ *             priority: 1,
+ *             resourceArn: aws_networkfirewall_rule_group.example.arn,
+ *         }],
+ *     },
+ *     tags: {
+ *         Tag1: "Value1",
+ *         Tag2: "Value2",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *

@@ -7510,7 +7510,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getManagedPrefixLists:getManagedPrefixLists", TypeShape.of(GetManagedPrefixListsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7541,8 +7541,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7578,7 +7577,7 @@ public final class Ec2Functions {
         return getNatGateway(GetNatGatewayArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7609,8 +7608,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7646,7 +7644,7 @@ public final class Ec2Functions {
         return getNatGatewayPlain(GetNatGatewayPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7677,8 +7675,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7714,7 +7711,7 @@ public final class Ec2Functions {
         return getNatGateway(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7745,8 +7742,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7782,7 +7778,7 @@ public final class Ec2Functions {
         return getNatGatewayPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7813,8 +7809,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 
@@ -7850,7 +7845,7 @@ public final class Ec2Functions {
         return Deployment.getInstance().invoke("aws:ec2/getNatGateway:getNatGateway", TypeShape.of(GetNatGatewayResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about a specific Nat Gateway.
+     * Provides details about a specific VPC NAT Gateway.
      * 
      * ## Example Usage
      * ```java
@@ -7881,8 +7876,7 @@ public final class Ec2Functions {
      *     }
      * }
      * ```
-     * 
-     * Usage with tags:
+     * ### With tags
      * ```java
      * package generated_program;
      * 

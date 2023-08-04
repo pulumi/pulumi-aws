@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? CrossAccountModelRegisterRoleArn { get; set; }
 
         /// <summary>
-        /// Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+        /// Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

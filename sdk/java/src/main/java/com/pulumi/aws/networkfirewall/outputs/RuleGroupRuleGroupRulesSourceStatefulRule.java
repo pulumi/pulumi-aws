@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleGroupRulesSourceStatefulRule {
     /**
-     * @return Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+     * @return Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
      * 
      */
     private String action;
@@ -30,7 +30,7 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRule {
 
     private RuleGroupRuleGroupRulesSourceStatefulRule() {}
     /**
-     * @return Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+     * @return Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
      * 
      */
     public String action() {

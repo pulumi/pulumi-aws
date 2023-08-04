@@ -270,6 +270,37 @@ class FirewallPolicy(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        ## Policy with a HOME_NET Override
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.FirewallPolicy("example",
+            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
+                policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs(
+                    rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs(
+                        key="HOME_NET",
+                        ip_set=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs(
+                            definitions=[
+                                "10.0.0.0/16",
+                                "10.1.0.0/24",
+                            ],
+                        ),
+                    )],
+                ),
+                stateless_default_actions=["aws:pass"],
+                stateless_fragment_default_actions=["aws:drop"],
+                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
+                    priority=1,
+                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
+                )],
+            ),
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
+        ```
 
         ## Import
 
@@ -304,6 +335,37 @@ class FirewallPolicy(pulumi.CustomResource):
 
         example = aws.networkfirewall.FirewallPolicy("example",
             firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
+                stateless_default_actions=["aws:pass"],
+                stateless_fragment_default_actions=["aws:drop"],
+                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
+                    priority=1,
+                    resource_arn=aws_networkfirewall_rule_group["example"]["arn"],
+                )],
+            ),
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
+        ```
+        ## Policy with a HOME_NET Override
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.FirewallPolicy("example",
+            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
+                policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs(
+                    rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs(
+                        key="HOME_NET",
+                        ip_set=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs(
+                            definitions=[
+                                "10.0.0.0/16",
+                                "10.1.0.0/24",
+                            ],
+                        ),
+                    )],
+                ),
                 stateless_default_actions=["aws:pass"],
                 stateless_fragment_default_actions=["aws:drop"],
                 stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(

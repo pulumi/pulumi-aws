@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class KxClusterDatabaseCacheConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -33,15 +35,15 @@ public final class KxClusterDatabaseCacheConfigurationArgs extends com.pulumi.re
      * Paths within the database to cache.
      * 
      */
-    @Import(name="dbPaths", required=true)
-    private Output<List<String>> dbPaths;
+    @Import(name="dbPaths")
+    private @Nullable Output<List<String>> dbPaths;
 
     /**
      * @return Paths within the database to cache.
      * 
      */
-    public Output<List<String>> dbPaths() {
-        return this.dbPaths;
+    public Optional<Output<List<String>>> dbPaths() {
+        return Optional.ofNullable(this.dbPaths);
     }
 
     private KxClusterDatabaseCacheConfigurationArgs() {}
@@ -96,7 +98,7 @@ public final class KxClusterDatabaseCacheConfigurationArgs extends com.pulumi.re
          * @return builder
          * 
          */
-        public Builder dbPaths(Output<List<String>> dbPaths) {
+        public Builder dbPaths(@Nullable Output<List<String>> dbPaths) {
             $.dbPaths = dbPaths;
             return this;
         }
@@ -123,7 +125,6 @@ public final class KxClusterDatabaseCacheConfigurationArgs extends com.pulumi.re
 
         public KxClusterDatabaseCacheConfigurationArgs build() {
             $.cacheType = Objects.requireNonNull($.cacheType, "expected parameter 'cacheType' to be non-null");
-            $.dbPaths = Objects.requireNonNull($.dbPaths, "expected parameter 'dbPaths' to be non-null");
             return $;
         }
     }

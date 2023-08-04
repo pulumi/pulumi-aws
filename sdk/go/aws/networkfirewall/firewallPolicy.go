@@ -56,6 +56,61 @@ import (
 //	}
 //
 // ```
+// ## Policy with a HOME_NET Override
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := networkfirewall.NewFirewallPolicy(ctx, "example", &networkfirewall.FirewallPolicyArgs{
+//				FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
+//					PolicyVariables: &networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs{
+//						RuleVariables: networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray{
+//							&networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{
+//								Key: pulumi.String("HOME_NET"),
+//								IpSet: &networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs{
+//									Definitions: pulumi.StringArray{
+//										pulumi.String("10.0.0.0/16"),
+//										pulumi.String("10.1.0.0/24"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//					StatelessDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:pass"),
+//					},
+//					StatelessFragmentDefaultActions: pulumi.StringArray{
+//						pulumi.String("aws:drop"),
+//					},
+//					StatelessRuleGroupReferences: networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArray{
+//						&networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs{
+//							Priority:    pulumi.Int(1),
+//							ResourceArn: pulumi.Any(aws_networkfirewall_rule_group.Example.Arn),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Tag1": pulumi.String("Value1"),
+//					"Tag2": pulumi.String("Value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

@@ -7,6 +7,7 @@ import com.pulumi.aws.rds.outputs.GetInstancesFilter;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import javax.annotation.Nullable;
 
@@ -28,6 +29,7 @@ public final class GetInstancesResult {
      * 
      */
     private List<String> instanceIdentifiers;
+    private Map<String,String> tags;
 
     private GetInstancesResult() {}
     public List<GetInstancesFilter> filters() {
@@ -54,6 +56,9 @@ public final class GetInstancesResult {
     public List<String> instanceIdentifiers() {
         return this.instanceIdentifiers;
     }
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -68,6 +73,7 @@ public final class GetInstancesResult {
         private String id;
         private List<String> instanceArns;
         private List<String> instanceIdentifiers;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetInstancesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -75,6 +81,7 @@ public final class GetInstancesResult {
     	      this.id = defaults.id;
     	      this.instanceArns = defaults.instanceArns;
     	      this.instanceIdentifiers = defaults.instanceIdentifiers;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -106,12 +113,18 @@ public final class GetInstancesResult {
         public Builder instanceIdentifiers(String... instanceIdentifiers) {
             return instanceIdentifiers(List.of(instanceIdentifiers));
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
+            return this;
+        }
         public GetInstancesResult build() {
             final var o = new GetInstancesResult();
             o.filters = filters;
             o.id = id;
             o.instanceArns = instanceArns;
             o.instanceIdentifiers = instanceIdentifiers;
+            o.tags = tags;
             return o;
         }
     }

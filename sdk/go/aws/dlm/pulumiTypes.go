@@ -634,9 +634,9 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit string `pulumi:"intervalUnit"`
 }
 
@@ -652,9 +652,9 @@ type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleInput interface 
 }
 
 type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
 }
 
@@ -735,12 +735,12 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) ToLif
 	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) IntervalUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) string { return v.IntervalUnit }).(pulumi.StringOutput)
 }
@@ -769,7 +769,7 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) El
 	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) *int {
 		if v == nil {
@@ -779,7 +779,7 @@ func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) In
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) *string {
 		if v == nil {
@@ -1469,15 +1469,15 @@ func (o LifecyclePolicyPolicyDetailsScheduleArrayOutput) Index(i pulumi.IntInput
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRule struct {
-	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
 	CronExpression *string `pulumi:"cronExpression"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval *int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 	// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
 	Location *string `pulumi:"location"`
-	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	Times *string `pulumi:"times"`
 }
 
@@ -1493,15 +1493,15 @@ type LifecyclePolicyPolicyDetailsScheduleCreateRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs struct {
-	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
 	CronExpression pulumi.StringPtrInput `pulumi:"cronExpression"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 	// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	Times pulumi.StringPtrInput `pulumi:"times"`
 }
 
@@ -1531,17 +1531,17 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) ToLifecyclePolicyP
 	return o
 }
 
-// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) CronExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.CronExpression }).(pulumi.StringPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -1551,7 +1551,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Location() pulumi.
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Times() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.Times }).(pulumi.StringPtrOutput)
 }
@@ -1703,9 +1703,9 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput) Inde
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit string `pulumi:"intervalUnit"`
 }
 
@@ -1721,9 +1721,9 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleInput i
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
 }
 
@@ -1804,12 +1804,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutp
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) IntervalUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) string {
 		return v.IntervalUnit
@@ -1840,7 +1840,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrO
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) *int {
 		if v == nil {
@@ -1850,7 +1850,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) *string {
 		if v == nil {
@@ -1861,9 +1861,9 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrO
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit string `pulumi:"intervalUnit"`
 }
 
@@ -1879,9 +1879,9 @@ type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleInput inte
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
 }
 
@@ -1962,12 +1962,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput)
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) IntervalUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) string {
 		return v.IntervalUnit
@@ -1998,7 +1998,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutp
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) *int {
 		if v == nil {
@@ -2008,7 +2008,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) *string {
 		if v == nil {
@@ -2019,11 +2019,11 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutp
 }
 
 type LifecyclePolicyPolicyDetailsScheduleDeprecateRule struct {
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count *int `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval *int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 }
 
@@ -2039,11 +2039,11 @@ type LifecyclePolicyPolicyDetailsScheduleDeprecateRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs struct {
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 }
 
@@ -2124,17 +2124,17 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) ToLifecyclePoli
 	}).(LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput)
 }
 
-// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -2163,7 +2163,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Elem() Lifec
 	}).(LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput)
 }
 
-// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int {
 		if v == nil {
@@ -2173,7 +2173,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Count() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int {
 		if v == nil {
@@ -2183,7 +2183,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Interval() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *string {
 		if v == nil {
@@ -2196,11 +2196,11 @@ func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) IntervalUnit
 type LifecyclePolicyPolicyDetailsScheduleFastRestoreRule struct {
 	// The Availability Zones in which to enable fast snapshot restore.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count *int `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval *int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 }
 
@@ -2218,11 +2218,11 @@ type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleInput interface {
 type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs struct {
 	// The Availability Zones in which to enable fast snapshot restore.
 	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 }
 
@@ -2308,17 +2308,17 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) AvailabilityZ
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -2357,7 +2357,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Availabili
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int {
 		if v == nil {
@@ -2367,7 +2367,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Count() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int {
 		if v == nil {
@@ -2377,7 +2377,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Interval()
 	}).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *string {
 		if v == nil {
@@ -2388,11 +2388,11 @@ func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) IntervalUn
 }
 
 type LifecyclePolicyPolicyDetailsScheduleRetainRule struct {
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count *int `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval *int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 }
 
@@ -2408,11 +2408,11 @@ type LifecyclePolicyPolicyDetailsScheduleRetainRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs struct {
-	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+	// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 }
 
@@ -2442,17 +2442,17 @@ func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) ToLifecyclePolicyP
 	return o
 }
 
-// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+// Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
 func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
 func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
 func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }

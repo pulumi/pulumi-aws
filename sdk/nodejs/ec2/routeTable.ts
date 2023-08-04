@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  * the separate resource.
  *
  * ## Example Usage
+ * ### Basic example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -67,6 +68,48 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Adopting an existing local route
+ *
+ * AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
+ *
+ * First, adopt an existing AWS-created route:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testVpc = new aws.ec2.Vpc("testVpc", {cidrBlock: "10.1.0.0/16"});
+ * const testRouteTable = new aws.ec2.RouteTable("testRouteTable", {
+ *     vpcId: testVpc.id,
+ *     routes: [{
+ *         cidrBlock: "10.1.0.0/16",
+ *         gatewayId: "local",
+ *     }],
+ * });
+ * ```
+ *
+ * Next, update the target of the route:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testVpc = new aws.ec2.Vpc("testVpc", {cidrBlock: "10.1.0.0/16"});
+ * const testSubnet = new aws.ec2.Subnet("testSubnet", {
+ *     cidrBlock: "10.1.1.0/24",
+ *     vpcId: testVpc.id,
+ * });
+ * const testNetworkInterface = new aws.ec2.NetworkInterface("testNetworkInterface", {subnetId: testSubnet.id});
+ * const testRouteTable = new aws.ec2.RouteTable("testRouteTable", {
+ *     vpcId: testVpc.id,
+ *     routes: [{
+ *         cidrBlock: testVpc.cidrBlock,
+ *         networkInterfaceId: testNetworkInterface.id,
+ *     }],
+ * });
+ * ```
+ *
+ * The target could then be updated again back to `local`.
  *
  * ## Import
  *

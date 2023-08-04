@@ -25135,7 +25135,7 @@ type RouteTableRoute struct {
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId *string `pulumi:"egressOnlyGatewayId"`
-	// Identifier of a VPC internet gateway or a virtual private gateway.
+	// Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
 	GatewayId *string `pulumi:"gatewayId"`
 	// The Ipv6 CIDR block of the route.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
@@ -25179,7 +25179,7 @@ type RouteTableRouteArgs struct {
 	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
 	EgressOnlyGatewayId pulumi.StringPtrInput `pulumi:"egressOnlyGatewayId"`
-	// Identifier of a VPC internet gateway or a virtual private gateway.
+	// Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
 	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
 	// The Ipv6 CIDR block of the route.
 	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
@@ -25277,7 +25277,7 @@ func (o RouteTableRouteOutput) EgressOnlyGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.EgressOnlyGatewayId }).(pulumi.StringPtrOutput)
 }
 
-// Identifier of a VPC internet gateway or a virtual private gateway.
+// Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
 func (o RouteTableRouteOutput) GatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.GatewayId }).(pulumi.StringPtrOutput)
 }
@@ -32021,7 +32021,7 @@ func (o VpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) VpcEndpointDnsE
 type VpcEndpointDnsOptions struct {
 	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 	DnsRecordIpType *string `pulumi:"dnsRecordIpType"`
-	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `privateDnsEnabled` is `true`.
+	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
 	PrivateDnsOnlyForInboundResolverEndpoint *bool `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 }
 
@@ -32039,7 +32039,7 @@ type VpcEndpointDnsOptionsInput interface {
 type VpcEndpointDnsOptionsArgs struct {
 	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 	DnsRecordIpType pulumi.StringPtrInput `pulumi:"dnsRecordIpType"`
-	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `privateDnsEnabled` is `true`.
+	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
 	PrivateDnsOnlyForInboundResolverEndpoint pulumi.BoolPtrInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 }
 
@@ -32125,7 +32125,7 @@ func (o VpcEndpointDnsOptionsOutput) DnsRecordIpType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointDnsOptions) *string { return v.DnsRecordIpType }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `privateDnsEnabled` is `true`.
+// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
 func (o VpcEndpointDnsOptionsOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcEndpointDnsOptions) *bool { return v.PrivateDnsOnlyForInboundResolverEndpoint }).(pulumi.BoolPtrOutput)
 }
@@ -32164,7 +32164,7 @@ func (o VpcEndpointDnsOptionsPtrOutput) DnsRecordIpType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `privateDnsEnabled` is `true`.
+// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
 func (o VpcEndpointDnsOptionsPtrOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointDnsOptions) *bool {
 		if v == nil {

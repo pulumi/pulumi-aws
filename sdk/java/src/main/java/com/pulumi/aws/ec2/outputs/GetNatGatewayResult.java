@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetNatGatewayFilter;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -14,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetNatGatewayResult {
     /**
-     * @return ID of the EIP allocated to the selected Nat Gateway.
+     * @return ID of the EIP allocated to the selected NAT Gateway.
      * 
      */
     private String allocationId;
     /**
-     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
      * 
      */
     private String associationId;
@@ -31,20 +32,35 @@ public final class GetNatGatewayResult {
     private @Nullable List<GetNatGatewayFilter> filters;
     private String id;
     /**
-     * @return The ID of the ENI allocated to the selected Nat Gateway.
+     * @return The ID of the ENI allocated to the selected NAT Gateway.
      * 
      */
     private String networkInterfaceId;
     /**
-     * @return Private Ip address of the selected Nat Gateway.
+     * @return Private IP address of the selected NAT Gateway.
      * 
      */
     private String privateIp;
     /**
-     * @return Public Ip (EIP) address of the selected Nat Gateway.
+     * @return Public IP (EIP) address of the selected NAT Gateway.
      * 
      */
     private String publicIp;
+    /**
+     * @return Secondary allocation EIP IDs for the selected NAT Gateway.
+     * 
+     */
+    private List<String> secondaryAllocationIds;
+    /**
+     * @return The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
+     * 
+     */
+    private Integer secondaryPrivateIpAddressCount;
+    /**
+     * @return Secondary private IPv4 addresses assigned to the selected NAT Gateway.
+     * 
+     */
+    private List<String> secondaryPrivateIpAddresses;
     private String state;
     private String subnetId;
     private Map<String,String> tags;
@@ -52,14 +68,14 @@ public final class GetNatGatewayResult {
 
     private GetNatGatewayResult() {}
     /**
-     * @return ID of the EIP allocated to the selected Nat Gateway.
+     * @return ID of the EIP allocated to the selected NAT Gateway.
      * 
      */
     public String allocationId() {
         return this.allocationId;
     }
     /**
-     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+     * @return The association ID of the Elastic IP address that&#39;s associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
      * 
      */
     public String associationId() {
@@ -79,25 +95,46 @@ public final class GetNatGatewayResult {
         return this.id;
     }
     /**
-     * @return The ID of the ENI allocated to the selected Nat Gateway.
+     * @return The ID of the ENI allocated to the selected NAT Gateway.
      * 
      */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
     /**
-     * @return Private Ip address of the selected Nat Gateway.
+     * @return Private IP address of the selected NAT Gateway.
      * 
      */
     public String privateIp() {
         return this.privateIp;
     }
     /**
-     * @return Public Ip (EIP) address of the selected Nat Gateway.
+     * @return Public IP (EIP) address of the selected NAT Gateway.
      * 
      */
     public String publicIp() {
         return this.publicIp;
+    }
+    /**
+     * @return Secondary allocation EIP IDs for the selected NAT Gateway.
+     * 
+     */
+    public List<String> secondaryAllocationIds() {
+        return this.secondaryAllocationIds;
+    }
+    /**
+     * @return The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
+     * 
+     */
+    public Integer secondaryPrivateIpAddressCount() {
+        return this.secondaryPrivateIpAddressCount;
+    }
+    /**
+     * @return Secondary private IPv4 addresses assigned to the selected NAT Gateway.
+     * 
+     */
+    public List<String> secondaryPrivateIpAddresses() {
+        return this.secondaryPrivateIpAddresses;
     }
     public String state() {
         return this.state;
@@ -129,6 +166,9 @@ public final class GetNatGatewayResult {
         private String networkInterfaceId;
         private String privateIp;
         private String publicIp;
+        private List<String> secondaryAllocationIds;
+        private Integer secondaryPrivateIpAddressCount;
+        private List<String> secondaryPrivateIpAddresses;
         private String state;
         private String subnetId;
         private Map<String,String> tags;
@@ -144,6 +184,9 @@ public final class GetNatGatewayResult {
     	      this.networkInterfaceId = defaults.networkInterfaceId;
     	      this.privateIp = defaults.privateIp;
     	      this.publicIp = defaults.publicIp;
+    	      this.secondaryAllocationIds = defaults.secondaryAllocationIds;
+    	      this.secondaryPrivateIpAddressCount = defaults.secondaryPrivateIpAddressCount;
+    	      this.secondaryPrivateIpAddresses = defaults.secondaryPrivateIpAddresses;
     	      this.state = defaults.state;
     	      this.subnetId = defaults.subnetId;
     	      this.tags = defaults.tags;
@@ -194,6 +237,27 @@ public final class GetNatGatewayResult {
             return this;
         }
         @CustomType.Setter
+        public Builder secondaryAllocationIds(List<String> secondaryAllocationIds) {
+            this.secondaryAllocationIds = Objects.requireNonNull(secondaryAllocationIds);
+            return this;
+        }
+        public Builder secondaryAllocationIds(String... secondaryAllocationIds) {
+            return secondaryAllocationIds(List.of(secondaryAllocationIds));
+        }
+        @CustomType.Setter
+        public Builder secondaryPrivateIpAddressCount(Integer secondaryPrivateIpAddressCount) {
+            this.secondaryPrivateIpAddressCount = Objects.requireNonNull(secondaryPrivateIpAddressCount);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryPrivateIpAddresses(List<String> secondaryPrivateIpAddresses) {
+            this.secondaryPrivateIpAddresses = Objects.requireNonNull(secondaryPrivateIpAddresses);
+            return this;
+        }
+        public Builder secondaryPrivateIpAddresses(String... secondaryPrivateIpAddresses) {
+            return secondaryPrivateIpAddresses(List.of(secondaryPrivateIpAddresses));
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
@@ -223,6 +287,9 @@ public final class GetNatGatewayResult {
             o.networkInterfaceId = networkInterfaceId;
             o.privateIp = privateIp;
             o.publicIp = publicIp;
+            o.secondaryAllocationIds = secondaryAllocationIds;
+            o.secondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
+            o.secondaryPrivateIpAddresses = secondaryPrivateIpAddresses;
             o.state = state;
             o.subnetId = subnetId;
             o.tags = tags;

@@ -637,6 +637,8 @@ func (o FirewallPolicyEncryptionConfigurationPtrOutput) Type() pulumi.StringPtrO
 }
 
 type FirewallPolicyFirewallPolicy struct {
+	// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+	PolicyVariables *FirewallPolicyFirewallPolicyPolicyVariables `pulumi:"policyVariables"`
 	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
 	StatefulDefaultActions []string `pulumi:"statefulDefaultActions"`
 	// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
@@ -667,6 +669,8 @@ type FirewallPolicyFirewallPolicyInput interface {
 }
 
 type FirewallPolicyFirewallPolicyArgs struct {
+	// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+	PolicyVariables FirewallPolicyFirewallPolicyPolicyVariablesPtrInput `pulumi:"policyVariables"`
 	// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
 	StatefulDefaultActions pulumi.StringArrayInput `pulumi:"statefulDefaultActions"`
 	// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
@@ -762,6 +766,13 @@ func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyPtrOut
 	}).(FirewallPolicyFirewallPolicyPtrOutput)
 }
 
+// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+func (o FirewallPolicyFirewallPolicyOutput) PolicyVariables() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicyPolicyVariables {
+		return v.PolicyVariables
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
+}
+
 // Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
 func (o FirewallPolicyFirewallPolicyOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []string { return v.StatefulDefaultActions }).(pulumi.StringArrayOutput)
@@ -829,6 +840,16 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) Elem() FirewallPolicyFirewallPoli
 		var ret FirewallPolicyFirewallPolicy
 		return ret
 	}).(FirewallPolicyFirewallPolicyOutput)
+}
+
+// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+func (o FirewallPolicyFirewallPolicyPtrOutput) PolicyVariables() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicyPolicyVariables {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyVariables
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
 }
 
 // Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
@@ -901,6 +922,301 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessRuleGroupReferences() Fi
 		}
 		return v.StatelessRuleGroupReferences
 	}).(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariables struct {
+	RuleVariables []FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable `pulumi:"ruleVariables"`
+}
+
+// FirewallPolicyFirewallPolicyPolicyVariablesInput is an input type that accepts FirewallPolicyFirewallPolicyPolicyVariablesArgs and FirewallPolicyFirewallPolicyPolicyVariablesOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPolicyVariablesInput` via:
+//
+//	FirewallPolicyFirewallPolicyPolicyVariablesArgs{...}
+type FirewallPolicyFirewallPolicyPolicyVariablesInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyPolicyVariablesOutput() FirewallPolicyFirewallPolicyPolicyVariablesOutput
+	ToFirewallPolicyFirewallPolicyPolicyVariablesOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPolicyVariablesOutput
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesArgs struct {
+	RuleVariables FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayInput `pulumi:"ruleVariables"`
+}
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariables)(nil)).Elem()
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesOutput() FirewallPolicyFirewallPolicyPolicyVariablesOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesOutput)
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutput() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesOutput).ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(ctx)
+}
+
+// FirewallPolicyFirewallPolicyPolicyVariablesPtrInput is an input type that accepts FirewallPolicyFirewallPolicyPolicyVariablesArgs, FirewallPolicyFirewallPolicyPolicyVariablesPtr and FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPolicyVariablesPtrInput` via:
+//
+//	        FirewallPolicyFirewallPolicyPolicyVariablesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallPolicyFirewallPolicyPolicyVariablesPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutput() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput
+	ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput
+}
+
+type firewallPolicyFirewallPolicyPolicyVariablesPtrType FirewallPolicyFirewallPolicyPolicyVariablesArgs
+
+func FirewallPolicyFirewallPolicyPolicyVariablesPtr(v *FirewallPolicyFirewallPolicyPolicyVariablesArgs) FirewallPolicyFirewallPolicyPolicyVariablesPtrInput {
+	return (*firewallPolicyFirewallPolicyPolicyVariablesPtrType)(v)
+}
+
+func (*firewallPolicyFirewallPolicyPolicyVariablesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFirewallPolicyPolicyVariables)(nil)).Elem()
+}
+
+func (i *firewallPolicyFirewallPolicyPolicyVariablesPtrType) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutput() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallPolicyFirewallPolicyPolicyVariablesPtrType) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariables)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesOutput() FirewallPolicyFirewallPolicyPolicyVariablesOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutput() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o.ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyFirewallPolicyPolicyVariables) *FirewallPolicyFirewallPolicyPolicyVariables {
+		return &v
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput)
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesOutput) RuleVariables() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyPolicyVariables) []FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
+		return v.RuleVariables
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyFirewallPolicyPolicyVariables)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutput() FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput) Elem() FirewallPolicyFirewallPolicyPolicyVariablesOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyPolicyVariables) FirewallPolicyFirewallPolicyPolicyVariables {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyFirewallPolicyPolicyVariables
+		return ret
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesOutput)
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput) RuleVariables() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicyPolicyVariables) []FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
+		if v == nil {
+			return nil
+		}
+		return v.RuleVariables
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable struct {
+	// A configuration block that defines a set of IP addresses. See IP Set below for details.
+	IpSet FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet `pulumi:"ipSet"`
+	// An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
+	Key string `pulumi:"key"`
+}
+
+// FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableInput is an input type that accepts FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs and FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableInput` via:
+//
+//	FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{...}
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs struct {
+	// A configuration block that defines a set of IP addresses. See IP Set below for details.
+	IpSet FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput `pulumi:"ipSet"`
+	// An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable)(nil)).Elem()
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput)
+}
+
+// FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayInput is an input type that accepts FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray and FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayInput` via:
+//
+//	FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray{ FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{...} }
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray []FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableInput
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable)(nil)).Elem()
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput {
+	return o
+}
+
+// A configuration block that defines a set of IP addresses. See IP Set below for details.
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput) IpSet() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet {
+		return v.IpSet
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput)
+}
+
+// An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput) Index(i pulumi.IntInput) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
+		return vs[0].([]FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable)[vs[1].(int)]
+	}).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet struct {
+	// Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
+	Definitions []string `pulumi:"definitions"`
+}
+
+// FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput is an input type that accepts FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs and FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput values.
+// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput` via:
+//
+//	FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs{...}
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput
+	ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs struct {
+	// Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
+	Definitions pulumi.StringArrayInput `pulumi:"definitions"`
+}
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet)(nil)).Elem()
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput {
+	return i.ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput)
+}
+
+type FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet)(nil)).Elem()
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput() FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput {
+	return o
+}
+
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) ToFirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput {
+	return o
+}
+
+// Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
+func (o FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput) Definitions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet) []string { return v.Definitions }).(pulumi.StringArrayOutput)
 }
 
 type FirewallPolicyFirewallPolicyStatefulEngineOptions struct {
@@ -3647,7 +3963,7 @@ func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) Targets() pulumi.
 }
 
 type RuleGroupRuleGroupRulesSourceStatefulRule struct {
-	// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+	// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
 	Action string `pulumi:"action"`
 	// A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
 	Header RuleGroupRuleGroupRulesSourceStatefulRuleHeader `pulumi:"header"`
@@ -3667,7 +3983,7 @@ type RuleGroupRuleGroupRulesSourceStatefulRuleInput interface {
 }
 
 type RuleGroupRuleGroupRulesSourceStatefulRuleArgs struct {
-	// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+	// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
 	Header RuleGroupRuleGroupRulesSourceStatefulRuleHeaderInput `pulumi:"header"`
@@ -3726,7 +4042,7 @@ func (o RuleGroupRuleGroupRulesSourceStatefulRuleOutput) ToRuleGroupRuleGroupRul
 	return o
 }
 
-// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+// Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
 func (o RuleGroupRuleGroupRulesSourceStatefulRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatefulRule) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -7207,6 +7523,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyEncryptionConfigurationPtrInput)(nil)).Elem(), FirewallPolicyEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyInput)(nil)).Elem(), FirewallPolicyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetInput)(nil)).Elem(), FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{})
@@ -7324,6 +7645,11 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput{})

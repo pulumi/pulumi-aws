@@ -307,6 +307,21 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * This is a set of arns of destinations that will receive structured logs from the transfer server
+     * 
+     */
+    @Import(name="structuredLogDestinations")
+    private @Nullable Output<List<String>> structuredLogDestinations;
+
+    /**
+     * @return This is a set of arns of destinations that will receive structured logs from the transfer server
+     * 
+     */
+    public Optional<Output<List<String>>> structuredLogDestinations() {
+        return Optional.ofNullable(this.structuredLogDestinations);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -388,6 +403,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         this.protocolDetails = $.protocolDetails;
         this.protocols = $.protocols;
         this.securityPolicyName = $.securityPolicyName;
+        this.structuredLogDestinations = $.structuredLogDestinations;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.url = $.url;
@@ -819,6 +835,37 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder securityPolicyName(String securityPolicyName) {
             return securityPolicyName(Output.of(securityPolicyName));
+        }
+
+        /**
+         * @param structuredLogDestinations This is a set of arns of destinations that will receive structured logs from the transfer server
+         * 
+         * @return builder
+         * 
+         */
+        public Builder structuredLogDestinations(@Nullable Output<List<String>> structuredLogDestinations) {
+            $.structuredLogDestinations = structuredLogDestinations;
+            return this;
+        }
+
+        /**
+         * @param structuredLogDestinations This is a set of arns of destinations that will receive structured logs from the transfer server
+         * 
+         * @return builder
+         * 
+         */
+        public Builder structuredLogDestinations(List<String> structuredLogDestinations) {
+            return structuredLogDestinations(Output.of(structuredLogDestinations));
+        }
+
+        /**
+         * @param structuredLogDestinations This is a set of arns of destinations that will receive structured logs from the transfer server
+         * 
+         * @return builder
+         * 
+         */
+        public Builder structuredLogDestinations(String... structuredLogDestinations) {
+            return structuredLogDestinations(List.of(structuredLogDestinations));
         }
 
         /**

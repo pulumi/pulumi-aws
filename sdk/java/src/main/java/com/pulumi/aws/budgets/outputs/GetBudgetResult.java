@@ -27,9 +27,13 @@ public final class GetBudgetResult {
      * 
      */
     private List<GetBudgetAutoAdjustData> autoAdjustDatas;
+    /**
+     * @return Boolean indicating whether this budget has been exceeded.
+     * 
+     */
     private Boolean budgetExceeded;
     /**
-     * @return The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend
+     * @return The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
      * 
      */
     private List<GetBudgetBudgetLimit> budgetLimits;
@@ -100,11 +104,15 @@ public final class GetBudgetResult {
     public List<GetBudgetAutoAdjustData> autoAdjustDatas() {
         return this.autoAdjustDatas;
     }
+    /**
+     * @return Boolean indicating whether this budget has been exceeded.
+     * 
+     */
     public Boolean budgetExceeded() {
         return this.budgetExceeded;
     }
     /**
-     * @return The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend
+     * @return The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget. Contains object Spend.
      * 
      */
     public List<GetBudgetBudgetLimit> budgetLimits() {

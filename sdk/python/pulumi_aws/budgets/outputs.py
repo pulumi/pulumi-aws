@@ -822,6 +822,11 @@ class GetBudgetAutoAdjustDataResult(dict):
                  auto_adjust_type: str,
                  historical_options: Sequence['outputs.GetBudgetAutoAdjustDataHistoricalOptionResult'],
                  last_auto_adjust_time: str):
+        """
+        :param str auto_adjust_type: (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
+        :param Sequence['GetBudgetAutoAdjustDataHistoricalOptionArgs'] historical_options: (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+        :param str last_auto_adjust_time: (Optional) - The last time that your budget was auto-adjusted.
+        """
         pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
         pulumi.set(__self__, "historical_options", historical_options)
         pulumi.set(__self__, "last_auto_adjust_time", last_auto_adjust_time)
@@ -829,16 +834,25 @@ class GetBudgetAutoAdjustDataResult(dict):
     @property
     @pulumi.getter(name="autoAdjustType")
     def auto_adjust_type(self) -> str:
+        """
+        (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
+        """
         return pulumi.get(self, "auto_adjust_type")
 
     @property
     @pulumi.getter(name="historicalOptions")
     def historical_options(self) -> Sequence['outputs.GetBudgetAutoAdjustDataHistoricalOptionResult']:
+        """
+        (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+        """
         return pulumi.get(self, "historical_options")
 
     @property
     @pulumi.getter(name="lastAutoAdjustTime")
     def last_auto_adjust_time(self) -> str:
+        """
+        (Optional) - The last time that your budget was auto-adjusted.
+        """
         return pulumi.get(self, "last_auto_adjust_time")
 
 
@@ -847,17 +861,27 @@ class GetBudgetAutoAdjustDataHistoricalOptionResult(dict):
     def __init__(__self__, *,
                  budget_adjustment_period: int,
                  lookback_available_periods: int):
+        """
+        :param int budget_adjustment_period: (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+        :param int lookback_available_periods: (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
+        """
         pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
         pulumi.set(__self__, "lookback_available_periods", lookback_available_periods)
 
     @property
     @pulumi.getter(name="budgetAdjustmentPeriod")
     def budget_adjustment_period(self) -> int:
+        """
+        (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+        """
         return pulumi.get(self, "budget_adjustment_period")
 
     @property
     @pulumi.getter(name="lookbackAvailablePeriods")
     def lookback_available_periods(self) -> int:
+        """
+        (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
+        """
         return pulumi.get(self, "lookback_available_periods")
 
 
@@ -867,8 +891,8 @@ class GetBudgetBudgetLimitResult(dict):
                  amount: str,
                  unit: str):
         """
-        :param str amount: (Required) The amount of cost or usage being measured for a budget.
-        :param str unit: (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        :param str amount: The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+        :param str unit: The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "unit", unit)
@@ -877,7 +901,7 @@ class GetBudgetBudgetLimitResult(dict):
     @pulumi.getter
     def amount(self) -> str:
         """
-        (Required) The amount of cost or usage being measured for a budget.
+        The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
         return pulumi.get(self, "amount")
 
@@ -885,7 +909,7 @@ class GetBudgetBudgetLimitResult(dict):
     @pulumi.getter
     def unit(self) -> str:
         """
-        (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
         return pulumi.get(self, "unit")
 
@@ -908,8 +932,8 @@ class GetBudgetCalculatedSpendActualSpendResult(dict):
                  amount: str,
                  unit: str):
         """
-        :param str amount: (Required) The amount of cost or usage being measured for a budget.
-        :param str unit: (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        :param str amount: The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
+        :param str unit: The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "unit", unit)
@@ -918,7 +942,7 @@ class GetBudgetCalculatedSpendActualSpendResult(dict):
     @pulumi.getter
     def amount(self) -> str:
         """
-        (Required) The amount of cost or usage being measured for a budget.
+        The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
         return pulumi.get(self, "amount")
 
@@ -926,7 +950,7 @@ class GetBudgetCalculatedSpendActualSpendResult(dict):
     @pulumi.getter
     def unit(self) -> str:
         """
-        (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
         return pulumi.get(self, "unit")
 
@@ -975,17 +999,17 @@ class GetBudgetCostTypeResult(dict):
                  use_amortized: bool,
                  use_blended: bool):
         """
-        :param bool include_credit: A boolean value whether to include credits in the cost budget. Defaults to `true`
-        :param bool include_discount: Whether a budget includes discounts. Defaults to `true`
-        :param bool include_other_subscription: A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-        :param bool include_recurring: A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-        :param bool include_refund: A boolean value whether to include refunds in the cost budget. Defaults to `true`
-        :param bool include_subscription: A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-        :param bool include_support: A boolean value whether to include support costs in the cost budget. Defaults to `true`
-        :param bool include_tax: A boolean value whether to include tax in the cost budget. Defaults to `true`
-        :param bool include_upfront: A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-        :param bool use_amortized: Whether a budget uses the amortized rate. Defaults to `false`
-        :param bool use_blended: A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+        :param bool include_credit: A boolean value whether to include credits in the cost budget. Defaults to `true`.
+        :param bool include_discount: Whether a budget includes discounts. Defaults to `true`.
+        :param bool include_other_subscription: A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
+        :param bool include_recurring: A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
+        :param bool include_refund: A boolean value whether to include refunds in the cost budget. Defaults to `true`.
+        :param bool include_subscription: A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
+        :param bool include_support: A boolean value whether to include support costs in the cost budget. Defaults to `true`.
+        :param bool include_tax: A boolean value whether to include tax in the cost budget. Defaults to `true`.
+        :param bool include_upfront: A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
+        :param bool use_amortized: Whether a budget uses the amortized rate. Defaults to `false`.
+        :param bool use_blended: A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
         """
         pulumi.set(__self__, "include_credit", include_credit)
         pulumi.set(__self__, "include_discount", include_discount)
@@ -1003,7 +1027,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeCredit")
     def include_credit(self) -> bool:
         """
-        A boolean value whether to include credits in the cost budget. Defaults to `true`
+        A boolean value whether to include credits in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_credit")
 
@@ -1011,7 +1035,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeDiscount")
     def include_discount(self) -> bool:
         """
-        Whether a budget includes discounts. Defaults to `true`
+        Whether a budget includes discounts. Defaults to `true`.
         """
         return pulumi.get(self, "include_discount")
 
@@ -1019,7 +1043,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeOtherSubscription")
     def include_other_subscription(self) -> bool:
         """
-        A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+        A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_other_subscription")
 
@@ -1027,7 +1051,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeRecurring")
     def include_recurring(self) -> bool:
         """
-        A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+        A boolean value whether to include recurring costs in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_recurring")
 
@@ -1035,7 +1059,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeRefund")
     def include_refund(self) -> bool:
         """
-        A boolean value whether to include refunds in the cost budget. Defaults to `true`
+        A boolean value whether to include refunds in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_refund")
 
@@ -1043,7 +1067,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeSubscription")
     def include_subscription(self) -> bool:
         """
-        A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+        A boolean value whether to include subscriptions in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_subscription")
 
@@ -1051,7 +1075,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeSupport")
     def include_support(self) -> bool:
         """
-        A boolean value whether to include support costs in the cost budget. Defaults to `true`
+        A boolean value whether to include support costs in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_support")
 
@@ -1059,7 +1083,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeTax")
     def include_tax(self) -> bool:
         """
-        A boolean value whether to include tax in the cost budget. Defaults to `true`
+        A boolean value whether to include tax in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_tax")
 
@@ -1067,7 +1091,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="includeUpfront")
     def include_upfront(self) -> bool:
         """
-        A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+        A boolean value whether to include upfront costs in the cost budget. Defaults to `true`.
         """
         return pulumi.get(self, "include_upfront")
 
@@ -1075,7 +1099,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="useAmortized")
     def use_amortized(self) -> bool:
         """
-        Whether a budget uses the amortized rate. Defaults to `false`
+        Whether a budget uses the amortized rate. Defaults to `false`.
         """
         return pulumi.get(self, "use_amortized")
 
@@ -1083,7 +1107,7 @@ class GetBudgetCostTypeResult(dict):
     @pulumi.getter(name="useBlended")
     def use_blended(self) -> bool:
         """
-        A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+        A boolean value whether to use blended costs in the cost budget. Defaults to `false`.
         """
         return pulumi.get(self, "use_blended")
 
@@ -1099,7 +1123,7 @@ class GetBudgetNotificationResult(dict):
                  threshold_type: str):
         """
         :param str comparison_operator: (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-        :param str notification_type: (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+        :param str notification_type: (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
         :param Sequence[str] subscriber_email_addresses: (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
         :param Sequence[str] subscriber_sns_topic_arns: (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
         :param float threshold: (Required) Threshold when the notification should be sent.
@@ -1124,7 +1148,7 @@ class GetBudgetNotificationResult(dict):
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> str:
         """
-        (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+        (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`.
         """
         return pulumi.get(self, "notification_type")
 
@@ -1168,9 +1192,9 @@ class GetBudgetPlannedLimitResult(dict):
                  start_time: str,
                  unit: str):
         """
-        :param str amount: (Required) The amount of cost or usage being measured for a budget.
+        :param str amount: The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         :param str start_time: (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        :param str unit: (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        :param str unit: The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "start_time", start_time)
@@ -1180,7 +1204,7 @@ class GetBudgetPlannedLimitResult(dict):
     @pulumi.getter
     def amount(self) -> str:
         """
-        (Required) The amount of cost or usage being measured for a budget.
+        The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
         return pulumi.get(self, "amount")
 
@@ -1196,7 +1220,7 @@ class GetBudgetPlannedLimitResult(dict):
     @pulumi.getter
     def unit(self) -> str:
         """
-        (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+        The unit of measurement that's used for the budget forecast, actual spend, or budget threshold, such as USD or GBP. Length Constraints: Minimum length of `1`. Maximum length of `2147483647`.
         """
         return pulumi.get(self, "unit")
 

@@ -13,6 +13,10 @@ import (
 
 // Resource for managing an AWS OpenSearch Serverless Collection.
 //
+// > **NOTE:** An `opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `dependsOn` meta-argument to define this dependency.
+//
+// > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
+//
 // ## Example Usage
 // ### Basic Usage
 //
@@ -91,7 +95,7 @@ type ServerlessCollection struct {
 	Tags     pulumi.StringMapOutput                `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput                `pulumi:"tagsAll"`
 	Timeouts ServerlessCollectionTimeoutsPtrOutput `pulumi:"timeouts"`
-	// Type of collection. One of `SEARCH` or `TIMESERIES`.
+	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -142,7 +146,7 @@ type serverlessCollectionState struct {
 	Tags     map[string]string             `pulumi:"tags"`
 	TagsAll  map[string]string             `pulumi:"tagsAll"`
 	Timeouts *ServerlessCollectionTimeouts `pulumi:"timeouts"`
-	// Type of collection. One of `SEARCH` or `TIMESERIES`.
+	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type *string `pulumi:"type"`
 }
 
@@ -164,7 +168,7 @@ type ServerlessCollectionState struct {
 	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ServerlessCollectionTimeoutsPtrInput
-	// Type of collection. One of `SEARCH` or `TIMESERIES`.
+	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type pulumi.StringPtrInput
 }
 
@@ -182,7 +186,7 @@ type serverlessCollectionArgs struct {
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string             `pulumi:"tags"`
 	Timeouts *ServerlessCollectionTimeouts `pulumi:"timeouts"`
-	// Type of collection. One of `SEARCH` or `TIMESERIES`.
+	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type *string `pulumi:"type"`
 }
 
@@ -197,7 +201,7 @@ type ServerlessCollectionArgs struct {
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ServerlessCollectionTimeoutsPtrInput
-	// Type of collection. One of `SEARCH` or `TIMESERIES`.
+	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type pulumi.StringPtrInput
 }
 
@@ -332,7 +336,7 @@ func (o ServerlessCollectionOutput) Timeouts() ServerlessCollectionTimeoutsPtrOu
 	return o.ApplyT(func(v *ServerlessCollection) ServerlessCollectionTimeoutsPtrOutput { return v.Timeouts }).(ServerlessCollectionTimeoutsPtrOutput)
 }
 
-// Type of collection. One of `SEARCH` or `TIMESERIES`.
+// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 func (o ServerlessCollectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

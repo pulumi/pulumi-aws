@@ -95,7 +95,7 @@ import (
 //
 //	to = aws_default_route_table.example
 //
-//	id = "vpc-33cc44dd" } Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For exampleconsole % pulumi import aws_default_route_table.example vpc-33cc44dd
+//	id = "vpc-33cc44dd" } Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For exampleconsole % pulumi import aws_default_route_table.example vpc-33cc44dd [tf-main-route-table-association]/docs/providers/aws/r/main_route_table_association.html
 type DefaultRouteTable struct {
 	pulumi.CustomResourceState
 

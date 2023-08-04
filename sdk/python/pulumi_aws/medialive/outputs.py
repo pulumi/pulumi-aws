@@ -36,6 +36,30 @@ __all__ = [
     'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel',
     'ChannelEncoderSettingsAvailBlanking',
     'ChannelEncoderSettingsAvailBlankingAvailBlankingImage',
+    'ChannelEncoderSettingsCaptionDescription',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings',
+    'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings',
+    'ChannelEncoderSettingsGlobalConfiguration',
+    'ChannelEncoderSettingsGlobalConfigurationInputLossBehavior',
+    'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate',
+    'ChannelEncoderSettingsMotionGraphicsConfiguration',
+    'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings',
+    'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings',
+    'ChannelEncoderSettingsNielsenConfiguration',
     'ChannelEncoderSettingsOutputGroup',
     'ChannelEncoderSettingsOutputGroupOutput',
     'ChannelEncoderSettingsOutputGroupOutputGroupSettings',
@@ -418,6 +442,14 @@ class ChannelEncoderSettings(dict):
             suggest = "audio_descriptions"
         elif key == "availBlanking":
             suggest = "avail_blanking"
+        elif key == "captionDescriptions":
+            suggest = "caption_descriptions"
+        elif key == "globalConfiguration":
+            suggest = "global_configuration"
+        elif key == "motionGraphicsConfiguration":
+            suggest = "motion_graphics_configuration"
+        elif key == "nielsenConfiguration":
+            suggest = "nielsen_configuration"
         elif key == "videoDescriptions":
             suggest = "video_descriptions"
 
@@ -437,12 +469,20 @@ class ChannelEncoderSettings(dict):
                  timecode_config: 'outputs.ChannelEncoderSettingsTimecodeConfig',
                  audio_descriptions: Optional[Sequence['outputs.ChannelEncoderSettingsAudioDescription']] = None,
                  avail_blanking: Optional['outputs.ChannelEncoderSettingsAvailBlanking'] = None,
+                 caption_descriptions: Optional[Sequence['outputs.ChannelEncoderSettingsCaptionDescription']] = None,
+                 global_configuration: Optional['outputs.ChannelEncoderSettingsGlobalConfiguration'] = None,
+                 motion_graphics_configuration: Optional['outputs.ChannelEncoderSettingsMotionGraphicsConfiguration'] = None,
+                 nielsen_configuration: Optional['outputs.ChannelEncoderSettingsNielsenConfiguration'] = None,
                  video_descriptions: Optional[Sequence['outputs.ChannelEncoderSettingsVideoDescription']] = None):
         """
         :param Sequence['ChannelEncoderSettingsOutputGroupArgs'] output_groups: Output groups for the channel. See Output Groups for more details.
         :param 'ChannelEncoderSettingsTimecodeConfigArgs' timecode_config: Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
         :param Sequence['ChannelEncoderSettingsAudioDescriptionArgs'] audio_descriptions: Audio descriptions for the channel. See Audio Descriptions for more details.
         :param 'ChannelEncoderSettingsAvailBlankingArgs' avail_blanking: Settings for ad avail blanking. See Avail Blanking for more details.
+        :param Sequence['ChannelEncoderSettingsCaptionDescriptionArgs'] caption_descriptions: Caption Descriptions. See Caption Descriptions for more details.
+        :param 'ChannelEncoderSettingsGlobalConfigurationArgs' global_configuration: Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+        :param 'ChannelEncoderSettingsMotionGraphicsConfigurationArgs' motion_graphics_configuration: Settings for motion graphics. See Motion Graphics Configuration for more details.
+        :param 'ChannelEncoderSettingsNielsenConfigurationArgs' nielsen_configuration: Nielsen configuration settings. See Nielsen Configuration for more details.
         :param Sequence['ChannelEncoderSettingsVideoDescriptionArgs'] video_descriptions: Video Descriptions. See Video Descriptions for more details.
         """
         pulumi.set(__self__, "output_groups", output_groups)
@@ -451,6 +491,14 @@ class ChannelEncoderSettings(dict):
             pulumi.set(__self__, "audio_descriptions", audio_descriptions)
         if avail_blanking is not None:
             pulumi.set(__self__, "avail_blanking", avail_blanking)
+        if caption_descriptions is not None:
+            pulumi.set(__self__, "caption_descriptions", caption_descriptions)
+        if global_configuration is not None:
+            pulumi.set(__self__, "global_configuration", global_configuration)
+        if motion_graphics_configuration is not None:
+            pulumi.set(__self__, "motion_graphics_configuration", motion_graphics_configuration)
+        if nielsen_configuration is not None:
+            pulumi.set(__self__, "nielsen_configuration", nielsen_configuration)
         if video_descriptions is not None:
             pulumi.set(__self__, "video_descriptions", video_descriptions)
 
@@ -485,6 +533,38 @@ class ChannelEncoderSettings(dict):
         Settings for ad avail blanking. See Avail Blanking for more details.
         """
         return pulumi.get(self, "avail_blanking")
+
+    @property
+    @pulumi.getter(name="captionDescriptions")
+    def caption_descriptions(self) -> Optional[Sequence['outputs.ChannelEncoderSettingsCaptionDescription']]:
+        """
+        Caption Descriptions. See Caption Descriptions for more details.
+        """
+        return pulumi.get(self, "caption_descriptions")
+
+    @property
+    @pulumi.getter(name="globalConfiguration")
+    def global_configuration(self) -> Optional['outputs.ChannelEncoderSettingsGlobalConfiguration']:
+        """
+        Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+        """
+        return pulumi.get(self, "global_configuration")
+
+    @property
+    @pulumi.getter(name="motionGraphicsConfiguration")
+    def motion_graphics_configuration(self) -> Optional['outputs.ChannelEncoderSettingsMotionGraphicsConfiguration']:
+        """
+        Settings for motion graphics. See Motion Graphics Configuration for more details.
+        """
+        return pulumi.get(self, "motion_graphics_configuration")
+
+    @property
+    @pulumi.getter(name="nielsenConfiguration")
+    def nielsen_configuration(self) -> Optional['outputs.ChannelEncoderSettingsNielsenConfiguration']:
+        """
+        Nielsen configuration settings. See Nielsen Configuration for more details.
+        """
+        return pulumi.get(self, "nielsen_configuration")
 
     @property
     @pulumi.getter(name="videoDescriptions")
@@ -2007,6 +2087,1506 @@ class ChannelEncoderSettingsAvailBlankingAvailBlankingImage(dict):
 
 
 @pulumi.output_type
+class ChannelEncoderSettingsCaptionDescription(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "captionSelectorName":
+            suggest = "caption_selector_name"
+        elif key == "destinationSettings":
+            suggest = "destination_settings"
+        elif key == "languageCode":
+            suggest = "language_code"
+        elif key == "languageDescription":
+            suggest = "language_description"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsCaptionDescription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsCaptionDescription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsCaptionDescription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 caption_selector_name: str,
+                 name: str,
+                 accessibility: Optional[str] = None,
+                 destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettings'] = None,
+                 language_code: Optional[str] = None,
+                 language_description: Optional[str] = None):
+        """
+        :param str caption_selector_name: Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+        :param str name: Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+        :param str accessibility: Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs' destination_settings: Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+        :param str language_code: ISO 639-2 three-digit code.
+        :param str language_description: Human readable information to indicate captions available for players (eg. English, or Spanish).
+        """
+        pulumi.set(__self__, "caption_selector_name", caption_selector_name)
+        pulumi.set(__self__, "name", name)
+        if accessibility is not None:
+            pulumi.set(__self__, "accessibility", accessibility)
+        if destination_settings is not None:
+            pulumi.set(__self__, "destination_settings", destination_settings)
+        if language_code is not None:
+            pulumi.set(__self__, "language_code", language_code)
+        if language_description is not None:
+            pulumi.set(__self__, "language_description", language_description)
+
+    @property
+    @pulumi.getter(name="captionSelectorName")
+    def caption_selector_name(self) -> str:
+        """
+        Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+        """
+        return pulumi.get(self, "caption_selector_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def accessibility(self) -> Optional[str]:
+        """
+        Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+        """
+        return pulumi.get(self, "accessibility")
+
+    @property
+    @pulumi.getter(name="destinationSettings")
+    def destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettings']:
+        """
+        Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+        """
+        return pulumi.get(self, "destination_settings")
+
+    @property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> Optional[str]:
+        """
+        ISO 639-2 three-digit code.
+        """
+        return pulumi.get(self, "language_code")
+
+    @property
+    @pulumi.getter(name="languageDescription")
+    def language_description(self) -> Optional[str]:
+        """
+        Human readable information to indicate captions available for players (eg. English, or Spanish).
+        """
+        return pulumi.get(self, "language_description")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aribDestinationSettings":
+            suggest = "arib_destination_settings"
+        elif key == "burnInDestinationSettings":
+            suggest = "burn_in_destination_settings"
+        elif key == "dvbSubDestinationSettings":
+            suggest = "dvb_sub_destination_settings"
+        elif key == "ebuTtDDestinationSettings":
+            suggest = "ebu_tt_d_destination_settings"
+        elif key == "embeddedDestinationSettings":
+            suggest = "embedded_destination_settings"
+        elif key == "embeddedPlusScte20DestinationSettings":
+            suggest = "embedded_plus_scte20_destination_settings"
+        elif key == "rtmpCaptionInfoDestinationSettings":
+            suggest = "rtmp_caption_info_destination_settings"
+        elif key == "scte20PlusEmbeddedDestinationSettings":
+            suggest = "scte20_plus_embedded_destination_settings"
+        elif key == "scte27DestinationSettings":
+            suggest = "scte27_destination_settings"
+        elif key == "smpteTtDestinationSettings":
+            suggest = "smpte_tt_destination_settings"
+        elif key == "teletextDestinationSettings":
+            suggest = "teletext_destination_settings"
+        elif key == "ttmlDestinationSettings":
+            suggest = "ttml_destination_settings"
+        elif key == "webvttDestinationSettings":
+            suggest = "webvtt_destination_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsCaptionDescriptionDestinationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arib_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings'] = None,
+                 burn_in_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings'] = None,
+                 dvb_sub_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings'] = None,
+                 ebu_tt_d_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings'] = None,
+                 embedded_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings'] = None,
+                 embedded_plus_scte20_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings'] = None,
+                 rtmp_caption_info_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings'] = None,
+                 scte20_plus_embedded_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings'] = None,
+                 scte27_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings'] = None,
+                 smpte_tt_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings'] = None,
+                 teletext_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings'] = None,
+                 ttml_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings'] = None,
+                 webvtt_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings'] = None):
+        """
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs' arib_destination_settings: Arib Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs' burn_in_destination_settings: Burn In Destination Settings. See Burn In Destination Settings for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs' dvb_sub_destination_settings: Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs' ebu_tt_d_destination_settings: Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs' embedded_destination_settings: Embedded Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs' embedded_plus_scte20_destination_settings: Embedded Plus Scte20 Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs' rtmp_caption_info_destination_settings: Rtmp Caption Info Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs' scte20_plus_embedded_destination_settings: Scte20 Plus Embedded Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs' scte27_destination_settings: Scte27 Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs' teletext_destination_settings: Teletext Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs' ttml_destination_settings: Ttml Destination Settings. See Ttml Destination Settings for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs' webvtt_destination_settings: Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+        """
+        if arib_destination_settings is not None:
+            pulumi.set(__self__, "arib_destination_settings", arib_destination_settings)
+        if burn_in_destination_settings is not None:
+            pulumi.set(__self__, "burn_in_destination_settings", burn_in_destination_settings)
+        if dvb_sub_destination_settings is not None:
+            pulumi.set(__self__, "dvb_sub_destination_settings", dvb_sub_destination_settings)
+        if ebu_tt_d_destination_settings is not None:
+            pulumi.set(__self__, "ebu_tt_d_destination_settings", ebu_tt_d_destination_settings)
+        if embedded_destination_settings is not None:
+            pulumi.set(__self__, "embedded_destination_settings", embedded_destination_settings)
+        if embedded_plus_scte20_destination_settings is not None:
+            pulumi.set(__self__, "embedded_plus_scte20_destination_settings", embedded_plus_scte20_destination_settings)
+        if rtmp_caption_info_destination_settings is not None:
+            pulumi.set(__self__, "rtmp_caption_info_destination_settings", rtmp_caption_info_destination_settings)
+        if scte20_plus_embedded_destination_settings is not None:
+            pulumi.set(__self__, "scte20_plus_embedded_destination_settings", scte20_plus_embedded_destination_settings)
+        if scte27_destination_settings is not None:
+            pulumi.set(__self__, "scte27_destination_settings", scte27_destination_settings)
+        if smpte_tt_destination_settings is not None:
+            pulumi.set(__self__, "smpte_tt_destination_settings", smpte_tt_destination_settings)
+        if teletext_destination_settings is not None:
+            pulumi.set(__self__, "teletext_destination_settings", teletext_destination_settings)
+        if ttml_destination_settings is not None:
+            pulumi.set(__self__, "ttml_destination_settings", ttml_destination_settings)
+        if webvtt_destination_settings is not None:
+            pulumi.set(__self__, "webvtt_destination_settings", webvtt_destination_settings)
+
+    @property
+    @pulumi.getter(name="aribDestinationSettings")
+    def arib_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings']:
+        """
+        Arib Destination Settings.
+        """
+        return pulumi.get(self, "arib_destination_settings")
+
+    @property
+    @pulumi.getter(name="burnInDestinationSettings")
+    def burn_in_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings']:
+        """
+        Burn In Destination Settings. See Burn In Destination Settings for more details.
+        """
+        return pulumi.get(self, "burn_in_destination_settings")
+
+    @property
+    @pulumi.getter(name="dvbSubDestinationSettings")
+    def dvb_sub_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings']:
+        """
+        Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+        """
+        return pulumi.get(self, "dvb_sub_destination_settings")
+
+    @property
+    @pulumi.getter(name="ebuTtDDestinationSettings")
+    def ebu_tt_d_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings']:
+        """
+        Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+        """
+        return pulumi.get(self, "ebu_tt_d_destination_settings")
+
+    @property
+    @pulumi.getter(name="embeddedDestinationSettings")
+    def embedded_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings']:
+        """
+        Embedded Destination Settings.
+        """
+        return pulumi.get(self, "embedded_destination_settings")
+
+    @property
+    @pulumi.getter(name="embeddedPlusScte20DestinationSettings")
+    def embedded_plus_scte20_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings']:
+        """
+        Embedded Plus Scte20 Destination Settings.
+        """
+        return pulumi.get(self, "embedded_plus_scte20_destination_settings")
+
+    @property
+    @pulumi.getter(name="rtmpCaptionInfoDestinationSettings")
+    def rtmp_caption_info_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings']:
+        """
+        Rtmp Caption Info Destination Settings.
+        """
+        return pulumi.get(self, "rtmp_caption_info_destination_settings")
+
+    @property
+    @pulumi.getter(name="scte20PlusEmbeddedDestinationSettings")
+    def scte20_plus_embedded_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings']:
+        """
+        Scte20 Plus Embedded Destination Settings.
+        """
+        return pulumi.get(self, "scte20_plus_embedded_destination_settings")
+
+    @property
+    @pulumi.getter(name="scte27DestinationSettings")
+    def scte27_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings']:
+        """
+        Scte27 Destination Settings.
+        """
+        return pulumi.get(self, "scte27_destination_settings")
+
+    @property
+    @pulumi.getter(name="smpteTtDestinationSettings")
+    def smpte_tt_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings']:
+        return pulumi.get(self, "smpte_tt_destination_settings")
+
+    @property
+    @pulumi.getter(name="teletextDestinationSettings")
+    def teletext_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings']:
+        """
+        Teletext Destination Settings.
+        """
+        return pulumi.get(self, "teletext_destination_settings")
+
+    @property
+    @pulumi.getter(name="ttmlDestinationSettings")
+    def ttml_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings']:
+        """
+        Ttml Destination Settings. See Ttml Destination Settings for more details.
+        """
+        return pulumi.get(self, "ttml_destination_settings")
+
+    @property
+    @pulumi.getter(name="webvttDestinationSettings")
+    def webvtt_destination_settings(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings']:
+        """
+        Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+        """
+        return pulumi.get(self, "webvtt_destination_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outlineColor":
+            suggest = "outline_color"
+        elif key == "teletextGridControl":
+            suggest = "teletext_grid_control"
+        elif key == "backgroundColor":
+            suggest = "background_color"
+        elif key == "backgroundOpacity":
+            suggest = "background_opacity"
+        elif key == "fontColor":
+            suggest = "font_color"
+        elif key == "fontOpacity":
+            suggest = "font_opacity"
+        elif key == "fontResolution":
+            suggest = "font_resolution"
+        elif key == "fontSize":
+            suggest = "font_size"
+        elif key == "outlineSize":
+            suggest = "outline_size"
+        elif key == "shadowColor":
+            suggest = "shadow_color"
+        elif key == "shadowOpacity":
+            suggest = "shadow_opacity"
+        elif key == "shadowXOffset":
+            suggest = "shadow_x_offset"
+        elif key == "shadowYOffset":
+            suggest = "shadow_y_offset"
+        elif key == "xPosition":
+            suggest = "x_position"
+        elif key == "yPosition":
+            suggest = "y_position"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 outline_color: str,
+                 teletext_grid_control: str,
+                 alignment: Optional[str] = None,
+                 background_color: Optional[str] = None,
+                 background_opacity: Optional[int] = None,
+                 font: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont'] = None,
+                 font_color: Optional[str] = None,
+                 font_opacity: Optional[int] = None,
+                 font_resolution: Optional[int] = None,
+                 font_size: Optional[str] = None,
+                 outline_size: Optional[int] = None,
+                 shadow_color: Optional[str] = None,
+                 shadow_opacity: Optional[int] = None,
+                 shadow_x_offset: Optional[int] = None,
+                 shadow_y_offset: Optional[int] = None,
+                 x_position: Optional[int] = None,
+                 y_position: Optional[int] = None):
+        """
+        :param str outline_color: Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        :param str teletext_grid_control: Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+        :param str alignment: If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+        :param str background_color: Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+        :param int background_opacity: Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs' font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+        :param str font_color: Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        :param int font_opacity: Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+        :param int font_resolution: Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+        :param str font_size: When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+        :param int outline_size: Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        :param str shadow_color: Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+        :param int shadow_opacity: Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        :param int shadow_x_offset: Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+        :param int shadow_y_offset: Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+        :param int x_position: Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+        :param int y_position: Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+        """
+        pulumi.set(__self__, "outline_color", outline_color)
+        pulumi.set(__self__, "teletext_grid_control", teletext_grid_control)
+        if alignment is not None:
+            pulumi.set(__self__, "alignment", alignment)
+        if background_color is not None:
+            pulumi.set(__self__, "background_color", background_color)
+        if background_opacity is not None:
+            pulumi.set(__self__, "background_opacity", background_opacity)
+        if font is not None:
+            pulumi.set(__self__, "font", font)
+        if font_color is not None:
+            pulumi.set(__self__, "font_color", font_color)
+        if font_opacity is not None:
+            pulumi.set(__self__, "font_opacity", font_opacity)
+        if font_resolution is not None:
+            pulumi.set(__self__, "font_resolution", font_resolution)
+        if font_size is not None:
+            pulumi.set(__self__, "font_size", font_size)
+        if outline_size is not None:
+            pulumi.set(__self__, "outline_size", outline_size)
+        if shadow_color is not None:
+            pulumi.set(__self__, "shadow_color", shadow_color)
+        if shadow_opacity is not None:
+            pulumi.set(__self__, "shadow_opacity", shadow_opacity)
+        if shadow_x_offset is not None:
+            pulumi.set(__self__, "shadow_x_offset", shadow_x_offset)
+        if shadow_y_offset is not None:
+            pulumi.set(__self__, "shadow_y_offset", shadow_y_offset)
+        if x_position is not None:
+            pulumi.set(__self__, "x_position", x_position)
+        if y_position is not None:
+            pulumi.set(__self__, "y_position", y_position)
+
+    @property
+    @pulumi.getter(name="outlineColor")
+    def outline_color(self) -> str:
+        """
+        Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "outline_color")
+
+    @property
+    @pulumi.getter(name="teletextGridControl")
+    def teletext_grid_control(self) -> str:
+        """
+        Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+        """
+        return pulumi.get(self, "teletext_grid_control")
+
+    @property
+    @pulumi.getter
+    def alignment(self) -> Optional[str]:
+        """
+        If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "alignment")
+
+    @property
+    @pulumi.getter(name="backgroundColor")
+    def background_color(self) -> Optional[str]:
+        """
+        Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "background_color")
+
+    @property
+    @pulumi.getter(name="backgroundOpacity")
+    def background_opacity(self) -> Optional[int]:
+        """
+        Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "background_opacity")
+
+    @property
+    @pulumi.getter
+    def font(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont']:
+        """
+        External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+        """
+        return pulumi.get(self, "font")
+
+    @property
+    @pulumi.getter(name="fontColor")
+    def font_color(self) -> Optional[str]:
+        """
+        Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "font_color")
+
+    @property
+    @pulumi.getter(name="fontOpacity")
+    def font_opacity(self) -> Optional[int]:
+        """
+        Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "font_opacity")
+
+    @property
+    @pulumi.getter(name="fontResolution")
+    def font_resolution(self) -> Optional[int]:
+        """
+        Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "font_resolution")
+
+    @property
+    @pulumi.getter(name="fontSize")
+    def font_size(self) -> Optional[str]:
+        """
+        When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "font_size")
+
+    @property
+    @pulumi.getter(name="outlineSize")
+    def outline_size(self) -> Optional[int]:
+        """
+        Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "outline_size")
+
+    @property
+    @pulumi.getter(name="shadowColor")
+    def shadow_color(self) -> Optional[str]:
+        """
+        Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "shadow_color")
+
+    @property
+    @pulumi.getter(name="shadowOpacity")
+    def shadow_opacity(self) -> Optional[int]:
+        """
+        Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "shadow_opacity")
+
+    @property
+    @pulumi.getter(name="shadowXOffset")
+    def shadow_x_offset(self) -> Optional[int]:
+        """
+        Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "shadow_x_offset")
+
+    @property
+    @pulumi.getter(name="shadowYOffset")
+    def shadow_y_offset(self) -> Optional[int]:
+        """
+        Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "shadow_y_offset")
+
+    @property
+    @pulumi.getter(name="xPosition")
+    def x_position(self) -> Optional[int]:
+        """
+        Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "x_position")
+
+    @property
+    @pulumi.getter(name="yPosition")
+    def y_position(self) -> Optional[int]:
+        """
+        Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "y_position")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordParam":
+            suggest = "password_param"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: str,
+                 password_param: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        :param str uri: Path to a file accessible to the live stream.
+        :param str password_param: Key used to extract the password from EC2 Parameter store.
+        :param str username: Username to be used.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        Path to a file accessible to the live stream.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> Optional[str]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
+        return pulumi.get(self, "password_param")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Username to be used.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backgroundColor":
+            suggest = "background_color"
+        elif key == "backgroundOpacity":
+            suggest = "background_opacity"
+        elif key == "fontColor":
+            suggest = "font_color"
+        elif key == "fontOpacity":
+            suggest = "font_opacity"
+        elif key == "fontResolution":
+            suggest = "font_resolution"
+        elif key == "fontSize":
+            suggest = "font_size"
+        elif key == "outlineColor":
+            suggest = "outline_color"
+        elif key == "outlineSize":
+            suggest = "outline_size"
+        elif key == "shadowColor":
+            suggest = "shadow_color"
+        elif key == "shadowOpacity":
+            suggest = "shadow_opacity"
+        elif key == "shadowXOffset":
+            suggest = "shadow_x_offset"
+        elif key == "shadowYOffset":
+            suggest = "shadow_y_offset"
+        elif key == "teletextGridControl":
+            suggest = "teletext_grid_control"
+        elif key == "xPosition":
+            suggest = "x_position"
+        elif key == "yPosition":
+            suggest = "y_position"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alignment: Optional[str] = None,
+                 background_color: Optional[str] = None,
+                 background_opacity: Optional[int] = None,
+                 font: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont'] = None,
+                 font_color: Optional[str] = None,
+                 font_opacity: Optional[int] = None,
+                 font_resolution: Optional[int] = None,
+                 font_size: Optional[str] = None,
+                 outline_color: Optional[str] = None,
+                 outline_size: Optional[int] = None,
+                 shadow_color: Optional[str] = None,
+                 shadow_opacity: Optional[int] = None,
+                 shadow_x_offset: Optional[int] = None,
+                 shadow_y_offset: Optional[int] = None,
+                 teletext_grid_control: Optional[str] = None,
+                 x_position: Optional[int] = None,
+                 y_position: Optional[int] = None):
+        """
+        :param str alignment: If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        :param str background_color: Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+        :param int background_opacity: Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs' font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+        :param str font_color: Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        :param int font_opacity: Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+        :param int font_resolution: Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+        :param str font_size: When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+        :param str outline_color: Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        :param int outline_size: Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        :param str shadow_color: Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+        :param int shadow_opacity: Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        :param int shadow_x_offset: Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+        :param int shadow_y_offset: Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+        :param str teletext_grid_control: Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+        :param int x_position: Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        :param int y_position: Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        """
+        if alignment is not None:
+            pulumi.set(__self__, "alignment", alignment)
+        if background_color is not None:
+            pulumi.set(__self__, "background_color", background_color)
+        if background_opacity is not None:
+            pulumi.set(__self__, "background_opacity", background_opacity)
+        if font is not None:
+            pulumi.set(__self__, "font", font)
+        if font_color is not None:
+            pulumi.set(__self__, "font_color", font_color)
+        if font_opacity is not None:
+            pulumi.set(__self__, "font_opacity", font_opacity)
+        if font_resolution is not None:
+            pulumi.set(__self__, "font_resolution", font_resolution)
+        if font_size is not None:
+            pulumi.set(__self__, "font_size", font_size)
+        if outline_color is not None:
+            pulumi.set(__self__, "outline_color", outline_color)
+        if outline_size is not None:
+            pulumi.set(__self__, "outline_size", outline_size)
+        if shadow_color is not None:
+            pulumi.set(__self__, "shadow_color", shadow_color)
+        if shadow_opacity is not None:
+            pulumi.set(__self__, "shadow_opacity", shadow_opacity)
+        if shadow_x_offset is not None:
+            pulumi.set(__self__, "shadow_x_offset", shadow_x_offset)
+        if shadow_y_offset is not None:
+            pulumi.set(__self__, "shadow_y_offset", shadow_y_offset)
+        if teletext_grid_control is not None:
+            pulumi.set(__self__, "teletext_grid_control", teletext_grid_control)
+        if x_position is not None:
+            pulumi.set(__self__, "x_position", x_position)
+        if y_position is not None:
+            pulumi.set(__self__, "y_position", y_position)
+
+    @property
+    @pulumi.getter
+    def alignment(self) -> Optional[str]:
+        """
+        If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "alignment")
+
+    @property
+    @pulumi.getter(name="backgroundColor")
+    def background_color(self) -> Optional[str]:
+        """
+        Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "background_color")
+
+    @property
+    @pulumi.getter(name="backgroundOpacity")
+    def background_opacity(self) -> Optional[int]:
+        """
+        Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "background_opacity")
+
+    @property
+    @pulumi.getter
+    def font(self) -> Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont']:
+        """
+        External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+        """
+        return pulumi.get(self, "font")
+
+    @property
+    @pulumi.getter(name="fontColor")
+    def font_color(self) -> Optional[str]:
+        """
+        Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "font_color")
+
+    @property
+    @pulumi.getter(name="fontOpacity")
+    def font_opacity(self) -> Optional[int]:
+        """
+        Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "font_opacity")
+
+    @property
+    @pulumi.getter(name="fontResolution")
+    def font_resolution(self) -> Optional[int]:
+        """
+        Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "font_resolution")
+
+    @property
+    @pulumi.getter(name="fontSize")
+    def font_size(self) -> Optional[str]:
+        """
+        When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "font_size")
+
+    @property
+    @pulumi.getter(name="outlineColor")
+    def outline_color(self) -> Optional[str]:
+        """
+        Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "outline_color")
+
+    @property
+    @pulumi.getter(name="outlineSize")
+    def outline_size(self) -> Optional[int]:
+        """
+        Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "outline_size")
+
+    @property
+    @pulumi.getter(name="shadowColor")
+    def shadow_color(self) -> Optional[str]:
+        """
+        Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "shadow_color")
+
+    @property
+    @pulumi.getter(name="shadowOpacity")
+    def shadow_opacity(self) -> Optional[int]:
+        """
+        Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "shadow_opacity")
+
+    @property
+    @pulumi.getter(name="shadowXOffset")
+    def shadow_x_offset(self) -> Optional[int]:
+        """
+        Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "shadow_x_offset")
+
+    @property
+    @pulumi.getter(name="shadowYOffset")
+    def shadow_y_offset(self) -> Optional[int]:
+        """
+        Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "shadow_y_offset")
+
+    @property
+    @pulumi.getter(name="teletextGridControl")
+    def teletext_grid_control(self) -> Optional[str]:
+        """
+        Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+        """
+        return pulumi.get(self, "teletext_grid_control")
+
+    @property
+    @pulumi.getter(name="xPosition")
+    def x_position(self) -> Optional[int]:
+        """
+        Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "x_position")
+
+    @property
+    @pulumi.getter(name="yPosition")
+    def y_position(self) -> Optional[int]:
+        """
+        Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+        """
+        return pulumi.get(self, "y_position")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordParam":
+            suggest = "password_param"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: str,
+                 password_param: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        :param str uri: Path to a file accessible to the live stream.
+        :param str password_param: Key used to extract the password from EC2 Parameter store.
+        :param str username: Username to be used.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        Path to a file accessible to the live stream.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> Optional[str]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
+        return pulumi.get(self, "password_param")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Username to be used.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyrightHolder":
+            suggest = "copyright_holder"
+        elif key == "fillLineGap":
+            suggest = "fill_line_gap"
+        elif key == "fontFamily":
+            suggest = "font_family"
+        elif key == "styleControl":
+            suggest = "style_control"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copyright_holder: Optional[str] = None,
+                 fill_line_gap: Optional[str] = None,
+                 font_family: Optional[str] = None,
+                 style_control: Optional[str] = None):
+        """
+        :param str copyright_holder: Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+        :param str fill_line_gap: Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+        :param str font_family: Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+        :param str style_control: Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+        """
+        if copyright_holder is not None:
+            pulumi.set(__self__, "copyright_holder", copyright_holder)
+        if fill_line_gap is not None:
+            pulumi.set(__self__, "fill_line_gap", fill_line_gap)
+        if font_family is not None:
+            pulumi.set(__self__, "font_family", font_family)
+        if style_control is not None:
+            pulumi.set(__self__, "style_control", style_control)
+
+    @property
+    @pulumi.getter(name="copyrightHolder")
+    def copyright_holder(self) -> Optional[str]:
+        """
+        Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+        """
+        return pulumi.get(self, "copyright_holder")
+
+    @property
+    @pulumi.getter(name="fillLineGap")
+    def fill_line_gap(self) -> Optional[str]:
+        """
+        Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+        """
+        return pulumi.get(self, "fill_line_gap")
+
+    @property
+    @pulumi.getter(name="fontFamily")
+    def font_family(self) -> Optional[str]:
+        """
+        Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+        """
+        return pulumi.get(self, "font_family")
+
+    @property
+    @pulumi.getter(name="styleControl")
+    def style_control(self) -> Optional[str]:
+        """
+        Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+        """
+        return pulumi.get(self, "style_control")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "styleControl":
+            suggest = "style_control"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 style_control: str):
+        """
+        :param str style_control: This field is not currently supported and will not affect the output styling. Leave the default value.
+        """
+        pulumi.set(__self__, "style_control", style_control)
+
+    @property
+    @pulumi.getter(name="styleControl")
+    def style_control(self) -> str:
+        """
+        This field is not currently supported and will not affect the output styling. Leave the default value.
+        """
+        return pulumi.get(self, "style_control")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "styleControl":
+            suggest = "style_control"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 style_control: str):
+        """
+        :param str style_control: Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\\_STYLE\\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+        """
+        pulumi.set(__self__, "style_control", style_control)
+
+    @property
+    @pulumi.getter(name="styleControl")
+    def style_control(self) -> str:
+        """
+        Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\\_STYLE\\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+        """
+        return pulumi.get(self, "style_control")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsGlobalConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initialAudioGain":
+            suggest = "initial_audio_gain"
+        elif key == "inputEndAction":
+            suggest = "input_end_action"
+        elif key == "inputLossBehavior":
+            suggest = "input_loss_behavior"
+        elif key == "outputLockingMode":
+            suggest = "output_locking_mode"
+        elif key == "outputTimingSource":
+            suggest = "output_timing_source"
+        elif key == "supportLowFramerateInputs":
+            suggest = "support_low_framerate_inputs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsGlobalConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsGlobalConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsGlobalConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 initial_audio_gain: Optional[int] = None,
+                 input_end_action: Optional[str] = None,
+                 input_loss_behavior: Optional['outputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehavior'] = None,
+                 output_locking_mode: Optional[str] = None,
+                 output_timing_source: Optional[str] = None,
+                 support_low_framerate_inputs: Optional[str] = None):
+        """
+        :param int initial_audio_gain: Value to set the initial audio gain for the Live Event.
+        :param str input_end_action: Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+        :param 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs' input_loss_behavior: Settings for system actions when input is lost. See Input Loss Behavior for more details.
+        :param str output_locking_mode: Indicates how MediaLive pipelines are synchronized. PIPELINE\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+        :param str output_timing_source: Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+        :param str support_low_framerate_inputs: Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+        """
+        if initial_audio_gain is not None:
+            pulumi.set(__self__, "initial_audio_gain", initial_audio_gain)
+        if input_end_action is not None:
+            pulumi.set(__self__, "input_end_action", input_end_action)
+        if input_loss_behavior is not None:
+            pulumi.set(__self__, "input_loss_behavior", input_loss_behavior)
+        if output_locking_mode is not None:
+            pulumi.set(__self__, "output_locking_mode", output_locking_mode)
+        if output_timing_source is not None:
+            pulumi.set(__self__, "output_timing_source", output_timing_source)
+        if support_low_framerate_inputs is not None:
+            pulumi.set(__self__, "support_low_framerate_inputs", support_low_framerate_inputs)
+
+    @property
+    @pulumi.getter(name="initialAudioGain")
+    def initial_audio_gain(self) -> Optional[int]:
+        """
+        Value to set the initial audio gain for the Live Event.
+        """
+        return pulumi.get(self, "initial_audio_gain")
+
+    @property
+    @pulumi.getter(name="inputEndAction")
+    def input_end_action(self) -> Optional[str]:
+        """
+        Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+        """
+        return pulumi.get(self, "input_end_action")
+
+    @property
+    @pulumi.getter(name="inputLossBehavior")
+    def input_loss_behavior(self) -> Optional['outputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehavior']:
+        """
+        Settings for system actions when input is lost. See Input Loss Behavior for more details.
+        """
+        return pulumi.get(self, "input_loss_behavior")
+
+    @property
+    @pulumi.getter(name="outputLockingMode")
+    def output_locking_mode(self) -> Optional[str]:
+        """
+        Indicates how MediaLive pipelines are synchronized. PIPELINE\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+        """
+        return pulumi.get(self, "output_locking_mode")
+
+    @property
+    @pulumi.getter(name="outputTimingSource")
+    def output_timing_source(self) -> Optional[str]:
+        """
+        Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+        """
+        return pulumi.get(self, "output_timing_source")
+
+    @property
+    @pulumi.getter(name="supportLowFramerateInputs")
+    def support_low_framerate_inputs(self) -> Optional[str]:
+        """
+        Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+        """
+        return pulumi.get(self, "support_low_framerate_inputs")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsGlobalConfigurationInputLossBehavior(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blackFrameMsec":
+            suggest = "black_frame_msec"
+        elif key == "inputLossImageColor":
+            suggest = "input_loss_image_color"
+        elif key == "inputLossImageSlate":
+            suggest = "input_loss_image_slate"
+        elif key == "inputLossImageType":
+            suggest = "input_loss_image_type"
+        elif key == "repeatFrameMsec":
+            suggest = "repeat_frame_msec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsGlobalConfigurationInputLossBehavior. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 black_frame_msec: Optional[int] = None,
+                 input_loss_image_color: Optional[str] = None,
+                 input_loss_image_slate: Optional['outputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate'] = None,
+                 input_loss_image_type: Optional[str] = None,
+                 repeat_frame_msec: Optional[int] = None):
+        if black_frame_msec is not None:
+            pulumi.set(__self__, "black_frame_msec", black_frame_msec)
+        if input_loss_image_color is not None:
+            pulumi.set(__self__, "input_loss_image_color", input_loss_image_color)
+        if input_loss_image_slate is not None:
+            pulumi.set(__self__, "input_loss_image_slate", input_loss_image_slate)
+        if input_loss_image_type is not None:
+            pulumi.set(__self__, "input_loss_image_type", input_loss_image_type)
+        if repeat_frame_msec is not None:
+            pulumi.set(__self__, "repeat_frame_msec", repeat_frame_msec)
+
+    @property
+    @pulumi.getter(name="blackFrameMsec")
+    def black_frame_msec(self) -> Optional[int]:
+        return pulumi.get(self, "black_frame_msec")
+
+    @property
+    @pulumi.getter(name="inputLossImageColor")
+    def input_loss_image_color(self) -> Optional[str]:
+        return pulumi.get(self, "input_loss_image_color")
+
+    @property
+    @pulumi.getter(name="inputLossImageSlate")
+    def input_loss_image_slate(self) -> Optional['outputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate']:
+        return pulumi.get(self, "input_loss_image_slate")
+
+    @property
+    @pulumi.getter(name="inputLossImageType")
+    def input_loss_image_type(self) -> Optional[str]:
+        return pulumi.get(self, "input_loss_image_type")
+
+    @property
+    @pulumi.getter(name="repeatFrameMsec")
+    def repeat_frame_msec(self) -> Optional[int]:
+        return pulumi.get(self, "repeat_frame_msec")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordParam":
+            suggest = "password_param"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: str,
+                 password_param: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        :param str uri: Path to a file accessible to the live stream.
+        :param str password_param: Key used to extract the password from EC2 Parameter store.
+        :param str username: Username for destination.
+        """
+        pulumi.set(__self__, "uri", uri)
+        if password_param is not None:
+            pulumi.set(__self__, "password_param", password_param)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        Path to a file accessible to the live stream.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> Optional[str]:
+        """
+        Key used to extract the password from EC2 Parameter store.
+        """
+        return pulumi.get(self, "password_param")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Username for destination.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsMotionGraphicsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "motionGraphicsSettings":
+            suggest = "motion_graphics_settings"
+        elif key == "motionGraphicsInsertion":
+            suggest = "motion_graphics_insertion"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsMotionGraphicsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsMotionGraphicsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsMotionGraphicsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 motion_graphics_settings: 'outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings',
+                 motion_graphics_insertion: Optional[str] = None):
+        """
+        :param 'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs' motion_graphics_settings: Motion Graphics Settings. See Motion Graphics Settings for more details.
+        :param str motion_graphics_insertion: Motion Graphics Insertion.
+        """
+        pulumi.set(__self__, "motion_graphics_settings", motion_graphics_settings)
+        if motion_graphics_insertion is not None:
+            pulumi.set(__self__, "motion_graphics_insertion", motion_graphics_insertion)
+
+    @property
+    @pulumi.getter(name="motionGraphicsSettings")
+    def motion_graphics_settings(self) -> 'outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings':
+        """
+        Motion Graphics Settings. See Motion Graphics Settings for more details.
+        """
+        return pulumi.get(self, "motion_graphics_settings")
+
+    @property
+    @pulumi.getter(name="motionGraphicsInsertion")
+    def motion_graphics_insertion(self) -> Optional[str]:
+        """
+        Motion Graphics Insertion.
+        """
+        return pulumi.get(self, "motion_graphics_insertion")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "htmlMotionGraphicsSettings":
+            suggest = "html_motion_graphics_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 html_motion_graphics_settings: Optional['outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings'] = None):
+        """
+        :param 'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs' html_motion_graphics_settings: Html Motion Graphics Settings.
+        """
+        if html_motion_graphics_settings is not None:
+            pulumi.set(__self__, "html_motion_graphics_settings", html_motion_graphics_settings)
+
+    @property
+    @pulumi.getter(name="htmlMotionGraphicsSettings")
+    def html_motion_graphics_settings(self) -> Optional['outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings']:
+        """
+        Html Motion Graphics Settings.
+        """
+        return pulumi.get(self, "html_motion_graphics_settings")
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelEncoderSettingsNielsenConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "distributorId":
+            suggest = "distributor_id"
+        elif key == "nielsenPcmToId3Tagging":
+            suggest = "nielsen_pcm_to_id3_tagging"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncoderSettingsNielsenConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncoderSettingsNielsenConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncoderSettingsNielsenConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 distributor_id: Optional[str] = None,
+                 nielsen_pcm_to_id3_tagging: Optional[str] = None):
+        """
+        :param str distributor_id: Enter the Distributor ID assigned to your organization by Nielsen.
+        :param str nielsen_pcm_to_id3_tagging: Enables Nielsen PCM to ID3 tagging.
+        """
+        if distributor_id is not None:
+            pulumi.set(__self__, "distributor_id", distributor_id)
+        if nielsen_pcm_to_id3_tagging is not None:
+            pulumi.set(__self__, "nielsen_pcm_to_id3_tagging", nielsen_pcm_to_id3_tagging)
+
+    @property
+    @pulumi.getter(name="distributorId")
+    def distributor_id(self) -> Optional[str]:
+        """
+        Enter the Distributor ID assigned to your organization by Nielsen.
+        """
+        return pulumi.get(self, "distributor_id")
+
+    @property
+    @pulumi.getter(name="nielsenPcmToId3Tagging")
+    def nielsen_pcm_to_id3_tagging(self) -> Optional[str]:
+        """
+        Enables Nielsen PCM to ID3 tagging.
+        """
+        return pulumi.get(self, "nielsen_pcm_to_id3_tagging")
+
+
+@pulumi.output_type
 class ChannelEncoderSettingsOutputGroup(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3063,6 +4643,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
                  language_description: str):
         """
         :param str language_code: When specified this field indicates the three letter language code of the caption track to extract from the source.
+        :param str language_description: Human readable information to indicate captions available for players (eg. English, or Spanish).
         """
         pulumi.set(__self__, "caption_channel", caption_channel)
         pulumi.set(__self__, "language_code", language_code)
@@ -3084,6 +4665,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
     @property
     @pulumi.getter(name="languageDescription")
     def language_description(self) -> str:
+        """
+        Human readable information to indicate captions available for players (eg. English, or Spanish).
+        """
         return pulumi.get(self, "language_description")
 
 

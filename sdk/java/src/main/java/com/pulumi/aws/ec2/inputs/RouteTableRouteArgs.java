@@ -95,14 +95,14 @@ public final class RouteTableRouteArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Identifier of a VPC internet gateway or a virtual private gateway.
+     * Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
      * 
      */
     @Import(name="gatewayId")
     private @Nullable Output<String> gatewayId;
 
     /**
-     * @return Identifier of a VPC internet gateway or a virtual private gateway.
+     * @return Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
      * 
      */
     public Optional<Output<String>> gatewayId() {
@@ -364,7 +364,7 @@ public final class RouteTableRouteArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param gatewayId Identifier of a VPC internet gateway or a virtual private gateway.
+         * @param gatewayId Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class RouteTableRouteArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param gatewayId Identifier of a VPC internet gateway or a virtual private gateway.
+         * @param gatewayId Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
          * 
          * @return builder
          * 

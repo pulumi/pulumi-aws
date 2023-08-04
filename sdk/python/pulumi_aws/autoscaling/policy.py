@@ -672,7 +672,7 @@ class Policy(pulumi.CustomResource):
             cooldown=300,
             autoscaling_group_name=bar.name)
         ```
-        ### Create target tarcking scaling policy using metric math
+        ### Create target tracking scaling policy using metric math
 
         ```python
         import pulumi
@@ -908,7 +908,7 @@ class Policy(pulumi.CustomResource):
             cooldown=300,
             autoscaling_group_name=bar.name)
         ```
-        ### Create target tarcking scaling policy using metric math
+        ### Create target tracking scaling policy using metric math
 
         ```python
         import pulumi

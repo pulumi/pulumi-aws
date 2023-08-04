@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     autoscalingGroupName: bar.name,
  * });
  * ```
- * ### Create target tarcking scaling policy using metric math
+ * ### Create target tracking scaling policy using metric math
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

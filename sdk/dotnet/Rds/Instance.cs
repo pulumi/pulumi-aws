@@ -377,15 +377,13 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> IamDatabaseAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the RDS instance,
-        /// if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         /// </summary>
         [Output("identifier")]
         public Output<string> Identifier { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique
-        /// identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
         [Output("identifierPrefix")]
         public Output<string> IdentifierPrefix { get; private set; } = null!;
@@ -921,15 +919,13 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// The name of the RDS instance,
-        /// if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
 
         /// <summary>
-        /// Creates a unique
-        /// identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
         [Input("identifierPrefix")]
         public Input<string>? IdentifierPrefix { get; set; }
@@ -1436,15 +1432,13 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
 
         /// <summary>
-        /// The name of the RDS instance,
-        /// if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+        /// The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
 
         /// <summary>
-        /// Creates a unique
-        /// identifier beginning with the specified prefix. Conflicts with `identifier`.
+        /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         /// </summary>
         [Input("identifierPrefix")]
         public Input<string>? IdentifierPrefix { get; set; }

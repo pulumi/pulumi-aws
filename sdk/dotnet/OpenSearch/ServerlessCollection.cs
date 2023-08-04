@@ -12,6 +12,10 @@ namespace Pulumi.Aws.OpenSearch
     /// <summary>
     /// Resource for managing an AWS OpenSearch Serverless Collection.
     /// 
+    /// &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `depends_on` meta-argument to define this dependency.
+    /// 
+    /// &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
+    /// 
     /// ## Example Usage
     /// ### Basic Usage
     /// 
@@ -116,7 +120,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<Outputs.ServerlessCollectionTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Type of collection. One of `SEARCH` or `TIMESERIES`.
+        /// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -197,7 +201,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.ServerlessCollectionTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Type of collection. One of `SEARCH` or `TIMESERIES`.
+        /// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -269,7 +273,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.ServerlessCollectionTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Type of collection. One of `SEARCH` or `TIMESERIES`.
+        /// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

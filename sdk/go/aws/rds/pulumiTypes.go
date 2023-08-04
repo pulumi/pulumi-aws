@@ -3379,7 +3379,7 @@ func (o GetInstanceMasterUserSecretArrayOutput) Index(i pulumi.IntInput) GetInst
 }
 
 type GetInstancesFilter struct {
-	// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+	// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
@@ -3397,7 +3397,7 @@ type GetInstancesFilterInput interface {
 }
 
 type GetInstancesFilterArgs struct {
-	// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+	// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -3454,7 +3454,7 @@ func (o GetInstancesFilterOutput) ToGetInstancesFilterOutputWithContext(ctx cont
 	return o
 }
 
-// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+// Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
 func (o GetInstancesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstancesFilter) string { return v.Name }).(pulumi.StringOutput)
 }

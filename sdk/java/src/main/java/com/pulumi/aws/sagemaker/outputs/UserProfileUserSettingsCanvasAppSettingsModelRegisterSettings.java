@@ -17,7 +17,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings
      */
     private @Nullable String crossAccountModelRegisterRoleArn;
     /**
-     * @return Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+     * @return Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     private @Nullable String status;
@@ -31,7 +31,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings
         return Optional.ofNullable(this.crossAccountModelRegisterRoleArn);
     }
     /**
-     * @return Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+     * @return Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
     public Optional<String> status() {

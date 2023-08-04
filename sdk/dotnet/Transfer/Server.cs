@@ -152,6 +152,73 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// ### Using Structured Logging Destinations
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var transferLogGroup = new Aws.CloudWatch.LogGroup("transferLogGroup", new()
+    ///     {
+    ///         NamePrefix = "transfer_test_",
+    ///     });
+    /// 
+    ///     var transferAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "transfer.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var iamForTransfer = new Aws.Iam.Role("iamForTransfer", new()
+    ///     {
+    ///         NamePrefix = "iam_for_transfer_",
+    ///         AssumeRolePolicy = transferAssumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         ManagedPolicyArns = new[]
+    ///         {
+    ///             "arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess",
+    ///         },
+    ///     });
+    /// 
+    ///     var transferServer = new Aws.Transfer.Server("transferServer", new()
+    ///     {
+    ///         EndpointType = "PUBLIC",
+    ///         LoggingRole = iamForTransfer.Arn,
+    ///         Protocols = new[]
+    ///         {
+    ///             "SFTP",
+    ///         },
+    ///         StructuredLogDestinations = new[]
+    ///         {
+    ///             transferLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -277,6 +344,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Output("securityPolicyName")]
         public Output<string?> SecurityPolicyName { get; private set; } = null!;
+
+        /// <summary>
+        /// This is a set of arns of destinations that will receive structured logs from the transfer server
+        /// </summary>
+        [Output("structuredLogDestinations")]
+        public Output<ImmutableArray<string>> StructuredLogDestinations { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -486,6 +559,18 @@ namespace Pulumi.Aws.Transfer
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
 
+        [Input("structuredLogDestinations")]
+        private InputList<string>? _structuredLogDestinations;
+
+        /// <summary>
+        /// This is a set of arns of destinations that will receive structured logs from the transfer server
+        /// </summary>
+        public InputList<string> StructuredLogDestinations
+        {
+            get => _structuredLogDestinations ?? (_structuredLogDestinations = new InputList<string>());
+            set => _structuredLogDestinations = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -667,6 +752,18 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }
+
+        [Input("structuredLogDestinations")]
+        private InputList<string>? _structuredLogDestinations;
+
+        /// <summary>
+        /// This is a set of arns of destinations that will receive structured logs from the transfer server
+        /// </summary>
+        public InputList<string> StructuredLogDestinations
+        {
+            get => _structuredLogDestinations ?? (_structuredLogDestinations = new InputList<string>());
+            set => _structuredLogDestinations = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

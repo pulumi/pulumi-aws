@@ -39,7 +39,7 @@ public final class RouteTableRoute {
      */
     private @Nullable String egressOnlyGatewayId;
     /**
-     * @return Identifier of a VPC internet gateway or a virtual private gateway.
+     * @return Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
      * 
      */
     private @Nullable String gatewayId;
@@ -120,7 +120,7 @@ public final class RouteTableRoute {
         return Optional.ofNullable(this.egressOnlyGatewayId);
     }
     /**
-     * @return Identifier of a VPC internet gateway or a virtual private gateway.
+     * @return Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
      * 
      */
     public Optional<String> gatewayId() {

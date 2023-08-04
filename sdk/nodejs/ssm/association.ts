@@ -140,7 +140,7 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly maxConcurrency!: pulumi.Output<string | undefined>;
     /**
-     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      */
     public readonly maxErrors!: pulumi.Output<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export interface AssociationState {
      */
     maxConcurrency?: pulumi.Input<string>;
     /**
-     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      */
     maxErrors?: pulumi.Input<string>;
     /**
@@ -332,7 +332,7 @@ export interface AssociationArgs {
      */
     maxConcurrency?: pulumi.Input<string>;
     /**
-     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+     * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      */
     maxErrors?: pulumi.Input<string>;
     /**

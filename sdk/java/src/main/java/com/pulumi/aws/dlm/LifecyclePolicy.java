@@ -205,6 +205,79 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Example Event Based Policy Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.dlm.LifecyclePolicy;
+ * import com.pulumi.aws.dlm.LifecyclePolicyArgs;
+ * import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsArgs;
+ * import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsActionArgs;
+ * import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsEventSourceArgs;
+ * import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsEventSourceParametersArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity();
+ * 
+ *         var exampleLifecyclePolicy = new LifecyclePolicy(&#34;exampleLifecyclePolicy&#34;, LifecyclePolicyArgs.builder()        
+ *             .description(&#34;tf-acc-basic&#34;)
+ *             .executionRoleArn(aws_iam_role.example().arn())
+ *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
+ *                 .policyType(&#34;EVENT_BASED_POLICY&#34;)
+ *                 .action(LifecyclePolicyPolicyDetailsActionArgs.builder()
+ *                     .name(&#34;tf-acc-basic&#34;)
+ *                     .crossRegionCopies(LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs.builder()
+ *                         .encryptionConfiguration()
+ *                         .retainRule(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs.builder()
+ *                             .interval(15)
+ *                             .intervalUnit(&#34;MONTHS&#34;)
+ *                             .build())
+ *                         .target(&#34;us-east-1&#34;)
+ *                         .build())
+ *                     .build())
+ *                 .eventSource(LifecyclePolicyPolicyDetailsEventSourceArgs.builder()
+ *                     .type(&#34;MANAGED_CWE&#34;)
+ *                     .parameters(LifecyclePolicyPolicyDetailsEventSourceParametersArgs.builder()
+ *                         .descriptionRegex(&#34;^.*Created for policy: policy-1234567890abcdef0.*$&#34;)
+ *                         .eventType(&#34;shareSnapshot&#34;)
+ *                         .snapshotOwners(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         final var examplePolicy = IamFunctions.getPolicy(GetPolicyArgs.builder()
+ *             .name(&#34;AWSDataLifecycleManagerServiceRole&#34;)
+ *             .build());
+ * 
+ *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
+ *             .role(aws_iam_role.example().id())
+ *             .policyArn(examplePolicy.applyValue(getPolicyResult -&gt; getPolicyResult.arn()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

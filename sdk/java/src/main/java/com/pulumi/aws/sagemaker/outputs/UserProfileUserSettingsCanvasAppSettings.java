@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings;
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,6 +23,11 @@ public final class UserProfileUserSettingsCanvasAppSettings {
      * 
      */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings;
+    /**
+     * @return The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+     * 
+     */
+    private @Nullable UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings workspaceSettings;
 
     private UserProfileUserSettingsCanvasAppSettings() {}
     /**
@@ -38,6 +44,13 @@ public final class UserProfileUserSettingsCanvasAppSettings {
     public Optional<UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings> timeSeriesForecastingSettings() {
         return Optional.ofNullable(this.timeSeriesForecastingSettings);
     }
+    /**
+     * @return The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+     * 
+     */
+    public Optional<UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings> workspaceSettings() {
+        return Optional.ofNullable(this.workspaceSettings);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +63,13 @@ public final class UserProfileUserSettingsCanvasAppSettings {
     public static final class Builder {
         private @Nullable UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings;
         private @Nullable UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings;
+        private @Nullable UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings workspaceSettings;
         public Builder() {}
         public Builder(UserProfileUserSettingsCanvasAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.modelRegisterSettings = defaults.modelRegisterSettings;
     	      this.timeSeriesForecastingSettings = defaults.timeSeriesForecastingSettings;
+    	      this.workspaceSettings = defaults.workspaceSettings;
         }
 
         @CustomType.Setter
@@ -67,10 +82,16 @@ public final class UserProfileUserSettingsCanvasAppSettings {
             this.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
             return this;
         }
+        @CustomType.Setter
+        public Builder workspaceSettings(@Nullable UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings workspaceSettings) {
+            this.workspaceSettings = workspaceSettings;
+            return this;
+        }
         public UserProfileUserSettingsCanvasAppSettings build() {
             final var o = new UserProfileUserSettingsCanvasAppSettings();
             o.modelRegisterSettings = modelRegisterSettings;
             o.timeSeriesForecastingSettings = timeSeriesForecastingSettings;
+            o.workspaceSettings = workspaceSettings;
             return o;
         }
     }

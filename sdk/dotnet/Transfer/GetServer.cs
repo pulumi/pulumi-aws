@@ -148,6 +148,7 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public readonly string SecurityPolicyName;
         public readonly string ServerId;
+        public readonly ImmutableArray<string> StructuredLogDestinations;
         /// <summary>
         /// URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         /// </summary>
@@ -179,6 +180,8 @@ namespace Pulumi.Aws.Transfer
 
             string serverId,
 
+            ImmutableArray<string> structuredLogDestinations,
+
             string url)
         {
             Arn = arn;
@@ -193,6 +196,7 @@ namespace Pulumi.Aws.Transfer
             Protocols = protocols;
             SecurityPolicyName = securityPolicyName;
             ServerId = serverId;
+            StructuredLogDestinations = structuredLogDestinations;
             Url = url;
         }
     }

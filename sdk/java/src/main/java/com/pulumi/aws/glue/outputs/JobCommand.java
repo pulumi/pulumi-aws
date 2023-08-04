@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class JobCommand {
     /**
-     * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+     * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
      * 
      */
     private @Nullable String name;
@@ -22,6 +22,11 @@ public final class JobCommand {
      */
     private @Nullable String pythonVersion;
     /**
+     * @return In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+     * 
+     */
+    private @Nullable String runtime;
+    /**
      * @return Specifies the S3 path to a script that executes a job.
      * 
      */
@@ -29,7 +34,7 @@ public final class JobCommand {
 
     private JobCommand() {}
     /**
-     * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+     * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
      * 
      */
     public Optional<String> name() {
@@ -41,6 +46,13 @@ public final class JobCommand {
      */
     public Optional<String> pythonVersion() {
         return Optional.ofNullable(this.pythonVersion);
+    }
+    /**
+     * @return In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+     * 
+     */
+    public Optional<String> runtime() {
+        return Optional.ofNullable(this.runtime);
     }
     /**
      * @return Specifies the S3 path to a script that executes a job.
@@ -61,12 +73,14 @@ public final class JobCommand {
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String pythonVersion;
+        private @Nullable String runtime;
         private String scriptLocation;
         public Builder() {}
         public Builder(JobCommand defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.pythonVersion = defaults.pythonVersion;
+    	      this.runtime = defaults.runtime;
     	      this.scriptLocation = defaults.scriptLocation;
         }
 
@@ -81,6 +95,11 @@ public final class JobCommand {
             return this;
         }
         @CustomType.Setter
+        public Builder runtime(@Nullable String runtime) {
+            this.runtime = runtime;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scriptLocation(String scriptLocation) {
             this.scriptLocation = Objects.requireNonNull(scriptLocation);
             return this;
@@ -89,6 +108,7 @@ public final class JobCommand {
             final var o = new JobCommand();
             o.name = name;
             o.pythonVersion = pythonVersion;
+            o.runtime = runtime;
             o.scriptLocation = scriptLocation;
             return o;
         }

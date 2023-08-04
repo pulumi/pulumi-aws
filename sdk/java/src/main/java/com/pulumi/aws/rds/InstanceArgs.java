@@ -461,16 +461,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
     @Import(name="identifier")
     private @Nullable Output<String> identifier;
 
     /**
-     * @return The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+     * @return The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
     public Optional<Output<String>> identifier() {
@@ -478,16 +476,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
     @Import(name="identifierPrefix")
     private @Nullable Output<String> identifierPrefix;
 
     /**
-     * @return Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
+     * @return Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
     public Optional<Output<String>> identifierPrefix() {
@@ -1788,8 +1784,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifier The name of the RDS instance,
-         * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+         * @param identifier The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
          * 
          * @return builder
          * 
@@ -1800,8 +1795,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifier The name of the RDS instance,
-         * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
+         * @param identifier The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
          * 
          * @return builder
          * 
@@ -1811,8 +1805,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifierPrefix Creates a unique
-         * identifier beginning with the specified prefix. Conflicts with `identifier`.
+         * @param identifierPrefix Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
          * 
          * @return builder
          * 
@@ -1823,8 +1816,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identifierPrefix Creates a unique
-         * identifier beginning with the specified prefix. Conflicts with `identifier`.
+         * @param identifierPrefix Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
          * 
          * @return builder
          * 

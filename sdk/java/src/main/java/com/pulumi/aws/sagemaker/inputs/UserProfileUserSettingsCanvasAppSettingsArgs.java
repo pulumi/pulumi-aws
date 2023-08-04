@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -46,11 +47,27 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
         return Optional.ofNullable(this.timeSeriesForecastingSettings);
     }
 
+    /**
+     * The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+     * 
+     */
+    @Import(name="workspaceSettings")
+    private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs> workspaceSettings;
+
+    /**
+     * @return The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+     * 
+     */
+    public Optional<Output<UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs>> workspaceSettings() {
+        return Optional.ofNullable(this.workspaceSettings);
+    }
+
     private UserProfileUserSettingsCanvasAppSettingsArgs() {}
 
     private UserProfileUserSettingsCanvasAppSettingsArgs(UserProfileUserSettingsCanvasAppSettingsArgs $) {
         this.modelRegisterSettings = $.modelRegisterSettings;
         this.timeSeriesForecastingSettings = $.timeSeriesForecastingSettings;
+        this.workspaceSettings = $.workspaceSettings;
     }
 
     public static Builder builder() {
@@ -111,6 +128,27 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
          */
         public Builder timeSeriesForecastingSettings(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs timeSeriesForecastingSettings) {
             return timeSeriesForecastingSettings(Output.of(timeSeriesForecastingSettings));
+        }
+
+        /**
+         * @param workspaceSettings The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workspaceSettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs> workspaceSettings) {
+            $.workspaceSettings = workspaceSettings;
+            return this;
+        }
+
+        /**
+         * @param workspaceSettings The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workspaceSettings(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs workspaceSettings) {
+            return workspaceSettings(Output.of(workspaceSettings));
         }
 
         public UserProfileUserSettingsCanvasAppSettingsArgs build() {

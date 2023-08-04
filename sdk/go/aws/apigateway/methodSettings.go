@@ -18,6 +18,9 @@ import (
 //
 // ## Example Usage
 //
+// ### End-to-end
+// ### Basic Usage
+//
 // ```go
 // package main
 //
@@ -114,6 +117,135 @@ import (
 //				Settings: &apigateway.MethodSettingsSettingsArgs{
 //					MetricsEnabled: pulumi.Bool(true),
 //					LoggingLevel:   pulumi.String("INFO"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### CloudWatch Logging and Tracing
+//
+// The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+// ### Off
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel: pulumi.String("OFF"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Errors Only
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel:     pulumi.String("ERROR"),
+//					MetricsEnabled:   pulumi.Bool(true),
+//					DataTraceEnabled: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Errors and Info Logs
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel:     pulumi.String("INFO"),
+//					MetricsEnabled:   pulumi.Bool(true),
+//					DataTraceEnabled: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Full Request and Response Logs
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := apigateway.NewMethodSettings(ctx, "pathSpecific", &apigateway.MethodSettingsArgs{
+//				RestApi:    pulumi.Any(aws_api_gateway_rest_api.Example.Id),
+//				StageName:  pulumi.Any(aws_api_gateway_stage.Example.Stage_name),
+//				MethodPath: pulumi.String("path1/GET"),
+//				Settings: &apigateway.MethodSettingsSettingsArgs{
+//					LoggingLevel:     pulumi.String("INFO"),
+//					MetricsEnabled:   pulumi.Bool(true),
+//					DataTraceEnabled: pulumi.Bool(true),
 //				},
 //			})
 //			if err != nil {

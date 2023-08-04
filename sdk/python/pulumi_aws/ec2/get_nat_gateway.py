@@ -23,7 +23,7 @@ class GetNatGatewayResult:
     """
     A collection of values returned by getNatGateway.
     """
-    def __init__(__self__, allocation_id=None, association_id=None, connectivity_type=None, filters=None, id=None, network_interface_id=None, private_ip=None, public_ip=None, state=None, subnet_id=None, tags=None, vpc_id=None):
+    def __init__(__self__, allocation_id=None, association_id=None, connectivity_type=None, filters=None, id=None, network_interface_id=None, private_ip=None, public_ip=None, secondary_allocation_ids=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, state=None, subnet_id=None, tags=None, vpc_id=None):
         if allocation_id and not isinstance(allocation_id, str):
             raise TypeError("Expected argument 'allocation_id' to be a str")
         pulumi.set(__self__, "allocation_id", allocation_id)
@@ -48,6 +48,15 @@ class GetNatGatewayResult:
         if public_ip and not isinstance(public_ip, str):
             raise TypeError("Expected argument 'public_ip' to be a str")
         pulumi.set(__self__, "public_ip", public_ip)
+        if secondary_allocation_ids and not isinstance(secondary_allocation_ids, list):
+            raise TypeError("Expected argument 'secondary_allocation_ids' to be a list")
+        pulumi.set(__self__, "secondary_allocation_ids", secondary_allocation_ids)
+        if secondary_private_ip_address_count and not isinstance(secondary_private_ip_address_count, int):
+            raise TypeError("Expected argument 'secondary_private_ip_address_count' to be a int")
+        pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+        if secondary_private_ip_addresses and not isinstance(secondary_private_ip_addresses, list):
+            raise TypeError("Expected argument 'secondary_private_ip_addresses' to be a list")
+        pulumi.set(__self__, "secondary_private_ip_addresses", secondary_private_ip_addresses)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -65,7 +74,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> str:
         """
-        ID of the EIP allocated to the selected Nat Gateway.
+        ID of the EIP allocated to the selected NAT Gateway.
         """
         return pulumi.get(self, "allocation_id")
 
@@ -73,7 +82,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="associationId")
     def association_id(self) -> str:
         """
-        The association ID of the Elastic IP address that's associated with the NAT gateway. Only available when `connectivity_type` is `public`.
+        The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
         """
         return pulumi.get(self, "association_id")
 
@@ -99,7 +108,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> str:
         """
-        The ID of the ENI allocated to the selected Nat Gateway.
+        The ID of the ENI allocated to the selected NAT Gateway.
         """
         return pulumi.get(self, "network_interface_id")
 
@@ -107,7 +116,7 @@ class GetNatGatewayResult:
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> str:
         """
-        Private Ip address of the selected Nat Gateway.
+        Private IP address of the selected NAT Gateway.
         """
         return pulumi.get(self, "private_ip")
 
@@ -115,9 +124,33 @@ class GetNatGatewayResult:
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> str:
         """
-        Public Ip (EIP) address of the selected Nat Gateway.
+        Public IP (EIP) address of the selected NAT Gateway.
         """
         return pulumi.get(self, "public_ip")
+
+    @property
+    @pulumi.getter(name="secondaryAllocationIds")
+    def secondary_allocation_ids(self) -> Sequence[str]:
+        """
+        Secondary allocation EIP IDs for the selected NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_allocation_ids")
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddressCount")
+    def secondary_private_ip_address_count(self) -> int:
+        """
+        The number of secondary private IPv4 addresses assigned to the selected NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_private_ip_address_count")
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddresses")
+    def secondary_private_ip_addresses(self) -> Sequence[str]:
+        """
+        Secondary private IPv4 addresses assigned to the selected NAT Gateway.
+        """
+        return pulumi.get(self, "secondary_private_ip_addresses")
 
     @property
     @pulumi.getter
@@ -154,6 +187,9 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
             network_interface_id=self.network_interface_id,
             private_ip=self.private_ip,
             public_ip=self.public_ip,
+            secondary_allocation_ids=self.secondary_allocation_ids,
+            secondary_private_ip_address_count=self.secondary_private_ip_address_count,
+            secondary_private_ip_addresses=self.secondary_private_ip_addresses,
             state=self.state,
             subnet_id=self.subnet_id,
             tags=self.tags,
@@ -168,7 +204,7 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
                     vpc_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewayResult:
     """
-    Provides details about a specific Nat Gateway.
+    Provides details about a specific VPC NAT Gateway.
 
     ## Example Usage
 
@@ -178,8 +214,7 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
 
     default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
     ```
-
-    Usage with tags:
+    ### With tags
 
     ```python
     import pulumi
@@ -196,12 +231,12 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
-    :param str id: ID of the specific Nat Gateway to retrieve.
-    :param str state: State of the NAT gateway (pending | failed | available | deleting | deleted ).
-    :param str subnet_id: ID of subnet that the Nat Gateway resides in.
+    :param str id: ID of the specific NAT Gateway to retrieve.
+    :param str state: State of the NAT Gateway (pending | failed | available | deleting | deleted ).
+    :param str subnet_id: ID of subnet that the NAT Gateway resides in.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired Nat Gateway.
-    :param str vpc_id: ID of the VPC that the Nat Gateway resides in.
+           a pair on the desired NAT Gateway.
+    :param str vpc_id: ID of the VPC that the NAT Gateway resides in.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -222,6 +257,9 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
         network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
         private_ip=pulumi.get(__ret__, 'private_ip'),
         public_ip=pulumi.get(__ret__, 'public_ip'),
+        secondary_allocation_ids=pulumi.get(__ret__, 'secondary_allocation_ids'),
+        secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),
+        secondary_private_ip_addresses=pulumi.get(__ret__, 'secondary_private_ip_addresses'),
         state=pulumi.get(__ret__, 'state'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -237,7 +275,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
                            vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
-    Provides details about a specific Nat Gateway.
+    Provides details about a specific VPC NAT Gateway.
 
     ## Example Usage
 
@@ -247,8 +285,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
 
     default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
     ```
-
-    Usage with tags:
+    ### With tags
 
     ```python
     import pulumi
@@ -265,11 +302,11 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
-    :param str id: ID of the specific Nat Gateway to retrieve.
-    :param str state: State of the NAT gateway (pending | failed | available | deleting | deleted ).
-    :param str subnet_id: ID of subnet that the Nat Gateway resides in.
+    :param str id: ID of the specific NAT Gateway to retrieve.
+    :param str state: State of the NAT Gateway (pending | failed | available | deleting | deleted ).
+    :param str subnet_id: ID of subnet that the NAT Gateway resides in.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired Nat Gateway.
-    :param str vpc_id: ID of the VPC that the Nat Gateway resides in.
+           a pair on the desired NAT Gateway.
+    :param str vpc_id: ID of the VPC that the NAT Gateway resides in.
     """
     ...

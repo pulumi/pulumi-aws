@@ -16,6 +16,9 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
+ * ### End-to-end
+ * ### Basic Usage
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -67,6 +70,75 @@ import {RestApi} from "./index";
  *     settings: {
  *         metricsEnabled: true,
  *         loggingLevel: "INFO",
+ *     },
+ * });
+ * ```
+ * ### CloudWatch Logging and Tracing
+ *
+ * The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+ * ### Off
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
+ *     restApi: aws_api_gateway_rest_api.example.id,
+ *     stageName: aws_api_gateway_stage.example.stage_name,
+ *     methodPath: "path1/GET",
+ *     settings: {
+ *         loggingLevel: "OFF",
+ *     },
+ * });
+ * ```
+ * ### Errors Only
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
+ *     restApi: aws_api_gateway_rest_api.example.id,
+ *     stageName: aws_api_gateway_stage.example.stage_name,
+ *     methodPath: "path1/GET",
+ *     settings: {
+ *         loggingLevel: "ERROR",
+ *         metricsEnabled: true,
+ *         dataTraceEnabled: false,
+ *     },
+ * });
+ * ```
+ * ### Errors and Info Logs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
+ *     restApi: aws_api_gateway_rest_api.example.id,
+ *     stageName: aws_api_gateway_stage.example.stage_name,
+ *     methodPath: "path1/GET",
+ *     settings: {
+ *         loggingLevel: "INFO",
+ *         metricsEnabled: true,
+ *         dataTraceEnabled: false,
+ *     },
+ * });
+ * ```
+ * ### Full Request and Response Logs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
+ *     restApi: aws_api_gateway_rest_api.example.id,
+ *     stageName: aws_api_gateway_stage.example.stage_name,
+ *     methodPath: "path1/GET",
+ *     settings: {
+ *         loggingLevel: "INFO",
+ *         metricsEnabled: true,
+ *         dataTraceEnabled: true,
  *     },
  * });
  * ```

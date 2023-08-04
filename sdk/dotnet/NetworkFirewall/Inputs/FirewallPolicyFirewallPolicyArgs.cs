@@ -12,6 +12,12 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyFirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+        /// </summary>
+        [Input("policyVariables")]
+        public Input<Inputs.FirewallPolicyFirewallPolicyPolicyVariablesArgs>? PolicyVariables { get; set; }
+
         [Input("statefulDefaultActions")]
         private InputList<string>? _statefulDefaultActions;
 

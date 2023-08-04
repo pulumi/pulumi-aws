@@ -21,15 +21,15 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
      * Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
      * 
      */
-    @Import(name="cacheConfigurations", required=true)
-    private Output<List<KxClusterDatabaseCacheConfigurationArgs>> cacheConfigurations;
+    @Import(name="cacheConfigurations")
+    private @Nullable Output<List<KxClusterDatabaseCacheConfigurationArgs>> cacheConfigurations;
 
     /**
      * @return Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
      * 
      */
-    public Output<List<KxClusterDatabaseCacheConfigurationArgs>> cacheConfigurations() {
-        return this.cacheConfigurations;
+    public Optional<Output<List<KxClusterDatabaseCacheConfigurationArgs>>> cacheConfigurations() {
+        return Optional.ofNullable(this.cacheConfigurations);
     }
 
     /**
@@ -94,7 +94,7 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder cacheConfigurations(Output<List<KxClusterDatabaseCacheConfigurationArgs>> cacheConfigurations) {
+        public Builder cacheConfigurations(@Nullable Output<List<KxClusterDatabaseCacheConfigurationArgs>> cacheConfigurations) {
             $.cacheConfigurations = cacheConfigurations;
             return this;
         }
@@ -162,7 +162,6 @@ public final class KxClusterDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         public KxClusterDatabaseArgs build() {
-            $.cacheConfigurations = Objects.requireNonNull($.cacheConfigurations, "expected parameter 'cacheConfigurations' to be non-null");
             $.databaseName = Objects.requireNonNull($.databaseName, "expected parameter 'databaseName' to be non-null");
             return $;
         }

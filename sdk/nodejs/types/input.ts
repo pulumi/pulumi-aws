@@ -15486,11 +15486,11 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule {
         /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
          */
         interval: pulumi.Input<number>;
         /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
          */
         intervalUnit: pulumi.Input<string>;
     }
@@ -15577,15 +15577,15 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsScheduleCreateRule {
         /**
-         * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+         * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `intervalUnit`, and `times`.
          */
         cronExpression?: pulumi.Input<string>;
         /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
          */
         interval?: pulumi.Input<number>;
         /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
          */
         intervalUnit?: pulumi.Input<string>;
         /**
@@ -15593,7 +15593,7 @@ export namespace dlm {
          */
         location?: pulumi.Input<string>;
         /**
-         * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
+         * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cronExpression`. Must be set if `interval` is set.
          */
         times?: pulumi.Input<string>;
     }
@@ -15627,37 +15627,37 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule {
         /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
          */
         interval: pulumi.Input<number>;
         /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
          */
         intervalUnit: pulumi.Input<string>;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule {
         /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
          */
         interval: pulumi.Input<number>;
         /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
          */
         intervalUnit: pulumi.Input<string>;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
         /**
-         * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+         * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
          */
         count?: pulumi.Input<number>;
         /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
          */
         interval?: pulumi.Input<number>;
         /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
          */
         intervalUnit?: pulumi.Input<string>;
     }
@@ -15668,30 +15668,30 @@ export namespace dlm {
          */
         availabilityZones: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+         * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
          */
         count?: pulumi.Input<number>;
         /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
          */
         interval?: pulumi.Input<number>;
         /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
          */
         intervalUnit?: pulumi.Input<string>;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleRetainRule {
         /**
-         * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`.
+         * Specifies the number of oldest AMIs to deprecate. Must be an integer between `1` and `1000`. Conflicts with `interval` and `intervalUnit`.
          */
         count?: pulumi.Input<number>;
         /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values. Conflicts with `cronExpression`. If set, `intervalUnit` and `times` must also be set.
          */
         interval?: pulumi.Input<number>;
         /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value. Conflicts with `cronExpression`. Must be set if `interval` is set.
          */
         intervalUnit?: pulumi.Input<string>;
     }
@@ -20322,7 +20322,7 @@ export namespace ec2 {
          */
         egressOnlyGatewayId?: pulumi.Input<string>;
         /**
-         * Identifier of a VPC internet gateway or a virtual private gateway.
+         * Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
          */
         gatewayId?: pulumi.Input<string>;
         /**
@@ -21092,7 +21092,7 @@ export namespace ec2 {
          */
         dnsRecordIpType?: pulumi.Input<string>;
         /**
-         * Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Can only be specified if `privateDnsEnabled` is `true`.
+         * Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if privateDnsEnabled is `true`.
          */
         privateDnsOnlyForInboundResolverEndpoint?: pulumi.Input<boolean>;
     }
@@ -24934,7 +24934,7 @@ export namespace finspace {
         /**
          * Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
          */
-        cacheConfigurations: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterDatabaseCacheConfiguration>[]>;
+        cacheConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxClusterDatabaseCacheConfiguration>[]>;
         /**
          * A unique identifier of the changeset that is associated with the cluster.
          */
@@ -24953,12 +24953,12 @@ export namespace finspace {
         /**
          * Paths within the database to cache.
          */
-        dbPaths: pulumi.Input<pulumi.Input<string>[]>;
+        dbPaths?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface KxClusterSavedownStorageConfiguration {
         /**
-         * Size of temporary storage in bytes.
+         * Size of temporary storage in gigabytes. Must be between 10 and 16000.
          */
         size: pulumi.Input<number>;
         /**
@@ -26631,13 +26631,17 @@ export namespace glue {
 
     export interface JobCommand {
         /**
-         * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
+         * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `maxCapacity` needs to be set if `pythonshell` is chosen.
          */
         name?: pulumi.Input<string>;
         /**
          * The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
          */
         pythonVersion?: pulumi.Input<string>;
+        /**
+         * In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+         */
+        runtime?: pulumi.Input<string>;
         /**
          * Specifies the S3 path to a script that executes a job.
          */
@@ -34830,6 +34834,22 @@ export namespace medialive {
          */
         availBlanking?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAvailBlanking>;
         /**
+         * Caption Descriptions. See Caption Descriptions for more details.
+         */
+        captionDescriptions?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescription>[]>;
+        /**
+         * Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+         */
+        globalConfiguration?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsGlobalConfiguration>;
+        /**
+         * Settings for motion graphics. See Motion Graphics Configuration for more details.
+         */
+        motionGraphicsConfiguration?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsMotionGraphicsConfiguration>;
+        /**
+         * Nielsen configuration settings. See Nielsen Configuration for more details.
+         */
+        nielsenConfiguration?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsNielsenConfiguration>;
+        /**
          * Output groups for the channel. See Output Groups for more details.
          */
         outputGroups: pulumi.Input<pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroup>[]>;
@@ -35183,6 +35203,396 @@ export namespace medialive {
         username?: pulumi.Input<string>;
     }
 
+    export interface ChannelEncoderSettingsCaptionDescription {
+        /**
+         * Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+         */
+        accessibility?: pulumi.Input<string>;
+        /**
+         * Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
+         */
+        captionSelectorName: pulumi.Input<string>;
+        /**
+         * Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+         */
+        destinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettings>;
+        /**
+         * ISO 639-2 three-digit code.
+         */
+        languageCode?: pulumi.Input<string>;
+        /**
+         * Human readable information to indicate captions available for players (eg. English, or Spanish).
+         */
+        languageDescription?: pulumi.Input<string>;
+        /**
+         * Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
+        /**
+         * Arib Destination Settings.
+         */
+        aribDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings>;
+        /**
+         * Burn In Destination Settings. See Burn In Destination Settings for more details.
+         */
+        burnInDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings>;
+        /**
+         * Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+         */
+        dvbSubDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings>;
+        /**
+         * Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+         */
+        ebuTtDDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings>;
+        /**
+         * Embedded Destination Settings.
+         */
+        embeddedDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings>;
+        /**
+         * Embedded Plus Scte20 Destination Settings.
+         */
+        embeddedPlusScte20DestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings>;
+        /**
+         * Rtmp Caption Info Destination Settings.
+         */
+        rtmpCaptionInfoDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings>;
+        /**
+         * Scte20 Plus Embedded Destination Settings.
+         */
+        scte20PlusEmbeddedDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings>;
+        /**
+         * Scte27 Destination Settings.
+         */
+        scte27DestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings>;
+        smpteTtDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings>;
+        /**
+         * Teletext Destination Settings.
+         */
+        teletextDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings>;
+        /**
+         * Ttml Destination Settings. See Ttml Destination Settings for more details.
+         */
+        ttmlDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings>;
+        /**
+         * Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+         */
+        webvttDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings>;
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings {
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings {
+        /**
+         * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
+         */
+        alignment?: pulumi.Input<string>;
+        /**
+         * Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+         */
+        backgroundColor?: pulumi.Input<string>;
+        /**
+         * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+         */
+        backgroundOpacity?: pulumi.Input<number>;
+        /**
+         * External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+         */
+        font?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont>;
+        /**
+         * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         */
+        fontColor?: pulumi.Input<string>;
+        /**
+         * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+         */
+        fontOpacity?: pulumi.Input<number>;
+        /**
+         * Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+         */
+        fontResolution?: pulumi.Input<number>;
+        /**
+         * When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+         */
+        fontSize?: pulumi.Input<string>;
+        /**
+         * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         */
+        outlineColor: pulumi.Input<string>;
+        /**
+         * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         */
+        outlineSize?: pulumi.Input<number>;
+        /**
+         * Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+         */
+        shadowColor?: pulumi.Input<string>;
+        /**
+         * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+         */
+        shadowOpacity?: pulumi.Input<number>;
+        /**
+         * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+         */
+        shadowXOffset?: pulumi.Input<number>;
+        /**
+         * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+         */
+        shadowYOffset?: pulumi.Input<number>;
+        /**
+         * Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+         */
+        teletextGridControl: pulumi.Input<string>;
+        /**
+         * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
+         */
+        xPosition?: pulumi.Input<number>;
+        /**
+         * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
+         */
+        yPosition?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont {
+        /**
+         * Key used to extract the password from EC2 Parameter store.
+         */
+        passwordParam?: pulumi.Input<string>;
+        /**
+         * Path to a file accessible to the live stream.
+         */
+        uri: pulumi.Input<string>;
+        /**
+         * Username to be used.
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings {
+        /**
+         * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         */
+        alignment?: pulumi.Input<string>;
+        /**
+         * Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
+         */
+        backgroundColor?: pulumi.Input<string>;
+        /**
+         * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+         */
+        backgroundOpacity?: pulumi.Input<number>;
+        /**
+         * External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+         */
+        font?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont>;
+        /**
+         * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         */
+        fontColor?: pulumi.Input<string>;
+        /**
+         * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
+         */
+        fontOpacity?: pulumi.Input<number>;
+        /**
+         * Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
+         */
+        fontResolution?: pulumi.Input<number>;
+        /**
+         * When set to auto fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
+         */
+        fontSize?: pulumi.Input<string>;
+        /**
+         * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         */
+        outlineColor?: pulumi.Input<string>;
+        /**
+         * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         */
+        outlineSize?: pulumi.Input<number>;
+        /**
+         * Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
+         */
+        shadowColor?: pulumi.Input<string>;
+        /**
+         * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+         */
+        shadowOpacity?: pulumi.Input<number>;
+        /**
+         * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+         */
+        shadowXOffset?: pulumi.Input<number>;
+        /**
+         * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+         */
+        shadowYOffset?: pulumi.Input<number>;
+        /**
+         * Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
+         */
+        teletextGridControl?: pulumi.Input<string>;
+        /**
+         * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         */
+        xPosition?: pulumi.Input<number>;
+        /**
+         * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+         */
+        yPosition?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont {
+        /**
+         * Key used to extract the password from EC2 Parameter store.
+         */
+        passwordParam?: pulumi.Input<string>;
+        /**
+         * Path to a file accessible to the live stream.
+         */
+        uri: pulumi.Input<string>;
+        /**
+         * Username to be used.
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings {
+        /**
+         * Complete this field if you want to include the name of the copyright holder in the copyright tag in the captions metadata.
+         */
+        copyrightHolder?: pulumi.Input<string>;
+        /**
+         * Specifies how to handle the gap between the lines (in multi-line captions). - enabled: Fill with the captions background color (as specified in the input captions). - disabled: Leave the gap unfilled.
+         */
+        fillLineGap?: pulumi.Input<string>;
+        /**
+         * Specifies the font family to include in the font data attached to the EBU-TT captions. Valid only if styleControl is set to include. If you leave this field empty, the font family is set to “monospaced”. (If styleControl is set to exclude, the font family is always set to “monospaced”.) You specify only the font family. All other style information (color, bold, position and so on) is copied from the input captions. The size is always set to 100% to allow the downstream player to choose the size. - Enter a list of font families, as a comma-separated list of font names, in order of preference. The name can be a font family (such as “Arial”), or a generic font family (such as “serif”), or “default” (to let the downstream player choose the font). - Leave blank to set the family to “monospace”.
+         */
+        fontFamily?: pulumi.Input<string>;
+        /**
+         * Specifies the style information (font color, font position, and so on) to include in the font data that is attached to the EBU-TT captions. - include: Take the style information (font color, font position, and so on) from the source captions and include that information in the font data attached to the EBU-TT captions. This option is valid only if the source captions are Embedded or Teletext. - exclude: In the font data attached to the EBU-TT captions, set the font family to “monospaced”. Do not include any other style information.
+         */
+        styleControl?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings {
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings {
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings {
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings {
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings {
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings {
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings {
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings {
+        /**
+         * This field is not currently supported and will not affect the output styling. Leave the default value.
+         */
+        styleControl: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings {
+        /**
+         * Controls whether the color and position of the source captions is passed through to the WebVTT output captions. PASSTHROUGH - Valid only if the source captions are EMBEDDED or TELETEXT. NO\_STYLE\_DATA - Don’t pass through the style. The output captions will not contain any font styling information.
+         */
+        styleControl: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsGlobalConfiguration {
+        /**
+         * Value to set the initial audio gain for the Live Event.
+         */
+        initialAudioGain?: pulumi.Input<number>;
+        /**
+         * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+         */
+        inputEndAction?: pulumi.Input<string>;
+        /**
+         * Settings for system actions when input is lost. See Input Loss Behavior for more details.
+         */
+        inputLossBehavior?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsGlobalConfigurationInputLossBehavior>;
+        /**
+         * Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
+         */
+        outputLockingMode?: pulumi.Input<string>;
+        /**
+         * Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+         */
+        outputTimingSource?: pulumi.Input<string>;
+        /**
+         * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+         */
+        supportLowFramerateInputs?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsGlobalConfigurationInputLossBehavior {
+        blackFrameMsec?: pulumi.Input<number>;
+        inputLossImageColor?: pulumi.Input<string>;
+        inputLossImageSlate?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate>;
+        inputLossImageType?: pulumi.Input<string>;
+        repeatFrameMsec?: pulumi.Input<number>;
+    }
+
+    export interface ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate {
+        /**
+         * Key used to extract the password from EC2 Parameter store.
+         */
+        passwordParam?: pulumi.Input<string>;
+        /**
+         * Path to a file accessible to the live stream.
+         */
+        uri: pulumi.Input<string>;
+        /**
+         * Username for destination.
+         */
+        username?: pulumi.Input<string>;
+    }
+
+    export interface ChannelEncoderSettingsMotionGraphicsConfiguration {
+        /**
+         * Motion Graphics Insertion.
+         */
+        motionGraphicsInsertion?: pulumi.Input<string>;
+        /**
+         * Motion Graphics Settings. See Motion Graphics Settings for more details.
+         */
+        motionGraphicsSettings: pulumi.Input<inputs.medialive.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings>;
+    }
+
+    export interface ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings {
+        /**
+         * Html Motion Graphics Settings.
+         */
+        htmlMotionGraphicsSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings>;
+    }
+
+    export interface ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings {
+    }
+
+    export interface ChannelEncoderSettingsNielsenConfiguration {
+        /**
+         * Enter the Distributor ID assigned to your organization by Nielsen.
+         */
+        distributorId?: pulumi.Input<string>;
+        /**
+         * Enables Nielsen PCM to ID3 tagging.
+         */
+        nielsenPcmToId3Tagging?: pulumi.Input<string>;
+    }
+
     export interface ChannelEncoderSettingsOutputGroup {
         /**
          * Custom output group name defined by the user.
@@ -35366,6 +35776,9 @@ export namespace medialive {
          * When specified this field indicates the three letter language code of the caption track to extract from the source.
          */
         languageCode: pulumi.Input<string>;
+        /**
+         * Human readable information to indicate captions available for players (eg. English, or Spanish).
+         */
         languageDescription: pulumi.Input<string>;
     }
 
@@ -37777,6 +38190,10 @@ export namespace networkfirewall {
 
     export interface FirewallPolicyFirewallPolicy {
         /**
+         * . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+         */
+        policyVariables?: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariables>;
+        /**
          * Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
          */
         statefulDefaultActions?: pulumi.Input<pulumi.Input<string>[]>;
@@ -37806,6 +38223,28 @@ export namespace networkfirewall {
          * Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
          */
         statelessRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReference>[]>;
+    }
+
+    export interface FirewallPolicyFirewallPolicyPolicyVariables {
+        ruleVariables?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable>[]>;
+    }
+
+    export interface FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
+        /**
+         * A configuration block that defines a set of IP addresses. See IP Set below for details.
+         */
+        ipSet: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet>;
+        /**
+         * An alphanumeric string to identify the `ipSet`. Valid values: `HOME_NET`
+         */
+        key: pulumi.Input<string>;
+    }
+
+    export interface FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet {
+        /**
+         * Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
+         */
+        definitions: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface FirewallPolicyFirewallPolicyStatefulEngineOptions {
@@ -38055,7 +38494,7 @@ export namespace networkfirewall {
 
     export interface RuleGroupRuleGroupRulesSourceStatefulRule {
         /**
-         * Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP` or `PASS`.
+         * Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
          */
         action: pulumi.Input<string>;
         /**
@@ -42949,7 +43388,7 @@ export namespace rds {
 
     export interface GetInstancesFilter {
         /**
-         * Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+         * Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
          */
         name: string;
         /**
@@ -42960,7 +43399,7 @@ export namespace rds {
 
     export interface GetInstancesFilterArgs {
         /**
-         * Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+         * Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
          */
         name: pulumi.Input<string>;
         /**
@@ -46901,6 +47340,10 @@ export namespace sagemaker {
          * Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
          */
         timeSeriesForecastingSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings>;
+        /**
+         * The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+         */
+        workspaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings>;
     }
 
     export interface DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
@@ -46909,7 +47352,7 @@ export namespace sagemaker {
          */
         crossAccountModelRegisterRoleArn?: pulumi.Input<string>;
         /**
-         * Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+         * Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
          */
         status?: pulumi.Input<string>;
     }
@@ -46923,6 +47366,17 @@ export namespace sagemaker {
          * Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
          */
         status?: pulumi.Input<string>;
+    }
+
+    export interface DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings {
+        /**
+         * The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+         */
+        s3ArtifactPath?: pulumi.Input<string>;
+        /**
+         * The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+         */
+        s3KmsKeyId?: pulumi.Input<string>;
     }
 
     export interface DomainDefaultUserSettingsJupyterServerAppSettings {
@@ -47429,9 +47883,13 @@ export namespace sagemaker {
          */
         autoRollbackConfiguration?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigAutoRollbackConfiguration>;
         /**
-         * Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+         * Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
          */
-        blueGreenUpdatePolicy: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigBlueGreenUpdatePolicy>;
+        blueGreenUpdatePolicy?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigBlueGreenUpdatePolicy>;
+        /**
+         * Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+         */
+        rollingUpdatePolicy?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigRollingUpdatePolicy>;
     }
 
     export interface EndpointDeploymentConfigAutoRollbackConfiguration {
@@ -47494,6 +47952,47 @@ export namespace sagemaker {
     }
 
     export interface EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize {
+        /**
+         * Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Defines the capacity size, either as a number of instances or a capacity percentage.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface EndpointDeploymentConfigRollingUpdatePolicy {
+        /**
+         * Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+         */
+        maximumBatchSize: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize>;
+        /**
+         * The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
+         */
+        maximumExecutionTimeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+         */
+        rollbackMaximumBatchSize?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize>;
+        /**
+         * The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
+         */
+        waitIntervalInSeconds: pulumi.Input<number>;
+    }
+
+    export interface EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
+        /**
+         * Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Defines the capacity size, either as a number of instances or a capacity percentage.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
         /**
          * Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
          */
@@ -47827,6 +48326,28 @@ export namespace sagemaker {
         minimumInstanceMetadataServiceVersion?: pulumi.Input<string>;
     }
 
+    export interface PipelineParallelismConfiguration {
+        /**
+         * The max number of steps that can be executed in parallel.
+         */
+        maxParallelExecutionSteps: pulumi.Input<number>;
+    }
+
+    export interface PipelinePipelineDefinitionS3Location {
+        /**
+         * Name of the S3 bucket.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * The object key (or key name) uniquely identifies the object in an S3 bucket.
+         */
+        objectKey: pulumi.Input<string>;
+        /**
+         * Version Id of the pipeline definition file. If not specified, Amazon SageMaker will retrieve the latest version.
+         */
+        versionId?: pulumi.Input<string>;
+    }
+
     export interface ProjectServiceCatalogProvisioningDetails {
         /**
          * The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
@@ -48006,6 +48527,10 @@ export namespace sagemaker {
          * Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
          */
         timeSeriesForecastingSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings>;
+        /**
+         * The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+         */
+        workspaceSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings>;
     }
 
     export interface UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings {
@@ -48014,7 +48539,7 @@ export namespace sagemaker {
          */
         crossAccountModelRegisterRoleArn?: pulumi.Input<string>;
         /**
-         * Describes whether the integration to the model registry is enabled or disabled in the Canvas application.. Valid values are `ENABLED` and `DISABLED`.
+         * Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
          */
         status?: pulumi.Input<string>;
     }
@@ -48028,6 +48553,17 @@ export namespace sagemaker {
          * Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
          */
         status?: pulumi.Input<string>;
+    }
+
+    export interface UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings {
+        /**
+         * The Amazon S3 bucket used to store artifacts generated by Canvas. Updating the Amazon S3 location impacts existing configuration settings, and Canvas users no longer have access to their artifacts. Canvas users must log out and log back in to apply the new location.
+         */
+        s3ArtifactPath?: pulumi.Input<string>;
+        /**
+         * The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+         */
+        s3KmsKeyId?: pulumi.Input<string>;
     }
 
     export interface UserProfileUserSettingsJupyterServerAppSettings {

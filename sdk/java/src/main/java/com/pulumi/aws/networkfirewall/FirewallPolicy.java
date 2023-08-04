@@ -61,6 +61,59 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ## Policy with a HOME_NET Override
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkfirewall.FirewallPolicy;
+ * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyPolicyVariablesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new FirewallPolicy(&#34;example&#34;, FirewallPolicyArgs.builder()        
+ *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
+ *                 .policyVariables(FirewallPolicyFirewallPolicyPolicyVariablesArgs.builder()
+ *                     .ruleVariables(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs.builder()
+ *                         .key(&#34;HOME_NET&#34;)
+ *                         .ipSet(FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs.builder()
+ *                             .definitions(                            
+ *                                 &#34;10.0.0.0/16&#34;,
+ *                                 &#34;10.1.0.0/24&#34;)
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .statelessDefaultActions(&#34;aws:pass&#34;)
+ *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
+ *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
+ *                     .priority(1)
+ *                     .resourceArn(aws_networkfirewall_rule_group.example().arn())
+ *                     .build())
+ *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
+ *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Policy with a Custom Action for Stateless Inspection
  * 
  * ```java
